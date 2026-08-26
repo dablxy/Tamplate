@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#635BFF">
+<title>Xelio — Technology, explained.</title>
+<meta name="description" content="Xelio is an independent technology publication covering AI, gadgets, software, cybersecurity, and the innovations shaping the future.">
+<meta name="keywords" content="technology, AI, artificial intelligence, gadgets, software, cybersecurity, reviews, how-to, innovation">
+<link rel="canonical" href="https://xelio.tech/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Xelio">
+<meta property="og:title" content="Xelio — Technology, explained.">
+<meta property="og:description" content="Independent technology publication covering AI, gadgets, software, and the innovations shaping the future.">
+<meta property="og:url" content="https://xelio.tech/">
+<meta property="og:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Xelio — Technology, explained.">
+<meta name="twitter:description" content="Independent technology publication covering AI, gadgets, software, and the innovations shaping the future.">
+<meta name="twitter:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Structured Data: Organization + WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Xelio",
+      "url": "https://xelio.tech",
+      "description": "Independent technology publication focused on explaining the ideas, products, and innovations shaping the future.",
+      "sameAs": ["https://twitter.com/xelio", "https://facebook.com/xelio", "https://linkedin.com/company/xelio"]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Xelio",
+      "url": "https://xelio.tech",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://xelio.tech/#search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+/* ==================== XELIO DESIGN SYSTEM ==================== */
+:root {
+  --bg: #FFFFFF;
+  --bg-secondary: #F6F7F9;
+  --bg-elevated: #FFFFFF;
+  --text: #111111;
+  --text-secondary: #666666;
+  --border: #E7E7E7;
+  --accent: #635BFF;
+  --accent-soft: rgba(99,91,255,0.08);
+  --accent-hover: #4F47D9;
+  --code-bg: #1a1a1a;
+  --code-text: #e6e6e6;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --max-width: 1240px;
+  --header-height: 64px;
+  --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+[data-theme="dark"] {
+  --bg: #0d0d0f;
+  --bg-secondary: #161618;
+  --bg-elevated: #1a1a1d;
+  --text: #f0f0f0;
+  --text-secondary: #999999;
+  --border: #2a2a2e;
+  --accent: #7d75ff;
+  --accent-soft: rgba(125,117,255,0.12);
+  --accent-hover: #938bff;
+  --code-bg: #0a0a0c;
+  --code-text: #d4d4d4;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.3);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.4);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--transition), color var(--transition);
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+input, textarea { font-family: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+@media (max-width: 768px) { .container { padding: 0 16px; } }
+
+/* ==================== HEADER ==================== */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition), border-color var(--transition);
+}
+[data-theme="dark"] .header { background: rgba(13,13,15,0.85); }
+.header-inner {
+  height: var(--header-height);
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 22px; letter-spacing: -0.5px; cursor: pointer; }
+.logo-mark {
+  width: 28px; height: 28px; border-radius: 7px;
+  background: linear-gradient(135deg, var(--accent), #938bff);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 800; font-size: 15px;
+  box-shadow: 0 2px 8px rgba(99,91,255,0.3);
+}
+.logo-text { color: var(--text); }
+.nav { display: flex; gap: 4px; align-items: center; }
+.nav a {
+  padding: 8px 14px; border-radius: var(--radius-sm); font-size: 14.5px; font-weight: 500;
+  color: var(--text-secondary); transition: color var(--transition), background var(--transition);
+}
+.nav a:hover, .nav a.active { color: var(--text); background: var(--accent-soft); }
+.header-actions { display: flex; align-items: center; gap: 8px; }
+.icon-btn {
+  width: 38px; height: 38px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary); transition: background var(--transition), color var(--transition);
+}
+.icon-btn:hover { background: var(--bg-secondary); color: var(--text); }
+.icon-btn svg { width: 20px; height: 20px; }
+.subscribe-btn {
+  padding: 9px 18px; background: var(--text); color: var(--bg);
+  border-radius: var(--radius-sm); font-weight: 600; font-size: 14px;
+  transition: background var(--transition), transform var(--transition);
+}
+.subscribe-btn:hover { background: var(--accent); transform: translateY(-1px); }
+.menu-toggle { display: none; }
+
+/* ==================== MOBILE MENU ==================== */
+.mobile-menu {
+  position: fixed; top: 0; right: -100%; width: 85%; max-width: 360px; height: 100vh;
+  background: var(--bg); z-index: 200; padding: 24px;
+  transition: right 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: var(--shadow-lg); overflow-y: auto;
+}
+.mobile-menu.open { right: 0; }
+.mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+.mobile-menu nav { display: flex; flex-direction: column; gap: 4px; }
+.mobile-menu nav a {
+  padding: 14px 16px; border-radius: var(--radius-sm); font-size: 16px; font-weight: 500;
+  color: var(--text); transition: background var(--transition);
+}
+.mobile-menu nav a:hover { background: var(--bg-secondary); }
+.mobile-menu-actions { margin-top: 24px; display: flex; gap: 12px; }
+.mobile-menu-actions .subscribe-btn { flex: 1; text-align: center; }
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 150;
+  opacity: 0; visibility: hidden; transition: opacity var(--transition), visibility var(--transition);
+}
+.overlay.show { opacity: 1; visibility: visible; }
+
+/* ==================== READING PROGRESS ==================== */
+.reading-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0;
+  background: var(--accent); z-index: 300; transition: width 0.1s linear;
+}
+
+/* ==================== HERO ==================== */
+.hero { padding: 48px 0 64px; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+.hero-image { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3; box-shadow: var(--shadow-md); }
+.hero-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.hero-image:hover img { transform: scale(1.03); }
+.hero-content { display: flex; flex-direction: column; gap: 16px; }
+.category-badge {
+  display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px;
+  background: var(--accent-soft); color: var(--accent); border-radius: 100px;
+  font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+  width: fit-content; cursor: pointer; transition: background var(--transition);
+}
+.category-badge:hover { background: var(--accent); color: #fff; }
+.hero h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; line-height: 1.15; letter-spacing: -1px; }
+.hero p { font-size: 18px; color: var(--text-secondary); line-height: 1.6; max-width: 560px; }
+.hero-meta { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-secondary); flex-wrap: wrap; }
+.hero-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text-secondary); }
+
+/* ==================== SECTIONS ==================== */
+.section { padding: 56px 0; }
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.section-title { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+.section-title .accent { color: var(--accent); }
+.section-link { font-size: 14px; font-weight: 600; color: var(--accent); transition: opacity var(--transition); }
+.section-link:hover { opacity: 0.7; }
+
+/* ==================== ARTICLE CARDS ==================== */
+.article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.card {
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; cursor: pointer; transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  display: flex; flex-direction: column;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: transparent; }
+.card-image { aspect-ratio: 16/10; overflow: hidden; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.card:hover .card-image img { transform: scale(1.05); }
+.card-body { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.card-category { font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; }
+.card-title { font-size: 19px; font-weight: 700; line-height: 1.35; letter-spacing: -0.3px; }
+.card-excerpt { font-size: 14.5px; color: var(--text-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card-meta { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); margin-top: auto; padding-top: 8px; }
+.card-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text-secondary); }
+
+/* ==================== CATEGORY CARDS ==================== */
+.cat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.cat-card {
+  padding: 24px 20px; background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: var(--radius); cursor: pointer; text-align: left;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.cat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+.cat-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; color: var(--accent); }
+.cat-icon svg { width: 22px; height: 22px; }
+.cat-card h3 { font-size: 16px; font-weight: 700; }
+.cat-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.cat-count { font-size: 12px; color: var(--accent); font-weight: 600; }
+
+/* ==================== POPULAR / SIDEBAR ==================== */
+.popular-list { display: flex; flex-direction: column; gap: 16px; }
+.popular-item { display: flex; gap: 16px; align-items: flex-start; cursor: pointer; padding: 12px; border-radius: var(--radius-sm); transition: background var(--transition); }
+.popular-item:hover { background: var(--bg-secondary); }
+.popular-num { font-size: 28px; font-weight: 800; color: var(--accent); line-height: 1; min-width: 36px; letter-spacing: -1px; }
+.popular-info { display: flex; flex-direction: column; gap: 4px; }
+.popular-info h4 { font-size: 15px; font-weight: 600; line-height: 1.4; }
+.popular-info span { font-size: 12px; color: var(--text-secondary); }
+
+/* ==================== NEWSLETTER ==================== */
+.newsletter {
+  background: var(--bg-secondary); border-radius: var(--radius); padding: 56px 40px;
+  text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px;
+}
+.newsletter h2 { font-size: 32px; font-weight: 800; letter-spacing: -0.5px; max-width: 600px; }
+.newsletter p { font-size: 16px; color: var(--text-secondary); max-width: 520px; }
+.newsletter-form { display: flex; gap: 10px; max-width: 460px; width: 100%; margin-top: 8px; }
+.newsletter-form input {
+  flex: 1; padding: 13px 18px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--bg); color: var(--text); font-size: 15px; transition: border-color var(--transition);
+}
+.newsletter-form input:focus { border-color: var(--accent); outline: none; }
+.newsletter-form button {
+  padding: 13px 28px; background: var(--text); color: var(--bg); border-radius: var(--radius-sm);
+  font-weight: 600; font-size: 15px; white-space: nowrap; transition: background var(--transition), transform var(--transition);
+}
+.newsletter-form button:hover { background: var(--accent); transform: translateY(-1px); }
+.newsletter-success { color: var(--accent); font-weight: 600; font-size: 15px; display: none; }
+.newsletter-success.show { display: block; }
+
+/* ==================== ARTICLE PAGE ==================== */
+.article-page { padding: 40px 0 64px; }
+.article-layout { display: grid; grid-template-columns: 1fr 320px; gap: 48px; }
+.article-main { max-width: 760px; }
+.article-header { margin-bottom: 32px; }
+.article-header h1 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; line-height: 1.2; letter-spacing: -1px; margin: 16px 0; }
+.article-subtitle { font-size: 20px; color: var(--text-secondary); line-height: 1.5; }
+.article-meta-bar { display: flex; align-items: center; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
+.author-info { display: flex; align-items: center; gap: 12px; }
+.author-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+.author-name { font-size: 14px; font-weight: 600; }
+.author-role { font-size: 12px; color: var(--text-secondary); }
+.article-meta-text { font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.article-hero-img { border-radius: var(--radius); overflow: hidden; margin: 32px 0; aspect-ratio: 16/9; }
+.article-hero-img img { width: 100%; height: 100%; object-fit: cover; }
+.article-content { font-size: 17px; line-height: 1.75; color: var(--text); }
+.article-content h2 { font-size: 26px; font-weight: 700; margin: 36px 0 16px; letter-spacing: -0.5px; scroll-margin-top: 80px; }
+.article-content h3 { font-size: 21px; font-weight: 600; margin: 28px 0 12px; }
+.article-content p { margin-bottom: 20px; }
+.article-content ul, .article-content ol { margin: 0 0 20px 20px; }
+.article-content li { margin-bottom: 8px; }
+.article-content blockquote {
+  border-left: 3px solid var(--accent); padding: 16px 24px; margin: 28px 0;
+  background: var(--bg-secondary); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 18px; font-style: italic; color: var(--text);
+}
+.article-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.article-content img { border-radius: var(--radius-sm); margin: 24px 0; }
+.article-content figcaption { font-size: 13px; color: var(--text-secondary); text-align: center; margin-top: -12px; margin-bottom: 20px; }
+.article-content pre {
+  background: var(--code-bg); color: var(--code-text); padding: 24px; border-radius: var(--radius-sm);
+  overflow-x: auto; margin: 24px 0; font-size: 14.5px; line-height: 1.6;
+}
+.article-content code { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+.article-content p code, .article-content li code { background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+
+/* ==================== TABLE OF CONTENTS ==================== */
+.toc {
+  position: sticky; top: 84px; background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px; max-height: calc(100vh - 100px); overflow-y: auto;
+}
+.toc h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 14px; }
+.toc ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.toc a { font-size: 14px; color: var(--text-secondary); transition: color var(--transition); line-height: 1.4; }
+.toc a:hover, .toc a.active { color: var(--accent); }
+.toc-toggle { display: none; }
+
+/* ==================== SHARE BUTTONS ==================== */
+.share-section { margin: 40px 0; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.share-section h4 { font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.share-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.share-btn {
+  display: flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1px solid var(--border);
+  border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; transition: all var(--transition);
+}
+.share-btn:hover { border-color: var(--accent); color: var(--accent); }
+.share-btn svg { width: 18px; height: 18px; }
+.copy-feedback { color: var(--accent); font-size: 13px; font-weight: 600; display: none; }
+.copy-feedback.show { display: inline-block; }
+
+/* ==================== TAGS ==================== */
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  padding: 6px 14px; background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 100px; font-size: 13px; font-weight: 500; color: var(--text-secondary);
+  cursor: pointer; transition: all var(--transition);
+}
+.tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* ==================== SIDEBAR ==================== */
+.sidebar { display: flex; flex-direction: column; gap: 32px; }
+.sidebar-block { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+.sidebar-block h4 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+.sidebar-newsletter input { width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font-size: 14px; margin-bottom: 10px; }
+.sidebar-newsletter input:focus { border-color: var(--accent); outline: none; }
+.sidebar-newsletter button { width: 100%; padding: 11px; background: var(--text); color: var(--bg); border-radius: var(--radius-sm); font-weight: 600; font-size: 14px; transition: background var(--transition); }
+.sidebar-newsletter button:hover { background: var(--accent); }
+.sidebar-cats { display: flex; flex-direction: column; gap: 4px; }
+.sidebar-cats a { padding: 8px 12px; border-radius: var(--radius-sm); font-size: 14px; color: var(--text-secondary); transition: background var(--transition), color var(--transition); display: flex; justify-content: space-between; }
+.sidebar-cats a:hover { background: var(--bg-secondary); color: var(--text); }
+.sidebar-cats .count { color: var(--text-secondary); font-size: 13px; }
+
+/* ==================== RELATED ==================== */
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+
+/* ==================== COMMENTS PLACEHOLDER ==================== */
+.comments-placeholder { background: var(--bg-secondary); border-radius: var(--radius); padding: 40px; text-align: center; margin-top: 40px; }
+.comments-placeholder h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.comments-placeholder p { color: var(--text-secondary); font-size: 15px; }
+
+/* ==================== BACK TO TOP ==================== */
+.back-to-top {
+  position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px;
+  background: var(--text); color: var(--bg); border-radius: 50%; z-index: 90;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: all var(--transition); box-shadow: var(--shadow-md);
+}
+.back-to-top.show { opacity: 1; visibility: visible; }
+.back-to-top:hover { background: var(--accent); transform: translateY(-3px); }
+.back-to-top svg { width: 20px; height: 20px; }
+
+/* ==================== SEARCH OVERLAY ==================== */
+.search-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 250;
+  display: flex; justify-content: center; align-items: flex-start; padding-top: 10vh;
+  opacity: 0; visibility: hidden; transition: opacity var(--transition), visibility var(--transition);
+}
+.search-overlay.open { opacity: 1; visibility: visible; }
+.search-panel {
+  background: var(--bg); width: 90%; max-width: 640px; border-radius: var(--radius);
+  box-shadow: var(--shadow-lg); padding: 24px; transform: translateY(-20px); transition: transform var(--transition);
+}
+.search-overlay.open .search-panel { transform: translateY(0); }
+.search-input-wrap { position: relative; }
+.search-input {
+  width: 100%; padding: 16px 48px 16px 18px; border: 2px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--bg); color: var(--text); font-size: 17px; transition: border-color var(--transition);
+}
+.search-input:focus { border-color: var(--accent); outline: none; }
+.search-input-wrap svg { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 22px; height: 22px; color: var(--text-secondary); }
+.search-hint { font-size: 12px; color: var(--text-secondary); margin-top: 12px; text-align: right; }
+.search-results { margin-top: 20px; max-height: 50vh; overflow-y: auto; }
+.search-result-item { display: flex; gap: 14px; padding: 14px; border-radius: var(--radius-sm); cursor: pointer; transition: background var(--transition); }
+.search-result-item:hover { background: var(--bg-secondary); }
+.search-result-item img { width: 72px; height: 54px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+.search-result-info h4 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 4px; }
+.search-result-info span { font-size: 13px; color: var(--text-secondary); }
+.search-no-results { text-align: center; padding: 32px; color: var(--text-secondary); font-size: 15px; }
+
+/* ==================== PAGES (About, Contact, etc.) ==================== */
+.page-content { max-width: 760px; margin: 0 auto; padding: 48px 0 64px; }
+.page-content h1 { font-size: 36px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 16px; }
+.page-content h2 { font-size: 24px; font-weight: 700; margin: 32px 0 12px; }
+.page-content p { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 16px; }
+.page-content ul { margin: 0 0 16px 20px; }
+.page-content li { margin-bottom: 8px; font-size: 17px; line-height: 1.75; }
+.contact-form { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 14px; font-weight: 600; }
+.form-group input, .form-group textarea {
+  padding: 13px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--bg); color: var(--text); font-size: 15px; transition: border-color var(--transition);
+}
+.form-group input:focus, .form-group textarea:focus { border-color: var(--accent); outline: none; }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-error { font-size: 13px; color: #e53935; display: none; }
+.form-error.show { display: block; }
+.form-success { padding: 16px; background: var(--accent-soft); color: var(--accent); border-radius: var(--radius-sm); font-weight: 600; display: none; }
+.form-success.show { display: block; }
+.contact-info { margin-top: 32px; padding: 20px; background: var(--bg-secondary); border-radius: var(--radius); }
+.contact-info a { color: var(--accent); font-weight: 600; }
+
+/* ==================== 404 PAGE ==================== */
+.not-found { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 48px 24px; }
+.not-found-art { width: 120px; height: 120px; margin-bottom: 32px; position: relative; }
+.not-found-art::before, .not-found-art::after {
+  content: ''; position: absolute; border: 3px solid var(--accent); border-radius: 16px;
+}
+.not-found-art::before { width: 100px; height: 100px; top: 0; left: 10px; transform: rotate(12deg); opacity: 0.3; }
+.not-found-art::after { width: 100px; height: 100px; top: 10px; left: 0; transform: rotate(-8deg); opacity: 0.6; }
+.not-found-art span { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 36px; font-weight: 800; color: var(--accent); z-index: 1; }
+.not-found h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
+.not-found p { color: var(--text-secondary); font-size: 16px; margin-bottom: 28px; max-width: 420px; }
+
+/* ==================== FOOTER ==================== */
+.footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 56px 0 32px; margin-top: 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-brand h3 { font-size: 24px; font-weight: 800; margin-bottom: 8px; }
+.footer-brand p { color: var(--text-secondary); font-size: 15px; margin-bottom: 20px; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social a { width: 38px; height: 38px; border-radius: 50%; background: var(--bg-elevated); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-secondary); transition: all var(--transition); }
+.footer-social a:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+.footer-social svg { width: 18px; height: 18px; }
+.footer-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 16px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { font-size: 14.5px; color: var(--text); transition: color var(--transition); }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; text-align: center; font-size: 14px; color: var(--text-secondary); }
+
+/* ==================== COOKIE NOTICE ==================== */
+.cookie-notice {
+  position: fixed; bottom: 16px; left: 16px; right: 16px; max-width: 480px; margin: 0 auto;
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px 24px; box-shadow: var(--shadow-lg); z-index: 140;
+  transform: translateY(120%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.cookie-notice.show { transform: translateY(0); }
+.cookie-notice p { font-size: 14px; color: var(--text-secondary); margin-bottom: 14px; line-height: 1.5; }
+.cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.cookie-actions button { padding: 8px 18px; border-radius: var(--radius-sm); font-size: 13.5px; font-weight: 600; transition: all var(--transition); }
+.cookie-accept { background: var(--text); color: var(--bg); }
+.cookie-accept:hover { background: var(--accent); }
+.cookie-decline, .cookie-settings { border: 1px solid var(--border); color: var(--text-secondary); }
+.cookie-decline:hover, .cookie-settings:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeIn 0.4s ease; }
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .cat-grid { grid-template-columns: repeat(3, 1fr); }
+  .article-layout { grid-template-columns: 1fr; }
+  .toc { display: none; }
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav, .header-actions .subscribe-btn { display: none; }
+  .menu-toggle { display: flex; }
+  .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+  .hero-image { order: -1; }
+  .article-grid, .related-grid { grid-template-columns: 1fr; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .section-title { font-size: 24px; }
+  .newsletter { padding: 36px 24px; }
+  .newsletter h2 { font-size: 24px; }
+  .newsletter-form { flex-direction: column; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .article-content { font-size: 16px; }
+  .page-content h1 { font-size: 28px; }
+}
+@media (max-width: 480px) {
+  .cat-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 26px; }
+  .section { padding: 40px 0; }
+  .cookie-notice { left: 12px; right: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Reading Progress -->
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- ==================== HEADER ==================== -->
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo" onclick="navigate('home')" role="button" tabindex="0" aria-label="Xelio home">
+      <div class="logo-mark">X</div>
+      <span class="logo-text">Xelio</span>
+    </div>
+    <nav class="nav" id="mainNav" aria-label="Main navigation">
+      <a href="#home" data-route="home" onclick="navigate('home')">Home</a>
+      <a href="#category/AI" onclick="navigate('category','AI')">AI</a>
+      <a href="#category/Tech" onclick="navigate('category','Tech')">Tech</a>
+      <a href="#category/Gadgets" onclick="navigate('category','Gadgets')">Gadgets</a>
+      <a href="#category/Software" onclick="navigate('category','Software')">Software</a>
+      <a href="#category/Cybersecurity" onclick="navigate('category','Cybersecurity')">Cybersecurity</a>
+      <a href="#category/How-To" onclick="navigate('category','How-To')">How-To</a>
+      <a href="#category/Reviews" onclick="navigate('category','Reviews')">Reviews</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" onclick="openSearch()" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="icon-btn" onclick="toggleDarkMode()" id="darkModeToggle" aria-label="Toggle dark mode">
+        <svg id="moonIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="sunIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="subscribe-btn" onclick="navigate('newsletter')">Subscribe</button>
+      <button class="icon-btn menu-toggle" onclick="toggleMobileMenu()" aria-label="Open menu" aria-expanded="false" id="menuToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="overlay" id="overlay" onclick="closeMobileMenu()"></div>
+<aside class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <div class="mobile-menu-header">
+    <div class="logo" onclick="navigate('home')">
+      <div class="logo-mark">X</div>
+      <span class="logo-text">Xelio</span>
+    </div>
+    <button class="icon-btn" onclick="closeMobileMenu()" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav>
+    <a href="#home" onclick="navigate('home')">Home</a>
+    <a href="#category/AI" onclick="navigate('category','AI')">AI</a>
+    <a href="#category/Tech" onclick="navigate('category','Tech')">Tech</a>
+    <a href="#category/Gadgets" onclick="navigate('category','Gadgets')">Gadgets</a>
+    <a href="#category/Software" onclick="navigate('category','Software')">Software</a>
+    <a href="#category/Cybersecurity" onclick="navigate('category','Cybersecurity')">Cybersecurity</a>
+    <a href="#category/How-To" onclick="navigate('category','How-To')">How-To</a>
+    <a href="#category/Reviews" onclick="navigate('category','Reviews')">Reviews</a>
+    <a href="#about" onclick="navigate('about')">About</a>
+    <a href="#contact" onclick="navigate('contact')">Contact</a>
+  </nav>
+  <div class="mobile-menu-actions">
+    <button class="subscribe-btn" onclick="navigate('newsletter')">Subscribe</button>
+  </div>
+</aside>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)closeSearch()">
+  <div class="search-panel">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search articles, topics, tags..." aria-label="Search" autocomplete="off">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    </div>
+    <div class="search-hint">Press ESC to close</div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<!-- Main App Container -->
+<main id="app"></main>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+<!-- Cookie Notice -->
+<div class="cookie-notice" id="cookieNotice">
+  <p>We use cookies to improve your experience and understand how Xelio is used.</p>
+  <div class="cookie-actions">
+    <button class="cookie-accept" onclick="handleCookie('accept')">Accept</button>
+    <button class="cookie-decline" onclick="handleCookie('decline')">Decline</button>
+    <button class="cookie-settings" onclick="handleCookie('settings')">Settings</button>
+  </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Xelio</h3>
+        <p>Technology, explained.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about" onclick="navigate('about')">About</a></li>
+          <li><a href="#contact" onclick="navigate('contact')">Contact</a></li>
+          <li><a href="#privacy" onclick="navigate('privacy')">Privacy Policy</a></li>
+          <li><a href="#terms" onclick="navigate('terms')">Terms</a></li>
+          <li><a href="#editorial" onclick="navigate('editorial')">Editorial Policy</a></li>
+          <li><a href="#contact" onclick="navigate('contact')">Advertise</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#category/AI" onclick="navigate('category','AI')">AI</a></li>
+          <li><a href="#category/Tech" onclick="navigate('category','Tech')">Tech</a></li>
+          <li><a href="#category/Gadgets" onclick="navigate('category','Gadgets')">Gadgets</a></li>
+          <li><a href="#category/Software" onclick="navigate('category','Software')">Software</a></li>
+          <li><a href="#category/Cybersecurity" onclick="navigate('category','Cybersecurity')">Cybersecurity</a></li>
+          <li><a href="#category/Reviews" onclick="navigate('category','Reviews')">Reviews</a></li>
+          <li><a href="#category/How-To" onclick="navigate('category','How-To')">How-To</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#newsletter" onclick="navigate('newsletter')">Newsletter</a></li>
+          <li><a href="#" onclick="openSearch();return false;">Search</a></li>
+          <li><a href="#contact" onclick="navigate('contact')">Send a Tip</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Xelio. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ==================== XELIO CONFIG ==================== */
+const XELIO = {
+  siteName: 'Xelio',
+  tagline: 'Technology, explained.',
+  contactEmail: 'contact@xelio.tech',
+  categories: ['AI','Tech','Gadgets','Software','Cybersecurity','Internet','Mobile','Gaming','Reviews','How-To','Science'],
+  social: {
+    twitter: 'https://twitter.com/xelio',
+    facebook: 'https://facebook.com/xelio',
+    linkedin: 'https://linkedin.com/company/xelio',
+    instagram: 'https://instagram.com/xelio',
+    youtube: 'https://youtube.com/@xelio'
+  }
+};
+
+/* ==================== AUTHOR DATABASE ==================== */
+const AUTHORS = {
+  'Alex Morgan': {
+    name: 'Alex Morgan', role: 'Senior Technology Writer',
+    bio: 'Alex has covered consumer technology and AI for over a decade. He focuses on how emerging tools reshape the way people work and create.',
+    avatar: 'https://images.pexels.com/photos/5308640/pexels-photo-5308640.jpeg?auto=compress&cs=tinysrgb&h=120&w=120',
+    twitter: '#', linkedin: '#'
+  },
+  'Maya Chen': {
+    name: 'Maya Chen', role: 'AI & Software Editor',
+    bio: 'Maya writes about artificial intelligence, developer tools, and the software that powers modern teams. Previously a machine learning engineer.',
+    avatar: 'https://images.pexels.com/photos/33680700/pexels-photo-33680700.jpeg?auto=compress&cs=tinysrgb&h=120&w=120',
+    twitter: '#', linkedin: '#'
+  },
+  'Daniel Reed': {
+    name: 'Daniel Reed', role: 'Gadget Reviewer',
+    bio: 'Daniel tests the latest gadgets so you do not have to. From smartphones to wearables, he breaks down what is worth your money.',
+    avatar: 'https://images.pexels.com/photos/749091/pexels-photo-749091.jpeg?auto=compress&cs=tinysrgb&h=120&w=120',
+    twitter: '#', linkedin: '#'
+  },
+  'Sara Kim': {
+    name: 'Sara Kim', role: 'Cybersecurity Reporter',
+    bio: 'Sara covers cybersecurity, privacy, and the threats that shape the digital landscape. She believes security should be understandable to everyone.',
+    avatar: 'https://images.pexels.com/photos/38740728/pexels-photo-38740728.jpeg?auto=compress&cs=tinysrgb&h=120&w=120',
+    twitter: '#', linkedin: '#'
+  }
+};
+
+/* ==================== XELIO ARTICLE DATABASE ==================== */
+/* EDIT YOUR ARTICLES HERE
+   To add a new article, copy one of the objects below, paste it at the end of the array,
+   and change the fields. Make sure the slug is unique.
+   Fields:
+     id         - unique number
+     slug       - unique URL-friendly string (used in #article/your-slug)
+     title      - article headline
+     category   - one of the categories listed in XELIO.categories above
+     author     - must match a name in the AUTHORS object above
+     date       - human-readable publication date
+     updated    - last updated date (optional)
+     readTime   - e.g. "6 min read"
+     image      - full URL to the hero image
+     excerpt    - 1-2 sentence summary shown on cards
+     tags       - array of tag strings
+     content    - HTML string with <p>, <h2>, <h3>, <ul>, <blockquote>, <pre><code>, <img>
+*/
+const ARTICLES = [
+  {
+    id: 1, slug: 'how-ai-is-quietly-changing-technology',
+    title: 'How AI Is Quietly Changing the Way We Use Technology',
+    category: 'AI', author: 'Maya Chen', date: 'August 25, 2026', updated: 'August 25, 2026', readTime: '7 min read',
+    image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'The most meaningful AI shifts are not the flashy demos. They are the small, invisible improvements that change how we interact with every device.',
+    tags: ['AI','Artificial Intelligence','Machine Learning','Future Tech'],
+    content: `<p>For the past two years, the conversation around artificial intelligence has been dominated by spectacle — chatbots writing essays, image generators producing photorealistic art, and models that can hold a conversation indistinguishable from a human's. But the real story is quieter. It is happening in the background of the apps you already use every day.</p>
+<h2>The Invisible Integration</h2>
+<p>AI is no longer a separate product you visit. It is embedded in your email client, sorting and summarizing messages. It lives in your photo library, tagging faces and curating memories. It sits inside your code editor, suggesting the next line before you type it.</p>
+<p>This shift matters because it changes the relationship between people and software. Instead of learning to use AI, people are simply using software that happens to be powered by AI. The technology disappears into the experience.</p>
+<blockquote>The best AI is the kind you never think about. It just makes everything a little more effortless.</blockquote>
+<h2>From Commands to Intent</h2>
+<p>For decades, interacting with computers meant learning their language — menus, keyboard shortcuts, search syntax. AI inverts that relationship. You state what you want in plain language, and the system figures out the steps.</p>
+<p>This is visible in search, where queries now return synthesized answers instead of blue links. It is visible in spreadsheets, where you can ask for an analysis in a sentence. The interface is becoming conversational, and the barrier to getting things done is dropping fast.</p>
+<h2>What Comes Next</h2>
+<ul>
+<li>On-device AI will make these features faster and more private, running without sending data to the cloud.</li>
+<li>Agents will move beyond answering questions to actually completing multi-step tasks on your behalf.</li>
+<li>Personalization will deepen, with models that learn your habits and preferences over time.</li>
+</ul>
+<h2>The Practical Takeaway</h2>
+<p>You do not need to chase every new AI tool. The ones that matter are already finding their way into the software you use daily. The best strategy is to pay attention to what saves you time — and let the rest pass. The revolution is not coming. It is already here, quietly running in the background.</p>`
+  },
+  {
+    id: 2, slug: 'openai-next-generation-changing-software-development',
+    title: "OpenAI's Next Generation of AI Is Changing Software Development",
+    category: 'AI', author: 'Maya Chen', date: 'August 23, 2026', readTime: '8 min read',
+    image: 'https://images.pexels.com/photos/5474295/pexels-photo-5474295.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'A new wave of AI coding tools is not just autocompleting code — it is understanding entire codebases and writing features from scratch.',
+    tags: ['AI','OpenAI','Programming','Software','Development'],
+    content: `<p>Software development is undergoing its most significant transformation since the introduction of version control. AI coding assistants have evolved from novelty to necessity, and the latest generation of tools is fundamentally changing what it means to write software.</p>
+<h2>From Autocomplete to Co-Pilot</h2>
+<p>The first generation of AI coding tools were essentially glorified autocomplete. They predicted the next few characters you might type. Useful, but limited. The new generation understands context — the entire file, the project structure, even the conventions your team follows.</p>
+<pre><code>// What used to take 20 minutes now takes a prompt:
+const ai = "Xelio";
+console.log(ai);
+
+// Modern AI can generate entire functions:
+async function fetchArticles(category) {
+  const res = await fetch('/api/articles?cat=' + category);
+  return res.json();
+}</code></pre>
+<h2>Understanding Entire Codebases</h2>
+<p>The breakthrough is not just better code generation. It is the ability to reason about a codebase as a whole. You can ask an AI assistant to find every place a deprecated function is called, explain what a complex module does, or refactor a pattern across hundreds of files.</p>
+<h2>Changing the Developer Workflow</h2>
+<ul>
+<li>Writing boilerplate is becoming a thing of the past.</li>
+<li>Code review is augmented with AI that catches bugs and suggests improvements.</li>
+<li>Documentation can be generated and kept in sync automatically.</li>
+<li>Testing is easier when AI can generate test cases from your implementation.</li>
+</ul>
+<blockquote>The developer's job is shifting from writing code to directing code. The skill that matters most now is knowing what to build.</blockquote>
+<h2>What This Means for the Industry</h2>
+<p>Junior developers can be productive faster than ever. Senior developers can focus on architecture and strategy instead of implementation details. And teams can ship more with fewer people — not because jobs are disappearing, but because the bottleneck has moved from typing to thinking.</p>
+<h2>Conclusion</h2>
+<p>The tools will keep getting better, but the fundamental shift is already clear. Programming is becoming a higher-level activity — more about intent and design, less about syntax and memorization. The developers who thrive will be the ones who learn to collaborate with AI rather than compete with it.</p>`
+  },
+  {
+    id: 3, slug: 'on-device-ai-next-big-computing-shift',
+    title: 'Why On-Device AI Could Be the Next Big Computing Shift',
+    category: 'AI', author: 'Alex Morgan', date: 'August 21, 2026', readTime: '6 min read',
+    image: 'https://images.pexels.com/photos/2105927/pexels-photo-2105927.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'Running AI directly on your phone or laptop means faster responses, better privacy, and no dependence on the cloud. It is a bigger deal than it sounds.',
+    tags: ['AI','Future Tech','Hardware','Innovation'],
+    content: `<p>Every time you ask a cloud-based AI a question, your data leaves your device, travels to a server, gets processed, and comes back. That round trip costs time, money, and privacy. On-device AI eliminates that loop — and it could reshape the computing landscape.</p>
+<h2>What Is On-Device AI?</h2>
+<p>On-device AI runs machine learning models directly on your phone, laptop, or other hardware. No internet connection required. The model lives in your device's memory and does its work using your device's processor.</p>
+<p>This is now possible because of two trends: models are getting smaller and more efficient, and chips are getting faster at the specific math that AI requires. Modern mobile processors now include dedicated neural engines designed for exactly this purpose.</p>
+<h2>The Privacy Advantage</h2>
+<p>When AI runs on your device, your data never leaves. Your messages, photos, and voice recordings are processed locally. This is not just a feature — it is a fundamental shift in who controls your information.</p>
+<blockquote>On-device AI turns privacy from a policy promise into a technical guarantee.</blockquote>
+<h2>The Speed Advantage</h2>
+<p>Cloud AI has inherent latency. Even with fast connections, there is a delay. On-device AI responds in milliseconds because there is no network round trip. For real-time applications — translation, voice assistants, camera effects — this is transformative.</p>
+<h2>The Trade-offs</h2>
+<ul>
+<li>On-device models are smaller, so they may be less capable than the largest cloud models.</li>
+<li>They consume battery and memory on your device.</li>
+<li>Updating models requires software updates rather than silent server-side changes.</li>
+</ul>
+<h2>Why This Matters</h2>
+<p>On-device AI democratizes access. It means AI features work without expensive cloud infrastructure. It means your AI assistant works on a plane, in a tunnel, or anywhere without signal. And it means the future of computing is not entirely dependent on a handful of companies running massive data centers. That is a future worth paying attention to.</p>`
+  },
+  {
+    id: 4, slug: 'future-of-personal-computers-more-intelligent',
+    title: 'The Future of Personal Computers Is Becoming More Intelligent',
+    category: 'Tech', author: 'Alex Morgan', date: 'August 19, 2026', readTime: '5 min read',
+    image: 'https://images.pexels.com/photos/1128207/pexels-photo-1128207.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'The PC is not dead. It is getting smarter, adapting to how you work, and quietly becoming the most personal device you own.',
+    tags: ['Tech','Future Tech','Hardware','Software'],
+    content: `<p>For years, people have predicted the death of the personal computer. Smartphones were supposed to replace them. Tablets were supposed to replace them. Yet the PC persists — and it is about to enter its most interesting era yet.</p>
+<h2>Intelligence Is the New Specs</h2>
+<p>For decades, PC marketing was about specifications — faster processors, more memory, bigger storage. That era is fading. The new differentiator is intelligence. A computer that understands your workflow, anticipates your needs, and adapts to your habits is more valuable than one that is merely faster.</p>
+<h2>Context-Aware Computing</h2>
+<p>Modern operating systems are beginning to understand context. They know what you are working on, what files you are likely to need, and what apps you use at what times. This is not surveillance — it is the same kind of personalization that makes your phone useful, brought to the desktop.</p>
+<blockquote>The most powerful computer is not the one with the most cores. It is the one that understands what you are trying to do.</blockquote>
+<h2>What This Looks Like in Practice</h2>
+<ul>
+<li>Your PC surfaces the documents you need before you search for them.</li>
+<li>Notifications are filtered by relevance to your current task.</li>
+<li>Settings adjust based on whether you are working, creating, or relaxing.</li>
+<li>AI assistants can perform actions across apps, not just answer questions.</li>
+</ul>
+<h2>The PC Reborn</h2>
+<p>The personal computer is not being replaced. It is being redefined. And the definition is expanding to include something that was never part of the spec sheet before: understanding. That is what will keep the PC relevant for another decade — not faster chips, but smarter ones.</p>`
+  },
+  {
+    id: 5, slug: 'smartphone-ai-cameras-real-or-hype',
+    title: 'Smartphone AI Cameras: Real Innovation or Marketing Hype?',
+    category: 'Gadgets', author: 'Daniel Reed', date: 'August 17, 2026', readTime: '6 min read',
+    image: 'https://images.pexels.com/photos/5243203/pexels-photo-5243203.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'Every phone maker claims AI-powered photography. We tested the latest flagships to find out what is genuinely useful and what is just a buzzword.',
+    tags: ['Gadgets','Smartphones','AI','Reviews'],
+    content: `<p>Walk into any phone store and you will see the word "AI" plastered across every camera display. Every manufacturer claims their AI-powered camera is revolutionary. But when you actually use these cameras day to day, the line between real innovation and marketing hype gets blurry.</p>
+<h2>What AI Actually Does in Phone Cameras</h2>
+<p>AI in smartphone photography is not one thing — it is a stack of technologies working together. Computational photography uses machine learning to enhance images in real time, combining multiple exposures, correcting colors, and adding depth effects.</p>
+<h2>The Genuinely Useful</h2>
+<ul>
+<li>Night mode has transformed low-light photography. What used to require a tripod now happens handheld.</li>
+<li>Portrait mode effects have improved dramatically, with better edge detection and natural-looking blur.</li>
+<li>Scene detection adjusts settings automatically — recognizing food, landscapes, and documents.</li>
+</ul>
+<h2>The Questionable</h2>
+<p>Not every AI feature is a win. Some phones now aggressively smooth skin in photos by default, producing results that look processed rather than natural. Others apply heavy HDR that makes every scene look uniformly bright, stripping away mood and atmosphere.</p>
+<blockquote>The best AI in a camera is the kind you do not notice. The worst is the kind you cannot turn off.</blockquote>
+<h2>Our Verdict</h2>
+<p>After testing the latest flagships, the conclusion is clear: the underlying computational photography is genuinely impressive and useful. The problems start when manufacturers use AI to make every photo look the same — over-sharpened, over-saturated, and over-processed. The best cameras are the ones that give you AI enhancements with the option to turn them off.</p>
+<h2>What to Look For</h2>
+<p>If you are shopping for a phone camera, do not chase the AI label. Look for manual controls, the ability to disable processing, and consistent results across different lighting conditions. The best camera is not the one with the most AI features. It is the one that gets out of your way.</p>`
+  },
+  {
+    id: 6, slug: 'laptop-buying-guide-2026',
+    title: 'The 2026 Laptop Buying Guide: What Actually Matters Now',
+    category: 'Reviews', author: 'Daniel Reed', date: 'August 15, 2026', readTime: '7 min read',
+    image: 'https://images.pexels.com/photos/5793947/pexels-photo-5793947.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'Processor wars are over. The questions that matter in 2026 are about AI capabilities, battery life, and whether your laptop will last more than two years.',
+    tags: ['Reviews','Gadgets','Laptops','How-To'],
+    content: `<p>Buying a laptop used to be simple: get the fastest processor you could afford. In 2026, that advice is outdated. The questions that matter now are different, and the answers might surprise you.</p>
+<h2>The New Questions That Matter</h2>
+<p>Processor speed is no longer the bottleneck for most people. Any modern chip can handle email, browsing, video, and office work. What separates a good laptop from a great one is everything else.</p>
+<h3>AI Capability</h3>
+<p>The newest laptops include neural processing units designed to run AI models locally. This affects everything from background blur in video calls to battery life when using AI features. If you plan to keep your laptop for three or more years, AI capability is the spec that will matter most.</p>
+<h3>Battery Life</h3>
+<p>The best laptop is useless if it dies mid-flight. Look for real-world battery life of 12 hours or more. Manufacturer claims are optimistic — subtract 20% to get a realistic number.</p>
+<h3>Build Quality and Repairability</h3>
+<ul>
+<li>Can you replace the battery yourself?</li>
+<li>Can you upgrade the storage?</li>
+<li>Is the keyboard comfortable for long sessions?</li>
+<li>Does the trackpad feel precise?</li>
+</ul>
+<blockquote>A laptop is not just a spec sheet. It is the object you will touch for hours every day for years. How it feels matters as much as how it performs.</blockquote>
+<h2>What to Ignore</h2>
+<p>Ignore processor model numbers unless you do professional video editing or 3D rendering. Ignore RAM speeds for normal use. Ignore gaming GPU benchmarks unless you game. And ignore thinness as a virtue — a laptop that is too thin sacrifices battery, cooling, and ports.</p>
+<h2>Our Recommendations by Use Case</h2>
+<p>For students: prioritize battery life and durability. For professionals: prioritize build quality and screen quality. For creators: prioritize RAM and display color accuracy. For everyone: buy the model that will still feel good in three years, not the one that is impressive in the store.</p>`
+  },
+  {
+    id: 7, slug: 'zero-trust-cybersecurity-explained',
+    title: 'Zero Trust Cybersecurity: What It Means and Why It Matters',
+    category: 'Cybersecurity', author: 'Sara Kim', date: 'August 13, 2026', readTime: '6 min read',
+    image: 'https://images.pexels.com/photos/37730211/pexels-photo-37730211.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'The old security model trusted everything inside the network. Zero Trust trusts nothing. Here is how it works and why every organization is moving to it.',
+    tags: ['Cybersecurity','Security','Networking','How-To'],
+    content: `<p>For decades, cybersecurity worked like a castle: strong walls kept threats out, and everything inside was trusted. That model is broken. Threats now come from inside as often as outside — compromised accounts, malicious insiders, and supply chain attacks. The answer is a fundamentally different approach called Zero Trust.</p>
+<h2>The Core Principle</h2>
+<p>Zero Trust is exactly what it sounds like: never trust, always verify. Instead of assuming that a device inside the network is safe, every access request is treated as if it comes from an untrusted network. Authentication and authorization happen every time, for every request.</p>
+<blockquote>Trust is a vulnerability. The moment you assume something is safe, that assumption becomes the attack vector.</blockquote>
+<h2>How It Works in Practice</h2>
+<ul>
+<li>Every user must authenticate, every time they access a resource.</li>
+<li>Access is granted based on identity, device health, and context — not network location.</li>
+<li>Permissions are limited to what is needed for a specific task.</li>
+<li>All traffic is encrypted, even inside the network.</li>
+<li>Activity is continuously monitored for unusual behavior.</li>
+</ul>
+<h2>Why the Old Model Failed</h2>
+<p>The castle model assumed a clear boundary between inside and outside. Cloud computing, remote work, and mobile devices erased that boundary. When everything is connected, the concept of "inside the network" stops making sense. Zero Trust acknowledges this reality.</p>
+<h2>Getting Started</h2>
+<p>Adopting Zero Trust is not a single product purchase — it is a journey. Start with identity: implement multi-factor authentication everywhere. Then move to device health checks. Then segment access so a compromised account cannot reach everything. The goal is not perfection on day one. It is reducing the blast radius of any breach.</p>
+<h2>Conclusion</h2>
+<p>Zero Trust is not a buzzword. It is a necessary evolution of security for a world where the network boundary no longer exists. Organizations that continue to rely on the castle model are building on a foundation that has already crumbled. The question is not whether to adopt Zero Trust, but how quickly.</p>`
+  },
+  {
+    id: 8, slug: 'javascript-tips-cleaner-code',
+    title: '10 JavaScript Patterns That Will Make Your Code Cleaner',
+    category: 'Software', author: 'Maya Chen', date: 'August 11, 2026', readTime: '8 min read',
+    image: 'https://images.pexels.com/photos/34804024/pexels-photo-34804024.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'These are not theoretical patterns from a textbook. They are the practical habits that make JavaScript codebases easier to read, maintain, and extend.',
+    tags: ['Software','Programming','JavaScript','How-To'],
+    content: `<p>Writing JavaScript that works is easy. Writing JavaScript that other people can read and maintain is hard. After reviewing thousands of lines of code across dozens of projects, these are the patterns that consistently make codebases better.</p>
+<h2>1. Use Optional Chaining and Nullish Coalescing</h2>
+<pre><code>// Before: verbose and error-prone
+const city = user && user.address && user.address.city;
+
+// After: clean and safe
+const city = user?.address?.city ?? 'Unknown';</code></pre>
+<h2>2. Destructure with Defaults</h2>
+<pre><code>// Function parameters with defaults
+function render({ title = 'Untitled', theme = 'light' } = {}) {
+  return title + ' (' + theme + ')';
+}</code></pre>
+<h2>3. Early Returns Over Nested Conditionals</h2>
+<pre><code>// Instead of nesting:
+function process(data) {
+  if (!data) return null;
+  if (!data.items) return null;
+  return data.items.map(i => i.name);
+}</code></pre>
+<blockquote>The best code reads like a sentence. If you have to re-read a function to understand it, it is too complex.</blockquote>
+<h2>4. Use Array Methods Over Loops</h2>
+<pre><code>// Instead of manual loops
+const names = users
+  .filter(u => u.active)
+  .map(u => u.name)
+  .sort();</code></pre>
+<h2>5. Keep Functions Small and Focused</h2>
+<p>A function should do one thing. If you cannot describe what a function does in a single sentence without using "and," it is doing too much. Split it.</p>
+<h2>6. Use Const by Default</h2>
+<p>Default to <code>const</code>. Use <code>let</code> only when you need to reassign. Never use <code>var</code>. This makes your intent clear and prevents accidental reassignment bugs.</p>
+<h2>7. Name Things Clearly</h2>
+<ul>
+<li>Boolean variables should be questions: <code>isActive</code>, <code>hasPermission</code>.</li>
+<li>Functions should be verbs: <code>fetchUser</code>, <code>renderList</code>.</li>
+<li>Avoid abbreviations except for universally understood ones like <code>id</code> or <code>url</code>.</li>
+</ul>
+<h2>8. Handle Errors Explicitly</h2>
+<pre><code>try {
+  const data = await fetch(url);
+  if (!data.ok) throw new Error('Fetch failed');
+  return await data.json();
+} catch (err) {
+  console.error('Failed to load:', err);
+  return null;
+}</code></pre>
+<h2>9. Avoid Premature Abstraction</h2>
+<p>Do not create a utility function until you have three instances of the same pattern. Two similar lines of code are not duplication — they are just two lines. Wait for the third before abstracting.</p>
+<h2>10. Write Comments for the Why, Not the What</h2>
+<p>Code already tells you what it does. Comments should explain why — the constraints, the decisions, the context that is not obvious from reading the code.</p>
+<h2>Conclusion</h2>
+<p>These patterns are not about being clever. They are about being clear. The code you write today will be read by someone tomorrow — sometimes that someone is you, six months later, with no memory of why you wrote it that way. Write for that person.</p>`
+  },
+  {
+    id: 9, slug: 'cloud-computing-cost-optimization',
+    title: 'How to Cut Your Cloud Computing Bill Without Sacrificing Performance',
+    category: 'Software', author: 'Alex Morgan', date: 'August 9, 2026', readTime: '7 min read',
+    image: 'https://images.pexels.com/photos/1181316/pexels-photo-1181316.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'Most companies overspend on cloud by 30% or more. Here are the practical steps to identify waste and optimize your infrastructure without downtime.',
+    tags: ['Software','Cloud Computing','How-To','Internet'],
+    content: `<p>Cloud computing promised to be cheaper than running your own servers. For many organizations, it has turned out to be more expensive. Not because cloud is inherently costly, but because it is easy to waste resources when capacity is a few clicks away. The good news: most cloud bills can be reduced by 30% or more without affecting performance.</p>
+<h2>Audit What You Actually Use</h2>
+<p>The first step is knowing where your money goes. Most cloud providers offer cost dashboards, but few teams look at them regularly. Start by listing every resource you are paying for and asking: does anything use this?</p>
+<ul>
+<li>Idle load balancers routing no traffic.</li>
+<li>Over-provisioned instances running at 5% CPU.</li>
+<li>Storage buckets with data no one has accessed in months.</li>
+<li>Development environments running 24/7 when they are used 8 hours a day.</li>
+</ul>
+<blockquote>Cloud waste is not a technology problem. It is an awareness problem. You cannot optimize what you do not measure.</blockquote>
+<h2>Right-Size Your Resources</h2>
+<p>The most common waste is over-provisioning. Teams pick a large instance size "to be safe" and never scale down. Monitor your actual CPU, memory, and network usage for two weeks. Then choose the smallest instance size that handles your peak load with 20% headroom.</p>
+<h2>Use Auto-Scaling</h2>
+<p>Instead of provisioning for peak traffic all the time, set up auto-scaling. Your infrastructure grows during traffic spikes and shrinks when demand drops. This alone can cut compute costs significantly.</p>
+<h2>Choose the Right Storage Tier</h2>
+<pre><code>// Common storage mistake: everything in hot storage
+Hot storage:  $0.023/GB/month  (frequently accessed)
+Cold storage: $0.005/GB/month  (rarely accessed)
+
+// Move old backups and archives to cold storage
+// Savings: up to 78% on archived data</code></pre>
+<h2>Shut Down What You Do Not Need</h2>
+<p>Development and staging environments do not need to run at 3 AM. Schedule them to shut down outside working hours. A single environment running 24/7 that could run 12 hours a day saves 50% on that resource.</p>
+<h2>Use Reserved Instances for Steady Workloads</h2>
+<p>If you have workloads that run constantly — databases, core services — commit to reserved instances. They cost significantly less than on-demand pricing. The trade-off is a commitment period, but for stable workloads, the savings are worth it.</p>
+<h2>Conclusion</h2>
+<p>Cloud cost optimization is not a one-time project. It is an ongoing practice. Set up monthly cost reviews, tag resources so you know which team owns what, and make cost visible to the people making provisioning decisions. The savings are there — they just require attention.</p>`
+  },
+  {
+    id: 10, slug: 'gaming-pc-build-guide-2026',
+    title: 'Building a Gaming PC in 2026: A Complete Guide for Every Budget',
+    category: 'Gaming', author: 'Daniel Reed', date: 'August 7, 2026', readTime: '9 min read',
+    image: 'https://images.pexels.com/photos/7858742/pexels-photo-7858742.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'Whether you have $800 or $3,000, here is exactly what to buy and how to build a gaming PC that will run everything for years to come.',
+    tags: ['Gaming','Gadgets','Reviews','How-To'],
+    content: `<p>Building a gaming PC has never been more accessible — or more confusing. The number of options at every price point is overwhelming, and the advice you find online is often outdated or biased. This guide cuts through the noise with specific recommendations for three budgets.</p>
+<h2>The $800 Budget Build</h2>
+<p>This build targets 1080p gaming at high settings. It will not max out the latest titles at 4K, but it will run everything smoothly at the resolution most people actually play at.</p>
+<ul>
+<li>CPU: Mid-range 6-core processor</li>
+<li>GPU: Current-gen mid-tier card</li>
+<li>RAM: 16GB DDR5</li>
+<li>Storage: 1TB NVMe SSD</li>
+<li>Power supply: 650W 80+ Gold</li>
+</ul>
+<h2>The $1,500 Sweet Spot</h2>
+<p>This is where you get the most performance per dollar. It targets 1440p gaming at high settings and will remain capable for years.</p>
+<blockquote>The best gaming PC is not the most expensive one. It is the one that matches your monitor and the games you actually play.</blockquote>
+<h2>The $3,000 No-Compromise Build</h2>
+<p>For 4K gaming, high refresh rate displays, and future-proofing. This is overkill for most people, but if you want the best, here is where your money goes.</p>
+<ul>
+<li>CPU: Top-tier 8-core processor</li>
+<li>GPU: Flagship current-gen card</li>
+<li>RAM: 32GB DDR5</li>
+<li>Storage: 2TB NVMe SSD</li>
+<li>Power supply: 850W 80+ Platinum</li>
+<li>Cooling: High-end AIO liquid cooler</li>
+</ul>
+<h2>What Not to Overspend On</h2>
+<p>Do not overspend on the case — a $80 case cools just as well as a $200 one. Do not overspend on RGB lighting — it looks nice but does not improve performance. And do not overspend on the CPU if you are gaming — games are GPU-bound, and a mid-range CPU paired with a strong GPU will outperform the reverse.</p>
+<h2>Building Tips</h2>
+<p>Building a PC is easier than it looks. The parts only fit one way. Take your time, follow a video guide, and do not force anything. The most common mistake is not plugging in the CPU power cable — double-check every connection before you turn it on.</p>
+<h2>Conclusion</h2>
+<p>The PC you build should match your monitor and your games, not a benchmark. A $800 build on a 1080p monitor will give you a better experience than a $3,000 build on the same screen. Spend where it matters, save where it does not, and you will have a system that brings you joy for years.</p>`
+  },
+  {
+    id: 11, slug: 'phishing-attacks-how-to-spot-them',
+    title: 'How to Spot a Phishing Attack Before It Is Too Late',
+    category: 'Cybersecurity', author: 'Sara Kim', date: 'August 5, 2026', readTime: '5 min read',
+    image: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'Phishing is the most common cyber threat, and it is getting more sophisticated with AI. Here is how to protect yourself and your organization.',
+    tags: ['Cybersecurity','Security','How-To','Privacy'],
+    content: `<p>Phishing is not a new threat, but it has evolved. AI-generated phishing emails are more convincing than ever, and the days of spotting them by bad grammar are largely over. The good news is that the fundamental defenses have not changed — they just require more attention.</p>
+<h2>The New Phishing Landscape</h2>
+<p>AI has made phishing cheaper and more convincing. Attackers can generate hundreds of personalized emails in minutes, each tailored to its recipient. The telltale signs of old phishing — typos, generic greetings, awkward phrasing — are increasingly rare.</p>
+<h2>What Has Not Changed</h2>
+<p>Despite the technology, phishing still relies on the same human psychology: urgency, fear, curiosity, and authority. The delivery method is more polished, but the manipulation is the same.</p>
+<blockquote>Phishing does not hack computers. It hacks people. The best firewall in the world cannot stop someone from clicking a link they trust.</blockquote>
+<h2>How to Spot Modern Phishing</h2>
+<ul>
+<li>Check the sender's full email address, not just the display name.</li>
+<li>Hover over links before clicking to see the real destination.</li>
+<li>Be suspicious of any message that creates urgency or fear.</li>
+<li>Never enter credentials after clicking a link — navigate to the site directly.</li>
+<li>Verify requests for money or gift cards through a second channel.</li>
+</ul>
+<h2>The Technical Defenses</h2>
+<p>Individual vigilance is essential, but it is not enough. Organizations should implement email authentication protocols (SPF, DKIM, DMARC) to filter spoofed emails. Multi-factor authentication should be mandatory — even if someone gives up their password, the attacker still cannot get in.</p>
+<h2>What to Do If You Click</h2>
+<p>If you realize you clicked a phishing link or entered credentials, act immediately. Change your password, enable multi-factor authentication if you have not already, and report the incident. Speed matters more than perfection.</p>
+<h2>Conclusion</h2>
+<p>Phishing is not going away. It will keep getting more sophisticated. But the defense is the same as it has always been: slow down, verify, and never let urgency override your judgment. The few seconds you spend checking could save you months of recovery.</p>`
+  },
+  {
+    id: 12, slug: 'internet-of-things-smart-home-reality',
+    title: 'The Smart Home Reality: What Is Actually Worth Buying in 2026',
+    category: 'Internet', author: 'Daniel Reed', date: 'August 3, 2026', readTime: '6 min read',
+    image: 'https://images.pexels.com/photos/265101/pexels-photo-265101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'After living with every smart home device we could find, here is what genuinely improves daily life — and what is a waste of money.',
+    tags: ['Internet','Gadgets','Reviews','How-To'],
+    content: `<p>The smart home has been "the next big thing" for a decade. After years of promises, the reality is finally catching up — but not every device deserves a place in your home. We tested dozens of products across months of daily use to separate the genuinely useful from the gimmicky.</p>
+<h2>What Is Actually Worth It</h2>
+<h3>Smart Lighting</h3>
+<p>Smart bulbs and switches are the foundation of a useful smart home. The ability to automate lights on a schedule, control them by voice, and dim them without getting up is a genuine quality-of-life improvement. Start here.</p>
+<h3>Smart Thermostats</h3>
+<p>A good smart thermostat pays for itself in energy savings. It learns your schedule, adjusts when you are away, and can be controlled remotely. Of all smart home devices, this one has the clearest return on investment.</p>
+<h3>Smart Speakers</h3>
+<p>They are not perfect, but as a voice-controlled hub for music, timers, and home control, they earn their place. The key is setting realistic expectations — they are assistants, not geniuses.</p>
+<blockquote>The best smart home device is one you forget is smart. It just works, and you cannot imagine going back to the dumb version.</blockquote>
+<h2>What Is Not Worth It</h2>
+<ul>
+<li>Smart fridges: expensive, rarely useful, and often abandoned by software support within a few years.</li>
+<li>Smart toothbrushes: the data is interesting for a week, then ignored forever.</li>
+<li>Smart pet feeders: more failure modes than a regular feeder, for 10x the price.</li>
+</ul>
+<h2>The Platform Problem</h2>
+<p>The biggest issue with smart homes is not the devices — it is the platforms. Matter, the universal smart home standard, is helping, but the ecosystem is still fragmented. Before you buy, check that the device works with your existing ecosystem.</p>
+<h2>Our Advice</h2>
+<p>Start small. Get smart lighting and a smart thermostat. Live with them for a month. If they improve your life, expand. If they do not, you have spent a manageable amount rather than outfitting your entire house at once. The smart home should serve you, not the other way around.</p>`
+  },
+  {
+    id: 13, slug: 'quantum-computing-explained-simply',
+    title: 'Quantum Computing Explained: What It Actually Means for the Future',
+    category: 'Science', author: 'Maya Chen', date: 'August 1, 2026', readTime: '8 min read',
+    image: 'https://images.pexels.com/photos/8566470/pexels-photo-8566470.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'Quantum computing is one of the most misunderstood technologies of our time. Here is what it can actually do, what it cannot, and when it will matter.',
+    tags: ['Science','Future Tech','Innovation','AI'],
+    content: `<p>Quantum computing is surrounded by more hype than understanding. It is simultaneously described as the technology that will solve every problem and as something that will never be practical. The truth is more interesting than either extreme.</p>
+<h2>What Makes Quantum Different</h2>
+<p>Classical computers use bits — each bit is either 0 or 1. Quantum computers use qubits, which can be in a state of 0, 1, or both simultaneously (a state called superposition). This is not just a faster way of computing — it is a fundamentally different way of processing information.</p>
+<pre><code>// Classical bit: 0 OR 1
+// Qubit: 0 AND 1 simultaneously (superposition)
+
+// 3 classical bits: one of 8 possible states at a time
+// 3 qubits: all 8 states at once
+
+// This enables parallelism that classical
+// computers fundamentally cannot achieve</code></pre>
+<h2>What Quantum Computers Are Good At</h2>
+<p>Quantum computers are not faster at everything. They excel at specific problem types where their unique properties provide an advantage:</p>
+<ul>
+<li>Factoring large numbers (which underlies modern encryption)</li>
+<li>Simulating molecular interactions (drug discovery, materials science)</li>
+<li>Optimization problems (logistics, financial modeling)</li>
+<li>Certain types of machine learning</li>
+</ul>
+<h2>What They Are Not Good At</h2>
+<p>Despite the hype, quantum computers will not replace your laptop. For everyday computing — browsing, email, video, games — classical computers are better. Quantum is a specialized tool, not a general-purpose replacement.</p>
+<blockquote>A quantum computer is not a faster classical computer. It is a different kind of computer that is good at different things.</blockquote>
+<h2>The Current State</h2>
+<p>We are in what researchers call the NISQ era — Noisy Intermediate-Scale Quantum. Current quantum computers have too few qubits and too much noise (errors) to solve real problems. But progress is steady. Each year brings more stable qubits and better error correction.</p>
+<h2>When It Will Matter</h2>
+<p>For most people, quantum computing will not be directly relevant for years. But the implications are already being felt. Organizations are preparing for the day when quantum computers can break current encryption — a transition called post-quantum cryptography. And in research labs, quantum simulation is already accelerating discoveries in chemistry and materials.</p>
+<h2>Conclusion</h2>
+<p>Quantum computing is real, it is progressing, and it will matter — but not in the way the hype suggests. It will not give you a faster phone. It will, however, transform fields that depend on simulation and optimization. Understanding what it can and cannot do is the first step to separating the science from the science fiction.</p>`
+  },
+  {
+    id: 14, slug: 'mobile-app-security-best-practices',
+    title: 'Mobile App Security: A Practical Guide for Developers',
+    category: 'Cybersecurity', author: 'Sara Kim', date: 'July 30, 2026', readTime: '7 min read',
+    image: 'https://images.pexels.com/photos/1130643/pexels-photo-1130643.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    excerpt: 'Mobile apps are the front door to user data. Here are the security practices every developer should implement before shipping to the app store.',
+    tags: ['Cybersecurity','Software','Programming','Mobile','How-To'],
+    content: `<p>Mobile apps handle sensitive data — passwords, payment information, personal messages, location. Yet security is often treated as an afterthought, something to add before launch rather than build in from the start. This guide covers the practices that matter most.</p>
+<h2>Secure Data Storage</h2>
+<p>The most common mobile security mistake is storing sensitive data in plain text. Never store passwords, tokens, or personal data in shared preferences or local storage without encryption.</p>
+<pre><code>// Bad: storing tokens in plain text
+localStorage.setItem('token', authToken);
+
+// Good: use platform secure storage
+// iOS: Keychain
+// Android: EncryptedSharedPreferences
+// React Native: expo-secure-store</code></pre>
+<h2>Secure Network Communication</h2>
+<p>Every network request should use HTTPS with certificate pinning. This prevents man-in-the-middle attacks where an attacker intercepts traffic between the app and your server.</p>
+<blockquote>Security is not a feature you add at the end. It is a constraint you design around from the beginning.</blockquote>
+<h2>Authentication Best Practices</h2>
+<ul>
+<li>Never hardcode API keys or credentials in your app. They can be extracted.</li>
+<li>Use short-lived tokens with refresh mechanisms, not long-lived tokens.</li>
+<li>Implement biometric authentication for sensitive operations.</li>
+<li>Require re-authentication for high-value actions like payments.</li>
+</ul>
+<h2>Input Validation</h2>
+<p>Never trust input from the client, even if your app generated it. Validate everything on the server. Client-side validation is for user experience, not security.</p>
+<h2>Protecting Against Reverse Engineering</h2>
+<p>Mobile apps run on devices you do not control. Assume your app will be decompiled. Use code obfuscation, do not store secrets in the binary, and design your architecture so the client never has more access than necessary.</p>
+<h2>Keeping Dependencies Updated</h2>
+<p>Most vulnerabilities in mobile apps come from outdated third-party libraries. Regularly update your dependencies and monitor for security advisories. A single outdated library can undermine every other security measure.</p>
+<h2>Conclusion</h2>
+<p>Mobile security is not about being perfect. It is about raising the cost of attack high enough that most attackers move on to easier targets. Implement these practices, keep them updated, and treat security as an ongoing process — not a checkbox.</p>`
+  }
+];
+
+/* ==================== ARTICLE ENGINE ==================== */
+
+function getArticle(slug) {
+  return ARTICLES.find(a => a.slug === slug);
+}
+
+function getArticlesByCategory(cat) {
+  return ARTICLES.filter(a => a.category === cat);
+}
+
+function getRelatedArticles(article, limit = 3) {
+  return ARTICLES.filter(a => a.id !== article.id && a.category === article.category).slice(0, limit);
+}
+
+function getPopularArticles(limit = 5) {
+  return ARTICLES.slice(0, limit);
+}
+
+function getCategoryCount(cat) {
+  return getArticlesByCategory(cat).length;
+}
+
+function formatDate(dateStr) {
+  return dateStr;
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function renderCard(article) {
+  return `<article class="card" onclick="navigate('article','${article.slug}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')navigate('article','${article.slug}')">
+    <div class="card-image"><img src="${article.image}" alt="${escapeHtml(article.title)}" loading="lazy" decoding="async"></div>
+    <div class="card-body">
+      <span class="card-category" onclick="event.stopPropagation();navigate('category','${article.category}')">${article.category}</span>
+      <h3 class="card-title">${article.title}</h3>
+      <p class="card-excerpt">${article.excerpt}</p>
+      <div class="card-meta">
+        <span>${article.author}</span><span class="dot"></span>
+        <span>${article.date}</span><span class="dot"></span>
+        <span>${article.readTime}</span>
+      </div>
+    </div>
+  </article>`;
+}
+
+function renderArticlePage(article) {
+  const author = AUTHORS[article.author] || AUTHORS['Alex Morgan'];
+  const related = getRelatedArticles(article);
+  const popular = getPopularArticles();
+  const headings = [];
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = article.content;
+  tempDiv.querySelectorAll('h2').forEach((h, i) => {
+    const id = 'section-' + i;
+    h.id = id;
+    headings.push({ id: id, text: h.textContent });
+  });
+  const contentWithIds = tempDiv.innerHTML;
+
+  const tagsHtml = article.tags.map(t => `<span class="tag" onclick="navigate('tag','${t}')">${t}</span>`).join('');
+  const relatedHtml = related.length ? related.map(r => renderCard(r)).join('') : '<p>No related articles yet.</p>';
+  const popularHtml = popular.map((p, i) => `
+    <div class="popular-item" onclick="navigate('article','${p.slug}')">
+      <span class="popular-num">${String(i+1).padStart(2,'0')}</span>
+      <div class="popular-info"><h4>${p.title}</h4><span>${p.category} · ${p.readTime}</span></div>
+    </div>`).join('');
+  const tocHtml = headings.map(h => `<li><a href="#${h.id}" onclick="scrollToHeading('${h.id}');return false;">${h.text}</a></li>`).join('');
+  const sidebarCats = XELIO.categories.slice(0, 8).map(c => 
+    `<a href="#category/${c}" onclick="navigate('category','${c}')"><span>${c}</span><span class="count">${getCategoryCount(c)}</span></a>`).join('');
+  const sidebarTags = [...new Set(ARTICLES.flatMap(a => a.tags))].slice(0, 12)
+    .map(t => `<span class="tag" onclick="navigate('tag','${t}')">${t}</span>`).join('');
+
+  return `<div class="article-page fade-in">
+    <div class="container">
+      <div class="article-layout">
+        <div class="article-main">
+          <div class="article-header">
+            <span class="category-badge" onclick="navigate('category','${article.category}')">${article.category}</span>
+            <h1>${article.title}</h1>
+            <p class="article-subtitle">${article.excerpt}</p>
+            <div class="article-meta-bar">
+              <div class="author-info">
+                <img src="${author.avatar}" alt="${author.name}" class="author-avatar" loading="lazy">
+                <div><div class="author-name">${author.name}</div><div class="author-role">${author.role}</div></div>
+              </div>
+              <div class="article-meta-text">
+                <span>${article.date}</span>
+                ${article.updated ? `<span class="dot"></span><span>Updated ${article.updated}</span>` : ''}
+                <span class="dot"></span><span>${article.readTime}</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-hero-img"><img src="${article.image}" alt="${escapeHtml(article.title)}" decoding="async"></div>
+          <div class="article-content" id="articleContent">
+            ${contentWithIds}
+          </div>
+          <div class="tag-list" style="margin:32px 0">${tagsHtml}</div>
+          <div class="share-section">
+            <h4>Share this article</h4>
+            <div class="share-buttons">
+              <button class="share-btn" onclick="share('facebook','${article.slug}')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</button>
+              <button class="share-btn" onclick="share('twitter','${article.slug}')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</button>
+              <button class="share-btn" onclick="share('linkedin','${article.slug}')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</button>
+              <button class="share-btn" onclick="share('whatsapp','${article.slug}')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp</button>
+              <button class="share-btn" onclick="copyLink('${article.slug}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Copy Link</button>
+              <span class="copy-feedback" id="copyFeedback">Link copied!</span>
+            </div>
+          </div>
+          <div class="author-info" style="margin:32px 0;padding:24px;background:var(--bg-secondary);border-radius:var(--radius);align-items:flex-start;gap:16px">
+            <img src="${author.avatar}" alt="${author.name}" class="author-avatar" style="width:64px;height:64px" loading="lazy">
+            <div>
+              <div style="font-size:18px;font-weight:700;margin-bottom:4px">${author.name}</div>
+              <div style="font-size:14px;color:var(--text-secondary);margin-bottom:8px">${author.role}</div>
+              <p style="font-size:15px;color:var(--text-secondary);line-height:1.6">${author.bio}</p>
+            </div>
+          </div>
+          <div class="comments-placeholder">
+            <h4>Comments</h4>
+            <p>Comments are disabled on this demo. Connect a commenting system like Disqus or Commento to enable discussion.</p>
+          </div>
+          <div class="section" style="padding-top:48px;padding-bottom:0">
+            <div class="section-header"><h2 class="section-title">Related <span class="accent">Articles</span></h2></div>
+            <div class="related-grid">${relatedHtml}</div>
+          </div>
+        </div>
+        <aside class="sidebar">
+          <div class="toc" id="toc">
+            <h4>Table of Contents</h4>
+            <ul>${tocHtml}</ul>
+          </div>
+          <div class="sidebar-block">
+            <h4>Most Read</h4>
+            <div class="popular-list">${popularHtml}</div>
+          </div>
+          <div class="sidebar-block sidebar-newsletter">
+            <h4>Newsletter</h4>
+            <p style="font-size:14px;color:var(--text-secondary);margin-bottom:14px">Get the best of Xelio in your inbox.</p>
+            <input type="email" placeholder="your@email.com" id="sidebarEmail" aria-label="Email">
+            <button onclick="handleSidebarNewsletter()">Subscribe</button>
+          </div>
+          <div class="sidebar-block">
+            <h4>Categories</h4>
+            <div class="sidebar-cats">${sidebarCats}</div>
+          </div>
+          <div class="sidebar-block">
+            <h4>Tags</h4>
+            <div class="tag-list">${sidebarTags}</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ==================== PAGE RENDERING ==================== */
+
+function renderHome() {
+  const hero = ARTICLES[0];
+  const featured = ARTICLES.slice(1, 4);
+  const latest = ARTICLES.slice(0, 6);
+  const popular = getPopularArticles();
+  const cats = XELIO.categories.slice(0, 10);
+
+  const catIcons = {
+    'AI': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0-3 3v1a3 3 0 0 0 0 6v1a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-1a3 3 0 0 0 0-6v-1a3 3 0 0 0-3-3z"/></svg>',
+    'Gadgets': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>',
+    'Software': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
+    'Cybersecurity': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    'Internet': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+    'Mobile': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>',
+    'Gaming': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>',
+    'Reviews': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+    'How-To': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>',
+    'Science': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.5L3 17a2 2 0 0 0 1.7 3h14.6a2 2 0 0 0 1.7-3l-7-7.5V2"/><path d="M8.5 2h7"/></svg>'
+  };
+
+  return `<div class="fade-in">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="category-badge" onclick="navigate('category','${hero.category}')">${hero.category}</span>
+            <h1>${hero.title}</h1>
+            <p>${hero.excerpt}</p>
+            <div class="hero-meta">
+              <span>${hero.author}</span><span class="dot"></span>
+              <span>${hero.date}</span><span class="dot"></span>
+              <span>${hero.readTime}</span>
+            </div>
+            <button class="subscribe-btn" style="margin-top:8px;background:var(--accent);color:#fff" onclick="navigate('article','${hero.slug}')">Read Article</button>
+          </div>
+          <div class="hero-image" onclick="navigate('article','${hero.slug}')" role="button" tabindex="0">
+            <img src="${hero.image}" alt="${escapeHtml(hero.title)}" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured</h2>
+        </div>
+        <div class="article-grid">
+          ${featured.map(a => renderCard(a)).join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- LATEST -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Latest <span class="accent">Stories</span></h2>
+        </div>
+        <div class="article-grid">
+          ${latest.map(a => renderCard(a)).join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Explore <span class="accent">Categories</span></h2>
+        </div>
+        <div class="cat-grid">
+          ${cats.map(c => `<button class="cat-card" onclick="navigate('category','${c}')">
+            <div class="cat-icon">${catIcons[c] || catIcons['Software']}</div>
+            <h3>${c}</h3>
+            <p>${getCategoryDescription(c)}</p>
+            <span class="cat-count">${getCategoryCount(c)} articles</span>
+          </button>`).join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- POPULAR + NEWSLETTER -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+          <div>
+            <div class="section-header"><h2 class="section-title">Most <span class="accent">Read</span></h2></div>
+            <div class="popular-list">
+              ${popular.map((p,i) => `<div class="popular-item" onclick="navigate('article','${p.slug}')">
+                <span class="popular-num">${String(i+1).padStart(2,'0')}</span>
+                <div class="popular-info"><h4>${p.title}</h4><span>${p.category} · ${p.readTime}</span></div>
+              </div>`).join('')}
+            </div>
+          </div>
+          <div class="newsletter">
+            <h2>Stay Ahead of What's Next.</h2>
+            <p>Get the latest technology stories, AI breakthroughs, useful tools, and practical insights delivered to your inbox.</p>
+            <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+              <input type="email" placeholder="your@email.com" required aria-label="Email address">
+              <button type="submit">Subscribe</button>
+            </form>
+            <div class="newsletter-success" id="newsletterSuccess">You're on the list. Welcome to Xelio.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>`;
+}
+
+function getCategoryDescription(cat) {
+  const descs = {
+    'AI': 'Artificial intelligence, machine learning, and the tools reshaping intelligence.',
+    'Gadgets': 'Smartphones, laptops, wearables, and the hardware you use daily.',
+    'Software': 'Apps, platforms, development tools, and the code that runs everything.',
+    'Cybersecurity': 'Security, privacy, threats, and how to protect yourself online.',
+    'Internet': 'The web, connectivity, smart homes, and the networks that connect us.',
+    'Mobile': 'Phones, tablets, apps, and the future of portable computing.',
+    'Gaming': 'Hardware, software, and the culture of interactive entertainment.',
+    'Reviews': 'In-depth reviews of the products worth your attention and money.',
+    'How-To': 'Practical guides, tutorials, and tips for getting more from tech.',
+    'Science': 'Breakthroughs in computing, physics, and the frontiers of technology.'
+  };
+  return descs[cat] || 'Explore the latest in ' + cat + '.';
+}
+
+function renderCategory(cat) {
+  const articles = getArticlesByCategory(cat);
+  return `<div class="section fade-in">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">${cat} <span class="accent">Articles</span></h2>
+        <span style="color:var(--text-secondary);font-size:14px">${articles.length} articles</span>
+      </div>
+      ${articles.length ? `<div class="article-grid">${articles.map(a => renderCard(a)).join('')}</div>` 
+        : `<div class="search-no-results">No articles in ${cat} yet. Check back soon.</div>`}
+    </div>
+  </div>`;
+}
+
+function renderTag(tag) {
+  const articles = ARTICLES.filter(a => a.tags.includes(tag));
+  return `<div class="section fade-in">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Tagged: <span class="accent">${tag}</span></h2>
+        <span style="color:var(--text-secondary);font-size:14px">${articles.length} articles</span>
+      </div>
+      ${articles.length ? `<div class="article-grid">${articles.map(a => renderCard(a)).join('')}</div>`
+        : `<div class="search-no-results">No articles tagged "${tag}" yet.</div>`}
+    </div>
+  </div>`;
+}
+
+function renderNewsletter() {
+  return `<div class="section fade-in">
+    <div class="container">
+      <div class="newsletter" style="max-width:680px;margin:0 auto">
+        <h2>Stay Ahead of What's Next.</h2>
+        <p>Get the latest technology stories, AI breakthroughs, useful tools, and practical insights delivered to your inbox.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+          <input type="email" placeholder="your@email.com" required aria-label="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="newsletter-success" id="newsletterSuccess">You're on the list. Welcome to Xelio.</div>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:12px">No spam. Unsubscribe anytime. Your email is never shared.</p>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderAbout() {
+  return `<div class="page-content fade-in">
+    <h1>About Xelio</h1>
+    <p>Xelio is an independent technology publication focused on explaining the ideas, products, and innovations shaping the future. We believe technology coverage should be clear, honest, and useful — not filled with jargon or hype.</p>
+    <h2>Our Mission</h2>
+    <p>To make technology understandable. Every article we publish is written with one goal: to help you understand what matters, why it matters, and what it means for you. We cut through the marketing to tell you what is actually worth your time and money.</p>
+    <h2>Editorial Principles</h2>
+    <ul>
+      <li><strong>Accuracy first.</strong> We verify before we publish. When we get something wrong, we correct it quickly and transparently.</li>
+      <li><strong>Independence.</strong> Our coverage is never influenced by advertisers or sponsors. Editorial and business operations are separate.</li>
+      <li><strong>Clarity.</strong> We write for real people, not for other journalists. If an idea requires jargon to explain, we find a better way.</li>
+      <li><strong>Fairness.</strong> We give subjects of our coverage the opportunity to respond. We present multiple perspectives when they exist.</li>
+    </ul>
+    <h2>What We Cover</h2>
+    <p>Xelio covers the full spectrum of technology: artificial intelligence, gadgets, software, cybersecurity, the internet, gaming, and the science behind it all. We focus on the intersection of technology and daily life — how products and ideas affect the way you work, create, and live.</p>
+    <h2>Why You Can Trust Xelio</h2>
+    <p>We are independent. We do not accept paid placements disguised as reviews. We disclose every affiliate relationship. When we recommend a product, it is because we believe it is worth recommending — not because someone paid us to say so. Our editorial policy is public, and we hold ourselves to it.</p>
+    <h2>Our Team</h2>
+    <p>Xelio is written by experienced technology journalists who have spent years covering the industry. Our team includes former engineers, product reviewers, and security researchers who bring deep expertise to every story.</p>
+    <p>Have a story tip or feedback? <a href="#contact" onclick="navigate('contact')" style="color:var(--accent)">Get in touch</a>.</p>
+  </div>`;
+}
+
+function renderContact() {
+  return `<div class="page-content fade-in">
+    <h1>Contact Xelio</h1>
+    <p>Have a story tip, feedback, or a partnership inquiry? We would love to hear from you. Fill out the form below and we will get back to you as soon as possible.</p>
+    <form class="contact-form" onsubmit="handleContact(event)" novalidate>
+      <div class="form-group">
+        <label for="cName">Name</label>
+        <input type="text" id="cName" name="name" required>
+        <span class="form-error" id="cNameError">Please enter your name.</span>
+      </div>
+      <div class="form-group">
+        <label for="cEmail">Email</label>
+        <input type="email" id="cEmail" name="email" required>
+        <span class="form-error" id="cEmailError">Please enter a valid email address.</span>
+      </div>
+      <div class="form-group">
+        <label for="cSubject">Subject</label>
+        <input type="text" id="cSubject" name="subject" required>
+        <span class="form-error" id="cSubjectError">Please enter a subject.</span>
+      </div>
+      <div class="form-group">
+        <label for="cMessage">Message</label>
+        <textarea id="cMessage" name="message" required></textarea>
+        <span class="form-error" id="cMessageError">Please enter a message.</span>
+      </div>
+      <button type="submit" class="subscribe-btn" style="padding:14px 32px">Send Message</button>
+      <div class="form-success" id="contactSuccess">Thank you. Your message has been received. We will get back to you soon.</div>
+    </form>
+    <div class="contact-info">
+      <p style="font-size:15px">For direct inquiries, email us at <a href="mailto:${XELIO.contactEmail}">${XELIO.contactEmail}</a></p>
+    </div>
+  </div>`;
+}
+
+function renderPrivacy() {
+  return `<div class="page-content fade-in">
+    <h1>Privacy Policy</h1>
+    <p style="color:var(--text-secondary);font-style:italic">This is a template privacy policy. It should be reviewed by a legal professional before publication.</p>
+    <p>Last updated: August 25, 2026</p>
+    <p>Xelio respects your privacy. This policy explains what information we collect, how we use it, and the choices you have.</p>
+    <h2>Information We Collect</h2>
+    <p>We collect information you provide directly — such as your email address when you subscribe to our newsletter. We also collect anonymous usage data through analytics tools, including which pages are visited and general geographic regions.</p>
+    <h2>Cookies</h2>
+    <p>We use cookies to remember your preferences (such as dark mode), measure how our site is used, and improve your experience. You can control cookies through your browser settings and our cookie consent notice.</p>
+    <h2>Analytics</h2>
+    <p>We use analytics tools to understand how visitors use our site. This data is aggregated and anonymous. We use it to improve content and user experience, not to identify individuals.</p>
+    <h2>Advertising</h2>
+    <p>If we display advertising in the future, third-party vendors may use cookies to serve relevant ads. We do not share your personal information with advertisers.</p>
+    <h2>Third-Party Services</h2>
+    <p>We use third-party services for email delivery, analytics, and hosting. These services have their own privacy policies, and we encourage you to review them.</p>
+    <h2>Newsletter</h2>
+    <p>When you subscribe to our newsletter, we use your email address to send you our content. You can unsubscribe at any time using the link in every email. We do not share your email with third parties.</p>
+    <h2>Your Rights</h2>
+    <ul>
+      <li>You can request access to the personal information we hold about you.</li>
+      <li>You can request that we correct or delete your personal information.</li>
+      <li>You can unsubscribe from our newsletter at any time.</li>
+      <li>You can disable cookies in your browser settings.</li>
+    </ul>
+    <h2>Contact</h2>
+    <p>If you have questions about this privacy policy or how your data is handled, contact us at <a href="mailto:${XELIO.contactEmail}" style="color:var(--accent)">${XELIO.contactEmail}</a>.</p>
+  </div>`;
+}
+
+function renderTerms() {
+  return `<div class="page-content fade-in">
+    <h1>Terms of Use</h1>
+    <p style="color:var(--text-secondary);font-style:italic">This is a template terms of use. It should be reviewed by a legal professional before publication.</p>
+    <p>Last updated: August 25, 2026</p>
+    <p>By accessing and using Xelio, you agree to these terms. If you do not agree, please do not use our site.</p>
+    <h2>Website Usage</h2>
+    <p>You may use our site for personal, non-commercial purposes. You may not use our content for commercial purposes without explicit permission. You agree not to disrupt the site, attempt to gain unauthorized access, or use automated tools to scrape content.</p>
+    <h2>Content Ownership</h2>
+    <p>All content on Xelio — including articles, images, design, and code — is owned by Xelio unless otherwise noted. You may share links to our content freely. You may quote brief excerpts with attribution. You may not republish full articles without permission.</p>
+    <h2>External Links</h2>
+    <p>Our site may link to external websites. We are not responsible for the content, privacy policies, or practices of third-party sites. Visiting external links is at your own risk.</p>
+    <h2>Disclaimer</h2>
+    <p>Our content is provided for informational purposes only. We strive for accuracy but make no warranties about the completeness or reliability of our content. Technology advice is general in nature — consult a professional for specific guidance.</p>
+    <h2>User Responsibilities</h2>
+    <ul>
+      <li>Do not submit false information through our contact or newsletter forms.</li>
+      <li>Do not attempt to disrupt or compromise our site.</li>
+      <li>Respect intellectual property rights.</li>
+      <li>Provide accurate information when contacting us.</li>
+    </ul>
+    <h2>Changes to Terms</h2>
+    <p>We may update these terms at any time. Significant changes will be noted on our site. Continued use of Xelio after changes constitutes acceptance of the updated terms.</p>
+    <h2>Contact</h2>
+    <p>Questions about these terms? Contact us at <a href="mailto:${XELIO.contactEmail}" style="color:var(--accent)">${XELIO.contactEmail}</a>.</p>
+  </div>`;
+}
+
+function renderEditorial() {
+  return `<div class="page-content fade-in">
+    <h1>Editorial Policy</h1>
+    <p>Xelio is committed to honest, accurate, and independent technology journalism. This policy explains how we work and the standards we hold ourselves to.</p>
+    <h2>Accuracy</h2>
+    <p>We verify information before publishing. When we make errors, we correct them promptly and note the correction. We do not publish rumors as fact.</p>
+    <h2>Corrections</h2>
+    <p>If you find an error in our content, contact us and we will investigate immediately. Confirmed errors are corrected with a dated note explaining what changed.</p>
+    <h2>Sources</h2>
+    <p>We cite sources whenever possible. When we rely on anonymous sources, we explain why. We do not pay for information.</p>
+    <h2>Independence</h2>
+    <p>Editorial decisions are made independently of our business operations. Advertisers and sponsors have no influence over what we cover or how we cover it.</p>
+    <h2>Sponsored Content</h2>
+    <p>If we publish sponsored content, it is clearly labeled. Sponsored content is created separately from editorial content and does not influence our editorial coverage.</p>
+    <h2>AI-Generated Content Disclosure</h2>
+    <p>We may use AI tools to assist with research, drafting, or editing. All AI-assisted content is reviewed and edited by a human editor before publication. We do not publish fully AI-generated articles without human oversight.</p>
+    <h2>Reviews</h2>
+    <p>Product reviews are based on hands-on testing. We do not accept payment for positive reviews. Review units are returned or purchased — we do not keep free products in exchange for favorable coverage.</p>
+    <h2>Affiliate Links</h2>
+    <p>Some links on Xelio may be affiliate links, meaning we earn a commission if you make a purchase. This does not affect our editorial coverage or the products we recommend. Affiliate relationships are disclosed.</p>
+    <h2>Conflicts of Interest</h2>
+    <p>Our writers disclose any financial or personal relationships that could affect their coverage. Writers do not cover companies in which they hold a financial interest.</p>
+    <p>Questions about our editorial standards? <a href="#contact" onclick="navigate('contact')" style="color:var(--accent)">Contact us</a>.</p>
+  </div>`;
+}
+
+function render404() {
+  return `<div class="not-found fade-in">
+    <div class="not-found-art"><span>404</span></div>
+    <h1>Looks like this page went offline.</h1>
+    <p>The page you are looking for does not exist or has been moved. Let us get you back to something worth reading.</p>
+    <button class="subscribe-btn" onclick="navigate('home')" style="padding:14px 32px">Back to Xelio</button>
+  </div>`;
+}
+
+/* ==================== ROUTING ==================== */
+
+function navigate(type, param) {
+  let hash;
+  if (type === 'home') hash = 'home';
+  else if (type === 'article') hash = 'article/' + param;
+  else if (type === 'category') hash = 'category/' + param;
+  else if (type === 'tag') hash = 'tag/' + encodeURIComponent(param);
+  else if (type === 'newsletter') hash = 'newsletter';
+  else hash = type;
+  location.hash = hash;
+}
+
+function router() {
+  const hash = location.hash.slice(1) || 'home';
+  const app = document.getElementById('app');
+  closeMobileMenu();
+  closeSearch();
+
+  if (hash === 'home') {
+    app.innerHTML = renderHome();
+    updateSEO('Xelio — Technology, explained.', 'Independent technology publication covering AI, gadgets, software, and the innovations shaping the future.');
+    setActiveNav('home');
+  } else if (hash.startsWith('article/')) {
+    const slug = hash.slice('article/'.length);
+    const article = getArticle(slug);
+    if (article) {
+      app.innerHTML = renderArticlePage(article);
+      updateSEO(article.title + ' — Xelio', article.excerpt, article.image);
+      injectArticleStructuredData(article);
+      setActiveNav('');
+    } else {
+      app.innerHTML = render404();
+      updateSEO('Page not found — Xelio', 'The page you are looking for does not exist.');
+    }
+  } else if (hash.startsWith('category/')) {
+    const cat = decodeURIComponent(hash.slice('category/'.length));
+    if (XELIO.categories.includes(cat)) {
+      app.innerHTML = renderCategory(cat);
+      updateSEO(cat + ' — Xelio', 'Read the latest ' + cat + ' articles on Xelio.');
+      setActiveNav(cat);
+    } else {
+      app.innerHTML = render404();
+    }
+  } else if (hash.startsWith('tag/')) {
+    const tag = decodeURIComponent(hash.slice('tag/'.length));
+    app.innerHTML = renderTag(tag);
+    updateSEO('Tag: ' + tag + ' — Xelio', 'Articles tagged with ' + tag + ' on Xelio.');
+    setActiveNav('');
+  } else if (hash === 'about') {
+    app.innerHTML = renderAbout();
+    updateSEO('About Xelio', 'Xelio is an independent technology publication focused on explaining the ideas, products, and innovations shaping the future.');
+    setActiveNav('');
+  } else if (hash === 'contact') {
+    app.innerHTML = renderContact();
+    updateSEO('Contact Xelio', 'Get in touch with the Xelio team.');
+    setActiveNav('');
+  } else if (hash === 'privacy') {
+    app.innerHTML = renderPrivacy();
+    updateSEO('Privacy Policy — Xelio', 'How Xelio collects, uses, and protects your information.');
+    setActiveNav('');
+  } else if (hash === 'terms') {
+    app.innerHTML = renderTerms();
+    updateSEO('Terms of Use — Xelio', 'The terms and conditions for using Xelio.');
+    setActiveNav('');
+  } else if (hash === 'editorial') {
+    app.innerHTML = renderEditorial();
+    updateSEO('Editorial Policy — Xelio', 'How Xelio maintains honest, accurate, and independent journalism.');
+    setActiveNav('');
+  } else if (hash === 'newsletter') {
+    app.innerHTML = renderNewsletter();
+    updateSEO('Newsletter — Xelio', 'Stay ahead of what is next in technology.');
+    setActiveNav('');
+  } else {
+    app.innerHTML = render404();
+    updateSEO('Page not found — Xelio', 'The page you are looking for does not exist.');
+  }
+
+  window.scrollTo(0, 0);
+  updateReadingProgress();
+  removeArticleStructuredData();
+}
+
+window.addEventListener('hashchange', router);
+window.addEventListener('popstate', router);
+
+/* ==================== SEO ==================== */
+
+function updateSEO(title, description, image) {
+  document.title = title;
+  document.querySelector('meta[name="description"]').setAttribute('content', description);
+  document.querySelector('meta[property="og:title"]').setAttribute('content', title);
+  document.querySelector('meta[property="og:description"]').setAttribute('content', description);
+  document.querySelector('meta[name="twitter:title"]').setAttribute('content', title);
+  document.querySelector('meta[name="twitter:description"]').setAttribute('content', description);
+  if (image) {
+    document.querySelector('meta[property="og:image"]').setAttribute('content', image);
+    document.querySelector('meta[name="twitter:image"]').setAttribute('content', image);
+  }
+}
+
+function injectArticleStructuredData(article) {
+  removeArticleStructuredData();
+  const author = AUTHORS[article.author] || {};
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.id = 'articleJsonLd';
+  script.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": article.title,
+    "description": article.excerpt,
+    "image": article.image,
+    "author": { "@type": "Person", "name": article.author },
+    "datePublished": article.date,
+    "dateModified": article.updated || article.date,
+    "publisher": { "@type": "Organization", "name": "Xelio" }
+  });
+  document.head.appendChild(script);
+}
+
+function removeArticleStructuredData() {
+  const existing = document.getElementById('articleJsonLd');
+  if (existing) existing.remove();
+}
+
+/* ==================== NAVIGATION ACTIVE STATE ==================== */
+
+function setActiveNav(route) {
+  document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+  if (route === 'home') {
+    const homeLink = document.querySelector('.nav a[data-route="home"]');
+    if (homeLink) homeLink.classList.add('active');
+  }
+}
+
+/* ==================== SEARCH ==================== */
+
+function openSearch() {
+  document.getElementById('searchOverlay').classList.add('open');
+  setTimeout(() => document.getElementById('searchInput').focus(), 100);
+}
+
+function closeSearch() {
+  document.getElementById('searchOverlay').classList.remove('open');
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchResults').innerHTML = '';
+}
+
+function performSearch(query) {
+  const results = document.getElementById('searchResults');
+  if (!query.trim()) { results.innerHTML = ''; return; }
+  const q = query.toLowerCase();
+  const matches = ARTICLES.filter(a =>
+    a.title.toLowerCase().includes(q) ||
+    a.excerpt.toLowerCase().includes(q) ||
+    a.category.toLowerCase().includes(q) ||
+    a.content.toLowerCase().includes(q) ||
+    a.tags.some(t => t.toLowerCase().includes(q))
+  );
+  if (matches.length === 0) {
+    results.innerHTML = '<div class="search-no-results">No results found for "' + escapeHtml(query) + '"</div>';
+    return;
+  }
+  results.innerHTML = matches.map(a => `<div class="search-result-item" onclick="navigate('article','${a.slug}');closeSearch()">
+    <img src="${a.image}" alt="${escapeHtml(a.title)}" loading="lazy">
+    <div class="search-result-info"><h4>${a.title}</h4><span>${a.category} · ${a.date} · ${a.readTime}</span></div>
+  </div>`).join('');
+}
+
+document.addEventListener('input', function(e) {
+  if (e.target.id === 'searchInput') performSearch(e.target.value);
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeSearch(); closeMobileMenu(); }
+  if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+    e.preventDefault(); openSearch();
+  }
+});
+
+/* ==================== DARK MODE ==================== */
+
+function toggleDarkMode() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('xelio-theme', next);
+  document.getElementById('moonIcon').style.display = next === 'dark' ? 'none' : 'block';
+  document.getElementById('sunIcon').style.display = next === 'dark' ? 'block' : 'none';
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) metaTheme.setAttribute('content', next === 'dark' ? '#0d0d0f' : '#635BFF');
+}
+
+function initDarkMode() {
+  const saved = localStorage.getItem('xelio-theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', theme);
+  document.getElementById('moonIcon').style.display = theme === 'dark' ? 'none' : 'block';
+  document.getElementById('sunIcon').style.display = theme === 'dark' ? 'block' : 'none';
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#0d0d0f' : '#635BFF');
+}
+
+/* ==================== MOBILE MENU ==================== */
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('overlay');
+  const toggle = document.getElementById('menuToggle');
+  const isOpen = menu.classList.contains('open');
+  menu.classList.toggle('open');
+  overlay.classList.toggle('show');
+  toggle.setAttribute('aria-expanded', !isOpen);
+}
+
+function closeMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('overlay');
+  const toggle = document.getElementById('menuToggle');
+  if (menu.classList.contains('open')) {
+    menu.classList.remove('open');
+    overlay.classList.remove('show');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  }
+}
+
+/* ==================== READING PROGRESS + BACK TO TOP ==================== */
+
+function updateReadingProgress() {
+  const scroll = window.scrollY;
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = height > 0 ? (scroll / height) * 100 : 0;
+  document.getElementById('readingProgress').style.width = progress + '%';
+  const backToTop = document.getElementById('backToTop');
+  if (scroll > 400) backToTop.classList.add('show');
+  else backToTop.classList.remove('show');
+}
+
+window.addEventListener('scroll', updateReadingProgress, { passive: true });
+
+/* ==================== TABLE OF CONTENTS SCROLL ==================== */
+
+function scrollToHeading(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    const offset = 80;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  }
+}
+
+/* ==================== SOCIAL SHARING ==================== */
+
+function share(platform, slug) {
+  const url = location.origin + location.pathname + '#article/' + slug;
+  const article = getArticle(slug);
+  const title = article ? article.title : 'Xelio';
+  const text = article ? article.excerpt : '';
+
+  if (navigator.share && platform === 'native') {
+    navigator.share({ title: title, text: text, url: url }).catch(() => {});
+    return;
+  }
+
+  let shareUrl;
+  switch (platform) {
+    case 'facebook': shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url); break;
+    case 'twitter': shareUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title); break;
+    case 'linkedin': shareUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url); break;
+    case 'whatsapp': shareUrl = 'https://wa.me/?text=' + encodeURIComponent(title + ' ' + url); break;
+    default: return;
+  }
+  window.open(shareUrl, '_blank', 'noopener,noreferrer,width=600,height=500');
+}
+
+function copyLink(slug) {
+  const url = location.origin + location.pathname + '#article/' + slug;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => {
+      const fb = document.getElementById('copyFeedback');
+      if (fb) { fb.classList.add('show'); setTimeout(() => fb.classList.remove('show'), 2000); }
+    });
+  } else {
+    const input = document.createElement('input');
+    input.value = url;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
+    const fb = document.getElementById('copyFeedback');
+    if (fb) { fb.classList.add('show'); setTimeout(() => fb.classList.remove('show'), 2000); }
+  }
+}
+
+/* ==================== NEWSLETTER ==================== */
+
+function handleNewsletter(e) {
+  e.preventDefault();
+  e.target.reset();
+  const success = document.getElementById('newsletterSuccess');
+  if (success) { success.classList.add('show'); setTimeout(() => success.classList.remove('show'), 4000); }
+}
+
+function handleSidebarNewsletter() {
+  const input = document.getElementById('sidebarEmail');
+  if (input && input.value && input.value.includes('@')) {
+    input.value = '';
+    alert("You're on the list. Welcome to Xelio.");
+  }
+}
+
+/* ==================== CONTACT FORM ==================== */
+
+function handleContact(e) {
+  e.preventDefault();
+  let valid = true;
+  const fields = [
+    { id: 'cName', errorId: 'cNameError' },
+    { id: 'cEmail', errorId: 'cEmailError' },
+    { id: 'cSubject', errorId: 'cSubjectError' },
+    { id: 'cMessage', errorId: 'cMessageError' }
+  ];
+  fields.forEach(f => {
+    const input = document.getElementById(f.id);
+    const error = document.getElementById(f.errorId);
+    if (!input.value.trim()) { error.classList.add('show'); valid = false; }
+    else if (f.id === 'cEmail' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) { error.classList.add('show'); valid = false; }
+    else { error.classList.remove('show'); }
+  });
+  if (valid) {
+    e.target.reset();
+    document.getElementById('contactSuccess').classList.add('show');
+    setTimeout(() => document.getElementById('contactSuccess').classList.remove('show'), 5000);
+  }
+}
+
+/* ==================== COOKIE NOTICE ==================== */
+
+function initCookieNotice() {
+  const decision = localStorage.getItem('xelio-cookies');
+  if (!decision) {
+    setTimeout(() => document.getElementById('cookieNotice').classList.add('show'), 1500);
+  }
+}
+
+function handleCookie(action) {
+  localStorage.setItem('xelio-cookies', action);
+  document.getElementById('cookieNotice').classList.remove('show');
+  if (action === 'settings') {
+    alert('Cookie settings: This demo does not implement granular cookie controls. In production, this would open a preferences panel.');
+  }
+}
+
+/* ==================== INIT ==================== */
+
+initDarkMode();
+initCookieNotice();
+router();
+</script>
+</body>
+</html>

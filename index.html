@@ -1,10 +1,9 @@
-html
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XELIO. - Technology, explained.</title>
+  <title>AZEXAI — Global Technology & Artificial Intelligence Authority</title>
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
@@ -12,11 +11,7 @@ html
       theme: {
         extend: {
           colors: {
-            black: '#000000',
-            dark: '#0a0a0a',
-            darker: '#050505',
-            borderGray: '#1a1a1a',
-            brand: { red: '#dc2626', green: '#16a34a', white: '#ffffff' }
+            brand: { red: '#ef4444', green: '#22c55e' }
           }
         }
       }
@@ -24,269 +19,248 @@ html
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #000000; color: #ffffff; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .prose img { max-width: 100%; height: auto; border-radius: 1rem; margin: 1.5rem 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); }
-    .prose a { color: #dc2626; text-decoration: none; transition: color 0.2s; }
-    .prose a:hover { color: #ffffff; text-decoration: underline; }
-    .prose h1, .prose h2, .prose h3, .prose h4 { color: #ffffff; font-weight: 800; }
-    .prose p, .prose li { color: #d1d5db; }
-    .prose strong { color: #ffffff; }
+    .prose img { max-width: 100%; height: auto; border-radius: 1rem; margin: 1.5rem 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+    .prose a { color: #ef4444; text-decoration: none; transition: color 0.2s; }
+    .prose a:hover { text-decoration: underline; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-red-600 selection:text-white transition-colors duration-200">
+<body class="min-h-screen flex flex-col bg-[#f8fafc] dark:bg-[#000000] text-slate-900 dark:text-slate-100 selection:bg-red-500 selection:text-white transition-colors duration-300">
 
   <!-- Header -->
-  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-borderGray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-8">
-        <!-- Professional Title instead of Logo -->
+  <header class="sticky top-0 z-50 bg-white/90 dark:bg-[#000000]/90 backdrop-blur-md border-b border-slate-200 dark:border-neutral-900 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-10">
+        <!-- Professional Site Name -->
         <a href="#" onclick="navigateToHome(event)" class="flex items-center group">
-          <span class="text-2xl font-black tracking-widest text-white uppercase group-hover:text-gray-300 transition-colors">XELIO<span class="text-red-600">.</span></span>
+          <span class="text-3xl font-black tracking-tighter uppercase">AZEX<span class="text-red-500">AI</span><span class="text-red-500 text-4xl leading-none">.</span></span>
         </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm text-gray-400 font-medium tracking-wide">
-          <a href="#" onclick="navigateToHome(event)" class="text-white font-semibold hover:text-red-500 transition">Home</a>
-          <a href="#" onclick="setCategory('AI'); return false;" class="hover:text-white hover:text-red-500 transition">AI</a>
-          <a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-white hover:text-red-500 transition">Tech</a>
-          <a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-white hover:text-red-500 transition">Gadgets</a>
-          <a href="#" onclick="setCategory('Software'); return false;" class="hover:text-white hover:text-red-500 transition">Software</a>
-          <a href="#" onclick="setCategory('Cybersecurity'); return false;" class="hover:text-white hover:text-red-500 transition">Cybersecurity</a>
-          <a href="#" onclick="setCategory('How-To'); return false;" class="hover:text-white hover:text-red-500 transition">How-To</a>
-          <a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-white hover:text-red-500 transition">Reviews</a>
+        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide text-slate-600 dark:text-slate-300">
+          <a href="#" onclick="navigateToHome(event)" class="text-red-500 transition">Home</a>
+          <a href="#" onclick="setCategory('AI'); return false;" class="hover:text-red-500 transition">AI</a>
+          <a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-red-500 transition">Tech</a>
+          <a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-red-500 transition">Gadgets</a>
+          <a href="#" onclick="setCategory('Software'); return false;" class="hover:text-red-500 transition">Software</a>
+          <a href="#" onclick="setCategory('Cybersecurity'); return false;" class="hover:text-red-500 transition">Cybersecurity</a>
+          <a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-red-500 transition">Reviews</a>
         </nav>
       </div>
       
       <div class="flex items-center gap-3">
-        <button onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-dark text-gray-400 hover:text-white hover:border-red-500/50 transition border border-borderGray" title="Toggle Theme">
-          <i class="fa-solid fa-moon dark:hidden"></i>
-          <i class="fa-solid fa-sun hidden dark:inline"></i>
+        <!-- Dark Mode Toggle Button (Default is Light Mode, toggle to Pure Black Dark Mode) -->
+        <button onclick="toggleDarkMode()" class="p-3 rounded-2xl bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-slate-200 hover:border-red-500 transition border border-slate-200 dark:border-neutral-800 shadow-sm" title="Toggle Dark/Light Mode">
+          <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+          <i class="fa-solid fa-sun hidden dark:inline text-lg text-amber-400"></i>
         </button>
-        <button onclick="openSearchModal()" class="p-2.5 rounded-xl bg-dark text-gray-400 hover:text-white hover:border-red-500/50 transition border border-borderGray">
-          <i class="fa-solid fa-magnifying-glass"></i>
+        <button onclick="openSearchModal()" class="p-3 rounded-2xl bg-slate-100 dark:bg-neutral-900 text-slate-700 dark:text-slate-200 hover:border-red-500 transition border border-slate-200 dark:border-neutral-800 shadow-sm">
+          <i class="fa-solid fa-magnifying-glass text-lg"></i>
         </button>
-        <button onclick="openConfigModal()" class="hidden sm:flex items-center gap-2 px-5 py-2 bg-red-600 hover:bg-white hover:text-black text-white text-sm font-bold uppercase tracking-wide rounded-xl transition-all shadow-lg shadow-red-600/20">
+        <button onclick="openConfigModal()" class="hidden sm:flex items-center gap-2 px-6 py-3 bg-red-500 hover:bg-slate-900 dark:hover:bg-white dark:hover:text-slate-900 text-white text-sm font-bold uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-red-500/20">
           <span>Subscribe</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Main View Area -->
-  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full bg-black">
+  <!-- Main Content Area -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
     <div id="app">
       <!-- Dynamic Content Loaded Here -->
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-black border-t border-borderGray mt-20 py-12 text-sm text-gray-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+  <footer class="bg-white dark:bg-[#000000] border-t border-slate-200 dark:border-neutral-900 mt-24 py-16 text-sm text-slate-600 dark:text-slate-400 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
       <div>
-        <!-- Professional Title instead of Logo -->
-        <div class="flex items-center mb-3 group cursor-pointer" onclick="navigateToHome(event)">
-          <span class="text-2xl font-black tracking-widest text-white uppercase group-hover:text-gray-300 transition-colors">XELIO<span class="text-red-600">.</span></span>
+        <div class="flex items-center mb-4 cursor-pointer" onclick="navigateToHome(event)">
+          <span class="text-3xl font-black tracking-tighter uppercase text-slate-900 dark:text-white">AZEX<span class="text-red-500">AI</span><span class="text-red-500 text-4xl leading-none">.</span></span>
         </div>
-        <p class="text-gray-500 text-sm mb-4">Technology, explained.</p>
-        <div class="flex items-center gap-3 text-gray-400">
-          <a href="#" class="w-8 h-8 rounded-full bg-dark flex items-center justify-center hover:text-white hover:border-red-500 transition border border-borderGray"><i class="fa-solid fa-x text-xs"></i></a>
-          <a href="#" class="w-8 h-8 rounded-full bg-dark flex items-center justify-center hover:text-white hover:border-red-500 transition border border-borderGray"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-          <a href="#" class="w-8 h-8 rounded-full bg-dark flex items-center justify-center hover:text-white hover:border-red-500 transition border border-borderGray"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
-          <a href="#" class="w-8 h-8 rounded-full bg-dark flex items-center justify-center hover:text-white hover:border-red-500 transition border border-borderGray"><i class="fa-brands fa-instagram text-xs"></i></a>
-          <a href="#" class="w-8 h-8 rounded-full bg-dark flex items-center justify-center hover:text-white hover:border-red-500 transition border border-borderGray"><i class="fa-brands fa-youtube text-xs"></i></a>
+        <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">Global authority on artificial intelligence, frontier technology, and digital transformation.</p>
+        <div class="flex items-center gap-3">
+          <a href="#" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition"><i class="fa-solid fa-x text-xs"></i></a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition"><i class="fa-brands fa-youtube text-xs"></i></a>
         </div>
       </div>
       
       <div>
-        <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Company</h4>
-        <ul class="space-y-2 text-sm font-medium">
-          <li><a href="#" class="hover:text-red-500 transition">About</a></li>
-          <li><a href="#" class="hover:text-red-500 transition">Contact</a></li>
+        <h4 class="text-slate-900 dark:text-white font-bold mb-5 text-xs uppercase tracking-widest">Company</h4>
+        <ul class="space-y-3 font-medium">
+          <li><a href="#" class="hover:text-red-500 transition">About Us</a></li>
+          <li><a href="#" class="hover:text-red-500 transition">Global Editorial Board</a></li>
           <li><a href="#" class="hover:text-red-500 transition">Privacy Policy</a></li>
-          <li><a href="#" class="hover:text-red-500 transition">Terms</a></li>
-          <li><a href="#" class="hover:text-red-500 transition">Editorial Policy</a></li>
-          <li><a href="#" class="hover:text-red-500 transition">Advertise</a></li>
+          <li><a href="#" class="hover:text-red-500 transition">Terms of Service</a></li>
+          <li><a href="#" class="hover:text-red-500 transition">Advertise With Us</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Categories</h4>
-        <ul class="space-y-2 text-sm font-medium">
-          <li><a href="#" onclick="setCategory('AI'); return false;" class="hover:text-red-500 transition">AI</a></li>
-          <li><a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-red-500 transition">Tech</a></li>
-          <li><a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-red-500 transition">Gadgets</a></li>
-          <li><a href="#" onclick="setCategory('Software'); return false;" class="hover:text-red-500 transition">Software</a></li>
+        <h4 class="text-slate-900 dark:text-white font-bold mb-5 text-xs uppercase tracking-widest">Categories</h4>
+        <ul class="space-y-3 font-medium">
+          <li><a href="#" onclick="setCategory('AI'); return false;" class="hover:text-red-500 transition">Artificial Intelligence</a></li>
+          <li><a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-red-500 transition">Frontier Tech</a></li>
+          <li><a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-red-500 transition">Smart Gadgets</a></li>
+          <li><a href="#" onclick="setCategory('Software'); return false;" class="hover:text-red-500 transition">Software Architecture</a></li>
           <li><a href="#" onclick="setCategory('Cybersecurity'); return false;" class="hover:text-red-500 transition">Cybersecurity</a></li>
-          <li><a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-red-500 transition">Reviews</a></li>
-          <li><a href="#" onclick="setCategory('How-To'); return false;" class="hover:text-red-500 transition">How-To</a></li>
+          <li><a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-red-500 transition">Expert Reviews</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Connect</h4>
-        <ul class="space-y-2 text-sm font-medium">
-          <li><a href="#" class="hover:text-red-500 transition">Newsletter</a></li>
-          <li><a href="#" onclick="openSearchModal(); return false;" class="hover:text-red-500 transition">Search</a></li>
-          <li><a href="#" onclick="openConfigModal(); return false;" class="hover:text-red-500 transition">Send a Tip</a></li>
+        <h4 class="text-slate-900 dark:text-white font-bold mb-5 text-xs uppercase tracking-widest">Connect</h4>
+        <ul class="space-y-3 font-medium">
+          <li><a href="#" class="hover:text-red-500 transition">Global Newsletter</a></li>
+          <li><a href="#" onclick="openSearchModal(); return false;" class="hover:text-red-500 transition">Advanced Search</a></li>
+          <li><a href="#" onclick="openConfigModal(); return false;" class="hover:text-red-500 transition">Blogger API Sync</a></li>
         </ul>
       </div>
     </div>
   </footer>
 
-  <!-- Cookie Notice Banner -->
-  <div id="cookieNotice" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:max-w-sm bg-dark rounded-2xl shadow-2xl border border-borderGray p-4 z-50 hidden text-sm">
-    <div class="flex items-start gap-3">
-      <div class="p-2 bg-green-900/30 text-green-400 rounded-xl mt-0.5 border border-green-800/30">
-        <i class="fa-solid fa-shield-halved"></i>
+  <!-- Cookie Notice -->
+  <div id="cookieNotice" class="fixed bottom-6 right-6 max-w-sm bg-white dark:bg-neutral-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-neutral-800 p-6 z-50 hidden text-sm">
+    <div class="flex items-start gap-4">
+      <div class="p-3 bg-green-500/10 text-green-500 rounded-2xl mt-0.5 border border-green-500/20">
+        <i class="fa-solid fa-shield-halved text-lg"></i>
       </div>
       <div class="flex-1">
-        <p class="text-white font-bold mb-1">Cookie Notice</p>
-        <p class="text-gray-400 mb-3 text-xs">We use cookies to improve your experience and understand how Xelio is used.</p>
+        <p class="text-slate-900 dark:text-white font-bold mb-1">Cookie Policy</p>
+        <p class="text-slate-500 dark:text-slate-400 mb-4 text-xs leading-relaxed">We use essential cookies to analyze global traffic and secure your browsing experience on Azexai.</p>
         <div class="flex items-center gap-2">
-          <button onclick="acceptCookies()" class="px-3 py-1.5 bg-white text-black font-bold rounded-lg text-xs hover:bg-gray-200 transition">Accept</button>
-          <button onclick="acceptCookies()" class="px-3 py-1.5 bg-darker text-gray-300 font-bold rounded-lg text-xs hover:text-white border border-borderGray transition">Decline</button>
-          <button onclick="openConfigModal()" class="px-3 py-1.5 text-gray-400 font-bold rounded-lg text-xs hover:text-white transition">Settings</button>
+          <button onclick="acceptCookies()" class="px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-xl text-xs hover:bg-red-500 dark:hover:bg-red-500 dark:hover:text-white transition">Accept</button>
+          <button onclick="acceptCookies()" class="px-4 py-2 bg-slate-100 dark:bg-neutral-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl text-xs hover:text-red-500 transition">Decline</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Config / Subscribe Modal -->
-  <div id="configModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-dark rounded-3xl max-w-md w-full p-8 shadow-2xl border border-borderGray text-gray-200">
+  <!-- Blogger API Config Modal -->
+  <div id="configModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white dark:bg-neutral-900 rounded-3xl max-w-md w-full p-8 shadow-2xl border border-slate-200 dark:border-neutral-800">
       <div class="flex items-center justify-between mb-4">
-        <h3 class="text-xl font-black text-white uppercase tracking-wide">Blogger CMS Setup</h3>
-        <button onclick="closeConfigModal()" class="text-gray-400 hover:text-red-500 transition"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <h3 class="text-xl font-black uppercase tracking-tight text-slate-900 dark:text-white">Blogger CMS Setup</h3>
+        <button onclick="closeConfigModal()" class="text-slate-400 hover:text-red-500 transition"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
-      <p class="text-sm text-gray-400 mb-6">Enter your Google Blogger API Key and Blog ID to sync live articles instantly.</p>
+      <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Enter your Google Blogger credentials to synchronize live articles instantly into Azexai.</p>
       <div class="space-y-5">
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Blog ID</label>
-          <input type="text" id="modalBlogId" class="w-full px-4 py-3 rounded-xl bg-black border border-borderGray text-sm focus:outline-none focus:border-red-500 text-white transition-colors">
+          <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-500 dark:text-slate-400">Blog ID</label>
+          <input type="text" id="modalBlogId" class="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 text-sm focus:outline-none focus:border-red-500 text-slate-900 dark:text-white transition-colors">
         </div>
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">API Key</label>
-          <input type="password" id="modalApiKey" placeholder="AIzaSy..." class="w-full px-4 py-3 rounded-xl bg-black border border-borderGray text-sm focus:outline-none focus:border-red-500 text-white transition-colors">
+          <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-500 dark:text-slate-400">API Key</label>
+          <input type="password" id="modalApiKey" placeholder="AIzaSy..." class="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 text-sm focus:outline-none focus:border-red-500 text-slate-900 dark:text-white transition-colors">
         </div>
-        <button onclick="saveConfig()" class="w-full py-4 mt-2 bg-red-600 hover:bg-white hover:text-black text-white font-black uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-red-600/30 text-sm">Save & Sync Articles</button>
+        <button onclick="saveConfig()" class="w-full py-4 mt-2 bg-red-500 hover:bg-slate-900 dark:hover:bg-white dark:hover:text-slate-900 text-white font-black uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-red-500/20 text-sm">Save & Sync Articles</button>
       </div>
     </div>
   </div>
 
   <!-- Search Modal -->
-  <div id="searchModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-24 hidden">
-    <div class="bg-dark rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-borderGray text-gray-200">
+  <div id="searchModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-28 hidden">
+    <div class="bg-white dark:bg-neutral-900 rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 dark:border-neutral-800">
       <div class="flex items-center justify-between mb-4">
-        <h3 class="text-lg font-black text-white uppercase tracking-wider">Search Articles</h3>
-        <button onclick="closeSearchModal()" class="text-gray-400 hover:text-red-500 transition"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <h3 class="text-lg font-black uppercase tracking-wider text-slate-900 dark:text-white">Search Global Articles</h3>
+        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-red-500 transition"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
       <div class="relative mb-4">
-        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
-        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search for an article title or topic..." class="w-full pl-11 pr-4 py-4 bg-black border border-borderGray rounded-2xl text-sm focus:outline-none focus:border-red-500 text-white transition-colors">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search AI breakthroughs, neural networks, quantum computing..." class="w-full pl-11 pr-4 py-4 bg-slate-50 dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 rounded-2xl text-sm focus:outline-none focus:border-red-500 text-slate-900 dark:text-white transition-colors">
       </div>
       <div id="modalSearchResults" class="max-h-72 overflow-y-auto space-y-2 no-scrollbar">
-        <!-- Live search results -->
+        <!-- Search items injected here -->
       </div>
     </div>
   </div>
 
-  <!-- Core JavaScript & Blogger Sync -->
+  <!-- JavaScript Application Engine -->
   <script>
-    /* ==================== BLOGGER CONFIG ==================== */
-    // Hardcoded config directly as requested to ensure it fetches all live posts without failing.
     const BLOGGER_CONFIG = {
       blogId: '4263033619836681299',
       apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
       maxResults: 100
     };
 
-    let XELIO = {
-      categories: ['All', 'AI', 'Tech', 'Gadgets', 'Software', 'Cybersecurity', 'Internet', 'Mobile', 'Gaming', 'Reviews', 'How-To'],
-      activeCategory: 'All',
-      searchQuery: ''
+    let AZEXAI = {
+      categories: ['All', 'AI', 'Tech', 'Gadgets', 'Software', 'Cybersecurity', 'Internet', 'Mobile', 'Gaming', 'Reviews'],
+      activeCategory: 'All'
     };
 
     let ARTICLES = [
       {
         id: 1,
-        slug: 'how-ai-is-quietly-changing',
-        title: 'How AI Is Quietly Changing the Way We Use Technology',
+        slug: 'generative-ai-autonomous-systems',
+        title: 'Generative AI and the Dawn of Autonomous Scientific Discovery',
         category: 'AI',
-        author: 'Maya Chen',
-        date: 'August 25, 2026',
-        updated: 'August 25, 2026',
-        readTime: '7 min read',
-        image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        excerpt: 'The most meaningful AI shifts are not the flashy demos. They are the small, invisible improvements that change how we interact with every device.',
-        tags: ['AI', 'Tech'],
-        content: '<h2>The Silent Revolution</h2><p>The most meaningful AI shifts are not the flashy demos. They are the small, invisible improvements that change how we interact with every device. As ambient intelligence becomes second nature, user interfaces adapt seamlessly to human intent.</p><p>We are entering an era where AI handles the mundane invisibly. From battery optimization to predictive text that truly understands context, the technology fades into the background, leaving only utility.</p>',
-        bloggerUrl: '#'
+        author: 'Dr. Elena Vance',
+        date: 'August 26, 2026',
+        readTime: '8 min read',
+        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        excerpt: 'How foundational large language models combined with reinforcement learning are independently hypothesizing and validating breakthroughs in material science.',
+        tags: ['AI', 'Research'],
+        content: '<h2>The Paradigm Shift in Scientific Computation</h2><p>Generative AI is no longer confined to generating prose or synthetic imagery. Today, multi-modal autonomous frameworks are actively driving molecular synthesis and quantum particle simulations.</p><p>By processing petabytes of historical experimental data in fractions of a second, these neural models eliminate empirical bottlenecks that previously required decades of human trial and error.</p>'
       },
       {
         id: 2,
-        slug: 'openai-next-generation-ai',
-        title: "OpenAI's Next Generation of AI Is Changing Software Development",
-        category: 'AI',
-        author: 'Maya Chen',
-        date: 'August 23, 2026',
-        updated: 'August 23, 2026',
-        readTime: '8 min read',
-        image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        excerpt: 'A new wave of AI coding tools is not just autocompleting code — it is architecting full-stack applications in seconds.',
-        tags: ['AI', 'Software'],
-        content: '<h2>Beyond Autocomplete</h2><p>A new wave of AI coding tools is not just autocompleting code — it is architecting full-stack applications in seconds. Developers are shifting from writing syntax to directing autonomous agents.</p><p>This shift requires a new skill set: prompt engineering and architectural validation. The role of the developer is evolving into a systems thinker rather than a pure syntax writer.</p>',
-        bloggerUrl: '#'
+        slug: 'neuromorphic-computing-architectures',
+        title: 'Neuromorphic Computing: Building Chips That Think Like the Human Brain',
+        category: 'Tech',
+        author: 'Marcus Thorne',
+        date: 'August 24, 2026',
+        readTime: '6 min read',
+        image: 'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        excerpt: 'Silicon-based spiking neural networks promise ultra-low power consumption and real-time edge processing for next-gen robotics.',
+        tags: ['Tech', 'Hardware'],
+        content: '<h2>Beyond Von Neumann Bottlenecks</h2><p>Traditional computing architectures separate processing and memory, creating massive energy inefficiencies when running deep learning workloads. Neuromorphic chips mimic biological synapses directly on silicon.</p><p>This bio-inspired design reduces power demands by several orders of magnitude, paving the way for autonomous drones and prosthetic neural interfaces operating entirely on micro-watt power budgets.</p>'
       },
       {
         id: 3,
-        slug: 'why-on-device-ai-could-be',
-        title: 'Why On-Device AI Could Be the Next Big Computing Shift',
-        category: 'Tech',
-        author: 'Alex Morgan',
-        date: 'August 21, 2026',
-        updated: 'August 21, 2026',
-        readTime: '6 min read',
-        image: 'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        excerpt: 'Running AI directly on your phone or laptop means faster responses, enhanced privacy, and offline intelligence anywhere.',
-        tags: ['Tech', 'Gadgets'],
-        content: '<h2>Privacy First Intelligence</h2><p>Running AI directly on your phone or laptop means faster responses, enhanced privacy, and offline intelligence anywhere. Hardware neural engines are now standard in modern silicon chips.</p><p>This local execution eliminates latency and ensures personal data never leaves the device, bridging the gap between powerful cloud AI and secure local computing.</p>',
-        bloggerUrl: '#'
+        slug: 'quantum-machine-learning-horizons',
+        title: 'Quantum Machine Learning: Unlocking Exponential Speedups in Cryptography',
+        category: 'Cybersecurity',
+        author: 'Siddharth Mehta',
+        date: 'August 22, 2026',
+        readTime: '9 min read',
+        image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        excerpt: 'As quantum processors reach higher qubit stability, cybersecurity frameworks must urgently transition to post-quantum encryption standards.',
+        tags: ['Cybersecurity', 'Quantum'],
+        content: '<h2>The Post-Quantum Imperative</h2><p>The intersection of quantum superposition and machine learning algorithms introduces unprecedented optimization capabilities while simultaneously threatening classical asymmetric encryption protocols.</p><p>Enterprise security architects are now racing to implement lattice-based cryptography to safeguard sensitive global infrastructure against impending decryption threats.</p>'
       },
       {
         id: 4,
-        slug: 'future-of-personal-computers',
-        title: 'The Future of Personal Computers Is Becoming More Intelligent',
-        category: 'Tech',
-        author: 'Alex Morgan',
-        date: 'August 19, 2026',
-        updated: 'August 19, 2026',
+        slug: 'edge-ai-smartphones-privacy',
+        title: 'On-Device AI Engines: Redefining Mobile Privacy and Local Intelligence',
+        category: 'Gadgets',
+        author: 'Chloe Dupont',
+        date: 'August 20, 2026',
         readTime: '5 min read',
-        image: 'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        excerpt: 'The PC is not dead. It is getting smarter, adapting to how you work, and anticipating your next move before you click.',
-        tags: ['Tech', 'Software'],
-        content: '<h2>The Contextual PC</h2><p>The PC is not dead. It is getting smarter, adapting to how you work, and anticipating your next move before you click. Operating systems are evolving into contextual assistant ecosystems.</p><p>Future operating systems won\'t just launch apps; they will assemble workflows dynamically based on your daily habits and current tasks.</p>',
-        bloggerUrl: '#'
+        image: 'https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        excerpt: 'Running localized billion-parameter models directly on smartphone NPUs ensures zero cloud data leakage and instantaneous offline response.',
+        tags: ['Gadgets', 'Mobile'],
+        content: '<h2>Zero-Cloud Personal Assistants</h2><p>The era of relaying every voice query and photo adjustment to centralized server farms is rapidly closing. Modern mobile processors embed dedicated neural processing units capable of executing complex context synthesis locally.</p><p>This local execution guarantees complete data sovereignty for users, ensuring sensitive communications and biometrics never leave the physical device.</p>'
       },
       {
         id: 5,
-        slug: 'smartphone-ai-cameras',
-        title: 'Smartphone AI Cameras: Real Innovation or Marketing Hype?',
-        category: 'Gadgets',
-        author: 'Maya Chen',
-        date: 'August 17, 2026',
-        updated: 'August 17, 2026',
-        readTime: '6 min read',
-        image: 'https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        excerpt: 'Computational photography has completely redefined mobile sensors. Let us analyze what modern neural pipelines truly achieve.',
-        tags: ['Gadgets', 'Reviews'],
-        content: '<h2>Seeing Beyond Optics</h2><p>Computational photography has completely redefined mobile sensors. Let us analyze what modern neural pipelines truly achieve beyond traditional optical limits.</p><p>By blending multiple exposures and using machine learning for semantic segmentation, smartphones can now rival DSLRs in challenging lighting conditions.</p>',
-        bloggerUrl: '#'
+        slug: 'autonomous-software-engineering-agents',
+        title: 'Autonomous Software Engineering: When AI Writes and Deploys Full-Stack Code',
+        category: 'Software',
+        author: 'Dr. Elena Vance',
+        date: 'August 18, 2026',
+        readTime: '7 min read',
+        image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        excerpt: 'Software development is shifting from manual syntax authoring to high-level architectural specification and autonomous agent oversight.',
+        tags: ['Software', 'AI'],
+        content: '<h2>The Rise of System Architects</h2><p>Autonomous coding agents can now ingest product requirements, design robust database schemas, write comprehensive test suites, and deploy containerized microservices autonomously.</p><p>Human engineers are transitioning into high-level system supervisors, focusing on ethical compliance, security audits, and visionary product design rather than repetitive boilerplate coding.</p>'
       }
     ];
 
     let currentView = { type: 'home', slug: null };
 
-    /* ==================== HELPER FUNCTIONS ==================== */
+    /* ==================== HELPER UTILS ==================== */
     function stripHtml(html) {
       const div = document.createElement('div');
       div.innerHTML = html || '';
@@ -297,8 +271,7 @@ html
       const div = document.createElement('div');
       div.innerHTML = html || '';
       const img = div.querySelector('img');
-      if (!img) return '';
-      return img.src || img.getAttribute('data-src') || '';
+      return img ? (img.src || img.getAttribute('data-src') || '') : '';
     }
 
     function estimateReadTime(html) {
@@ -309,21 +282,17 @@ html
 
     function bloggerSlug(post) {
       const match = (post.url || '').match(/[^/]+$/);
-      if (match) {
-        return decodeURIComponent(match[0]).replace(/\.html$/, '');
-      }
-      return String(post.id);
+      return match ? decodeURIComponent(match[0]).replace(/\.html$/, '') : String(post.id);
     }
 
     function normalizeBloggerPost(post, index) {
       const labels = Array.isArray(post.labels) ? post.labels : [];
-      const category = labels[0] || 'Tech';
+      const category = labels[0] || 'AI';
       const body = post.content || '';
       const plainText = stripHtml(body);
-      const image = getFirstImage(body) || 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200';
-      const author = post.author?.displayName || 'Maya Chen';
+      const image = getFirstImage(body) || 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200';
+      const author = post.author?.displayName || 'Azexai Global Research';
       const date = post.published ? new Date(post.published).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'August 26, 2026';
-      const updated = post.updated ? new Date(post.updated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : date;
 
       return {
         id: Number(post.id) || index + 1,
@@ -332,69 +301,45 @@ html
         category: category,
         author: author,
         date: date,
-        updated: updated,
         readTime: estimateReadTime(body),
         image: image,
         excerpt: plainText.length > 180 ? plainText.substring(0, 180) + '...' : plainText,
         tags: labels.length ? labels : [category],
-        content: body,
-        bloggerUrl: post.url || ''
+        content: body
       };
     }
 
     async function loadBloggerArticles() {
-      if (!BLOGGER_CONFIG.apiKey || BLOGGER_CONFIG.apiKey === 'YOUR_API_KEY_HERE') {
-        console.log('Using default curated articles.');
-        return false;
-      }
-
+      if (!BLOGGER_CONFIG.apiKey || BLOGGER_CONFIG.apiKey === 'YOUR_API_KEY_HERE') return false;
       try {
-        const url = 'https://www.googleapis.com/blogger/v3/blogs/' +
-          BLOGGER_CONFIG.blogId +
-          '/posts' +
-          '?key=' +
-          encodeURIComponent(BLOGGER_CONFIG.apiKey) +
-          '&fetchBodies=true' +
-          '&fetchImages=true' +
-          '&maxResults=' +
-          BLOGGER_CONFIG.maxResults;
-
+        const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&fetchBodies=true&fetchImages=true&maxResults=${BLOGGER_CONFIG.maxResults}`;
         const response = await fetch(url, { cache: 'no-store' });
-        if (!response.ok) {
-          throw new Error('Blogger API returned HTTP ' + response.status);
-        }
-
+        if (!response.ok) throw new Error('Blogger API HTTP error');
         const data = await response.json();
         if (Array.isArray(data.items) && data.items.length > 0) {
           ARTICLES = data.items.map(normalizeBloggerPost);
-          const bloggerCategories = [...new Set(ARTICLES.map(article => article.category).filter(Boolean))];
-          XELIO.categories = ['All', ...new Set([...bloggerCategories, ...XELIO.categories.filter(c => c !== 'All')])];
-          console.log('Xelio Blogger Sync:', ARTICLES.length, 'articles loaded.');
           return true;
         }
-      } catch (error) {
-        console.error('Xelio Blogger Sync Failed:', error);
+      } catch (err) {
+        console.error('Blogger Sync Notice:', err);
       }
-      return false; // Safely fall back to hardcoded articles if fetching fails
+      return false;
     }
 
-    /* ==================== THEME & COOKIE ==================== */
-    function initDarkMode() {
-      document.documentElement.classList.add('dark');
-    }
-
+    /* ==================== THEME CONTROLLER ==================== */
+    // Default is Light Mode (no 'dark' class on HTML). User can toggle to Dark Mode (pure black).
     function toggleDarkMode() {
       document.documentElement.classList.toggle('dark');
     }
 
     function initCookieNotice() {
-      if (!localStorage.getItem('cookies_accepted')) {
+      if (!localStorage.getItem('azexai_cookies')) {
         document.getElementById('cookieNotice').classList.remove('hidden');
       }
     }
 
     function acceptCookies() {
-      localStorage.setItem('cookies_accepted', 'true');
+      localStorage.setItem('azexai_cookies', 'true');
       document.getElementById('cookieNotice').classList.add('hidden');
     }
 
@@ -423,18 +368,9 @@ html
       const aKey = document.getElementById('modalApiKey').value.trim();
       if (bId) BLOGGER_CONFIG.blogId = bId;
       if (aKey) BLOGGER_CONFIG.apiKey = aKey;
-      
-      closeConfigManager();
-
-      const app = document.getElementById('app');
-      app.innerHTML = '<div style="min-height:50vh;display:grid;place-items:center;color:#9ca3af"><div class="text-center"><i class="fa-solid fa-spinner fa-spin text-4xl text-red-600 mb-4"></i><p class="font-bold text-white tracking-widest uppercase text-sm">Syncing latest articles...</p></div></div>';
-
+      closeConfigModal();
       await loadBloggerArticles();
       router();
-    }
-
-    function closeConfigManager() {
-      document.getElementById('configModal').classList.add('hidden');
     }
 
     function handleModalSearch(e) {
@@ -446,21 +382,21 @@ html
       }
       const matches = ARTICLES.filter(a => a.title.toLowerCase().includes(query) || a.excerpt.toLowerCase().includes(query));
       if (matches.length === 0) {
-        resultsContainer.innerHTML = '<p class="text-xs text-gray-500 font-bold uppercase tracking-wider text-center py-6">No results found.</p>';
+        resultsContainer.innerHTML = '<p class="text-xs text-slate-400 font-bold uppercase tracking-wider text-center py-6">No matching global articles found.</p>';
         return;
       }
       resultsContainer.innerHTML = matches.map(m => `
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}')" class="p-4 bg-black border border-borderGray hover:border-red-500/50 rounded-xl cursor-pointer transition-all flex items-center justify-between group">
+        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}')" class="p-4 bg-slate-50 dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 hover:border-red-500 rounded-2xl cursor-pointer transition-all flex items-center justify-between group">
           <div>
-            <h4 class="text-sm font-bold text-white mb-1 group-hover:text-red-400 transition-colors">${m.title}</h4>
-            <p class="text-xs text-gray-500 line-clamp-1">${m.excerpt}</p>
+            <h4 class="text-sm font-bold text-slate-900 dark:text-white mb-1 group-hover:text-red-500 transition-colors">${m.title}</h4>
+            <p class="text-xs text-slate-500 line-clamp-1">${m.excerpt}</p>
           </div>
-          <i class="fa-solid fa-arrow-right text-red-600 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all text-sm ml-4"></i>
+          <i class="fa-solid fa-arrow-right text-red-500 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all text-sm ml-4"></i>
         </div>
       `).join('');
     }
 
-    /* ==================== ROUTER & VIEWS ==================== */
+    /* ==================== ROUTING ==================== */
     function navigateToHome(e) {
       if (e) e.preventDefault();
       currentView = { type: 'home', slug: null };
@@ -476,7 +412,7 @@ html
     }
 
     function setCategory(cat) {
-      XELIO.activeCategory = cat;
+      AZEXAI.activeCategory = cat;
       currentView = { type: 'home', slug: null };
       window.scrollTo({ top: 0, behavior: 'smooth' });
       router();
@@ -496,106 +432,69 @@ html
       renderHome();
     }
 
+    /* ==================== VIEWS RENDERING ==================== */
     function renderHome() {
       const app = document.getElementById('app');
       
-      const filteredArticles = ARTICLES.filter(article => {
-        if (XELIO.activeCategory === 'All') return true;
-        return article.category.toLowerCase() === XELIO.activeCategory.toLowerCase();
+      const filtered = ARTICLES.filter(a => {
+        if (AZEXAI.activeCategory === 'All') return true;
+        return a.category.toLowerCase() === AZEXAI.activeCategory.toLowerCase();
       });
 
-      const heroArticle = filteredArticles[0] || ARTICLES[0];
-      const featuredArticles = filteredArticles.slice(1, 4);
-      const latestStories = filteredArticles.slice(0, 6);
+      const hero = filtered[0] || ARTICLES[0];
+      const featured = filtered.slice(1, 4);
+      const latest = filtered.slice(0, 6);
 
-      const getCount = (cat) => ARTICLES.filter(a => a.category.toLowerCase() === cat.toLowerCase()).length;
-
-      const categoriesGrid = [
-        { name: 'AI', desc: 'Artificial intelligence, machine learning, and the tools reshaping intelligence.' },
-        { name: 'Tech', desc: 'Explore the latest in Tech.' },
-        { name: 'Gadgets', desc: 'Smartphones, laptops, wearables, and the hardware you use daily.' },
-        { name: 'Software', desc: 'Apps, platforms, development tools, and the code that runs everything.' },
-        { name: 'Cybersecurity', desc: 'Security, privacy, threats, and how to protect yourself online.' },
-        { name: 'Internet', desc: 'The web, connectivity, smart homes, and the networks that connect us.' },
-        { name: 'Mobile', desc: 'Phones, tablets, apps, and the future of portable computing.' },
-        { name: 'Gaming', desc: 'Hardware, software, and the culture of interactive entertainment.' },
-        { name: 'Reviews', desc: 'In-depth reviews of the products worth your attention and money.' },
-        { name: 'How-To', desc: 'Practical guides, tutorials, and tips for getting more from tech.' }
+      const categoryCards = [
+        { name: 'AI', desc: 'Neural networks, generative models, and autonomous machine learning.' },
+        { name: 'Tech', desc: 'Quantum computing, semiconductors, and frontier engineering.' },
+        { name: 'Gadgets', desc: 'Next-gen hardware, AR/VR wearables, and smart devices.' },
+        { name: 'Software', desc: 'Cloud architecture, distributed systems, and modern frameworks.' },
+        { name: 'Cybersecurity', desc: 'Post-quantum encryption, threat intelligence, and digital defense.' },
+        { name: 'Reviews', desc: 'Rigorous expert evaluations of enterprise and consumer technology.' }
       ];
 
-      const categoryCardsHtml = categoriesGrid.map(cat => {
-        const count = getCount(cat.name);
-        return `
-          <div onclick="setCategory('${cat.name}')" class="bg-dark border border-borderGray p-6 rounded-2xl hover:border-red-500/50 hover:bg-black transition-all cursor-pointer group flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="w-10 h-10 rounded-xl bg-black border border-borderGray text-white group-hover:bg-red-600 group-hover:border-red-500 transition-colors flex items-center justify-center text-sm shadow-sm">
-                  <i class="fa-solid fa-layer-group"></i>
-                </span>
-                <span class="text-xs font-bold text-gray-500 tracking-wide uppercase">${count} articles</span>
-              </div>
-              <h3 class="text-lg font-black text-white mb-2 group-hover:text-red-500 transition">${cat.name}</h3>
-              <p class="text-xs font-medium text-gray-400 line-clamp-2 leading-relaxed">${cat.desc}</p>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      const mostReadHtml = ARTICLES.slice(0, 5).map((article, idx) => `
-        <div onclick="navigateToArticle('${article.slug}')" class="flex items-start gap-5 pb-5 border-b border-borderGray cursor-pointer group">
-          <span class="text-2xl font-black text-red-600 group-hover:text-white transition-colors w-8 mt-1">0${idx + 1}</span>
-          <div>
-            <h4 class="text-sm font-bold text-white group-hover:text-red-500 transition-colors mb-2 line-clamp-2 leading-snug">${article.title}</h4>
-            <div class="flex items-center gap-2 text-xs font-medium">
-              <span class="text-green-500 uppercase tracking-wide">${article.category}</span>
-              <span class="text-gray-600">&bull;</span>
-              <span class="text-gray-400">${article.readTime}</span>
-            </div>
-          </div>
-        </div>
-      `).join('');
-
       app.innerHTML = `
-        <!-- Hero Featured Post -->
-        ${heroArticle ? `
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20 items-center bg-dark p-6 sm:p-10 rounded-[2rem] border border-borderGray relative group cursor-pointer" onclick="navigateToArticle('${heroArticle.slug}')">
+        <!-- Hero Section -->
+        ${hero ? `
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-center bg-white dark:bg-neutral-900 p-8 sm:p-12 rounded-[2.5rem] border border-slate-200 dark:border-neutral-800 shadow-xl cursor-pointer group" onclick="navigateToArticle('${hero.slug}')">
           <div class="space-y-6">
-            <span class="px-4 py-1.5 bg-red-950/30 text-red-500 text-xs font-black uppercase tracking-widest rounded-full border border-red-900/30 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-500 transition-colors">${heroArticle.category}</span>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1] group-hover:text-gray-300 transition-colors">${heroArticle.title}</h1>
-            <p class="text-gray-400 text-sm sm:text-base line-clamp-3 font-medium leading-relaxed">${heroArticle.excerpt}</p>
-            <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-wide text-gray-500 pt-2">
-              <span class="text-white">${heroArticle.author}</span>
+            <span class="px-4 py-1.5 bg-red-500/10 text-red-500 text-xs font-black uppercase tracking-widest rounded-full border border-red-500/20">${hero.category}</span>
+            <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] group-hover:text-red-500 transition-colors">${hero.title}</h1>
+            <p class="text-slate-600 dark:text-slate-300 text-base font-medium line-clamp-3 leading-relaxed">${hero.excerpt}</p>
+            <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-slate-400">
+              <span class="text-slate-900 dark:text-white">${hero.author}</span>
               <span>&bull;</span>
-              <span>${heroArticle.date}</span>
+              <span>${hero.date}</span>
               <span>&bull;</span>
-              <span class="text-green-500"><i class="fa-regular fa-clock mr-1"></i>${heroArticle.readTime}</span>
+              <span class="text-green-500">${hero.readTime}</span>
             </div>
-            <div class="pt-6">
-              <button onclick="navigateToArticle('${heroArticle.slug}', event)" class="px-8 py-3.5 bg-white hover:bg-red-600 text-black hover:text-white font-black uppercase tracking-wider rounded-xl transition-all shadow-lg text-sm">Read Article</button>
+            <div class="pt-4">
+              <button onclick="navigateToArticle('${hero.slug}', event)" class="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-red-500 dark:hover:bg-red-500 dark:hover:text-white font-black uppercase tracking-wider rounded-2xl transition-all shadow-lg text-sm">Read Global Report</button>
             </div>
           </div>
-          <div class="aspect-[16/11] rounded-[1.5rem] overflow-hidden bg-black border border-borderGray">
-            <img src="${heroArticle.image}" alt="${heroArticle.title}" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200'" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-in-out">
+          <div class="aspect-[16/11] rounded-[2rem] overflow-hidden bg-slate-100 dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 shadow-inner">
+            <img src="${hero.image}" alt="${hero.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
           </div>
         </div>
         ` : ''}
 
-        <!-- Featured Articles -->
+        <!-- Featured Section -->
         <div class="mb-20">
-          <h2 class="text-3xl font-black text-white uppercase tracking-wider mb-8">Featured</h2>
+          <h2 class="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight mb-8">Featured <span class="text-red-500">Analyses</span></h2>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            ${featuredArticles.map(article => `
-              <div onclick="navigateToArticle('${article.slug}')" class="bg-dark rounded-[1.5rem] overflow-hidden border border-borderGray hover:border-red-500/50 transition duration-300 flex flex-col cursor-pointer group shadow-2xl">
-                <div class="aspect-[16/10] overflow-hidden bg-black relative">
-                  <img src="${article.image}" alt="${article.title}" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200'" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-in-out opacity-90 group-hover:opacity-100">
-                  <span class="absolute top-4 left-4 px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-wider rounded-full border border-borderGray group-hover:bg-red-600 group-hover:border-red-500 transition-colors">${article.category}</span>
+            ${featured.map(art => `
+              <div onclick="navigateToArticle('${art.slug}')" class="bg-white dark:bg-neutral-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-neutral-800 hover:border-red-500 transition duration-300 flex flex-col cursor-pointer group shadow-xl">
+                <div class="aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-neutral-950 relative">
+                  <img src="${art.image}" alt="${art.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                  <span class="absolute top-4 left-4 px-3 py-1 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md text-slate-900 dark:text-white text-xs font-black uppercase tracking-wider rounded-full border border-slate-200 dark:border-neutral-800">${art.category}</span>
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
-                  <h3 class="text-xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors line-clamp-2 leading-snug">${article.title}</h3>
-                  <p class="text-sm text-gray-400 font-medium line-clamp-3 mb-5 flex-grow leading-relaxed">${article.excerpt}</p>
-                  <div class="flex items-center justify-between pt-5 border-t border-borderGray text-xs font-bold uppercase tracking-wider text-gray-500">
-                    <span class="text-gray-300">${article.author}</span>
-                    <span class="text-green-500">${article.readTime}</span>
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-red-500 transition-colors line-clamp-2 leading-snug">${art.title}</h3>
+                  <p class="text-sm text-slate-600 dark:text-slate-400 font-medium line-clamp-3 mb-6 flex-grow leading-relaxed">${art.excerpt}</p>
+                  <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-neutral-800 text-xs font-bold uppercase tracking-wider text-slate-400">
+                    <span class="text-slate-700 dark:text-slate-300">${art.author}</span>
+                    <span class="text-green-500">${art.readTime}</span>
                   </div>
                 </div>
               </div>
@@ -603,22 +502,22 @@ html
           </div>
         </div>
 
-        <!-- Latest Stories -->
+        <!-- Latest Articles Grid -->
         <div class="mb-20">
-          <h2 class="text-3xl font-black text-white uppercase tracking-wider mb-8">Latest <span class="text-red-600">Stories</span></h2>
+          <h2 class="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight mb-8">Latest <span class="text-red-500">Dispatches</span></h2>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            ${latestStories.map(article => `
-              <div onclick="navigateToArticle('${article.slug}')" class="bg-dark rounded-[1.5rem] overflow-hidden border border-borderGray hover:border-red-500/50 transition duration-300 flex flex-col cursor-pointer group shadow-2xl">
-                <div class="aspect-[16/10] overflow-hidden bg-black relative">
-                  <img src="${article.image}" alt="${article.title}" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200'" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-in-out opacity-90 group-hover:opacity-100">
-                  <span class="absolute top-4 left-4 px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-wider rounded-full border border-borderGray group-hover:bg-red-600 group-hover:border-red-500 transition-colors">${article.category}</span>
+            ${latest.map(art => `
+              <div onclick="navigateToArticle('${art.slug}')" class="bg-white dark:bg-neutral-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-neutral-800 hover:border-red-500 transition duration-300 flex flex-col cursor-pointer group shadow-xl">
+                <div class="aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-neutral-950 relative">
+                  <img src="${art.image}" alt="${art.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                  <span class="absolute top-4 left-4 px-3 py-1 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md text-slate-900 dark:text-white text-xs font-black uppercase tracking-wider rounded-full border border-slate-200 dark:border-neutral-800">${art.category}</span>
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
-                  <h3 class="text-xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors line-clamp-2 leading-snug">${article.title}</h3>
-                  <p class="text-sm text-gray-400 font-medium line-clamp-3 mb-5 flex-grow leading-relaxed">${article.excerpt}</p>
-                  <div class="flex items-center justify-between pt-5 border-t border-borderGray text-xs font-bold uppercase tracking-wider text-gray-500">
-                    <span class="text-gray-300">${article.author}</span>
-                    <span class="text-green-500">${article.readTime}</span>
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-red-500 transition-colors line-clamp-2 leading-snug">${art.title}</h3>
+                  <p class="text-sm text-slate-600 dark:text-slate-400 font-medium line-clamp-3 mb-6 flex-grow leading-relaxed">${art.excerpt}</p>
+                  <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-neutral-800 text-xs font-bold uppercase tracking-wider text-slate-400">
+                    <span class="text-slate-700 dark:text-slate-300">${art.author}</span>
+                    <span class="text-green-500">${art.readTime}</span>
                   </div>
                 </div>
               </div>
@@ -626,98 +525,95 @@ html
           </div>
         </div>
 
-        <!-- Explore Categories -->
+        <!-- Explore Domains -->
         <div class="mb-20">
-          <h2 class="text-3xl font-black text-white uppercase tracking-wider mb-8">Explore <span class="text-red-600">Categories</span></h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            ${categoryCardsHtml}
+          <h2 class="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight mb-8">Explore <span class="text-red-500">Domains</span></h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            ${categoryCards.map(c => `
+              <div onclick="setCategory('${c.name}')" class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 p-8 rounded-3xl hover:border-red-500 transition-all cursor-pointer group shadow-lg flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-6">
+                    <span class="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 text-slate-900 dark:text-white group-hover:bg-red-500 group-hover:text-white transition-colors flex items-center justify-center text-base shadow-sm">
+                      <i class="fa-solid fa-microchip"></i>
+                    </span>
+                  </div>
+                  <h3 class="text-xl font-black text-slate-900 dark:text-white mb-3 group-hover:text-red-500 transition">${c.name}</h3>
+                  <p class="text-sm font-medium text-slate-500 dark:text-slate-400 leading-relaxed">${c.desc}</p>
+                </div>
+              </div>
+            `).join('')}
           </div>
         </div>
 
-        <!-- Most Read & Newsletter Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
-          <div class="bg-dark border border-borderGray p-8 sm:p-10 rounded-[2rem]">
-            <h2 class="text-3xl font-black text-white uppercase tracking-wider mb-8">Most <span class="text-red-600">Read</span></h2>
-            <div class="space-y-2">
-              ${mostReadHtml}
-            </div>
+        <!-- Newsletter Section -->
+        <div class="bg-red-500 border border-red-600 p-10 sm:p-14 rounded-[3xl] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center shadow-2xl shadow-red-500/20 text-white">
+          <div>
+            <h2 class="text-4xl sm:text-5xl font-black uppercase tracking-tight mb-4 leading-none">Stay Ahead<br>Of What's Next.</h2>
+            <p class="text-base font-medium text-red-100 leading-relaxed">Receive elite global intelligence reports on artificial intelligence and frontier technology directly in your inbox.</p>
           </div>
-
-          <div class="bg-red-600 border border-red-500 p-8 sm:p-10 rounded-[2rem] flex flex-col justify-between shadow-2xl shadow-red-900/20">
-            <div>
-              <h2 class="text-4xl font-black text-white mb-4 uppercase tracking-tight leading-none">Stay Ahead<br>Of What's Next.</h2>
-              <p class="text-sm font-medium text-red-100 mb-8 leading-relaxed">Get the latest technology stories, AI breakthroughs, useful tools, and practical insights delivered to your inbox.</p>
-            </div>
-            <div class="space-y-4">
-              <input type="email" placeholder="YOUR@EMAIL.COM" class="w-full px-5 py-4 bg-black/40 border border-red-400/30 rounded-xl text-sm text-white placeholder-red-200 focus:outline-none focus:bg-black focus:border-white font-bold tracking-wider transition-colors">
-              <button onclick="alert('Thank you for subscribing!')" class="w-full py-4 bg-white hover:bg-black text-black hover:text-white font-black uppercase tracking-widest rounded-xl transition-colors text-sm">Subscribe</button>
-            </div>
+          <div class="space-y-4">
+            <input type="email" placeholder="ENTER YOUR PROFESSIONAL EMAIL" class="w-full px-6 py-4 bg-slate-900/20 border border-white/30 rounded-2xl text-sm text-white placeholder-red-200 focus:outline-none focus:bg-slate-900 font-bold tracking-wider transition-colors">
+            <button onclick="alert('Successfully subscribed to Azexai Global Dispatch!')" class="w-full py-4 bg-white hover:bg-slate-900 text-slate-900 hover:text-white font-black uppercase tracking-widest rounded-2xl transition-all shadow-xl text-sm">Subscribe Now</button>
           </div>
         </div>
       `;
     }
 
-    function renderArticleView(article) {
+    function renderArticleView(art) {
       const app = document.getElementById('app');
 
-      let tagsHtml = article.tags.map(tag => `
-        <span class="px-4 py-1.5 bg-dark hover:bg-white text-gray-300 hover:text-black text-xs font-bold uppercase tracking-wider rounded-full border border-borderGray transition-colors cursor-pointer">#${tag}</span>
+      const tagsHtml = art.tags.map(t => `
+        <span class="px-4 py-2 bg-white dark:bg-neutral-900 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-2xl border border-slate-200 dark:border-neutral-800">#${t}</span>
       `).join('');
 
       app.innerHTML = `
         <div class="max-w-4xl mx-auto pt-6 pb-20">
-          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-red-500 mb-10 transition-colors group">
-            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Back to Home
+          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500 hover:text-red-500 mb-10 transition-colors group">
+            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Back to Global Index
           </button>
 
           <div class="mb-10">
-            <span class="px-4 py-1.5 bg-red-900/30 text-red-500 font-black text-xs uppercase tracking-widest rounded-full border border-red-800/30">${article.category}</span>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mt-6 mb-8 leading-[1.1]">${article.title}</h1>
+            <span class="px-4 py-1.5 bg-red-500/10 text-red-500 font-black text-xs uppercase tracking-widest rounded-full border border-red-500/20">${art.category}</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white mt-6 mb-8 leading-[1.1]">${art.title}</h1>
             
-            <div class="flex flex-wrap items-center justify-between gap-6 py-6 border-y border-borderGray text-sm text-gray-400">
+            <div class="flex flex-wrap items-center justify-between gap-6 py-6 border-y border-slate-200 dark:border-neutral-800 text-sm">
               <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-white text-black font-black text-lg flex items-center justify-center shadow-lg">
-                  ${article.author.charAt(0).toUpperCase()}
+                <div class="w-12 h-12 rounded-2xl bg-red-500 text-white font-black text-lg flex items-center justify-center shadow-lg">
+                  ${art.author.charAt(0)}
                 </div>
                 <div>
-                  <p class="font-bold text-white text-base">${article.author}</p>
-                  <p class="text-xs font-medium mt-0.5 uppercase tracking-wider">Published on ${article.date}</p>
+                  <p class="font-bold text-slate-900 dark:text-white text-base">${art.author}</p>
+                  <p class="text-xs text-slate-400 font-medium uppercase tracking-wider mt-0.5">Published on ${art.date}</p>
                 </div>
               </div>
-              <div class="flex items-center gap-4">
-                <span class="flex items-center text-green-500 font-bold uppercase tracking-wider bg-green-950/20 px-4 py-2 rounded-xl border border-green-900/30"><i class="fa-regular fa-clock mr-2 text-lg"></i>${article.readTime}</span>
-              </div>
+              <span class="flex items-center text-green-500 font-bold uppercase tracking-wider bg-green-500/10 px-4 py-2 rounded-2xl border border-green-500/20"><i class="fa-regular fa-clock mr-2"></i>${art.readTime}</span>
             </div>
           </div>
 
-          <div class="aspect-[16/9] rounded-[2rem] overflow-hidden mb-14 bg-black border border-borderGray shadow-2xl">
-            <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover">
+          <div class="aspect-[16/9] rounded-[2.5rem] overflow-hidden mb-14 bg-slate-100 dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 shadow-2xl">
+            <img src="${art.image}" alt="${art.title}" class="w-full h-full object-cover">
           </div>
 
-          <!-- Full Article Content Rendered Here via Tailwind Typography Prose -->
-          <article class="prose prose-lg dark:prose-invert max-w-none text-gray-300 font-medium leading-relaxed mb-16">
-            ${article.content}
+          <article class="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 font-medium leading-relaxed mb-16">
+            ${art.content}
           </article>
 
-          <div class="flex flex-wrap items-center gap-3 pt-10 border-t border-borderGray">
-            <span class="text-xs font-black uppercase tracking-widest text-white mr-2">Tags:</span>
+          <div class="flex flex-wrap items-center gap-3 pt-10 border-t border-slate-200 dark:border-neutral-800">
+            <span class="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-white mr-2">Indexed Tags:</span>
             ${tagsHtml}
           </div>
         </div>
       `;
     }
 
-    /* ==================== INIT ==================== */
-    initDarkMode();
+    /* ==================== INITIALIZATION ==================== */
     initCookieNotice();
 
-    (async function initXelio() {
+    (async function initAzexai() {
       const app = document.getElementById('app');
       if (app) {
-        app.innerHTML = '<div style="min-height:60vh;display:grid;place-items:center;color:#9ca3af"><div class="text-center"><i class="fa-solid fa-spinner fa-spin text-4xl text-red-600 mb-4"></i><p class="font-bold text-white tracking-widest uppercase text-sm">Loading latest articles...</p></div></div>';
+        app.innerHTML = '<div style="min-height:60vh;display:grid;place-items:center;"><div class="text-center"><i class="fa-solid fa-spinner fa-spin text-4xl text-red-500 mb-4"></i><p class="font-black text-slate-900 dark:text-white tracking-widest uppercase text-sm">Initializing Azexai Global Intelligence...</p></div></div>';
       }
-
-      // Fetch and sync immediately on page load
       await loadBloggerArticles();
       router();
     })();

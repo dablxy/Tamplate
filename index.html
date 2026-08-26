@@ -1,17 +1,22 @@
+html
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xelio - Technology, explained.</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>XELIO. - Technology, explained.</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            brand: { 50: '#f5f3ff', 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9' }
+            black: '#000000',
+            dark: '#0a0a0a',
+            darker: '#050505',
+            borderGray: '#1a1a1a',
+            brand: { red: '#dc2626', green: '#16a34a', white: '#ffffff' }
           }
         }
       }
@@ -19,43 +24,48 @@
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #0b0f19; color: #f3f4f6; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #000000; color: #ffffff; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .prose img { max-width: 100%; height: auto; border-radius: 1rem; margin: 1.5rem 0; }
+    .prose img { max-width: 100%; height: auto; border-radius: 1rem; margin: 1.5rem 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); }
+    .prose a { color: #dc2626; text-decoration: none; transition: color 0.2s; }
+    .prose a:hover { color: #ffffff; text-decoration: underline; }
+    .prose h1, .prose h2, .prose h3, .prose h4 { color: #ffffff; font-weight: 800; }
+    .prose p, .prose li { color: #d1d5db; }
+    .prose strong { color: #ffffff; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-purple-500 selection:text-white transition-colors duration-200">
+<body class="min-h-screen flex flex-col selection:bg-red-600 selection:text-white transition-colors duration-200">
 
   <!-- Header -->
-  <header class="sticky top-0 z-50 bg-[#0b0f19]/80 backdrop-blur-md border-b border-gray-800">
+  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-borderGray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center gap-8">
-        <a href="#" onclick="navigateToHome(event)" class="flex items-center gap-2 text-xl font-bold tracking-tight">
-          <span class="bg-purple-600 text-white p-1.5 rounded-xl flex items-center justify-center w-8 h-8 text-xs font-black shadow-lg shadow-purple-500/30">X</span>
-          <span>Xelio</span>
+        <!-- Professional Title instead of Logo -->
+        <a href="#" onclick="navigateToHome(event)" class="flex items-center group">
+          <span class="text-2xl font-black tracking-widest text-white uppercase group-hover:text-gray-300 transition-colors">XELIO<span class="text-red-600">.</span></span>
         </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm text-gray-400 font-medium">
-          <a href="#" onclick="navigateToHome(event)" class="text-white font-semibold">Home</a>
-          <a href="#" onclick="setCategory('AI'); return false;" class="hover:text-white transition">AI</a>
-          <a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-white transition">Tech</a>
-          <a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-white transition">Gadgets</a>
-          <a href="#" onclick="setCategory('Software'); return false;" class="hover:text-white transition">Software</a>
-          <a href="#" onclick="setCategory('Cybersecurity'); return false;" class="hover:text-white transition">Cybersecurity</a>
-          <a href="#" onclick="setCategory('How-To'); return false;" class="hover:text-white transition">How-To</a>
-          <a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-white transition">Reviews</a>
+        <nav class="hidden md:flex items-center gap-6 text-sm text-gray-400 font-medium tracking-wide">
+          <a href="#" onclick="navigateToHome(event)" class="text-white font-semibold hover:text-red-500 transition">Home</a>
+          <a href="#" onclick="setCategory('AI'); return false;" class="hover:text-white hover:text-red-500 transition">AI</a>
+          <a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-white hover:text-red-500 transition">Tech</a>
+          <a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-white hover:text-red-500 transition">Gadgets</a>
+          <a href="#" onclick="setCategory('Software'); return false;" class="hover:text-white hover:text-red-500 transition">Software</a>
+          <a href="#" onclick="setCategory('Cybersecurity'); return false;" class="hover:text-white hover:text-red-500 transition">Cybersecurity</a>
+          <a href="#" onclick="setCategory('How-To'); return false;" class="hover:text-white hover:text-red-500 transition">How-To</a>
+          <a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-white hover:text-red-500 transition">Reviews</a>
         </nav>
       </div>
       
       <div class="flex items-center gap-3">
-        <button onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-gray-900 text-gray-400 hover:text-white transition border border-gray-800" title="Toggle Theme">
+        <button onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-dark text-gray-400 hover:text-white hover:border-red-500/50 transition border border-borderGray" title="Toggle Theme">
           <i class="fa-solid fa-moon dark:hidden"></i>
           <i class="fa-solid fa-sun hidden dark:inline"></i>
         </button>
-        <button onclick="openSearchModal()" class="p-2.5 rounded-xl bg-gray-900 text-gray-400 hover:text-white transition border border-gray-800">
+        <button onclick="openSearchModal()" class="p-2.5 rounded-xl bg-dark text-gray-400 hover:text-white hover:border-red-500/50 transition border border-borderGray">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <button onclick="openConfigModal()" class="hidden sm:flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white text-sm font-semibold rounded-xl transition shadow-lg shadow-purple-600/20">
+        <button onclick="openConfigModal()" class="hidden sm:flex items-center gap-2 px-5 py-2 bg-red-600 hover:bg-white hover:text-black text-white text-sm font-bold uppercase tracking-wide rounded-xl transition-all shadow-lg shadow-red-600/20">
           <span>Subscribe</span>
         </button>
       </div>
@@ -63,118 +73,118 @@
   </header>
 
   <!-- Main View Area -->
-  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full bg-black">
     <div id="app">
       <!-- Dynamic Content Loaded Here -->
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-[#0b0f19] border-t border-gray-800/80 mt-20 py-12 text-sm text-gray-400">
+  <footer class="bg-black border-t border-borderGray mt-20 py-12 text-sm text-gray-400">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
       <div>
-        <div class="flex items-center gap-2 text-xl font-bold tracking-tight text-white mb-3">
-          <span class="bg-purple-600 text-white p-1.5 rounded-xl flex items-center justify-center w-8 h-8 text-xs font-black">X</span>
-          <span>Xelio</span>
+        <!-- Professional Title instead of Logo -->
+        <div class="flex items-center mb-3 group cursor-pointer" onclick="navigateToHome(event)">
+          <span class="text-2xl font-black tracking-widest text-white uppercase group-hover:text-gray-300 transition-colors">XELIO<span class="text-red-600">.</span></span>
         </div>
         <p class="text-gray-500 text-sm mb-4">Technology, explained.</p>
         <div class="flex items-center gap-3 text-gray-400">
-          <a href="#" class="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center hover:text-white border border-gray-800"><i class="fa-solid fa-x text-xs"></i></a>
-          <a href="#" class="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center hover:text-white border border-gray-800"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-          <a href="#" class="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center hover:text-white border border-gray-800"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
-          <a href="#" class="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center hover:text-white border border-gray-800"><i class="fa-brands fa-instagram text-xs"></i></a>
-          <a href="#" class="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center hover:text-white border border-gray-800"><i class="fa-brands fa-youtube text-xs"></i></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-dark flex items-center justify-center hover:text-white hover:border-red-500 transition border border-borderGray"><i class="fa-solid fa-x text-xs"></i></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-dark flex items-center justify-center hover:text-white hover:border-red-500 transition border border-borderGray"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-dark flex items-center justify-center hover:text-white hover:border-red-500 transition border border-borderGray"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-dark flex items-center justify-center hover:text-white hover:border-red-500 transition border border-borderGray"><i class="fa-brands fa-instagram text-xs"></i></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-dark flex items-center justify-center hover:text-white hover:border-red-500 transition border border-borderGray"><i class="fa-brands fa-youtube text-xs"></i></a>
         </div>
       </div>
       
       <div>
-        <h4 class="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Company</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:text-white transition">About</a></li>
-          <li><a href="#" class="hover:text-white transition">Contact</a></li>
-          <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
-          <li><a href="#" class="hover:text-white transition">Terms</a></li>
-          <li><a href="#" class="hover:text-white transition">Editorial Policy</a></li>
-          <li><a href="#" class="hover:text-white transition">Advertise</a></li>
+        <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Company</h4>
+        <ul class="space-y-2 text-sm font-medium">
+          <li><a href="#" class="hover:text-red-500 transition">About</a></li>
+          <li><a href="#" class="hover:text-red-500 transition">Contact</a></li>
+          <li><a href="#" class="hover:text-red-500 transition">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-red-500 transition">Terms</a></li>
+          <li><a href="#" class="hover:text-red-500 transition">Editorial Policy</a></li>
+          <li><a href="#" class="hover:text-red-500 transition">Advertise</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Categories</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" onclick="setCategory('AI'); return false;" class="hover:text-white transition">AI</a></li>
-          <li><a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-white transition">Tech</a></li>
-          <li><a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-white transition">Gadgets</a></li>
-          <li><a href="#" onclick="setCategory('Software'); return false;" class="hover:text-white transition">Software</a></li>
-          <li><a href="#" onclick="setCategory('Cybersecurity'); return false;" class="hover:text-white transition">Cybersecurity</a></li>
-          <li><a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-white transition">Reviews</a></li>
-          <li><a href="#" onclick="setCategory('How-To'); return false;" class="hover:text-white transition">How-To</a></li>
+        <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Categories</h4>
+        <ul class="space-y-2 text-sm font-medium">
+          <li><a href="#" onclick="setCategory('AI'); return false;" class="hover:text-red-500 transition">AI</a></li>
+          <li><a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-red-500 transition">Tech</a></li>
+          <li><a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-red-500 transition">Gadgets</a></li>
+          <li><a href="#" onclick="setCategory('Software'); return false;" class="hover:text-red-500 transition">Software</a></li>
+          <li><a href="#" onclick="setCategory('Cybersecurity'); return false;" class="hover:text-red-500 transition">Cybersecurity</a></li>
+          <li><a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-red-500 transition">Reviews</a></li>
+          <li><a href="#" onclick="setCategory('How-To'); return false;" class="hover:text-red-500 transition">How-To</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Connect</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:text-white transition">Newsletter</a></li>
-          <li><a href="#" onclick="openSearchModal(); return false;" class="hover:text-white transition">Search</a></li>
-          <li><a href="#" onclick="openConfigModal(); return false;" class="hover:text-white transition">Send a Tip</a></li>
+        <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Connect</h4>
+        <ul class="space-y-2 text-sm font-medium">
+          <li><a href="#" class="hover:text-red-500 transition">Newsletter</a></li>
+          <li><a href="#" onclick="openSearchModal(); return false;" class="hover:text-red-500 transition">Search</a></li>
+          <li><a href="#" onclick="openConfigModal(); return false;" class="hover:text-red-500 transition">Send a Tip</a></li>
         </ul>
       </div>
     </div>
   </footer>
 
   <!-- Cookie Notice Banner -->
-  <div id="cookieNotice" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:max-w-sm bg-gray-900 rounded-2xl shadow-2xl border border-gray-800 p-4 z-50 hidden text-sm">
+  <div id="cookieNotice" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:max-w-sm bg-dark rounded-2xl shadow-2xl border border-borderGray p-4 z-50 hidden text-sm">
     <div class="flex items-start gap-3">
-      <div class="p-2 bg-purple-900/30 text-purple-400 rounded-xl mt-0.5">
-        <i class="fa-solid fa-cookie-bite"></i>
+      <div class="p-2 bg-green-900/30 text-green-400 rounded-xl mt-0.5 border border-green-800/30">
+        <i class="fa-solid fa-shield-halved"></i>
       </div>
       <div class="flex-1">
-        <p class="text-white font-medium mb-1">Cookie Notice</p>
+        <p class="text-white font-bold mb-1">Cookie Notice</p>
         <p class="text-gray-400 mb-3 text-xs">We use cookies to improve your experience and understand how Xelio is used.</p>
         <div class="flex items-center gap-2">
-          <button onclick="acceptCookies()" class="px-3 py-1.5 bg-white text-gray-900 font-semibold rounded-lg text-xs hover:bg-gray-100 transition">Accept</button>
-          <button onclick="acceptCookies()" class="px-3 py-1.5 bg-gray-800 text-gray-300 font-medium rounded-lg text-xs hover:bg-gray-700 transition">Decline</button>
-          <button onclick="openConfigModal()" class="px-3 py-1.5 text-gray-400 font-medium rounded-lg text-xs hover:text-white transition">Settings</button>
+          <button onclick="acceptCookies()" class="px-3 py-1.5 bg-white text-black font-bold rounded-lg text-xs hover:bg-gray-200 transition">Accept</button>
+          <button onclick="acceptCookies()" class="px-3 py-1.5 bg-darker text-gray-300 font-bold rounded-lg text-xs hover:text-white border border-borderGray transition">Decline</button>
+          <button onclick="openConfigModal()" class="px-3 py-1.5 text-gray-400 font-bold rounded-lg text-xs hover:text-white transition">Settings</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Config / Subscribe Modal -->
-  <div id="configModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-gray-900 rounded-3xl max-w-md w-full p-6 shadow-2xl border border-gray-800 text-gray-200">
+  <div id="configModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-dark rounded-3xl max-w-md w-full p-8 shadow-2xl border border-borderGray text-gray-200">
       <div class="flex items-center justify-between mb-4">
-        <h3 class="text-lg font-bold text-white">Blogger CMS & Subscription</h3>
-        <button onclick="closeConfigModal()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+        <h3 class="text-xl font-black text-white uppercase tracking-wide">Blogger CMS Setup</h3>
+        <button onclick="closeConfigModal()" class="text-gray-400 hover:text-red-500 transition"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
-      <p class="text-xs text-gray-400 mb-4">أدخل مفتاح Google Blogger API الخاص بك ومستودع المدونة لمزامنة المقالات الحية فوراً.</p>
-      <div class="space-y-4">
+      <p class="text-sm text-gray-400 mb-6">Enter your Google Blogger API Key and Blog ID to sync live articles instantly.</p>
+      <div class="space-y-5">
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider mb-1 text-gray-400">Blog ID</label>
-          <input type="text" id="modalBlogId" class="w-full px-4 py-2.5 rounded-xl bg-gray-950 border border-gray-800 text-sm focus:outline-none focus:border-purple-500 text-white">
+          <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Blog ID</label>
+          <input type="text" id="modalBlogId" class="w-full px-4 py-3 rounded-xl bg-black border border-borderGray text-sm focus:outline-none focus:border-red-500 text-white transition-colors">
         </div>
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider mb-1 text-gray-400">API Key</label>
-          <input type="password" id="modalApiKey" placeholder="AIzaSy..." class="w-full px-4 py-2.5 rounded-xl bg-gray-950 border border-gray-800 text-sm focus:outline-none focus:border-purple-500 text-white">
+          <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">API Key</label>
+          <input type="password" id="modalApiKey" placeholder="AIzaSy..." class="w-full px-4 py-3 rounded-xl bg-black border border-borderGray text-sm focus:outline-none focus:border-red-500 text-white transition-colors">
         </div>
-        <button onclick="saveConfig()" class="w-full py-3 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-xl transition shadow-lg shadow-purple-600/30 text-sm">حفظ ومزامنة المقالات</button>
+        <button onclick="saveConfig()" class="w-full py-4 mt-2 bg-red-600 hover:bg-white hover:text-black text-white font-black uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-red-600/30 text-sm">Save & Sync Articles</button>
       </div>
     </div>
   </div>
 
   <!-- Search Modal -->
-  <div id="searchModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-20 hidden">
-    <div class="bg-gray-900 rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-gray-800 text-gray-200">
+  <div id="searchModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-24 hidden">
+    <div class="bg-dark rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-borderGray text-gray-200">
       <div class="flex items-center justify-between mb-4">
-        <h3 class="text-lg font-bold text-white">بحث في المقالات</h3>
-        <button onclick="closeSearchModal()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+        <h3 class="text-lg font-black text-white uppercase tracking-wider">Search Articles</h3>
+        <button onclick="closeSearchModal()" class="text-gray-400 hover:text-red-500 transition"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
       <div class="relative mb-4">
         <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
-        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="ابحث عن عنوان مقال أو موضوع..." class="w-full pl-11 pr-4 py-3 bg-gray-950 border border-gray-800 rounded-2xl text-sm focus:outline-none focus:border-purple-500 text-white">
+        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search for an article title or topic..." class="w-full pl-11 pr-4 py-4 bg-black border border-borderGray rounded-2xl text-sm focus:outline-none focus:border-red-500 text-white transition-colors">
       </div>
-      <div id="modalSearchResults" class="max-h-60 overflow-y-auto space-y-2">
+      <div id="modalSearchResults" class="max-h-72 overflow-y-auto space-y-2 no-scrollbar">
         <!-- Live search results -->
       </div>
     </div>
@@ -183,11 +193,11 @@
   <!-- Core JavaScript & Blogger Sync -->
   <script>
     /* ==================== BLOGGER CONFIG ==================== */
+    // Hardcoded config directly as requested to ensure it fetches all live posts without failing.
     const BLOGGER_CONFIG = {
-      BlogId: localStorage.getItem('xelio_blog_id') || '4263033619836681299',
-apiKey: localStorage.getItem('xelio_api_key') || 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
-maxResults: 100
-
+      blogId: '4263033619836681299',
+      apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
+      maxResults: 100
     };
 
     let XELIO = {
@@ -209,7 +219,7 @@ maxResults: 100
         image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200',
         excerpt: 'The most meaningful AI shifts are not the flashy demos. They are the small, invisible improvements that change how we interact with every device.',
         tags: ['AI', 'Tech'],
-        content: '<p>The most meaningful AI shifts are not the flashy demos. They are the small, invisible improvements that change how we interact with every device. As ambient intelligence becomes second nature, user interfaces adapt seamlessly to human intent.</p>',
+        content: '<h2>The Silent Revolution</h2><p>The most meaningful AI shifts are not the flashy demos. They are the small, invisible improvements that change how we interact with every device. As ambient intelligence becomes second nature, user interfaces adapt seamlessly to human intent.</p><p>We are entering an era where AI handles the mundane invisibly. From battery optimization to predictive text that truly understands context, the technology fades into the background, leaving only utility.</p>',
         bloggerUrl: '#'
       },
       {
@@ -224,7 +234,7 @@ maxResults: 100
         image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1200',
         excerpt: 'A new wave of AI coding tools is not just autocompleting code — it is architecting full-stack applications in seconds.',
         tags: ['AI', 'Software'],
-        content: '<p>A new wave of AI coding tools is not just autocompleting code — it is architecting full-stack applications in seconds. Developers are shifting from writing syntax to directing autonomous agents.</p>',
+        content: '<h2>Beyond Autocomplete</h2><p>A new wave of AI coding tools is not just autocompleting code — it is architecting full-stack applications in seconds. Developers are shifting from writing syntax to directing autonomous agents.</p><p>This shift requires a new skill set: prompt engineering and architectural validation. The role of the developer is evolving into a systems thinker rather than a pure syntax writer.</p>',
         bloggerUrl: '#'
       },
       {
@@ -239,7 +249,7 @@ maxResults: 100
         image: 'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1200',
         excerpt: 'Running AI directly on your phone or laptop means faster responses, enhanced privacy, and offline intelligence anywhere.',
         tags: ['Tech', 'Gadgets'],
-        content: '<p>Running AI directly on your phone or laptop means faster responses, enhanced privacy, and offline intelligence anywhere. Hardware neural engines are now standard in modern silicon chips.</p>',
+        content: '<h2>Privacy First Intelligence</h2><p>Running AI directly on your phone or laptop means faster responses, enhanced privacy, and offline intelligence anywhere. Hardware neural engines are now standard in modern silicon chips.</p><p>This local execution eliminates latency and ensures personal data never leaves the device, bridging the gap between powerful cloud AI and secure local computing.</p>',
         bloggerUrl: '#'
       },
       {
@@ -254,7 +264,7 @@ maxResults: 100
         image: 'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1200',
         excerpt: 'The PC is not dead. It is getting smarter, adapting to how you work, and anticipating your next move before you click.',
         tags: ['Tech', 'Software'],
-        content: '<p>The PC is not dead. It is getting smarter, adapting to how you work, and anticipating your next move before you click. Operating systems are evolving into contextual assistant ecosystems.</p>',
+        content: '<h2>The Contextual PC</h2><p>The PC is not dead. It is getting smarter, adapting to how you work, and anticipating your next move before you click. Operating systems are evolving into contextual assistant ecosystems.</p><p>Future operating systems won\'t just launch apps; they will assemble workflows dynamically based on your daily habits and current tasks.</p>',
         bloggerUrl: '#'
       },
       {
@@ -269,7 +279,7 @@ maxResults: 100
         image: 'https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg?auto=compress&cs=tinysrgb&w=1200',
         excerpt: 'Computational photography has completely redefined mobile sensors. Let us analyze what modern neural pipelines truly achieve.',
         tags: ['Gadgets', 'Reviews'],
-        content: '<p>Computational photography has completely redefined mobile sensors. Let us analyze what modern neural pipelines truly achieve beyond traditional optical limits.</p>',
+        content: '<h2>Seeing Beyond Optics</h2><p>Computational photography has completely redefined mobile sensors. Let us analyze what modern neural pipelines truly achieve beyond traditional optical limits.</p><p>By blending multiple exposures and using machine learning for semantic segmentation, smartphones can now rival DSLRs in challenging lighting conditions.</p>',
         bloggerUrl: '#'
       }
     ];
@@ -365,7 +375,7 @@ maxResults: 100
       } catch (error) {
         console.error('Xelio Blogger Sync Failed:', error);
       }
-      return false;
+      return false; // Safely fall back to hardcoded articles if fetching fails
     }
 
     /* ==================== THEME & COOKIE ==================== */
@@ -414,12 +424,10 @@ maxResults: 100
       if (bId) BLOGGER_CONFIG.blogId = bId;
       if (aKey) BLOGGER_CONFIG.apiKey = aKey;
       
-      localStorage.setItem('xelio_blog_id', BLOGGER_CONFIG.blogId);
-      localStorage.setItem('xelio_api_key', BLOGGER_CONFIG.apiKey);
       closeConfigManager();
 
       const app = document.getElementById('app');
-      app.innerHTML = '<div style="min-height:50vh;display:grid;place-items:center;color:#9ca3af"><div class="text-center"><i class="fa-solid fa-spinner fa-spin text-3xl text-purple-500 mb-3"></i><p>جاري مزامنة أحدث المقالات...</p></div></div>';
+      app.innerHTML = '<div style="min-height:50vh;display:grid;place-items:center;color:#9ca3af"><div class="text-center"><i class="fa-solid fa-spinner fa-spin text-4xl text-red-600 mb-4"></i><p class="font-bold text-white tracking-widest uppercase text-sm">Syncing latest articles...</p></div></div>';
 
       await loadBloggerArticles();
       router();
@@ -438,16 +446,16 @@ maxResults: 100
       }
       const matches = ARTICLES.filter(a => a.title.toLowerCase().includes(query) || a.excerpt.toLowerCase().includes(query));
       if (matches.length === 0) {
-        resultsContainer.innerHTML = '<p class="text-xs text-gray-500 text-center py-4">لم يتم العثور على نتائج.</p>';
+        resultsContainer.innerHTML = '<p class="text-xs text-gray-500 font-bold uppercase tracking-wider text-center py-6">No results found.</p>';
         return;
       }
       resultsContainer.innerHTML = matches.map(m => `
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}')" class="p-3 bg-gray-950 hover:bg-gray-800 rounded-xl cursor-pointer transition flex items-center justify-between">
+        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}')" class="p-4 bg-black border border-borderGray hover:border-red-500/50 rounded-xl cursor-pointer transition-all flex items-center justify-between group">
           <div>
-            <h4 class="text-sm font-semibold text-white mb-1">${m.title}</h4>
-            <p class="text-xs text-gray-400 line-clamp-1">${m.excerpt}</p>
+            <h4 class="text-sm font-bold text-white mb-1 group-hover:text-red-400 transition-colors">${m.title}</h4>
+            <p class="text-xs text-gray-500 line-clamp-1">${m.excerpt}</p>
           </div>
-          <i class="fa-solid fa-arrow-right text-gray-500 text-xs"></i>
+          <i class="fa-solid fa-arrow-right text-red-600 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all text-sm ml-4"></i>
         </div>
       `).join('');
     }
@@ -500,7 +508,6 @@ maxResults: 100
       const featuredArticles = filteredArticles.slice(1, 4);
       const latestStories = filteredArticles.slice(0, 6);
 
-      // Category count helper
       const getCount = (cat) => ARTICLES.filter(a => a.category.toLowerCase() === cat.toLowerCase()).length;
 
       const categoriesGrid = [
@@ -519,27 +526,31 @@ maxResults: 100
       const categoryCardsHtml = categoriesGrid.map(cat => {
         const count = getCount(cat.name);
         return `
-          <div onclick="setCategory('${cat.name}')" class="bg-gray-900 border border-gray-800 p-5 rounded-2xl hover:border-purple-500/50 transition cursor-pointer group flex flex-col justify-between">
+          <div onclick="setCategory('${cat.name}')" class="bg-dark border border-borderGray p-6 rounded-2xl hover:border-red-500/50 hover:bg-black transition-all cursor-pointer group flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-9 h-9 rounded-xl bg-purple-950/50 text-purple-400 flex items-center justify-center text-sm">
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-10 h-10 rounded-xl bg-black border border-borderGray text-white group-hover:bg-red-600 group-hover:border-red-500 transition-colors flex items-center justify-center text-sm shadow-sm">
                   <i class="fa-solid fa-layer-group"></i>
                 </span>
-                <span class="text-xs font-semibold text-gray-500">${count} articles</span>
+                <span class="text-xs font-bold text-gray-500 tracking-wide uppercase">${count} articles</span>
               </div>
-              <h3 class="text-base font-bold text-white mb-1 group-hover:text-purple-400 transition">${cat.name}</h3>
-              <p class="text-xs text-gray-400 line-clamp-2">${cat.desc}</p>
+              <h3 class="text-lg font-black text-white mb-2 group-hover:text-red-500 transition">${cat.name}</h3>
+              <p class="text-xs font-medium text-gray-400 line-clamp-2 leading-relaxed">${cat.desc}</p>
             </div>
           </div>
         `;
       }).join('');
 
       const mostReadHtml = ARTICLES.slice(0, 5).map((article, idx) => `
-        <div onclick="navigateToArticle('${article.slug}')" class="flex items-start gap-4 pb-4 border-b border-gray-800/60 cursor-pointer group">
-          <span class="text-xl font-extrabold text-purple-500 w-6">0${idx + 1}</span>
+        <div onclick="navigateToArticle('${article.slug}')" class="flex items-start gap-5 pb-5 border-b border-borderGray cursor-pointer group">
+          <span class="text-2xl font-black text-red-600 group-hover:text-white transition-colors w-8 mt-1">0${idx + 1}</span>
           <div>
-            <h4 class="text-sm font-bold text-white group-hover:text-purple-400 transition mb-1 line-clamp-2">${article.title}</h4>
-            <p class="text-xs text-gray-400">${article.category} &bull; ${article.readTime}</p>
+            <h4 class="text-sm font-bold text-white group-hover:text-red-500 transition-colors mb-2 line-clamp-2 leading-snug">${article.title}</h4>
+            <div class="flex items-center gap-2 text-xs font-medium">
+              <span class="text-green-500 uppercase tracking-wide">${article.category}</span>
+              <span class="text-gray-600">&bull;</span>
+              <span class="text-gray-400">${article.readTime}</span>
+            </div>
           </div>
         </div>
       `).join('');
@@ -547,44 +558,44 @@ maxResults: 100
       app.innerHTML = `
         <!-- Hero Featured Post -->
         ${heroArticle ? `
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-center bg-gray-900/40 p-6 sm:p-8 rounded-3xl border border-gray-800">
-          <div class="space-y-4">
-            <span class="px-3 py-1 bg-purple-950 text-purple-400 text-xs font-semibold rounded-full border border-purple-800/30">${heroArticle.category}</span>
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">${heroArticle.title}</h1>
-            <p class="text-gray-400 text-sm sm:text-base line-clamp-3">${heroArticle.excerpt}</p>
-            <div class="flex items-center gap-3 text-xs text-gray-400 pt-2">
-              <span>${heroArticle.author}</span>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20 items-center bg-dark p-6 sm:p-10 rounded-[2rem] border border-borderGray relative group cursor-pointer" onclick="navigateToArticle('${heroArticle.slug}')">
+          <div class="space-y-6">
+            <span class="px-4 py-1.5 bg-red-950/30 text-red-500 text-xs font-black uppercase tracking-widest rounded-full border border-red-900/30 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-500 transition-colors">${heroArticle.category}</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1] group-hover:text-gray-300 transition-colors">${heroArticle.title}</h1>
+            <p class="text-gray-400 text-sm sm:text-base line-clamp-3 font-medium leading-relaxed">${heroArticle.excerpt}</p>
+            <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-wide text-gray-500 pt-2">
+              <span class="text-white">${heroArticle.author}</span>
               <span>&bull;</span>
               <span>${heroArticle.date}</span>
               <span>&bull;</span>
-              <span>${heroArticle.readTime}</span>
+              <span class="text-green-500"><i class="fa-regular fa-clock mr-1"></i>${heroArticle.readTime}</span>
             </div>
-            <div class="pt-4">
-              <button onclick="navigateToArticle('${heroArticle.slug}')" class="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-2xl transition shadow-lg shadow-purple-600/30 text-sm">Read Article</button>
+            <div class="pt-6">
+              <button onclick="navigateToArticle('${heroArticle.slug}', event)" class="px-8 py-3.5 bg-white hover:bg-red-600 text-black hover:text-white font-black uppercase tracking-wider rounded-xl transition-all shadow-lg text-sm">Read Article</button>
             </div>
           </div>
-          <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-gray-950 border border-gray-800">
-            <img src="${heroArticle.image}" alt="${heroArticle.title}" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200'" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+          <div class="aspect-[16/11] rounded-[1.5rem] overflow-hidden bg-black border border-borderGray">
+            <img src="${heroArticle.image}" alt="${heroArticle.title}" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200'" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-in-out">
           </div>
         </div>
         ` : ''}
 
         <!-- Featured Articles -->
-        <div class="mb-16">
-          <h2 class="text-2xl font-bold text-white mb-6">Featured</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="mb-20">
+          <h2 class="text-3xl font-black text-white uppercase tracking-wider mb-8">Featured</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             ${featuredArticles.map(article => `
-              <div onclick="navigateToArticle('${article.slug}')" class="bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-purple-500/50 transition duration-300 flex flex-col cursor-pointer group shadow-lg">
-                <div class="aspect-[16/10] overflow-hidden bg-gray-950 relative">
-                  <img src="${article.image}" alt="${article.title}" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                  <span class="absolute top-3 left-3 px-3 py-1 bg-black/60 backdrop-blur-md text-white text-xs font-semibold rounded-full">${article.category}</span>
+              <div onclick="navigateToArticle('${article.slug}')" class="bg-dark rounded-[1.5rem] overflow-hidden border border-borderGray hover:border-red-500/50 transition duration-300 flex flex-col cursor-pointer group shadow-2xl">
+                <div class="aspect-[16/10] overflow-hidden bg-black relative">
+                  <img src="${article.image}" alt="${article.title}" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200'" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-in-out opacity-90 group-hover:opacity-100">
+                  <span class="absolute top-4 left-4 px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-wider rounded-full border border-borderGray group-hover:bg-red-600 group-hover:border-red-500 transition-colors">${article.category}</span>
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg font-bold text-white mb-2 group-hover:text-purple-400 transition line-clamp-2">${article.title}</h3>
-                  <p class="text-xs text-gray-400 line-clamp-3 mb-4 flex-grow">${article.excerpt}</p>
-                  <div class="flex items-center justify-between pt-4 border-t border-gray-800/80 text-xs text-gray-500">
-                    <span>${article.author}</span>
-                    <span>${article.date} &bull; ${article.readTime}</span>
+                  <h3 class="text-xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors line-clamp-2 leading-snug">${article.title}</h3>
+                  <p class="text-sm text-gray-400 font-medium line-clamp-3 mb-5 flex-grow leading-relaxed">${article.excerpt}</p>
+                  <div class="flex items-center justify-between pt-5 border-t border-borderGray text-xs font-bold uppercase tracking-wider text-gray-500">
+                    <span class="text-gray-300">${article.author}</span>
+                    <span class="text-green-500">${article.readTime}</span>
                   </div>
                 </div>
               </div>
@@ -593,21 +604,21 @@ maxResults: 100
         </div>
 
         <!-- Latest Stories -->
-        <div class="mb-16">
-          <h2 class="text-2xl font-bold text-white mb-6">Latest <span class="text-purple-500">Stories</span></h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="mb-20">
+          <h2 class="text-3xl font-black text-white uppercase tracking-wider mb-8">Latest <span class="text-red-600">Stories</span></h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             ${latestStories.map(article => `
-              <div onclick="navigateToArticle('${article.slug}')" class="bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-purple-500/50 transition duration-300 flex flex-col cursor-pointer group shadow-lg">
-                <div class="aspect-[16/10] overflow-hidden bg-gray-950 relative">
-                  <img src="${article.image}" alt="${article.title}" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                  <span class="absolute top-3 left-3 px-3 py-1 bg-black/60 backdrop-blur-md text-white text-xs font-semibold rounded-full">${article.category}</span>
+              <div onclick="navigateToArticle('${article.slug}')" class="bg-dark rounded-[1.5rem] overflow-hidden border border-borderGray hover:border-red-500/50 transition duration-300 flex flex-col cursor-pointer group shadow-2xl">
+                <div class="aspect-[16/10] overflow-hidden bg-black relative">
+                  <img src="${article.image}" alt="${article.title}" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200'" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-in-out opacity-90 group-hover:opacity-100">
+                  <span class="absolute top-4 left-4 px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-wider rounded-full border border-borderGray group-hover:bg-red-600 group-hover:border-red-500 transition-colors">${article.category}</span>
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg font-bold text-white mb-2 group-hover:text-purple-400 transition line-clamp-2">${article.title}</h3>
-                  <p class="text-xs text-gray-400 line-clamp-3 mb-4 flex-grow">${article.excerpt}</p>
-                  <div class="flex items-center justify-between pt-4 border-t border-gray-800/80 text-xs text-gray-500">
-                    <span>${article.author}</span>
-                    <span>${article.date} &bull; ${article.readTime}</span>
+                  <h3 class="text-xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors line-clamp-2 leading-snug">${article.title}</h3>
+                  <p class="text-sm text-gray-400 font-medium line-clamp-3 mb-5 flex-grow leading-relaxed">${article.excerpt}</p>
+                  <div class="flex items-center justify-between pt-5 border-t border-borderGray text-xs font-bold uppercase tracking-wider text-gray-500">
+                    <span class="text-gray-300">${article.author}</span>
+                    <span class="text-green-500">${article.readTime}</span>
                   </div>
                 </div>
               </div>
@@ -616,30 +627,30 @@ maxResults: 100
         </div>
 
         <!-- Explore Categories -->
-        <div class="mb-16">
-          <h2 class="text-2xl font-bold text-white mb-6">Explore <span class="text-purple-500">Categories</span></h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="mb-20">
+          <h2 class="text-3xl font-black text-white uppercase tracking-wider mb-8">Explore <span class="text-red-600">Categories</span></h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             ${categoryCardsHtml}
           </div>
         </div>
 
         <!-- Most Read & Newsletter Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          <div class="bg-gray-900 border border-gray-800 p-8 rounded-3xl">
-            <h2 class="text-2xl font-bold text-white mb-6">Most <span class="text-purple-500">Read</span></h2>
-            <div class="space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
+          <div class="bg-dark border border-borderGray p-8 sm:p-10 rounded-[2rem]">
+            <h2 class="text-3xl font-black text-white uppercase tracking-wider mb-8">Most <span class="text-red-600">Read</span></h2>
+            <div class="space-y-2">
               ${mostReadHtml}
             </div>
           </div>
 
-          <div class="bg-gray-900 border border-gray-800 p-8 rounded-3xl flex flex-col justify-between">
+          <div class="bg-red-600 border border-red-500 p-8 sm:p-10 rounded-[2rem] flex flex-col justify-between shadow-2xl shadow-red-900/20">
             <div>
-              <h2 class="text-3xl font-extrabold text-white mb-3">Stay Ahead of What's Next.</h2>
-              <p class="text-sm text-gray-400 mb-6">Get the latest technology stories, AI breakthroughs, useful tools, and practical insights delivered to your inbox.</p>
+              <h2 class="text-4xl font-black text-white mb-4 uppercase tracking-tight leading-none">Stay Ahead<br>Of What's Next.</h2>
+              <p class="text-sm font-medium text-red-100 mb-8 leading-relaxed">Get the latest technology stories, AI breakthroughs, useful tools, and practical insights delivered to your inbox.</p>
             </div>
-            <div class="space-y-3">
-              <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 bg-gray-950 border border-gray-800 rounded-2xl text-sm text-white focus:outline-none focus:border-purple-500">
-              <button onclick="alert('Thank you for subscribing!')" class="w-full py-3 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-2xl transition text-sm">Subscribe</button>
+            <div class="space-y-4">
+              <input type="email" placeholder="YOUR@EMAIL.COM" class="w-full px-5 py-4 bg-black/40 border border-red-400/30 rounded-xl text-sm text-white placeholder-red-200 focus:outline-none focus:bg-black focus:border-white font-bold tracking-wider transition-colors">
+              <button onclick="alert('Thank you for subscribing!')" class="w-full py-4 bg-white hover:bg-black text-black hover:text-white font-black uppercase tracking-widest rounded-xl transition-colors text-sm">Subscribe</button>
             </div>
           </div>
         </div>
@@ -650,45 +661,46 @@ maxResults: 100
       const app = document.getElementById('app');
 
       let tagsHtml = article.tags.map(tag => `
-        <span class="px-3 py-1 bg-gray-900 text-gray-300 text-xs font-medium rounded-full border border-gray-800">#${tag}</span>
+        <span class="px-4 py-1.5 bg-dark hover:bg-white text-gray-300 hover:text-black text-xs font-bold uppercase tracking-wider rounded-full border border-borderGray transition-colors cursor-pointer">#${tag}</span>
       `).join('');
 
       app.innerHTML = `
-        <div class="max-w-3xl mx-auto pt-4">
-          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-sm font-semibold text-gray-400 hover:text-white mb-8 transition">
-            <i class="fa-solid fa-arrow-left"></i> Back to Home
+        <div class="max-w-4xl mx-auto pt-6 pb-20">
+          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-red-500 mb-10 transition-colors group">
+            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Back to Home
           </button>
 
-          <div class="mb-8">
-            <span class="px-3 py-1 bg-purple-950 text-purple-400 font-semibold text-xs rounded-full border border-purple-800/30">${article.category}</span>
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mt-4 mb-6">${article.title}</h1>
+          <div class="mb-10">
+            <span class="px-4 py-1.5 bg-red-900/30 text-red-500 font-black text-xs uppercase tracking-widest rounded-full border border-red-800/30">${article.category}</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mt-6 mb-8 leading-[1.1]">${article.title}</h1>
             
-            <div class="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-gray-800 text-sm text-gray-400">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center">
+            <div class="flex flex-wrap items-center justify-between gap-6 py-6 border-y border-borderGray text-sm text-gray-400">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-white text-black font-black text-lg flex items-center justify-center shadow-lg">
                   ${article.author.charAt(0).toUpperCase()}
                 </div>
                 <div>
-                  <p class="font-semibold text-white">${article.author}</p>
-                  <p class="text-xs">Published on ${article.date}</p>
+                  <p class="font-bold text-white text-base">${article.author}</p>
+                  <p class="text-xs font-medium mt-0.5 uppercase tracking-wider">Published on ${article.date}</p>
                 </div>
               </div>
               <div class="flex items-center gap-4">
-                <span><i class="fa-regular fa-clock mr-1"></i>${article.readTime}</span>
+                <span class="flex items-center text-green-500 font-bold uppercase tracking-wider bg-green-950/20 px-4 py-2 rounded-xl border border-green-900/30"><i class="fa-regular fa-clock mr-2 text-lg"></i>${article.readTime}</span>
               </div>
             </div>
           </div>
 
-          <div class="aspect-[16/9] rounded-3xl overflow-hidden mb-10 bg-gray-900 border border-gray-800">
+          <div class="aspect-[16/9] rounded-[2rem] overflow-hidden mb-14 bg-black border border-borderGray shadow-2xl">
             <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover">
           </div>
 
-          <div class="prose dark:prose-invert max-w-none text-gray-300 leading-relaxed text-lg mb-12 space-y-6">
+          <!-- Full Article Content Rendered Here via Tailwind Typography Prose -->
+          <article class="prose prose-lg dark:prose-invert max-w-none text-gray-300 font-medium leading-relaxed mb-16">
             ${article.content}
-          </div>
+          </article>
 
-          <div class="flex flex-wrap items-center gap-2 pt-6 border-t border-gray-800 mb-12">
-            <span class="text-xs font-bold uppercase tracking-wider text-gray-500 mr-2">Tags:</span>
+          <div class="flex flex-wrap items-center gap-3 pt-10 border-t border-borderGray">
+            <span class="text-xs font-black uppercase tracking-widest text-white mr-2">Tags:</span>
             ${tagsHtml}
           </div>
         </div>
@@ -702,9 +714,10 @@ maxResults: 100
     (async function initXelio() {
       const app = document.getElementById('app');
       if (app) {
-        app.innerHTML = '<div style="min-height:50vh;display:grid;place-items:center;color:#9ca3af"><div class="text-center"><i class="fa-solid fa-spinner fa-spin text-3xl text-purple-500 mb-3"></i><p>Loading latest articles...</p></div></div>';
+        app.innerHTML = '<div style="min-height:60vh;display:grid;place-items:center;color:#9ca3af"><div class="text-center"><i class="fa-solid fa-spinner fa-spin text-4xl text-red-600 mb-4"></i><p class="font-bold text-white tracking-widest uppercase text-sm">Loading latest articles...</p></div></div>';
       }
 
+      // Fetch and sync immediately on page load
       await loadBloggerArticles();
       router();
     })();

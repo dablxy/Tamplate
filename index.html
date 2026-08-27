@@ -83,7 +83,7 @@
         <button onclick="openSearchModal()" class="p-3 rounded-2xl bg-neutral-900 text-slate-200 hover:border-red-500 transition border border-neutral-800 shadow-sm" aria-label="Search">
           <i class="fa-solid fa-magnifying-glass text-lg"></i>
         </button>
-        <button onclick="openConfigModal()" class="hidden sm:flex items-center gap-2 px-6 py-3 bg-red-500 hover:bg-white hover:text-slate-900 text-white text-sm font-bold uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-red-500/20">
+        <button onclick="navigateToStaticPage('contact', event)" class="hidden sm:flex items-center gap-2 px-6 py-3 bg-red-500 hover:bg-white hover:text-slate-900 text-white text-sm font-bold uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-red-500/20">
           <span>Subscribe</span>
         </button>
       </div>
@@ -143,7 +143,6 @@
         <ul class="space-y-3 font-medium">
           <li><a href="#" class="hover:text-red-500 transition">Global Newsletter</a></li>
           <li><a href="#" onclick="openSearchModal(); return false;" class="hover:text-red-500 transition">Advanced Search</a></li>
-          <li><a href="#" onclick="openConfigModal(); return false;" class="hover:text-red-500 transition">Blogger API Sync</a></li>
         </ul>
       </div>
     </div>
@@ -162,28 +161,6 @@
           <button onclick="acceptCookies()" class="px-4 py-2 bg-white text-slate-900 font-bold rounded-xl text-xs hover:bg-red-500 hover:text-white transition">Accept</button>
           <button onclick="declineCookies()" class="px-4 py-2 bg-neutral-800 text-slate-300 font-bold rounded-xl text-xs hover:text-red-500 transition">Decline</button>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Blogger API Config Modal -->
-  <div id="configModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-neutral-900 rounded-3xl max-w-md w-full p-8 shadow-2xl border border-neutral-800">
-      <div class="flex items-center justify-between mb-4">
-        <h3 class="text-xl font-black uppercase tracking-tight text-white">Blogger CMS Setup</h3>
-        <button onclick="closeConfigModal()" class="text-slate-400 hover:text-red-500 transition"><i class="fa-solid fa-xmark text-xl"></i></button>
-      </div>
-      <p class="text-sm text-slate-400 mb-6">Enter your Google Blogger credentials to synchronize live articles instantly into Azexai.</p>
-      <div class="space-y-5">
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-400">Blog ID</label>
-          <input type="text" id="modalBlogId" class="w-full px-4 py-3 rounded-2xl bg-neutral-950 border border-neutral-800 text-sm focus:outline-none focus:border-red-500 text-white transition-colors">
-        </div>
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-400">API Key</label>
-          <input type="password" id="modalApiKey" placeholder="YOUR_NEW_RESTRICTED_API_KEY" class="w-full px-4 py-3 rounded-2xl bg-neutral-950 border border-neutral-800 text-sm focus:outline-none focus:border-red-500 text-white transition-colors">
-        </div>
-        <button onclick="saveConfig()" class="w-full py-4 mt-2 bg-red-500 hover:bg-white hover:text-slate-900 text-white font-black uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-red-500/20 text-sm">Save & Sync Articles</button>
       </div>
     </div>
   </div>
@@ -209,9 +186,10 @@
   <script>
     const CONTACT_EMAIL = "contact@azexai.com";
 
+    // Embedded Blogger Configuration
     const BLOGGER_CONFIG = {
       blogId: '4263033619836681299',
-      apiKey: 'YOUR_NEW_RESTRICTED_API_KEY',
+      apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
       maxResults: 100
     };
 
@@ -357,14 +335,16 @@
     }
 
     async function loadBloggerArticles() {
-      if (!BLOGGER_CONFIG.apiKey || BLOGGER_CONFIG.apiKey === 'YOUR_NEW_RESTRICTED_API_KEY') return false;
+      if (!BLOGGER_CONFIG.apiKey) return false;
       try {
         const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&fetchBodies=true&fetchImages=true&maxResults=${BLOGGER_CONFIG.maxResults}`;
         const response = await fetch(url, { cache: 'no-store' });
-        if (!response.ok) throw new Error('Blogger API HTTP error');
+        if (!response.ok) throw new Error('Blogger API HTTP error ' + response.status);
         const data = await response.json();
         if (Array.isArray(data.items) && data.items.length > 0) {
           ARTICLES = data.items.map(normalizeBloggerPost);
+          const bloggerCategories = [...new Set(ARTICLES.map(a => a.category).filter(Boolean))];
+          AZEXAI.categories = ['All', ...new Set([...bloggerCategories, ...AZEXAI.categories.filter(c => c !== 'All')])];
           return true;
         }
       } catch (err) {
@@ -465,17 +445,7 @@
       document.getElementById('cookieNotice').classList.add('hidden');
     }
 
-    /* ==================== MODALS ==================== */
-    function openConfigModal() {
-      document.getElementById('modalBlogId').value = BLOGGER_CONFIG.blogId;
-      document.getElementById('modalApiKey').value = BLOGGER_CONFIG.apiKey === 'YOUR_NEW_RESTRICTED_API_KEY' ? '' : BLOGGER_CONFIG.apiKey;
-      document.getElementById('configModal').classList.remove('hidden');
-    }
-
-    function closeConfigModal() {
-      document.getElementById('configModal').classList.add('hidden');
-    }
-
+    /* ==================== SEARCH MODAL ==================== */
     function openSearchModal() {
       document.getElementById('searchModal').classList.remove('hidden');
       setTimeout(() => document.getElementById('modalSearchInput').focus(), 100);
@@ -483,16 +453,6 @@
 
     function closeSearchModal() {
       document.getElementById('searchModal').classList.add('hidden');
-    }
-
-    async function saveConfig() {
-      const bId = document.getElementById('modalBlogId').value.trim();
-      const aKey = document.getElementById('modalApiKey').value.trim();
-      if (bId) BLOGGER_CONFIG.blogId = bId;
-      if (aKey) BLOGGER_CONFIG.apiKey = aKey;
-      closeConfigModal();
-      await loadBloggerArticles();
-      router();
     }
 
     function handleModalSearch(e) {

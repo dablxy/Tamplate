@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- الصفحة الرئيسية -->
+  <url>
+    <loc>https://azexai.com/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- المقال الحالي: How We Scaled Our B2B SaaS Revenue -->
+  <url>
+    <loc>https://azexai.com/#/article/how-we-scaled-our-b2b-saas-revenue</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- مقال متوقع: Reditus Review 2026 -->
+  <url>
+    <loc>https://azexai.com/#/article/reditus-review-2026-partner-management-b2b-saas</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- مقال متوقع: Reditus vs Traditional Affiliate Networks -->
+  <url>
+    <loc>https://azexai.com/#/article/reditus-vs-traditional-affiliate-networks</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- مقال متوقع: Launch SaaS Affiliate Program in 30 Days -->
+  <url>
+    <loc>https://azexai.com/#/article/launch-automate-saas-affiliate-program-reditus</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
+

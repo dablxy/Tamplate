@@ -7,27 +7,27 @@
   <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
   <link id="pageCanonical" rel="canonical" href="">
 
-  <!-- DNS Preconnect & Resource Hints -->
+  <!-- DNS Preconnects for High Speed -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.pexels.com">
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-  <!-- Open Graph -->
+  <!-- Open Graph Meta Tags -->
   <meta id="ogTitle" property="og:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
   <meta id="ogDesc" property="og:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
   <meta id="ogImage" property="og:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200">
   <meta id="ogUrl" property="og:url" content="">
   <meta property="og:type" content="website">
 
-  <!-- Twitter Card -->
+  <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta id="twTitle" name="twitter:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
   <meta id="twDesc" name="twitter:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
   <meta id="twImage" name="twitter:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200">
 
-  <!-- Structured Data -->
+  <!-- Schema.org Structured Data -->
   <script type="application/ld+json" id="structuredDataScript">
   {
     "@context": "https://schema.org",
@@ -42,77 +42,67 @@
   }
   </script>
 
-  <!-- Non-blocking Tailwind CSS Engine -->
-  <script src="https://cdn.tailwindcss.com?plugins=typography" defer></script>
+  <!-- Tailwind CSS Engine -->
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      if (window.tailwind) {
-        tailwind.config = {
-          darkMode: 'class',
-          theme: {
-            extend: {
-              colors: {
-                brand: { red: '#ef4444', green: '#22c55e' }
-              }
-            }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: { red: '#ef4444', green: '#22c55e' }
           }
-        };
+        }
       }
-    });
+    }
   </script>
 
-  <!-- Async FontAwesome CSS Loading -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <!-- Core Base Styles -->
   <style>
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #000000; color: #f8fafc; }
+    *, ::before, ::after { box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #000000; color: #f8fafc; margin: 0; padding: 0; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .prose img { max-width: 100%; height: auto; border-radius: 1rem; margin: 1.5rem 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); content-visibility: auto; }
+    .prose img { max-width: 100%; height: auto; border-radius: 1rem; margin: 1.5rem 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); }
     .prose a { color: #ef4444; text-decoration: none; transition: color 0.2s; }
     .prose a:hover { text-decoration: underline; }
-    img { content-visibility: auto; }
+    .ad-slot-container { display: flex; justify-content: center; align-items: center; overflow: hidden; margin-top: 1.5rem; margin-bottom: 1.5rem; }
   </style>
 
-  <!-- Deferred Popunder Ad Script -->
-  <script>
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        var s = document.createElement('script');
-        s.src = "https://pl31054243.profitableratecpmnetwork.com/36/09/eb/3609eb41a262ed9ffa17dc73efa645d9.js";
-        s.async = true;
-        document.body.appendChild(s);
-      }, 2500);
-    });
-  </script>
+  <!-- Popunder Ad Script -->
+  <script src="https://pl31054243.profitableratecpmnetwork.com/36/09/eb/3609eb41a262ed9ffa17dc73efa645d9.js" defer></script>
 </head>
 <body class="min-h-screen flex flex-col bg-black text-slate-100 selection:bg-red-500 selection:text-white transition-colors duration-300">
 
   <!-- Header -->
-  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neutral-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-10">
-        <!-- Site Name -->
-        <a href="#" onclick="navigateToHome(event)" class="flex items-center group" aria-label="AZEXAI Home">
-          <span class="text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-red-500">AI</span><span class="text-red-500 text-4xl leading-none">.</span></span>
-        </a>
-        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide text-slate-300" aria-label="Main Navigation">
-          <a href="#" onclick="navigateToHome(event)" class="text-red-500 transition">Home</a>
-          <a href="#" onclick="setCategory('AI'); return false;" class="hover:text-red-500 transition">AI</a>
-          <a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-red-500 transition">Tech</a>
-          <a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-red-500 transition">Gadgets</a>
-          <a href="#" onclick="setCategory('Software'); return false;" class="hover:text-red-500 transition">Software</a>
-          <a href="#" onclick="setCategory('Cybersecurity'); return false;" class="hover:text-red-500 transition">Cybersecurity</a>
-          <a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-red-500 transition">Reviews</a>
-        </nav>
-      </div>
+  <header class="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
-      <div class="flex items-center gap-3">
-        <button onclick="openSearchModal()" class="p-3 rounded-2xl bg-neutral-900 text-slate-200 hover:border-red-500 transition border border-neutral-800 shadow-sm" aria-label="Search Articles">
-          <i class="fa-solid fa-magnifying-glass text-lg" uncanny-hidden="true"></i>
+      <!-- Brand Logo -->
+      <a href="#" onclick="navigateToHome(event)" class="flex items-center group shrink-0" aria-label="AZEXAI Homepage">
+        <span class="text-2xl sm:text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-red-500">AI</span><span class="text-red-500 text-3xl sm:text-4xl leading-none">.</span></span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold tracking-wide text-slate-300" aria-label="Global Navigation">
+        <a href="#" onclick="navigateToHome(event)" class="text-red-500 transition hover:text-red-400">Home</a>
+        <a href="#" onclick="setCategory('AI'); return false;" class="hover:text-red-500 transition">AI</a>
+        <a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-red-500 transition">Tech</a>
+        <a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-red-500 transition">Gadgets</a>
+        <a href="#" onclick="setCategory('Software'); return false;" class="hover:text-red-500 transition">Software</a>
+        <a href="#" onclick="setCategory('Cybersecurity'); return false;" class="hover:text-red-500 transition">Cybersecurity</a>
+        <a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-red-500 transition">Reviews</a>
+      </nav>
+      
+      <!-- Header Actions -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="openSearchModal()" class="p-2.5 sm:p-3 rounded-2xl bg-neutral-900 text-slate-200 hover:border-red-500 transition border border-neutral-800 shadow-sm" aria-label="Search Articles">
+          <i class="fa-solid fa-magnifying-glass text-base sm:text-lg" aria-hidden="true"></i>
         </button>
-        <button onclick="navigateToStaticPage('contact', event)" class="hidden sm:flex items-center gap-2 px-6 py-3 bg-red-500 hover:bg-white hover:text-slate-900 text-white text-sm font-bold uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-red-500/20" aria-label="Subscribe to Updates">
+        <button onclick="navigateToStaticPage('contact', event)" class="hidden sm:flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-red-500 hover:bg-white hover:text-slate-900 text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-red-500/20" aria-label="Subscribe Newsletter">
           <span>Subscribe</span>
         </button>
       </div>
@@ -120,10 +110,10 @@
   </header>
 
   <!-- Main Content Area -->
-  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full bg-black">
+  <main class="flex-grow max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-10 w-full bg-black">
     
-    <!-- Banner 728x90 placed persistently above app content -->
-    <div class="my-6 flex justify-center overflow-hidden min-h-[90px]">
+    <!-- Header Banner 728x90 -->
+    <div class="ad-slot-container min-h-[90px]">
       <script>
         atOptions = {
           'key' : '7e27629a6e1fcc21ae98d5de550fca31',
@@ -136,12 +126,13 @@
       <script src="https://www.highrevenueformat.com/7e27629a6e1fcc21ae98d5de550fca31/invoke.js" defer></script>
     </div>
 
+    <!-- Dynamic JavaScript Render Target -->
     <div id="app">
-      <!-- Dynamic Content Loaded Here -->
+      <!-- Loaded dynamically via Application Engine -->
     </div>
 
-    <!-- Banner 300x250 placed persistently below app content -->
-    <div class="my-8 flex justify-center min-h-[250px]">
+    <!-- Footer Banner 300x250 -->
+    <div class="ad-slot-container min-h-[250px]">
       <script>
         atOptions = {
           'key' : 'f0271ec3a9dc0c0e184169bb3f74a201',
@@ -156,25 +147,25 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-black border-t border-neutral-900 mt-24 py-16 text-sm text-slate-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+  <!-- Global Footer -->
+  <footer class="bg-black border-t border-neutral-900 mt-16 sm:mt-24 py-12 sm:py-16 text-sm text-slate-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
       <div>
         <div class="flex items-center mb-4 cursor-pointer" onclick="navigateToHome(event)">
-          <span class="text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-red-500">AI</span><span class="text-red-500 text-4xl leading-none">.</span></span>
+          <span class="text-2xl sm:text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-red-500">AI</span><span class="text-red-500 text-3xl sm:text-4xl leading-none">.</span></span>
         </div>
-        <p class="text-slate-300 text-sm mb-6 leading-relaxed">Global authority on artificial intelligence, frontier technology, and digital transformation.</p>
+        <p class="text-slate-400 text-xs sm:text-sm mb-6 leading-relaxed">Global authority on artificial intelligence, frontier technology, and digital transformation.</p>
         <div class="flex items-center gap-3">
-          <a href="#" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="AZEXAI Twitter Page"><i class="fa-solid fa-x text-xs"></i></a>
-          <a href="#" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="AZEXAI Facebook Page"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-          <a href="#" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="AZEXAI LinkedIn Page"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
-          <a href="#" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="AZEXAI YouTube Channel"><i class="fa-brands fa-youtube text-xs"></i></a>
+          <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="X Twitter Profile"><i class="fa-solid fa-x text-xs"></i></a>
+          <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="Facebook Page"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+          <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="LinkedIn Company Page"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+          <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="YouTube Channel"><i class="fa-brands fa-youtube text-xs"></i></a>
         </div>
       </div>
       
       <div>
-        <h3 class="text-white font-bold mb-5 text-xs uppercase tracking-widest">Company</h3>
-        <ul class="space-y-3 font-medium">
+        <h3 class="text-white font-bold mb-4 sm:mb-5 text-xs uppercase tracking-widest">Company</h3>
+        <ul class="space-y-2.5 font-medium text-xs sm:text-sm text-slate-400">
           <li><a href="#" onclick="navigateToStaticPage('about', event)" class="hover:text-red-500 transition">About Us</a></li>
           <li><a href="#" onclick="navigateToStaticPage('editorial', event)" class="hover:text-red-500 transition">Global Editorial Board</a></li>
           <li><a href="#" onclick="navigateToStaticPage('privacy', event)" class="hover:text-red-500 transition">Privacy Policy</a></li>
@@ -186,8 +177,8 @@
       </div>
 
       <div>
-        <h3 class="text-white font-bold mb-5 text-xs uppercase tracking-widest">Categories</h3>
-        <ul class="space-y-3 font-medium">
+        <h3 class="text-white font-bold mb-4 sm:mb-5 text-xs uppercase tracking-widest">Categories</h3>
+        <ul class="space-y-2.5 font-medium text-xs sm:text-sm text-slate-400">
           <li><a href="#" onclick="setCategory('AI'); return false;" class="hover:text-red-500 transition">Artificial Intelligence</a></li>
           <li><a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-red-500 transition">Frontier Tech</a></li>
           <li><a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-red-500 transition">Smart Gadgets</a></li>
@@ -198,8 +189,8 @@
       </div>
 
       <div>
-        <h3 class="text-white font-bold mb-5 text-xs uppercase tracking-widest">Connect</h3>
-        <ul class="space-y-3 font-medium">
+        <h3 class="text-white font-bold mb-4 sm:mb-5 text-xs uppercase tracking-widest">Connect</h3>
+        <ul class="space-y-2.5 font-medium text-xs sm:text-sm text-slate-400">
           <li><a href="#" onclick="navigateToStaticPage('contact', event)" class="hover:text-red-500 transition">Global Newsletter</a></li>
           <li><a href="#" onclick="openSearchModal(); return false;" class="hover:text-red-500 transition">Advanced Search</a></li>
         </ul>
@@ -207,15 +198,15 @@
     </div>
   </footer>
 
-  <!-- Cookie Notice -->
-  <div id="cookieNotice" class="fixed bottom-6 right-6 max-w-sm bg-neutral-900 rounded-3xl shadow-2xl border border-neutral-800 p-6 z-50 hidden text-sm">
+  <!-- Cookie Consent Modal -->
+  <div id="cookieNotice" class="fixed bottom-4 right-4 left-4 sm:left-auto sm:max-w-sm bg-neutral-900 rounded-3xl shadow-2xl border border-neutral-800 p-5 z-50 hidden text-sm">
     <div class="flex items-start gap-4">
-      <div class="p-3 bg-green-500/10 text-green-500 rounded-2xl mt-0.5 border border-green-500/20">
+      <div class="p-3 bg-green-500/10 text-green-500 rounded-2xl mt-0.5 border border-green-500/20 shrink-0">
         <i class="fa-solid fa-shield-halved text-lg" aria-hidden="true"></i>
       </div>
       <div class="flex-1">
         <p class="text-white font-bold mb-1">Cookie Policy</p>
-        <p class="text-slate-300 mb-4 text-xs leading-relaxed">We use essential cookies to analyze global traffic and secure your browsing experience on Azexai.</p>
+        <p class="text-slate-400 mb-4 text-xs leading-relaxed">We use essential cookies to analyze global traffic and secure your browsing experience on Azexai.</p>
         <div class="flex items-center gap-2">
           <button onclick="acceptCookies()" class="px-4 py-2 bg-white text-slate-900 font-bold rounded-xl text-xs hover:bg-red-500 hover:text-white transition" aria-label="Accept Cookies">Accept</button>
           <button onclick="declineCookies()" class="px-4 py-2 bg-neutral-800 text-slate-300 font-bold rounded-xl text-xs hover:text-red-500 transition" aria-label="Decline Cookies">Decline</button>
@@ -225,27 +216,27 @@
   </div>
 
   <!-- Search Modal -->
-  <div id="searchModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-28 hidden">
-    <div class="bg-neutral-900 rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-neutral-800">
+  <div id="searchModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-20 sm:pt-28 hidden">
+    <div class="bg-neutral-900 rounded-3xl max-w-2xl w-full p-5 sm:p-6 shadow-2xl border border-neutral-800">
       <div class="flex items-center justify-between mb-4">
-        <h3 class="text-lg font-black uppercase tracking-wider text-white">Search Global Articles</h3>
-        <button onclick="closeSearchModal()" class="text-slate-300 hover:text-red-500 transition" aria-label="Close Search Modal"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <h3 class="text-base sm:text-lg font-black uppercase tracking-wider text-white">Search Global Articles</h3>
+        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-red-500 transition p-1" aria-label="Close Modal"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
       <div class="relative mb-4">
         <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true"></i>
-        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search AI breakthroughs, neural networks, quantum computing..." class="w-full pl-11 pr-4 py-4 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm focus:outline-none focus:border-red-500 text-white transition-colors" aria-label="Search Input">
+        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search AI breakthroughs, neural networks, quantum computing..." class="w-full pl-11 pr-4 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm focus:outline-none focus:border-red-500 text-white transition-colors" aria-label="Search term input">
       </div>
       <div id="modalSearchResults" class="max-h-72 overflow-y-auto space-y-2 no-scrollbar">
-        <!-- Search items injected here -->
+        <!-- Results auto-injected -->
       </div>
     </div>
   </div>
 
-  <!-- JavaScript Application Engine -->
+  <!-- Main JavaScript Engine -->
   <script>
     const CONTACT_EMAIL = "contact@azexai.com";
 
-    // Embedded Blogger Configuration
+    // Blogger API Configuration
     const BLOGGER_CONFIG = {
       blogId: '4263033619836681299',
       apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
@@ -257,6 +248,7 @@
       activeCategory: 'All'
     };
 
+    // Initial Fallback / Offline Dataset
     let ARTICLES = [
       {
         id: 1,
@@ -350,7 +342,7 @@
       imgs.forEach(img => {
         img.setAttribute('loading', 'lazy');
         img.setAttribute('decoding', 'async');
-        img.className = 'w-full h-auto object-cover rounded-2xl my-6 shadow-md';
+        img.className = 'w-full h-auto object-cover rounded-2xl my-6 shadow-md max-h-[500px]';
       });
       return div.innerHTML;
     }
@@ -373,7 +365,7 @@
       const body = processArticleImages(rawBody);
       const plainText = stripHtml(rawBody);
       const image = getFirstImage(rawBody) || DEFAULT_IMAGE;
-      const author = post.author?.displayName || 'Azexai Global Research';
+      const author = post.author?.displayName || 'AZEXAI Research';
       const date = post.published ? new Date(post.published).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'August 26, 2026';
 
       return {
@@ -398,7 +390,7 @@
       if (!BLOGGER_CONFIG.apiKey) return false;
       try {
         const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&fetchBodies=true&fetchImages=true&maxResults=${BLOGGER_CONFIG.maxResults}`;
-        const response = await fetch(url, { cache: 'force-cache' });
+        const response = await fetch(url, { cache: 'no-cache' });
         if (!response.ok) throw new Error('Blogger API HTTP error ' + response.status);
         const data = await response.json();
         if (Array.isArray(data.items) && data.items.length > 0) {
@@ -408,7 +400,7 @@
           return true;
         }
       } catch (err) {
-        // Safe failover to cached initial dataset
+        console.warn('Notice: Using local fallback data.', err);
       }
       return false;
     }
@@ -529,16 +521,16 @@
         (a.tags && a.tags.some(tag => tag.toLowerCase().includes(query)))
       );
       if (matches.length === 0) {
-        resultsContainer.innerHTML = '<p class="text-xs text-slate-300 font-bold uppercase tracking-wider text-center py-6">No matching global articles found.</p>';
+        resultsContainer.innerHTML = '<p class="text-xs text-slate-400 font-bold uppercase tracking-wider text-center py-6">No matching global articles found.</p>';
         return;
       }
       resultsContainer.innerHTML = matches.map(m => `
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}')" class="p-4 bg-neutral-950 border border-neutral-800 hover:border-red-500 rounded-2xl cursor-pointer transition-all flex items-center justify-between group">
+        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}')" class="p-3.5 sm:p-4 bg-neutral-950 border border-neutral-800 hover:border-red-500 rounded-2xl cursor-pointer transition-all flex items-center justify-between group">
           <div>
-            <h4 class="text-sm font-bold text-white mb-1 group-hover:text-red-500 transition-colors">${m.title}</h4>
-            <p class="text-xs text-slate-300 line-clamp-1">${m.excerpt}</p>
+            <h4 class="text-xs sm:text-sm font-bold text-white mb-1 group-hover:text-red-500 transition-colors line-clamp-1">${m.title}</h4>
+            <p class="text-xs text-slate-400 line-clamp-1">${m.excerpt}</p>
           </div>
-          <i class="fa-solid fa-arrow-right text-red-500 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all text-sm ml-4" aria-hidden="true"></i>
+          <i class="fa-solid fa-arrow-right text-red-500 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all text-xs sm:text-sm ml-4 shrink-0" aria-hidden="true"></i>
         </div>
       `).join('');
     }
@@ -589,7 +581,7 @@
       router();
     }
 
-    window.addEventListener('popstate', (e) => {
+    window.addEventListener('popstate', () => {
       parseUrlHash();
       router();
     });
@@ -655,53 +647,53 @@
       ];
 
       app.innerHTML = `
-        <!-- Category Filter Bar -->
-        <div class="flex items-center gap-3 overflow-x-auto no-scrollbar pb-6 mb-10 border-b border-neutral-900">
+        <!-- Sticky Top Category Filter Bar -->
+        <div class="sticky top-20 z-40 bg-black/95 backdrop-blur-md pt-2 pb-3 mb-6 sm:mb-10 border-b border-neutral-900 flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar -mx-3 px-3 sm:mx-0 sm:px-0">
           ${AZEXAI.categories.map(cat => `
-            <button onclick="setCategory('${cat}')" class="px-5 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider whitespace-nowrap transition-all border ${AZEXAI.activeCategory === cat ? 'bg-red-500 text-white border-red-500 shadow-lg shadow-red-500/20' : 'bg-neutral-900 text-slate-200 border-neutral-800 hover:border-red-500'}" aria-label="Filter by ${cat}">${cat}</button>
+            <button onclick="setCategory('${cat}')" class="px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-2xl text-[10px] sm:text-xs font-black uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${AZEXAI.activeCategory === cat ? 'bg-red-500 text-white border-red-500 shadow-lg shadow-red-500/20' : 'bg-neutral-900 text-slate-300 border-neutral-800 hover:border-red-500'}" aria-label="Filter category ${cat}">${cat}</button>
           `).join('')}
         </div>
 
         <!-- Hero Section -->
         ${hero && AZEXAI.activeCategory === 'All' ? `
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-center bg-neutral-900 p-8 sm:p-12 rounded-[2.5rem] border border-neutral-800 shadow-xl cursor-pointer group" onclick="navigateToArticle('${hero.slug}')">
-          <div class="space-y-6">
-            <span class="px-4 py-1.5 bg-red-500/10 text-red-500 text-xs font-black uppercase tracking-widest rounded-full border border-red-500/20">${hero.category}</span>
-            <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-white leading-[1.1] group-hover:text-red-500 transition-colors">${hero.title}</h1>
-            <p class="text-slate-300 text-base font-medium line-clamp-3 leading-relaxed">${hero.excerpt}</p>
-            <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-slate-300">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 mb-8 sm:mb-20 items-center bg-neutral-900 p-5 sm:p-10 lg:p-12 rounded-[1.8rem] sm:rounded-[2.5rem] border border-neutral-800 shadow-xl cursor-pointer group" onclick="navigateToArticle('${hero.slug}')">
+          <div class="space-y-3 sm:space-y-6">
+            <span class="px-3 py-1 bg-red-500/10 text-red-500 text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-full border border-red-500/20">${hero.category}</span>
+            <h1 class="text-xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-snug lg:leading-[1.1] group-hover:text-red-500 transition-colors">${hero.title}</h1>
+            <p class="text-slate-300 text-xs sm:text-base font-medium line-clamp-2 sm:line-clamp-3 leading-relaxed">${hero.excerpt}</p>
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
               <span class="text-white">${hero.author}</span>
               <span>&bull;</span>
               <span>${hero.date}</span>
               <span>&bull;</span>
               <span class="text-green-500">${hero.readTime}</span>
             </div>
-            <div class="pt-4">
-              <button onclick="navigateToArticle('${hero.slug}', event)" class="px-8 py-4 bg-white text-slate-900 hover:bg-red-500 hover:text-white font-black uppercase tracking-wider rounded-2xl transition-all shadow-lg text-sm" aria-label="Read ${hero.title}">Read Global Report</button>
+            <div class="pt-1 sm:pt-4">
+              <button onclick="navigateToArticle('${hero.slug}', event)" class="w-full sm:w-auto px-5 sm:px-8 py-3 sm:py-4 bg-white text-slate-900 hover:bg-red-500 hover:text-white font-black uppercase tracking-wider rounded-2xl transition-all shadow-lg text-xs sm:text-sm" aria-label="Read Report">Read Global Report</button>
             </div>
           </div>
-          <div class="aspect-[16/11] rounded-[2rem] overflow-hidden bg-neutral-950 border border-neutral-800 shadow-inner">
-            <img src="${hero.image}" alt="${hero.title}" width="1200" height="825" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+          <div class="aspect-[16/10] sm:aspect-[16/11] rounded-[1.2rem] sm:rounded-[2rem] overflow-hidden bg-neutral-950 border border-neutral-800 shadow-inner">
+            <img src="${hero.image}" alt="${hero.title}" width="1200" height="825" loading="eager" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
           </div>
         </div>
         ` : ''}
 
-        <!-- Featured Section -->
-        <div class="mb-20">
-          <h2 class="text-3xl font-black text-white uppercase tracking-tight mb-8">${AZEXAI.activeCategory !== 'All' ? AZEXAI.activeCategory + ' ' : ''}Analyses</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Featured Section (2 Articles Per Row on Mobile, 3 on Desktop) -->
+        <div class="mb-10 sm:mb-20">
+          <h2 class="text-xl sm:text-3xl font-black text-white uppercase tracking-tight mb-4 sm:mb-8">${AZEXAI.activeCategory !== 'All' ? AZEXAI.activeCategory + ' ' : ''}Analyses</h2>
+          <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
             ${filtered.map(art => `
-              <div onclick="navigateToArticle('${art.slug}')" class="bg-neutral-900 rounded-[2rem] overflow-hidden border border-neutral-800 hover:border-red-500 transition duration-300 flex flex-col cursor-pointer group shadow-xl">
+              <div onclick="navigateToArticle('${art.slug}')" class="bg-neutral-900 rounded-2xl sm:rounded-[2rem] overflow-hidden border border-neutral-800 hover:border-red-500 transition duration-300 flex flex-col cursor-pointer group shadow-xl">
                 <div class="aspect-[16/10] overflow-hidden bg-neutral-950 relative">
                   <img src="${art.image}" alt="${art.title}" width="600" height="375" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                  <span class="absolute top-4 left-4 px-3 py-1 bg-neutral-900/90 backdrop-blur-md text-white text-xs font-black uppercase tracking-wider rounded-full border border-neutral-800">${art.category}</span>
+                  <span class="absolute top-2 left-2 sm:top-4 sm:left-4 px-2 py-0.5 sm:px-3 sm:py-1 bg-neutral-900/90 backdrop-blur-md text-white text-[9px] sm:text-xs font-black uppercase tracking-wider rounded-full border border-neutral-800">${art.category}</span>
                 </div>
-                <div class="p-6 flex flex-col flex-grow">
-                  <h3 class="text-xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors line-clamp-2 leading-snug">${art.title}</h3>
-                  <p class="text-sm text-slate-300 font-medium line-clamp-3 mb-6 flex-grow leading-relaxed">${art.excerpt}</p>
-                  <div class="flex items-center justify-between pt-4 border-t border-neutral-800 text-xs font-bold uppercase tracking-wider text-slate-300">
-                    <span class="text-slate-200">${art.author}</span>
-                    <span class="text-green-500">${art.readTime}</span>
+                <div class="p-3 sm:p-6 flex flex-col flex-grow">
+                  <h3 class="text-xs sm:text-xl font-bold text-white mb-1.5 sm:mb-3 group-hover:text-red-500 transition-colors line-clamp-2 leading-tight sm:leading-snug">${art.title}</h3>
+                  <p class="text-[11px] sm:text-sm text-slate-400 font-medium line-clamp-2 sm:line-clamp-3 mb-2 sm:mb-6 flex-grow leading-relaxed">${art.excerpt}</p>
+                  <div class="flex items-center justify-between pt-2 sm:pt-3.5 border-t border-neutral-800/80 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
+                    <span class="text-slate-300 line-clamp-1">${art.author}</span>
+                    <span class="text-green-500 shrink-0 ml-1 sm:ml-2">${art.readTime}</span>
                   </div>
                 </div>
               </div>
@@ -710,19 +702,19 @@
         </div>
 
         <!-- Explore Domains -->
-        <div class="mb-20">
-          <h2 class="text-3xl font-black text-white uppercase tracking-tight mb-8">Explore <span class="text-red-500">Domains</span></h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="mb-10 sm:mb-20">
+          <h2 class="text-xl sm:text-3xl font-black text-white uppercase tracking-tight mb-4 sm:mb-8">Explore <span class="text-red-500">Domains</span></h2>
+          <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             ${categoryCards.map(c => `
-              <div onclick="setCategory('${c.name}')" class="bg-neutral-900 border border-neutral-800 p-8 rounded-3xl hover:border-red-500 transition-all cursor-pointer group shadow-lg flex flex-col justify-between">
+              <div onclick="setCategory('${c.name}')" class="bg-neutral-900 border border-neutral-800 p-4 sm:p-8 rounded-2xl sm:rounded-3xl hover:border-red-500 transition-all cursor-pointer group shadow-lg flex flex-col justify-between">
                 <div>
-                  <div class="flex items-center justify-between mb-6">
-                    <span class="w-12 h-12 rounded-2xl bg-neutral-950 border border-neutral-800 text-white group-hover:bg-red-500 group-hover:text-white transition-colors flex items-center justify-center text-base shadow-sm">
+                  <div class="flex items-center justify-between mb-3 sm:mb-6">
+                    <span class="w-8 h-8 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-neutral-950 border border-neutral-800 text-white group-hover:bg-red-500 group-hover:text-white transition-colors flex items-center justify-center text-xs sm:text-base shadow-sm">
                       <i class="fa-solid fa-microchip" aria-hidden="true"></i>
                     </span>
                   </div>
-                  <h3 class="text-xl font-black text-white mb-3 group-hover:text-red-500 transition">${c.name}</h3>
-                  <p class="text-sm font-medium text-slate-300 leading-relaxed">${c.desc}</p>
+                  <h3 class="text-sm sm:text-xl font-black text-white mb-1 sm:mb-2 group-hover:text-red-500 transition">${c.name}</h3>
+                  <p class="text-[11px] sm:text-sm font-medium text-slate-400 leading-relaxed line-clamp-2 sm:line-clamp-none">${c.desc}</p>
                 </div>
               </div>
             `).join('')}
@@ -730,14 +722,14 @@
         </div>
 
         <!-- Newsletter Section -->
-        <div class="bg-red-500 border border-red-600 p-10 sm:p-14 rounded-[3rem] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center shadow-2xl shadow-red-500/20 text-white">
+        <div class="bg-red-500 border border-red-600 p-6 sm:p-12 lg:p-14 rounded-2xl sm:rounded-[3rem] grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center shadow-2xl shadow-red-500/20 text-white">
           <div>
-            <h2 class="text-4xl sm:text-5xl font-black uppercase tracking-tight mb-4 leading-none">Stay Ahead<br>Of What's Next.</h2>
-            <p class="text-base font-medium text-red-100 leading-relaxed">Receive elite global intelligence reports on artificial intelligence and frontier technology directly in your inbox.</p>
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-2 sm:mb-4 leading-none">Stay Ahead<br>Of What's Next.</h2>
+            <p class="text-xs sm:text-base font-medium text-red-100 leading-relaxed">Receive elite global intelligence reports on artificial intelligence and frontier technology directly in your inbox.</p>
           </div>
-          <div class="space-y-4">
-            <input type="email" placeholder="ENTER YOUR PROFESSIONAL EMAIL" class="w-full px-6 py-4 bg-neutral-950/40 border border-white/30 rounded-2xl text-sm text-white placeholder-red-200 focus:outline-none focus:bg-neutral-950 font-bold tracking-wider transition-colors" aria-label="Email for Newsletter">
-            <button onclick="alert('Thank you for subscribing to the Azexai Global Newsletter.')" class="w-full py-4 bg-white hover:bg-neutral-950 text-slate-900 hover:text-white font-black uppercase tracking-widest rounded-2xl transition-all shadow-xl text-sm" aria-label="Confirm Newsletter Subscription">Subscribe Now</button>
+          <div class="space-y-3 sm:space-y-4">
+            <input type="email" placeholder="ENTER YOUR PROFESSIONAL EMAIL" class="w-full px-4 sm:px-6 py-3 sm:py-4 bg-neutral-950/40 border border-white/30 rounded-2xl text-xs sm:text-sm text-white placeholder-red-200 focus:outline-none focus:bg-neutral-950 font-bold tracking-wider transition-colors" aria-label="Newsletter email address">
+            <button onclick="alert('Thank you for subscribing to the Azexai Global Newsletter.')" class="w-full py-3 sm:py-4 bg-white hover:bg-neutral-950 text-slate-900 hover:text-white font-black uppercase tracking-widest rounded-2xl transition-all shadow-xl text-xs sm:text-sm" aria-label="Subscribe now">Subscribe Now</button>
           </div>
         </div>
       `;
@@ -747,60 +739,60 @@
       const app = document.getElementById('app');
 
       const tagsHtml = art.tags.map(t => `
-        <span class="px-4 py-2 bg-neutral-900 text-slate-300 text-xs font-bold uppercase tracking-wider rounded-2xl border border-neutral-800">#${t}</span>
+        <span class="px-3.5 py-1.5 bg-neutral-900 text-slate-300 text-xs font-bold uppercase tracking-wider rounded-2xl border border-neutral-800">#${t}</span>
       `).join('');
 
       const shareUrl = encodeURIComponent(window.location.href);
       const shareTitle = encodeURIComponent(art.title);
 
       app.innerHTML = `
-        <div class="max-w-4xl mx-auto pt-6 pb-20">
-          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-300 hover:text-red-500 mb-10 transition-colors group" aria-label="Back to Global Index">
+        <div class="max-w-4xl mx-auto pt-4 sm:pt-6 pb-16 sm:pb-20">
+          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 sm:mb-10 transition-colors group" aria-label="Back to home">
             <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform" aria-hidden="true"></i> Back to Global Index
           </button>
 
-          <div class="mb-10">
-            <span class="px-4 py-1.5 bg-red-500/10 text-red-500 font-black text-xs uppercase tracking-widest rounded-full border border-red-500/20">${art.category}</span>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mt-6 mb-8 leading-[1.1]">${art.title}</h1>
+          <div class="mb-8 sm:mb-10">
+            <span class="px-3.5 py-1.5 bg-red-500/10 text-red-500 font-black text-[11px] sm:text-xs uppercase tracking-widest rounded-full border border-red-500/20">${art.category}</span>
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mt-4 sm:mt-6 mb-6 leading-snug sm:leading-[1.15]">${art.title}</h1>
             
-            <div class="flex flex-wrap items-center justify-between gap-6 py-6 border-y border-neutral-800 text-sm">
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-2xl bg-red-500 text-white font-black text-lg flex items-center justify-center shadow-lg">
+            <div class="flex flex-wrap items-center justify-between gap-4 py-4 sm:py-6 border-y border-neutral-800 text-xs sm:text-sm">
+              <div class="flex items-center gap-3 sm:gap-4">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-red-500 text-white font-black text-base sm:text-lg flex items-center justify-center shadow-lg shrink-0">
                   ${art.author.charAt(0)}
                 </div>
                 <div>
-                  <p class="font-bold text-white text-base">${art.author}</p>
-                  <p class="text-xs text-slate-300 font-medium uppercase tracking-wider mt-0.5">Published on ${art.date}</p>
+                  <p class="font-bold text-white text-xs sm:text-base">${art.author}</p>
+                  <p class="text-[10px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider mt-0.5">${art.date}</p>
                 </div>
               </div>
-              <span class="flex items-center text-green-500 font-bold uppercase tracking-wider bg-green-500/10 px-4 py-2 rounded-2xl border border-green-500/20"><i class="fa-regular fa-clock mr-2" aria-hidden="true"></i>${art.readTime}</span>
+              <span class="flex items-center text-green-500 font-bold uppercase tracking-wider bg-green-500/10 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl border border-green-500/20 text-xs"><i class="fa-regular fa-clock mr-2" aria-hidden="true"></i>${art.readTime}</span>
             </div>
           </div>
 
-          <div class="aspect-[16/9] rounded-[2.5rem] overflow-hidden mb-14 bg-neutral-950 border border-neutral-800 shadow-2xl">
-            <img src="${art.image}" alt="${art.title}" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover">
+          <div class="aspect-[16/9] rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden mb-10 sm:mb-14 bg-neutral-950 border border-neutral-800 shadow-2xl">
+            <img src="${art.image}" alt="${art.title}" width="1200" height="675" loading="eager" class="w-full h-full object-cover">
           </div>
 
-          <article class="prose prose-lg dark:prose-invert max-w-none text-slate-200 font-medium leading-relaxed mb-16">
+          <article class="prose prose-invert max-w-none text-slate-300 text-sm sm:text-base font-medium leading-relaxed mb-12 sm:mb-16">
             ${art.content}
           </article>
 
-          <!-- Share Buttons -->
-          <div class="p-8 bg-neutral-900 border border-neutral-800 rounded-3xl mb-14 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <!-- Share Component -->
+          <div class="p-6 sm:p-8 bg-neutral-900 border border-neutral-800 rounded-3xl mb-10 sm:mb-14 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <h3 class="text-white font-black uppercase tracking-wider text-sm mb-1">Share This Global Report</h3>
-              <p class="text-xs text-slate-300">Spread elite insights across your professional network.</p>
+              <h3 class="text-white font-black uppercase tracking-wider text-xs sm:text-sm mb-1 text-center sm:text-left">Share This Global Report</h3>
+              <p class="text-xs text-slate-400 text-center sm:text-left">Spread elite insights across your professional network.</p>
             </div>
-            <div class="flex items-center gap-3">
-              <a href="https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}" target="_blank" rel="noopener" class="w-11 h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Share on X"><i class="fa-solid fa-x text-xs"></i></a>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" rel="noopener" class="w-11 h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Share on Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}" target="_blank" rel="noopener" class="w-11 h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
-              <a href="https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener" class="w-11 h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-green-600 hover:border-green-600 transition" aria-label="Share on WhatsApp"><i class="fa-brands fa-whatsapp text-sm"></i></a>
-              <button onclick="navigator.clipboard.writeText(window.location.href); alert('Article URL copied to clipboard!');" class="px-4 h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Copy Link to Clipboard"><i class="fa-solid fa-link" aria-hidden="true"></i> Copy Link</button>
+            <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+              <a href="https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}" target="_blank" rel="noopener" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Share X"><i class="fa-solid fa-x text-xs"></i></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" rel="noopener" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Share Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}" target="_blank" rel="noopener" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Share LinkedIn"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+              <a href="https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-green-600 hover:border-green-600 transition" aria-label="Share WhatsApp"><i class="fa-brands fa-whatsapp text-sm"></i></a>
+              <button onclick="navigator.clipboard.writeText(window.location.href); alert('Article URL copied to clipboard!');" class="px-3.5 h-10 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Copy Link"><i class="fa-solid fa-link" aria-hidden="true"></i> Copy</button>
             </div>
           </div>
 
-          <div class="flex flex-wrap items-center gap-3 pt-10 border-t border-neutral-800">
+          <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-8 sm:pt-10 border-t border-neutral-800">
             <span class="text-xs font-black uppercase tracking-widest text-white mr-2">Indexed Tags:</span>
             ${tagsHtml}
           </div>
@@ -814,31 +806,31 @@
 
       if (slug === 'contact') {
         app.innerHTML = `
-          <div class="max-w-3xl mx-auto pt-6 pb-20">
-            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-300 hover:text-red-500 mb-10 transition-colors group" aria-label="Back to Global Index">
+          <div class="max-w-3xl mx-auto pt-4 sm:pt-6 pb-16 sm:pb-20">
+            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 sm:mb-10 transition-colors group" aria-label="Back Home">
               <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform" aria-hidden="true"></i> Back to Global Index
             </button>
             
-            <div class="bg-neutral-900 border border-neutral-800 p-8 sm:p-12 rounded-[2.5rem] shadow-2xl">
-              <span class="px-4 py-1.5 bg-red-500/10 text-red-500 font-black text-xs uppercase tracking-widest rounded-full border border-red-500/20">Direct Communication</span>
-              <h1 class="text-4xl font-black tracking-tight text-white mt-6 mb-4">Contact AZEXAI</h1>
-              <p class="text-slate-300 text-base mb-8 leading-relaxed">Get in touch with our global editorial board, partnership directors, or technical divisions. We respond to verified inquiries within 24 business hours.</p>
+            <div class="bg-neutral-900 border border-neutral-800 p-6 sm:p-10 lg:p-12 rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl">
+              <span class="px-3.5 py-1.5 bg-red-500/10 text-red-500 font-black text-[11px] sm:text-xs uppercase tracking-widest rounded-full border border-red-500/20">Direct Communication</span>
+              <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-white mt-4 sm:mt-6 mb-3 sm:mb-4">Contact AZEXAI</h1>
+              <p class="text-slate-400 text-xs sm:text-base mb-6 sm:mb-8 leading-relaxed">Get in touch with our global editorial board, partnership directors, or technical divisions. We respond to verified inquiries within 24 business hours.</p>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 p-6 bg-neutral-950 border border-neutral-800 rounded-3xl text-sm">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 p-5 sm:p-6 bg-neutral-950 border border-neutral-800 rounded-3xl text-xs sm:text-sm">
                 <div>
                   <p class="text-white font-bold mb-1">Direct Email Desk</p>
                   <a href="mailto:${CONTACT_EMAIL}" class="text-red-500 font-bold hover:underline">${CONTACT_EMAIL}</a>
                 </div>
                 <div>
                   <p class="text-white font-bold mb-1">Global Response SLA</p>
-                  <p class="text-slate-300">Under 24 Hours</p>
+                  <p class="text-slate-400">Under 24 Hours</p>
                 </div>
               </div>
 
-              <form action="mailto:${CONTACT_EMAIL}" method="POST" enctype="text/plain" class="space-y-6">
+              <form action="mailto:${CONTACT_EMAIL}" method="POST" enctype="text/plain" class="space-y-4 sm:space-y-6">
                 <div>
-                  <label for="contactCategory" class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-200">Inquiry Category</label>
-                  <select id="contactCategory" name="Category" class="w-full px-5 py-4 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
+                  <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Inquiry Category</label>
+                  <select name="Category" class="w-full px-4 sm:px-5 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs sm:text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
                     <option value="General Inquiries">General Inquiries</option>
                     <option value="Editorial">Editorial</option>
                     <option value="Business & Partnerships">Business & Partnerships</option>
@@ -847,34 +839,34 @@
                   </select>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label for="contactName" class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-200">Full Name *</label>
-                    <input type="text" id="contactName" name="Name" required placeholder="Dr. Alan Turing" class="w-full px-5 py-4 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Full Name *</label>
+                    <input type="text" name="Name" required placeholder="Dr. Alan Turing" class="w-full px-4 sm:px-5 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs sm:text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
                   </div>
                   <div>
-                    <label for="contactEmail" class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-200">Email Address *</label>
-                    <input type="email" id="contactEmail" name="Email" required placeholder="alan@example.com" class="w-full px-5 py-4 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Email Address *</label>
+                    <input type="email" name="Email" required placeholder="alan@example.com" class="w-full px-4 sm:px-5 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs sm:text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
                   </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label for="contactCompany" class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-200">Company / Organization (Optional)</label>
-                    <input type="text" id="contactCompany" name="Company" placeholder="OpenAI / MIT" class="w-full px-5 py-4 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Company (Optional)</label>
+                    <input type="text" name="Company" placeholder="OpenAI / MIT" class="w-full px-4 sm:px-5 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs sm:text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
                   </div>
                   <div>
-                    <label for="contactSubject" class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-200">Subject *</label>
-                    <input type="text" id="contactSubject" name="Subject" required placeholder="Research Collaboration Proposal" class="w-full px-5 py-4 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Subject *</label>
+                    <input type="text" name="Subject" required placeholder="Research Collaboration Proposal" class="w-full px-4 sm:px-5 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs sm:text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
                   </div>
                 </div>
 
                 <div>
-                  <label for="contactMessage" class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-200">Message *</label>
-                  <textarea id="contactMessage" name="Message" rows="6" required placeholder="Detail your inquiry here..." class="w-full px-5 py-4 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm text-white focus:outline-none focus:border-red-500 transition-colors resize-none"></textarea>
+                  <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Message *</label>
+                  <textarea name="Message" rows="5" required placeholder="Detail your inquiry here..." class="w-full px-4 sm:px-5 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs sm:text-sm text-white focus:outline-none focus:border-red-500 transition-colors resize-none"></textarea>
                 </div>
 
-                <button type="submit" class="w-full py-4 bg-red-500 hover:bg-white hover:text-slate-900 text-white font-black uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-red-500/20 text-sm" aria-label="Send Contact Dispatch">Send Dispatch</button>
+                <button type="submit" class="w-full py-3.5 sm:py-4 bg-red-500 hover:bg-white hover:text-slate-900 text-white font-black uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-red-500/20 text-xs sm:text-sm" aria-label="Submit contact form">Send Dispatch</button>
               </form>
             </div>
           </div>
@@ -918,15 +910,15 @@
       const pData = pages[slug] || pages['about'];
 
       app.innerHTML = `
-        <div class="max-w-4xl mx-auto pt-6 pb-20">
-          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-300 hover:text-red-500 mb-10 transition-colors group" aria-label="Back to Global Index">
+        <div class="max-w-4xl mx-auto pt-4 sm:pt-6 pb-16 sm:pb-20">
+          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 sm:mb-10 transition-colors group" aria-label="Back Home">
             <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform" aria-hidden="true"></i> Back to Global Index
           </button>
 
-          <div class="bg-neutral-900 border border-neutral-800 p-8 sm:p-12 rounded-[2.5rem] shadow-2xl">
-            <span class="px-4 py-1.5 bg-red-500/10 text-red-500 font-black text-xs uppercase tracking-widest rounded-full border border-red-500/20">${pData.cat}</span>
-            <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-white mt-6 mb-8">${pData.title}</h1>
-            <div class="prose prose-lg dark:prose-invert max-w-none text-slate-200 font-medium leading-relaxed">
+          <div class="bg-neutral-900 border border-neutral-800 p-6 sm:p-10 lg:p-12 rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl">
+            <span class="px-3.5 py-1.5 bg-red-500/10 text-red-500 font-black text-[11px] sm:text-xs uppercase tracking-widest rounded-full border border-red-500/20">${pData.cat}</span>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mt-4 sm:mt-6 mb-6">${pData.title}</h1>
+            <div class="prose prose-invert max-w-none text-slate-300 text-xs sm:text-base font-medium leading-relaxed">
               ${pData.body}
             </div>
           </div>
@@ -940,7 +932,7 @@
     (async function initAzexai() {
       const app = document.getElementById('app');
       if (app) {
-        app.innerHTML = '<div style="min-height:60vh;display:grid;place-items:center;"><div class="text-center"><i class="fa-solid fa-spinner fa-spin text-4xl text-red-500 mb-4" aria-hidden="true"></i><p class="font-black text-white tracking-widest uppercase text-sm">Initializing Azexai Global Intelligence...</p></div></div>';
+        app.innerHTML = '<div style="min-height:50vh;display:grid;place-items:center;"><div class="text-center p-6"><i class="fa-solid fa-spinner fa-spin text-3xl sm:text-4xl text-red-500 mb-4" aria-hidden="true"></i><p class="font-black text-white tracking-widest uppercase text-xs sm:text-sm">Initializing Azexai Intelligence Engine...</p></div></div>';
       }
       await loadBloggerArticles();
       parseUrlHash();
@@ -948,19 +940,8 @@
     })();
   </script>
 
-  <!-- Deferred Social Bar Ad Script -->
-  <script>
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        var s = document.createElement('script');
-        s.src = "https://pl31054244.profitableratecpmnetwork.com/29/d2/36/29d23663506bb6ad85c439bf7d6a87c6.js";
-        s.async = true;
-        document.body.appendChild(s);
-      }, 3000);
-    });
-  </script>
-
+  <!-- Crosslynk Script -->
+  <script src="https://pl31054244.profitableratecpmnetwork.com/29/d2/36/29d23663506bb6ad85c439bf7d6a87c6.js" defer></script>
   <script src="https://crosslynk.io/crosslynk.js" data-project-id="cmtayxsxs009vrv01dpj80nun" async></script>
 </body>
 </html>
-```

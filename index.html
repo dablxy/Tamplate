@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -48,19 +49,22 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden !important;
       -webkit-font-smoothing: antialiased;
     }
 
-    .max-w-7xl { max-width: 76rem; margin-left: auto; margin-right: auto; width: 100%; }
-    .max-w-3xl { max-width: 44rem; margin-left: auto; margin-right: auto; width: 100%; }
-    .px-pad { padding-left: 1rem; padding-right: 1rem; }
+    .max-w-7xl { max-width: 76rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
+    .max-w-3xl { max-width: 44rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; overflow-x: hidden; }
+    .px-pad { padding-left: 1rem; padding-right: 1.25rem; box-sizing: border-box; }
     @media (min-width: 640px) { .px-pad { padding-left: 1.5rem; padding-right: 1.5rem; } }
 
     header {
       position: sticky; top: 0; z-index: 50;
       background-color: rgba(5, 5, 7, 0.95);
       backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color);
+      width: 100%;
     }
     .header-inner { height: 3.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .logo {
@@ -84,6 +88,7 @@
       position: sticky; top: 3.75rem; z-index: 40; background-color: rgba(5, 5, 7, 0.95);
       backdrop-filter: blur(8px); padding-top: 0.5rem; padding-bottom: 0.6rem; margin-bottom: 1.25rem;
       border-bottom: 1px solid var(--border-color); display: flex; gap: 0.4rem; overflow-x: auto; scrollbar-width: none;
+      width: 100%; max-width: 100%; box-sizing: border-box;
     }
     .category-bar::-webkit-scrollbar { display: none; }
     .cat-btn {
@@ -92,20 +97,20 @@
     }
     .cat-btn:hover, .cat-btn.active { background-color: var(--brand-red); color: var(--text-white); border-color: var(--brand-red); }
 
-    /* Red Animated Featured Hero Card with 3D White Mascot */
+    /* Red Animated Featured Hero Card */
     .hero-card-red {
       display: flex; flex-direction: column; gap: 1rem;
       background: linear-gradient(-45deg, #b91c1c, #dc2626, #ef4444, #991b1b);
       background-size: 300% 300%; animation: gradientBG 8s ease infinite;
       border: 1px solid #f87171; padding: 1.15rem; border-radius: 1.25rem; margin-bottom: 1.75rem;
       cursor: pointer; position: relative; overflow: hidden; box-shadow: 0 12px 30px -5px rgba(239, 68, 68, 0.4);
+      width: 100%; box-sizing: border-box;
     }
     @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     @media (min-width: 768px) {
       .hero-card-red { display: grid; grid-template-columns: 1.25fr 1fr; padding: 1.65rem; border-radius: 1.5rem; gap: 1.75rem; align-items: center; }
     }
 
-    /* 3D White Mascot */
     .cartoon-reader-mascot {
       display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 0, 0, 0.3);
       padding: 0.35rem 0.75rem; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.4); margin-bottom: 0.5rem; backdrop-filter: blur(6px);
@@ -121,9 +126,9 @@
     .hero-excerpt-red { font-size: 0.78rem; color: #ffffff; font-weight: 500; line-height: 1.5; margin-bottom: 0.85rem; opacity: 0.95; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
     .img-container {
-      width: 100%; aspect-ratio: 16 / 9; border-radius: 0.75rem; overflow: hidden; background-color: #000000; position: relative;
+      width: 100%; aspect-ratio: 16 / 9; border-radius: 0.75rem; overflow: hidden; background-color: #000000; position: relative; box-sizing: border-box;
     }
-    .img-container img { width: 100%; height: 100%; object-fit: contain; background: #000; display: block; }
+    .img-container img { width: 100%; height: 100%; object-fit: contain; background: #000; display: block; max-width: 100%; }
 
     .badge-white {
       display: inline-block; padding: 0.2rem 0.6rem; background-color: #ffffff; color: #b91c1c;
@@ -134,16 +139,19 @@
     .grid-2-cols {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.85rem;
+      gap: 0.75rem;
+      width: 100%;
+      box-sizing: border-box;
     }
     @media (min-width: 640px) { .grid-2-cols { gap: 1.25rem; } }
 
     .card {
       background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1rem;
       overflow: hidden; display: flex; flex-direction: column; height: 100%; cursor: pointer; transition: border-color 0.2s ease;
+      box-sizing: border-box; width: 100%; max-width: 100%;
     }
     .card:hover { border-color: var(--brand-red); }
-    .card-body { padding: 0.75rem; display: flex; flex-direction: column; flex-grow: 1; }
+    .card-body { padding: 0.75rem; display: flex; flex-direction: column; flex-grow: 1; box-sizing: border-box; }
     @media (min-width: 640px) { .card-body { padding: 1rem; } }
     .card-title {
       font-size: 0.75rem; font-weight: 800; color: var(--text-white); margin-bottom: 0.3rem; line-height: 1.3;
@@ -163,73 +171,40 @@
 
     .section-title { font-size: 1.05rem; font-weight: 900; color: var(--text-white); text-transform: uppercase; margin-bottom: 0.85rem; }
 
-    .prose { line-height: 1.75; font-size: 0.9rem; color: var(--text-slate-300); }
+    .prose {
+      line-height: 1.75;
+      font-size: 0.9rem;
+      color: var(--text-slate-300);
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    .prose * { max-width: 100% !important; box-sizing: border-box !important; }
     .prose h2 { font-size: 1.3rem; font-weight: 800; color: var(--text-white); margin-top: 1.25rem; margin-bottom: 0.5rem; }
     .prose p { margin-bottom: 1rem; }
+    .prose img { width: 100% !important; height: auto !important; object-fit: contain; border-radius: 0.75rem; }
 
-    /* Complete Full Footer */
     footer {
-      background-color: #030305;
-      border-top: 1px solid var(--border-color);
-      margin-top: auto;
-      padding: 2.5rem 0;
+      background-color: #030305; border-top: 1px solid var(--border-color);
+      margin-top: auto; padding: 2.5rem 0; width: 100%; box-sizing: border-box;
     }
-    .footer-split {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-    .footer-top {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 1.5rem;
-    }
-    @media(min-width: 640px) {
-      .footer-top {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
-    .footer-columns {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-    @media(min-width: 768px) {
-      .footer-columns {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    .footer-heading {
-      color: var(--text-white);
-      font-size: 0.7rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.75rem;
-    }
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      font-size: 0.78rem;
-    }
-    .footer-links a {
-      color: var(--text-slate-400);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
+    .footer-split { display: flex; flex-direction: column; gap: 2rem; width: 100%; box-sizing: border-box; }
+    .footer-top { display: flex; flex-direction: column; gap: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; }
+    @media(min-width: 640px) { .footer-top { flex-direction: row; align-items: center; justify-content: space-between; } }
+    .footer-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    @media(min-width: 768px) { .footer-columns { grid-template-columns: repeat(3, 1fr); } }
+    .footer-heading { color: var(--text-white); font-size: 0.7rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.78rem; }
+    .footer-links a { color: var(--text-slate-400); text-decoration: none; transition: color 0.15s ease; }
     .footer-links a:hover { color: var(--brand-red); }
 
     .modal-backdrop {
       position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(6px);
       z-index: 100; display: flex; align-items: flex-start; justify-content: center; padding: 1rem; padding-top: 4rem;
     }
-    .modal-content { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.25rem; max-width: 36rem; width: 100%; padding: 1.25rem; }
+    .modal-content { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.25rem; max-width: 36rem; width: 100%; padding: 1.25rem; box-sizing: border-box; }
     .hidden { display: none !important; }
     .icon-svg { width: 1.1em; height: 1.1em; fill: currentColor; vertical-align: -0.15em; }
   </style>
@@ -239,16 +214,16 @@
   <!-- Global Header -->
   <header>
     <div class="max-w-7xl px-pad header-inner">
-      <a href="/" onclick="navigateToHome(event)" class="logo" aria-label="AZEXAI Home">
+      <a href="#" onclick="navigateToHome(event)" class="logo" aria-label="AZEXAI Home">
         AZEX<span class="logo-red">AI</span><span class="logo-red" style="font-size: 1.8rem; line-height: 0;">.</span>
       </a>
 
       <nav class="desktop-nav" aria-label="Navigation">
-        <a href="/" onclick="navigateToHome(event)" class="active">Home</a>
-        <a href="/?cat=AI" onclick="setCategory('AI', event);">AI</a>
-        <a href="/?cat=Tech" onclick="setCategory('Tech', event);">Tech</a>
-        <a href="/?cat=Cybersecurity" onclick="setCategory('Cybersecurity', event);">Cybersecurity</a>
-        <a href="/?cat=Reviews" onclick="setCategory('Reviews', event);">Reviews</a>
+        <a href="#" onclick="navigateToHome(event)" class="active">Home</a>
+        <a href="#" onclick="setCategory('AI', event);">AI</a>
+        <a href="#" onclick="setCategory('Tech', event);">Tech</a>
+        <a href="#" onclick="setCategory('Cybersecurity', event);">Cybersecurity</a>
+        <a href="#" onclick="setCategory('Reviews', event);">Reviews</a>
       </nav>
       
       <div class="header-actions">
@@ -269,7 +244,7 @@
     <div class="max-w-7xl px-pad footer-split">
       <div class="footer-top">
         <div>
-          <a href="/" onclick="navigateToHome(event)" class="logo" style="margin-bottom: 0.4rem; font-size:1.3rem;">
+          <a href="#" onclick="navigateToHome(event)" class="logo" style="margin-bottom: 0.4rem; font-size:1.3rem;">
             AZEX<span class="logo-red">AI</span>.
           </a>
           <p style="font-size: 0.75rem; color: var(--text-slate-400);">Global authority on artificial intelligence, frontier technology, and digital transformation.</p>
@@ -284,26 +259,26 @@
         <div>
           <h3 class="footer-heading">COMPANY</h3>
           <ul class="footer-links">
-            <li><a href="/about" onclick="navigateToStaticPage('about', event)">About Us</a></li>
-            <li><a href="/editorial" onclick="navigateToStaticPage('editorial', event)">Editorial Board</a></li>
-            <li><a href="/privacy" onclick="navigateToStaticPage('privacy', event)">Privacy Policy</a></li>
-            <li><a href="/terms" onclick="navigateToStaticPage('terms', event)">Terms of Service</a></li>
-            <li><a href="/contact" onclick="navigateToStaticPage('contact', event)">Contact</a></li>
+            <li><a href="#" onclick="navigateToStaticPage('about', event)">About Us</a></li>
+            <li><a href="#" onclick="navigateToStaticPage('editorial', event)">Editorial Board</a></li>
+            <li><a href="#" onclick="navigateToStaticPage('privacy', event)">Privacy Policy</a></li>
+            <li><a href="#" onclick="navigateToStaticPage('terms', event)">Terms of Service</a></li>
+            <li><a href="#" onclick="navigateToStaticPage('contact', event)">Contact</a></li>
           </ul>
         </div>
         <div>
           <h3 class="footer-heading">CATEGORIES</h3>
           <ul class="footer-links">
-            <li><a href="/?cat=AI" onclick="setCategory('AI', event);">Artificial Intelligence</a></li>
-            <li><a href="/?cat=Tech" onclick="setCategory('Tech', event);">Frontier Tech</a></li>
-            <li><a href="/?cat=Cybersecurity" onclick="setCategory('Cybersecurity', event);">Cybersecurity</a></li>
-            <li><a href="/?cat=Reviews" onclick="setCategory('Reviews', event);">Expert Reviews</a></li>
+            <li><a href="#" onclick="setCategory('AI', event);">Artificial Intelligence</a></li>
+            <li><a href="#" onclick="setCategory('Tech', event);">Frontier Tech</a></li>
+            <li><a href="#" onclick="setCategory('Cybersecurity', event);">Cybersecurity</a></li>
+            <li><a href="#" onclick="setCategory('Reviews', event);">Expert Reviews</a></li>
           </ul>
         </div>
         <div>
           <h3 class="footer-heading">CONNECT</h3>
           <ul class="footer-links">
-            <li><a href="/contact" onclick="navigateToStaticPage('contact', event)">Global Newsletter</a></li>
+            <li><a href="#" onclick="navigateToStaticPage('contact', event)">Global Newsletter</a></li>
             <li><a href="#" onclick="openSearchModal(); return false;">Search Articles</a></li>
           </ul>
         </div>
@@ -323,7 +298,7 @@
     </div>
   </div>
 
-  <!-- JavaScript Engine with Clean Direct URLs (History API) -->
+  <!-- JavaScript Engine -->
   <script>
     const BLOGGER_CONFIG = {
       blogId: '4263033619836681299',
@@ -384,6 +359,8 @@
       }
     ];
 
+    let currentView = { type: 'home', slug: null };
+
     async function loadBloggerArticlesAsync() {
       if (!BLOGGER_CONFIG.apiKey) return;
       try {
@@ -418,25 +395,24 @@
       } catch (e) {}
     }
 
-    /* Clean History API Navigation Routines */
     function navigateToHome(e) {
       if (e) e.preventDefault();
       AZEXAI.activeCategory = 'All';
-      window.history.pushState({}, '', '/');
+      window.history.pushState({}, '', window.location.pathname);
       window.scrollTo({ top: 0, behavior: 'instant' });
       router();
     }
 
     function navigateToArticle(slug, e) {
       if (e) e.preventDefault();
-      window.history.pushState({}, '', '/' + slug);
+      window.history.pushState({}, '', '#/' + slug);
       window.scrollTo({ top: 0, behavior: 'instant' });
       router();
     }
 
     function navigateToStaticPage(slug, e) {
       if (e) e.preventDefault();
-      window.history.pushState({}, '', '/' + slug);
+      window.history.pushState({}, '', '#/' + slug);
       window.scrollTo({ top: 0, behavior: 'instant' });
       router();
     }
@@ -444,7 +420,6 @@
     function setCategory(cat, e) {
       if (e) e.preventDefault();
       AZEXAI.activeCategory = cat;
-      window.history.pushState({}, '', cat === 'All' ? '/' : '/?cat=' + cat);
       router();
     }
 
@@ -456,25 +431,18 @@
       const app = document.getElementById('app');
       if (!app) return;
       
-      const path = window.location.pathname.replace(/^\/+/, '');
-      const searchParams = new URLSearchParams(window.location.search);
-      const catParam = searchParams.get('cat');
+      const hash = window.location.hash.replace('#/', '');
       
-      if (catParam && AZEXAI.categories.includes(catParam)) {
-        AZEXAI.activeCategory = catParam;
-      }
-
-      if (path && path !== '' && path !== 'about' && path !== 'editorial' && path !== 'privacy' && path !== 'terms' && path !== 'contact') {
-        const art = ARTICLES.find(a => a.slug === path);
+      if (hash && hash !== '') {
+        if (['about', 'editorial', 'privacy', 'terms', 'contact'].includes(hash)) {
+          renderStaticPageView(hash);
+          return;
+        }
+        const art = ARTICLES.find(a => a.slug === hash);
         if (art) {
           renderArticleView(art);
           return;
         }
-      }
-
-      if (['about', 'editorial', 'privacy', 'terms', 'contact'].includes(path)) {
-        renderStaticPageView(path);
-        return;
       }
 
       renderHome();

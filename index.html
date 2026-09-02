@@ -26,7 +26,7 @@
   }
   </script>
 
-  <!-- Critical Inline CSS with Full-Width Fluid Expansion -->
+  <!-- Critical Inline CSS with Full Global Styling -->
   <style>
     *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -37,6 +37,7 @@
       --text-slate-300: #cbd5e1;
       --text-slate-400: #94a3b8;
       --brand-red: #ef4444;
+      --brand-orange: #f97316;
       --brand-green: #22c55e;
       --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
@@ -54,7 +55,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Full Width Fluid Layout Containers */
     .max-w-7xl { max-width: 86rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
     .max-w-article { max-width: 64rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
     .px-pad { padding-left: 1.25rem; padding-right: 1.25rem; box-sizing: border-box; }
@@ -136,7 +136,6 @@
       font-size: 0.68rem; font-weight: 900; text-transform: uppercase; border-radius: 9999px;
     }
 
-    /* Strict 2 Columns Grid for Articles */
     .grid-2-cols {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -172,26 +171,58 @@
 
     .section-title { font-size: 1.25rem; font-weight: 900; color: var(--text-white); text-transform: uppercase; margin-bottom: 1.25rem; }
 
-    /* Full-Width Fluid Article Reader */
     .prose {
-      line-height: 1.9;
-      font-size: 1.1rem;
-      color: var(--text-slate-300);
-      width: 100% !important;
-      max-width: 100% !important;
-      overflow-x: hidden !important;
-      word-break: break-word !important;
-      overflow-wrap: break-word !important;
-      box-sizing: border-box !important;
+      line-height: 1.85; font-size: 1.05rem; color: var(--text-slate-300);
+      width: 100% !important; max-width: 100% !important; overflow-x: hidden; word-break: break-word; overflow-wrap: break-word;
     }
-    .prose * {
-      max-width: 100% !important;
-      box-sizing: border-box !important;
-      word-break: break-word !important;
-    }
-    .prose h2 { font-size: 1.75rem; font-weight: 800; color: var(--text-white); margin-top: 2rem; margin-bottom: 0.85rem; }
-    .prose p { margin-bottom: 1.5rem; width: 100% !important; }
+    .prose * { max-width: 100% !important; box-sizing: border-box !important; }
+    .prose h2 { font-size: 1.75rem; font-weight: 800; color: var(--text-white); margin-top: 1.75rem; margin-bottom: 0.75rem; }
+    .prose p { margin-bottom: 1.25rem; width: 100% !important; }
     .prose img { width: 100% !important; height: auto !important; object-fit: contain !important; border-radius: 1rem; margin: 1.5rem 0; }
+
+    /* Contact Form Styling (Orange & White Futuristic Theme) */
+    .contact-form-card {
+      background: linear-gradient(135deg, #0f0f13 0%, #08080b 100%);
+      border: 1px solid rgba(249, 115, 22, 0.4);
+      border-radius: 1.75rem;
+      padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 25px rgba(249, 115, 22, 0.15);
+    }
+    .form-input {
+      width: 100%;
+      background: #050507;
+      border: 1px solid var(--border-color);
+      border-radius: 0.85rem;
+      padding: 0.85rem 1rem;
+      color: #ffffff;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-input:focus {
+      border-color: var(--brand-orange);
+      box-shadow: 0 0 12px rgba(249, 115, 22, 0.35);
+    }
+    .form-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: #ffffff;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.95rem;
+      border-radius: 0.85rem;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.5);
+      transition: all 0.2s ease;
+    }
+    .form-btn:hover {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 10px 25px rgba(255,255,255,0.3);
+    }
 
     footer {
       background-color: #030305; border-top: 1px solid var(--border-color);
@@ -242,7 +273,7 @@
   </header>
 
   <!-- Main Content View Container -->
-  <main class="max-w-7xl px-pad" style="flex-grow: 1; padding-top: 1.5rem; padding-bottom: 3.5rem;">
+  <main class="max-w-7xl px-pad" style="flex-grow: 1; padding-top: 1.25rem; padding-bottom: 3rem;">
     <div id="app"></div>
   </main>
 
@@ -307,6 +338,8 @@
 
   <!-- JavaScript Engine -->
   <script>
+    const CONTACT_EMAIL = "aristo@azexai.com";
+
     const BLOGGER_CONFIG = {
       blogId: '4263033619836681299',
       apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
@@ -552,12 +585,90 @@
     }
 
     function renderStaticPageView(slug) {
-      document.getElementById('app').innerHTML = `
+      const app = document.getElementById('app');
+      
+      if (slug === 'contact') {
+        app.innerHTML = `
+          <div class="max-w-article" style="padding-top: 1rem;">
+            <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1.5rem;">← Back to Index</button>
+            <div class="contact-form-card">
+              <span style="background: rgba(249, 115, 22, 0.15); color: #f97316; border: 1px solid rgba(249, 115, 22, 0.4); font-weight: 900; font-size: 0.65rem; padding: 0.3rem 0.75rem; border-radius: 9999px; text-transform: uppercase; display: inline-block; margin-bottom: 0.75rem;">
+                DIRECT COMMUNICATION
+              </span>
+              <h1 style="font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 0.75rem;">Contact AZEXAI</h1>
+              <p style="color: var(--text-slate-300); font-size: 0.9rem; line-height: 1.6; margin-bottom: 2rem;">
+                Get in touch with our global editorial board, research division, or partnership directors. Official desk email: <strong style="color: #f97316;">${CONTACT_EMAIL}</strong>
+              </p>
+
+              <form onsubmit="event.preventDefault(); alert('Message dispatched successfully to aristo@azexai.com!');" style="display: flex; flex-direction: column; gap: 1.25rem;">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                  <div>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">First Name *</label>
+                    <input type="text" required placeholder="Alan" class="form-input">
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">Last Name *</label>
+                    <input type="text" required placeholder="Turing" class="form-input">
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                  <div>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">Email Address *</label>
+                    <input type="email" required placeholder="alan@example.com" class="form-input">
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">Subject / Title *</label>
+                    <input type="text" required placeholder="Research Inquiry" class="form-input">
+                  </div>
+                </div>
+
+                <div>
+                  <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">Your Message *</label>
+                  <textarea rows="5" required placeholder="Detail your inquiry here..." class="form-input" style="resize: none;"></textarea>
+                </div>
+
+                <button type="submit" class="form-btn">Send Dispatch Message</button>
+              </form>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      const staticData = {
+        about: {
+          title: "About AZEXAI",
+          subtitle: "Global Authority on Artificial Intelligence & Frontier Technology",
+          body: "AZEXAI is the premier independent global intelligence platform dedicated to decoding complex algorithmic breakthroughs, neural network topologies, and quantum computing advancements. Founded by a coalition of senior researchers, software architects, and technology journalists, our mission is to deliver uncompromising editorial integrity, rigorous benchmarking, and deep systemic analysis of digital transformation across global enterprises."
+        },
+        editorial: {
+          title: "Global Editorial Board",
+          subtitle: "Governance, Verification & Journalistic Ethics",
+          body: "The AZEXAI Global Editorial Board maintains rigorous standards of factual precision, technical depth, and strict independence across all published reports. Every piece of intelligence undergoes strict peer review by domain specialists before publication. We operate with zero tolerance for vendor influence, sponsored bias, or unverified algorithmic claims."
+        },
+        privacy: {
+          title: "Privacy Policy",
+          subtitle: "Data Protection & Security Standards",
+          body: "At AZEXAI, we respect your digital privacy. We collect minimal telemetry data strictly necessary to optimize our global content delivery network and secure user sessions. We do not sell, rent, or monetize personal user logs or reading telemetry with third-party advertising brokers."
+        },
+        terms: {
+          title: "Terms of Service",
+          subtitle: "User Agreement & Intellectual Property Guidelines",
+          body: "By accessing AZEXAI, you agree to abide by our intellectual property guidelines. All proprietary research articles, visual graphics, and code structures are protected by international copyright laws. Educational citation and commentary are permitted provided proper attribution and canonical links to AZEXAI are maintained."
+        }
+      };
+
+      const page = staticData[slug] || staticData['about'];
+
+      app.innerHTML = `
         <div class="max-w-article" style="padding-top: 1rem;">
           <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1.5rem;">← Back to Index</button>
           <div style="background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 1.5rem;">
-            <h1 style="font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 1rem; text-transform: capitalize;">${slug} Page</h1>
-            <p style="color: var(--text-slate-300); line-height: 1.7; font-size: 1rem;">AZEXAI is the premier global authority on artificial intelligence and frontier technology.</p>
+            <span style="background: rgba(239, 68, 68, 0.15); color: var(--brand-red); font-weight: 900; font-size: 0.65rem; padding: 0.3rem 0.75rem; border-radius: 9999px; text-transform: uppercase; display: inline-block; margin-bottom: 0.75rem;">OFFICIAL DISPATCH</span>
+            <h1 style="font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 0.5rem;">${page.title}</h1>
+            <p style="font-size: 0.95rem; color: #f97316; font-weight: 700; margin-bottom: 1.5rem;">${page.subtitle}</p>
+            <p style="color: var(--text-slate-300); line-height: 1.8; font-size: 1.05rem;">${page.body}</p>
           </div>
         </div>
       `;
@@ -572,7 +683,7 @@
       const matches = ARTICLES.filter(a => a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q));
       res.innerHTML = matches.map(m => `
         <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" style="padding: 0.65rem; background: #050505; border-radius: 0.65rem; cursor: pointer;">
-          <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff;">${m.title}</h4>
+          <h4 style="font-size: 0.82rem; font-weight: 700; color: #fff;">${m.title}</h4>
         </div>
       `).join('');
     }

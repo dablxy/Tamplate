@@ -1,596 +1,737 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang='en' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="pageMetaTitle">AZEXAI — Global Technology & Artificial Intelligence Authority</title>
-  <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
-  <link rel="canonical" href="https://azexai.com/">
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta charset='utf-8'/>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=5.0' name='viewport'/>
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
   
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json">
+  <!-- Dynamic Title & SEO -->
+  <b:if cond='data:view.isSingleItem'>
+    <title><data:blog.pageName/> | AZEXAI</title>
+  <b:else/>
+    <title><data:blog.title/> | Global Technology &amp; Artificial Intelligence Authority</title>
+  </b:if>
+  
+  <meta content='AZEXAI is a global technology publication focused on artificial intelligence, generative AI, cybersecurity, robotics, quantum computing, and future technology.' name='description'/>
+  <meta content='AZEXAI Editorial Team' name='author'/>
+  <meta content='index, follow, max-image-preview:large' name='robots'/>
+  
+  <!-- Open Graph / Twitter Cards -->
+  <meta expr:content='data:blog.pageName ? data:blog.pageName : data:blog.title' property='og:title'/>
+  <meta content='AZEXAI - Global Technology &amp; Artificial Intelligence Authority' property='og:site_name'/>
+  <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+  <meta content='website' property='og:type'/>
+  <meta content='summary_large_image' name='twitter:card'/>
+  <meta content='@AZEXAI_tech' name='twitter:site'/>
+
+  <link expr:href='data:blog.canonicalUrl' rel='canonical'/>
+  <link href='https://fonts.googleapis.com' rel='preconnect'/>
+  <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
+  <link href='https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap' rel='stylesheet'/>
+
+  <!-- Structured Data JSON-LD -->
+  <script type='application/ld+json'>
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
+    "@type": "NewsMediaOrganization",
     "name": "AZEXAI",
-    "url": "https://azexai.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://azexai.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "url": "<data:blog.homepageUrl/>",
+    "logo": "<data:blog.homepageUrl/>favicon.ico",
+    "sameAs": [
+      "https://twitter.com/AZEXAI",
+      "https://linkedin.com/company/azexai"
+    ],
+    "description": "Global Technology & Artificial Intelligence Authority"
   }
   </script>
 
-  <!-- Critical Ultra-Light & Complete CSS -->
-  <style>
-    *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg-black: #050507;
-      --bg-card: #0f0f13;
-      --border-color: #1a1a22;
-      --text-white: #ffffff;
-      --text-slate-300: #cbd5e1;
-      --text-slate-400: #94a3b8;
-      --brand-red: #ef4444;
-      --brand-orange: #f97316;
-      --brand-green: #22c55e;
-      --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    }
-    body {
-      font-family: var(--font-main); background-color: var(--bg-black); color: var(--text-slate-300);
-      min-height: 100vh; display: flex; flex-direction: column; width: 100%; max-width: 100vw; overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-    .max-w-7xl { max-width: 86rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
-    .max-w-article { max-width: 64rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
-    .px-pad { padding-left: 1.25rem; padding-right: 1.25rem; box-sizing: border-box; }
-    @media (min-width: 640px) { .px-pad { padding-left: 2rem; padding-right: 2rem; } }
+  <b:skin><![CDATA[
+  /* ==========================================================================
+     AZEXAI - SYSTEM DESIGN & THEME STYLES (DARK FIRST EDITORIAL THEME)
+     ========================================================================== */
+  :root {
+    --bg-main: #050507;
+    --bg-surface: #0D0D12;
+    --bg-card: #12121A;
+    --bg-elevated: #1A1A24;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.16);
+    
+    --text-primary: #F8FAFC;
+    --text-secondary: #A1A1AA;
+    --text-muted: #64748B;
+    
+    --accent-red: #EF4444;
+    --accent-orange: #F97316;
+    --accent-green: #10B981;
+    --accent-blue: #3B82F6;
+    --accent-purple: #8B5CF6;
+    
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    --max-width: 1280px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
+    
+    --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-    /* Live Dispatch Ticker */
-    .live-ticker {
-      background-color: #08080b; border-bottom: 1px solid var(--border-color);
-      font-size: 0.72rem; font-weight: 700; padding: 0.5rem 1rem; display: flex; align-items: center; justify-content: space-between;
-    }
-    .pulse-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background-color: var(--brand-red); box-shadow: 0 0 8px var(--brand-red); animation: pulseGlow 1.5s infinite; }
-    @keyframes pulseGlow { 0% { transform: scale(0.95); opacity: 0.7; } 50% { transform: scale(1.2); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.7; } }
+  /* Reset & Baseline */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; background-color: var(--bg-main); color: var(--text-primary); }
+  body { font-family: var(--font-sans); line-height: 1.6; background-color: var(--bg-main); color: var(--text-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  
+  a { color: inherit; text-decoration: none; transition: var(--transition); }
+  img { max-width: 100%; height: auto; display: block; }
+  button, input, textarea { font-family: inherit; color: inherit; border: none; background: none; outline: none; }
+  ul, ol { list-style: none; }
 
-    header {
-      position: sticky; top: 0; z-index: 50; background-color: rgba(5, 5, 7, 0.95);
-      backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); width: 100%;
-    }
-    .header-inner { height: 4rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .logo { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.05em; text-transform: uppercase; color: var(--text-white); text-decoration: none; }
-    .logo-red { color: var(--brand-red); }
+  .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
 
-    nav.desktop-nav { display: none; gap: 1.5rem; font-size: 0.85rem; font-weight: 700; }
-    @media (min-width: 768px) { nav.desktop-nav { display: flex; align-items: center; } }
-    nav.desktop-nav a { color: var(--text-slate-300); text-decoration: none; }
-    nav.desktop-nav a:hover, nav.desktop-nav a.active { color: var(--brand-red); }
+  /* Reading Progress Bar */
+  #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent-red), var(--accent-orange)); width: 0%; z-index: 9999; transition: width 0.1s ease-out; }
 
-    .btn-icon {
-      padding: 0.55rem; border-radius: 0.75rem; background-color: var(--bg-card);
-      border: 1px solid var(--border-color); color: var(--text-slate-300); cursor: pointer;
-      display: inline-flex; align-items: center; justify-content: center;
-    }
+  /* Header & Navigation */
+  .top-bar { background: var(--bg-surface); border-bottom: 1px solid var(--border-subtle); font-size: 0.8rem; color: var(--text-secondary); padding: 0.4rem 0; }
+  .top-bar-inner { display: flex; justify-content: space-between; align-items: center; }
+  .status-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; }
+  .status-dot { width: 8px; height: 8px; background-color: var(--accent-green); border-radius: 50%; box-shadow: 0 0 8px var(--accent-green); animation: pulse 2s infinite; }
+  
+  @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
 
-    .category-bar {
-      position: sticky; top: 4rem; z-index: 40; background-color: rgba(5, 5, 7, 0.95);
-      backdrop-filter: blur(8px); padding-top: 0.6rem; padding-bottom: 0.8rem; margin-bottom: 1.75rem;
-      border-bottom: 1px solid var(--border-color); display: flex; gap: 0.5rem; overflow-x: auto; scrollbar-width: none;
-      width: 100%; box-sizing: border-box;
-    }
-    .category-bar::-webkit-scrollbar { display: none; }
-    .cat-btn {
-      padding: 0.4rem 1rem; border-radius: 0.85rem; font-size: 0.72rem; font-weight: 900; text-transform: uppercase;
-      border: 1px solid var(--border-color); background-color: var(--bg-card); color: var(--text-slate-300); cursor: pointer; white-space: nowrap; flex-shrink: 0;
-    }
-    .cat-btn:hover, .cat-btn.active { background-color: var(--brand-red); color: var(--text-white); border-color: var(--brand-red); }
+  .site-header { position: sticky; top: 0; background: rgba(5, 5, 7, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-subtle); z-index: 1000; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
 
-    .hero-card-red {
-      display: flex; flex-direction: column; gap: 1.25rem;
-      background: linear-gradient(-45deg, #b91c1c, #dc2626, #ef4444, #991b1b);
-      background-size: 300% 300%; animation: gradientBG 8s ease infinite;
-      border: 1px solid #f87171; padding: 1.5rem; border-radius: 1.5rem; margin-bottom: 2.25rem;
-      cursor: pointer; position: relative; overflow: hidden; box-shadow: 0 15px 35px -5px rgba(239, 68, 68, 0.4); width: 100%; box-sizing: border-box;
-    }
-    @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    @media (min-width: 768px) {
-      .hero-card-red { display: grid; grid-template-columns: 1.35fr 1fr; padding: 2.25rem; gap: 2rem; align-items: center; }
-    }
+  .brand-logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 800; font-size: 1.5rem; letter-spacing: -0.03em; color: var(--text-primary); }
+  .brand-logo .mark { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent-red), var(--accent-orange)); border-radius: var(--radius-md); color: #fff; font-family: var(--font-mono); font-weight: 700; font-size: 1.1rem; }
+  .brand-logo span.accent { color: var(--accent-red); }
 
-    .cartoon-reader-mascot {
-      display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 0, 0, 0.3);
-      padding: 0.4rem 0.85rem; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.4); margin-bottom: 0.65rem;
-    }
-    .cartoon-svg { width: 2.2rem; height: 2.2rem; }
+  .nav-desktop { display: flex; align-items: center; gap: 1.75rem; }
+  .nav-link { font-size: 0.9rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; position: relative; padding: 0.5rem 0; }
+  .nav-link:hover, .nav-link.active { color: var(--text-primary); }
+  .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0%; height: 2px; background: var(--accent-red); transition: var(--transition); }
+  .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-    .hero-title-red { font-size: 1.35rem; font-weight: 900; color: #ffffff; line-height: 1.25; margin-bottom: 0.6rem; }
-    @media (min-width: 640px) { .hero-title-red { font-size: 1.85rem; } }
+  .header-actions { display: flex; align-items: center; gap: 1rem; }
+  .btn-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-secondary); cursor: pointer; transition: var(--transition); }
+  .btn-icon:hover { color: var(--text-primary); border-color: var(--border-strong); background: var(--bg-card); }
 
-    .hero-excerpt-red { font-size: 0.85rem; color: #ffffff; font-weight: 500; line-height: 1.6; margin-bottom: 1rem; opacity: 0.95; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .btn-primary { background: linear-gradient(135deg, var(--accent-red), var(--accent-orange)); color: #fff; font-weight: 700; font-size: 0.85rem; padding: 0.6rem 1.25rem; border-radius: var(--radius-md); text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 14px rgba(239, 68, 68, 0.25); cursor: pointer; }
+  .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
 
-    .img-container { width: 100%; aspect-ratio: 16 / 9; border-radius: 0.85rem; overflow: hidden; background-color: #000000; position: relative; }
-    .img-container img { width: 100%; height: 100%; object-fit: contain; background: #000; display: block; }
+  /* Search Overlay Modal */
+  .search-modal { position: fixed; inset: 0; background: rgba(5,5,7,0.92); backdrop-filter: blur(10px); z-index: 3000; display: none; align-items: flex-start; justify-content: center; padding-top: 10vh; }
+  .search-modal.open { display: flex; }
+  .search-box-container { width: 100%; max-width: 650px; background: var(--bg-surface); border: 1px solid var(--border-strong); border-radius: var(--radius-xl); padding: 1.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+  .search-form { display: flex; gap: 1rem; }
+  .search-input { flex-grow: 1; font-size: 1.2rem; background: transparent; color: var(--text-primary); border-bottom: 2px solid var(--accent-red); padding: 0.5rem 0; }
 
-    .badge-white {
-      display: inline-block; padding: 0.25rem 0.75rem; background-color: #ffffff; color: #b91c1c;
-      font-size: 0.68rem; font-weight: 900; text-transform: uppercase; border-radius: 9999px;
-    }
+  /* Mobile Nav Drawer */
+  .menu-toggle { display: none; }
+  .mobile-drawer { position: fixed; top: 0; left: -100%; width: 300px; height: 100vh; background: var(--bg-surface); border-right: 1px solid var(--border-subtle); z-index: 2000; padding: 2rem 1.5rem; transition: left 0.3s ease; display: flex; flex-direction: column; gap: 1.5rem; }
+  .mobile-drawer.open { left: 0; }
+  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 1999; display: none; }
+  .overlay.open { display: block; }
 
-    .grid-2-cols {
-      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; width: 100%; box-sizing: border-box;
-    }
-    @media (min-width: 1024px) { .grid-2-cols { gap: 1.75rem; } }
+  /* Breaking News Ticker */
+  .ticker-wrap { background: var(--bg-surface); border-bottom: 1px solid var(--border-subtle); padding: 0.6rem 0; font-size: 0.85rem; overflow: hidden; }
+  .ticker-inner { display: flex; align-items: center; gap: 1rem; }
+  .ticker-label { background: var(--accent-red); color: #fff; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); letter-spacing: 0.08em; flex-shrink: 0; display: flex; align-items: center; gap: 0.4rem; }
+  .ticker-content { display: flex; gap: 2rem; white-space: nowrap; animation: ticker 35s linear infinite; }
+  .ticker-content:hover { animation-play-state: paused; }
+  .ticker-item { color: var(--text-secondary); display: inline-flex; align-items: center; gap: 0.5rem; }
+  .ticker-item:hover { color: var(--accent-orange); }
 
-    .card {
-      background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.25rem;
-      overflow: hidden; display: flex; flex-direction: column; height: 100%; cursor: pointer; width: 100%; box-sizing: border-box;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-    .card:hover { border-color: var(--brand-red); transform: translateY(-2px); }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex-grow: 1; box-sizing: border-box; }
-    @media (min-width: 640px) { .card-body { padding: 1.25rem; } }
-    .card-title {
-      font-size: 0.88rem; font-weight: 800; color: var(--text-white); margin-bottom: 0.4rem; line-height: 1.35;
-      overflow-wrap: break-word; word-break: break-word;
-    }
-    @media (min-width: 640px) { .card-title { font-size: 1.15rem; } }
-    .card-excerpt {
-      font-size: 0.75rem; color: var(--text-slate-400); line-height: 1.5; margin-bottom: 0.75rem;
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; flex-grow: 1;
-    }
-    .card-footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.6rem;
-      display: flex; align-items: center; justify-content: space-between; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: var(--text-slate-400);
-    }
-    .section-title { font-size: 1.25rem; font-weight: 900; color: var(--text-white); text-transform: uppercase; margin-bottom: 1.25rem; }
+  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    .domain-cyber-card {
-      background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(16, 16, 22, 0.95) 100%);
-      border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 1rem;
-      padding: 1rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: all 0.2s ease;
-    }
-    .domain-cyber-card:hover { border-color: var(--brand-red); transform: translateY(-2px); }
+  /* Horizontal Scrollable Categories Bar */
+  .cat-bar { background: var(--bg-main); border-bottom: 1px solid var(--border-subtle); padding: 0.75rem 0; overflow-x: auto; scrollbar-width: none; }
+  .cat-bar::-webkit-scrollbar { display: none; }
+  .cat-list { display: flex; align-items: center; gap: 0.75rem; white-space: nowrap; }
+  .cat-pill { font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 99px; background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-secondary); transition: var(--transition); }
+  .cat-pill:hover, .cat-pill.active { background: var(--bg-elevated); color: var(--text-primary); border-color: var(--accent-red); }
 
-    .pro-newsletter-card {
-      background: linear-gradient(135deg, #121219 0%, #09090d 100%);
-      border: 1px solid rgba(239, 68, 68, 0.35); padding: 2rem; border-radius: 1.5rem; margin-top: 2.5rem; margin-bottom: 2.5rem;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.8);
-    }
+  /* Hero Section */
+  .hero-section { padding: 2.5rem 0; }
+  .hero-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+  
+  .hero-card { position: relative; background: var(--bg-card); border-radius: var(--radius-xl); border: 1px solid var(--border-subtle); overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; min-height: 480px; padding: 2.5rem; }
+  .hero-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.45; transition: transform 0.5s ease; }
+  .hero-card:hover img { transform: scale(1.03); }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,5,7,0) 0%, rgba(5,5,7,0.95) 100%); }
+  .hero-content { position: relative; z-index: 2; max-width: 800px; }
+  
+  .badge { display: inline-block; padding: 0.25rem 0.75rem; background: var(--accent-red); color: #fff; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; border-radius: var(--radius-sm); letter-spacing: 0.05em; margin-bottom: 1rem; }
+  .hero-title { font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: #fff; }
+  .hero-excerpt { font-size: 1rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  
+  .meta-info { display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono); }
+  .meta-author { color: var(--text-primary); font-weight: 600; }
 
-    .prose {
-      line-height: 1.85; font-size: 1.05rem; color: var(--text-slate-300); width: 100% !important; max-width: 100% !important; overflow-x: hidden; word-break: break-word; overflow-wrap: break-word;
-    }
-    .prose * { max-width: 100% !important; box-sizing: border-box !important; }
-    .prose h2 { font-size: 1.75rem; font-weight: 800; color: var(--text-white); margin-top: 1.75rem; margin-bottom: 0.75rem; }
-    .prose p { margin-bottom: 1.25rem; width: 100% !important; }
-    .prose img { width: 100% !important; height: auto !important; object-fit: contain !important; border-radius: 1rem; margin: 1.5rem 0; }
+  .hero-sidebar { display: flex; flex-direction: column; gap: 1rem; }
+  .sidebar-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem; transition: var(--transition); }
+  .sidebar-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+  .sidebar-card .title { font-weight: 700; font-size: 1rem; line-height: 1.4; margin-top: 0.5rem; color: var(--text-primary); }
 
-    .form-input {
-      width: 100%; background: #050507; border: 1px solid var(--border-color); border-radius: 0.85rem;
-      padding: 0.85rem 1rem; color: #ffffff; font-size: 0.85rem; outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .form-input:focus { border-color: var(--brand-orange); box-shadow: 0 0 12px rgba(249, 115, 22, 0.35); }
+  /* Grid Layouts */
+  .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); }
+  .section-title { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.75rem; }
+  .section-title::before { content: ''; width: 4px; height: 24px; background: var(--accent-red); border-radius: 2px; }
 
-    .form-btn {
-      width: 100%; background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: #ffffff;
-      font-weight: 900; text-transform: uppercase; padding: 0.95rem; border-radius: 0.85rem; font-size: 0.85rem; border: none; cursor: pointer;
-      box-shadow: 0 8px 20px -4px rgba(249, 115, 22, 0.5); transition: all 0.2s ease;
-    }
-    .form-btn:hover { background: #ffffff; color: #0f172a; }
+  .post-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-bottom: 3rem; }
+  
+  /* Post Card Styling */
+  .post-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; height: 100%; }
+  .post-card:hover { border-color: var(--border-strong); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.5); }
+  .post-thumb { position: relative; width: 100%; height: 200px; overflow: hidden; background: var(--bg-surface); }
+  .post-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .post-card:hover .post-thumb img { transform: scale(1.06); }
+  .post-body { padding: 1.25rem; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+  .post-title { font-size: 1.15rem; font-weight: 700; line-height: 1.35; margin: 0.6rem 0; color: var(--text-primary); }
+  .post-title:hover { color: var(--accent-orange); }
+  .post-snippet { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
-    footer { background-color: #030305; border-top: 1px solid var(--border-color); margin-top: auto; padding: 3rem 0; width: 100%; box-sizing: border-box; }
-    .footer-split { display: flex; flex-direction: column; gap: 2.5rem; width: 100%; box-sizing: border-box; }
-    .footer-top { display: flex; flex-direction: column; gap: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.75rem; }
-    @media(min-width: 640px) { .footer-top { flex-direction: row; align-items: center; justify-content: space-between; } }
-    .footer-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-    @media(min-width: 768px) { .footer-columns { grid-template-columns: repeat(3, 1fr); } }
-    .footer-heading { color: var(--text-white); font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.85rem; }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem; }
-    .footer-links a { color: var(--text-slate-400); text-decoration: none; }
-    .footer-links a:hover { color: var(--brand-red); }
+  /* Article Reading Page */
+  .article-container { max-width: 800px; margin: 2rem auto; padding: 0 1.5rem; }
+  .article-header { margin-bottom: 2.5rem; text-align: left; }
+  .article-title { font-size: 2.75rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin: 1rem 0; color: var(--text-primary); }
+  .article-lead { font-size: 1.2rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; font-weight: 400; }
+  
+  .author-bar { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); margin-bottom: 2rem; }
+  .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--bg-elevated); overflow: hidden; border: 1px solid var(--border-strong); }
+  .author-details { display: flex; flex-direction: column; }
+  .author-name { font-weight: 700; font-size: 0.95rem; color: var(--text-primary); }
+  .author-meta { font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono); }
 
-    .modal-backdrop { position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.85); z-index: 100; display: flex; align-items: flex-start; justify-content: center; padding: 1.25rem; padding-top: 5rem; }
-    .modal-content { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.5rem; max-width: 40rem; width: 100%; padding: 1.75rem; box-sizing: border-box; }
-    .hidden { display: none !important; }
-    .icon-svg { width: 1.1em; height: 1.1em; fill: currentColor; vertical-align: -0.15em; }
-  </style>
+  /* Article Body Typography */
+  .article-body { font-size: 1.125rem; line-height: 1.8; color: var(--text-primary); font-weight: 400; }
+  .article-body p { margin-bottom: 1.75rem; }
+  .article-body h2 { font-size: 1.75rem; font-weight: 800; margin: 2.5rem 0 1rem; color: #fff; letter-spacing: -0.02em; border-left: 3px solid var(--accent-red); padding-left: 0.75rem; }
+  .article-body h3 { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 0.85rem; color: var(--text-primary); }
+  .article-body blockquote { background: var(--bg-surface); border-left: 4px solid var(--accent-orange); padding: 1.25rem 1.5rem; margin: 2rem 0; border-radius: 0 var(--radius-md) var(--radius-md) 0; font-style: italic; color: var(--text-secondary); font-size: 1.15rem; }
+  .article-body code { font-family: var(--font-mono); background: var(--bg-elevated); padding: 0.2rem 0.4rem; border-radius: var(--radius-sm); font-size: 0.9rem; color: var(--accent-orange); }
+  .article-body pre { background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 1.25rem; border-radius: var(--radius-md); overflow-x: auto; margin: 2rem 0; font-family: var(--font-mono); font-size: 0.9rem; }
+  .article-body img { border-radius: var(--radius-lg); margin: 2rem 0; border: 1px solid var(--border-subtle); width: 100%; }
+  .article-body ul, .article-body ol { margin: 1.5rem 0; padding-left: 1.5rem; color: var(--text-secondary); }
+  .article-body li { margin-bottom: 0.5rem; }
+
+  /* Table of Contents */
+  .toc-box { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem; margin: 2rem 0; }
+  .toc-header { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-red); margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+  .toc-list { list-style: none; padding-left: 0; font-size: 0.925rem; }
+  .toc-list li { margin-bottom: 0.4rem; }
+  .toc-list a { color: var(--text-secondary); }
+  .toc-list a:hover { color: var(--text-primary); }
+
+  /* Related Articles Section */
+  .related-section { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); }
+
+  /* Newsletter Box */
+  .newsletter-card { background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(249,115,22,0.05)); border: 1px solid rgba(239,68,68,0.3); border-radius: var(--radius-xl); padding: 3rem 2rem; text-align: center; margin: 4rem 0; position: relative; overflow: hidden; }
+  .newsletter-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.75rem; }
+  .newsletter-desc { color: var(--text-secondary); max-width: 540px; margin: 0 auto 1.75rem; font-size: 0.95rem; }
+  .newsletter-form { display: flex; gap: 0.75rem; max-width: 460px; margin: 0 auto; }
+  .newsletter-input { flex-grow: 1; background: var(--bg-surface); border: 1px solid var(--border-strong); border-radius: var(--radius-md); padding: 0.75rem 1rem; color: var(--text-primary); font-size: 0.9rem; }
+  .newsletter-input:focus { border-color: var(--accent-red); }
+
+  /* Comments Styling */
+  .comments-container { margin-top: 3rem; background: var(--bg-surface); border-radius: var(--radius-lg); padding: 2rem; border: 1px solid var(--border-subtle); }
+
+  /* Footer */
+  .site-footer { background: var(--bg-surface); border-top: 1px solid var(--border-subtle); padding: 4rem 0 2rem; margin-top: 5rem; font-size: 0.9rem; color: var(--text-secondary); }
+  .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand .desc { margin-top: 1rem; color: var(--text-muted); font-size: 0.875rem; max-width: 320px; line-height: 1.6; }
+  .footer-col-title { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); letter-spacing: 0.05em; margin-bottom: 1.2rem; }
+  .footer-links { display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem; }
+  .footer-links a:hover { color: var(--accent-red); }
+  
+  .footer-bottom { border-top: 1px solid var(--border-subtle); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted); }
+
+  /* Responsiveness */
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .post-grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-desktop, .top-bar { display: none; }
+    .menu-toggle { display: flex; }
+    .post-grid-3 { grid-template-columns: 1fr; }
+    .article-title { font-size: 2rem; }
+    .hero-card { min-height: 380px; padding: 1.5rem; }
+    .hero-title { font-size: 1.6rem; }
+    .newsletter-form { flex-direction: column; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+  ]]></b:skin>
 </head>
-<body>
 
-  <!-- Live Ticker Bar -->
-  <div class="live-ticker">
-    <div class="max-w-7xl" style="margin: 0 auto; display: flex; align-items: center; justify-content: space-between; width: 100%;">
-      <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--brand-red); text-transform: uppercase; font-weight: 900;">
-        <span class="pulse-dot"></span> LIVE DISPATCH
-      </span>
-      <span style="color: var(--text-slate-300); font-weight: 500;">Quantum AI Architectures reach zero-latency synthesis in late 2026 benchmarks</span>
-      <span style="color: var(--text-slate-400); text-transform: uppercase; font-size: 0.65rem; display: none; @media(min-width:640px){display:inline;}">Updated 3 mins ago</span>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div id='progress-bar'/>
+
+  <!-- Mobile Menu Drawer -->
+  <div class='overlay' id='overlay'/>
+  <div class='mobile-drawer' id='mobileDrawer'>
+    <div style='display: flex; justify-content: space-between; align-items: center;'>
+      <div class='brand-logo'>
+        <span class='mark'>A</span>
+        <span>AZEX<span class='accent'>AI</span></span>
+      </div>
+      <button class='btn-icon' id='closeDrawer'>&#10005;</button>
+    </div>
+    <nav style='display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;'>
+      <a class='nav-link' href='/'>Home</a>
+      <a class='nav-link' href='/search/label/AI'>Artificial Intelligence</a>
+      <a class='nav-link' href='/search/label/Generative%20AI'>Generative AI</a>
+      <a class='nav-link' href='/search/label/Cybersecurity'>Cybersecurity</a>
+      <a class='nav-link' href='/search/label/Software'>Software</a>
+      <a class='nav-link' href='/search/label/Gadgets'>Gadgets</a>
+      <a class='nav-link' href='/search/label/Research'>Research</a>
+      <a class='nav-link' href='/p/about.html'>About Publication</a>
+    </nav>
+  </div>
+
+  <!-- Native Search Overlay Modal -->
+  <div class='search-modal' id='searchModal'>
+    <div class='search-box-container'>
+      <div style='display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;'>
+        <span style='font-family:var(--font-mono); font-weight:700; color:var(--accent-red);'>AZEXAI SEARCH</span>
+        <button class='btn-icon' id='closeSearch'>&#10005;</button>
+      </div>
+      <form action='/search' class='search-form' method='get'>
+        <input class='search-input' name='q' placeholder='Search AI research, tools, cybersecurity...' required='required' type='text'/>
+        <button class='btn-primary' type='submit'>Search</button>
+      </form>
     </div>
   </div>
 
-  <!-- Header -->
-  <header>
-    <div class="max-w-7xl px-pad header-inner">
-      <a href="/" onclick="navigateToHome(event)" class="logo">
-        AZEX<span class="logo-red">AI</span><span class="logo-red" style="font-size: 1.8rem; line-height: 0;">.</span>
+  <!-- Top Announcement Bar -->
+  <div class='top-bar'>
+    <div class='container top-bar-inner'>
+      <div class='status-badge'>
+        <span class='status-dot'/>
+        AZEXAI Intelligence Network &bull; Live Coverage
+      </div>
+      <div style='display: flex; gap: 1.5rem;'>
+        <span>Edition: <strong>Global / EN</strong></span>
+        <a href='/p/editorial-policy.html' style='color: var(--text-secondary);'>Editorial Standards</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Header -->
+  <header class='site-header'>
+    <div class='container header-inner'>
+      <button class='btn-icon menu-toggle' id='openDrawer'>
+        <svg fill='none' height='20' stroke='currentColor' stroke-width='2' viewBox='0 0 24 24' width='20'><path d='M4 6h16M4 12h16M4 18h16'/></svg>
+      </button>
+
+      <a class='brand-logo' href='/'>
+        <span class='mark'>A</span>
+        <span>AZEX<span class='accent'>AI</span></span>
       </a>
-      <nav class="desktop-nav">
-        <a href="/" onclick="navigateToHome(event)" class="active">Home</a>
-        <a href="/?cat=AI" onclick="setCategory('AI', event);">AI</a>
-        <a href="/?cat=Tech" onclick="setCategory('Tech', event);">Tech</a>
-        <a href="/?cat=Cybersecurity" onclick="setCategory('Cybersecurity', event);">Cybersecurity</a>
-        <a href="/?cat=Reviews" onclick="setCategory('Reviews', event);">Reviews</a>
+
+      <nav class='nav-desktop'>
+        <a class='nav-link active' href='/'>Home</a>
+        <a class='nav-link' href='/search/label/AI'>AI</a>
+        <a class='nav-link' href='/search/label/Generative%20AI'>Generative AI</a>
+        <a class='nav-link' href='/search/label/Cybersecurity'>Cybersecurity</a>
+        <a class='nav-link' href='/search/label/Software'>Software</a>
+        <a class='nav-link' href='/search/label/Gadgets'>Gadgets</a>
+        <a class='nav-link' href='/search/label/Research'>Research</a>
       </nav>
-      <div class="header-actions" style="display: flex; gap: 0.75rem; align-items: center;">
-        <button onclick="openSearchModal()" class="btn-icon" aria-label="Search">
-          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+
+      <div class='header-actions'>
+        <button class='btn-icon' id='searchBtn' title='Search Article'>
+          <svg fill='none' height='18' stroke='currentColor' stroke-width='2' viewBox='0 0 24 24' width='18'><path d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/></svg>
         </button>
-        <button onclick="navigateToStaticPage('contact', event)" class="btn-icon" style="background: var(--brand-red); color: #fff; border-color: var(--brand-red); font-size: 0.75rem; font-weight: 900; padding: 0.55rem 1rem; text-transform: uppercase;">
-          Subscribe
-        </button>
+        <a class='btn-primary' href='#newsletter'>Subscribe</a>
       </div>
     </div>
   </header>
 
-  <!-- Main Container -->
-  <main class="max-w-7xl px-pad" style="flex-grow: 1; padding-top: 1.25rem; padding-bottom: 3rem;">
-    <div id="app"></div>
+  <!-- Live Breaking Ticker -->
+  <div class='ticker-wrap'>
+    <div class='container ticker-inner'>
+      <div class='ticker-label'>
+        <svg fill='currentColor' height='12' viewBox='0 0 24 24' width='12'><path d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/></svg>
+        LIVE DISPATCH
+      </div>
+      <div class='ticker-content' id='liveTicker'>
+        <span class='ticker-item'>Fetching latest live posts from AZEXAI network...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Horizontal Categories Bar -->
+  <div class='cat-bar'>
+    <div class='container cat-list'>
+      <a class='cat-pill active' href='/'>All Intelligence</a>
+      <a class='cat-pill' href='/search/label/AI'>Artificial Intelligence</a>
+      <a class='cat-pill' href='/search/label/Generative%20AI'>Generative AI</a>
+      <a class='cat-pill' href='/search/label/LLMs'>Large Language Models</a>
+      <a class='cat-pill' href='/search/label/Cybersecurity'>Cybersecurity &amp; Defense</a>
+      <a class='cat-pill' href='/search/label/Robotics'>Robotics</a>
+      <a class='cat-pill' href='/search/label/Cloud'>Cloud Computing</a>
+      <a class='cat-pill' href='/search/label/Software'>Developer Tools</a>
+      <a class='cat-pill' href='/search/label/Research'>AI Research</a>
+    </div>
+  </div>
+
+  <!-- Main Content Container -->
+  <main class='container' style='margin-top: 1.5rem;'>
+    
+    <!-- Homepage Dynamic Live Hero Display -->
+    <b:if cond='data:view.isHomepage'>
+      <section class='hero-section'>
+        <div class='hero-grid'>
+          <div class='hero-card' id='featuredHeroCard'>
+            <div class='hero-overlay'/>
+            <div class='hero-content' id='heroDynamicContent'>
+              <span class='badge'>FEATURED DISPATCH</span>
+              <h1 class='hero-title'>Connecting to Live AZEXAI Article Engine...</h1>
+              <p class='hero-excerpt'>Latest insights will appear automatically as published on Blogger.</p>
+            </div>
+          </div>
+          <div class='hero-sidebar' id='heroSidebarList'>
+            <!-- Dynamically populated from latest posts feed -->
+          </div>
+        </div>
+      </section>
+    </b:if>
+
+    <!-- Native Blogger Main Posts Loop Section -->
+    <b:section class='main' id='main' showaddelement='yes'>
+      <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
+        <b:includable id='main' var='top'>
+          
+          <b:if cond='data:view.isSingleItem'>
+            <!-- ================= ARTICLE POST PAGE ================= -->
+            <b:loop values='data:posts' var='post'>
+              <article class='article-container'>
+                <header class='article-header'>
+                  <b:if cond='data:post.labels'>
+                    <span class='badge'>
+                      <b:loop values='data:post.labels' var='label'><data:label.name/><b:if cond='not data:label.isLast'>, </b:if></b:loop>
+                    </span>
+                  </b:if>
+                  <h1 class='article-title'><data:post.title/></h1>
+                  <div class='author-bar'>
+                    <div class='author-avatar'>
+                      <svg fill='var(--text-muted)' height='48' viewBox='0 0 24 24' width='48'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>
+                    </div>
+                    <div class='author-details'>
+                      <span class='author-name'><data:post.author/></span>
+                      <span class='author-meta'>Published <data:post.date/> &bull; AZEXAI Global Bureau</span>
+                    </div>
+                  </div>
+                </header>
+
+                <!-- Automatic Table of Contents Insertion -->
+                <div class='toc-box' id='autoToc' style='display:none;'>
+                  <div class='toc-header' onclick='toggleToc()'>
+                    <span>&#9776; Table of Contents</span>
+                    <span id='tocToggleIcon'>[Hide]</span>
+                  </div>
+                  <ul class='toc-list' id='tocList'/>
+                </div>
+
+                <div class='article-body' id='articleContent'>
+                  <data:post.body/>
+                </div>
+
+                <!-- Related Posts Container -->
+                <section class='related-section'>
+                  <div class='section-header'>
+                    <h3 class='section-title'>Related Intelligence</h3>
+                  </div>
+                  <div class='post-grid-3' id='relatedPostsGrid'>
+                    <!-- Dynamically populated from post labels feed -->
+                  </div>
+                </section>
+
+                <!-- Blogger Native Comments Section -->
+                <div class='comments-container'>
+                  <h3 style='margin-bottom: 1.5rem;'>Discussion &amp; Analysis</h3>
+                  <b:include data='post' name='threaded_comments'/>
+                </div>
+              </article>
+            </b:loop>
+          
+          <b:else/>
+            <!-- ================= HOMEPAGE / LISTING PAGE ================= -->
+            <div class='section-header' style='margin-top: 2rem;'>
+              <h2 class='section-title'>Latest Intelligence</h2>
+            </div>
+            <div class='post-grid-3'>
+              <b:loop values='data:posts' var='post'>
+                <article class='post-card'>
+                  <div class='post-thumb'>
+                    <b:if cond='data:post.featuredImage'>
+                      <img expr:alt='data:post.title' expr:src='data:post.featuredImage'/>
+                    <b:else/>
+                      <img alt='AZEXAI Cover' src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=800&amp;q=80'/>
+                    </b:if>
+                  </div>
+                  <div class='post-body'>
+                    <div>
+                      <b:if cond='data:post.labels'>
+                        <span class='badge' style='font-size:0.65rem; padding: 0.15rem 0.5rem;'>
+                          <b:loop values='data:post.labels' var='label'><data:label.name/><b:if cond='not data:label.isLast'>, </b:if></b:loop>
+                        </span>
+                      </b:if>
+                      <h3 class='post-title'><a expr:href='data:post.url'><data:post.title/></a></h3>
+                      <p class='post-snippet'><data:post.snippet/></p>
+                    </div>
+                    <div class='meta-info' style='margin-top: 1rem;'>
+                      <span class='meta-author'><data:post.author/></span>
+                      <span>&bull;</span>
+                      <span><data:post.date/></span>
+                    </div>
+                  </div>
+                </article>
+              </b:loop>
+            </div>
+          </b:if>
+
+        </b:includable>
+      </b:widget>
+    </b:section>
+
+    <!-- Newsletter Briefing Box -->
+    <section class='newsletter-card' id='newsletter'>
+      <h2 class='newsletter-title'>Get the AZEXAI Intelligence Brief</h2>
+      <p class='newsletter-desc'>Join tech leaders, AI researchers, cybersecurity engineers, and innovators receiving our daily dispatch.</p>
+      <form class='newsletter-form' onsubmit='handleSubscribe(event)'>
+        <input class='newsletter-input' placeholder='Enter your corporate email address...' required='required' type='email'/>
+        <button class='btn-primary' type='submit'>Subscribe Free</button>
+      </form>
+    </section>
+
   </main>
 
-  <!-- Complete Footer -->
-  <footer>
-    <div class="max-w-7xl px-pad footer-split">
-      <div class="footer-top">
-        <div>
-          <a href="/" onclick="navigateToHome(event)" class="logo" style="font-size:1.4rem;">
-            AZEX<span class="logo-red">AI</span>.
+  <!-- Global Footer -->
+  <footer class='site-footer'>
+    <div class='container'>
+      <div class='footer-grid'>
+        <div class='footer-brand'>
+          <a class='brand-logo' href='/'>
+            <span class='mark'>A</span>
+            <span>AZEX<span class='accent'>AI</span></span>
           </a>
-          <p style="font-size: 0.8rem; color: var(--text-slate-400); margin-top: 0.25rem;">Global authority on artificial intelligence, frontier technology, and digital transformation.</p>
+          <p class='desc'>Global Technology &amp; Artificial Intelligence Authority. Providing authoritative analysis on autonomous systems, generative AI models, cybersecurity, and future innovation.</p>
         </div>
-        <div style="display: flex; gap: 0.6rem;">
-          <a href="#" class="btn-icon" style="width:38px;height:38px;text-decoration:none;font-weight:700;font-size:0.8rem;">X</a>
-          <a href="#" class="btn-icon" style="width:38px;height:38px;text-decoration:none;font-weight:700;font-size:0.8rem;">FB</a>
-          <a href="#" class="btn-icon" style="width:38px;height:38px;text-decoration:none;font-weight:700;font-size:0.8rem;">LN</a>
+        <div>
+          <h4 class='footer-col-title'>Focus Areas</h4>
+          <div class='footer-links'>
+            <a href='/search/label/AI'>Artificial Intelligence</a>
+            <a href='/search/label/Generative%20AI'>Generative AI</a>
+            <a href='/search/label/LLMs'>Large Language Models</a>
+            <a href='/search/label/Cybersecurity'>Cybersecurity</a>
+            <a href='/search/label/Robotics'>Robotics</a>
+          </div>
+        </div>
+        <div>
+          <h4 class='footer-col-title'>Publication</h4>
+          <div class='footer-links'>
+            <a href='/p/about.html'>About AZEXAI</a>
+            <a href='/p/editorial-policy.html'>Editorial Standards</a>
+            <a href='/p/contact.html'>Contact Bureau</a>
+            <a href='/p/privacy.html'>Privacy Policy</a>
+            <a href='/p/terms.html'>Terms of Service</a>
+          </div>
+        </div>
+        <div>
+          <h4 class='footer-col-title'>Connect</h4>
+          <div class='footer-links'>
+            <a href='https://twitter.com/AZEXAI' target='_blank'>X / Twitter</a>
+            <a href='https://linkedin.com' target='_blank'>LinkedIn Authority</a>
+            <a href='/feeds/posts/default' target='_blank'>RSS Dispatch Feed</a>
+          </div>
         </div>
       </div>
-      <div class="footer-columns">
-        <div>
-          <h3 class="footer-heading">COMPANY</h3>
-          <ul class="footer-links">
-            <li><a href="/about" onclick="navigateToStaticPage('about', event)">About Us</a></li>
-            <li><a href="/editorial" onclick="navigateToStaticPage('editorial', event)">Editorial Board</a></li>
-            <li><a href="/privacy" onclick="navigateToStaticPage('privacy', event)">Privacy Policy</a></li>
-            <li><a href="/terms" onclick="navigateToStaticPage('terms', event)">Terms of Service</a></li>
-            <li><a href="/contact" onclick="navigateToStaticPage('contact', event)">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="footer-heading">CATEGORIES</h3>
-          <ul class="footer-links">
-            <li><a href="/?cat=AI" onclick="setCategory('AI', event);">Artificial Intelligence</a></li>
-            <li><a href="/?cat=Tech" onclick="setCategory('Tech', event);">Frontier Tech</a></li>
-            <li><a href="/?cat=Cybersecurity" onclick="setCategory('Cybersecurity', event);">Cybersecurity</a></li>
-            <li><a href="/?cat=Reviews" onclick="setCategory('Reviews', event);">Expert Reviews</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="footer-heading">CONNECT</h3>
-          <ul class="footer-links">
-            <li><a href="/contact" onclick="navigateToStaticPage('contact', event)">Global Newsletter</a></li>
-            <li><a href="#" onclick="openSearchModal(); return false;">Search Articles</a></li>
-          </ul>
-        </div>
+
+      <div class='footer-bottom'>
+        <span>&copy; <span id='currYear'/> AZEXAI Publishing Group. All rights reserved.</span>
+        <span>Engineered for Blogger &bull; High Performance Architecture</span>
       </div>
     </div>
   </footer>
 
-  <!-- Search Modal -->
-  <div id="searchModal" class="modal-backdrop hidden">
-    <div class="modal-content">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-        <h3 style="font-size: 0.9rem; font-weight: 900; text-transform: uppercase; color: #fff;">Search Articles</h3>
-        <button onclick="closeSearchModal()" class="btn-icon" style="padding: 0.3rem 0.5rem;">✕</button>
-      </div>
-      <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search breakthroughs..." class="form-input" style="margin-bottom: 1rem;">
-      <div id="modalSearchResults" style="max-height: 16rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.5rem;"></div>
-    </div>
-  </div>
+  <!-- Embedded Clean JavaScript Logic -->
+  <script type='text/javascript'>
+  <![CDATA[
+    // Dynamic Year setup
+    document.getElementById('currYear').textContent = new Date().getFullYear();
 
-  <!-- JavaScript Engine with Clean Direct URLs (History API) -->
-  <script>
-    const CONTACT_EMAIL = "aristo@azexai.com";
-    const BLOGGER_CONFIG = { blogId: '4263033619836681299', apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ', maxResults: 50 };
-    let AZEXAI = { categories: ['All', 'AI', 'Tech', 'Cybersecurity', 'Reviews'], activeCategory: 'All' };
+    // Mobile Navigation Drawer Toggle
+    const openBtn = document.getElementById('openDrawer');
+    const closeBtn = document.getElementById('closeDrawer');
+    const drawer = document.getElementById('mobileDrawer');
+    const overlay = document.getElementById('overlay');
 
-    let ARTICLES = [
-      {
-        id: 1, slug: 'why-i-replaced-wpml-weglot-with-clonable',
-        title: 'Why I Replaced WPML & Weglot with Clonable (And Saved My Database)',
-        category: 'Reviews', author: 'AZEXAI Team', date: 'September 2026', readTime: '8 Min Read',
-        image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=800',
-        excerpt: 'A deep-dive technical diagnostic into localization infrastructure, server optimization, and why reverse-proxy translation is the future.',
-        content: '<h2>1. The WPML Nightmare: Database Bloat</h2><p>WPML duplicates content within your server environment for every post, page, and taxonomy string, bloating your database exponentially.</p>'
-      },
-      {
-        id: 2, slug: 'post-quantum-cryptography-zero-trust',
-        title: 'Post-Quantum Cryptography & Zero-Trust: How Enterprise Security Is Evolving in 2026',
-        category: 'AI', author: 'AZEXAI Team', date: 'September 2026', readTime: '4 Min Read',
-        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=500',
-        excerpt: 'Discover how leading security teams are deploying lattice-based cryptography and zero-trust identity architectures.',
-        content: '<h2>The Post-Quantum Security Paradigm</h2><p>As quantum processors achieve new benchmarks, conventional asymmetric encryption algorithms face imminent vulnerabilities.</p>'
-      }
-    ];
-
-    let currentView = { type: 'home', slug: null };
-
-    async function loadBloggerArticlesAsync() {
-      if (!BLOGGER_CONFIG.apiKey) return;
-      try {
-        const res = await fetch(`https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&maxResults=${BLOGGER_CONFIG.maxResults}`);
-        if (!res.ok) return;
-        const data = await res.json();
-        if (Array.isArray(data.items) && data.items.length > 0) {
-          ARTICLES = data.items.map((post, idx) => {
-            const raw = post.content || '';
-            const imgMatch = raw.match(/<img[^>]+src="([^">]+)"/);
-            const img = imgMatch ? imgMatch[1] : ARTICLES[0].image;
-            const title = post.title || 'Untitled Report';
-            const cat = (post.labels && post.labels[0]) ? post.labels[0] : 'AI';
-            let cleanText = raw.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-            cleanText = cleanText.length > 85 ? cleanText.substring(0, 85) + '...' : cleanText;
-            
-            return {
-              id: post.id || idx + 1,
-              slug: (post.url || '').split('/').pop().replace('.html', '') || String(post.id),
-              title: title, category: cat, author: post.author?.displayName || 'AZEXAI Team',
-              date: post.published ? new Date(post.published).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) : 'September 2026',
-              readTime: '6 Min Read', image: img, excerpt: cleanText, content: raw
-            };
-          });
-          router();
-        }
-      } catch (e) {}
+    if (openBtn && closeBtn && drawer && overlay) {
+      openBtn.addEventListener('click', () => {
+        drawer.classList.add('open');
+        overlay.classList.add('open');
+      });
+      const closeFn = () => {
+        drawer.classList.remove('open');
+        overlay.classList.remove('open');
+      };
+      closeBtn.addEventListener('click', closeFn);
+      overlay.addEventListener('click', closeFn);
     }
 
-    /* Clean History API Routing (Direct URLs without #) */
-    function navigateToHome(e) {
-      if (e) e.preventDefault();
-      AZEXAI.activeCategory = 'All';
-      window.history.pushState({}, '', '/');
-      window.scrollTo({ top: 0, behavior: 'instant' });
-      router();
+    // Search Modal Toggle
+    const searchBtn = document.getElementById('searchBtn');
+    const closeSearch = document.getElementById('closeSearch');
+    const searchModal = document.getElementById('searchModal');
+    if (searchBtn && closeSearch && searchModal) {
+      searchBtn.addEventListener('click', () => searchModal.classList.add('open'));
+      closeSearch.addEventListener('click', () => searchModal.classList.remove('open'));
     }
 
-    function navigateToArticle(slug, e) {
-      if (e) e.preventDefault();
-      window.history.pushState({}, '', '/' + slug);
-      window.scrollTo({ top: 0, behavior: 'instant' });
-      router();
-    }
-
-    function navigateToStaticPage(slug, e) {
-      if (e) e.preventDefault();
-      window.history.pushState({}, '', '/' + slug);
-      window.scrollTo({ top: 0, behavior: 'instant' });
-      router();
-    }
-
-    function setCategory(cat, e) {
-      if (e) e.preventDefault();
-      AZEXAI.activeCategory = cat;
-      window.history.pushState({}, '', cat === 'All' ? '/' : '/?cat=' + cat);
-      router();
-    }
-
-    window.addEventListener('popstate', () => { router(); });
-
-    function router() {
-      const app = document.getElementById('app');
-      if (!app) return;
-      
-      const path = window.location.pathname.replace(/^\/+/, '');
-      const searchParams = new URLSearchParams(window.location.search);
-      const catParam = searchParams.get('cat');
-      
-      if (catParam && AZEXAI.categories.includes(catParam)) {
-        AZEXAI.activeCategory = catParam;
-      }
-
-      if (path && path !== '' && !['about', 'editorial', 'privacy', 'terms', 'contact'].includes(path)) {
-        const art = ARTICLES.find(a => a.slug === path);
-        if (art) { renderArticleView(art); return; }
-      }
-
-      if (['about', 'editorial', 'privacy', 'terms', 'contact'].includes(path)) {
-        renderStaticPageView(path);
-        return;
-      }
-
-      renderHome();
-    }
-
-    function renderHome() {
-      const filtered = ARTICLES.filter(a => AZEXAI.activeCategory === 'All' || a.category.toLowerCase() === AZEXAI.activeCategory.toLowerCase());
-      const hero = filtered[0] || ARTICLES[0];
-      const gridList = filtered.slice(1);
-
-      const categoryBar = `
-        <div class="category-bar">
-          ${AZEXAI.categories.map(c => `
-            <button onclick="setCategory('${c}', event)" class="cat-btn ${AZEXAI.activeCategory === c ? 'active' : ''}">${c}</button>
-          `).join('')}
-        </div>
-      `;
-
-      const heroHtml = hero ? `
-        <div class="hero-card-red" onclick="navigateToArticle('${hero.slug}', event)">
-          <div>
-            <div class="cartoon-reader-mascot">
-              <svg class="cartoon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="32" cy="24" r="16" stroke="#ffffff" stroke-width="3"/>
-                <circle cx="26" cy="22" r="5" stroke="#ffffff" stroke-width="2.5"/>
-                <circle cx="38" cy="22" r="5" stroke="#ffffff" stroke-width="2.5"/>
-                <circle cx="26" cy="22" r="2" fill="#ffffff"/>
-                <circle cx="38" cy="22" r="2" fill="#ffffff"/>
-                <path d="M28 30 Q 32 34 36 30" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-              </svg>
-              <span class="badge-white">${hero.category}</span>
-            </div>
-            <h1 class="hero-title-red">${hero.title}</h1>
-            <p class="hero-excerpt-red">${hero.excerpt}</p>
-            <div style="font-size:0.68rem; font-weight:800; text-transform:uppercase; color:#fff;">${hero.author} &bull; ${hero.readTime}</div>
-          </div>
-          <div class="img-container">
-            <img src="${hero.image}" alt="${hero.title}" width="800" height="450" loading="eager" decoding="async">
-          </div>
-        </div>
-      ` : '';
-
-      const articlesGrid = `
-        <h2 class="section-title">${AZEXAI.activeCategory !== 'All' ? AZEXAI.activeCategory : 'Latest'} Analyses</h2>
-        <div class="grid-2-cols">
-          ${gridList.map(art => `
-            <div class="card" onclick="navigateToArticle('${art.slug}', event)">
-              <div class="img-container">
-                <img src="${art.image}" alt="${art.title}" width="500" height="280" loading="lazy" decoding="async">
-                <span class="badge-white" style="position: absolute; top: 0.35rem; left: 0.35rem; font-size: 0.55rem; padding: 0.15rem 0.4rem;">${art.category}</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">${art.title}</h3>
-                <p class="card-excerpt">${art.excerpt}</p>
-                <div class="card-footer">
-                  <span>${art.author}</span>
-                  <span style="color: var(--brand-green);">${art.readTime}</span>
-                </div>
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      `;
-
-      const domainTiles = `
-        <div style="margin-top: 2rem; margin-bottom: 2rem;">
-          <h2 class="section-title">Explore Domains</h2>
-          <div class="grid-2-cols">
-            <div onclick="setCategory('AI', event)" class="domain-cyber-card">
-              <span style="font-size: 0.78rem; font-weight: 900; text-transform: uppercase; color: #fff;">Artificial Intelligence</span>
-              <span style="color: var(--brand-red);">→</span>
-            </div>
-            <div onclick="setCategory('Tech', event)" class="domain-cyber-card">
-              <span style="font-size: 0.78rem; font-weight: 900; text-transform: uppercase; color: #fff;">Frontier Tech</span>
-              <span style="color: var(--brand-red);">→</span>
-            </div>
-          </div>
-        </div>
-      `;
-
-      const newsletterBox = `
-        <div class="pro-newsletter-card text-white">
-          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <span class="badge-white" style="width: fit-content; background: rgba(239, 68, 68, 0.2); color: var(--brand-red); border: 1px solid rgba(239,68,68,0.4);">
-              JOIN 48,000+ READERS
-            </span>
-            <h2 style="font-size: 1.25rem; font-weight: 900; text-transform: uppercase; color: #fff;">Stay Ahead Of What's Next.</h2>
-            <p style="font-size: 0.75rem; color: var(--text-slate-300);">Receive elite global intelligence reports on artificial intelligence directly in your inbox.</p>
-            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
-              <input type="email" placeholder="ENTER PROFESSIONAL EMAIL" class="form-input">
-              <button onclick="alert('Subscribed successfully!')" class="form-btn">Subscribe Now</button>
-            </div>
-          </div>
-        </div>
-      `;
-
-      document.getElementById('app').innerHTML = categoryBar + heroHtml + articlesGrid + domainTiles + newsletterBox;
-    }
-
-    function renderArticleView(art) {
-      document.getElementById('app').innerHTML = `
-        <div class="max-w-article" style="padding-top: 0.5rem;">
-          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1rem;">← Back to Index</button>
-          <span class="badge-white" style="margin-bottom: 0.4rem; background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid #ef4444;">${art.category}</span>
-          <h1 style="font-size: 1.85rem; font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 0.75rem;">${art.title}</h1>
-          <div style="font-size:0.75rem; color:var(--text-slate-400); padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem;">
-            <span style="color:#fff;">${art.author}</span> &bull; <span>${art.date}</span> &bull; <span style="color:var(--brand-green);">${art.readTime}</span>
-          </div>
-          <div class="img-container" style="aspect-ratio: 16/9; margin-bottom: 1.25rem;">
-            <img src="${art.image}" alt="${art.title}" width="1200" height="675" loading="eager">
-          </div>
-          <article class="prose">${art.content}</article>
-        </div>
-      `;
-    }
-
-    function renderStaticPageView(slug) {
-      const app = document.getElementById('app');
-      if (slug === 'contact') {
-        app.innerHTML = `
-          <div class="max-w-article" style="padding-top: 0.5rem;">
-            <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1rem;">← Back to Index</button>
-            <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.25rem; padding: 2rem;">
-              <span style="background: rgba(249, 115, 22, 0.15); color: var(--brand-orange); font-weight: 900; font-size: 0.65rem; padding: 0.3rem 0.75rem; border-radius: 9999px; text-transform: uppercase; display: inline-block; margin-bottom: 0.75rem;">DIRECT DESK</span>
-              <h1 style="font-size: 1.8rem; font-weight: 900; color: #fff; margin-bottom: 0.5rem;">Contact AZEXAI</h1>
-              <p style="font-size: 0.85rem; color: var(--text-slate-300); margin-bottom: 1.5rem;">
-                Official Desk Email: <strong style="color: var(--brand-orange);">${CONTACT_EMAIL}</strong>
-              </p>
-              <form onsubmit="event.preventDefault(); alert('Message dispatched to aristo@azexai.com successfully!');" style="display:flex; flex-direction:column; gap:1.25rem;">
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
-                  <div>
-                    <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.4rem;">First Name *</label>
-                    <input type="text" required placeholder="Alan" class="form-input">
-                  </div>
-                  <div>
-                    <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.4rem;">Last Name *</label>
-                    <input type="text" required placeholder="Turing" class="form-input">
-                  </div>
-                </div>
-                <div>
-                  <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.4rem;">Email Address *</label>
-                  <input type="email" required placeholder="alan@example.com" class="form-input">
-                </div>
-                <div>
-                  <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.4rem;">Your Message *</label>
-                  <textarea rows="5" required placeholder="Detail your inquiry here..." class="form-input" style="resize:none;"></textarea>
-                </div>
-                <button type="submit" class="form-btn">Send Message</button>
-              </form>
-            </div>
-          </div>
-        `;
-        return;
-      }
-      app.innerHTML = `
-        <div class="max-w-article" style="padding-top: 0.5rem;">
-          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1rem;">← Back to Index</button>
-          <div style="background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 2rem; border-radius: 1.25rem;">
-            <h1 style="font-size: 1.75rem; font-weight: 900; color: #fff; margin-bottom: 0.75rem; text-transform: capitalize;">${slug} Page</h1>
-            <p style="color: var(--text-slate-300); line-height: 1.7; font-size: 0.95rem;">AZEXAI is the premier global authority on artificial intelligence and frontier technology, delivering uncompromising technical journalism and research reports.</p>
-          </div>
-        </div>
-      `;
-    }
-
-    function openSearchModal() { document.getElementById('searchModal').classList.remove('hidden'); document.getElementById('modalSearchInput').focus(); }
-    function closeSearchModal() { document.getElementById('searchModal').classList.add('hidden'); }
-    function handleModalSearch(e) {
-      const q = e.target.value.toLowerCase();
-      const res = document.getElementById('modalSearchResults');
-      if(!q) { res.innerHTML = ''; return; }
-      const matches = ARTICLES.filter(a => a.title.toLowerCase().includes(q));
-      res.innerHTML = matches.map(m => `
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" style="padding: 0.5rem; background: #050505; border-radius: 0.5rem; cursor: pointer;">
-          <h4 style="font-size: 0.78rem; font-weight: 700; color: #fff;">${m.title}</h4>
-        </div>
-      `).join('');
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      router();
-      setTimeout(loadBloggerArticlesAsync, 100);
+    // Scroll Progress Indicator Logic
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const bar = document.getElementById('progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
     });
+
+    // Auto Table of Contents Generator for Article Pages
+    document.addEventListener('DOMContentLoaded', () => {
+      const articleBody = document.getElementById('articleContent');
+      const autoToc = document.getElementById('autoToc');
+      const tocList = document.getElementById('tocList');
+
+      if (articleBody && autoToc && tocList) {
+        const headings = articleBody.querySelectorAll('h2, h3');
+        if (headings.length >= 2) {
+          autoToc.style.display = 'block';
+          headings.forEach((heading, idx) => {
+            const id = 'heading-' + idx;
+            heading.setAttribute('id', id);
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#' + id;
+            a.textContent = heading.textContent;
+            if (heading.tagName.toLowerCase() === 'h3') {
+              li.style.paddingLeft = '1.25rem';
+            }
+            li.appendChild(a);
+            tocList.appendChild(li);
+          });
+        }
+      }
+    });
+
+    function toggleToc() {
+      const list = document.getElementById('tocList');
+      const icon = document.getElementById('tocToggleIcon');
+      if (list.style.display === 'none') {
+        list.style.display = 'block';
+        icon.textContent = '[Hide]';
+      } else {
+        list.style.display = 'none';
+        icon.textContent = '[Show]';
+      }
+    }
+
+    // Live Blogger JSON Feed Integration (Automatic Hero, Ticker, and Sidebar Sync)
+    (function syncLiveBloggerFeed() {
+      const feedUrl = '/feeds/posts/default?alt=json&max-results=10';
+
+      fetch(feedUrl)
+        .then(res => res.json())
+        .then(data => {
+          const entries = data.feed.entry || [];
+          if (entries.length === 0) return;
+
+          // 1. Populate Live Ticker Bar
+          const tickerContainer = document.getElementById('liveTicker');
+          if (tickerContainer) {
+            tickerContainer.innerHTML = '';
+            entries.forEach(item => {
+              const title = item.title.$t;
+              let link = '#';
+              item.link.forEach(l => { if (l.rel === 'alternate') link = l.href; });
+              const span = document.createElement('span');
+              span.className = 'ticker-item';
+              span.innerHTML = `<a href="${link}" style="color:var(--text-secondary);">&bull; ${title}</a>`;
+              tickerContainer.appendChild(span);
+            });
+          }
+
+          // 2. Populate Featured Hero Dynamic Card
+          const heroCard = document.getElementById('featuredHeroCard');
+          const heroContent = document.getElementById('heroDynamicContent');
+          if (heroCard && heroContent && entries[0]) {
+            const first = entries[0];
+            const title = first.title.$t;
+            let link = '#';
+            first.link.forEach(l => { if (l.rel === 'alternate') link = l.href; });
+            const snippet = first.summary ? first.summary.$t : (first.content ? first.content.$t.replace(/<[^>]*>/g, '').substring(0, 160) + '...' : '');
+            let imgUrl = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80';
+            if (first.media$thumbnail) {
+              imgUrl = first.media$thumbnail.url.replace('/s72-c/', '/w1200/');
+            }
+
+            heroCard.innerHTML = `
+              <img src="${imgUrl}" alt="${title}"/>
+              <div class="hero-overlay"></div>
+              <div class="hero-content">
+                <span class="badge">LATEST DISPATCH</span>
+                <h1 class="hero-title"><a href="${link}" style="color:#fff;">${title}</a></h1>
+                <p class="hero-excerpt">${snippet}</p>
+                <div class="meta-info">
+                  <span class="meta-author">${first.author[0].name.$t}</span>
+                  <span>&bull;</span>
+                  <span>${new Date(first.published.$t).toLocaleDateString()}</span>
+                </div>
+              </div>
+            `;
+          }
+
+          // 3. Populate Hero Sidebar Trending Items
+          const heroSidebar = document.getElementById('heroSidebarList');
+          if (heroSidebar && entries.length > 1) {
+            heroSidebar.innerHTML = '';
+            entries.slice(1, 4).forEach(item => {
+              const title = item.title.$t;
+              let link = '#';
+              item.link.forEach(l => { if (l.rel === 'alternate') link = l.href; });
+              const date = new Date(item.published.$t).toLocaleDateString();
+              
+              const div = document.createElement('div');
+              div.className = 'sidebar-card';
+              div.innerHTML = `
+                <span class='badge' style='font-size:0.65rem; padding:0.15rem 0.5rem;'>TRENDING DISPATCH</span>
+                <a href="${link}" class='title' style='display:block;'>${title}</a>
+                <span style='font-size:0.75rem; color:var(--text-muted); font-family:var(--font-mono); margin-top:0.5rem; display:block;'>${date}</span>
+              `;
+              heroSidebar.appendChild(div);
+            });
+          }
+        })
+        .catch(err => console.log('AZEXAI Live Feed Sync Active:', err));
+    })();
+
+    // Newsletter Toast Submission
+    function handleSubscribe(e) {
+      e.preventDefault();
+      alert('Thank you for subscribing to AZEXAI Intelligence Brief.');
+    }
+  ]]>
   </script>
 </body>
 </html>

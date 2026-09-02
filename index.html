@@ -5,14 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="pageMetaTitle">AZEXAI — Global Technology & Artificial Intelligence Authority</title>
   <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
-  <link id="pageCanonical" rel="canonical" href="">
-
-  <!-- High Priority Preconnects -->
-  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
-  <meta name='impact-site-verification' value='cad0e5fe-6e0e-4089-bc34-01905355c803'>
-
+  <link rel="canonical" href="https://azexai.com/">
+  
   <!-- Schema.org Structured Data -->
-  <script type="application/ld+json" id="structuredDataScript">
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -26,7 +22,7 @@
   }
   </script>
 
-  <!-- Critical Inline CSS (Optimized for 100 Performance & SEO) -->
+  <!-- Critical Ultra-Light & Complete CSS -->
   <style>
     *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -41,256 +37,222 @@
       --brand-green: #22c55e;
       --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
-
     body {
-      font-family: var(--font-main);
-      background-color: var(--bg-black);
-      color: var(--text-slate-300);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      max-width: 100vw;
-      overflow-x: hidden !important;
+      font-family: var(--font-main); background-color: var(--bg-black); color: var(--text-slate-300);
+      min-height: 100vh; display: flex; flex-direction: column; width: 100%; max-width: 100vw; overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
+    .max-w-7xl { max-width: 80rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
+    .max-w-article { max-width: 60rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
+    .px-pad { padding-left: 1rem; padding-right: 1rem; box-sizing: border-box; }
+    @media (min-width: 640px) { .px-pad { padding-left: 1.5rem; padding-right: 1.5rem; } }
 
-    .max-w-7xl { max-width: 86rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
-    .max-w-article { max-width: 64rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
-    .px-pad { padding-left: 1.25rem; padding-right: 1.25rem; box-sizing: border-box; }
-    @media (min-width: 640px) { .px-pad { padding-left: 2rem; padding-right: 2rem; } }
-    @media (min-width: 1280px) { .px-pad { padding-left: 3rem; padding-right: 3rem; } }
+    /* Live Dispatch Ticker */
+    .live-ticker {
+      background-color: #08080b; border-bottom: 1px solid var(--border-color);
+      font-size: 0.72rem; font-weight: 700; padding: 0.5rem 1rem; display: flex; align-items: center; justify-content: space-between;
+    }
+    .pulse-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background-color: var(--brand-red); box-shadow: 0 0 8px var(--brand-red); animation: pulseGlow 1.5s infinite; }
+    @keyframes pulseGlow { 0% { transform: scale(0.95); opacity: 0.7; } 50% { transform: scale(1.2); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.7; } }
 
     header {
-      position: sticky; top: 0; z-index: 50;
-      background-color: rgba(5, 5, 7, 0.95);
-      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color);
-      width: 100%;
+      position: sticky; top: 0; z-index: 50; background-color: rgba(5, 5, 7, 0.95);
+      backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); width: 100%;
     }
-    .header-inner { height: 4rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; }
-    .logo {
-      font-size: 1.5rem; font-weight: 900; letter-spacing: -0.05em; text-transform: uppercase;
-      color: var(--text-white); text-decoration: none; display: inline-flex; align-items: center;
-    }
+    .header-inner { height: 3.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .logo { font-size: 1.4rem; font-weight: 900; letter-spacing: -0.05em; text-transform: uppercase; color: var(--text-white); text-decoration: none; }
     .logo-red { color: var(--brand-red); }
 
-    nav.desktop-nav { display: none; gap: 1.5rem; font-size: 0.85rem; font-weight: 700; }
+    nav.desktop-nav { display: none; gap: 1.25rem; font-size: 0.8rem; font-weight: 700; }
     @media (min-width: 768px) { nav.desktop-nav { display: flex; align-items: center; } }
-    nav.desktop-nav a { color: var(--text-slate-300); text-decoration: none; transition: color 0.15s ease; }
+    nav.desktop-nav a { color: var(--text-slate-300); text-decoration: none; }
     nav.desktop-nav a:hover, nav.desktop-nav a.active { color: var(--brand-red); }
 
     .btn-icon {
-      padding: 0.55rem; border-radius: 0.75rem; background-color: var(--bg-card);
+      padding: 0.5rem; border-radius: 0.75rem; background-color: var(--bg-card);
       border: 1px solid var(--border-color); color: var(--text-slate-300); cursor: pointer;
       display: inline-flex; align-items: center; justify-content: center;
     }
 
     .category-bar {
-      position: sticky; top: 4rem; z-index: 40; background-color: rgba(5, 5, 7, 0.95);
-      backdrop-filter: blur(8px); padding-top: 0.6rem; padding-bottom: 0.8rem; margin-bottom: 1.75rem;
-      border-bottom: 1px solid var(--border-color); display: flex; gap: 0.5rem; overflow-x: auto; scrollbar-width: none;
-      width: 100%; max-width: 100%; box-sizing: border-box;
+      position: sticky; top: 3.75rem; z-index: 40; background-color: rgba(5, 5, 7, 0.95);
+      backdrop-filter: blur(8px); padding-top: 0.5rem; padding-bottom: 0.6rem; margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color); display: flex; gap: 0.4rem; overflow-x: auto; scrollbar-width: none;
+      width: 100%; box-sizing: border-box;
     }
     .category-bar::-webkit-scrollbar { display: none; }
     .cat-btn {
-      padding: 0.4rem 1rem; border-radius: 0.85rem; font-size: 0.72rem; font-weight: 900; text-transform: uppercase;
+      padding: 0.35rem 0.8rem; border-radius: 0.85rem; font-size: 0.68rem; font-weight: 900; text-transform: uppercase;
       border: 1px solid var(--border-color); background-color: var(--bg-card); color: var(--text-slate-300); cursor: pointer; white-space: nowrap; flex-shrink: 0;
     }
     .cat-btn:hover, .cat-btn.active { background-color: var(--brand-red); color: var(--text-white); border-color: var(--brand-red); }
 
     .hero-card-red {
-      display: flex; flex-direction: column; gap: 1.25rem;
+      display: flex; flex-direction: column; gap: 1rem;
       background: linear-gradient(-45deg, #b91c1c, #dc2626, #ef4444, #991b1b);
       background-size: 300% 300%; animation: gradientBG 8s ease infinite;
-      border: 1px solid #f87171; padding: 1.5rem; border-radius: 1.5rem; margin-bottom: 2.25rem;
-      cursor: pointer; position: relative; overflow: hidden; box-shadow: 0 15px 35px -5px rgba(239, 68, 68, 0.4);
-      width: 100%; box-sizing: border-box;
+      border: 1px solid #f87171; padding: 1.15rem; border-radius: 1.25rem; margin-bottom: 1.75rem;
+      cursor: pointer; position: relative; overflow: hidden; box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3); width: 100%; box-sizing: border-box;
     }
     @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     @media (min-width: 768px) {
-      .hero-card-red { display: grid; grid-template-columns: 1.35fr 1fr; padding: 2.25rem; border-radius: 1.75rem; gap: 2rem; align-items: center; }
+      .hero-card-red { display: grid; grid-template-columns: 1.25fr 1fr; padding: 1.65rem; gap: 1.75rem; align-items: center; }
     }
 
     .cartoon-reader-mascot {
       display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 0, 0, 0.3);
-      padding: 0.4rem 0.85rem; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.4); margin-bottom: 0.65rem; backdrop-filter: blur(6px);
+      padding: 0.35rem 0.75rem; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.4); margin-bottom: 0.5rem;
     }
-    .cartoon-svg { width: 2.2rem; height: 2.2rem; animation: floatCharacter 3s ease-in-out infinite; }
-    @keyframes floatCharacter { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-3px) rotate(2deg); } }
-    .eye-blink { animation: blinkEye 4s infinite; transform-origin: center; }
-    @keyframes blinkEye { 0%, 94%, 98%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
+    .cartoon-svg { width: 2rem; height: 2rem; }
 
-    .hero-title-red { font-size: 1.35rem; font-weight: 900; color: #ffffff; line-height: 1.25; margin-bottom: 0.6rem; }
-    @media (min-width: 640px) { .hero-title-red { font-size: 1.85rem; } }
+    .hero-title-red { font-size: 1.15rem; font-weight: 900; color: #ffffff; line-height: 1.25; margin-bottom: 0.5rem; }
+    @media (min-width: 640px) { .hero-title-red { font-size: 1.5rem; } }
 
-    .hero-excerpt-red { font-size: 0.85rem; color: #ffffff; font-weight: 500; line-height: 1.6; margin-bottom: 1rem; opacity: 0.95; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .hero-excerpt-red { font-size: 0.78rem; color: #ffffff; font-weight: 500; line-height: 1.5; margin-bottom: 0.85rem; opacity: 0.95; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
-    .img-container {
-      width: 100%; aspect-ratio: 16 / 9; border-radius: 0.85rem; overflow: hidden; background-color: #000000; position: relative; box-sizing: border-box;
-    }
-    .img-container img { width: 100%; height: 100%; object-fit: contain; background: #000; display: block; max-width: 100%; }
+    .img-container { width: 100%; aspect-ratio: 16 / 9; border-radius: 0.75rem; overflow: hidden; background-color: #000000; position: relative; }
+    .img-container img { width: 100%; height: 100%; object-fit: contain; background: #000; display: block; }
 
     .badge-white {
-      display: inline-block; padding: 0.25rem 0.75rem; background-color: #ffffff; color: #b91c1c;
-      font-size: 0.68rem; font-weight: 900; text-transform: uppercase; border-radius: 9999px;
+      display: inline-block; padding: 0.2rem 0.6rem; background-color: #ffffff; color: #b91c1c;
+      font-size: 0.62rem; font-weight: 900; text-transform: uppercase; border-radius: 9999px;
     }
 
     .grid-2-cols {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem;
-      width: 100%;
-      box-sizing: border-box;
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; width: 100%; box-sizing: border-box;
     }
-    @media (min-width: 1024px) { .grid-2-cols { gap: 1.75rem; } }
+    @media (min-width: 640px) { .grid-2-cols { gap: 1.25rem; } }
 
     .card {
-      background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.25rem;
-      overflow: hidden; display: flex; flex-direction: column; height: 100%; cursor: pointer; transition: border-color 0.2s ease, transform 0.2s ease;
-      box-sizing: border-box; width: 100%; max-width: 100%;
+      background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1rem;
+      overflow: hidden; display: flex; flex-direction: column; height: 100%; cursor: pointer; width: 100%; box-sizing: border-box;
+      transition: border-color 0.2s ease;
     }
-    .card:hover { border-color: var(--brand-red); transform: translateY(-2px); }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex-grow: 1; box-sizing: border-box; }
-    @media (min-width: 640px) { .card-body { padding: 1.25rem; } }
+    .card:hover { border-color: var(--brand-red); }
+    .card-body { padding: 0.75rem; display: flex; flex-direction: column; flex-grow: 1; box-sizing: border-box; }
+    @media (min-width: 640px) { .card-body { padding: 1rem; } }
     .card-title {
-      font-size: 0.88rem; font-weight: 800; color: var(--text-white); margin-bottom: 0.4rem; line-height: 1.35;
+      font-size: 0.75rem; font-weight: 800; color: var(--text-white); margin-bottom: 0.35rem; line-height: 1.35;
       overflow-wrap: break-word; word-break: break-word;
     }
-    @media (min-width: 640px) { .card-title { font-size: 1.15rem; } }
+    @media (min-width: 640px) { .card-title { font-size: 0.9rem; } }
     .card-excerpt {
-      font-size: 0.75rem; color: var(--text-slate-400); line-height: 1.5; margin-bottom: 0.75rem;
+      font-size: 0.65rem; color: var(--text-slate-400); line-height: 1.4; margin-bottom: 0.5rem;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; flex-grow: 1;
     }
-    @media (min-width: 640px) { .card-excerpt { font-size: 0.85rem; } }
-
     .card-footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.6rem;
-      display: flex; align-items: center; justify-content: space-between; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: var(--text-slate-400);
+      border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.4rem;
+      display: flex; align-items: center; justify-content: space-between; font-size: 0.58rem; font-weight: 700; text-transform: uppercase; color: var(--text-slate-400);
+    }
+    .section-title { font-size: 1.05rem; font-weight: 900; color: var(--text-white); text-transform: uppercase; margin-bottom: 0.85rem; }
+
+    .domain-cyber-card {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(16, 16, 22, 0.95) 100%);
+      border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 0.85rem;
+      padding: 0.75rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: all 0.2s ease;
+    }
+    .domain-cyber-card:hover { border-color: var(--brand-red); transform: translateY(-2px); }
+
+    .pro-newsletter-card {
+      background: linear-gradient(135deg, #121219 0%, #09090d 100%);
+      border: 1px solid rgba(239, 68, 68, 0.35); padding: 1.5rem 1.25rem; border-radius: 1.25rem; margin-top: 2rem; margin-bottom: 2rem;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.8);
     }
 
-    .section-title { font-size: 1.25rem; font-weight: 900; color: var(--text-white); text-transform: uppercase; margin-bottom: 1.25rem; }
+    .prose { line-height: 1.75; font-size: 0.95rem; color: var(--text-slate-300); width: 100%; word-break: break-word; }
+    .prose h2 { font-size: 1.3rem; font-weight: 800; color: var(--text-white); margin-top: 1.25rem; margin-bottom: 0.5rem; }
+    .prose p { margin-bottom: 1rem; }
+    .prose img { width: 100% !important; height: auto !important; object-fit: contain !important; border-radius: 0.75rem; }
 
-    .prose {
-      line-height: 1.85; font-size: 1.05rem; color: var(--text-slate-300);
-      width: 100% !important; max-width: 100% !important; overflow-x: hidden; word-break: break-word; overflow-wrap: break-word;
-    }
-    .prose * { max-width: 100% !important; box-sizing: border-box !important; }
-    .prose h2 { font-size: 1.75rem; font-weight: 800; color: var(--text-white); margin-top: 1.75rem; margin-bottom: 0.75rem; }
-    .prose p { margin-bottom: 1.25rem; width: 100% !important; }
-    .prose img { width: 100% !important; height: auto !important; object-fit: contain !important; border-radius: 1rem; margin: 1.5rem 0; }
-
-    .contact-form-card {
-      background: linear-gradient(135deg, #0f0f13 0%, #08080b 100%);
-      border: 1px solid rgba(249, 115, 22, 0.4);
-      border-radius: 1.75rem;
-      padding: 2rem;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 25px rgba(249, 115, 22, 0.15);
-    }
     .form-input {
-      width: 100%;
-      background: #050507;
-      border: 1px solid var(--border-color);
-      border-radius: 0.85rem;
-      padding: 0.85rem 1rem;
-      color: #ffffff;
-      font-size: 0.85rem;
-      outline: none;
+      width: 100%; background: #050507; border: 1px solid var(--border-color); border-radius: 0.75rem;
+      padding: 0.85rem 1rem; color: #ffffff; font-size: 0.85rem; outline: none;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    .form-input:focus {
-      border-color: var(--brand-orange);
-      box-shadow: 0 0 12px rgba(249, 115, 22, 0.35);
-    }
-    .form-btn {
-      width: 100%;
-      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-      color: #ffffff;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 0.95rem;
-      border-radius: 0.85rem;
-      font-size: 0.85rem;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.5);
-      transition: all 0.2s ease;
-    }
-    .form-btn:hover {
-      background: #ffffff;
-      color: #0f172a;
-      box-shadow: 0 10px 25px rgba(255,255,255,0.3);
-    }
+    .form-input:focus { border-color: var(--brand-orange); box-shadow: 0 0 10px rgba(249, 115, 22, 0.3); }
 
-    footer {
-      background-color: #030305; border-top: 1px solid var(--border-color);
-      margin-top: auto; padding: 3rem 0; width: 100%; box-sizing: border-box;
+    .form-btn {
+      width: 100%; background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: #ffffff;
+      font-weight: 900; text-transform: uppercase; padding: 0.95rem; border-radius: 0.75rem; font-size: 0.85rem; border: none; cursor: pointer;
+      box-shadow: 0 8px 20px -4px rgba(249, 115, 22, 0.5); transition: all 0.2s ease;
     }
-    .footer-split { display: flex; flex-direction: column; gap: 2.5rem; width: 100%; box-sizing: border-box; }
-    .footer-top { display: flex; flex-direction: column; gap: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.75rem; }
+    .form-btn:hover { background: #ffffff; color: #0f172a; }
+
+    footer { background-color: #030305; border-top: 1px solid var(--border-color); margin-top: auto; padding: 2.5rem 0; width: 100%; box-sizing: border-box; }
+    .footer-split { display: flex; flex-direction: column; gap: 2rem; width: 100%; box-sizing: border-box; }
+    .footer-top { display: flex; flex-direction: column; gap: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; }
     @media(min-width: 640px) { .footer-top { flex-direction: row; align-items: center; justify-content: space-between; } }
-    .footer-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .footer-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     @media(min-width: 768px) { .footer-columns { grid-template-columns: repeat(3, 1fr); } }
-    .footer-heading { color: var(--text-white); font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.85rem; }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem; }
-    .footer-links a { color: var(--text-slate-400); text-decoration: none; transition: color 0.15s ease; }
+    .footer-heading { color: var(--text-white); font-size: 0.7rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.78rem; }
+    .footer-links a { color: var(--text-slate-400); text-decoration: none; }
     .footer-links a:hover { color: var(--brand-red); }
 
-    .modal-backdrop {
-      position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(6px);
-      z-index: 100; display: flex; align-items: flex-start; justify-content: center; padding: 1.25rem; padding-top: 5rem;
-    }
-    .modal-content { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.5rem; max-width: 40rem; width: 100%; padding: 1.75rem; box-sizing: border-box; }
+    .modal-backdrop { position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.85); z-index: 100; display: flex; align-items: flex-start; justify-content: center; padding: 1rem; padding-top: 4rem; }
+    .modal-content { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.25rem; max-width: 36rem; width: 100%; padding: 1.25rem; box-sizing: border-box; }
     .hidden { display: none !important; }
     .icon-svg { width: 1.1em; height: 1.1em; fill: currentColor; vertical-align: -0.15em; }
   </style>
 </head>
 <body>
 
-  <!-- Global Header -->
+  <!-- Live Ticker Bar -->
+  <div class="live-ticker">
+    <div class="max-w-7xl" style="margin: 0 auto; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--brand-red); text-transform: uppercase; font-weight: 900;">
+        <span class="pulse-dot"></span> LIVE DISPATCH
+      </span>
+      <span style="color: var(--text-slate-300); font-weight: 500;">Quantum AI Architectures reach zero-latency synthesis in late 2026 benchmarks</span>
+      <span style="color: var(--text-slate-400); text-transform: uppercase; font-size: 0.65rem; display: none; @media(min-width:640px){display:inline;}">Updated 3 mins ago</span>
+    </div>
+  </div>
+
+  <!-- Header -->
   <header>
     <div class="max-w-7xl px-pad header-inner">
-      <a href="#" onclick="navigateToHome(event)" class="logo" aria-label="AZEXAI Home">
+      <a href="#" onclick="navigateToHome(event)" class="logo">
         AZEX<span class="logo-red">AI</span><span class="logo-red" style="font-size: 1.8rem; line-height: 0;">.</span>
       </a>
-
-      <nav class="desktop-nav" aria-label="Navigation">
+      <nav class="desktop-nav">
         <a href="#" onclick="navigateToHome(event)" class="active">Home</a>
         <a href="#" onclick="setCategory('AI', event);">AI</a>
         <a href="#" onclick="setCategory('Tech', event);">Tech</a>
         <a href="#" onclick="setCategory('Cybersecurity', event);">Cybersecurity</a>
         <a href="#" onclick="setCategory('Reviews', event);">Reviews</a>
       </nav>
-      
-      <div class="header-actions">
+      <div class="header-actions" style="display: flex; gap: 0.5rem; align-items: center;">
         <button onclick="openSearchModal()" class="btn-icon" aria-label="Search">
           <svg class="icon-svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        </button>
+        <button onclick="navigateToStaticPage('contact', event)" class="btn-icon" style="background: var(--brand-red); color: #fff; border-color: var(--brand-red); font-size: 0.72rem; font-weight: 900; padding: 0.5rem 0.85rem; text-transform: uppercase;">
+          Subscribe
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Main Content View Container -->
-  <main class="max-w-7xl px-pad" style="flex-grow: 1; padding-top: 1.25rem; padding-bottom: 3rem;">
+  <!-- Main Container -->
+  <main class="max-w-7xl px-pad" style="flex-grow: 1; padding-top: 0.75rem; padding-bottom: 2rem;">
     <div id="app"></div>
   </main>
 
-  <!-- Complete Full Footer -->
+  <!-- Complete Footer -->
   <footer>
     <div class="max-w-7xl px-pad footer-split">
       <div class="footer-top">
         <div>
-          <a href="#" onclick="navigateToHome(event)" class="logo" style="margin-bottom: 0.5rem; font-size:1.4rem;">
+          <a href="#" onclick="navigateToHome(event)" class="logo" style="font-size:1.3rem;">
             AZEX<span class="logo-red">AI</span>.
           </a>
-          <p style="font-size: 0.8rem; color: var(--text-slate-400);">Global authority on artificial intelligence, frontier technology, and digital transformation.</p>
+          <p style="font-size: 0.75rem; color: var(--text-slate-400); margin-top: 0.2rem;">Global authority on artificial intelligence, frontier technology, and digital transformation.</p>
         </div>
-        <div style="display: flex; gap: 0.6rem;">
-          <a href="#" class="btn-icon" style="width:38px;height:38px;text-decoration:none;font-weight:700;font-size:0.8rem;">X</a>
-          <a href="#" class="btn-icon" style="width:38px;height:38px;text-decoration:none;font-weight:700;font-size:0.8rem;">FB</a>
+        <div style="display: flex; gap: 0.5rem;">
+          <a href="#" class="btn-icon" style="width:34px;height:34px;text-decoration:none;font-weight:700;font-size:0.75rem;">X</a>
+          <a href="#" class="btn-icon" style="width:34px;height:34px;text-decoration:none;font-weight:700;font-size:0.75rem;">FB</a>
+          <a href="#" class="btn-icon" style="width:34px;height:34px;text-decoration:none;font-weight:700;font-size:0.75rem;">LN</a>
         </div>
       </div>
-
       <div class="footer-columns">
         <div>
           <h3 class="footer-heading">COMPANY</h3>
@@ -325,42 +287,20 @@
   <!-- Search Modal -->
   <div id="searchModal" class="modal-backdrop hidden">
     <div class="modal-content">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-        <h3 style="font-size: 0.9rem; font-weight: 900; text-transform: uppercase; color: #fff;">Search Articles</h3>
-        <button onclick="closeSearchModal()" class="btn-icon" style="padding: 0.3rem 0.5rem;">✕</button>
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem;">
+        <h3 style="font-size: 0.8rem; font-weight: 900; text-transform: uppercase; color: #fff;">Search Articles</h3>
+        <button onclick="closeSearchModal()" class="btn-icon" style="padding: 0.2rem 0.4rem;">✕</button>
       </div>
-      <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search breakthroughs..." class="newsletter-input" style="margin-bottom: 1rem; width:100%; padding: 0.85rem; background: #050505; border: 1px solid var(--border-color); border-radius: 0.85rem; color:#fff; outline:none;">
-      <div id="modalSearchResults" class="no-scrollbar" style="max-height: 16rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.5rem;"></div>
+      <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search breakthroughs..." class="form-input" style="margin-bottom: 0.85rem;">
+      <div id="modalSearchResults" style="max-height: 14rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.4rem;"></div>
     </div>
   </div>
 
   <!-- JavaScript Engine -->
   <script>
     const CONTACT_EMAIL = "aristo@azexai.com";
-
-    const BLOGGER_CONFIG = {
-      blogId: '4263033619836681299',
-      apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
-      maxResults: 50
-    };
-
-    let AZEXAI = {
-      categories: ['All', 'AI', 'Tech', 'Cybersecurity', 'Reviews'],
-      activeCategory: 'All'
-    };
-
-    function cleanExcerpt(rawHtml, titleText = '') {
-      if (!rawHtml) return 'Discover how security teams are deploying lattice-based cryptography and zero-trust architectures.';
-      let text = rawHtml.replace(/<[^>]+>/g, ' ');
-      text = text.replace(/\[[^\]]+\]/g, '');
-      text = text.replace(/>\s*[A-Z_]+\s*:\s*[A-Z_]+/g, '');
-      text = text.replace(/Figure \d+:?/gi, '');
-      if (titleText && text.trim().startsWith(titleText.trim())) {
-        text = text.trim().substring(titleText.trim().length);
-      }
-      text = text.replace(/\s+/g, ' ').trim();
-      return text.length > 85 ? text.substring(0, 85) + '...' : (text || 'Discover how security teams are deploying lattice-based cryptography.');
-    }
+    const BLOGGER_CONFIG = { blogId: '4263033619836681299', apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ', maxResults: 50 };
+    let AZEXAI = { categories: ['All', 'AI', 'Tech', 'Cybersecurity', 'Reviews'], activeCategory: 'All' };
 
     let ARTICLES = [
       {
@@ -378,22 +318,6 @@
         image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=500',
         excerpt: 'How large language models are independently hypothesizing and validating breakthroughs.',
         content: '<h2>The Shift in Computation</h2><p>Generative AI models are moving beyond prose synthesis into active molecular design.</p>'
-      },
-      {
-        id: 3, slug: 'neuromorphic-computing-architectures',
-        title: 'Neuromorphic Computing: Chips That Think Like Brains',
-        category: 'Tech', author: 'Marcus Thorne', date: 'August 24, 2026', readTime: '6 min read',
-        image: 'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=500',
-        excerpt: 'Silicon-based spiking neural networks promise ultra-low power consumption for next-gen edge robotics.',
-        content: '<h2>Bio-Inspired Silicon Design</h2><p>Traditional von Neumann architectures create massive energy bottlenecks.</p>'
-      },
-      {
-        id: 4, slug: 'quantum-machine-learning-horizons',
-        title: 'Quantum Machine Learning: Exponential Speedups',
-        category: 'Cybersecurity', author: 'Siddharth Mehta', date: 'August 22, 2026', readTime: '9 min read',
-        image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=500',
-        excerpt: 'Cybersecurity frameworks must urgently transition to post-quantum encryption standards.',
-        content: '<h2>The Post-Quantum Imperative</h2><p>Enterprise security architects are implementing lattice-based cryptography.</p>'
       }
     ];
 
@@ -402,8 +326,7 @@
     async function loadBloggerArticlesAsync() {
       if (!BLOGGER_CONFIG.apiKey) return;
       try {
-        const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&maxResults=${BLOGGER_CONFIG.maxResults}`;
-        const res = await fetch(url);
+        const res = await fetch(`https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&maxResults=${BLOGGER_CONFIG.maxResults}`);
         if (!res.ok) return;
         const data = await res.json();
         if (Array.isArray(data.items) && data.items.length > 0) {
@@ -413,19 +336,15 @@
             const img = imgMatch ? imgMatch[1] : ARTICLES[0].image;
             const title = post.title || 'Untitled Report';
             const cat = (post.labels && post.labels[0]) ? post.labels[0] : 'AI';
-            const cleanText = cleanExcerpt(raw, title);
+            let cleanText = raw.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+            cleanText = cleanText.length > 70 ? cleanText.substring(0, 70) + '...' : cleanText;
             
             return {
               id: post.id || idx + 1,
               slug: (post.url || '').split('/').pop().replace('.html', '') || String(post.id),
-              title: title,
-              category: cat,
-              author: post.author?.displayName || 'AZEXAI Team',
+              title: title, category: cat, author: post.author?.displayName || 'AZEXAI Team',
               date: post.published ? new Date(post.published).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) : 'September 2026',
-              readTime: Math.max(2, Math.ceil(raw.replace(/<[^>]+>/g, '').split(/\s+/).length / 220)) + ' Min Read',
-              image: img,
-              excerpt: cleanText,
-              content: raw
+              readTime: '4 Min Read', image: img, excerpt: cleanText, content: raw
             };
           });
           router();
@@ -461,28 +380,19 @@
       router();
     }
 
-    window.addEventListener('popstate', () => {
-      router();
-    });
+    window.addEventListener('popstate', () => { router(); });
 
     function router() {
       const app = document.getElementById('app');
       if (!app) return;
-      
       const hash = window.location.hash.replace('#/', '');
-      
       if (hash && hash !== '') {
         if (['about', 'editorial', 'privacy', 'terms', 'contact'].includes(hash)) {
-          renderStaticPageView(hash);
-          return;
+          renderStaticPageView(hash); return;
         }
         const art = ARTICLES.find(a => a.slug === hash);
-        if (art) {
-          renderArticleView(art);
-          return;
-        }
+        if (art) { renderArticleView(art); return; }
       }
-
       renderHome();
     }
 
@@ -507,22 +417,15 @@
                 <circle cx="32" cy="24" r="16" stroke="#ffffff" stroke-width="3"/>
                 <circle cx="26" cy="22" r="5" stroke="#ffffff" stroke-width="2.5"/>
                 <circle cx="38" cy="22" r="5" stroke="#ffffff" stroke-width="2.5"/>
-                <line x1="31" y1="22" x2="33" y2="22" stroke="#ffffff" stroke-width="2.5"/>
-                <circle class="eye-blink" cx="26" cy="22" r="2" fill="#ffffff"/>
-                <circle class="eye-blink" cx="38" cy="22" r="2" fill="#ffffff"/>
+                <circle cx="26" cy="22" r="2" fill="#ffffff"/>
+                <circle cx="38" cy="22" r="2" fill="#ffffff"/>
                 <path d="M28 30 Q 32 34 36 30" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-                <path d="M16 52 L 32 44 L 48 52 L 48 40 L 32 34 L 16 40 Z" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round" fill="rgba(255,255,255,0.2)"/>
-                <line x1="32" y1="34" x2="32" y2="44" stroke="#ffffff" stroke-width="2"/>
               </svg>
               <span class="badge-white">${hero.category}</span>
             </div>
             <h1 class="hero-title-red">${hero.title}</h1>
             <p class="hero-excerpt-red">${hero.excerpt}</p>
-            <div class="meta-text-white">
-              <span>${hero.author}</span>
-              <span>&bull;</span>
-              <span style="color: #ffffff; background: rgba(0,0,0,0.3); padding: 0.15rem 0.5rem; border-radius: 999px;">${hero.readTime}</span>
-            </div>
+            <div style="font-size:0.68rem; font-weight:800; text-transform:uppercase; color:#fff;">${hero.author} &bull; ${hero.readTime}</div>
           </div>
           <div class="img-container">
             <img src="${hero.image}" alt="${hero.title}" width="800" height="450" loading="eager" decoding="async">
@@ -552,121 +455,102 @@
         </div>
       `;
 
-      document.getElementById('app').innerHTML = categoryBar + heroHtml + articlesGrid;
+      const domainTiles = `
+        <div style="margin-top: 2rem; margin-bottom: 2rem;">
+          <h2 class="section-title">Explore Domains</h2>
+          <div class="grid-2-cols">
+            <div onclick="setCategory('AI', event)" class="domain-cyber-card">
+              <span style="font-size: 0.78rem; font-weight: 900; text-transform: uppercase; color: #fff;">Artificial Intelligence</span>
+              <span style="color: var(--brand-red);">→</span>
+            </div>
+            <div onclick="setCategory('Tech', event)" class="domain-cyber-card">
+              <span style="font-size: 0.78rem; font-weight: 900; text-transform: uppercase; color: #fff;">Frontier Tech</span>
+              <span style="color: var(--brand-red);">→</span>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const newsletterBox = `
+        <div class="pro-newsletter-card text-white">
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <span class="badge-white" style="width: fit-content; background: rgba(239, 68, 68, 0.2); color: var(--brand-red); border: 1px solid rgba(239,68,68,0.4);">
+              JOIN 48,000+ READERS
+            </span>
+            <h2 style="font-size: 1.25rem; font-weight: 900; text-transform: uppercase; color: #fff;">Stay Ahead Of What's Next.</h2>
+            <p style="font-size: 0.75rem; color: var(--text-slate-300);">Receive elite global intelligence reports on artificial intelligence directly in your inbox.</p>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+              <input type="email" placeholder="ENTER PROFESSIONAL EMAIL" class="form-input">
+              <button onclick="alert('Subscribed successfully!')" class="form-btn">Subscribe Now</button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('app').innerHTML = categoryBar + heroHtml + articlesGrid + domainTiles + newsletterBox;
     }
 
     function renderArticleView(art) {
       document.getElementById('app').innerHTML = `
-        <div class="max-w-article" style="padding-top: 1rem;">
-          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1.5rem;">← Back to Index</button>
-          
-          <span class="badge-white" style="margin-bottom: 0.5rem; background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid #ef4444;">${art.category}</span>
-          <h1 style="font-size: 1.85rem; font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 1rem;">${art.title}</h1>
-          
-          <div class="meta-text-white" style="color:var(--text-slate-400); padding-bottom: 1rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem;">
-            <span style="color:#fff;">${art.author}</span>
-            <span>&bull;</span>
-            <span>${art.date}</span>
-            <span>&bull;</span>
-            <span style="color:var(--brand-green);">${art.readTime}</span>
+        <div class="max-w-article" style="padding-top: 0.5rem;">
+          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1rem;">← Back to Index</button>
+          <span class="badge-white" style="margin-bottom: 0.4rem; background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid #ef4444;">${art.category}</span>
+          <h1 style="font-size: 1.35rem; font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 0.75rem;">${art.title}</h1>
+          <div style="font-size:0.75rem; color:var(--text-slate-400); padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem;">
+            <span style="color:#fff;">${art.author}</span> &bull; <span>${art.date}</span> &bull; <span style="color:var(--brand-green);">${art.readTime}</span>
           </div>
-
-          <div class="img-container" style="aspect-ratio: 16/9; margin-bottom: 2rem;">
-            <img src="${art.image}" alt="${art.title}" width="1200" height="675" loading="eager">
+          <div class="img-container" style="aspect-ratio: 16/9; margin-bottom: 1.25rem;">
+            <img src="${art.image}" alt="${art.title}" width="900" height="506" loading="eager">
           </div>
-
-          <article class="prose">
-            ${art.content}
-          </article>
+          <article class="prose">${art.content}</article>
         </div>
       `;
     }
 
     function renderStaticPageView(slug) {
       const app = document.getElementById('app');
-      
       if (slug === 'contact') {
         app.innerHTML = `
-          <div class="max-w-article" style="padding-top: 1rem;">
-            <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1.5rem;">← Back to Index</button>
-            <div class="contact-form-card">
-              <span style="background: rgba(249, 115, 22, 0.15); color: #f97316; border: 1px solid rgba(249, 115, 22, 0.4); font-weight: 900; font-size: 0.65rem; padding: 0.3rem 0.75rem; border-radius: 9999px; text-transform: uppercase; display: inline-block; margin-bottom: 0.75rem;">
-                DIRECT COMMUNICATION
-              </span>
-              <h1 style="font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 0.75rem;">Contact AZEXAI</h1>
-              <p style="color: var(--text-slate-300); font-size: 0.9rem; line-height: 1.6; margin-bottom: 2rem;">
-                Get in touch with our global editorial board, research division, or partnership directors. Official desk email: <strong style="color: #f97316;">${CONTACT_EMAIL}</strong>
+          <div class="max-w-article" style="padding-top: 0.5rem;">
+            <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1rem;">← Back to Index</button>
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.25rem; padding: 2rem;">
+              <span style="background: rgba(249, 115, 22, 0.15); color: var(--brand-orange); font-weight: 900; font-size: 0.65rem; padding: 0.3rem 0.75rem; border-radius: 9999px; text-transform: uppercase; display: inline-block; margin-bottom: 0.75rem;">DIRECT DESK</span>
+              <h1 style="font-size: 1.8rem; font-weight: 900; color: #fff; margin-bottom: 0.5rem;">Contact AZEXAI</h1>
+              <p style="font-size: 0.85rem; color: var(--text-slate-300); margin-bottom: 1.5rem;">
+                Official Desk Email: <strong style="color: var(--brand-orange);">${CONTACT_EMAIL}</strong>
               </p>
-
-              <form onsubmit="event.preventDefault(); alert('Message dispatched successfully to aristo@azexai.com!');" style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <form onsubmit="event.preventDefault(); alert('Message dispatched to aristo@azexai.com successfully!');" style="display:flex; flex-direction:column; gap:1.25rem;">
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
                   <div>
-                    <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">First Name *</label>
+                    <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.4rem;">First Name *</label>
                     <input type="text" required placeholder="Alan" class="form-input">
                   </div>
                   <div>
-                    <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">Last Name *</label>
+                    <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.4rem;">Last Name *</label>
                     <input type="text" required placeholder="Turing" class="form-input">
                   </div>
                 </div>
-
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
-                  <div>
-                    <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">Email Address *</label>
-                    <input type="email" required placeholder="alan@example.com" class="form-input">
-                  </div>
-                  <div>
-                    <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">Subject / Title *</label>
-                    <input type="text" required placeholder="Research Inquiry" class="form-input">
-                  </div>
-                </div>
-
                 <div>
-                  <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">Your Message *</label>
-                  <textarea rows="5" required placeholder="Detail your inquiry here..." class="form-input" style="resize: none;"></textarea>
+                  <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.4rem;">Email Address *</label>
+                  <input type="email" required placeholder="alan@example.com" class="form-input">
                 </div>
-
-                <button type="submit" class="form-btn">Send Dispatch Message</button>
+                <div>
+                  <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.4rem;">Your Message *</label>
+                  <textarea rows="5" required placeholder="Detail your inquiry here..." class="form-input" style="resize:none;"></textarea>
+                </div>
+                <button type="submit" class="form-btn">Send Message</button>
               </form>
             </div>
           </div>
         `;
         return;
       }
-
-      const staticData = {
-        about: {
-          title: "About AZEXAI",
-          subtitle: "Global Authority on Artificial Intelligence & Frontier Technology",
-          body: "AZEXAI is the premier independent global intelligence platform dedicated to decoding complex algorithmic breakthroughs, neural network topologies, and quantum computing advancements. Founded by a coalition of senior researchers, software architects, and technology journalists, our mission is to deliver uncompromising editorial integrity, rigorous benchmarking, and deep systemic analysis of digital transformation across global enterprises."
-        },
-        editorial: {
-          title: "Global Editorial Board",
-          subtitle: "Governance, Verification & Journalistic Ethics",
-          body: "The AZEXAI Global Editorial Board maintains rigorous standards of factual precision, technical depth, and strict independence across all published reports. Every piece of intelligence undergoes strict peer review by domain specialists before publication. We operate with zero tolerance for vendor influence, sponsored bias, or unverified algorithmic claims."
-        },
-        privacy: {
-          title: "Privacy Policy",
-          subtitle: "Data Protection & Security Standards",
-          body: "At AZEXAI, we respect your digital privacy. We collect minimal telemetry data strictly necessary to optimize our global content delivery network and secure user sessions. We do not sell, rent, or monetize personal user logs or reading telemetry with third-party advertising brokers."
-        },
-        terms: {
-          title: "Terms of Service",
-          subtitle: "User Agreement & Intellectual Property Guidelines",
-          body: "By accessing AZEXAI, you agree to abide by our intellectual property guidelines. All proprietary research articles, visual graphics, and code structures are protected by international copyright laws. Educational citation and commentary are permitted provided proper attribution and canonical links to AZEXAI are maintained."
-        }
-      };
-
-      const page = staticData[slug] || staticData['about'];
-
       app.innerHTML = `
-        <div class="max-w-article" style="padding-top: 1rem;">
-          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1.5rem;">← Back to Index</button>
-          <div style="background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 1.5rem;">
-            <span style="background: rgba(239, 68, 68, 0.15); color: var(--brand-red); font-weight: 900; font-size: 0.65rem; padding: 0.3rem 0.75rem; border-radius: 9999px; text-transform: uppercase; display: inline-block; margin-bottom: 0.75rem;">OFFICIAL DISPATCH</span>
-            <h1 style="font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 0.5rem;">${page.title}</h1>
-            <p style="font-size: 0.95rem; color: #f97316; font-weight: 700; margin-bottom: 1.5rem;">${page.subtitle}</p>
-            <p style="color: var(--text-slate-300); line-height: 1.8; font-size: 1.05rem;">${page.body}</p>
+        <div class="max-w-article" style="padding-top: 0.5rem;">
+          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1rem;">← Back to Index</button>
+          <div style="background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 2rem; border-radius: 1.25rem;">
+            <h1 style="font-size: 1.75rem; font-weight: 900; color: #fff; margin-bottom: 0.75rem; text-transform: capitalize;">${slug} Page</h1>
+            <p style="color: var(--text-slate-300); line-height: 1.7; font-size: 0.95rem;">AZEXAI is the premier global authority on artificial intelligence and frontier technology, delivering uncompromising technical journalism and research reports.</p>
           </div>
         </div>
       `;
@@ -678,10 +562,10 @@
       const q = e.target.value.toLowerCase();
       const res = document.getElementById('modalSearchResults');
       if(!q) { res.innerHTML = ''; return; }
-      const matches = ARTICLES.filter(a => a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q));
+      const matches = ARTICLES.filter(a => a.title.toLowerCase().includes(q));
       res.innerHTML = matches.map(m => `
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" style="padding: 0.65rem; background: #050505; border-radius: 0.65rem; cursor: pointer;">
-          <h4 style="font-size: 0.82rem; font-weight: 700; color: #fff;">${m.title}</h4>
+        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" style="padding: 0.5rem; background: #050505; border-radius: 0.5rem; cursor: pointer;">
+          <h4 style="font-size: 0.78rem; font-weight: 700; color: #fff;">${m.title}</h4>
         </div>
       `).join('');
     }

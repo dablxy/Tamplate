@@ -27,22 +27,7 @@
   <meta id="twDesc" name="twitter:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
   <meta id="twImage" name="twitter:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200">
 
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json" id="structuredDataScript">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "AZEXAI",
-    "url": "",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
-  <!-- Tailwind CSS Engine -->
+  <!-- Tailwind CSS Engine with Custom Orange & Black Theme -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
@@ -50,7 +35,13 @@
       theme: {
         extend: {
           colors: {
-            brand: { red: '#ef4444', green: '#22c55e' }
+            brand: {
+              orange: '#f97316',
+              orangeHover: '#ea580c',
+              darkBg: '#080808',
+              cardBg: '#121212',
+              border: '#262626'
+            }
           }
         }
       }
@@ -62,142 +53,192 @@
 
   <style>
     *, ::before, ::after { box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #000000; color: #f8fafc; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #080808; color: #f8fafc; margin: 0; padding: 0; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .prose img { max-width: 100%; height: auto; border-radius: 1rem; margin: 1.5rem 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); }
-    .prose a { color: #ef4444; text-decoration: none; transition: color 0.2s; }
-    .prose a:hover { text-decoration: underline; }
+    .prose img { max-width: 100%; height: auto; border-radius: 1rem; margin: 1.5rem 0; box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.15); }
+    .prose a { color: #f97316; text-decoration: none; font-weight: 700; transition: color 0.2s; }
+    .prose a:hover { color: #ffffff; text-decoration: underline; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-black text-slate-100 selection:bg-red-500 selection:text-white transition-colors duration-300">
+<body class="min-h-screen flex flex-col bg-[#080808] text-slate-100 selection:bg-orange-500 selection:text-white transition-colors duration-300">
 
   <!-- Header -->
-  <header class="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-neutral-900">
+  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neutral-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
       <!-- Brand Logo -->
       <a href="#" onclick="navigateToHome(event)" class="flex items-center group shrink-0" aria-label="AZEXAI Homepage">
-        <span class="text-2xl sm:text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-red-500">AI</span><span class="text-red-500 text-3xl sm:text-4xl leading-none">.</span></span>
+        <span class="text-2xl sm:text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-orange-500">AI</span><span class="text-orange-500 text-3xl sm:text-4xl leading-none">.</span></span>
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold tracking-wide text-slate-300" aria-label="Global Navigation">
-        <a href="#" onclick="navigateToHome(event)" class="text-red-500 transition hover:text-red-400">Home</a>
-        <a href="#" onclick="setCategory('AI', event)" class="hover:text-red-500 transition">AI</a>
-        <a href="#" onclick="setCategory('Tech', event)" class="hover:text-red-500 transition">Tech</a>
-        <a href="#" onclick="setCategory('Gadgets', event)" class="hover:text-red-500 transition">Gadgets</a>
-        <a href="#" onclick="setCategory('Software', event)" class="hover:text-red-500 transition">Software</a>
-        <a href="#" onclick="setCategory('Cybersecurity', event)" class="hover:text-red-500 transition">Cybersecurity</a>
-        <a href="#" onclick="setCategory('Reviews', event)" class="hover:text-red-500 transition">Reviews</a>
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-bold tracking-wide text-slate-300" aria-label="Global Navigation">
+        <a href="#" onclick="navigateToHome(event)" class="text-orange-500 transition hover:text-orange-400">Home</a>
+        <a href="#" onclick="setCategory('AI', event)" class="hover:text-orange-500 transition">AI</a>
+        <a href="#" onclick="setCategory('Tech', event)" class="hover:text-orange-500 transition">Tech</a>
+        <a href="#" onclick="setCategory('Gadgets', event)" class="hover:text-orange-500 transition">Gadgets</a>
+        <a href="#" onclick="setCategory('Software', event)" class="hover:text-orange-500 transition">Software</a>
+        <a href="#" onclick="setCategory('Cybersecurity', event)" class="hover:text-orange-500 transition">Cybersecurity</a>
+        <a href="#" onclick="setCategory('Reviews', event)" class="hover:text-orange-500 transition">Reviews</a>
       </nav>
       
       <!-- Header Actions -->
       <div class="flex items-center gap-2 sm:gap-3">
-        <button onclick="openSearchModal()" class="p-2.5 sm:p-3 rounded-2xl bg-neutral-900 text-slate-200 hover:border-red-500 transition border border-neutral-800 shadow-sm" aria-label="Search Articles">
+        <button onclick="openSearchModal()" class="p-2.5 sm:p-3 rounded-2xl bg-neutral-900 text-slate-200 hover:border-orange-500 transition border border-neutral-800 shadow-sm" aria-label="Search Articles">
           <i class="fa-solid fa-magnifying-glass text-base sm:text-lg" aria-hidden="true"></i>
         </button>
-        <button onclick="navigateToStaticPage('contact', event)" class="hidden sm:flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-red-500 hover:bg-white hover:text-slate-900 text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-red-500/20" aria-label="Subscribe Newsletter">
-          <span>Subscribe</span>
+        <button onclick="navigateToStaticPage('contact', event)" class="flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-orange-500 hover:bg-white hover:text-slate-900 text-white text-xs sm:text-sm font-black uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-orange-500/20" aria-label="Contact Us">
+          <i class="fa-solid fa-paper-plane text-xs"></i>
+          <span>Contact</span>
         </button>
       </div>
     </div>
   </header>
 
   <!-- Main Content Area -->
-  <main class="flex-grow max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-10 w-full bg-black">
+  <main class="flex-grow max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-10 w-full">
     <div id="app">
-      <!-- Dynamic Content -->
+      <!-- Dynamic Content View -->
     </div>
   </main>
 
   <!-- Global Footer -->
   <footer class="bg-black border-t border-neutral-900 mt-16 sm:mt-24 py-12 sm:py-16 text-sm text-slate-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
-      <div>
-        <div class="flex items-center mb-4 cursor-pointer" onclick="navigateToHome(event)">
-          <span class="text-2xl sm:text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-red-500">AI</span><span class="text-red-500 text-3xl sm:text-4xl leading-none">.</span></span>
-        </div>
-        <p class="text-slate-400 text-xs sm:text-sm mb-6 leading-relaxed">Global authority on artificial intelligence, frontier technology, and digital transformation.</p>
-        <div class="flex items-center gap-3">
-          <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="X Twitter Profile"><i class="fa-solid fa-x text-xs"></i></a>
-          <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="Facebook Page"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-          <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="LinkedIn Company Page"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
-          <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="YouTube Channel"><i class="fa-brands fa-youtube text-xs"></i></a>
-        </div>
-      </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div>
-        <h3 class="text-white font-bold mb-4 sm:mb-5 text-xs uppercase tracking-widest">Company</h3>
-        <ul class="space-y-2.5 font-medium text-xs sm:text-sm text-slate-400">
-          <li><a href="#" onclick="navigateToStaticPage('about', event)" class="hover:text-red-500 transition">About Us</a></li>
-          <li><a href="#" onclick="navigateToStaticPage('editorial', event)" class="hover:text-red-500 transition">Global Editorial Board</a></li>
-          <li><a href="#" onclick="navigateToStaticPage('privacy', event)" class="hover:text-red-500 transition">Privacy Policy</a></li>
-          <li><a href="#" onclick="navigateToStaticPage('terms', event)" class="hover:text-red-500 transition">Terms of Service</a></li>
-          <li><a href="#" onclick="navigateToStaticPage('affiliate', event)" class="hover:text-red-500 transition">Affiliate Disclosure</a></li>
-          <li><a href="#" onclick="navigateToStaticPage('advertise', event)" class="hover:text-red-500 transition">Advertise With Us</a></li>
-          <li><a href="#" onclick="navigateToStaticPage('contact', event)" class="hover:text-red-500 transition">Contact</a></li>
-        </ul>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-neutral-800/80">
+        
+        <!-- Left Side: Brand Profile & Direct Contact Info -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="flex items-center cursor-pointer" onclick="navigateToHome(event)">
+            <span class="text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-orange-500">AI</span><span class="text-orange-500 text-4xl leading-none">.</span></span>
+          </div>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-md">
+            Global authority on artificial intelligence, frontier technology, and digital transformation. Delivering high-impact research, technical analysis, and software benchmarking.
+          </p>
+
+          <div class="p-4 bg-neutral-900/90 border border-neutral-800 rounded-2xl space-y-3">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center text-sm"><i class="fa-solid fa-envelope"></i></span>
+              <div>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Official Editorial Desk</p>
+                <a href="mailto:aristo@azexai.com" class="text-xs font-bold text-white hover:text-orange-500 transition">aristo@azexai.com</a>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 pt-2 border-t border-neutral-800">
+              <span class="w-8 h-8 rounded-xl bg-green-500/10 text-green-500 flex items-center justify-center text-sm"><i class="fa-solid fa-circle-check"></i></span>
+              <div>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Inquiry Response SLA</p>
+                <p class="text-xs font-bold text-slate-200">Guaranteed within 24 Hours</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Icons -->
+          <div class="flex items-center gap-3">
+            <a href="#" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition" aria-label="X Twitter Profile"><i class="fa-solid fa-x text-xs"></i></a>
+            <a href="#" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition" aria-label="Facebook Page"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+            <a href="#" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition" aria-label="LinkedIn Company Page"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+            <a href="#" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition" aria-label="YouTube Channel"><i class="fa-brands fa-youtube text-xs"></i></a>
+          </div>
+        </div>
+
+        <!-- Right Side: Structured Navigation Links -->
+        <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          
+          <div>
+            <h3 class="text-white font-black mb-4 text-xs uppercase tracking-widest flex items-center gap-2">
+              <span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Company
+            </h3>
+            <ul class="space-y-2.5 font-medium text-xs text-slate-400">
+              <li><a href="#" onclick="navigateToStaticPage('about', event)" class="hover:text-orange-500 transition">About Us</a></li>
+              <li><a href="#" onclick="navigateToStaticPage('editorial', event)" class="hover:text-orange-500 transition">Global Editorial Board</a></li>
+              <li><a href="#" onclick="navigateToStaticPage('privacy', event)" class="hover:text-orange-500 transition">Privacy Policy</a></li>
+              <li><a href="#" onclick="navigateToStaticPage('terms', event)" class="hover:text-orange-500 transition">Terms of Service</a></li>
+              <li><a href="#" onclick="navigateToStaticPage('affiliate', event)" class="hover:text-orange-500 transition">Affiliate Disclosure</a></li>
+              <li><a href="#" onclick="navigateToStaticPage('advertise', event)" class="hover:text-orange-500 transition">Advertise With Us</a></li>
+              <li><a href="#" onclick="navigateToStaticPage('contact', event)" class="hover:text-orange-500 transition text-orange-400 font-bold">Contact Desk</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-white font-black mb-4 text-xs uppercase tracking-widest flex items-center gap-2">
+              <span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Categories
+            </h3>
+            <ul class="space-y-2.5 font-medium text-xs text-slate-400">
+              <li><a href="#" onclick="setCategory('AI', event)" class="hover:text-orange-500 transition">Artificial Intelligence</a></li>
+              <li><a href="#" onclick="setCategory('Tech', event)" class="hover:text-orange-500 transition">Frontier Tech</a></li>
+              <li><a href="#" onclick="setCategory('Gadgets', event)" class="hover:text-orange-500 transition">Smart Gadgets</a></li>
+              <li><a href="#" onclick="setCategory('Software', event)" class="hover:text-orange-500 transition">Software Architecture</a></li>
+              <li><a href="#" onclick="setCategory('Cybersecurity', event)" class="hover:text-orange-500 transition">Cybersecurity</a></li>
+              <li><a href="#" onclick="setCategory('Reviews', event)" class="hover:text-orange-500 transition">Expert Reviews</a></li>
+            </ul>
+          </div>
+
+          <div class="col-span-2 sm:col-span-1">
+            <h3 class="text-white font-black mb-4 text-xs uppercase tracking-widest flex items-center gap-2">
+              <span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Direct Support
+            </h3>
+            <ul class="space-y-2.5 font-medium text-xs text-slate-400">
+              <li><a href="#" onclick="navigateToStaticPage('contact', event)" class="hover:text-orange-500 transition">Global Newsletter</a></li>
+              <li><a href="#" onclick="openSearchModal(); return false;" class="hover:text-orange-500 transition">Advanced Search</a></li>
+              <li><a href="mailto:aristo@azexai.com" class="hover:text-orange-500 transition font-bold text-slate-300">aristo@azexai.com</a></li>
+            </ul>
+          </div>
+
+        </div>
+
       </div>
 
-      <div>
-        <h3 class="text-white font-bold mb-4 sm:mb-5 text-xs uppercase tracking-widest">Categories</h3>
-        <ul class="space-y-2.5 font-medium text-xs sm:text-sm text-slate-400">
-          <li><a href="#" onclick="setCategory('AI', event)" class="hover:text-red-500 transition">Artificial Intelligence</a></li>
-          <li><a href="#" onclick="setCategory('Tech', event)" class="hover:text-red-500 transition">Frontier Tech</a></li>
-          <li><a href="#" onclick="setCategory('Gadgets', event)" class="hover:text-red-500 transition">Smart Gadgets</a></li>
-          <li><a href="#" onclick="setCategory('Software', event)" class="hover:text-red-500 transition">Software Architecture</a></li>
-          <li><a href="#" onclick="setCategory('Cybersecurity', event)" class="hover:text-red-500 transition">Cybersecurity</a></li>
-          <li><a href="#" onclick="setCategory('Reviews', event)" class="hover:text-red-500 transition">Expert Reviews</a></li>
-        </ul>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 AZEXAI Authority. All Rights Reserved.</p>
+        <p class="flex items-center gap-2">
+          <span>Engineered with Precision</span>
+          <span class="text-orange-500">•</span>
+          <a href="#" onclick="navigateToStaticPage('privacy', event)" class="hover:text-orange-500 transition">Privacy</a>
+        </p>
       </div>
 
-      <div>
-        <h3 class="text-white font-bold mb-4 sm:mb-5 text-xs uppercase tracking-widest">Connect</h3>
-        <ul class="space-y-2.5 font-medium text-xs sm:text-sm text-slate-400">
-          <li><a href="#" onclick="navigateToStaticPage('contact', event)" class="hover:text-red-500 transition">Global Newsletter</a></li>
-          <li><a href="#" onclick="openSearchModal(); return false;" class="hover:text-red-500 transition">Advanced Search</a></li>
-        </ul>
-      </div>
     </div>
   </footer>
 
   <!-- Cookie Consent Modal -->
   <div id="cookieNotice" class="fixed bottom-4 right-4 left-4 sm:left-auto sm:max-w-sm bg-neutral-900 rounded-3xl shadow-2xl border border-neutral-800 p-5 z-50 hidden text-sm">
     <div class="flex items-start gap-4">
-      <div class="p-3 bg-green-500/10 text-green-500 rounded-2xl mt-0.5 border border-green-500/20 shrink-0">
+      <div class="p-3 bg-orange-500/10 text-orange-500 rounded-2xl mt-0.5 border border-orange-500/20 shrink-0">
         <i class="fa-solid fa-shield-halved text-lg" aria-hidden="true"></i>
       </div>
       <div class="flex-1">
         <p class="text-white font-bold mb-1">Cookie Policy</p>
         <p class="text-slate-400 mb-4 text-xs leading-relaxed">We use essential cookies to analyze global traffic and secure your browsing experience on Azexai.</p>
         <div class="flex items-center gap-2">
-          <button onclick="acceptCookies()" class="px-4 py-2 bg-white text-slate-900 font-bold rounded-xl text-xs hover:bg-red-500 hover:text-white transition" aria-label="Accept Cookies">Accept</button>
-          <button onclick="declineCookies()" class="px-4 py-2 bg-neutral-800 text-slate-300 font-bold rounded-xl text-xs hover:text-red-500 transition" aria-label="Decline Cookies">Decline</button>
+          <button onclick="acceptCookies()" class="px-4 py-2 bg-orange-500 text-white font-bold rounded-xl text-xs hover:bg-white hover:text-slate-900 transition" aria-label="Accept Cookies">Accept</button>
+          <button onclick="declineCookies()" class="px-4 py-2 bg-neutral-800 text-slate-300 font-bold rounded-xl text-xs hover:text-orange-500 transition" aria-label="Decline Cookies">Decline</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Search Modal -->
-  <div id="searchModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-20 sm:pt-28 hidden">
+  <div id="searchModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-20 sm:pt-28 hidden">
     <div class="bg-neutral-900 rounded-3xl max-w-2xl w-full p-5 sm:p-6 shadow-2xl border border-neutral-800">
       <div class="flex items-center justify-between mb-4">
         <h3 class="text-base sm:text-lg font-black uppercase tracking-wider text-white">Search Global Articles</h3>
-        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-red-500 transition p-1" aria-label="Close Modal"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-orange-500 transition p-1" aria-label="Close Modal"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
       <div class="relative mb-4">
         <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true"></i>
-        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search AI breakthroughs, neural networks, quantum computing..." class="w-full pl-11 pr-4 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm focus:outline-none focus:border-red-500 text-white transition-colors" aria-label="Search term input">
+        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search AI breakthroughs, work intelligence, software architecture..." class="w-full pl-11 pr-4 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm focus:outline-none focus:border-orange-500 text-white transition-colors" aria-label="Search term input">
       </div>
       <div id="modalSearchResults" class="max-h-72 overflow-y-auto space-y-2 no-scrollbar">
       </div>
     </div>
   </div>
 
-  <!-- Application Engine -->
+  <!-- Main Application Engine -->
   <script>
-    const CONTACT_EMAIL = "contact@azexai.com";
+    const CONTACT_EMAIL = "aristo@azexai.com";
 
     const BLOGGER_CONFIG = {
       blogId: '4263033619836681299',
@@ -223,9 +264,9 @@
         excerpt: 'Raw activity logs told you someone was at their desk. Work intelligence tells you why work is slow, where capacity is going, and what to fix next.',
         tags: ['AI', 'Work Intelligence', 'Software', 'Insightful'],
         content: `<h2>What Work Intelligence Actually Means</h2>
-        <p>"Work intelligence" gets used loosely across workforce software right now. At its core, it describes platforms that combine always-on activity data with an analysis layer built specifically to turn that data into decisions — staffing changes, process fixes, capacity plans.</p>
-        <p>Insightful, one of the most established platforms in this space, frames its own positioning around this distinction: connecting observability with AI-powered process capture.</p>
-        <blockquote class="p-4 my-4 bg-neutral-900 border-l-4 border-red-500 text-slate-200 font-semibold italic">"We are no longer managing factory assembly lines where physical presence equals labor output. Knowledge work requires context, autonomy, and analytical depth."</blockquote>`
+        <p>"Work intelligence" gets used loosely across workforce software right now. At its core, it describes platforms that combine always-on activity data with an analysis layer built specifically to turn that data into decisions — staffing changes, process fixes, capacity plans — rather than simply archiving it for a manager to review later if a problem comes up.</p>
+        <p>Insightful, one of the most established platforms in this space, frames its own positioning around this distinction: Insightful's Work Intelligence platform connects always-on observability with AI-powered process capture, aiming for measurable bottom-line impact rather than a pile of unreviewed screenshots.</p>
+        <blockquote class="p-4 my-4 bg-neutral-900 border-l-4 border-orange-500 text-slate-200 font-semibold italic">"We are no longer managing factory assembly lines where physical presence equals labor output. Knowledge work requires context, autonomy, and analytical depth that a digital stopwatch simply cannot measure."</blockquote>`
       },
       {
         id: 102,
@@ -401,12 +442,12 @@
         return;
       }
       resultsContainer.innerHTML = matches.map(m => `
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}')" class="p-3.5 sm:p-4 bg-neutral-950 border border-neutral-800 hover:border-red-500 rounded-2xl cursor-pointer transition-all flex items-center justify-between group">
+        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}')" class="p-3.5 sm:p-4 bg-neutral-950 border border-neutral-800 hover:border-orange-500 rounded-2xl cursor-pointer transition-all flex items-center justify-between group">
           <div>
-            <h4 class="text-xs sm:text-sm font-bold text-white mb-1 group-hover:text-red-500 transition-colors line-clamp-1">${m.title}</h4>
+            <h4 class="text-xs sm:text-sm font-bold text-white mb-1 group-hover:text-orange-500 transition-colors line-clamp-1">${m.title}</h4>
             <p class="text-xs text-slate-400 line-clamp-1">${m.excerpt}</p>
           </div>
-          <i class="fa-solid fa-arrow-right text-red-500 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all text-xs sm:text-sm ml-4 shrink-0" aria-hidden="true"></i>
+          <i class="fa-solid fa-arrow-right text-orange-500 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all text-xs sm:text-sm ml-4 shrink-0" aria-hidden="true"></i>
         </div>
       `).join('');
     }
@@ -516,7 +557,26 @@
       renderHome();
     }
 
-    /* VIEWS */
+    /* HANDLE CONTACT FORM DISPATCH */
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const firstName = form.firstName.value;
+      const lastName = form.lastName.value;
+      const email = form.email.value;
+      const address = form.address.value;
+      const subject = form.subject.value;
+      const message = form.message.value;
+
+      const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject + " - " + firstName + " " + lastName)}&body=${encodeURIComponent("Sender Name: " + firstName + " " + lastName + "\nEmail: " + email + "\nAddress/Location: " + address + "\n\nMessage:\n" + message)}`;
+      
+      window.location.href = mailtoLink;
+
+      alert(`Thank you ${firstName}! Your message dispatch has been prepared for ${CONTACT_EMAIL}.`);
+      form.reset();
+    }
+
+    /* VIEWS RENDERING */
     function renderHome() {
       const app = document.getElementById('app');
       const filtered = ARTICLES.filter(a => {
@@ -527,17 +587,17 @@
       const hero = filtered[0] || ARTICLES[0];
 
       app.innerHTML = `
-        <div class="sticky top-20 z-40 bg-black/95 backdrop-blur-md pt-2 pb-3 mb-6 sm:mb-10 border-b border-neutral-900 flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar -mx-3 px-3 sm:mx-0 sm:px-0">
+        <div class="sticky top-20 z-40 bg-black/90 backdrop-blur-md pt-2 pb-3 mb-6 sm:mb-10 border-b border-neutral-800 flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar -mx-3 px-3 sm:mx-0 sm:px-0">
           ${AZEXAI.categories.map(cat => `
-            <button onclick="setCategory('${cat}', event)" class="px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-2xl text-[10px] sm:text-xs font-black uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${AZEXAI.activeCategory === cat ? 'bg-red-500 text-white border-red-500 shadow-lg shadow-red-500/20' : 'bg-neutral-900 text-slate-300 border-neutral-800 hover:border-red-500'}" aria-label="Filter category ${cat}">${cat}</button>
+            <button onclick="setCategory('${cat}', event)" class="px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-2xl text-[10px] sm:text-xs font-black uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${AZEXAI.activeCategory === cat ? 'bg-orange-500 text-white border-orange-500 shadow-lg shadow-orange-500/20' : 'bg-neutral-900 text-slate-300 border-neutral-800 hover:border-orange-500'}" aria-label="Filter category ${cat}">${cat}</button>
           `).join('')}
         </div>
 
         ${hero && AZEXAI.activeCategory === 'All' ? `
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 mb-8 sm:mb-20 items-center bg-neutral-900 p-5 sm:p-10 lg:p-12 rounded-[1.8rem] sm:rounded-[2.5rem] border border-neutral-800 shadow-xl cursor-pointer group" onclick="navigateToArticle('${hero.slug}', event)">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 mb-8 sm:mb-20 items-center bg-neutral-900 p-5 sm:p-10 lg:p-12 rounded-[1.8rem] sm:rounded-[2.5rem] border border-neutral-800 shadow-xl cursor-pointer group hover:border-orange-500/50 transition duration-300" onclick="navigateToArticle('${hero.slug}', event)">
           <div class="space-y-3 sm:space-y-6">
-            <span class="px-3 py-1 bg-red-500/10 text-red-500 text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-full border border-red-500/20">${hero.category}</span>
-            <h1 class="text-xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-snug lg:leading-[1.1] group-hover:text-red-500 transition-colors">${hero.title}</h1>
+            <span class="px-3.5 py-1 bg-orange-500/10 text-orange-500 text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-full border border-orange-500/20">${hero.category}</span>
+            <h1 class="text-xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-snug lg:leading-[1.1] group-hover:text-orange-500 transition-colors">${hero.title}</h1>
             <p class="text-slate-300 text-xs sm:text-base font-medium line-clamp-2 sm:line-clamp-3 leading-relaxed">${hero.excerpt}</p>
             <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
               <span class="text-white">${hero.author}</span>
@@ -547,7 +607,7 @@
               <span class="text-green-500">${hero.readTime}</span>
             </div>
             <div class="pt-1 sm:pt-4">
-              <button onclick="navigateToArticle('${hero.slug}', event)" class="w-full sm:w-auto px-5 sm:px-8 py-3 sm:py-4 bg-white text-slate-900 hover:bg-red-500 hover:text-white font-black uppercase tracking-wider rounded-2xl transition-all shadow-lg text-xs sm:text-sm" aria-label="Read Report">Read Global Report</button>
+              <button onclick="navigateToArticle('${hero.slug}', event)" class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-orange-500 text-white hover:bg-white hover:text-slate-900 font-black uppercase tracking-wider rounded-2xl transition-all shadow-lg text-xs sm:text-sm" aria-label="Read Report">Read Global Report</button>
             </div>
           </div>
           <div class="aspect-[16/10] sm:aspect-[16/11] rounded-[1.2rem] sm:rounded-[2rem] overflow-hidden bg-neutral-950 border border-neutral-800 shadow-inner">
@@ -560,13 +620,13 @@
           <h2 class="text-xl sm:text-3xl font-black text-white uppercase tracking-tight mb-4 sm:mb-8">${AZEXAI.activeCategory !== 'All' ? AZEXAI.activeCategory + ' ' : ''}Analyses</h2>
           <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
             ${filtered.map(art => `
-              <div onclick="navigateToArticle('${art.slug}', event)" class="bg-neutral-900 rounded-2xl sm:rounded-[2rem] overflow-hidden border border-neutral-800 hover:border-red-500 transition duration-300 flex flex-col cursor-pointer group shadow-xl">
+              <div onclick="navigateToArticle('${art.slug}', event)" class="bg-neutral-900 rounded-2xl sm:rounded-[2rem] overflow-hidden border border-neutral-800 hover:border-orange-500 transition duration-300 flex flex-col cursor-pointer group shadow-xl">
                 <div class="aspect-[16/10] overflow-hidden bg-neutral-950 relative">
                   <img src="${art.image}" alt="${art.title}" width="600" height="375" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                  <span class="absolute top-2 left-2 sm:top-4 sm:left-4 px-2 py-0.5 sm:px-3 sm:py-1 bg-neutral-900/90 backdrop-blur-md text-white text-[9px] sm:text-xs font-black uppercase tracking-wider rounded-full border border-neutral-800">${art.category}</span>
+                  <span class="absolute top-2 left-2 sm:top-4 sm:left-4 px-2.5 py-0.5 sm:px-3 sm:py-1 bg-neutral-900/90 backdrop-blur-md text-orange-400 text-[9px] sm:text-xs font-black uppercase tracking-wider rounded-full border border-neutral-800">${art.category}</span>
                 </div>
                 <div class="p-3 sm:p-6 flex flex-col flex-grow">
-                  <h3 class="text-xs sm:text-xl font-bold text-white mb-1.5 sm:mb-3 group-hover:text-red-500 transition-colors line-clamp-2 leading-tight sm:leading-snug">${art.title}</h3>
+                  <h3 class="text-xs sm:text-xl font-bold text-white mb-1.5 sm:mb-3 group-hover:text-orange-500 transition-colors line-clamp-2 leading-tight sm:leading-snug">${art.title}</h3>
                   <p class="text-[11px] sm:text-sm text-slate-400 font-medium line-clamp-2 sm:line-clamp-3 mb-2 sm:mb-6 flex-grow leading-relaxed">${art.excerpt}</p>
                   <div class="flex items-center justify-between pt-2 sm:pt-3.5 border-t border-neutral-800/80 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
                     <span class="text-slate-300 line-clamp-1">${art.author}</span>
@@ -582,22 +642,20 @@
 
     function renderArticleView(art) {
       const app = document.getElementById('app');
-      const shareUrl = encodeURIComponent(window.location.origin + '/#/article/' + art.slug);
-      const shareTitle = encodeURIComponent(art.title);
 
       app.innerHTML = `
         <div class="max-w-4xl mx-auto pt-4 sm:pt-6 pb-16 sm:pb-20">
-          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 sm:mb-10 transition-colors group" aria-label="Back to home">
+          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-orange-500 mb-6 sm:mb-10 transition-colors group" aria-label="Back to home">
             <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform" aria-hidden="true"></i> Back to Global Index
           </button>
 
           <div class="mb-8 sm:mb-10">
-            <span class="px-3.5 py-1.5 bg-red-500/10 text-red-500 font-black text-[11px] sm:text-xs uppercase tracking-widest rounded-full border border-red-500/20">${art.category}</span>
+            <span class="px-3.5 py-1.5 bg-orange-500/10 text-orange-500 font-black text-[11px] sm:text-xs uppercase tracking-widest rounded-full border border-orange-500/20">${art.category}</span>
             <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mt-4 sm:mt-6 mb-6 leading-snug sm:leading-[1.15]">${art.title}</h1>
             
             <div class="flex flex-wrap items-center justify-between gap-4 py-4 sm:py-6 border-y border-neutral-800 text-xs sm:text-sm">
               <div class="flex items-center gap-3 sm:gap-4">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-red-500 text-white font-black text-base sm:text-lg flex items-center justify-center shadow-lg shrink-0">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-orange-500 text-white font-black text-base sm:text-lg flex items-center justify-center shadow-lg shrink-0">
                   ${art.author.charAt(0)}
                 </div>
                 <div>
@@ -622,14 +680,141 @@
 
     function renderStaticPageView(slug) {
       const app = document.getElementById('app');
+
+      if (slug === 'contact') {
+        app.innerHTML = `
+          <div class="max-w-5xl mx-auto pt-4 sm:pt-6 pb-16 sm:pb-20">
+            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-orange-500 mb-6 sm:mb-8 transition-colors group">
+              <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Back to Global Index
+            </button>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+              
+              <!-- Left Side: Contact Information & Desk Details -->
+              <div class="lg:col-span-5 bg-neutral-900 border border-neutral-800 p-6 sm:p-8 rounded-[2rem] space-y-6 shadow-xl">
+                <div>
+                  <span class="px-3.5 py-1 bg-orange-500/10 text-orange-500 font-black text-[10px] sm:text-xs uppercase tracking-widest rounded-full border border-orange-500/20">Direct Channel</span>
+                  <h1 class="text-2xl sm:text-3xl font-black text-white mt-3 mb-2">Get In Touch</h1>
+                  <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Reach out directly to the AZEXAI technical editorial desk or partnership lead.</p>
+                </div>
+
+                <div class="p-4 bg-neutral-950 border border-neutral-800 rounded-2xl space-y-4">
+                  <div class="flex items-start gap-3.5">
+                    <div class="p-2.5 bg-orange-500/10 text-orange-500 rounded-xl text-sm shrink-0 mt-0.5"><i class="fa-solid fa-envelope"></i></div>
+                    <div>
+                      <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Direct Email Desk</p>
+                      <a href="mailto:${CONTACT_EMAIL}" class="text-sm font-bold text-white hover:text-orange-500 transition">${CONTACT_EMAIL}</a>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3.5 pt-3 border-t border-neutral-800">
+                    <div class="p-2.5 bg-green-500/10 text-green-500 rounded-xl text-sm shrink-0 mt-0.5"><i class="fa-solid fa-clock"></i></div>
+                    <div>
+                      <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Response SLA</p>
+                      <p class="text-xs font-bold text-slate-200">Guaranteed within 24 Hours</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3.5 pt-3 border-t border-neutral-800">
+                    <div class="p-2.5 bg-blue-500/10 text-blue-500 rounded-xl text-sm shrink-0 mt-0.5"><i class="fa-solid fa-location-dot"></i></div>
+                    <div>
+                      <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Global Operations</p>
+                      <p class="text-xs font-bold text-slate-200">Digital / Remote Worldwide</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pt-2">
+                  <p class="text-xs font-bold text-slate-300 mb-3 uppercase tracking-wider">Official Channels</p>
+                  <div class="flex items-center gap-2.5">
+                    <a href="#" class="p-2.5 bg-neutral-950 border border-neutral-800 text-slate-300 rounded-xl hover:bg-orange-500 hover:text-white transition text-xs"><i class="fa-solid fa-x"></i></a>
+                    <a href="#" class="p-2.5 bg-neutral-950 border border-neutral-800 text-slate-300 rounded-xl hover:bg-orange-500 hover:text-white transition text-xs"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="p-2.5 bg-neutral-950 border border-neutral-800 text-slate-300 rounded-xl hover:bg-orange-500 hover:text-white transition text-xs"><i class="fa-brands fa-facebook-f"></i></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Side: Contact Form with Generic Clean Placeholders -->
+              <div class="lg:col-span-7 bg-neutral-900 border border-neutral-800 p-6 sm:p-10 rounded-[2rem] shadow-2xl">
+                <form onsubmit="handleContactSubmit(event)" class="space-y-4 sm:space-y-5">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">First Name *</label>
+                      <input type="text" name="firstName" required placeholder="e.g. Alex" class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-orange-500 transition-colors">
+                    </div>
+                    <div>
+                      <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Last Name *</label>
+                      <input type="text" name="lastName" required placeholder="e.g. Smith" class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-orange-500 transition-colors">
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Email Address *</label>
+                      <input type="email" name="email" required placeholder="name@domain.com" class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-orange-500 transition-colors">
+                    </div>
+                    <div>
+                      <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Address / Location *</label>
+                      <input type="text" name="address" required placeholder="City, Country" class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-orange-500 transition-colors">
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Subject *</label>
+                    <input type="text" name="subject" required placeholder="Partnership, Advertising, Article Inquiry..." class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-orange-500 transition-colors">
+                  </div>
+
+                  <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Message *</label>
+                    <textarea name="message" rows="5" required placeholder="Write your detailed inquiry here..." class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-orange-500 transition-colors resize-none"></textarea>
+                  </div>
+
+                  <button type="submit" class="w-full py-4 bg-orange-500 hover:bg-white hover:text-slate-900 text-white font-black uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-orange-500/20 text-xs sm:text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Send Dispatch to aristo@azexai.com</span>
+                  </button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      const pages = {
+        about: { title: "About AZEXAI", cat: "Corporate Overview", body: "<p>AZEXAI is the premier global authority on artificial intelligence, frontier technology, and digital transformation.</p>" },
+        editorial: { title: "Global Editorial Board", cat: "Governance & Ethics", body: "<p>The AZEXAI Global Editorial Board maintains rigorous standards of factual precision, technical depth, and strict independence.</p>" },
+        privacy: { title: "Privacy Policy", cat: "Legal Compliance", body: "<p>At AZEXAI, we respect your digital privacy.</p>" },
+        terms: { title: "Terms of Service", cat: "User Agreement", body: "<p>By accessing AZEXAI, you agree to abide by our intellectual property guidelines.</p>" },
+        affiliate: { title: "Affiliate Disclosure", cat: "Commercial Transparency", body: "<p>AZEXAI participates in various affiliate marketing programs.</p>" },
+        advertise: { title: "Advertise With Us", cat: "Partnership & Growth", body: "<p>Reach an elite global audience of enterprise decision-makers and technology leaders.</p>" }
+      };
+
+      const pData = pages[slug] || pages['about'];
+
       app.innerHTML = `
         <div class="max-w-4xl mx-auto pt-4 sm:pt-6 pb-16 sm:pb-20">
-          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 sm:mb-10 transition-colors group">
+          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-orange-500 mb-6 sm:mb-10 transition-colors group">
             <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Back to Global Index
           </button>
-          <div class="bg-neutral-900 border border-neutral-800 p-6 sm:p-10 rounded-[2rem]">
-            <h1 class="text-3xl sm:text-4xl font-black text-white mb-6 uppercase">${slug} Page</h1>
-            <p class="text-slate-300 text-sm leading-relaxed">AZEXAI Global Page content for ${slug}.</p>
+          <div class="bg-neutral-900 border border-neutral-800 p-6 sm:p-10 rounded-[2rem] shadow-xl">
+            <span class="px-3.5 py-1 bg-orange-500/10 text-orange-500 font-black text-[10px] sm:text-xs uppercase tracking-widest rounded-full border border-orange-500/20">${pData.cat}</span>
+            <h1 class="text-3xl sm:text-4xl font-black text-white mt-4 mb-4 uppercase">${pData.title}</h1>
+            <div class="prose prose-invert max-w-none text-slate-300 text-xs sm:text-base font-medium leading-relaxed mb-8">
+              ${pData.body}
+            </div>
+
+            <div class="p-6 bg-neutral-950 border border-neutral-800 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 mt-6">
+              <div>
+                <p class="text-white font-bold text-sm">Ready to start a partnership or discussion?</p>
+                <p class="text-xs text-slate-400">Direct inquiries: <a href="mailto:${CONTACT_EMAIL}" class="text-orange-500 hover:underline">${CONTACT_EMAIL}</a></p>
+              </div>
+              <button onclick="navigateToStaticPage('contact', event)" class="px-5 py-3 bg-orange-500 hover:bg-white hover:text-slate-900 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shrink-0 flex items-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Open Contact Desk</span>
+              </button>
+            </div>
           </div>
         </div>
       `;
@@ -640,7 +825,7 @@
     (async function initAzexai() {
       const app = document.getElementById('app');
       if (app) {
-        app.innerHTML = '<div style="min-height:50vh;display:grid;place-items:center;"><div class="text-center p-6"><i class="fa-solid fa-spinner fa-spin text-3xl sm:text-4xl text-red-500 mb-4" aria-hidden="true"></i><p class="font-black text-white tracking-widest uppercase text-xs sm:text-sm">Initializing Azexai Intelligence Engine...</p></div></div>';
+        app.innerHTML = '<div style="min-height:50vh;display:grid;place-items:center;"><div class="text-center p-6"><i class="fa-solid fa-spinner fa-spin text-3xl sm:text-4xl text-orange-500 mb-4" aria-hidden="true"></i><p class="font-black text-white tracking-widest uppercase text-xs sm:text-sm">Initializing Azexai Intelligence Engine...</p></div></div>';
       }
       await loadBloggerArticles();
       parseUrlRoute();

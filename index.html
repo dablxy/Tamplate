@@ -7,7 +7,7 @@
   <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
   <link id="pageCanonical" rel="canonical" href="">
 
-  <!-- High Priority Preconnects for Images -->
+  <!-- High Priority Preconnects -->
   <link rel="preconnect" href="https://images.pexels.com" crossorigin>
   <meta name='impact-site-verification' value='cad0e5fe-6e0e-4089-bc34-01905355c803'>
 
@@ -17,10 +17,10 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "AZEXAI",
-    "url": "",
+    "url": "https://azexai.com",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "?q={search_term_string}",
+      "target": "https://azexai.com/?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
@@ -79,10 +79,6 @@
       border: 1px solid var(--border-color); color: var(--text-slate-300); cursor: pointer;
       display: inline-flex; align-items: center; justify-content: center;
     }
-    .btn-primary {
-      padding: 0.5rem 1rem; background-color: var(--brand-red); color: var(--text-white);
-      font-size: 0.72rem; font-weight: 900; text-transform: uppercase; border-radius: 0.75rem; border: none; cursor: pointer; text-decoration: none;
-    }
 
     .category-bar {
       position: sticky; top: 3.75rem; z-index: 40; background-color: rgba(5, 5, 7, 0.95);
@@ -133,7 +129,6 @@
       display: inline-block; padding: 0.2rem 0.6rem; background-color: #ffffff; color: #b91c1c;
       font-size: 0.62rem; font-weight: 900; text-transform: uppercase; border-radius: 9999px;
     }
-    .meta-text-white { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; color: #ffffff; display: flex; align-items: center; gap: 0.4rem; }
 
     /* Strict 2 Columns Grid for Articles */
     .grid-2-cols {
@@ -145,7 +140,7 @@
 
     .card {
       background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1rem;
-      overflow: hidden; display: flex; flex-direction: column; cursor: pointer; transition: border-color 0.2s ease;
+      overflow: hidden; display: flex; flex-direction: column; height: 100%; cursor: pointer; transition: border-color 0.2s ease;
     }
     .card:hover { border-color: var(--brand-red); }
     .card-body { padding: 0.75rem; display: flex; flex-direction: column; flex-grow: 1; }
@@ -244,16 +239,16 @@
   <!-- Global Header -->
   <header>
     <div class="max-w-7xl px-pad header-inner">
-      <a href="#" onclick="navigateToHome(event)" class="logo" aria-label="AZEXAI Home">
+      <a href="/" onclick="navigateToHome(event)" class="logo" aria-label="AZEXAI Home">
         AZEX<span class="logo-red">AI</span><span class="logo-red" style="font-size: 1.8rem; line-height: 0;">.</span>
       </a>
 
       <nav class="desktop-nav" aria-label="Navigation">
-        <a href="#" onclick="navigateToHome(event)" class="active">Home</a>
-        <a href="#" onclick="setCategory('AI'); return false;">AI</a>
-        <a href="#" onclick="setCategory('Tech'); return false;">Tech</a>
-        <a href="#" onclick="setCategory('Cybersecurity'); return false;">Cybersecurity</a>
-        <a href="#" onclick="setCategory('Reviews'); return false;">Reviews</a>
+        <a href="/" onclick="navigateToHome(event)" class="active">Home</a>
+        <a href="/?cat=AI" onclick="setCategory('AI', event);">AI</a>
+        <a href="/?cat=Tech" onclick="setCategory('Tech', event);">Tech</a>
+        <a href="/?cat=Cybersecurity" onclick="setCategory('Cybersecurity', event);">Cybersecurity</a>
+        <a href="/?cat=Reviews" onclick="setCategory('Reviews', event);">Reviews</a>
       </nav>
       
       <div class="header-actions">
@@ -274,7 +269,7 @@
     <div class="max-w-7xl px-pad footer-split">
       <div class="footer-top">
         <div>
-          <a href="#" onclick="navigateToHome(event)" class="logo" style="margin-bottom: 0.4rem; font-size:1.3rem;">
+          <a href="/" onclick="navigateToHome(event)" class="logo" style="margin-bottom: 0.4rem; font-size:1.3rem;">
             AZEX<span class="logo-red">AI</span>.
           </a>
           <p style="font-size: 0.75rem; color: var(--text-slate-400);">Global authority on artificial intelligence, frontier technology, and digital transformation.</p>
@@ -289,26 +284,26 @@
         <div>
           <h3 class="footer-heading">COMPANY</h3>
           <ul class="footer-links">
-            <li><a href="#" onclick="navigateToStaticPage('about', event)">About Us</a></li>
-            <li><a href="#" onclick="navigateToStaticPage('editorial', event)">Global Editorial Board</a></li>
-            <li><a href="#" onclick="navigateToStaticPage('privacy', event)">Privacy Policy</a></li>
-            <li><a href="#" onclick="navigateToStaticPage('terms', event)">Terms of Service</a></li>
-            <li><a href="#" onclick="navigateToStaticPage('contact', event)">Contact</a></li>
+            <li><a href="/about" onclick="navigateToStaticPage('about', event)">About Us</a></li>
+            <li><a href="/editorial" onclick="navigateToStaticPage('editorial', event)">Editorial Board</a></li>
+            <li><a href="/privacy" onclick="navigateToStaticPage('privacy', event)">Privacy Policy</a></li>
+            <li><a href="/terms" onclick="navigateToStaticPage('terms', event)">Terms of Service</a></li>
+            <li><a href="/contact" onclick="navigateToStaticPage('contact', event)">Contact</a></li>
           </ul>
         </div>
         <div>
           <h3 class="footer-heading">CATEGORIES</h3>
           <ul class="footer-links">
-            <li><a href="#" onclick="setCategory('AI'); return false;">Artificial Intelligence</a></li>
-            <li><a href="#" onclick="setCategory('Tech'); return false;">Frontier Tech</a></li>
-            <li><a href="#" onclick="setCategory('Cybersecurity'); return false;">Cybersecurity</a></li>
-            <li><a href="#" onclick="setCategory('Reviews'); return false;">Expert Reviews</a></li>
+            <li><a href="/?cat=AI" onclick="setCategory('AI', event);">Artificial Intelligence</a></li>
+            <li><a href="/?cat=Tech" onclick="setCategory('Tech', event);">Frontier Tech</a></li>
+            <li><a href="/?cat=Cybersecurity" onclick="setCategory('Cybersecurity', event);">Cybersecurity</a></li>
+            <li><a href="/?cat=Reviews" onclick="setCategory('Reviews', event);">Expert Reviews</a></li>
           </ul>
         </div>
         <div>
           <h3 class="footer-heading">CONNECT</h3>
           <ul class="footer-links">
-            <li><a href="#" onclick="navigateToStaticPage('contact', event)">Global Newsletter</a></li>
+            <li><a href="/contact" onclick="navigateToStaticPage('contact', event)">Global Newsletter</a></li>
             <li><a href="#" onclick="openSearchModal(); return false;">Search Articles</a></li>
           </ul>
         </div>
@@ -328,7 +323,7 @@
     </div>
   </div>
 
-  <!-- JavaScript Engine -->
+  <!-- JavaScript Engine with Clean Direct URLs (History API) -->
   <script>
     const BLOGGER_CONFIG = {
       blogId: '4263033619836681299',
@@ -389,8 +384,6 @@
       }
     ];
 
-    let currentView = { type: 'home', slug: null };
-
     async function loadBloggerArticlesAsync() {
       if (!BLOGGER_CONFIG.apiKey) return;
       try {
@@ -425,44 +418,65 @@
       } catch (e) {}
     }
 
+    /* Clean History API Navigation Routines */
     function navigateToHome(e) {
       if (e) e.preventDefault();
-      currentView = { type: 'home', slug: null };
       AZEXAI.activeCategory = 'All';
+      window.history.pushState({}, '', '/');
       window.scrollTo({ top: 0, behavior: 'instant' });
       router();
     }
 
     function navigateToArticle(slug, e) {
       if (e) e.preventDefault();
-      currentView = { type: 'article', slug: slug };
+      window.history.pushState({}, '', '/' + slug);
       window.scrollTo({ top: 0, behavior: 'instant' });
       router();
     }
 
     function navigateToStaticPage(slug, e) {
       if (e) e.preventDefault();
-      currentView = { type: 'static', slug: slug };
+      window.history.pushState({}, '', '/' + slug);
       window.scrollTo({ top: 0, behavior: 'instant' });
       router();
     }
 
-    function setCategory(cat) {
+    function setCategory(cat, e) {
+      if (e) e.preventDefault();
       AZEXAI.activeCategory = cat;
-      currentView = { type: 'home', slug: null };
+      window.history.pushState({}, '', cat === 'All' ? '/' : '/?cat=' + cat);
       router();
     }
+
+    window.addEventListener('popstate', () => {
+      router();
+    });
 
     function router() {
       const app = document.getElementById('app');
       if (!app) return;
-      if (currentView.type === 'article') {
-        const art = ARTICLES.find(a => a.slug === currentView.slug || String(a.id) === currentView.slug);
-        if (art) { renderArticleView(art); return; }
-      } else if (currentView.type === 'static') {
-        renderStaticPageView(currentView.slug);
+      
+      const path = window.location.pathname.replace(/^\/+/, '');
+      const searchParams = new URLSearchParams(window.location.search);
+      const catParam = searchParams.get('cat');
+      
+      if (catParam && AZEXAI.categories.includes(catParam)) {
+        AZEXAI.activeCategory = catParam;
+      }
+
+      if (path && path !== '' && path !== 'about' && path !== 'editorial' && path !== 'privacy' && path !== 'terms' && path !== 'contact') {
+        const art = ARTICLES.find(a => a.slug === path);
+        if (art) {
+          renderArticleView(art);
+          return;
+        }
+      }
+
+      if (['about', 'editorial', 'privacy', 'terms', 'contact'].includes(path)) {
+        renderStaticPageView(path);
         return;
       }
+
       renderHome();
     }
 
@@ -474,13 +488,13 @@
       const categoryBar = `
         <div class="category-bar">
           ${AZEXAI.categories.map(c => `
-            <button onclick="setCategory('${c}')" class="cat-btn ${AZEXAI.activeCategory === c ? 'active' : ''}">${c}</button>
+            <button onclick="setCategory('${c}', event)" class="cat-btn ${AZEXAI.activeCategory === c ? 'active' : ''}">${c}</button>
           `).join('')}
         </div>
       `;
 
       const heroHtml = hero ? `
-        <div class="hero-card-red" onclick="navigateToArticle('${hero.slug}')">
+        <div class="hero-card-red" onclick="navigateToArticle('${hero.slug}', event)">
           <div>
             <div class="cartoon-reader-mascot">
               <svg class="cartoon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -514,7 +528,7 @@
         <h2 class="section-title">${AZEXAI.activeCategory !== 'All' ? AZEXAI.activeCategory : 'Latest'} Analyses</h2>
         <div class="grid-2-cols">
           ${gridList.map(art => `
-            <div class="card" onclick="navigateToArticle('${art.slug}')">
+            <div class="card" onclick="navigateToArticle('${art.slug}', event)">
               <div class="img-container">
                 <img src="${art.image}" alt="${art.title}" width="500" height="280" loading="lazy" decoding="async">
                 <span class="badge-white" style="position: absolute; top: 0.35rem; left: 0.35rem; font-size: 0.55rem; padding: 0.15rem 0.4rem;">${art.category}</span>
@@ -582,7 +596,7 @@
       if(!q) { res.innerHTML = ''; return; }
       const matches = ARTICLES.filter(a => a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q));
       res.innerHTML = matches.map(m => `
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}')" style="padding: 0.5rem; background: #050505; border-radius: 0.5rem; cursor: pointer;">
+        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" style="padding: 0.5rem; background: #050505; border-radius: 0.5rem; cursor: pointer;">
           <h4 style="font-size: 0.78rem; font-weight: 700; color: #fff;">${m.title}</h4>
         </div>
       `).join('');

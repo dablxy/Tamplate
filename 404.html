@@ -26,7 +26,7 @@
   }
   </script>
 
-  <!-- Critical Inline CSS with Absolute Width Containment -->
+  <!-- Critical Inline CSS with Full Global Styling -->
   <style>
     *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -37,6 +37,7 @@
       --text-slate-300: #cbd5e1;
       --text-slate-400: #94a3b8;
       --brand-red: #ef4444;
+      --brand-orange: #f97316;
       --brand-green: #22c55e;
       --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
@@ -54,10 +55,11 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    .max-w-7xl { max-width: 76rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
-    .max-w-3xl { max-width: 48rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
-    .px-pad { padding-left: 1rem; padding-right: 1.25rem; box-sizing: border-box; }
-    @media (min-width: 640px) { .px-pad { padding-left: 1.5rem; padding-right: 1.5rem; } }
+    .max-w-7xl { max-width: 86rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
+    .max-w-article { max-width: 64rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
+    .px-pad { padding-left: 1.25rem; padding-right: 1.25rem; box-sizing: border-box; }
+    @media (min-width: 640px) { .px-pad { padding-left: 2rem; padding-right: 2rem; } }
+    @media (min-width: 1280px) { .px-pad { padding-left: 3rem; padding-right: 3rem; } }
 
     header {
       position: sticky; top: 0; z-index: 50;
@@ -65,153 +67,182 @@
       backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color);
       width: 100%;
     }
-    .header-inner { height: 3.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; }
+    .header-inner { height: 4rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; }
     .logo {
-      font-size: 1.4rem; font-weight: 900; letter-spacing: -0.05em; text-transform: uppercase;
+      font-size: 1.5rem; font-weight: 900; letter-spacing: -0.05em; text-transform: uppercase;
       color: var(--text-white); text-decoration: none; display: inline-flex; align-items: center;
     }
     .logo-red { color: var(--brand-red); }
 
-    nav.desktop-nav { display: none; gap: 1.25rem; font-size: 0.8rem; font-weight: 700; }
+    nav.desktop-nav { display: none; gap: 1.5rem; font-size: 0.85rem; font-weight: 700; }
     @media (min-width: 768px) { nav.desktop-nav { display: flex; align-items: center; } }
     nav.desktop-nav a { color: var(--text-slate-300); text-decoration: none; transition: color 0.15s ease; }
     nav.desktop-nav a:hover, nav.desktop-nav a.active { color: var(--brand-red); }
 
     .btn-icon {
-      padding: 0.5rem; border-radius: 0.75rem; background-color: var(--bg-card);
+      padding: 0.55rem; border-radius: 0.75rem; background-color: var(--bg-card);
       border: 1px solid var(--border-color); color: var(--text-slate-300); cursor: pointer;
       display: inline-flex; align-items: center; justify-content: center;
     }
 
     .category-bar {
-      position: sticky; top: 3.75rem; z-index: 40; background-color: rgba(5, 5, 7, 0.95);
-      backdrop-filter: blur(8px); padding-top: 0.5rem; padding-bottom: 0.6rem; margin-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border-color); display: flex; gap: 0.4rem; overflow-x: auto; scrollbar-width: none;
+      position: sticky; top: 4rem; z-index: 40; background-color: rgba(5, 5, 7, 0.95);
+      backdrop-filter: blur(8px); padding-top: 0.6rem; padding-bottom: 0.8rem; margin-bottom: 1.75rem;
+      border-bottom: 1px solid var(--border-color); display: flex; gap: 0.5rem; overflow-x: auto; scrollbar-width: none;
       width: 100%; max-width: 100%; box-sizing: border-box;
     }
     .category-bar::-webkit-scrollbar { display: none; }
     .cat-btn {
-      padding: 0.35rem 0.8rem; border-radius: 0.85rem; font-size: 0.68rem; font-weight: 900; text-transform: uppercase;
+      padding: 0.4rem 1rem; border-radius: 0.85rem; font-size: 0.72rem; font-weight: 900; text-transform: uppercase;
       border: 1px solid var(--border-color); background-color: var(--bg-card); color: var(--text-slate-300); cursor: pointer; white-space: nowrap; flex-shrink: 0;
     }
     .cat-btn:hover, .cat-btn.active { background-color: var(--brand-red); color: var(--text-white); border-color: var(--brand-red); }
 
     /* Red Animated Featured Hero Card */
     .hero-card-red {
-      display: flex; flex-direction: column; gap: 1rem;
+      display: flex; flex-direction: column; gap: 1.25rem;
       background: linear-gradient(-45deg, #b91c1c, #dc2626, #ef4444, #991b1b);
       background-size: 300% 300%; animation: gradientBG 8s ease infinite;
-      border: 1px solid #f87171; padding: 1.15rem; border-radius: 1.25rem; margin-bottom: 1.75rem;
-      cursor: pointer; position: relative; overflow: hidden; box-shadow: 0 12px 30px -5px rgba(239, 68, 68, 0.4);
+      border: 1px solid #f87171; padding: 1.5rem; border-radius: 1.5rem; margin-bottom: 2.25rem;
+      cursor: pointer; position: relative; overflow: hidden; box-shadow: 0 15px 35px -5px rgba(239, 68, 68, 0.4);
       width: 100%; box-sizing: border-box;
     }
     @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     @media (min-width: 768px) {
-      .hero-card-red { display: grid; grid-template-columns: 1.25fr 1fr; padding: 1.65rem; border-radius: 1.5rem; gap: 1.75rem; align-items: center; }
+      .hero-card-red { display: grid; grid-template-columns: 1.35fr 1fr; padding: 2.25rem; border-radius: 1.75rem; gap: 2rem; align-items: center; }
     }
 
     .cartoon-reader-mascot {
       display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 0, 0, 0.3);
-      padding: 0.35rem 0.75rem; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.4); margin-bottom: 0.5rem; backdrop-filter: blur(6px);
+      padding: 0.4rem 0.85rem; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.4); margin-bottom: 0.65rem; backdrop-filter: blur(6px);
     }
-    .cartoon-svg { width: 2rem; height: 2rem; animation: floatCharacter 3s ease-in-out infinite; }
+    .cartoon-svg { width: 2.2rem; height: 2.2rem; animation: floatCharacter 3s ease-in-out infinite; }
     @keyframes floatCharacter { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-3px) rotate(2deg); } }
     .eye-blink { animation: blinkEye 4s infinite; transform-origin: center; }
     @keyframes blinkEye { 0%, 94%, 98%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
 
-    .hero-title-red { font-size: 1.15rem; font-weight: 900; color: #ffffff; line-height: 1.25; margin-bottom: 0.5rem; }
-    @media (min-width: 640px) { .hero-title-red { font-size: 1.5rem; } }
+    .hero-title-red { font-size: 1.35rem; font-weight: 900; color: #ffffff; line-height: 1.25; margin-bottom: 0.6rem; }
+    @media (min-width: 640px) { .hero-title-red { font-size: 1.85rem; } }
 
-    .hero-excerpt-red { font-size: 0.78rem; color: #ffffff; font-weight: 500; line-height: 1.5; margin-bottom: 0.85rem; opacity: 0.95; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .hero-excerpt-red { font-size: 0.85rem; color: #ffffff; font-weight: 500; line-height: 1.6; margin-bottom: 1rem; opacity: 0.95; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
     .img-container {
-      width: 100%; aspect-ratio: 16 / 9; border-radius: 0.75rem; overflow: hidden; background-color: #000000; position: relative; box-sizing: border-box;
+      width: 100%; aspect-ratio: 16 / 9; border-radius: 0.85rem; overflow: hidden; background-color: #000000; position: relative; box-sizing: border-box;
     }
     .img-container img { width: 100%; height: 100%; object-fit: contain; background: #000; display: block; max-width: 100%; }
 
     .badge-white {
-      display: inline-block; padding: 0.2rem 0.6rem; background-color: #ffffff; color: #b91c1c;
-      font-size: 0.62rem; font-weight: 900; text-transform: uppercase; border-radius: 9999px;
+      display: inline-block; padding: 0.25rem 0.75rem; background-color: #ffffff; color: #b91c1c;
+      font-size: 0.68rem; font-weight: 900; text-transform: uppercase; border-radius: 9999px;
     }
 
-    /* Strict 2 Columns Grid for Articles */
     .grid-2-cols {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.85rem;
+      gap: 1.25rem;
       width: 100%;
       box-sizing: border-box;
     }
-    @media (min-width: 640px) { .grid-2-cols { gap: 1.25rem; } }
+    @media (min-width: 1024px) { .grid-2-cols { gap: 1.75rem; } }
 
     .card {
-      background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1rem;
-      overflow: hidden; display: flex; flex-direction: column; height: 100%; cursor: pointer; transition: border-color 0.2s ease;
+      background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.25rem;
+      overflow: hidden; display: flex; flex-direction: column; height: 100%; cursor: pointer; transition: border-color 0.2s ease, transform 0.2s ease;
       box-sizing: border-box; width: 100%; max-width: 100%;
     }
-    .card:hover { border-color: var(--brand-red); }
-    .card-body { padding: 0.75rem; display: flex; flex-direction: column; flex-grow: 1; box-sizing: border-box; }
-    @media (min-width: 640px) { .card-body { padding: 1rem; } }
+    .card:hover { border-color: var(--brand-red); transform: translateY(-2px); }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex-grow: 1; box-sizing: border-box; }
+    @media (min-width: 640px) { .card-body { padding: 1.25rem; } }
     .card-title {
-      font-size: 0.75rem; font-weight: 800; color: var(--text-white); margin-bottom: 0.35rem; line-height: 1.35;
+      font-size: 0.88rem; font-weight: 800; color: var(--text-white); margin-bottom: 0.4rem; line-height: 1.35;
       overflow-wrap: break-word; word-break: break-word;
     }
-    @media (min-width: 640px) { .card-title { font-size: 0.9rem; } }
+    @media (min-width: 640px) { .card-title { font-size: 1.15rem; } }
     .card-excerpt {
-      font-size: 0.65rem; color: var(--text-slate-400); line-height: 1.4; margin-bottom: 0.5rem;
+      font-size: 0.75rem; color: var(--text-slate-400); line-height: 1.5; margin-bottom: 0.75rem;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; flex-grow: 1;
     }
-    @media (min-width: 640px) { .card-excerpt { font-size: 0.75rem; } }
+    @media (min-width: 640px) { .card-excerpt { font-size: 0.85rem; } }
 
     .card-footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.4rem;
-      display: flex; align-items: center; justify-content: space-between; font-size: 0.58rem; font-weight: 700; text-transform: uppercase; color: var(--text-slate-400);
+      border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.6rem;
+      display: flex; align-items: center; justify-content: space-between; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: var(--text-slate-400);
     }
 
-    .section-title { font-size: 1.05rem; font-weight: 900; color: var(--text-white); text-transform: uppercase; margin-bottom: 0.85rem; }
+    .section-title { font-size: 1.25rem; font-weight: 900; color: var(--text-white); text-transform: uppercase; margin-bottom: 1.25rem; }
 
-    /* Absolute Strict Containment for Article Reader (Prose) */
     .prose {
-      line-height: 1.75;
-      font-size: 0.95rem;
-      color: var(--text-slate-300);
-      width: 100% !important;
-      max-width: 100% !important;
-      overflow-x: hidden !important;
-      word-break: break-word !important;
-      overflow-wrap: break-word !important;
-      box-sizing: border-box !important;
+      line-height: 1.85; font-size: 1.05rem; color: var(--text-slate-300);
+      width: 100% !important; max-width: 100% !important; overflow-x: hidden; word-break: break-word; overflow-wrap: break-word;
     }
-    .prose * {
-      max-width: 100% !important;
-      width: auto !important;
-      height: auto !important;
-      box-sizing: border-box !important;
-      word-break: break-word !important;
+    .prose * { max-width: 100% !important; box-sizing: border-box !important; }
+    .prose h2 { font-size: 1.75rem; font-weight: 800; color: var(--text-white); margin-top: 1.75rem; margin-bottom: 0.75rem; }
+    .prose p { margin-bottom: 1.25rem; width: 100% !important; }
+    .prose img { width: 100% !important; height: auto !important; object-fit: contain !important; border-radius: 1rem; margin: 1.5rem 0; }
+
+    /* Contact Form Styling (Orange & White Futuristic Theme) */
+    .contact-form-card {
+      background: linear-gradient(135deg, #0f0f13 0%, #08080b 100%);
+      border: 1px solid rgba(249, 115, 22, 0.4);
+      border-radius: 1.75rem;
+      padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 25px rgba(249, 115, 22, 0.15);
     }
-    .prose h2 { font-size: 1.3rem; font-weight: 800; color: var(--text-white); margin-top: 1.25rem; margin-bottom: 0.5rem; }
-    .prose p { margin-bottom: 1rem; width: 100% !important; }
-    .prose img { width: 100% !important; height: auto !important; object-fit: contain !important; border-radius: 0.75rem; }
+    .form-input {
+      width: 100%;
+      background: #050507;
+      border: 1px solid var(--border-color);
+      border-radius: 0.85rem;
+      padding: 0.85rem 1rem;
+      color: #ffffff;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-input:focus {
+      border-color: var(--brand-orange);
+      box-shadow: 0 0 12px rgba(249, 115, 22, 0.35);
+    }
+    .form-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: #ffffff;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.95rem;
+      border-radius: 0.85rem;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.5);
+      transition: all 0.2s ease;
+    }
+    .form-btn:hover {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 10px 25px rgba(255,255,255,0.3);
+    }
 
     footer {
       background-color: #030305; border-top: 1px solid var(--border-color);
-      margin-top: auto; padding: 2.5rem 0; width: 100%; box-sizing: border-box;
+      margin-top: auto; padding: 3rem 0; width: 100%; box-sizing: border-box;
     }
-    .footer-split { display: flex; flex-direction: column; gap: 2rem; width: 100%; box-sizing: border-box; }
-    .footer-top { display: flex; flex-direction: column; gap: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; }
+    .footer-split { display: flex; flex-direction: column; gap: 2.5rem; width: 100%; box-sizing: border-box; }
+    .footer-top { display: flex; flex-direction: column; gap: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.75rem; }
     @media(min-width: 640px) { .footer-top { flex-direction: row; align-items: center; justify-content: space-between; } }
-    .footer-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .footer-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
     @media(min-width: 768px) { .footer-columns { grid-template-columns: repeat(3, 1fr); } }
-    .footer-heading { color: var(--text-white); font-size: 0.7rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.78rem; }
+    .footer-heading { color: var(--text-white); font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.85rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem; }
     .footer-links a { color: var(--text-slate-400); text-decoration: none; transition: color 0.15s ease; }
     .footer-links a:hover { color: var(--brand-red); }
 
     .modal-backdrop {
       position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(6px);
-      z-index: 100; display: flex; align-items: flex-start; justify-content: center; padding: 1rem; padding-top: 4rem;
+      z-index: 100; display: flex; align-items: flex-start; justify-content: center; padding: 1.25rem; padding-top: 5rem;
     }
-    .modal-content { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.25rem; max-width: 36rem; width: 100%; padding: 1.25rem; box-sizing: border-box; }
+    .modal-content { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.5rem; max-width: 40rem; width: 100%; padding: 1.75rem; box-sizing: border-box; }
     .hidden { display: none !important; }
     .icon-svg { width: 1.1em; height: 1.1em; fill: currentColor; vertical-align: -0.15em; }
   </style>
@@ -242,7 +273,7 @@
   </header>
 
   <!-- Main Content View Container -->
-  <main class="max-w-7xl px-pad" style="flex-grow: 1; padding-top: 0.75rem; padding-bottom: 2rem;">
+  <main class="max-w-7xl px-pad" style="flex-grow: 1; padding-top: 1.25rem; padding-bottom: 3rem;">
     <div id="app"></div>
   </main>
 
@@ -251,14 +282,14 @@
     <div class="max-w-7xl px-pad footer-split">
       <div class="footer-top">
         <div>
-          <a href="#" onclick="navigateToHome(event)" class="logo" style="margin-bottom: 0.4rem; font-size:1.3rem;">
+          <a href="#" onclick="navigateToHome(event)" class="logo" style="margin-bottom: 0.5rem; font-size:1.4rem;">
             AZEX<span class="logo-red">AI</span>.
           </a>
-          <p style="font-size: 0.75rem; color: var(--text-slate-400);">Global authority on artificial intelligence, frontier technology, and digital transformation.</p>
+          <p style="font-size: 0.8rem; color: var(--text-slate-400);">Global authority on artificial intelligence, frontier technology, and digital transformation.</p>
         </div>
-        <div style="display: flex; gap: 0.5rem;">
-          <a href="#" class="btn-icon" style="width:34px;height:34px;text-decoration:none;font-weight:700;font-size:0.75rem;">X</a>
-          <a href="#" class="btn-icon" style="width:34px;height:34px;text-decoration:none;font-weight:700;font-size:0.75rem;">FB</a>
+        <div style="display: flex; gap: 0.6rem;">
+          <a href="#" class="btn-icon" style="width:38px;height:38px;text-decoration:none;font-weight:700;font-size:0.8rem;">X</a>
+          <a href="#" class="btn-icon" style="width:38px;height:38px;text-decoration:none;font-weight:700;font-size:0.8rem;">FB</a>
         </div>
       </div>
 
@@ -296,17 +327,19 @@
   <!-- Search Modal -->
   <div id="searchModal" class="modal-backdrop hidden">
     <div class="modal-content">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem;">
-        <h3 style="font-size: 0.8rem; font-weight: 900; text-transform: uppercase; color: #fff;">Search Articles</h3>
-        <button onclick="closeSearchModal()" class="btn-icon" style="padding: 0.2rem 0.4rem;">✕</button>
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+        <h3 style="font-size: 0.9rem; font-weight: 900; text-transform: uppercase; color: #fff;">Search Articles</h3>
+        <button onclick="closeSearchModal()" class="btn-icon" style="padding: 0.3rem 0.5rem;">✕</button>
       </div>
-      <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search breakthroughs..." class="newsletter-input" style="margin-bottom: 0.85rem; width:100%; padding: 0.75rem; background: #050505; border: 1px solid var(--border-color); border-radius: 0.75rem; color:#fff; outline:none;">
-      <div id="modalSearchResults" class="no-scrollbar" style="max-height: 14rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.4rem;"></div>
+      <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search breakthroughs..." class="newsletter-input" style="margin-bottom: 1rem; width:100%; padding: 0.85rem; background: #050505; border: 1px solid var(--border-color); border-radius: 0.85rem; color:#fff; outline:none;">
+      <div id="modalSearchResults" class="no-scrollbar" style="max-height: 16rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.5rem;"></div>
     </div>
   </div>
 
   <!-- JavaScript Engine -->
   <script>
+    const CONTACT_EMAIL = "aristo@azexai.com";
+
     const BLOGGER_CONFIG = {
       blogId: '4263033619836681299',
       apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
@@ -328,7 +361,7 @@
         text = text.trim().substring(titleText.trim().length);
       }
       text = text.replace(/\s+/g, ' ').trim();
-      return text.length > 70 ? text.substring(0, 70) + '...' : (text || 'Discover how security teams are deploying lattice-based cryptography.');
+      return text.length > 85 ? text.substring(0, 85) + '...' : (text || 'Discover how security teams are deploying lattice-based cryptography.');
     }
 
     let ARTICLES = [
@@ -526,13 +559,13 @@
 
     function renderArticleView(art) {
       document.getElementById('app').innerHTML = `
-        <div class="max-w-3xl" style="padding-top: 0.5rem; overflow-x: hidden;">
-          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1rem;">← Back to Index</button>
+        <div class="max-w-article" style="padding-top: 1rem;">
+          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1.5rem;">← Back to Index</button>
           
-          <span class="badge-white" style="margin-bottom: 0.4rem; background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid #ef4444;">${art.category}</span>
-          <h1 style="font-size: 1.35rem; font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 0.75rem;">${art.title}</h1>
+          <span class="badge-white" style="margin-bottom: 0.5rem; background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid #ef4444;">${art.category}</span>
+          <h1 style="font-size: 1.85rem; font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 1rem;">${art.title}</h1>
           
-          <div class="meta-text-white" style="color:var(--text-slate-400); padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem;">
+          <div class="meta-text-white" style="color:var(--text-slate-400); padding-bottom: 1rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem;">
             <span style="color:#fff;">${art.author}</span>
             <span>&bull;</span>
             <span>${art.date}</span>
@@ -540,8 +573,8 @@
             <span style="color:var(--brand-green);">${art.readTime}</span>
           </div>
 
-          <div class="img-container" style="aspect-ratio: 16/9; margin-bottom: 1.25rem;">
-            <img src="${art.image}" alt="${art.title}" width="900" height="506" loading="eager">
+          <div class="img-container" style="aspect-ratio: 16/9; margin-bottom: 2rem;">
+            <img src="${art.image}" alt="${art.title}" width="1200" height="675" loading="eager">
           </div>
 
           <article class="prose">
@@ -552,12 +585,90 @@
     }
 
     function renderStaticPageView(slug) {
-      document.getElementById('app').innerHTML = `
-        <div class="max-w-3xl" style="padding-top: 0.5rem;">
-          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1rem;">← Back to Index</button>
-          <div style="background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 1.25rem;">
-            <h1 style="font-size: 1.5rem; font-weight: 900; color: #fff; margin-bottom: 0.75rem; text-transform: capitalize;">${slug} Page</h1>
-            <p style="color: var(--text-slate-300); line-height: 1.6; font-size: 0.85rem;">AZEXAI is the premier global authority on artificial intelligence and frontier technology.</p>
+      const app = document.getElementById('app');
+      
+      if (slug === 'contact') {
+        app.innerHTML = `
+          <div class="max-w-article" style="padding-top: 1rem;">
+            <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1.5rem;">← Back to Index</button>
+            <div class="contact-form-card">
+              <span style="background: rgba(249, 115, 22, 0.15); color: #f97316; border: 1px solid rgba(249, 115, 22, 0.4); font-weight: 900; font-size: 0.65rem; padding: 0.3rem 0.75rem; border-radius: 9999px; text-transform: uppercase; display: inline-block; margin-bottom: 0.75rem;">
+                DIRECT COMMUNICATION
+              </span>
+              <h1 style="font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 0.75rem;">Contact AZEXAI</h1>
+              <p style="color: var(--text-slate-300); font-size: 0.9rem; line-height: 1.6; margin-bottom: 2rem;">
+                Get in touch with our global editorial board, research division, or partnership directors. Official desk email: <strong style="color: #f97316;">${CONTACT_EMAIL}</strong>
+              </p>
+
+              <form onsubmit="event.preventDefault(); alert('Message dispatched successfully to aristo@azexai.com!');" style="display: flex; flex-direction: column; gap: 1.25rem;">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                  <div>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">First Name *</label>
+                    <input type="text" required placeholder="Alan" class="form-input">
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">Last Name *</label>
+                    <input type="text" required placeholder="Turing" class="form-input">
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                  <div>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">Email Address *</label>
+                    <input type="email" required placeholder="alan@example.com" class="form-input">
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">Subject / Title *</label>
+                    <input type="text" required placeholder="Research Inquiry" class="form-input">
+                  </div>
+                </div>
+
+                <div>
+                  <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem;">Your Message *</label>
+                  <textarea rows="5" required placeholder="Detail your inquiry here..." class="form-input" style="resize: none;"></textarea>
+                </div>
+
+                <button type="submit" class="form-btn">Send Dispatch Message</button>
+              </form>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      const staticData = {
+        about: {
+          title: "About AZEXAI",
+          subtitle: "Global Authority on Artificial Intelligence & Frontier Technology",
+          body: "AZEXAI is the premier independent global intelligence platform dedicated to decoding complex algorithmic breakthroughs, neural network topologies, and quantum computing advancements. Founded by a coalition of senior researchers, software architects, and technology journalists, our mission is to deliver uncompromising editorial integrity, rigorous benchmarking, and deep systemic analysis of digital transformation across global enterprises."
+        },
+        editorial: {
+          title: "Global Editorial Board",
+          subtitle: "Governance, Verification & Journalistic Ethics",
+          body: "The AZEXAI Global Editorial Board maintains rigorous standards of factual precision, technical depth, and strict independence across all published reports. Every piece of intelligence undergoes strict peer review by domain specialists before publication. We operate with zero tolerance for vendor influence, sponsored bias, or unverified algorithmic claims."
+        },
+        privacy: {
+          title: "Privacy Policy",
+          subtitle: "Data Protection & Security Standards",
+          body: "At AZEXAI, we respect your digital privacy. We collect minimal telemetry data strictly necessary to optimize our global content delivery network and secure user sessions. We do not sell, rent, or monetize personal user logs or reading telemetry with third-party advertising brokers."
+        },
+        terms: {
+          title: "Terms of Service",
+          subtitle: "User Agreement & Intellectual Property Guidelines",
+          body: "By accessing AZEXAI, you agree to abide by our intellectual property guidelines. All proprietary research articles, visual graphics, and code structures are protected by international copyright laws. Educational citation and commentary are permitted provided proper attribution and canonical links to AZEXAI are maintained."
+        }
+      };
+
+      const page = staticData[slug] || staticData['about'];
+
+      app.innerHTML = `
+        <div class="max-w-article" style="padding-top: 1rem;">
+          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1.5rem;">← Back to Index</button>
+          <div style="background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 1.5rem;">
+            <span style="background: rgba(239, 68, 68, 0.15); color: var(--brand-red); font-weight: 900; font-size: 0.65rem; padding: 0.3rem 0.75rem; border-radius: 9999px; text-transform: uppercase; display: inline-block; margin-bottom: 0.75rem;">OFFICIAL DISPATCH</span>
+            <h1 style="font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 0.5rem;">${page.title}</h1>
+            <p style="font-size: 0.95rem; color: #f97316; font-weight: 700; margin-bottom: 1.5rem;">${page.subtitle}</p>
+            <p style="color: var(--text-slate-300); line-height: 1.8; font-size: 1.05rem;">${page.body}</p>
           </div>
         </div>
       `;
@@ -571,8 +682,8 @@
       if(!q) { res.innerHTML = ''; return; }
       const matches = ARTICLES.filter(a => a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q));
       res.innerHTML = matches.map(m => `
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" style="padding: 0.5rem; background: #050505; border-radius: 0.5rem; cursor: pointer;">
-          <h4 style="font-size: 0.78rem; font-weight: 700; color: #fff;">${m.title}</h4>
+        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" style="padding: 0.65rem; background: #050505; border-radius: 0.65rem; cursor: pointer;">
+          <h4 style="font-size: 0.82rem; font-weight: 700; color: #fff;">${m.title}</h4>
         </div>
       `).join('');
     }

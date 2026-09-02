@@ -85,12 +85,12 @@
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold tracking-wide text-slate-300" aria-label="Global Navigation">
         <a href="#" onclick="navigateToHome(event)" class="text-red-500 transition hover:text-red-400">Home</a>
-        <a href="#" onclick="setCategory('AI'); return false;" class="hover:text-red-500 transition">AI</a>
-        <a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-red-500 transition">Tech</a>
-        <a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-red-500 transition">Gadgets</a>
-        <a href="#" onclick="setCategory('Software'); return false;" class="hover:text-red-500 transition">Software</a>
-        <a href="#" onclick="setCategory('Cybersecurity'); return false;" class="hover:text-red-500 transition">Cybersecurity</a>
-        <a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-red-500 transition">Reviews</a>
+        <a href="#" onclick="setCategory('AI', event)" class="hover:text-red-500 transition">AI</a>
+        <a href="#" onclick="setCategory('Tech', event)" class="hover:text-red-500 transition">Tech</a>
+        <a href="#" onclick="setCategory('Gadgets', event)" class="hover:text-red-500 transition">Gadgets</a>
+        <a href="#" onclick="setCategory('Software', event)" class="hover:text-red-500 transition">Software</a>
+        <a href="#" onclick="setCategory('Cybersecurity', event)" class="hover:text-red-500 transition">Cybersecurity</a>
+        <a href="#" onclick="setCategory('Reviews', event)" class="hover:text-red-500 transition">Reviews</a>
       </nav>
       
       <!-- Header Actions -->
@@ -147,12 +147,12 @@
       <div>
         <h3 class="text-white font-bold mb-4 sm:mb-5 text-xs uppercase tracking-widest">Categories</h3>
         <ul class="space-y-2.5 font-medium text-xs sm:text-sm text-slate-400">
-          <li><a href="#" onclick="setCategory('AI'); return false;" class="hover:text-red-500 transition">Artificial Intelligence</a></li>
-          <li><a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-red-500 transition">Frontier Tech</a></li>
-          <li><a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-red-500 transition">Smart Gadgets</a></li>
-          <li><a href="#" onclick="setCategory('Software'); return false;" class="hover:text-red-500 transition">Software Architecture</a></li>
-          <li><a href="#" onclick="setCategory('Cybersecurity'); return false;" class="hover:text-red-500 transition">Cybersecurity</a></li>
-          <li><a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-red-500 transition">Expert Reviews</a></li>
+          <li><a href="#" onclick="setCategory('AI', event)" class="hover:text-red-500 transition">Artificial Intelligence</a></li>
+          <li><a href="#" onclick="setCategory('Tech', event)" class="hover:text-red-500 transition">Frontier Tech</a></li>
+          <li><a href="#" onclick="setCategory('Gadgets', event)" class="hover:text-red-500 transition">Smart Gadgets</a></li>
+          <li><a href="#" onclick="setCategory('Software', event)" class="hover:text-red-500 transition">Software Architecture</a></li>
+          <li><a href="#" onclick="setCategory('Cybersecurity', event)" class="hover:text-red-500 transition">Cybersecurity</a></li>
+          <li><a href="#" onclick="setCategory('Reviews', event)" class="hover:text-red-500 transition">Expert Reviews</a></li>
         </ul>
       </div>
 
@@ -503,17 +503,17 @@
       `).join('');
     }
 
-    /* ==================== ROUTING & URL SYNC ==================== */
+    /* ==================== ROUTING & SMART SEARCH ENGINE ==================== */
     function updateUrlState() {
-      let path = '#/';
+      let hash = '#/';
       if (currentView.type === 'article') {
-        path = `#/article/${currentView.slug}`;
+        hash = `#/article/${currentView.slug}`;
       } else if (currentView.type === 'static') {
-        path = `#/page/${currentView.slug}`;
+        hash = `#/page/${currentView.slug}`;
       } else if (AZEXAI.activeCategory !== 'All') {
-        path = `#/category/${AZEXAI.activeCategory.toLowerCase()}`;
+        hash = `#/category/${AZEXAI.activeCategory.toLowerCase()}`;
       }
-      window.history.pushState(currentView, '', path);
+      window.history.pushState(currentView, '', hash);
     }
 
     function navigateToHome(e) {
@@ -541,7 +541,8 @@
       router();
     }
 
-    function setCategory(cat) {
+    function setCategory(cat, e) {
+      if (e) e.preventDefault();
       AZEXAI.activeCategory = cat;
       currentView = { type: 'home', slug: null };
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -550,24 +551,58 @@
     }
 
     window.addEventListener('popstate', () => {
-      parseUrlHash();
+      parseUrlRoute();
       router();
     });
 
-    function parseUrlHash() {
+    window.addEventListener('hashchange', () => {
+      parseUrlRoute();
+      router();
+    });
+
+    function findArticleByQuery(rawSlug) {
+      if (!rawSlug) return null;
+      const clean = rawSlug.toLowerCase().replace(/_/g, '-').replace(/\.html$/, '');
+      
+      // 1. Direct exact slug or ID match
+      let match = ARTICLES.find(a => a.slug.toLowerCase() === clean || String(a.id) === clean);
+      if (match) return match;
+
+      // 2. Partial/Sub-string match
+      const words = clean.split('-').filter(w => w.length > 3);
+      match = ARTICLES.find(a => {
+        const aSlug = a.slug.toLowerCase();
+        return words.some(w => aSlug.includes(w));
+      });
+
+      return match || ARTICLES[0];
+    }
+
+    function parseUrlRoute() {
       const hash = window.location.hash;
-      if (hash.startsWith('#/article/')) {
-        const slug = hash.replace('#/article/', '');
+      const pathname = window.location.pathname;
+
+      if (hash.includes('/article/')) {
+        const slug = hash.split('/article/')[1];
         currentView = { type: 'article', slug: slug };
-      } else if (hash.startsWith('#/page/')) {
-        const slug = hash.replace('#/page/', '');
+      } else if (hash.includes('/page/')) {
+        const slug = hash.split('/page/')[1];
         currentView = { type: 'static', slug: slug };
-      } else if (hash.startsWith('#/category/')) {
-        const catSlug = hash.replace('#/category/', '');
-        const matchedCat = AZEXAI.categories.find(c => c.toLowerCase() === catSlug);
-        if (matchedCat) {
-          AZEXAI.activeCategory = matchedCat;
-        }
+      } else if (hash.includes('/category/')) {
+        const catSlug = hash.split('/category/')[1];
+        const matchedCat = AZEXAI.categories.find(c => c.toLowerCase() === catSlug.toLowerCase());
+        if (matchedCat) AZEXAI.activeCategory = matchedCat;
+        currentView = { type: 'home', slug: null };
+      } else if (pathname.includes('/article/')) {
+        const slug = pathname.split('/article/')[1];
+        currentView = { type: 'article', slug: slug };
+      } else if (pathname.includes('/page/')) {
+        const slug = pathname.split('/page/')[1];
+        currentView = { type: 'static', slug: slug };
+      } else if (pathname.includes('/category/')) {
+        const catSlug = pathname.split('/category/')[1];
+        const matchedCat = AZEXAI.categories.find(c => c.toLowerCase() === catSlug.toLowerCase());
+        if (matchedCat) AZEXAI.activeCategory = matchedCat;
         currentView = { type: 'home', slug: null };
       } else {
         currentView = { type: 'home', slug: null };
@@ -580,7 +615,7 @@
       if (!app) return;
 
       if (currentView.type === 'article') {
-        const article = ARTICLES.find(a => a.slug === currentView.slug || String(a.id) === currentView.slug);
+        const article = findArticleByQuery(currentView.slug);
         if (article) {
           updateSEO(article);
           renderArticleView(article);
@@ -618,7 +653,7 @@
         <!-- Sticky Top Category Filter Bar -->
         <div class="sticky top-20 z-40 bg-black/95 backdrop-blur-md pt-2 pb-3 mb-6 sm:mb-10 border-b border-neutral-900 flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar -mx-3 px-3 sm:mx-0 sm:px-0">
           ${AZEXAI.categories.map(cat => `
-            <button onclick="setCategory('${cat}')" class="px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-2xl text-[10px] sm:text-xs font-black uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${AZEXAI.activeCategory === cat ? 'bg-red-500 text-white border-red-500 shadow-lg shadow-red-500/20' : 'bg-neutral-900 text-slate-300 border-neutral-800 hover:border-red-500'}" aria-label="Filter category ${cat}">${cat}</button>
+            <button onclick="setCategory('${cat}', event)" class="px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-2xl text-[10px] sm:text-xs font-black uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${AZEXAI.activeCategory === cat ? 'bg-red-500 text-white border-red-500 shadow-lg shadow-red-500/20' : 'bg-neutral-900 text-slate-300 border-neutral-800 hover:border-red-500'}" aria-label="Filter category ${cat}">${cat}</button>
           `).join('')}
         </div>
 
@@ -674,7 +709,7 @@
           <h2 class="text-xl sm:text-3xl font-black text-white uppercase tracking-tight mb-4 sm:mb-8">Explore <span class="text-red-500">Domains</span></h2>
           <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             ${categoryCards.map(c => `
-              <div onclick="setCategory('${c.name}')" class="bg-neutral-900 border border-neutral-800 p-4 sm:p-8 rounded-2xl sm:rounded-3xl hover:border-red-500 transition-all cursor-pointer group shadow-lg flex flex-col justify-between">
+              <div onclick="setCategory('${c.name}', event)" class="bg-neutral-900 border border-neutral-800 p-4 sm:p-8 rounded-2xl sm:rounded-3xl hover:border-red-500 transition-all cursor-pointer group shadow-lg flex flex-col justify-between">
                 <div>
                   <div class="flex items-center justify-between mb-3 sm:mb-6">
                     <span class="w-8 h-8 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-neutral-950 border border-neutral-800 text-white group-hover:bg-red-500 group-hover:text-white transition-colors flex items-center justify-center text-xs sm:text-base shadow-sm">
@@ -710,7 +745,7 @@
         <span class="px-3.5 py-1.5 bg-neutral-900 text-slate-300 text-xs font-bold uppercase tracking-wider rounded-2xl border border-neutral-800">#${t}</span>
       `).join('');
 
-      const shareUrl = encodeURIComponent(window.location.href);
+      const shareUrl = encodeURIComponent(window.location.origin + '/#/article/' + art.slug);
       const shareTitle = encodeURIComponent(art.title);
 
       app.innerHTML = `
@@ -756,7 +791,7 @@
               <a href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" rel="noopener" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Share Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
               <a href="https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}" target="_blank" rel="noopener" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Share LinkedIn"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
               <a href="https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-green-600 hover:border-green-600 transition" aria-label="Share WhatsApp"><i class="fa-brands fa-whatsapp text-sm"></i></a>
-              <button onclick="navigator.clipboard.writeText(window.location.href); alert('Article URL copied to clipboard!');" class="px-3.5 h-10 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Copy Link"><i class="fa-solid fa-link" aria-hidden="true"></i> Copy</button>
+              <button onclick="navigator.clipboard.writeText(window.location.origin + '/#/article/' + '${art.slug}'); alert('Article URL copied to clipboard!');" class="px-3.5 h-10 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Copy Link"><i class="fa-solid fa-link" aria-hidden="true"></i> Copy</button>
             </div>
           </div>
 
@@ -846,32 +881,32 @@
         about: {
           title: "About AZEXAI",
           cat: "Corporate Overview",
-          body: "<p>AZEXAI is the premier global authority on artificial intelligence, frontier technology, and digital transformation. Founded by a coalition of researchers and technologists, we deliver uncompromising journalistic integrity and deep technical analyses.</p><p>Our mission is to decode complex algorithmic breakthroughs and evaluate their practical impact on enterprise systems, cybersecurity protocols, and society at large.</p>"
+          body: "<p>AZEXAI is the premier global authority on artificial intelligence, frontier technology, and digital transformation.</p>"
         },
         editorial: {
           title: "Global Editorial Board",
           cat: "Governance & Ethics",
-          body: "<p>The AZEXAI Global Editorial Board maintains rigorous standards of factual precision, technical depth, and strict independence across all published reports.</p><h2>Board Principles</h2><ul><li>Absolute independence from corporate sponsors and technology vendors.</li><li>Mandatory peer review by domain specialists prior to publication.</li><li>Transparent sourcing and rigorous verification of algorithmic benchmarking.</li></ul>"
+          body: "<p>The AZEXAI Global Editorial Board maintains rigorous standards of factual precision, technical depth, and strict independence across all published reports.</p>"
         },
         privacy: {
           title: "Privacy Policy",
           cat: "Legal Compliance",
-          body: "<p>At AZEXAI, we respect your digital privacy. We collect minimal telemetry data strictly necessary to optimize our global content delivery network and secure user sessions.</p><p>We do not sell, rent, or monetize personal user logs or reading telemetry with third-party advertising brokers.</p>"
+          body: "<p>At AZEXAI, we respect your digital privacy.</p>"
         },
         terms: {
           title: "Terms of Service",
           cat: "User Agreement",
-          body: "<p>By accessing AZEXAI, you agree to abide by our intellectual property guidelines. All proprietary research articles, visual graphics, and code structures are protected by international copyright laws.</p><p>Educational citation and commentary are permitted provided proper attribution is maintained.</p>"
+          body: "<p>By accessing AZEXAI, you agree to abide by our intellectual property guidelines.</p>"
         },
         affiliate: {
           title: "Affiliate Disclosure",
           cat: "Commercial Transparency",
-          body: "<p>AZEXAI participates in various affiliate marketing programs. This means we may earn a commission on qualifying software subscriptions or hardware purchases made through referral links on our platform.</p><p>Affiliate relationships never influence our editorial scoring, benchmark reviews, or investigative conclusions.</p>"
+          body: "<p>AZEXAI participates in various affiliate marketing programs.</p>"
         },
         advertise: {
           title: "Advertise With Us",
           cat: "Partnership & Growth",
-          body: "<p>Reach an elite global audience of CTOs, artificial intelligence researchers, software architects, and enterprise decision-makers.</p><p>We offer high-impact sponsorship opportunities, targeted newsletter placements, and custom research briefs. Contact our commercial team at <a href='mailto:" + CONTACT_EMAIL + "' class='text-red-500 font-bold'>" + CONTACT_EMAIL + "</a>.</p>"
+          body: "<p>Reach an elite global audience of enterprise decision-makers. Contact us at <a href='mailto:" + CONTACT_EMAIL + "' class='text-red-500 font-bold'>" + CONTACT_EMAIL + "</a>.</p>"
         }
       };
 
@@ -903,7 +938,7 @@
         app.innerHTML = '<div style="min-height:50vh;display:grid;place-items:center;"><div class="text-center p-6"><i class="fa-solid fa-spinner fa-spin text-3xl sm:text-4xl text-red-500 mb-4" aria-hidden="true"></i><p class="font-black text-white tracking-widest uppercase text-xs sm:text-sm">Initializing Azexai Intelligence Engine...</p></div></div>';
       }
       await loadBloggerArticles();
-      parseUrlHash();
+      parseUrlRoute();
       router();
     })();
   </script>

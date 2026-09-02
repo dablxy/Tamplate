@@ -9,19 +9,7 @@
 
   <!-- High Priority Preconnects for Images -->
   <link rel="preconnect" href="https://images.pexels.com" crossorigin>
-
-  <!-- Open Graph Meta Tags -->
-  <meta id="ogTitle" property="og:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
-  <meta id="ogDesc" property="og:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
-  <meta id="ogImage" property="og:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800">
-  <meta id="ogUrl" property="og:url" content="">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta id="twTitle" name="twitter:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
-  <meta id="twDesc" name="twitter:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
-  <meta id="twImage" name="twitter:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800">
+  <meta name='impact-site-verification' value='cad0e5fe-6e0e-4089-bc34-01905355c803'>
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json" id="structuredDataScript">
@@ -38,15 +26,13 @@
   }
   </script>
 
-  <!-- Critical Inline CSS (Zero External Requests, Ultra fast execution) -->
+  <!-- Critical Inline CSS -->
   <style>
-    /* Reset & CSS Custom Properties */
     *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg-black: #000000;
-      --bg-card: #141416;
-      --border-color: #26262a;
-      --border-hover: #3f3f46;
+      --bg-black: #050507;
+      --bg-card: #0f0f13;
+      --border-color: #1a1a22;
       --text-white: #ffffff;
       --text-slate-300: #cbd5e1;
       --text-slate-400: #94a3b8;
@@ -66,452 +52,162 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Containers */
-    .max-w-7xl { max-width: 80rem; margin-left: auto; margin-right: auto; width: 100%; }
-    .max-w-4xl { max-width: 56rem; margin-left: auto; margin-right: auto; width: 100%; }
-    .max-w-3xl { max-width: 48rem; margin-left: auto; margin-right: auto; width: 100%; }
+    .max-w-7xl { max-width: 76rem; margin-left: auto; margin-right: auto; width: 100%; }
+    .max-w-3xl { max-width: 44rem; margin-left: auto; margin-right: auto; width: 100%; }
     .px-pad { padding-left: 1rem; padding-right: 1rem; }
     @media (min-width: 640px) { .px-pad { padding-left: 1.5rem; padding-right: 1.5rem; } }
-    @media (min-width: 1024px) { .px-pad { padding-left: 2rem; padding-right: 2rem; } }
 
-    /* Header Layout */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background-color: rgba(0, 0, 0, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
+      position: sticky; top: 0; z-index: 50;
+      background-color: rgba(5, 5, 7, 0.95);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color);
     }
-    .header-inner {
-      height: 4rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
+    .header-inner { height: 3.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .logo {
-      font-size: 1.5rem;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-      text-transform: uppercase;
-      color: var(--text-white);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
+      font-size: 1.4rem; font-weight: 900; letter-spacing: -0.05em; text-transform: uppercase;
+      color: var(--text-white); text-decoration: none; display: inline-flex; align-items: center;
     }
     .logo-red { color: var(--brand-red); }
 
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    /* Navigation */
-    nav.desktop-nav {
-      display: none;
-      gap: 1.25rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.025em;
-    }
+    nav.desktop-nav { display: none; gap: 1.25rem; font-size: 0.8rem; font-weight: 700; }
     @media (min-width: 768px) { nav.desktop-nav { display: flex; align-items: center; } }
-    nav.desktop-nav a {
-      color: var(--text-slate-300);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
+    nav.desktop-nav a { color: var(--text-slate-300); text-decoration: none; transition: color 0.15s ease; }
     nav.desktop-nav a:hover, nav.desktop-nav a.active { color: var(--brand-red); }
 
-    /* Buttons */
     .btn-icon {
-      padding: 0.55rem;
-      border-radius: 0.75rem;
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      color: var(--text-slate-300);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color 0.15s ease;
+      padding: 0.5rem; border-radius: 0.75rem; background-color: var(--bg-card);
+      border: 1px solid var(--border-color); color: var(--text-slate-300); cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
     }
-    .btn-icon:hover { border-color: var(--brand-red); }
-    
     .btn-primary {
-      padding: 0.55rem 1rem;
-      background-color: var(--brand-red);
-      color: var(--text-white);
-      font-size: 0.72rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-radius: 0.75rem;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.15s ease, color 0.15s ease;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      padding: 0.5rem 1rem; background-color: var(--brand-red); color: var(--text-white);
+      font-size: 0.72rem; font-weight: 900; text-transform: uppercase; border-radius: 0.75rem; border: none; cursor: pointer; text-decoration: none;
     }
-    .btn-primary:hover { background-color: var(--text-white); color: #000; }
 
-    /* Category Filter Bar */
     .category-bar {
-      position: sticky;
-      top: 4rem;
-      z-index: 40;
-      background-color: rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(8px);
-      padding-top: 0.5rem;
-      padding-bottom: 0.6rem;
-      margin-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      gap: 0.4rem;
-      overflow-x: auto;
-      scrollbar-width: none;
+      position: sticky; top: 3.75rem; z-index: 40; background-color: rgba(5, 5, 7, 0.95);
+      backdrop-filter: blur(8px); padding-top: 0.5rem; padding-bottom: 0.6rem; margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color); display: flex; gap: 0.4rem; overflow-x: auto; scrollbar-width: none;
     }
     .category-bar::-webkit-scrollbar { display: none; }
     .cat-btn {
-      padding: 0.35rem 0.8rem;
-      border-radius: 0.85rem;
-      font-size: 0.68rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      white-space: nowrap;
-      border: 1px solid var(--border-color);
-      background-color: var(--bg-card);
-      color: var(--text-slate-300);
-      cursor: pointer;
-      transition: all 0.15s ease;
-      flex-shrink: 0;
+      padding: 0.35rem 0.8rem; border-radius: 0.85rem; font-size: 0.68rem; font-weight: 900; text-transform: uppercase;
+      border: 1px solid var(--border-color); background-color: var(--bg-card); color: var(--text-slate-300); cursor: pointer; white-space: nowrap; flex-shrink: 0;
     }
-    .cat-btn:hover, .cat-btn.active {
-      background-color: var(--brand-red);
-      color: var(--text-white);
-      border-color: var(--brand-red);
-    }
+    .cat-btn:hover, .cat-btn.active { background-color: var(--brand-red); color: var(--text-white); border-color: var(--brand-red); }
 
-    /* Red Animated Background Featured Hero Card */
+    /* Red Animated Featured Hero Card with 3D White Mascot */
     .hero-card-red {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      /* خلفية حمراء متحركة ومتدرجة الفخامة */
+      display: flex; flex-direction: column; gap: 1rem;
       background: linear-gradient(-45deg, #b91c1c, #dc2626, #ef4444, #991b1b);
-      background-size: 300% 300%;
-      animation: gradientBG 8s ease infinite;
-      border: 1px solid #f87171;
-      padding: 1.15rem;
-      border-radius: 1.5rem;
-      margin-bottom: 1.75rem;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 12px 30px -5px rgba(239, 68, 68, 0.4);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background-size: 300% 300%; animation: gradientBG 8s ease infinite;
+      border: 1px solid #f87171; padding: 1.15rem; border-radius: 1.25rem; margin-bottom: 1.75rem;
+      cursor: pointer; position: relative; overflow: hidden; box-shadow: 0 12px 30px -5px rgba(239, 68, 68, 0.4);
     }
-    .hero-card-red:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 35px -5px rgba(239, 68, 68, 0.6);
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
+    @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     @media (min-width: 768px) {
-      .hero-card-red {
-        display: grid;
-        grid-template-columns: 1.25fr 1fr;
-        padding: 1.65rem;
-        border-radius: 1.75rem;
-        gap: 1.75rem;
-        align-items: center;
-      }
+      .hero-card-red { display: grid; grid-template-columns: 1.25fr 1fr; padding: 1.65rem; border-radius: 1.5rem; gap: 1.75rem; align-items: center; }
     }
 
-    /* الشعار الكرتوني المتحرك برسم أبيض بدقة */
+    /* 3D White Mascot */
     .cartoon-reader-mascot {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 0.35rem 0.75rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      margin-bottom: 0.5rem;
-      backdrop-filter: blur(6px);
-      width: fit-content;
+      display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 0, 0, 0.3);
+      padding: 0.35rem 0.75rem; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.4); margin-bottom: 0.5rem; backdrop-filter: blur(6px);
     }
-    
-    .cartoon-svg {
-      width: 2rem;
-      height: 2rem;
-      animation: floatCharacter 3s ease-in-out infinite;
-    }
+    .cartoon-svg { width: 2rem; height: 2rem; animation: floatCharacter 3s ease-in-out infinite; }
+    @keyframes floatCharacter { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-3px) rotate(2deg); } }
+    .eye-blink { animation: blinkEye 4s infinite; transform-origin: center; }
+    @keyframes blinkEye { 0%, 94%, 98%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
 
-    /* حركة الرأس والجسم الكرتوني */
-    @keyframes floatCharacter {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-3px) rotate(2deg); }
-    }
+    .hero-title-red { font-size: 1.15rem; font-weight: 900; color: #ffffff; line-height: 1.25; margin-bottom: 0.5rem; }
+    @media (min-width: 640px) { .hero-title-red { font-size: 1.5rem; } }
 
-    /* حركات العيون الكرتونية والنظارات */
-    .eye-blink {
-      animation: blinkEye 4s infinite;
-      transform-origin: center;
-    }
-    @keyframes blinkEye {
-      0%, 94%, 98%, 100% { transform: scaleY(1); }
-      96% { transform: scaleY(0.1); }
-    }
-
-    .hero-title-red {
-      font-size: 1.25rem;
-      font-weight: 900;
-      color: #ffffff;
-      line-height: 1.25;
-      margin-top: 0.3rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.01em;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-    @media (min-width: 640px) { .hero-title-red { font-size: 1.65rem; } }
-    @media (min-width: 1024px) { .hero-title-red { font-size: 1.95rem; } }
-
-    .hero-excerpt-red {
-      font-size: 0.85rem;
-      color: #ffffff;
-      font-weight: 500;
-      line-height: 1.5;
-      margin-bottom: 0.85rem;
-      opacity: 0.95;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
+    .hero-excerpt-red { font-size: 0.78rem; color: #ffffff; font-weight: 500; line-height: 1.5; margin-bottom: 0.85rem; opacity: 0.95; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
     .img-container {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 0.85rem;
-      overflow: hidden;
-      background-color: #050505;
-      position: relative;
+      width: 100%; aspect-ratio: 16 / 9; border-radius: 0.75rem; overflow: hidden; background-color: #000000; position: relative;
     }
-    .img-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-    .hero-card-red:hover .img-container img, .card:hover .img-container img {
-      transform: scale(1.03);
-    }
+    .img-container img { width: 100%; height: 100%; object-fit: contain; background: #000; display: block; }
 
     .badge-white {
-      display: inline-block;
-      padding: 0.2rem 0.6rem;
-      background-color: #ffffff;
-      color: #b91c1c;
-      font-size: 0.62rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      border-radius: 9999px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      display: inline-block; padding: 0.2rem 0.6rem; background-color: #ffffff; color: #b91c1c;
+      font-size: 0.62rem; font-weight: 900; text-transform: uppercase; border-radius: 9999px;
     }
+    .meta-text-white { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; color: #ffffff; display: flex; align-items: center; gap: 0.4rem; }
 
-    .meta-text-white {
-      font-size: 0.68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-
-    /* Grid for articles (Standard Dark Cards for Rest of Site) */
-    .grid-articles {
+    /* Strict 2 Columns Grid for Articles */
+    .grid-2-cols {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
     }
-    @media (min-width: 1024px) { .grid-articles { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+    @media (min-width: 640px) { .grid-2-cols { gap: 1.25rem; } }
 
     .card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      transition: border-color 0.2s ease;
+      background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1rem;
+      overflow: hidden; display: flex; flex-direction: column; cursor: pointer; transition: border-color 0.2s ease;
     }
     .card:hover { border-color: var(--brand-red); }
-    .card-body {
-      padding: 0.75rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    @media (min-width: 640px) { .card-body { padding: 1.15rem; } }
+    .card-body { padding: 0.75rem; display: flex; flex-direction: column; flex-grow: 1; }
+    @media (min-width: 640px) { .card-body { padding: 1rem; } }
     .card-title {
-      font-size: 0.82rem;
-      font-weight: 800;
-      color: var(--text-white);
-      margin-bottom: 0.35rem;
-      line-height: 1.3;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-size: 0.75rem; font-weight: 800; color: var(--text-white); margin-bottom: 0.3rem; line-height: 1.3;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
-    @media (min-width: 640px) { .card-title { font-size: 1.05rem; margin-bottom: 0.5rem; } }
+    @media (min-width: 640px) { .card-title { font-size: 0.9rem; } }
     .card-excerpt {
-      font-size: 0.72rem;
-      color: var(--text-slate-400);
-      line-height: 1.45;
-      margin-bottom: 0.65rem;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      flex-grow: 1;
+      font-size: 0.65rem; color: var(--text-slate-400); line-height: 1.4; margin-bottom: 0.5rem;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; flex-grow: 1;
     }
-    @media (min-width: 640px) { .card-excerpt { font-size: 0.82rem; } }
+    @media (min-width: 640px) { .card-excerpt { font-size: 0.75rem; } }
 
     .card-footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding-top: 0.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.62rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--text-slate-400);
+      border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.4rem;
+      display: flex; align-items: center; justify-content: space-between; font-size: 0.58rem; font-weight: 700; text-transform: uppercase; color: var(--text-slate-400);
     }
 
-    /* Section Headings */
-    .section-title {
-      font-size: 1.1rem;
-      font-weight: 900;
-      color: var(--text-white);
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.85rem;
-    }
-    @media (min-width: 640px) { .section-title { font-size: 1.5rem; margin-bottom: 1.25rem; } }
+    .section-title { font-size: 1.05rem; font-weight: 900; color: var(--text-white); text-transform: uppercase; margin-bottom: 0.85rem; }
 
-    /* Newsletter Box */
-    .newsletter-box {
-      background-color: var(--brand-red);
-      border-radius: 1.25rem;
-      padding: 1.25rem;
-      color: var(--text-white);
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-    @media (min-width: 1024px) {
-      .newsletter-box {
-        grid-template-columns: 1fr 1fr;
-        padding: 2.5rem;
-        border-radius: 1.75rem;
-        align-items: center;
-      }
-    }
+    .prose { line-height: 1.75; font-size: 0.9rem; color: var(--text-slate-300); }
+    .prose h2 { font-size: 1.3rem; font-weight: 800; color: var(--text-white); margin-top: 1.25rem; margin-bottom: 0.5rem; }
+    .prose p { margin-bottom: 1rem; }
 
-    .newsletter-input {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      background-color: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 0.85rem;
-      color: var(--text-white);
-      font-size: 0.78rem;
-      font-weight: 700;
-      outline: none;
-    }
-    .newsletter-input::placeholder { color: rgba(255, 255, 255, 0.7); }
-
-    /* Article Reader Layout */
-    .prose {
-      line-height: 1.75;
-      font-size: 0.95rem;
-      color: var(--text-slate-300);
-    }
-    .prose h2 {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--text-white);
-      margin-top: 1.5rem;
-      margin-bottom: 0.65rem;
-    }
-    .prose p { margin-bottom: 1.1rem; }
-    .prose img {
-      width: 100%;
-      height: auto;
-      border-radius: 1rem;
-      margin: 1.25rem 0;
-      display: block;
-    }
-
-    /* Integrated Split Footer Layout */
+    /* Complete Full Footer */
     footer {
-      background-color: var(--bg-black);
+      background-color: #030305;
       border-top: 1px solid var(--border-color);
       margin-top: auto;
-      padding-top: 2rem;
-      padding-bottom: 2.5rem;
+      padding: 2.5rem 0;
     }
     .footer-split {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.75rem;
-    }
-    @media (min-width: 640px) {
-      .footer-split {
-        grid-template-columns: 1.2fr 2fr;
-        gap: 2fr;
-      }
-    }
-
-    .footer-brand {
       display: flex;
       flex-direction: column;
+      gap: 2rem;
     }
-
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1.5rem;
+    }
+    @media(min-width: 640px) {
+      .footer-top {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
     .footer-columns {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
+      gap: 1.5rem;
     }
-    @media (min-width: 768px) {
+    @media(min-width: 768px) {
       .footer-columns {
         grid-template-columns: repeat(3, 1fr);
-        gap: 1.75rem;
       }
     }
-
     .footer-heading {
       color: var(--text-white);
       font-size: 0.7rem;
@@ -524,8 +220,8 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.55rem;
-      font-size: 0.8rem;
+      gap: 0.5rem;
+      font-size: 0.78rem;
     }
     .footer-links a {
       color: var(--text-slate-400);
@@ -534,68 +230,35 @@
     }
     .footer-links a:hover { color: var(--brand-red); }
 
-    /* Modals */
     .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(6px);
-      z-index: 100;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 1rem;
-      padding-top: 4rem;
+      position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(6px);
+      z-index: 100; display: flex; align-items: flex-start; justify-content: center; padding: 1rem; padding-top: 4rem;
     }
-    .modal-content {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 1.25rem;
-      max-width: 38rem;
-      width: 100%;
-      padding: 1.25rem;
-    }
+    .modal-content { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.25rem; max-width: 36rem; width: 100%; padding: 1.25rem; }
     .hidden { display: none !important; }
-
-    /* Inline SVG Styling */
-    .icon-svg {
-      width: 1.1em;
-      height: 1.1em;
-      fill: currentColor;
-      display: inline-block;
-      vertical-align: -0.15em;
-    }
+    .icon-svg { width: 1.1em; height: 1.1em; fill: currentColor; vertical-align: -0.15em; }
   </style>
 </head>
 <body>
 
-  <!-- Global Header (Left Logo, Right Actions) -->
+  <!-- Global Header -->
   <header>
     <div class="max-w-7xl px-pad header-inner">
-      
-      <!-- Left: Brand Logo -->
-      <a href="#" onclick="navigateToHome(event)" class="logo" aria-label="AZEXAI Homepage">
+      <a href="#" onclick="navigateToHome(event)" class="logo" aria-label="AZEXAI Home">
         AZEX<span class="logo-red">AI</span><span class="logo-red" style="font-size: 1.8rem; line-height: 0;">.</span>
       </a>
 
-      <!-- Center: Desktop Navigation -->
-      <nav class="desktop-nav" aria-label="Global Navigation">
+      <nav class="desktop-nav" aria-label="Navigation">
         <a href="#" onclick="navigateToHome(event)" class="active">Home</a>
         <a href="#" onclick="setCategory('AI'); return false;">AI</a>
         <a href="#" onclick="setCategory('Tech'); return false;">Tech</a>
-        <a href="#" onclick="setCategory('Gadgets'); return false;">Gadgets</a>
-        <a href="#" onclick="setCategory('Software'); return false;">Software</a>
         <a href="#" onclick="setCategory('Cybersecurity'); return false;">Cybersecurity</a>
         <a href="#" onclick="setCategory('Reviews'); return false;">Reviews</a>
       </nav>
       
-      <!-- Right: Search & Subscribe Actions -->
       <div class="header-actions">
-        <button onclick="openSearchModal()" class="btn-icon" aria-label="Search Articles">
+        <button onclick="openSearchModal()" class="btn-icon" aria-label="Search">
           <svg class="icon-svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-        </button>
-        <button onclick="navigateToStaticPage('contact', event)" class="btn-primary" aria-label="Subscribe Newsletter">
-          SUBSCRIBE
         </button>
       </div>
     </div>
@@ -603,115 +266,25 @@
 
   <!-- Main Content View Container -->
   <main class="max-w-7xl px-pad" style="flex-grow: 1; padding-top: 0.75rem; padding-bottom: 2rem;">
-    
-    <!-- Render Target Area with Immediate HTML Pre-rendering for Instant LCP -->
-    <div id="app">
-      <!-- Category Selection Bar -->
-      <div id="categoryBarContainer" class="category-bar">
-        <button onclick="setCategory('All')" class="cat-btn active">All</button>
-        <button onclick="setCategory('AI')" class="cat-btn">AI</button>
-        <button onclick="setCategory('Tech')" class="cat-btn">Tech</button>
-        <button onclick="setCategory('Gadgets')" class="cat-btn">Gadgets</button>
-        <button onclick="setCategory('Software')" class="cat-btn">Software</button>
-        <button onclick="setCategory('Cybersecurity')" class="cat-btn">Cybersecurity</button>
-        <button onclick="setCategory('Reviews')" class="cat-btn">Reviews</button>
-      </div>
-
-      <!-- Instant Pre-rendered View target -->
-      <div id="mainViewContent">
-        <!-- Animated Red Featured Hero Card with White Animated Cartoon Reader Mascot -->
-        <div class="hero-card-red" onclick="navigateToArticle('post-quantum-cryptography-zero-trust')">
-          <div>
-            <!-- Cartoon Reader Character in White Line Art -->
-            <div class="cartoon-reader-mascot">
-              <svg class="cartoon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Head -->
-                <circle cx="32" cy="24" r="16" stroke="#ffffff" stroke-width="3"/>
-                <!-- Glasses -->
-                <circle cx="26" cy="22" r="5" stroke="#ffffff" stroke-width="2.5"/>
-                <circle cx="38" cy="22" r="5" stroke="#ffffff" stroke-width="2.5"/>
-                <line x1="31" y1="22" x2="33" y2="22" stroke="#ffffff" stroke-width="2.5"/>
-                <!-- Eyes inside glasses (Animated) -->
-                <circle class="eye-blink" cx="26" cy="22" r="2" fill="#ffffff"/>
-                <circle class="eye-blink" cx="38" cy="22" r="2" fill="#ffffff"/>
-                <!-- Cute Smile -->
-                <path d="M28 30 Q 32 34 36 30" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-                <!-- Book/Tablet Held in Hands -->
-                <path d="M16 52 L 32 44 L 48 52 L 48 40 L 32 34 L 16 40 Z" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round" fill="rgba(255,255,255,0.2)"/>
-                <!-- Page line -->
-                <line x1="32" y1="34" x2="32" y2="44" stroke="#ffffff" stroke-width="2"/>
-              </svg>
-              <span class="badge-white">AI FEATURED</span>
-            </div>
-
-            <h1 class="hero-title-red">Post-Quantum Cryptography & Zero-Trust: How Enterprise Security Is Evolving in 2026</h1>
-            <p class="hero-excerpt-red">Discover how leading security teams are deploying lattice-based cryptography and zero-trust identity architectures to defend against upcoming quantum computing threats.</p>
-
-            <div class="meta-text-white">
-              <span>AZEXAI Research Team</span>
-              <span>&bull;</span>
-              <span>September 2026</span>
-              <span>&bull;</span>
-              <span style="color: #ffffff; background: rgba(0,0,0,0.3); padding: 0.15rem 0.5rem; border-radius: 999px;">4 Min Read</span>
-            </div>
-          </div>
-
-          <div class="img-container">
-            <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Post-Quantum Cryptography" width="800" height="450" fetchpriority="high" loading="eager" decoding="async">
-          </div>
-        </div>
-
-        <!-- Latest Articles Grid -->
-        <h2 class="section-title">Latest Analyses</h2>
-        <div class="grid-articles" id="articlesGrid">
-          <div class="card" onclick="navigateToArticle('generative-ai-autonomous-systems')">
-            <div class="img-container">
-              <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Generative AI" width="500" height="280" loading="lazy" decoding="async">
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">Generative AI & Autonomous Scientific Discovery</h3>
-              <p class="card-excerpt">How large language models are independently hypothesizing and validating breakthroughs in material science.</p>
-              <div class="card-footer">
-                <span>Dr. Elena Vance</span>
-                <span style="color: var(--brand-green);">8 min read</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card" onclick="navigateToArticle('neuromorphic-computing-architectures')">
-            <div class="img-container">
-              <img src="https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Neuromorphic Computing" width="500" height="280" loading="lazy" decoding="async">
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">Neuromorphic Computing: Chips That Think Like Brains</h3>
-              <p class="card-excerpt">Silicon-based spiking neural networks promise ultra-low power consumption for next-gen edge robotics.</p>
-              <div class="card-footer">
-                <span>Marcus Thorne</span>
-                <span style="color: var(--brand-green);">6 min read</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <div id="app"></div>
   </main>
 
-  <!-- Global Footer -->
+  <!-- Complete Full Footer -->
   <footer>
     <div class="max-w-7xl px-pad footer-split">
-      
-      <!-- Left Side: Brand & Description -->
-      <div class="footer-brand">
-        <a href="#" onclick="navigateToHome(event)" class="logo" style="margin-bottom: 0.65rem;">
-          AZEX<span class="logo-red">AI</span><span class="logo-red" style="font-size: 1.8rem; line-height: 0;">.</span>
-        </a>
-        <p style="font-size: 0.8rem; color: var(--text-slate-400); line-height: 1.5; max-width: 22rem;">
-          Global authority on artificial intelligence, frontier technology, and digital transformation.
-        </p>
+      <div class="footer-top">
+        <div>
+          <a href="#" onclick="navigateToHome(event)" class="logo" style="margin-bottom: 0.4rem; font-size:1.3rem;">
+            AZEX<span class="logo-red">AI</span>.
+          </a>
+          <p style="font-size: 0.75rem; color: var(--text-slate-400);">Global authority on artificial intelligence, frontier technology, and digital transformation.</p>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <a href="#" class="btn-icon" style="width:34px;height:34px;text-decoration:none;font-weight:700;font-size:0.75rem;">X</a>
+          <a href="#" class="btn-icon" style="width:34px;height:34px;text-decoration:none;font-weight:700;font-size:0.75rem;">FB</a>
+        </div>
       </div>
 
-      <!-- Right Side: Links in Columns -->
       <div class="footer-columns">
         <div>
           <h3 class="footer-heading">COMPANY</h3>
@@ -723,17 +296,15 @@
             <li><a href="#" onclick="navigateToStaticPage('contact', event)">Contact</a></li>
           </ul>
         </div>
-
         <div>
           <h3 class="footer-heading">CATEGORIES</h3>
           <ul class="footer-links">
             <li><a href="#" onclick="setCategory('AI'); return false;">Artificial Intelligence</a></li>
             <li><a href="#" onclick="setCategory('Tech'); return false;">Frontier Tech</a></li>
-            <li><a href="#" onclick="setCategory('Gadgets'); return false;">Smart Gadgets</a></li>
             <li><a href="#" onclick="setCategory('Cybersecurity'); return false;">Cybersecurity</a></li>
+            <li><a href="#" onclick="setCategory('Reviews'); return false;">Expert Reviews</a></li>
           </ul>
         </div>
-
         <div>
           <h3 class="footer-heading">CONNECT</h3>
           <ul class="footer-links">
@@ -742,27 +313,23 @@
           </ul>
         </div>
       </div>
-
     </div>
   </footer>
 
-  <!-- Fast Search Modal -->
+  <!-- Search Modal -->
   <div id="searchModal" class="modal-backdrop hidden">
     <div class="modal-content">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-        <h3 style="font-size: 0.85rem; font-weight: 900; text-transform: uppercase; color: #fff;">Search Global Articles</h3>
-        <button onclick="closeSearchModal()" class="btn-icon" style="padding: 0.3rem 0.5rem;" aria-label="Close Modal">✕</button>
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem;">
+        <h3 style="font-size: 0.8rem; font-weight: 900; text-transform: uppercase; color: #fff;">Search Articles</h3>
+        <button onclick="closeSearchModal()" class="btn-icon" style="padding: 0.2rem 0.4rem;">✕</button>
       </div>
-      <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search AI, quantum computing, robotics..." class="newsletter-input" style="margin-bottom: 1rem;">
-      <div id="modalSearchResults" style="max-height: 16rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.5rem;"></div>
+      <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search breakthroughs..." class="newsletter-input" style="margin-bottom: 0.85rem; width:100%; padding: 0.75rem; background: #050505; border: 1px solid var(--border-color); border-radius: 0.75rem; color:#fff; outline:none;">
+      <div id="modalSearchResults" class="no-scrollbar" style="max-height: 14rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.4rem;"></div>
     </div>
   </div>
 
-  <!-- Optimized Application Script -->
+  <!-- JavaScript Engine -->
   <script>
-    const CONTACT_EMAIL = "contact@azexai.com";
-
-    // Blogger API Config
     const BLOGGER_CONFIG = {
       blogId: '4263033619836681299',
       apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
@@ -770,87 +337,64 @@
     };
 
     let AZEXAI = {
-      categories: ['All', 'AI', 'Tech', 'Gadgets', 'Software', 'Cybersecurity', 'Reviews'],
+      categories: ['All', 'AI', 'Tech', 'Cybersecurity', 'Reviews'],
       activeCategory: 'All'
     };
 
-    // Advanced Text Sanitizer to strip bracketed text and repetitive strings
     function cleanExcerpt(rawHtml, titleText = '') {
-      if (!rawHtml) return 'Discover how security teams are deploying lattice-based cryptography and zero-trust identity architectures to defend against quantum threats.';
-      
-      // Strip all HTML tags
+      if (!rawHtml) return 'Discover how security teams are deploying lattice-based cryptography and zero-trust architectures.';
       let text = rawHtml.replace(/<[^>]+>/g, ' ');
-      
-      // Remove Bracketed Meta Text like [ ENTERPRISE CYBERSECURITY // TRENDING 2026 ] or Figure captions
       text = text.replace(/\[[^\]]+\]/g, '');
+      text = text.replace(/>\s*[A-Z_]+\s*:\s*[A-Z_]+/g, '');
       text = text.replace(/Figure \d+:?/gi, '');
-      text = text.replace(/High CPC Executive Report/gi, '');
-
-      // Remove duplicate title if repeated at start
       if (titleText && text.trim().startsWith(titleText.trim())) {
         text = text.trim().substring(titleText.trim().length);
       }
-      
-      // Clean extra spaces & newlines
       text = text.replace(/\s+/g, ' ').trim();
-      
-      if (text.length < 20) {
-        return 'Discover how security teams are deploying lattice-based cryptography and zero-trust identity architectures to defend against quantum threats.';
-      }
-      
-      return text.length > 150 ? text.substring(0, 150) + '...' : text;
+      return text.length > 70 ? text.substring(0, 70) + '...' : (text || 'Discover how security teams are deploying lattice-based cryptography.');
     }
 
-    // Default Fallback Dataset
     let ARTICLES = [
       {
-        id: 1,
-        slug: 'post-quantum-cryptography-zero-trust',
+        id: 1, slug: 'post-quantum-cryptography-zero-trust',
         title: 'Post-Quantum Cryptography & Zero-Trust: How Enterprise Security Is Evolving in 2026',
-        category: 'AI',
-        author: 'AZEXAI Research Team',
-        date: 'September 2026',
-        readTime: '4 Min Read',
+        category: 'AI', author: 'AZEXAI Team', date: 'September 2026', readTime: '4 Min Read',
         image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=800',
-        excerpt: 'Discover how leading security teams are deploying lattice-based cryptography and zero-trust identity architectures to defend against upcoming quantum computing threats.',
-        tags: ['Cybersecurity', 'Quantum'],
-        content: '<h2>The Post-Quantum Security Paradigm</h2><p>As quantum processors achieve new benchmarks in qubit stability and algorithmic fault tolerance, conventional asymmetric encryption algorithms face imminent vulnerabilities.</p><p>Leading enterprise security frameworks are aggressively migrating to post-quantum lattice-based encryption alongside continuous zero-trust authentication protocols.</p>'
+        excerpt: 'Discover how leading security teams are deploying lattice-based cryptography and zero-trust identity architectures.',
+        content: '<h2>The Post-Quantum Security Paradigm</h2><p>As quantum processors achieve new benchmarks, conventional asymmetric encryption algorithms face imminent vulnerabilities.</p>'
       },
       {
-        id: 2,
-        slug: 'generative-ai-autonomous-systems',
+        id: 2, slug: 'generative-ai-autonomous-systems',
         title: 'Generative AI & Autonomous Scientific Discovery',
-        category: 'AI',
-        author: 'Dr. Elena Vance',
-        date: 'August 26, 2026',
-        readTime: '8 min read',
+        category: 'AI', author: 'Dr. Elena Vance', date: 'August 26, 2026', readTime: '8 min read',
         image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=500',
-        excerpt: 'How large language models are independently hypothesizing and validating breakthroughs in material science.',
-        tags: ['AI', 'Research'],
-        content: '<h2>The Shift in Computation</h2><p>Generative AI models are moving beyond prose synthesis into active molecular design and quantum particle simulation.</p>'
+        excerpt: 'How large language models are independently hypothesizing and validating breakthroughs.',
+        content: '<h2>The Shift in Computation</h2><p>Generative AI models are moving beyond prose synthesis into active molecular design.</p>'
       },
       {
-        id: 3,
-        slug: 'neuromorphic-computing-architectures',
+        id: 3, slug: 'neuromorphic-computing-architectures',
         title: 'Neuromorphic Computing: Chips That Think Like Brains',
-        category: 'Tech',
-        author: 'Marcus Thorne',
-        date: 'August 24, 2026',
-        readTime: '6 min read',
+        category: 'Tech', author: 'Marcus Thorne', date: 'August 24, 2026', readTime: '6 min read',
         image: 'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=500',
-        excerpt: 'Silicon-based spiking neural networks promise ultra-low power consumption and real-time edge processing for next-gen robotics.',
-        tags: ['Tech', 'Hardware'],
-        content: '<h2>Bio-Inspired Silicon Design</h2><p>Traditional von Neumann architectures create massive energy bottlenecks when processing deep learning models. Neuromorphic chips overcome this by executing parallel spiking neural networks locally.</p>'
+        excerpt: 'Silicon-based spiking neural networks promise ultra-low power consumption for next-gen edge robotics.',
+        content: '<h2>Bio-Inspired Silicon Design</h2><p>Traditional von Neumann architectures create massive energy bottlenecks.</p>'
+      },
+      {
+        id: 4, slug: 'quantum-machine-learning-horizons',
+        title: 'Quantum Machine Learning: Exponential Speedups',
+        category: 'Cybersecurity', author: 'Siddharth Mehta', date: 'August 22, 2026', readTime: '9 min read',
+        image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=500',
+        excerpt: 'Cybersecurity frameworks must urgently transition to post-quantum encryption standards.',
+        content: '<h2>The Post-Quantum Imperative</h2><p>Enterprise security architects are implementing lattice-based cryptography.</p>'
       }
     ];
 
     let currentView = { type: 'home', slug: null };
 
-    /* Non-blocking background API fetch */
     async function loadBloggerArticlesAsync() {
       if (!BLOGGER_CONFIG.apiKey) return;
       try {
-        const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&fetchBodies=true&fetchImages=true&maxResults=${BLOGGER_CONFIG.maxResults}`;
+        const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&maxResults=${BLOGGER_CONFIG.maxResults}`;
         const res = await fetch(url);
         if (!res.ok) return;
         const data = await res.json();
@@ -868,55 +412,64 @@
               slug: (post.url || '').split('/').pop().replace('.html', '') || String(post.id),
               title: title,
               category: cat,
-              author: post.author?.displayName || 'AZEXAI Research Team',
+              author: post.author?.displayName || 'AZEXAI Team',
               date: post.published ? new Date(post.published).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) : 'September 2026',
               readTime: Math.max(2, Math.ceil(raw.replace(/<[^>]+>/g, '').split(/\s+/).length / 220)) + ' Min Read',
               image: img,
               excerpt: cleanText,
-              tags: post.labels || [cat],
               content: raw
             };
           });
-          renderHome();
+          router();
         }
-      } catch (e) {
-        // Fallback silently
-      }
+      } catch (e) {}
     }
 
-    /* Views & Navigation */
     function navigateToHome(e) {
       if (e) e.preventDefault();
       currentView = { type: 'home', slug: null };
       AZEXAI.activeCategory = 'All';
       window.scrollTo({ top: 0, behavior: 'instant' });
-      renderHome();
+      router();
     }
 
     function navigateToArticle(slug, e) {
       if (e) e.preventDefault();
       currentView = { type: 'article', slug: slug };
       window.scrollTo({ top: 0, behavior: 'instant' });
-      renderArticle();
+      router();
     }
 
     function navigateToStaticPage(slug, e) {
       if (e) e.preventDefault();
       currentView = { type: 'static', slug: slug };
       window.scrollTo({ top: 0, behavior: 'instant' });
-      renderStaticPage(slug);
+      router();
     }
 
     function setCategory(cat) {
       AZEXAI.activeCategory = cat;
       currentView = { type: 'home', slug: null };
+      router();
+    }
+
+    function router() {
+      const app = document.getElementById('app');
+      if (!app) return;
+      if (currentView.type === 'article') {
+        const art = ARTICLES.find(a => a.slug === currentView.slug || String(a.id) === currentView.slug);
+        if (art) { renderArticleView(art); return; }
+      } else if (currentView.type === 'static') {
+        renderStaticPageView(currentView.slug);
+        return;
+      }
       renderHome();
     }
 
     function renderHome() {
       const filtered = ARTICLES.filter(a => AZEXAI.activeCategory === 'All' || a.category.toLowerCase() === AZEXAI.activeCategory.toLowerCase());
       const hero = filtered[0] || ARTICLES[0];
-      const list = filtered.slice(1);
+      const gridList = filtered.slice(1);
 
       const categoryBar = `
         <div class="category-bar">
@@ -948,31 +501,30 @@
             <div class="meta-text-white">
               <span>${hero.author}</span>
               <span>&bull;</span>
-              <span>${hero.date}</span>
-              <span>&bull;</span>
               <span style="color: #ffffff; background: rgba(0,0,0,0.3); padding: 0.15rem 0.5rem; border-radius: 999px;">${hero.readTime}</span>
             </div>
           </div>
           <div class="img-container">
-            <img src="${hero.image}" alt="${hero.title}" width="800" height="450" fetchpriority="high" loading="eager" decoding="async">
+            <img src="${hero.image}" alt="${hero.title}" width="800" height="450" loading="eager" decoding="async">
           </div>
         </div>
       ` : '';
 
       const articlesGrid = `
         <h2 class="section-title">${AZEXAI.activeCategory !== 'All' ? AZEXAI.activeCategory : 'Latest'} Analyses</h2>
-        <div class="grid-articles">
-          ${list.map(art => `
+        <div class="grid-2-cols">
+          ${gridList.map(art => `
             <div class="card" onclick="navigateToArticle('${art.slug}')">
               <div class="img-container">
                 <img src="${art.image}" alt="${art.title}" width="500" height="280" loading="lazy" decoding="async">
+                <span class="badge-white" style="position: absolute; top: 0.35rem; left: 0.35rem; font-size: 0.55rem; padding: 0.15rem 0.4rem;">${art.category}</span>
               </div>
               <div class="card-body">
                 <h3 class="card-title">${art.title}</h3>
                 <p class="card-excerpt">${art.excerpt}</p>
                 <div class="card-footer">
                   <span>${art.author}</span>
-                  <span style="color:var(--brand-green);">${art.readTime}</span>
+                  <span style="color: var(--brand-green);">${art.readTime}</span>
                 </div>
               </div>
             </div>
@@ -980,32 +532,18 @@
         </div>
       `;
 
-      const newsletter = `
-        <div class="newsletter-box">
-          <div>
-            <h2 style="font-size: 1.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 0.35rem;">Stay Ahead Of What's Next</h2>
-            <p style="font-size: 0.8rem; opacity: 0.9;">Receive elite global intelligence reports directly in your inbox.</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-            <input type="email" placeholder="ENTER YOUR EMAIL" class="newsletter-input">
-            <button onclick="alert('Subscribed successfully!')" class="btn-primary" style="padding:0.75rem; width:100%; background-color:#fff; color:#000;">Subscribe Now</button>
-          </div>
-        </div>
-      `;
-
-      document.getElementById('app').innerHTML = categoryBar + heroHtml + articlesGrid + newsletter;
+      document.getElementById('app').innerHTML = categoryBar + heroHtml + articlesGrid;
     }
 
-    function renderArticle() {
-      const art = ARTICLES.find(a => a.slug === currentView.slug) || ARTICLES[0];
+    function renderArticleView(art) {
       document.getElementById('app').innerHTML = `
-        <div class="max-w-4xl" style="padding-top: 0.5rem;">
-          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1.25rem;">← Back to Index</button>
+        <div class="max-w-3xl" style="padding-top: 0.5rem;">
+          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1rem;">← Back to Index</button>
           
-          <span class="badge" style="margin-bottom: 0.5rem; background-color: rgba(239, 68, 68, 0.2); border: 1px solid var(--brand-red);">${art.category}</span>
-          <h1 style="font-size: 1.75rem; font-weight: 900; color: #fff; line-height: 1.25; margin-top: 0.4rem; margin-bottom: 0.85rem;">${art.title}</h1>
+          <span class="badge-white" style="margin-bottom: 0.4rem; background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid #ef4444;">${art.category}</span>
+          <h1 style="font-size: 1.35rem; font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 0.75rem;">${art.title}</h1>
           
-          <div class="meta-text" style="padding-bottom: 0.85rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1.25rem;">
+          <div class="meta-text-white" style="color:var(--text-slate-400); padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem;">
             <span style="color:#fff;">${art.author}</span>
             <span>&bull;</span>
             <span>${art.date}</span>
@@ -1013,8 +551,8 @@
             <span style="color:var(--brand-green);">${art.readTime}</span>
           </div>
 
-          <div class="img-container" style="aspect-ratio: 16/9; margin-bottom: 1.5rem;">
-            <img src="${art.image}" alt="${art.title}" width="1000" height="562" loading="eager">
+          <div class="img-container" style="aspect-ratio: 16/9; margin-bottom: 1.25rem;">
+            <img src="${art.image}" alt="${art.title}" width="900" height="506" loading="eager">
           </div>
 
           <article class="prose">
@@ -1024,40 +562,34 @@
       `;
     }
 
-    function renderStaticPage(slug) {
+    function renderStaticPageView(slug) {
       document.getElementById('app').innerHTML = `
         <div class="max-w-3xl" style="padding-top: 0.5rem;">
-          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1.25rem;">← Back to Index</button>
+          <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1rem;">← Back to Index</button>
           <div style="background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 1.25rem;">
-            <h1 style="font-size: 1.75rem; font-weight: 900; color: #fff; margin-bottom: 0.85rem; text-transform: capitalize;">${slug} Page</h1>
-            <p style="color: var(--text-slate-300); line-height: 1.6; font-size: 0.9rem;">AZEXAI is the premier authority on artificial intelligence, providing high performance journalism and frontier technology updates worldwide.</p>
+            <h1 style="font-size: 1.5rem; font-weight: 900; color: #fff; margin-bottom: 0.75rem; text-transform: capitalize;">${slug} Page</h1>
+            <p style="color: var(--text-slate-300); line-height: 1.6; font-size: 0.85rem;">AZEXAI is the premier global authority on artificial intelligence and frontier technology.</p>
           </div>
         </div>
       `;
     }
 
-    /* Modal Search Handlers */
-    function openSearchModal() {
-      document.getElementById('searchModal').classList.remove('hidden');
-      document.getElementById('modalSearchInput').focus();
-    }
-    function closeSearchModal() {
-      document.getElementById('searchModal').classList.add('hidden');
-    }
+    function openSearchModal() { document.getElementById('searchModal').classList.remove('hidden'); document.getElementById('modalSearchInput').focus(); }
+    function closeSearchModal() { document.getElementById('searchModal').classList.add('hidden'); }
     function handleModalSearch(e) {
       const q = e.target.value.toLowerCase();
       const res = document.getElementById('modalSearchResults');
       if(!q) { res.innerHTML = ''; return; }
       const matches = ARTICLES.filter(a => a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q));
       res.innerHTML = matches.map(m => `
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}')" style="padding: 0.65rem; background: #050505; border-radius: 0.65rem; cursor: pointer;">
-          <h4 style="font-size: 0.82rem; font-weight: 700; color: #fff;">${m.title}</h4>
+        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}')" style="padding: 0.5rem; background: #050505; border-radius: 0.5rem; cursor: pointer;">
+          <h4 style="font-size: 0.78rem; font-weight: 700; color: #fff;">${m.title}</h4>
         </div>
       `).join('');
     }
 
-    /* Start execution asynchronously after DOM loads */
     window.addEventListener('DOMContentLoaded', () => {
+      router();
       setTimeout(loadBloggerArticlesAsync, 100);
     });
   </script>

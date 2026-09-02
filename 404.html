@@ -26,7 +26,7 @@
   }
   </script>
 
-  <!-- Critical Inline CSS with Full Title Display Support -->
+  <!-- Critical Inline CSS with Absolute Width Containment -->
   <style>
     *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -55,7 +55,7 @@
     }
 
     .max-w-7xl { max-width: 76rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
-    .max-w-3xl { max-width: 44rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; overflow-x: hidden; }
+    .max-w-3xl { max-width: 48rem; margin-left: auto; margin-right: auto; width: 100%; box-sizing: border-box; }
     .px-pad { padding-left: 1rem; padding-right: 1.25rem; box-sizing: border-box; }
     @media (min-width: 640px) { .px-pad { padding-left: 1.5rem; padding-right: 1.5rem; } }
 
@@ -65,7 +65,7 @@
       backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color);
       width: 100%;
     }
-    .header-inner { height: 3.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .header-inner { height: 3.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; }
     .logo {
       font-size: 1.4rem; font-weight: 900; letter-spacing: -0.05em; text-transform: uppercase;
       color: var(--text-white); text-decoration: none; display: inline-flex; align-items: center;
@@ -96,6 +96,7 @@
     }
     .cat-btn:hover, .cat-btn.active { background-color: var(--brand-red); color: var(--text-white); border-color: var(--brand-red); }
 
+    /* Red Animated Featured Hero Card */
     .hero-card-red {
       display: flex; flex-direction: column; gap: 1rem;
       background: linear-gradient(-45deg, #b91c1c, #dc2626, #ef4444, #991b1b);
@@ -151,14 +152,11 @@
     .card:hover { border-color: var(--brand-red); }
     .card-body { padding: 0.75rem; display: flex; flex-direction: column; flex-grow: 1; box-sizing: border-box; }
     @media (min-width: 640px) { .card-body { padding: 1rem; } }
-    
-    /* السماح للعنوان بالظهور كاملاً بدون تقطيع أو اختصار مزعج */
     .card-title {
       font-size: 0.75rem; font-weight: 800; color: var(--text-white); margin-bottom: 0.35rem; line-height: 1.35;
       overflow-wrap: break-word; word-break: break-word;
     }
     @media (min-width: 640px) { .card-title { font-size: 0.9rem; } }
-    
     .card-excerpt {
       font-size: 0.65rem; color: var(--text-slate-400); line-height: 1.4; margin-bottom: 0.5rem;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; flex-grow: 1;
@@ -172,13 +170,28 @@
 
     .section-title { font-size: 1.05rem; font-weight: 900; color: var(--text-white); text-transform: uppercase; margin-bottom: 0.85rem; }
 
+    /* Absolute Strict Containment for Article Reader (Prose) */
     .prose {
-      line-height: 1.75; font-size: 0.9rem; color: var(--text-slate-300); width: 100%; max-width: 100%; overflow-x: hidden; word-break: break-word; overflow-wrap: break-word;
+      line-height: 1.75;
+      font-size: 0.95rem;
+      color: var(--text-slate-300);
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      box-sizing: border-box !important;
     }
-    .prose * { max-width: 100% !important; box-sizing: border-box !important; }
+    .prose * {
+      max-width: 100% !important;
+      width: auto !important;
+      height: auto !important;
+      box-sizing: border-box !important;
+      word-break: break-word !important;
+    }
     .prose h2 { font-size: 1.3rem; font-weight: 800; color: var(--text-white); margin-top: 1.25rem; margin-bottom: 0.5rem; }
-    .prose p { margin-bottom: 1rem; }
-    .prose img { width: 100% !important; height: auto !important; object-fit: contain; border-radius: 0.75rem; }
+    .prose p { margin-bottom: 1rem; width: 100% !important; }
+    .prose img { width: 100% !important; height: auto !important; object-fit: contain !important; border-radius: 0.75rem; }
 
     footer {
       background-color: #030305; border-top: 1px solid var(--border-color);
@@ -513,7 +526,7 @@
 
     function renderArticleView(art) {
       document.getElementById('app').innerHTML = `
-        <div class="max-w-3xl" style="padding-top: 0.5rem;">
+        <div class="max-w-3xl" style="padding-top: 0.5rem; overflow-x: hidden;">
           <button onclick="navigateToHome(event)" class="btn-icon" style="margin-bottom: 1rem;">← Back to Index</button>
           
           <span class="badge-white" style="margin-bottom: 0.4rem; background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid #ef4444;">${art.category}</span>

@@ -7,9 +7,11 @@
   <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, software architecture, and digital transformation.">
   <link id="pageCanonical" rel="canonical" href="">
 
-  <!-- High Priority Preconnects & DNS Prefetch for Speed Optimization -->
+  <!-- High Priority Resource Hints & Preconnects for Maximum Speed -->
   <link rel="preconnect" href="https://images.pexels.com" crossorigin>
   <link rel="dns-prefetch" href="https://images.pexels.com">
+  <link rel="preconnect" href="https://blogger.googleusercontent.com" crossorigin>
+  <link rel="dns-prefetch" href="https://blogger.googleusercontent.com">
   <link rel="preconnect" href="https://www.googleapis.com" crossorigin>
   <link rel="dns-prefetch" href="https://www.googleapis.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -18,7 +20,7 @@
   <!-- Open Graph Meta Tags -->
   <meta id="ogTitle" property="og:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
   <meta id="ogDesc" property="og:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
-  <meta id="ogImage" property="og:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800">
+  <meta id="ogImage" property="og:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=800&q=75">
   <meta id="ogUrl" property="og:url" content="">
   <meta property="og:type" content="website">
 
@@ -26,10 +28,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta id="twTitle" name="twitter:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
   <meta id="twDesc" name="twitter:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
-  <meta id="twImage" name="twitter:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800">
+  <meta id="twImage" name="twitter:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=800&q=75">
 
-  <!-- Async Non-Blocking Tailwind CSS Engine -->
-  <script src="https://cdn.tailwindcss.com?plugins=typography" defer></script>
+  <!-- Synchronous Tailwind Config + Non-Blocking Deferred Engine -->
   <script>
     window.tailwind = window.tailwind || {};
     window.tailwind.config = {
@@ -66,8 +67,9 @@
       }
     };
   </script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography" defer></script>
 
-  <!-- Non-blocking Async FontAwesome Stylesheet -->
+  <!-- Async Non-blocking FontAwesome Stylesheet -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
@@ -93,6 +95,7 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
+    /* Layout stability to eliminate Cumulative Layout Shift */
     #app {
       min-height: 65vh;
       contain-intrinsic-size: 1000px;
@@ -179,7 +182,7 @@
     .prose a { color: #f97316; text-decoration: none; font-weight: 700; transition: color 0.2s; }
     .prose a:hover { color: #ffffff; text-decoration: underline; }
 
-    /* Font Awesome Icon Placeholders */
+    /* Font Awesome Icon Placeholders to prevent CLS */
     .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands {
       display: inline-block;
       width: 1em;
@@ -361,7 +364,7 @@
         author: 'Azex',
         date: 'September 3, 2026',
         readTime: '16 min read',
-        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
+        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=800&q=75',
         excerpt: 'Personal Review • Sales Pipeline & Lead Management. Discover why salespeople hate traditional enterprise CRMs and how noCRM.io eliminates admin friction.',
         tags: ['Software', 'CRM', 'Sales', 'Reviews'],
         content: `<h2>Salespeople Hate Traditional Enterprise CRMs. Here is why.</h2>
@@ -382,7 +385,7 @@
         author: 'Azex',
         date: 'September 2, 2026',
         readTime: '12 min read',
-        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
+        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=800&q=75',
         excerpt: 'Raw activity logs told you someone was at their desk. Work intelligence tells you why work is slow, where capacity is going, and what to fix next.',
         tags: ['AI', 'Work Intelligence', 'Software', 'Insightful'],
         content: `<h2>What Work Intelligence Actually Means</h2>
@@ -397,7 +400,7 @@
         author: 'Azex',
         date: 'August 28, 2026',
         readTime: '10 min read',
-        image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800',
+        image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=format,compress&w=800&q=75',
         excerpt: 'With post-quantum cryptography entering mandatory compliance standards, distributed mesh networks are adopting hybrid lattice-based encryption algorithms.',
         tags: ['Cybersecurity', 'Cloud', 'Quantum'],
         content: `<h2>The Post-Quantum Security Imperative</h2>
@@ -405,16 +408,17 @@
       }
     ];
 
-    const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800';
+    const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=800&q=75';
 
-    // High-performance Image Optimizer Helper with WebP and compression
-    function optimizeImageUrl(url) {
+    // High-performance image URL optimizer with Google WebP engine (-rw) and Pexels WebP compression
+    function optimizeImageUrl(url, targetWidth = 800) {
       if (!url) return DEFAULT_IMAGE;
       if (url.includes('pexels.com')) {
-        return url.replace(/w=\d+/, 'w=800').replace(/&cs=tinysrgb/, '') + '&auto=format,compress&q=70';
+        return url.replace(/w=\d+/, `w=${targetWidth}`).replace(/&cs=tinysrgb/, '') + '&auto=format,compress&q=75';
       }
       if (url.includes('blogger.googleusercontent.com') || url.includes('bp.blogspot.com')) {
-        return url.replace(/\/s\d+(-c)?\//, '/s1600/');
+        // Appending -rw instructs Google CDN to serve next-gen WebP format automatically
+        return url.replace(/\/s\d+(-c)?\//, `/s${targetWidth}-rw/`);
       }
       return url;
     }
@@ -582,7 +586,7 @@
       return img ? (img.src || img.getAttribute('data-src') || '') : '';
     }
 
-    // Process article images: Ultra fast non-blocking lazy load
+    // Process inside article images for max speed and full visual resolution
     function processArticleImages(html) {
       const div = document.createElement('div');
       div.innerHTML = html || '';
@@ -595,7 +599,7 @@
         img.removeAttribute('style');
         img.className = 'max-w-full h-auto mx-auto my-6 block';
         if (img.src) {
-          img.src = optimizeImageUrl(img.src);
+          img.src = optimizeImageUrl(img.src, 1200);
         }
       });
       return div.innerHTML;
@@ -618,7 +622,7 @@
       const rawBody = sanitizeContent(post.content || '');
       const body = processArticleImages(rawBody);
       const plainText = stripHtml(rawBody);
-      const image = optimizeImageUrl(getFirstImage(rawBody) || DEFAULT_IMAGE);
+      const image = optimizeImageUrl(getFirstImage(rawBody) || DEFAULT_IMAGE, 800);
       const rawAuthor = post.author?.displayName || 'Azex';
       const author = sanitizeAuthorName(rawAuthor);
       const date = post.published ? new Date(post.published).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'August 26, 2026';
@@ -641,15 +645,23 @@
       };
     }
 
-    // In-memory caching for zero network-redundancy
-    let bloggerCache = null;
-
+    // Session-based in-memory caching for instantaneous zero-latency browsing
     async function loadBloggerArticles() {
-      if (bloggerCache) return true;
+      try {
+        const cached = sessionStorage.getItem('azexai_posts');
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            ARTICLES = parsed;
+            router();
+          }
+        }
+      } catch(e){}
+
       if (!BLOGGER_CONFIG.apiKey) return false;
       try {
         const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&fetchBodies=true&fetchImages=true&maxResults=${BLOGGER_CONFIG.maxResults}`;
-        const response = await fetch(url, { cache: 'force-cache' });
+        const response = await fetch(url);
         if (!response.ok) throw new Error('Blogger API HTTP error ' + response.status);
         const data = await response.json();
         if (Array.isArray(data.items) && data.items.length > 0) {
@@ -657,7 +669,8 @@
           const existingSlugs = new Set(fetched.map(a => a.slug.toLowerCase()));
           const extra = ARTICLES.filter(a => !existingSlugs.has(a.slug.toLowerCase()));
           ARTICLES = [...fetched, ...extra];
-          bloggerCache = ARTICLES;
+          try { sessionStorage.setItem('azexai_posts', JSON.stringify(ARTICLES)); } catch(e){}
+          router();
           return true;
         }
       } catch (err) {
@@ -858,7 +871,7 @@
             
             <div class="lg:col-span-5 max-h-[220px] sm:max-h-[280px] aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden glass-card border border-red-500/30 shadow-xl relative group-hover:border-red-500 transition-all duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-              <img src="${optimizeImageUrl(hero.image)}" alt="${hero.title}" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <img src="${optimizeImageUrl(hero.image, 900)}" alt="${hero.title}" width="900" height="562" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             </div>
 
           </div>
@@ -875,7 +888,7 @@
             ${filtered.map(art => `
               <div data-article-slug="${art.slug}" onclick="navigateToArticle('${art.slug}', event)" class="glass-card rounded-2xl overflow-hidden hover:border-red-500 transition duration-300 flex flex-col cursor-pointer group shadow-lg">
                 <div class="aspect-[16/10] max-h-[180px] overflow-hidden bg-neutral-950 relative">
-                  <img src="${optimizeImageUrl(art.image)}" alt="${art.title}" width="600" height="375" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                  <img src="${optimizeImageUrl(art.image, 500)}" alt="${art.title}" width="500" height="312" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                   <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 bg-black/80 backdrop-blur-md text-red-400 text-[9px] sm:text-[10px] font-black uppercase tracking-wider rounded-md border border-neutral-800">${art.category}</span>
                 </div>
                 <div class="p-3.5 sm:p-5 flex flex-col flex-grow">
@@ -917,12 +930,12 @@
             </div>
           </div>
           
-          <!-- ARTICLE FEATURED IMAGE - NO FRAME NO CROP -->
+          <!-- ARTICLE FEATURED IMAGE - FULL ASPECT RATIO -->
           <div class="w-full mb-8 overflow-hidden">
-            <img src="${optimizeImageUrl(art.image || DEFAULT_IMAGE)}" alt="${art.title || ''}" fetchpriority="high" decoding="async" class="w-full h-auto max-w-full mx-auto block">
+            <img src="${optimizeImageUrl(art.image || DEFAULT_IMAGE, 1200)}" alt="${art.title || ''}" fetchpriority="high" decoding="async" class="w-full h-auto max-w-full mx-auto block">
           </div>
 
-          <!-- ARTICLE CONTENT - NO FRAME NO CROP -->
+          <!-- ARTICLE CONTENT -->
           <article class="prose prose-invert max-w-none text-slate-300 font-normal leading-relaxed">${art.content || ''}</article>
         </div>
       `;
@@ -1092,14 +1105,11 @@
       app.innerHTML = `<div class="max-w-4xl mx-auto pt-4 pb-16"><button onclick="navigateToHome(event)" class="text-xs font-bold uppercase text-slate-400 hover:text-red-500 mb-4">← Back to Home</button><div class="glass-card p-6 rounded-3xl"><h1 class="text-2xl font-black text-white mb-2 uppercase">${slug}</h1><p class="text-slate-300 text-xs">AZEXAI global intelligence page.</p></div></div>`;
     }
 
-    (async function initAzexai() {
-      const app = document.getElementById('app');
-      if (app) {
-        app.innerHTML = '<div style="min-height:40vh;display:grid;place-items:center;"><div class="text-center p-6"><i class="fa-solid fa-spinner fa-spin text-3xl text-red-500 mb-3" aria-hidden="true"></i><p class="font-black text-white tracking-widest uppercase text-xs">Initializing Azexai Engine...</p></div></div>';
-      }
-      await loadBloggerArticles();
+    // Instant execution engine
+    (function initAzexai() {
       parseUrlRoute();
       router();
+      loadBloggerArticles();
     })();
   </script>
 </body>

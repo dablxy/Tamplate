@@ -250,6 +250,17 @@
       activeCategory: 'All'
     };
 
+    // Slug Normalizer Helper
+    function createSlug(text) {
+      if (!text) return '';
+      return String(text)
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/[\s_]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+
     let ARTICLES = [
       {
         id: 101,
@@ -506,7 +517,7 @@
 
     function bloggerSlug(post) {
       const match = (post.url || '').match(/[^/]+$/);
-      return match ? decodeURIComponent(match[0]).replace(/\.html$/, '') : String(post.id);
+      return match ? decodeURIComponent(match[0]).replace(/\.html$/, '') : createSlug(post.title);
     }
 
     function normalizeBloggerPost(post, index) {
@@ -538,7 +549,7 @@
       };
     }
 
-    // Non-blocking background fetcher
+    // Background Fetch with Deduplication
     async function loadBloggerArticles() {
       try {
         const cached = sessionStorage.getItem('azexai_posts');
@@ -559,8 +570,13 @@
         const data = await response.json();
         if (Array.isArray(data.items) && data.items.length > 0) {
           const fetched = data.items.map(normalizeBloggerPost);
-          const existingSlugs = new Set(fetched.map(a => a.slug.toLowerCase()));
-          const extra = ARTICLES.filter(a => !existingSlugs.has(a.slug.toLowerCase()));
+          const fetchedTitleSlugs = new Set(fetched.map(a => createSlug(a.title)));
+          const fetchedSlugs = new Set(fetched.map(a => a.slug.toLowerCase()));
+
+          const extra = ARTICLES.filter(a => 
+            !fetchedSlugs.has(a.slug.toLowerCase()) && 
+            !fetchedTitleSlugs.has(createSlug(a.title))
+          );
           ARTICLES = [...fetched, ...extra];
           try { sessionStorage.setItem('azexai_posts', JSON.stringify(ARTICLES)); } catch(e){}
           router();
@@ -644,21 +660,45 @@
       `).join('');
     }
 
+    // High-Precision Article Matching (Word Overlap Scoring)
     function findArticleBySlug(slugQuery) {
       if (!slugQuery) return ARTICLES[0];
       let decoded = slugQuery;
       try { decoded = decodeURIComponent(slugQuery); } catch(e){}
 
       const clean = String(decoded).toLowerCase().trim().replace(/_/g, '-').replace(/\.html$/, '');
+      
+      // 1. Exact match by slug or id
       let match = ARTICLES.find(a => a.slug.toLowerCase() === clean || String(a.id) === clean);
       if (match) return match;
-      
-      const words = clean.split('-').filter(w => w.length > 2);
-      match = ARTICLES.find(a => {
-        const aSlug = a.slug.toLowerCase().replace(/_/g, '-');
-        return aSlug.includes(clean) || clean.includes(aSlug) || words.some(w => aSlug.includes(w));
-      });
-      return match || ARTICLES[0];
+
+      // 2. Exact match by title slug
+      match = ARTICLES.find(a => createSlug(a.title) === clean);
+      if (match) return match;
+
+      // 3. Best-fit overlap scoring (Highest matching keyword count)
+      const queryWords = clean.split('-').filter(w => w.length > 2);
+      let bestMatch = null;
+      let highestScore = 0;
+
+      for (const art of ARTICLES) {
+        const artSlug = art.slug.toLowerCase();
+        const artTitleSlug = createSlug(art.title);
+        let score = 0;
+
+        for (const word of queryWords) {
+          if (artSlug.includes(word) || artTitleSlug.includes(word)) {
+            score++;
+          }
+        }
+
+        if (score > highestScore) {
+          highestScore = score;
+          bestMatch = art;
+        }
+      }
+
+      return bestMatch || ARTICLES[0];
     }
 
     function router() {
@@ -997,7 +1037,7 @@
       app.innerHTML = `<div class="max-w-4xl mx-auto pt-4 pb-16"><button onclick="navigateToHome(event)" class="text-xs font-bold uppercase text-slate-400 hover:text-red-500 mb-4">← Back to Home</button><div class="glass-card p-6 rounded-3xl"><h1 class="text-2xl font-black text-white mb-2 uppercase">${slug}</h1><p class="text-slate-300 text-xs">AZEXAI global intelligence page.</p></div></div>`;
     }
 
-    // Immediate synchronous initial render (Zero-Flash & Zero-Loading-Screen)
+    // Zero-delay initialization
     (function initAzexai() {
       parseUrlRoute();
       router();

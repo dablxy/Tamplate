@@ -84,19 +84,19 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
       <!-- Brand Logo -->
-      <a href="#/" onclick="navigateToHome(event)" class="flex items-center group shrink-0" aria-label="AZEXAI Homepage">
+      <a href="#" onclick="navigateToHome(event)" class="flex items-center group shrink-0" aria-label="AZEXAI Homepage">
         <span class="text-2xl sm:text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-orange-500">AI</span><span class="text-orange-500 text-3xl sm:text-4xl leading-none">.</span></span>
       </a>
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-bold tracking-wide text-slate-300" aria-label="Global Navigation">
-        <a href="#/" onclick="navigateToHome(event)" class="text-orange-500 transition hover:text-orange-400">Home</a>
-        <a href="#/category/ai" onclick="setCategory('AI', event)" class="hover:text-orange-500 transition">AI</a>
-        <a href="#/category/tech" onclick="setCategory('Tech', event)" class="hover:text-orange-500 transition">Tech</a>
-        <a href="#/category/gadgets" onclick="setCategory('Gadgets', event)" class="hover:text-orange-500 transition">Gadgets</a>
-        <a href="#/category/software" onclick="setCategory('Software', event)" class="hover:text-orange-500 transition">Software</a>
-        <a href="#/category/cybersecurity" onclick="setCategory('Cybersecurity', event)" class="hover:text-orange-500 transition">Cybersecurity</a>
-        <a href="#/category/reviews" onclick="setCategory('Reviews', event)" class="hover:text-orange-500 transition">Reviews</a>
+        <a href="#" onclick="navigateToHome(event)" class="text-orange-500 transition hover:text-orange-400">Home</a>
+        <a href="#" onclick="setCategory('AI', event)" class="hover:text-orange-500 transition">AI</a>
+        <a href="#" onclick="setCategory('Tech', event)" class="hover:text-orange-500 transition">Tech</a>
+        <a href="#" onclick="setCategory('Gadgets', event)" class="hover:text-orange-500 transition">Gadgets</a>
+        <a href="#" onclick="setCategory('Software', event)" class="hover:text-orange-500 transition">Software</a>
+        <a href="#" onclick="setCategory('Cybersecurity', event)" class="hover:text-orange-500 transition">Cybersecurity</a>
+        <a href="#" onclick="setCategory('Reviews', event)" class="hover:text-orange-500 transition">Reviews</a>
       </nav>
       
       <!-- Header Actions -->
@@ -115,13 +115,7 @@
   <!-- Main Content Area -->
   <main class="flex-grow max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-10 w-full">
     <div id="app">
-      <!-- Initial Skeleton Loader -->
-      <div style="min-height:50vh;display:grid;place-items:center;">
-        <div class="text-center p-6">
-          <i class="fa-solid fa-spinner fa-spin text-4xl text-orange-500 mb-4" aria-hidden="true"></i>
-          <p class="font-black text-white tracking-widest uppercase text-sm">Initializing AZEXAI Engine...</p>
-        </div>
-      </div>
+      <!-- Dynamic Content View -->
     </div>
   </main>
 
@@ -150,8 +144,8 @@
           </div>
 
           <div class="flex items-center gap-3">
-            <a href="https://x.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-orange-500 hover:text-white transition" aria-label="X Profile"><i class="fa-solid fa-x text-xs"></i></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-orange-500 hover:text-white transition" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+            <a href="#" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-orange-500 hover:text-white transition"><i class="fa-solid fa-x text-xs"></i></a>
+            <a href="#" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-orange-500 hover:text-white transition"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
           </div>
         </div>
 
@@ -161,11 +155,11 @@
               <span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Company
             </h3>
             <ul class="space-y-2.5 font-medium text-xs text-slate-400">
-              <li><a href="#/page/about" onclick="navigateToStaticPage('about', event)" class="hover:text-orange-500 transition">About Us</a></li>
-              <li><a href="#/page/editorial" onclick="navigateToStaticPage('editorial', event)" class="hover:text-orange-500 transition">Global Editorial Board</a></li>
-              <li><a href="#/page/privacy" onclick="navigateToStaticPage('privacy', event)" class="hover:text-orange-500 transition">Privacy Policy</a></li>
-              <li><a href="#/page/terms" onclick="navigateToStaticPage('terms', event)" class="hover:text-orange-500 transition">Terms of Service</a></li>
-              <li><a href="#/page/contact" onclick="navigateToStaticPage('contact', event)" class="hover:text-orange-500 transition text-orange-400 font-bold">Contact Desk</a></li>
+              <li><a href="#" onclick="navigateToStaticPage('about', event)" class="hover:text-orange-500 transition">About Us</a></li>
+              <li><a href="#" onclick="navigateToStaticPage('editorial', event)" class="hover:text-orange-500 transition">Global Editorial Board</a></li>
+              <li><a href="#" onclick="navigateToStaticPage('privacy', event)" class="hover:text-orange-500 transition">Privacy Policy</a></li>
+              <li><a href="#" onclick="navigateToStaticPage('terms', event)" class="hover:text-orange-500 transition">Terms of Service</a></li>
+              <li><a href="#" onclick="navigateToStaticPage('contact', event)" class="hover:text-orange-500 transition text-orange-400 font-bold">Contact Desk</a></li>
             </ul>
           </div>
 
@@ -174,10 +168,10 @@
               <span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Categories
             </h3>
             <ul class="space-y-2.5 font-medium text-xs text-slate-400">
-              <li><a href="#/category/ai" onclick="setCategory('AI', event)" class="hover:text-orange-500 transition">Artificial Intelligence</a></li>
-              <li><a href="#/category/tech" onclick="setCategory('Tech', event)" class="hover:text-orange-500 transition">Frontier Tech</a></li>
-              <li><a href="#/category/gadgets" onclick="setCategory('Gadgets', event)" class="hover:text-orange-500 transition">Smart Gadgets</a></li>
-              <li><a href="#/category/software" onclick="setCategory('Software', event)" class="hover:text-orange-500 transition">Software Architecture</a></li>
+              <li><a href="#" onclick="setCategory('AI', event)" class="hover:text-orange-500 transition">Artificial Intelligence</a></li>
+              <li><a href="#" onclick="setCategory('Tech', event)" class="hover:text-orange-500 transition">Frontier Tech</a></li>
+              <li><a href="#" onclick="setCategory('Gadgets', event)" class="hover:text-orange-500 transition">Smart Gadgets</a></li>
+              <li><a href="#" onclick="setCategory('Software', event)" class="hover:text-orange-500 transition">Software Architecture</a></li>
             </ul>
           </div>
 
@@ -186,7 +180,7 @@
               <span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Support
             </h3>
             <ul class="space-y-2.5 font-medium text-xs text-slate-400">
-              <li><a href="#/page/contact" onclick="navigateToStaticPage('contact', event)" class="hover:text-orange-500 transition">Global Newsletter</a></li>
+              <li><a href="#" onclick="navigateToStaticPage('contact', event)" class="hover:text-orange-500 transition">Global Newsletter</a></li>
               <li><a href="mailto:aristo@azexai.com" class="hover:text-orange-500 transition font-bold text-slate-300">aristo@azexai.com</a></li>
             </ul>
           </div>
@@ -206,11 +200,11 @@
     <div class="bg-neutral-900 rounded-3xl max-w-2xl w-full p-5 sm:p-6 shadow-2xl border border-neutral-800">
       <div class="flex items-center justify-between mb-4">
         <h3 class="text-base sm:text-lg font-black uppercase tracking-wider text-white">Search Global Articles</h3>
-        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-orange-500 transition p-1" aria-label="Close modal"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-orange-500 transition p-1"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
       <div class="relative mb-4">
-        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true"></i>
-        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search AI breakthroughs, work intelligence..." class="w-full pl-11 pr-4 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm focus:outline-none focus:border-orange-500 text-white transition-colors" aria-label="Search articles input">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search AI breakthroughs, work intelligence..." class="w-full pl-11 pr-4 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm focus:outline-none focus:border-orange-500 text-white transition-colors">
       </div>
       <div id="modalSearchResults" class="max-h-72 overflow-y-auto space-y-2 no-scrollbar"></div>
     </div>
@@ -391,7 +385,7 @@
         return;
       }
       resultsContainer.innerHTML = matches.map(m => `
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" class="p-3.5 sm:p-4 bg-neutral-950 border border-neutral-800 hover:border-orange-500 rounded-2xl cursor-pointer transition-all flex items-center justify-between group">
+        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}')" class="p-3.5 sm:p-4 bg-neutral-950 border border-neutral-800 hover:border-orange-500 rounded-2xl cursor-pointer transition-all flex items-center justify-between group">
           <div>
             <h4 class="text-xs sm:text-sm font-bold text-white mb-1 group-hover:text-orange-500 transition-colors line-clamp-1">${m.title}</h4>
             <p class="text-xs text-slate-400 line-clamp-1">${m.excerpt}</p>
@@ -401,7 +395,6 @@
       `).join('');
     }
 
-    /* ROBUST HASH ROUTER ENGINE */
     function navigateToHome(e) {
       if (e) e.preventDefault();
       currentView = { type: 'home', slug: null };
@@ -456,14 +449,14 @@
     }
 
     function parseUrlRoute() {
-      const hash = window.location.hash || '#/';
-
+      const hash = window.location.hash || '';
+      const path = window.location.pathname || '';
       if (hash.includes('/article/')) {
-        const slug = hash.split('/article/')[1];
-        currentView = { type: 'article', slug: decodeURIComponent(slug) };
+        currentView = { type: 'article', slug: decodeURIComponent(hash.split('/article/')[1]) };
+      } else if (path.includes('/article/')) {
+        currentView = { type: 'article', slug: decodeURIComponent(path.split('/article/')[1]) };
       } else if (hash.includes('/page/')) {
-        const slug = hash.split('/page/')[1];
-        currentView = { type: 'static', slug: decodeURIComponent(slug) };
+        currentView = { type: 'static', slug: decodeURIComponent(hash.split('/page/')[1]) };
       } else if (hash.includes('/category/')) {
         const catSlug = hash.split('/category/')[1];
         const matched = AZEXAI.categories.find(c => c.toLowerCase() === decodeURIComponent(catSlug).toLowerCase());
@@ -478,7 +471,6 @@
     function router() {
       const app = document.getElementById('app');
       if (!app) return;
-
       if (currentView.type === 'article') {
         const article = findArticleBySlug(currentView.slug);
         if (article) {
@@ -526,13 +518,14 @@
           `).join('')}
         </div>
 
-        <!-- HERO SECTION -->
+        <!-- HERO SECTION WITH ORIGINAL ARTICLE IMAGE & A COMPACT MICRO 3D WHITE AI ROBOT BADGE -->
         ${hero && AZEXAI.activeCategory === 'All' ? `
         <div class="hero-tech-bg p-5 sm:p-12 lg:p-16 rounded-[2rem] sm:rounded-[2.5rem] mb-12 sm:mb-20 border border-neutral-800/80 shadow-2xl cursor-pointer group relative overflow-hidden" onclick="navigateToArticle('${hero.slug}', event)">
           
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center relative z-10">
             <div class="space-y-4">
               
+              <!-- MICRO SLEEK AI ROBOT BADGE (Compact & Clean) -->
               <div class="inline-flex items-center gap-2.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl backdrop-blur-md shadow-sm">
                 <div class="w-5 h-5 rounded-lg bg-white p-0.5 flex items-center justify-center shrink-0">
                   <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -562,6 +555,7 @@
               </div>
             </div>
             
+            <!-- Original Article Image -->
             <div class="aspect-[16/10] sm:aspect-[16/11] rounded-2xl sm:rounded-3xl overflow-hidden glass-card border border-neutral-800 shadow-2xl relative">
               <img src="${hero.image}" alt="${hero.title}" width="1200" height="825" loading="eager" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             </div>
@@ -624,40 +618,6 @@
 
     function renderStaticPageView(slug) {
       const app = document.getElementById('app');
-      
-      const staticPages = {
-        about: {
-          title: "About AZEXAI",
-          cat: "Corporate Overview",
-          body: `<p>AZEXAI is the premier global authority on artificial intelligence, frontier technology, and digital transformation. We deliver rigorous research, technical software benchmarking, and high-impact analysis for enterprise decision-makers worldwide.</p><h2>Our Mission</h2><p>To bridge the gap between complex artificial intelligence research and practical enterprise execution, empowering tech leaders with uncompromised insights.</p>`
-        },
-        editorial: {
-          title: "Global Editorial Board",
-          cat: "Governance & Ethics",
-          body: `<p>The AZEXAI Global Editorial Board maintains strict standards of factual precision, technical depth, and complete independence. Our reviewers consist of senior software architects, AI researchers, and cybersecurity experts.</p>`
-        },
-        privacy: {
-          title: "Privacy Policy",
-          cat: "Legal Compliance",
-          body: `<p>At AZEXAI, we respect your digital privacy. We collect minimal telemetry data strictly necessary to secure our global distribution network and optimize content delivery performance.</p>`
-        },
-        terms: {
-          title: "Terms of Service",
-          cat: "User Agreement",
-          body: `<p>By accessing AZEXAI, you agree to abide by our intellectual property guidelines and professional content distribution terms.</p>`
-        },
-        affiliate: {
-          title: "Affiliate Disclosure",
-          cat: "Commercial Transparency",
-          body: `<p>AZEXAI participates in various selective affiliate technology programs. Our editorial reviews remain entirely independent, objective, and unbiased by commercial partnerships.</p>`
-        },
-        advertise: {
-          title: "Advertise With Us",
-          cat: "Partnership & Growth",
-          body: `<p>Reach an elite global audience of enterprise decision-makers, developers, and tech leaders. Contact our editorial desk directly at <a href="mailto:${CONTACT_EMAIL}" class="text-orange-500 font-bold">${CONTACT_EMAIL}</a>.</p>`
-        }
-      };
-
       if (slug === 'contact') {
         app.innerHTML = `
           <div class="max-w-5xl mx-auto pt-4 sm:pt-6 pb-16 sm:pb-20">
@@ -669,7 +629,7 @@
                 <div>
                   <span class="px-3.5 py-1 bg-orange-500/15 text-orange-400 font-black text-xs uppercase tracking-widest rounded-full border border-orange-500/30">Direct Channel</span>
                   <h1 class="text-2xl sm:text-3xl font-black text-white mt-3 mb-2">Get In Touch</h1>
-                  <p class="text-xs sm:text-sm text-slate-400">Reach out directly to the AZEXAI editorial desk or partnership lead.</p>
+                  <p class="text-xs sm:text-sm text-slate-400">Reach out directly to the AZEXAI editorial desk.</p>
                 </div>
                 <div class="p-4 bg-black/60 border border-neutral-800 rounded-2xl space-y-4">
                   <div class="flex items-start gap-3.5">
@@ -677,13 +637,6 @@
                     <div>
                       <p class="text-[10px] font-bold text-slate-400 uppercase">Email Desk</p>
                       <a href="mailto:${CONTACT_EMAIL}" class="text-sm font-bold text-white hover:text-orange-400">${CONTACT_EMAIL}</a>
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-3.5 pt-3 border-t border-neutral-800">
-                    <div class="p-2.5 bg-green-500/15 text-green-400 rounded-xl text-sm"><i class="fa-solid fa-clock"></i></div>
-                    <div>
-                      <p class="text-[10px] font-bold text-slate-400 uppercase">Response SLA</p>
-                      <p class="text-xs font-bold text-slate-200">Guaranteed within 24 Hours</p>
                     </div>
                   </div>
                 </div>
@@ -727,36 +680,14 @@
         `;
         return;
       }
-
-      const pData = staticPages[slug] || staticPages['about'];
-      app.innerHTML = `
-        <div class="max-w-4xl mx-auto pt-4 sm:pt-6 pb-16 sm:pb-20">
-          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-orange-500 mb-6 sm:mb-10 transition-colors group">
-            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Back to Global Index
-          </button>
-          <div class="glass-card p-6 sm:p-10 rounded-3xl shadow-xl">
-            <span class="px-3.5 py-1 bg-orange-500/15 text-orange-400 font-black text-[10px] sm:text-xs uppercase tracking-widest rounded-full border border-orange-500/30">${pData.cat}</span>
-            <h1 class="text-3xl sm:text-4xl font-black text-white mt-4 mb-6 uppercase">${pData.title}</h1>
-            <div class="prose prose-invert max-w-none text-slate-300 text-xs sm:text-base font-medium leading-relaxed">
-              ${pData.body}
-            </div>
-            
-            <div class="p-6 bg-neutral-950 border border-neutral-800 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
-              <div>
-                <p class="text-white font-bold text-sm">Need further assistance or direct collaboration?</p>
-                <p class="text-xs text-slate-400">Editorial inquiries: <a href="mailto:${CONTACT_EMAIL}" class="text-orange-500 hover:underline">${CONTACT_EMAIL}</a></p>
-              </div>
-              <button onclick="navigateToStaticPage('contact', event)" class="px-5 py-3 bg-orange-500 hover:bg-white hover:text-slate-900 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shrink-0 flex items-center gap-2">
-                <i class="fa-solid fa-paper-plane"></i>
-                <span>Open Contact Desk</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      `;
+      app.innerHTML = `<div class="max-w-4xl mx-auto pt-6 pb-20"><button onclick="navigateToHome(event)" class="text-xs font-bold uppercase text-slate-400 hover:text-orange-500 mb-6">← Back</button><div class="glass-card p-8 rounded-3xl"><h1 class="text-3xl font-black text-white mb-4 uppercase">${slug}</h1><p class="text-slate-300 text-sm">AZEXAI content page.</p></div></div>`;
     }
 
     (async function initAzexai() {
+      const app = document.getElementById('app');
+      if (app) {
+        app.innerHTML = '<div style="min-height:50vh;display:grid;place-items:center;"><div class="text-center p-6"><i class="fa-solid fa-spinner fa-spin text-4xl text-orange-500 mb-4"></i><p class="font-black text-white tracking-widest uppercase text-sm">Initializing Azexai Engine...</p></div></div>';
+      }
       await loadBloggerArticles();
       parseUrlRoute();
       router();

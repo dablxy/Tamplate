@@ -7,17 +7,14 @@
   <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, software architecture, and digital transformation.">
   <link id="pageCanonical" rel="canonical" href="">
 
-  <!-- DNS Preconnects -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Optimized Preconnects (Limited to Essential Domains) -->
   <link rel="preconnect" href="https://images.pexels.com">
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
   <!-- Open Graph Meta Tags -->
   <meta id="ogTitle" property="og:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
   <meta id="ogDesc" property="og:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
-  <meta id="ogImage" property="og:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200">
+  <meta id="ogImage" property="og:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800">
   <meta id="ogUrl" property="og:url" content="">
   <meta property="og:type" content="website">
 
@@ -25,9 +22,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta id="twTitle" name="twitter:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
   <meta id="twDesc" name="twitter:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
-  <meta id="twImage" name="twitter:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200">
+  <meta id="twImage" name="twitter:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800">
 
-  <!-- Tailwind CSS Engine with Custom Theme -->
+  <!-- Tailwind CSS Engine -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
@@ -65,16 +62,17 @@
     }
   </script>
 
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Non-blocking Async FontAwesome Stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
   <style>
     *, ::before, ::after { box-sizing: border-box; }
     
-    /* فرض خط مستقيم وموازاة هندسية حزمة 100% لجميع العناصر والخطوط */
+    /* Strict Normal Typography & Zero-Tilt Policy */
     html, body, div, span, p, a, h1, h2, h3, h4, h5, h6, article, section, blockquote, figure, img, button, input {
-      font-style: normal !important; /* إلغاء أي خط مائل بالكامل */
-      transform: none !important; /* إلغاء أي إعوجاج أو دوران مائل */
+      font-style: normal !important;
+      transform: none !important;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
     }
 
@@ -83,12 +81,20 @@
       color: #f8fafc;
       margin: 0;
       padding: 0;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
     }
 
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
-    /* Radiant Glowing Neon Red Hero Background - Compact Straight Version */
+    /* Reserved layout bounds to prevent CLS */
+    #app {
+      min-height: 65vh;
+      contain-intrinsic-size: 1000px;
+    }
+
+    /* Radiant Glowing Neon Red Hero Background */
     .hero-radiant-red {
       background: radial-gradient(circle at 50% 20%, rgba(239, 68, 68, 0.3) 0%, rgba(153, 27, 27, 0.15) 45%, rgba(5, 5, 5, 0.98) 85%),
                   linear-gradient(135deg, #0d0202 0%, #050505 100%);
@@ -113,7 +119,7 @@
       border-radius: 1.25rem;
     }
 
-    /* إصلاح نصوص المقالة لتكون مستقيمة وبدون مائل أبدًا */
+    /* Prose Performance & Layout Optimization */
     .prose * {
       font-style: normal !important;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
@@ -146,9 +152,19 @@
       margin: 1.5rem 0;
       box-shadow: 0 15px 30px -5px rgba(239, 68, 68, 0.25);
       border: 1px solid rgba(255, 255, 255, 0.08);
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
     }
     .prose a { color: #f97316; text-decoration: none; font-weight: 700; transition: color 0.2s; }
     .prose a:hover { color: #ffffff; text-decoration: underline; }
+
+    /* Font Awesome Icon Placeholders to prevent CLS */
+    .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      text-align: center;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col bg-[#050505] text-slate-100 selection:bg-red-600 selection:text-white transition-colors duration-300">
@@ -179,7 +195,7 @@
           <i class="fa-solid fa-magnifying-glass text-sm sm:text-base" aria-hidden="true"></i>
         </button>
         <button onclick="navigateToStaticPage('contact', event)" class="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-orange-500 to-red-600 hover:from-red-600 hover:to-orange-500 text-white text-xs sm:text-sm font-black uppercase tracking-wider rounded-xl sm:rounded-2xl transition-all shadow-lg shadow-red-600/30" aria-label="Contact Us">
-          <i class="fa-solid fa-paper-plane text-xs"></i>
+          <i class="fa-solid fa-paper-plane text-xs" aria-hidden="true"></i>
           <span>Contact</span>
         </button>
       </div>
@@ -215,7 +231,7 @@
 
           <div class="p-3.5 bg-gradient-to-r from-red-950/50 via-neutral-900 to-neutral-900 border border-red-500/40 rounded-2xl space-y-2 shadow-lg shadow-red-950/30">
             <div class="flex items-center gap-3">
-              <span class="w-8 h-8 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-xs shadow-inner"><i class="fa-solid fa-envelope"></i></span>
+              <span class="w-8 h-8 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-xs shadow-inner"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
               <div>
                 <p class="text-[9px] text-red-400 font-black uppercase tracking-wider">Official Editorial Desk</p>
                 <a href="mailto:aristo@azexai.com" class="text-xs font-bold text-white hover:text-red-400 transition">aristo@azexai.com</a>
@@ -224,8 +240,8 @@
           </div>
 
           <div class="flex items-center gap-3">
-            <a href="#" class="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all shadow-md"><i class="fa-solid fa-x text-xs"></i></a>
-            <a href="#" class="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-md"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+            <a href="#" class="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all shadow-md" aria-label="X Page"><i class="fa-solid fa-x text-xs" aria-hidden="true"></i></a>
+            <a href="#" class="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-md" aria-label="LinkedIn Page"><i class="fa-brands fa-linkedin-in text-xs" aria-hidden="true"></i></a>
           </div>
         </div>
 
@@ -290,10 +306,10 @@
     <div class="bg-neutral-900 rounded-3xl max-w-2xl w-full p-5 sm:p-6 shadow-2xl border border-neutral-800">
       <div class="flex items-center justify-between mb-4">
         <h3 class="text-base sm:text-lg font-black uppercase tracking-wider text-white">Search Global Articles</h3>
-        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-red-500 transition p-1"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-red-500 transition p-1" aria-label="Close modal"><i class="fa-solid fa-xmark text-xl" aria-hidden="true"></i></button>
       </div>
       <div class="relative mb-4">
-        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true"></i>
         <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search AI breakthroughs, work intelligence..." class="w-full pl-11 pr-4 py-3 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm focus:outline-none focus:border-red-500 text-white transition-colors">
       </div>
       <div id="modalSearchResults" class="max-h-72 overflow-y-auto space-y-2 no-scrollbar"></div>
@@ -324,7 +340,7 @@
         author: 'Azex',
         date: 'September 3, 2026',
         readTime: '16 min read',
-        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
         excerpt: 'Personal Review • Sales Pipeline & Lead Management. Discover why salespeople hate traditional enterprise CRMs and how noCRM.io eliminates admin friction.',
         tags: ['Software', 'CRM', 'Sales', 'Reviews'],
         content: `<h2>Salespeople Hate Traditional Enterprise CRMs. Here is why.</h2>
@@ -345,7 +361,7 @@
         author: 'Azex',
         date: 'September 2, 2026',
         readTime: '12 min read',
-        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
         excerpt: 'Raw activity logs told you someone was at their desk. Work intelligence tells you why work is slow, where capacity is going, and what to fix next.',
         tags: ['AI', 'Work Intelligence', 'Software', 'Insightful'],
         content: `<h2>What Work Intelligence Actually Means</h2>
@@ -360,7 +376,7 @@
         author: 'Azex',
         date: 'August 28, 2026',
         readTime: '10 min read',
-        image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800',
         excerpt: 'With post-quantum cryptography entering mandatory compliance standards, distributed mesh networks are adopting hybrid lattice-based encryption algorithms.',
         tags: ['Cybersecurity', 'Cloud', 'Quantum'],
         content: `<h2>The Post-Quantum Security Imperative</h2>
@@ -368,7 +384,19 @@
       }
     ];
 
-    const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200';
+    const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800';
+
+    // Image Optimizer Helper to downscale large image requests for Speed
+    function optimizeImageUrl(url) {
+      if (!url) return DEFAULT_IMAGE;
+      if (url.includes('pexels.com')) {
+        return url.replace(/w=\d+/, 'w=800').replace(/&cs=tinysrgb/, '') + '&auto=format&q=75';
+      }
+      if (url.includes('blogger.googleusercontent.com') || url.includes('bp.blogspot.com')) {
+        return url.replace(/\/s\d+(-c)?\//, '/s800-rw/');
+      }
+      return url;
+    }
 
     function sanitizeAuthorName(name) {
       if (!name) return 'Azex';
@@ -381,7 +409,6 @@
 
     function sanitizeContent(text) {
       if (!text) return '';
-      // إزالة كل الأوسمة والشفرات التي تجعل الخط مائلاً أو تحمل أرقاماً ورموزاً زائدة
       return text
         .replace(/Karim Ouzinba/gi, 'Azex')
         .replace(/Karim/gi, 'Azex')
@@ -541,7 +568,12 @@
       imgs.forEach(img => {
         img.setAttribute('loading', 'lazy');
         img.setAttribute('decoding', 'async');
+        img.setAttribute('width', '800');
+        img.setAttribute('height', '450');
         img.className = 'w-full h-auto object-cover rounded-2xl my-6 shadow-md max-h-[450px]';
+        if (img.src) {
+          img.src = optimizeImageUrl(img.src);
+        }
       });
       return div.innerHTML;
     }
@@ -563,7 +595,7 @@
       const rawBody = sanitizeContent(post.content || '');
       const body = processArticleImages(rawBody);
       const plainText = stripHtml(rawBody);
-      const image = getFirstImage(rawBody) || DEFAULT_IMAGE;
+      const image = optimizeImageUrl(getFirstImage(rawBody) || DEFAULT_IMAGE);
       const rawAuthor = post.author?.displayName || 'Azex';
       const author = sanitizeAuthorName(rawAuthor);
       const date = post.published ? new Date(post.published).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'August 26, 2026';
@@ -673,7 +705,7 @@
             <h4 class="text-xs sm:text-sm font-bold text-white mb-1 group-hover:text-red-400 transition-colors line-clamp-1">${m.title}</h4>
             <p class="text-xs text-slate-400 line-clamp-1">${m.excerpt}</p>
           </div>
-          <i class="fa-solid fa-arrow-right text-red-500 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all text-xs sm:text-sm ml-4 shrink-0"></i>
+          <i class="fa-solid fa-arrow-right text-red-500 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all text-xs sm:text-sm ml-4 shrink-0" aria-hidden="true"></i>
         </div>
       `).join('');
     }
@@ -793,16 +825,16 @@
               <div class="pt-1.5">
                 <button data-article-slug="${hero.slug}" onclick="navigateToArticle('${hero.slug}', event)" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-red-600 via-orange-500 to-red-600 hover:from-white hover:to-white hover:text-slate-900 text-white font-black uppercase tracking-wider rounded-xl transition-all duration-300 shadow-lg shadow-red-600/30 text-xs flex items-center gap-2.5">
                   <span>READ GLOBAL REPORT</span>
-                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i>
                 </button>
               </div>
 
             </div>
             
-            <!-- Right Featured Image Container -->
+            <!-- Right Featured Image Container (Fast High Priority LCP Loading) -->
             <div class="lg:col-span-5 max-h-[220px] sm:max-h-[280px] aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden glass-card border border-red-500/30 shadow-xl relative group-hover:border-red-500 transition-all duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-              <img src="${hero.image}" alt="${hero.title}" width="1200" height="825" loading="eager" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <img src="${optimizeImageUrl(hero.image)}" alt="${hero.title}" width="800" height="500" loading="eager" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             </div>
 
           </div>
@@ -819,7 +851,7 @@
             ${filtered.map(art => `
               <div data-article-slug="${art.slug}" onclick="navigateToArticle('${art.slug}', event)" class="glass-card rounded-2xl overflow-hidden hover:border-red-500 transition duration-300 flex flex-col cursor-pointer group shadow-lg">
                 <div class="aspect-[16/10] max-h-[180px] overflow-hidden bg-neutral-950 relative">
-                  <img src="${art.image}" alt="${art.title}" width="600" height="375" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                  <img src="${optimizeImageUrl(art.image)}" alt="${art.title}" width="600" height="375" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                   <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 bg-black/80 backdrop-blur-md text-red-400 text-[9px] sm:text-[10px] font-black uppercase tracking-wider rounded-md border border-neutral-800">${art.category}</span>
                 </div>
                 <div class="p-3.5 sm:p-5 flex flex-col flex-grow">
@@ -844,7 +876,7 @@
       app.innerHTML = `
         <div class="max-w-4xl mx-auto pt-2 sm:pt-4 pb-12 sm:pb-16">
           <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-5 sm:mb-8 transition-colors group">
-            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Back to Global Index
+            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform" aria-hidden="true"></i> Back to Global Index
           </button>
           <div class="mb-6">
             <span class="px-3.5 py-1 bg-red-500/15 text-red-400 font-black text-xs uppercase tracking-widest rounded-full border border-red-500/30">${art.category || 'AI'}</span>
@@ -857,11 +889,11 @@
                   <p class="text-[10px] text-slate-400 uppercase tracking-wider">${art.date || ''}</p>
                 </div>
               </div>
-              <span class="flex items-center text-emerald-400 font-bold uppercase tracking-wider bg-emerald-500/10 px-3 py-1.5 rounded-lg border border-emerald-500/20 text-xs"><i class="fa-regular fa-clock mr-2"></i>${art.readTime || '5 min read'}</span>
+              <span class="flex items-center text-emerald-400 font-bold uppercase tracking-wider bg-emerald-500/10 px-3 py-1.5 rounded-lg border border-emerald-500/20 text-xs"><i class="fa-regular fa-clock mr-2" aria-hidden="true"></i>${art.readTime || '5 min read'}</span>
             </div>
           </div>
           <div class="aspect-[16/9] max-h-[420px] rounded-2xl overflow-hidden mb-8 glass-card border border-neutral-800 shadow-xl">
-            <img src="${art.image || DEFAULT_IMAGE}" alt="${art.title || ''}" width="1200" height="675" class="w-full h-full object-cover">
+            <img src="${optimizeImageUrl(art.image || DEFAULT_IMAGE)}" alt="${art.title || ''}" width="800" height="450" loading="eager" class="w-full h-full object-cover">
           </div>
           <article class="prose prose-invert max-w-none text-slate-300 font-normal leading-relaxed">${art.content || ''}</article>
         </div>
@@ -876,7 +908,7 @@
         app.innerHTML = `
           <div class="max-w-5xl mx-auto pt-2 sm:pt-4 pb-12 sm:pb-16">
             <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-5 sm:mb-6 transition-colors group">
-              <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Back to Global Index
+              <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform" aria-hidden="true"></i> Back to Global Index
             </button>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
               <div class="lg:col-span-5 glass-card p-5 sm:p-7 rounded-3xl space-y-5">
@@ -889,7 +921,7 @@
                 <div class="space-y-3">
                   <div class="p-3.5 bg-black/60 border border-neutral-800 rounded-2xl">
                     <div class="flex items-start gap-3">
-                      <div class="p-2 bg-red-500/15 text-red-400 rounded-xl text-xs"><i class="fa-solid fa-envelope"></i></div>
+                      <div class="p-2 bg-red-500/15 text-red-400 rounded-xl text-xs"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
                       <div>
                         <p class="text-[9px] font-bold text-slate-400 uppercase">Editorial Inquiries</p>
                         <a href="mailto:${CONTACT_EMAIL}" class="text-xs font-bold text-white hover:text-red-400">${CONTACT_EMAIL}</a>
@@ -899,7 +931,7 @@
 
                   <div class="p-3.5 bg-black/60 border border-neutral-800 rounded-2xl">
                     <div class="flex items-start gap-3">
-                      <div class="p-2 bg-sky-500/15 text-sky-400 rounded-xl text-xs"><i class="fa-solid fa-shield-halved"></i></div>
+                      <div class="p-2 bg-sky-500/15 text-sky-400 rounded-xl text-xs"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
                       <div>
                         <p class="text-[9px] font-bold text-slate-400 uppercase">Research & Partnerships</p>
                         <p class="text-xs font-bold text-white">partnerships@azexai.com</p>
@@ -938,7 +970,7 @@
                     <textarea name="message" rows="4" required placeholder="Write inquiry..." class="w-full px-3.5 py-2.5 bg-neutral-950 border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-red-500 resize-none"></textarea>
                   </div>
                   <button type="submit" class="w-full py-3 bg-gradient-to-r from-red-600 to-orange-500 hover:from-white hover:to-white hover:text-slate-900 text-white font-black uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-red-600/30 text-xs flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                    <i class="fa-solid fa-paper-plane text-xs" aria-hidden="true"></i>
                     <span>Send Dispatch to aristo@azexai.com</span>
                   </button>
                 </form>
@@ -953,7 +985,7 @@
         app.innerHTML = `
           <div class="max-w-4xl mx-auto pt-2 sm:pt-4 pb-16">
             <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 transition-colors">
-              <i class="fa-solid fa-arrow-left"></i> Back to Home
+              <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Home
             </button>
             <div class="glass-card p-6 sm:p-10 rounded-3xl space-y-6">
               <span class="px-3 py-0.5 bg-sky-500/15 text-sky-400 font-black text-xs uppercase tracking-widest rounded-full border border-sky-500/30">AZEXAI Intelligence</span>
@@ -981,7 +1013,7 @@
         app.innerHTML = `
           <div class="max-w-4xl mx-auto pt-2 sm:pt-4 pb-16">
             <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 transition-colors">
-              <i class="fa-solid fa-arrow-left"></i> Back to Home
+              <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Home
             </button>
             <div class="glass-card p-6 sm:p-10 rounded-3xl space-y-6">
               <span class="px-3 py-0.5 bg-sky-500/15 text-sky-400 font-black text-xs uppercase tracking-widest rounded-full border border-sky-500/30">Global Board</span>
@@ -1002,7 +1034,7 @@
         app.innerHTML = `
           <div class="max-w-4xl mx-auto pt-2 sm:pt-4 pb-16">
             <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 transition-colors">
-              <i class="fa-solid fa-arrow-left"></i> Back to Home
+              <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Home
             </button>
             <div class="glass-card p-6 sm:p-10 rounded-3xl space-y-4 text-slate-300 text-xs sm:text-sm leading-relaxed">
               <h1 class="text-2xl font-black text-white uppercase">Privacy Policy</h1>
@@ -1018,7 +1050,7 @@
         app.innerHTML = `
           <div class="max-w-4xl mx-auto pt-2 sm:pt-4 pb-16">
             <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 transition-colors">
-              <i class="fa-solid fa-arrow-left"></i> Back to Home
+              <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Home
             </button>
             <div class="glass-card p-6 sm:p-10 rounded-3xl space-y-4 text-slate-300 text-xs sm:text-sm leading-relaxed">
               <h1 class="text-2xl font-black text-white uppercase">Terms of Service</h1>
@@ -1035,7 +1067,7 @@
     (async function initAzexai() {
       const app = document.getElementById('app');
       if (app) {
-        app.innerHTML = '<div style="min-height:40vh;display:grid;place-items:center;"><div class="text-center p-6"><i class="fa-solid fa-spinner fa-spin text-3xl text-red-500 mb-3"></i><p class="font-black text-white tracking-widest uppercase text-xs">Initializing Azexai Engine...</p></div></div>';
+        app.innerHTML = '<div style="min-height:40vh;display:grid;place-items:center;"><div class="text-center p-6"><i class="fa-solid fa-spinner fa-spin text-3xl text-red-500 mb-3" aria-hidden="true"></i><p class="font-black text-white tracking-widest uppercase text-xs">Initializing Azexai Engine...</p></div></div>';
       }
       await loadBloggerArticles();
       parseUrlRoute();

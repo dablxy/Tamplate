@@ -7,7 +7,7 @@
   <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, software architecture, and digital transformation.">
   <link id="pageCanonical" rel="canonical" href="">
 
-  <!-- Optimized Preconnects (Limited to Essential Domains) -->
+  <!-- Optimized Preconnects -->
   <link rel="preconnect" href="https://images.pexels.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
@@ -88,7 +88,6 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
-    /* Reserved layout bounds to prevent CLS */
     #app {
       min-height: 65vh;
       contain-intrinsic-size: 1000px;
@@ -119,7 +118,7 @@
       border-radius: 1.25rem;
     }
 
-    /* Prose Performance & Layout Optimization */
+    /* Prose Article Typography & NO-FRAME NO-CROP Full Image Policy */
     .prose * {
       font-style: normal !important;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
@@ -145,20 +144,35 @@
       margin: 1.5rem 0 !important;
       color: #f8fafc !important;
     }
+
+    /* STRICT NO-BORDER & FULL ASPECT RATIO FOR ARTICLE IMAGES */
     .prose img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 1rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 15px 30px -5px rgba(239, 68, 68, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
+      max-width: 100% !important;
+      height: auto !important;
+      margin: 1.75rem auto !important;
+      display: block !important;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      aspect-ratio: auto !important;
+      object-fit: contain !important;
+      max-height: none !important;
     }
+    
+    .prose figure {
+      margin: 1.75rem 0 !important;
+      border: none !important;
+      padding: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
     .prose a { color: #f97316; text-decoration: none; font-weight: 700; transition: color 0.2s; }
     .prose a:hover { color: #ffffff; text-decoration: underline; }
 
-    /* Font Awesome Icon Placeholders to prevent CLS */
+    /* Font Awesome Icon Placeholders */
     .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands {
       display: inline-block;
       width: 1em;
@@ -386,14 +400,15 @@
 
     const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800';
 
-    // Image Optimizer Helper to downscale large image requests for Speed
+    // Image Optimizer Helper - Keeps full dimensions without cropping or limits
     function optimizeImageUrl(url) {
       if (!url) return DEFAULT_IMAGE;
       if (url.includes('pexels.com')) {
-        return url.replace(/w=\d+/, 'w=800').replace(/&cs=tinysrgb/, '') + '&auto=format&q=75';
+        return url.replace(/w=\d+/, 'w=1200').replace(/&cs=tinysrgb/, '') + '&auto=format&q=80';
       }
       if (url.includes('blogger.googleusercontent.com') || url.includes('bp.blogspot.com')) {
-        return url.replace(/\/s\d+(-c)?\//, '/s800-rw/');
+        // Fetch full original resolution image without cropping (/s1600/)
+        return url.replace(/\/s\d+(-c)?\//, '/s1600/');
       }
       return url;
     }
@@ -433,7 +448,7 @@
       }
     })();
 
-    // ====================== ROUTING SYSTEM (Clean URLs - No Hash) ======================
+    // ====================== ROUTING SYSTEM ======================
 
     let currentView = { type: 'home', slug: null };
 
@@ -561,6 +576,7 @@
       return img ? (img.src || img.getAttribute('data-src') || '') : '';
     }
 
+    // Process article images: Remove frames, boxes, borders, and height limits
     function processArticleImages(html) {
       const div = document.createElement('div');
       div.innerHTML = html || '';
@@ -568,9 +584,10 @@
       imgs.forEach(img => {
         img.setAttribute('loading', 'lazy');
         img.setAttribute('decoding', 'async');
-        img.setAttribute('width', '800');
-        img.setAttribute('height', '450');
-        img.className = 'w-full h-auto object-cover rounded-2xl my-6 shadow-md max-h-[450px]';
+        img.removeAttribute('width');
+        img.removeAttribute('height');
+        img.removeAttribute('style');
+        img.className = 'max-w-full h-auto mx-auto my-6 block';
         if (img.src) {
           img.src = optimizeImageUrl(img.src);
         }
@@ -782,16 +799,13 @@
         ${hero && AZEXAI.activeCategory === 'All' ? `
         <div data-article-slug="${hero.slug}" class="hero-radiant-red animate-glow-pulse p-4 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl mb-8 sm:mb-14 cursor-pointer group relative overflow-hidden" onclick="navigateToArticle('${hero.slug}', event)">
           
-          <!-- Animated Tech Grid Overlay -->
           <div class="absolute inset-0 hero-grid-pattern opacity-30 pointer-events-none"></div>
 
-          <!-- Subtle Pulsing Red Orb Light Effect -->
           <div class="absolute -top-16 -right-16 w-64 h-64 bg-red-600/30 rounded-full blur-[70px] animate-pulse-slow pointer-events-none"></div>
           <div class="absolute -bottom-16 -left-16 w-64 h-64 bg-orange-600/20 rounded-full blur-[70px] animate-pulse-slow pointer-events-none"></div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center relative z-10">
             
-            <!-- Left Info Content (Compact Scale) -->
             <div class="lg:col-span-7 space-y-3.5">
               
               <div class="flex items-center gap-2 flex-wrap">
@@ -831,7 +845,6 @@
 
             </div>
             
-            <!-- Right Featured Image Container (Fast High Priority LCP Loading) -->
             <div class="lg:col-span-5 max-h-[220px] sm:max-h-[280px] aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden glass-card border border-red-500/30 shadow-xl relative group-hover:border-red-500 transition-all duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
               <img src="${optimizeImageUrl(hero.image)}" alt="${hero.title}" width="800" height="500" loading="eager" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
@@ -892,9 +905,13 @@
               <span class="flex items-center text-emerald-400 font-bold uppercase tracking-wider bg-emerald-500/10 px-3 py-1.5 rounded-lg border border-emerald-500/20 text-xs"><i class="fa-regular fa-clock mr-2" aria-hidden="true"></i>${art.readTime || '5 min read'}</span>
             </div>
           </div>
-          <div class="aspect-[16/9] max-h-[420px] rounded-2xl overflow-hidden mb-8 glass-card border border-neutral-800 shadow-xl">
-            <img src="${optimizeImageUrl(art.image || DEFAULT_IMAGE)}" alt="${art.title || ''}" width="800" height="450" loading="eager" class="w-full h-full object-cover">
+          
+          <!-- ARTICLE FEATURED IMAGE - NO FRAME NO CROP -->
+          <div class="w-full mb-8 overflow-hidden">
+            <img src="${optimizeImageUrl(art.image || DEFAULT_IMAGE)}" alt="${art.title || ''}" loading="eager" class="w-full h-auto max-w-full mx-auto block">
           </div>
+
+          <!-- ARTICLE CONTENT - NO FRAME NO CROP -->
           <article class="prose prose-invert max-w-none text-slate-300 font-normal leading-relaxed">${art.content || ''}</article>
         </div>
       `;

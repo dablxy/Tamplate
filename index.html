@@ -38,9 +38,26 @@
             brand: {
               orange: '#f97316',
               orangeHover: '#ea580c',
+              red: '#ef4444',
+              redGlow: '#dc2626',
               darkBg: '#050505',
               cardBg: '#0e0e0e',
               border: '#1f1f1f'
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float-slow': 'float 6s ease-in-out infinite',
+            'glow-pulse': 'glowRed 3s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-4px)' },
+            },
+            glowRed: {
+              '0%': { boxShadow: '0 0 20px rgba(220, 38, 38, 0.25), inset 0 0 10px rgba(239, 68, 68, 0.15)' },
+              '100%': { boxShadow: '0 0 35px rgba(239, 68, 68, 0.5), inset 0 0 20px rgba(220, 38, 38, 0.3)' },
             }
           }
         }
@@ -53,39 +70,96 @@
 
   <style>
     *, ::before, ::after { box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #050505; color: #f8fafc; margin: 0; padding: 0; }
+    
+    /* فرض خط مستقيم وموازاة هندسية حزمة 100% لجميع العناصر والخطوط */
+    html, body, div, span, p, a, h1, h2, h3, h4, h5, h6, article, section, blockquote, figure, img, button, input {
+      font-style: normal !important; /* إلغاء أي خط مائل بالكامل */
+      transform: none !important; /* إلغاء أي إعوجاج أو دوران مائل */
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    }
+
+    body {
+      background-color: #050505;
+      color: #f8fafc;
+      margin: 0;
+      padding: 0;
+    }
+
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
-    .hero-tech-bg {
-      background: radial-gradient(circle at 50% 30%, rgba(249, 115, 22, 0.15) 0%, rgba(5, 5, 5, 0.98) 75%),
-                  linear-gradient(to bottom, #050505, #0a0a0a);
+    /* Radiant Glowing Neon Red Hero Background - Compact Straight Version */
+    .hero-radiant-red {
+      background: radial-gradient(circle at 50% 20%, rgba(239, 68, 68, 0.3) 0%, rgba(153, 27, 27, 0.15) 45%, rgba(5, 5, 5, 0.98) 85%),
+                  linear-gradient(135deg, #0d0202 0%, #050505 100%);
       position: relative;
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      box-shadow: 0 15px 45px -10px rgba(220, 38, 38, 0.35);
       overflow: hidden;
+      border-radius: 1.5rem;
+    }
+
+    .hero-grid-pattern {
+      background-image: radial-gradient(rgba(239, 68, 68, 0.2) 1px, transparent 1px);
+      background-size: 20px 24px;
     }
 
     .glass-card {
-      background: rgba(14, 14, 14, 0.75);
+      background: rgba(14, 14, 14, 0.85);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+      border-radius: 1.25rem;
     }
 
-    .prose img { max-width: 100%; height: auto; border-radius: 1.25rem; margin: 2rem 0; box-shadow: 0 15px 35px -5px rgba(249, 115, 22, 0.2); }
+    /* إصلاح نصوص المقالة لتكون مستقيمة وبدون مائل أبدًا */
+    .prose * {
+      font-style: normal !important;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
+    .prose h1, .prose h2, .prose h3, .prose h4 {
+      color: #ffffff !important;
+      font-weight: 800 !important;
+      margin-top: 1.5rem !important;
+      margin-bottom: 0.75rem !important;
+      line-height: 1.3 !important;
+    }
+    .prose p {
+      color: #cbd5e1 !important;
+      font-size: 0.95rem !important;
+      line-height: 1.7 !important;
+      margin-bottom: 1.25rem !important;
+    }
+    .prose blockquote {
+      border-left: 4px solid #ef4444 !important;
+      background: rgba(239, 68, 68, 0.08) !important;
+      padding: 1rem 1.25rem !important;
+      border-radius: 0.75rem !important;
+      margin: 1.5rem 0 !important;
+      color: #f8fafc !important;
+    }
+    .prose img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 15px 30px -5px rgba(239, 68, 68, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
     .prose a { color: #f97316; text-decoration: none; font-weight: 700; transition: color 0.2s; }
     .prose a:hover { color: #ffffff; text-decoration: underline; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-[#050505] text-slate-100 selection:bg-orange-500 selection:text-white transition-colors duration-300">
+<body class="min-h-screen flex flex-col bg-[#050505] text-slate-100 selection:bg-red-600 selection:text-white transition-colors duration-300">
 
   <!-- Header -->
   <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-neutral-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
       
       <!-- Brand Logo -->
       <a href="/" onclick="navigateToHome(event)" class="flex items-center group shrink-0" aria-label="AZEXAI Homepage">
-        <span class="text-2xl sm:text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-orange-500">AI</span><span class="text-orange-500 text-3xl sm:text-4xl leading-none">.</span></span>
+        <span class="text-2xl sm:text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-orange-500">AI</span><span class="text-red-500 text-3xl sm:text-4xl leading-none">.</span></span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -101,10 +175,10 @@
       
       <!-- Header Actions -->
       <div class="flex items-center gap-2 sm:gap-3">
-        <button onclick="openSearchModal()" class="p-2.5 sm:p-3 rounded-2xl bg-neutral-900 text-slate-200 hover:border-orange-500 transition border border-neutral-800 shadow-sm" aria-label="Search Articles">
-          <i class="fa-solid fa-magnifying-glass text-base sm:text-lg" aria-hidden="true"></i>
+        <button onclick="openSearchModal()" class="p-2 sm:p-2.5 rounded-2xl bg-neutral-900 text-slate-200 hover:border-red-500 transition border border-neutral-800 shadow-sm" aria-label="Search Articles">
+          <i class="fa-solid fa-magnifying-glass text-sm sm:text-base" aria-hidden="true"></i>
         </button>
-        <button onclick="navigateToStaticPage('contact', event)" class="flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-orange-500 hover:bg-white hover:text-slate-900 text-white text-xs sm:text-sm font-black uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-orange-500/20" aria-label="Contact Us">
+        <button onclick="navigateToStaticPage('contact', event)" class="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-orange-500 to-red-600 hover:from-red-600 hover:to-orange-500 text-white text-xs sm:text-sm font-black uppercase tracking-wider rounded-xl sm:rounded-2xl transition-all shadow-lg shadow-red-600/30" aria-label="Contact Us">
           <i class="fa-solid fa-paper-plane text-xs"></i>
           <span>Contact</span>
         </button>
@@ -113,57 +187,57 @@
   </header>
 
   <!-- Main Content Area -->
-  <main class="flex-grow max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-10 w-full">
+  <main class="flex-grow max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-6 w-full">
     <div id="app">
       <!-- Dynamic Content View -->
     </div>
   </main>
 
   <!-- Multi-Color Vibrant Global Footer -->
-  <footer class="bg-black border-t border-neutral-900 mt-16 sm:mt-24 py-12 sm:py-16 text-sm text-slate-300 relative overflow-hidden">
+  <footer class="bg-black border-t border-neutral-900 mt-12 sm:mt-20 py-10 sm:py-14 text-sm text-slate-300 relative overflow-hidden">
     <!-- Ambient Background Glows -->
-    <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-red-600/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-neutral-800/80">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-neutral-800/80">
         
         <!-- Brand Description & Desk -->
-        <div class="lg:col-span-5 space-y-6">
+        <div class="lg:col-span-5 space-y-5">
           <div class="flex items-center cursor-pointer" onclick="navigateToHome(event)">
-            <span class="text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-orange-500">AI</span><span class="text-orange-500 text-4xl leading-none">.</span></span>
+            <span class="text-2xl sm:text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-orange-500">AI</span><span class="text-red-500 text-3xl sm:text-4xl leading-none">.</span></span>
           </div>
           <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-md">
             Global authority on artificial intelligence, frontier technology, and digital transformation. Delivering high-impact research, technical analysis, and software benchmarking for leaders worldwide.
           </p>
 
-          <div class="p-4 bg-gradient-to-r from-orange-950/40 via-neutral-900 to-neutral-900 border border-orange-500/30 rounded-2xl space-y-3 shadow-lg">
+          <div class="p-3.5 bg-gradient-to-r from-red-950/50 via-neutral-900 to-neutral-900 border border-red-500/40 rounded-2xl space-y-2 shadow-lg shadow-red-950/30">
             <div class="flex items-center gap-3">
-              <span class="w-9 h-9 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center text-sm shadow-inner"><i class="fa-solid fa-envelope"></i></span>
+              <span class="w-8 h-8 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-xs shadow-inner"><i class="fa-solid fa-envelope"></i></span>
               <div>
-                <p class="text-[10px] text-orange-400 font-black uppercase tracking-wider">Official Editorial Desk</p>
-                <a href="mailto:aristo@azexai.com" class="text-xs font-bold text-white hover:text-orange-400 transition">aristo@azexai.com</a>
+                <p class="text-[9px] text-red-400 font-black uppercase tracking-wider">Official Editorial Desk</p>
+                <a href="mailto:aristo@azexai.com" class="text-xs font-bold text-white hover:text-red-400 transition">aristo@azexai.com</a>
               </div>
             </div>
           </div>
 
           <div class="flex items-center gap-3">
-            <a href="#" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all shadow-md"><i class="fa-solid fa-x text-xs"></i></a>
-            <a href="#" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-md"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+            <a href="#" class="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all shadow-md"><i class="fa-solid fa-x text-xs"></i></a>
+            <a href="#" class="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-300 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-md"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
           </div>
         </div>
 
         <!-- Distinct Colored Sections -->
-        <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+        <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
           
           <!-- COMPANY (CYAN / SKY BLUE THEME) -->
-          <div class="space-y-4">
+          <div class="space-y-3">
             <h3 class="text-sky-400 font-black text-xs uppercase tracking-widest flex items-center gap-2">
               <span class="w-2 h-2 bg-sky-400 rounded-full shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span> COMPANY
             </h3>
-            <ul class="space-y-2.5 font-semibold text-xs">
+            <ul class="space-y-2 font-semibold text-xs">
               <li><a href="/about" onclick="navigateToStaticPage('about', event)" class="text-sky-300/80 hover:text-sky-400 hover:translate-x-1 transition-all inline-block">About Us</a></li>
               <li><a href="/editorial" onclick="navigateToStaticPage('editorial', event)" class="text-sky-400 font-bold hover:text-white hover:translate-x-1 transition-all inline-block">Global Editorial Board</a></li>
               <li><a href="/privacy" onclick="navigateToStaticPage('privacy', event)" class="text-sky-300/80 hover:text-sky-400 hover:translate-x-1 transition-all inline-block">Privacy Policy</a></li>
@@ -172,27 +246,27 @@
             </ul>
           </div>
 
-          <!-- CATEGORIES (ORANGE / AMBER THEME) -->
-          <div class="space-y-4">
-            <h3 class="text-amber-500 font-black text-xs uppercase tracking-widest flex items-center gap-2">
-              <span class="w-2 h-2 bg-amber-500 rounded-full shadow-[0_0_8px_rgba(245,158,11,0.8)]"></span> CATEGORIES
+          <!-- CATEGORIES (ORANGE / RED THEME) -->
+          <div class="space-y-3">
+            <h3 class="text-red-500 font-black text-xs uppercase tracking-widest flex items-center gap-2">
+              <span class="w-2 h-2 bg-red-500 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.8)]"></span> CATEGORIES
             </h3>
-            <ul class="space-y-2.5 font-semibold text-xs">
-              <li><a href="/category/ai" onclick="setCategory('AI', event)" class="text-amber-200/80 hover:text-amber-400 hover:translate-x-1 transition-all inline-block">Artificial Intelligence</a></li>
-              <li><a href="/category/tech" onclick="setCategory('Tech', event)" class="text-amber-200/80 hover:text-amber-400 hover:translate-x-1 transition-all inline-block">Frontier Tech</a></li>
-              <li><a href="/category/gadgets" onclick="setCategory('Gadgets', event)" class="text-amber-200/80 hover:text-amber-400 hover:translate-x-1 transition-all inline-block">Smart Gadgets</a></li>
-              <li><a href="/category/software" onclick="setCategory('Software', event)" class="text-amber-200/80 hover:text-amber-400 hover:translate-x-1 transition-all inline-block">Software Architecture</a></li>
-              <li><a href="/category/cybersecurity" onclick="setCategory('Cybersecurity', event)" class="text-amber-200/80 hover:text-amber-400 hover:translate-x-1 transition-all inline-block">Cybersecurity</a></li>
-              <li><a href="/category/reviews" onclick="setCategory('Reviews', event)" class="text-amber-200/80 hover:text-amber-400 hover:translate-x-1 transition-all inline-block">Product Reviews</a></li>
+            <ul class="space-y-2 font-semibold text-xs">
+              <li><a href="/category/ai" onclick="setCategory('AI', event)" class="text-red-200/80 hover:text-red-400 hover:translate-x-1 transition-all inline-block">Artificial Intelligence</a></li>
+              <li><a href="/category/tech" onclick="setCategory('Tech', event)" class="text-red-200/80 hover:text-red-400 hover:translate-x-1 transition-all inline-block">Frontier Tech</a></li>
+              <li><a href="/category/gadgets" onclick="setCategory('Gadgets', event)" class="text-red-200/80 hover:text-red-400 hover:translate-x-1 transition-all inline-block">Smart Gadgets</a></li>
+              <li><a href="/category/software" onclick="setCategory('Software', event)" class="text-red-200/80 hover:text-red-400 hover:translate-x-1 transition-all inline-block">Software Architecture</a></li>
+              <li><a href="/category/cybersecurity" onclick="setCategory('Cybersecurity', event)" class="text-red-200/80 hover:text-red-400 hover:translate-x-1 transition-all inline-block">Cybersecurity</a></li>
+              <li><a href="/category/reviews" onclick="setCategory('Reviews', event)" class="text-red-200/80 hover:text-red-400 hover:translate-x-1 transition-all inline-block">Product Reviews</a></li>
             </ul>
           </div>
 
           <!-- SUPPORT (EMERALD / GREEN THEME) -->
-          <div class="col-span-2 sm:col-span-1 space-y-4">
+          <div class="col-span-2 sm:col-span-1 space-y-3">
             <h3 class="text-emerald-400 font-black text-xs uppercase tracking-widest flex items-center gap-2">
               <span class="w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span> SUPPORT
             </h3>
-            <ul class="space-y-2.5 font-semibold text-xs">
+            <ul class="space-y-2 font-semibold text-xs">
               <li><a href="/contact" onclick="navigateToStaticPage('contact', event)" class="text-emerald-300/80 hover:text-emerald-400 hover:translate-x-1 transition-all inline-block">Global Newsletter</a></li>
               <li><a href="mailto:aristo@azexai.com" class="text-emerald-400 font-bold hover:text-white hover:translate-x-1 transition-all inline-block">aristo@azexai.com</a></li>
               <li><a href="/contact" onclick="navigateToStaticPage('contact', event)" class="text-emerald-300/80 hover:text-emerald-400 hover:translate-x-1 transition-all inline-block">Media Enquiries</a></li>
@@ -204,7 +278,7 @@
 
       </div>
 
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
         <p>© 2026 AZEXAI Authority. All Rights Reserved. Empowering digital ecosystem benchmarks globally.</p>
       </div>
 
@@ -212,15 +286,15 @@
   </footer>
 
   <!-- Search Modal -->
-  <div id="searchModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-20 sm:pt-28 hidden">
+  <div id="searchModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-16 sm:pt-24 hidden">
     <div class="bg-neutral-900 rounded-3xl max-w-2xl w-full p-5 sm:p-6 shadow-2xl border border-neutral-800">
       <div class="flex items-center justify-between mb-4">
         <h3 class="text-base sm:text-lg font-black uppercase tracking-wider text-white">Search Global Articles</h3>
-        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-orange-500 transition p-1"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-red-500 transition p-1"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
       <div class="relative mb-4">
         <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search AI breakthroughs, work intelligence..." class="w-full pl-11 pr-4 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm focus:outline-none focus:border-orange-500 text-white transition-colors">
+        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search AI breakthroughs, work intelligence..." class="w-full pl-11 pr-4 py-3 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm focus:outline-none focus:border-red-500 text-white transition-colors">
       </div>
       <div id="modalSearchResults" class="max-h-72 overflow-y-auto space-y-2 no-scrollbar"></div>
     </div>
@@ -241,14 +315,13 @@
       activeCategory: 'All'
     };
 
-    // Thoroughly purified initial articles without restricted author names
     let ARTICLES = [
       {
         id: 101,
         slug: 'nocrm-io-explained-inside-the-sales-pipeline-tool-built-for-people-who-hate-crms',
         title: 'noCRM.io Explained: Inside the Sales Pipeline Tool Built for People Who Hate CRMs',
         category: 'Software',
-        author: 'AZEXAI Research Bureau',
+        author: 'Azex',
         date: 'September 3, 2026',
         readTime: '16 min read',
         image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -269,7 +342,7 @@
         slug: 'the-evolution-of-work-intelligence-why-traditional-employee-monitoring-is-failing-in-2026',
         title: 'The Evolution of Work Intelligence: Why Traditional Employee Monitoring Is Failing in 2026',
         category: 'AI',
-        author: 'Frontier Tech Desk',
+        author: 'Azex',
         date: 'September 2, 2026',
         readTime: '12 min read',
         image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -284,7 +357,7 @@
         slug: 'quantum-mesh-encryption-securing-cloud-infrastructure-in-2026',
         title: 'Quantum Mesh Encryption: Securing Sovereign Cloud Infrastructure in 2026',
         category: 'Cybersecurity',
-        author: 'AZEXAI Cybersecurity Division',
+        author: 'Azex',
         date: 'August 28, 2026',
         readTime: '10 min read',
         image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -297,14 +370,27 @@
 
     const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200';
 
-    // Helper to sanitize any incoming text against restricted names
     function sanitizeAuthorName(name) {
-      if (!name) return 'AZEXAI Editorial Board';
+      if (!name) return 'Azex';
       const forbiddenPattern = /karim|ouzinba/gi;
       if (forbiddenPattern.test(name)) {
-        return 'AZEXAI Research Bureau';
+        return 'Azex';
       }
       return name;
+    }
+
+    function sanitizeContent(text) {
+      if (!text) return '';
+      // إزالة كل الأوسمة والشفرات التي تجعل الخط مائلاً أو تحمل أرقاماً ورموزاً زائدة
+      return text
+        .replace(/Karim Ouzinba/gi, 'Azex')
+        .replace(/Karim/gi, 'Azex')
+        .replace(/Ouzinba/gi, 'Azex')
+        .replace(/<em>/gi, '<span>')
+        .replace(/<\/em>/gi, '</span>')
+        .replace(/<i>/gi, '<span>')
+        .replace(/<\/i>/gi, '</span>')
+        .replace(/font-style:\s*italic;?/gi, 'font-style: normal;');
     }
 
     // ====================== AUTOMATIC HASH PURGE ======================
@@ -455,7 +541,7 @@
       imgs.forEach(img => {
         img.setAttribute('loading', 'lazy');
         img.setAttribute('decoding', 'async');
-        img.className = 'w-full h-auto object-cover rounded-2xl my-6 shadow-md max-h-[500px]';
+        img.className = 'w-full h-auto object-cover rounded-2xl my-6 shadow-md max-h-[450px]';
       });
       return div.innerHTML;
     }
@@ -474,18 +560,18 @@
     function normalizeBloggerPost(post, index) {
       const labels = Array.isArray(post.labels) ? post.labels : [];
       const category = labels[0] || 'AI';
-      const rawBody = post.content || '';
+      const rawBody = sanitizeContent(post.content || '');
       const body = processArticleImages(rawBody);
       const plainText = stripHtml(rawBody);
       const image = getFirstImage(rawBody) || DEFAULT_IMAGE;
-      const rawAuthor = post.author?.displayName || 'AZEXAI Research';
+      const rawAuthor = post.author?.displayName || 'Azex';
       const author = sanitizeAuthorName(rawAuthor);
       const date = post.published ? new Date(post.published).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'August 26, 2026';
 
       return {
         id: Number(post.id) || index + 1,
         slug: bloggerSlug(post),
-        title: post.title || 'Untitled',
+        title: sanitizeContent(post.title || 'Untitled'),
         category: category,
         author: author,
         date: date,
@@ -570,12 +656,10 @@
         return;
       }
       
-      // Filter out any matches containing restricted keywords
       const matches = ARTICLES.filter(a => 
         (a.title.toLowerCase().includes(query) || 
         a.excerpt.toLowerCase().includes(query) || 
-        a.category.toLowerCase().includes(query)) &&
-        !/karim|ouzinba/gi.test(a.title + a.excerpt + a.author)
+        a.category.toLowerCase().includes(query))
       );
 
       if (matches.length === 0) {
@@ -584,12 +668,12 @@
       }
 
       resultsContainer.innerHTML = matches.map(m => `
-        <div data-article-slug="${m.slug}" onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" class="p-3.5 sm:p-4 bg-neutral-950 border border-neutral-800 hover:border-orange-500 rounded-2xl cursor-pointer transition-all flex items-center justify-between group">
+        <div data-article-slug="${m.slug}" onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" class="p-3.5 sm:p-4 bg-neutral-950 border border-neutral-800 hover:border-red-500 rounded-2xl cursor-pointer transition-all flex items-center justify-between group">
           <div>
-            <h4 class="text-xs sm:text-sm font-bold text-white mb-1 group-hover:text-orange-500 transition-colors line-clamp-1">${m.title}</h4>
+            <h4 class="text-xs sm:text-sm font-bold text-white mb-1 group-hover:text-red-400 transition-colors line-clamp-1">${m.title}</h4>
             <p class="text-xs text-slate-400 line-clamp-1">${m.excerpt}</p>
           </div>
-          <i class="fa-solid fa-arrow-right text-orange-500 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all text-xs sm:text-sm ml-4 shrink-0"></i>
+          <i class="fa-solid fa-arrow-right text-red-500 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all text-xs sm:text-sm ml-4 shrink-0"></i>
         </div>
       `).join('');
     }
@@ -643,7 +727,7 @@
 
       const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject + " - " + firstName + " " + lastName)}&body=${encodeURIComponent("Sender: " + firstName + " " + lastName + "\nEmail: " + email + "\nLocation: " + address + "\n\nMessage:\n" + message)}`;
       window.location.href = mailtoLink;
-      alert(`Thank you ${firstName}! Your message dispatch has been prepared for the AZEXAI Editorial Bureau.`);
+      alert(`Thank you ${firstName}! Your message dispatch has been prepared for Azex.`);
       form.reset();
     }
 
@@ -656,72 +740,94 @@
       const hero = filtered[0] || ARTICLES[0];
 
       app.innerHTML = `
-        <div class="sticky top-20 z-40 bg-black/90 backdrop-blur-md pt-2 pb-3 mb-6 sm:mb-10 border-b border-neutral-800 flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar -mx-3 px-3 sm:mx-0 sm:px-0">
+        <div class="sticky top-16 sm:top-20 z-40 bg-black/90 backdrop-blur-md pt-2 pb-2.5 mb-5 sm:mb-8 border-b border-neutral-800 flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar -mx-3 px-3 sm:mx-0 sm:px-0">
           ${AZEXAI.categories.map(cat => `
-            <button onclick="setCategory('${cat}', event)" class="px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-2xl text-[10px] sm:text-xs font-black uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${AZEXAI.activeCategory === cat ? 'bg-orange-500 text-white border-orange-500 shadow-lg shadow-orange-500/20' : 'bg-neutral-900 text-slate-300 border-neutral-800 hover:border-orange-500'}" aria-label="Filter category ${cat}">${cat}</button>
+            <button onclick="setCategory('${cat}', event)" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${AZEXAI.activeCategory === cat ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white border-red-500 shadow-md shadow-red-600/30' : 'bg-neutral-900 text-slate-300 border-neutral-800 hover:border-red-500'}" aria-label="Filter category ${cat}">${cat}</button>
           `).join('')}
         </div>
 
-        <!-- HERO SECTION -->
+        <!-- ELEGANT COMPACT RADIANT NEON RED HERO SECTION -->
         ${hero && AZEXAI.activeCategory === 'All' ? `
-        <div data-article-slug="${hero.slug}" class="hero-tech-bg p-5 sm:p-12 lg:p-16 rounded-[2rem] sm:rounded-[2.5rem] mb-12 sm:mb-20 border border-neutral-800/80 shadow-2xl cursor-pointer group relative overflow-hidden" onclick="navigateToArticle('${hero.slug}', event)">
+        <div data-article-slug="${hero.slug}" class="hero-radiant-red animate-glow-pulse p-4 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl mb-8 sm:mb-14 cursor-pointer group relative overflow-hidden" onclick="navigateToArticle('${hero.slug}', event)">
           
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center relative z-10">
-            <div class="space-y-4">
+          <!-- Animated Tech Grid Overlay -->
+          <div class="absolute inset-0 hero-grid-pattern opacity-30 pointer-events-none"></div>
+
+          <!-- Subtle Pulsing Red Orb Light Effect -->
+          <div class="absolute -top-16 -right-16 w-64 h-64 bg-red-600/30 rounded-full blur-[70px] animate-pulse-slow pointer-events-none"></div>
+          <div class="absolute -bottom-16 -left-16 w-64 h-64 bg-orange-600/20 rounded-full blur-[70px] animate-pulse-slow pointer-events-none"></div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center relative z-10">
+            
+            <!-- Left Info Content (Compact Scale) -->
+            <div class="lg:col-span-7 space-y-3.5">
               
-              <!-- MICRO SLEEK AI ROBOT BADGE -->
-              <div class="inline-flex items-center gap-2.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl backdrop-blur-md shadow-sm">
-                <div class="w-5 h-5 rounded-lg bg-white p-0.5 flex items-center justify-center shrink-0">
-                  <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="100" r="75" fill="black"/>
-                    <rect x="42" y="75" width="116" height="40" rx="20" fill="white"/>
-                    <circle cx="72" cy="95" r="9" fill="#f97316"/>
-                    <circle cx="128" cy="95" r="9" fill="#f97316"/>
-                  </svg>
+              <div class="flex items-center gap-2 flex-wrap">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-black/60 border border-red-500/50 rounded-lg backdrop-blur-md shadow-sm animate-float-slow">
+                  <div class="w-4 h-4 rounded-md bg-red-600 p-0.5 flex items-center justify-center shrink-0">
+                    <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="100" cy="100" r="75" fill="black"/>
+                      <rect x="42" y="75" width="116" height="40" rx="20" fill="white"/>
+                      <circle cx="72" cy="95" r="9" fill="#ef4444"/>
+                      <circle cx="128" cy="95" r="9" fill="#ef4444"/>
+                    </svg>
+                  </div>
+                  <span class="text-[9px] sm:text-[10px] font-black text-red-200 uppercase tracking-wider">AZEX AI Intelligence</span>
                 </div>
-                <span class="text-[10px] font-black text-white uppercase tracking-wider">AI Assistant</span>
+
+                <span class="px-2.5 py-0.5 bg-red-500/20 text-red-400 text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-md border border-red-500/40 shadow-sm">${hero.category}</span>
               </div>
 
-              <span class="inline-block px-3 py-1 bg-orange-500/15 text-orange-400 text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-full border border-orange-500/30 ml-2">${hero.category}</span>
-
-              <h1 class="text-xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-snug group-hover:text-orange-400 transition-colors">${hero.title}</h1>
-              <p class="text-slate-300 text-xs sm:text-base font-medium line-clamp-3 leading-relaxed">${hero.excerpt}</p>
+              <h1 class="text-lg sm:text-2xl lg:text-3xl font-black tracking-tight text-white leading-snug group-hover:text-red-400 transition-colors drop-shadow-md line-clamp-3">${hero.title}</h1>
               
-              <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                <span class="text-white">${sanitizeAuthorName(hero.author)}</span>
+              <p class="text-slate-300 text-xs sm:text-sm font-medium line-clamp-2 leading-relaxed drop-shadow">${hero.excerpt}</p>
+              
+              <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-300 pt-0.5">
+                <span class="text-red-400 font-black">By Azex</span>
                 <span>&bull;</span>
                 <span>${hero.date}</span>
                 <span>&bull;</span>
-                <span class="text-green-400">${hero.readTime}</span>
+                <span class="text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">${hero.readTime}</span>
               </div>
-              <div class="pt-2">
-                <button data-article-slug="${hero.slug}" onclick="navigateToArticle('${hero.slug}', event)" class="px-6 py-3.5 bg-orange-500 text-white hover:bg-white hover:text-slate-900 font-black uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-orange-500/25 text-xs sm:text-sm">Read Global Report</button>
+
+              <div class="pt-1.5">
+                <button data-article-slug="${hero.slug}" onclick="navigateToArticle('${hero.slug}', event)" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-red-600 via-orange-500 to-red-600 hover:from-white hover:to-white hover:text-slate-900 text-white font-black uppercase tracking-wider rounded-xl transition-all duration-300 shadow-lg shadow-red-600/30 text-xs flex items-center gap-2.5">
+                  <span>READ GLOBAL REPORT</span>
+                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </button>
               </div>
+
             </div>
             
-            <!-- Article Image -->
-            <div class="aspect-[16/10] sm:aspect-[16/11] rounded-2xl sm:rounded-3xl overflow-hidden glass-card border border-neutral-800 shadow-2xl relative">
+            <!-- Right Featured Image Container -->
+            <div class="lg:col-span-5 max-h-[220px] sm:max-h-[280px] aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden glass-card border border-red-500/30 shadow-xl relative group-hover:border-red-500 transition-all duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
               <img src="${hero.image}" alt="${hero.title}" width="1200" height="825" loading="eager" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             </div>
+
           </div>
         </div>
         ` : ''}
 
-        <div class="mb-10 sm:mb-20">
-          <h2 class="text-xl sm:text-3xl font-black text-white uppercase tracking-tight mb-6 sm:mb-8">${AZEXAI.activeCategory !== 'All' ? AZEXAI.activeCategory + ' ' : ''}Analyses</h2>
-          <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+        <div class="mb-8 sm:mb-16">
+          <h2 class="text-lg sm:text-2xl font-black text-white uppercase tracking-tight mb-4 sm:mb-6 flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.9)]"></span>
+            <span>${AZEXAI.activeCategory !== 'All' ? AZEXAI.activeCategory + ' ' : ''}Analyses</span>
+          </h2>
+
+          <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             ${filtered.map(art => `
-              <div data-article-slug="${art.slug}" onclick="navigateToArticle('${art.slug}', event)" class="glass-card rounded-[2rem] overflow-hidden hover:border-orange-500 transition duration-300 flex flex-col cursor-pointer group shadow-xl">
-                <div class="aspect-[16/10] overflow-hidden bg-neutral-950 relative">
+              <div data-article-slug="${art.slug}" onclick="navigateToArticle('${art.slug}', event)" class="glass-card rounded-2xl overflow-hidden hover:border-red-500 transition duration-300 flex flex-col cursor-pointer group shadow-lg">
+                <div class="aspect-[16/10] max-h-[180px] overflow-hidden bg-neutral-950 relative">
                   <img src="${art.image}" alt="${art.title}" width="600" height="375" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                  <span class="absolute top-3 left-3 px-3 py-1 bg-black/80 backdrop-blur-md text-orange-400 text-[10px] font-black uppercase tracking-wider rounded-full border border-neutral-800">${art.category}</span>
+                  <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 bg-black/80 backdrop-blur-md text-red-400 text-[9px] sm:text-[10px] font-black uppercase tracking-wider rounded-md border border-neutral-800">${art.category}</span>
                 </div>
-                <div class="p-4 sm:p-6 flex flex-col flex-grow">
-                  <h3 class="text-xs sm:text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors line-clamp-2 leading-tight">${art.title}</h3>
-                  <p class="text-[11px] sm:text-sm text-slate-400 font-medium line-clamp-2 mb-4 flex-grow leading-relaxed">${art.excerpt}</p>
-                  <div class="flex items-center justify-between pt-3 border-t border-neutral-800/80 text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                    <span class="text-slate-300 line-clamp-1">${sanitizeAuthorName(art.author)}</span>
-                    <span class="text-green-400 shrink-0 ml-2">${art.readTime}</span>
+                <div class="p-3.5 sm:p-5 flex flex-col flex-grow">
+                  <h3 class="text-xs sm:text-base font-bold text-white mb-1.5 group-hover:text-red-400 transition-colors line-clamp-2 leading-snug">${art.title}</h3>
+                  <p class="text-[10px] sm:text-xs text-slate-400 font-medium line-clamp-2 mb-3 flex-grow leading-relaxed">${art.excerpt}</p>
+                  <div class="flex items-center justify-between pt-2 border-t border-neutral-800/80 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <span class="text-slate-300 line-clamp-1 font-bold">By Azex</span>
+                    <span class="text-emerald-400 shrink-0 ml-2">${art.readTime}</span>
                   </div>
                 </div>
               </div>
@@ -734,71 +840,68 @@
     function renderArticleView(art) {
       const app = document.getElementById('app');
       if (!app) return;
-      const authorName = sanitizeAuthorName(art.author);
-      const authorInitial = authorName.charAt(0).toUpperCase();
 
       app.innerHTML = `
-        <div class="max-w-4xl mx-auto pt-4 sm:pt-6 pb-16 sm:pb-20">
-          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-orange-500 mb-6 sm:mb-10 transition-colors group">
+        <div class="max-w-4xl mx-auto pt-2 sm:pt-4 pb-12 sm:pb-16">
+          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-5 sm:mb-8 transition-colors group">
             <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Back to Global Index
           </button>
-          <div class="mb-8">
-            <span class="px-4 py-1.5 bg-orange-500/15 text-orange-400 font-black text-xs uppercase tracking-widest rounded-full border border-orange-500/30">${art.category || 'AI'}</span>
-            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mt-5 mb-6 leading-tight">${art.title || ''}</h1>
-            <div class="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-neutral-800 text-xs sm:text-sm">
+          <div class="mb-6">
+            <span class="px-3.5 py-1 bg-red-500/15 text-red-400 font-black text-xs uppercase tracking-widest rounded-full border border-red-500/30">${art.category || 'AI'}</span>
+            <h1 class="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white mt-4 mb-5 leading-tight">${art.title || ''}</h1>
+            <div class="flex flex-wrap items-center justify-between gap-3 py-3 border-y border-neutral-800 text-xs">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-orange-500 text-white font-black text-base flex items-center justify-center shadow-lg">${authorInitial}</div>
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-red-600 to-orange-500 text-white font-black text-sm flex items-center justify-center shadow-lg">A</div>
                 <div>
-                  <p class="font-bold text-white">${authorName}</p>
+                  <p class="font-bold text-white">Azex</p>
                   <p class="text-[10px] text-slate-400 uppercase tracking-wider">${art.date || ''}</p>
                 </div>
               </div>
-              <span class="flex items-center text-green-400 font-bold uppercase tracking-wider bg-green-500/10 px-4 py-2 rounded-xl border border-green-500/20 text-xs"><i class="fa-regular fa-clock mr-2"></i>${art.readTime || '5 min read'}</span>
+              <span class="flex items-center text-emerald-400 font-bold uppercase tracking-wider bg-emerald-500/10 px-3 py-1.5 rounded-lg border border-emerald-500/20 text-xs"><i class="fa-regular fa-clock mr-2"></i>${art.readTime || '5 min read'}</span>
             </div>
           </div>
-          <div class="aspect-[16/9] rounded-3xl overflow-hidden mb-10 glass-card border border-neutral-800 shadow-2xl">
+          <div class="aspect-[16/9] max-h-[420px] rounded-2xl overflow-hidden mb-8 glass-card border border-neutral-800 shadow-xl">
             <img src="${art.image || DEFAULT_IMAGE}" alt="${art.title || ''}" width="1200" height="675" class="w-full h-full object-cover">
           </div>
-          <article class="prose prose-invert max-w-none text-slate-300 text-sm sm:text-base font-medium leading-relaxed">${art.content || ''}</article>
+          <article class="prose prose-invert max-w-none text-slate-300 font-normal leading-relaxed">${art.content || ''}</article>
         </div>
       `;
     }
 
-    // Rich static page rendering with comprehensive information
     function renderStaticPageView(slug) {
       const app = document.getElementById('app');
       if (!app) return;
 
       if (slug === 'contact') {
         app.innerHTML = `
-          <div class="max-w-5xl mx-auto pt-4 sm:pt-6 pb-16 sm:pb-20">
-            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-orange-500 mb-6 sm:mb-8 transition-colors group">
+          <div class="max-w-5xl mx-auto pt-2 sm:pt-4 pb-12 sm:pb-16">
+            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-5 sm:mb-6 transition-colors group">
               <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Back to Global Index
             </button>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              <div class="lg:col-span-5 glass-card p-6 sm:p-8 rounded-3xl space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+              <div class="lg:col-span-5 glass-card p-5 sm:p-7 rounded-3xl space-y-5">
                 <div>
-                  <span class="px-3.5 py-1 bg-orange-500/15 text-orange-400 font-black text-xs uppercase tracking-widest rounded-full border border-orange-500/30">Direct Channel</span>
-                  <h1 class="text-2xl sm:text-3xl font-black text-white mt-3 mb-2">Get In Touch</h1>
-                  <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Reach out directly to the AZEXAI global editorial board, research bureau, or press intelligence desk.</p>
+                  <span class="px-3 py-0.5 bg-red-500/15 text-red-400 font-black text-xs uppercase tracking-widest rounded-full border border-red-500/30">Direct Channel</span>
+                  <h1 class="text-xl sm:text-2xl font-black text-white mt-2 mb-1">Get In Touch</h1>
+                  <p class="text-xs text-slate-400 leading-relaxed">Reach out directly to the AZEXAI global editorial desk or press intelligence desk.</p>
                 </div>
 
                 <div class="space-y-3">
-                  <div class="p-4 bg-black/60 border border-neutral-800 rounded-2xl">
-                    <div class="flex items-start gap-3.5">
-                      <div class="p-2.5 bg-orange-500/15 text-orange-400 rounded-xl text-sm"><i class="fa-solid fa-envelope"></i></div>
+                  <div class="p-3.5 bg-black/60 border border-neutral-800 rounded-2xl">
+                    <div class="flex items-start gap-3">
+                      <div class="p-2 bg-red-500/15 text-red-400 rounded-xl text-xs"><i class="fa-solid fa-envelope"></i></div>
                       <div>
-                        <p class="text-[10px] font-bold text-slate-400 uppercase">Editorial Inquiries</p>
-                        <a href="mailto:${CONTACT_EMAIL}" class="text-sm font-bold text-white hover:text-orange-400">${CONTACT_EMAIL}</a>
+                        <p class="text-[9px] font-bold text-slate-400 uppercase">Editorial Inquiries</p>
+                        <a href="mailto:${CONTACT_EMAIL}" class="text-xs font-bold text-white hover:text-red-400">${CONTACT_EMAIL}</a>
                       </div>
                     </div>
                   </div>
 
-                  <div class="p-4 bg-black/60 border border-neutral-800 rounded-2xl">
-                    <div class="flex items-start gap-3.5">
-                      <div class="p-2.5 bg-sky-500/15 text-sky-400 rounded-xl text-sm"><i class="fa-solid fa-shield-halved"></i></div>
+                  <div class="p-3.5 bg-black/60 border border-neutral-800 rounded-2xl">
+                    <div class="flex items-start gap-3">
+                      <div class="p-2 bg-sky-500/15 text-sky-400 rounded-xl text-xs"><i class="fa-solid fa-shield-halved"></i></div>
                       <div>
-                        <p class="text-[10px] font-bold text-slate-400 uppercase">Research & Partnerships</p>
+                        <p class="text-[9px] font-bold text-slate-400 uppercase">Research & Partnerships</p>
                         <p class="text-xs font-bold text-white">partnerships@azexai.com</p>
                       </div>
                     </div>
@@ -806,36 +909,36 @@
                 </div>
               </div>
 
-              <div class="lg:col-span-7 glass-card p-6 sm:p-10 rounded-3xl shadow-2xl">
-                <form onsubmit="handleContactSubmit(event)" class="space-y-4">
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="lg:col-span-7 glass-card p-5 sm:p-8 rounded-3xl shadow-2xl">
+                <form onsubmit="handleContactSubmit(event)" class="space-y-3.5">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     <div>
-                      <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">First Name *</label>
-                      <input type="text" name="firstName" required placeholder="e.g. Alex" class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-orange-500">
+                      <label class="block text-[11px] font-bold uppercase tracking-wider mb-1.5 text-slate-300">First Name *</label>
+                      <input type="text" name="firstName" required placeholder="e.g. Alex" class="w-full px-3.5 py-2.5 bg-neutral-950 border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-red-500">
                     </div>
                     <div>
-                      <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Last Name *</label>
-                      <input type="text" name="lastName" required placeholder="e.g. Smith" class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-orange-500">
+                      <label class="block text-[11px] font-bold uppercase tracking-wider mb-1.5 text-slate-300">Last Name *</label>
+                      <input type="text" name="lastName" required placeholder="e.g. Smith" class="w-full px-3.5 py-2.5 bg-neutral-950 border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-red-500">
                     </div>
                   </div>
                   <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Email Address *</label>
-                    <input type="email" name="email" required placeholder="name@domain.com" class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-orange-500">
+                    <label class="block text-[11px] font-bold uppercase tracking-wider mb-1.5 text-slate-300">Email Address *</label>
+                    <input type="email" name="email" required placeholder="name@domain.com" class="w-full px-3.5 py-2.5 bg-neutral-950 border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-red-500">
                   </div>
                   <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Address / Location *</label>
-                    <input type="text" name="address" required placeholder="City, Country" class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-orange-500">
+                    <label class="block text-[11px] font-bold uppercase tracking-wider mb-1.5 text-slate-300">Address / Location *</label>
+                    <input type="text" name="address" required placeholder="City, Country" class="w-full px-3.5 py-2.5 bg-neutral-950 border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-red-500">
                   </div>
                   <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Subject *</label>
-                    <input type="text" name="subject" required placeholder="Partnership, Benchmarking, Editorial..." class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-orange-500">
+                    <label class="block text-[11px] font-bold uppercase tracking-wider mb-1.5 text-slate-300">Subject *</label>
+                    <input type="text" name="subject" required placeholder="Partnership, Benchmarking..." class="w-full px-3.5 py-2.5 bg-neutral-950 border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-red-500">
                   </div>
                   <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Message *</label>
-                    <textarea name="message" rows="5" required placeholder="Write inquiry..." class="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-orange-500 resize-none"></textarea>
+                    <label class="block text-[11px] font-bold uppercase tracking-wider mb-1.5 text-slate-300">Message *</label>
+                    <textarea name="message" rows="4" required placeholder="Write inquiry..." class="w-full px-3.5 py-2.5 bg-neutral-950 border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-red-500 resize-none"></textarea>
                   </div>
-                  <button type="submit" class="w-full py-4 bg-orange-500 hover:bg-white hover:text-slate-900 text-white font-black uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-orange-500/25 text-xs sm:text-sm flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-paper-plane"></i>
+                  <button type="submit" class="w-full py-3 bg-gradient-to-r from-red-600 to-orange-500 hover:from-white hover:to-white hover:text-slate-900 text-white font-black uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-red-600/30 text-xs flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
                     <span>Send Dispatch to aristo@azexai.com</span>
                   </button>
                 </form>
@@ -848,23 +951,23 @@
 
       if (slug === 'about') {
         app.innerHTML = `
-          <div class="max-w-4xl mx-auto pt-4 sm:pt-6 pb-20">
-            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-orange-500 mb-8 transition-colors">
+          <div class="max-w-4xl mx-auto pt-2 sm:pt-4 pb-16">
+            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 transition-colors">
               <i class="fa-solid fa-arrow-left"></i> Back to Home
             </button>
-            <div class="glass-card p-8 sm:p-12 rounded-3xl space-y-8">
-              <span class="px-3.5 py-1 bg-sky-500/15 text-sky-400 font-black text-xs uppercase tracking-widest rounded-full border border-sky-500/30">AZEXAI Intelligence</span>
-              <h1 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">About AZEXAI Authority</h1>
-              <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            <div class="glass-card p-6 sm:p-10 rounded-3xl space-y-6">
+              <span class="px-3 py-0.5 bg-sky-500/15 text-sky-400 font-black text-xs uppercase tracking-widest rounded-full border border-sky-500/30">AZEXAI Intelligence</span>
+              <h1 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">About AZEXAI Authority</h1>
+              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
                 AZEXAI is an independent global technology authority specializing in frontier artificial intelligence, software infrastructure benchmarking, cybersecurity architecture, and digital transformation research.
               </p>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-                <div class="p-6 bg-neutral-950 border border-neutral-800 rounded-2xl">
-                  <h3 class="text-orange-400 font-bold mb-2 uppercase text-sm">Mission</h3>
-                  <p class="text-xs text-slate-400 leading-relaxed">Delivering objective, telemetry-backed technical intelligence and software reviews to empower technology executives, engineers, and decision-makers worldwide.</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                <div class="p-5 bg-neutral-950 border border-neutral-800 rounded-2xl">
+                  <h3 class="text-red-400 font-bold mb-1.5 uppercase text-xs">Mission</h3>
+                  <p class="text-xs text-slate-400 leading-relaxed">Delivering objective, telemetry-backed technical intelligence and software reviews to empower technology decision-makers worldwide.</p>
                 </div>
-                <div class="p-6 bg-neutral-950 border border-neutral-800 rounded-2xl">
-                  <h3 class="text-sky-400 font-bold mb-2 uppercase text-sm">Editorial Standards</h3>
+                <div class="p-5 bg-neutral-950 border border-neutral-800 rounded-2xl">
+                  <h3 class="text-sky-400 font-bold mb-1.5 uppercase text-xs">Editorial Standards</h3>
                   <p class="text-xs text-slate-400 leading-relaxed">Every review and report undergoes rigorous benchmark testing without commercial influence or sponsored bias.</p>
                 </div>
               </div>
@@ -876,18 +979,18 @@
 
       if (slug === 'editorial') {
         app.innerHTML = `
-          <div class="max-w-4xl mx-auto pt-4 sm:pt-6 pb-20">
-            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-orange-500 mb-8 transition-colors">
+          <div class="max-w-4xl mx-auto pt-2 sm:pt-4 pb-16">
+            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 transition-colors">
               <i class="fa-solid fa-arrow-left"></i> Back to Home
             </button>
-            <div class="glass-card p-8 sm:p-12 rounded-3xl space-y-8">
-              <span class="px-3.5 py-1 bg-sky-500/15 text-sky-400 font-black text-xs uppercase tracking-widest rounded-full border border-sky-500/30">Global Board</span>
-              <h1 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">Global Editorial Board</h1>
-              <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Our global editorial board comprises computer scientists, cybersecurity researchers, and enterprise software architects dedicated to upholding editorial integrity and deep empirical testing.
+            <div class="glass-card p-6 sm:p-10 rounded-3xl space-y-6">
+              <span class="px-3 py-0.5 bg-sky-500/15 text-sky-400 font-black text-xs uppercase tracking-widest rounded-full border border-sky-500/30">Global Board</span>
+              <h1 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">Global Editorial Board</h1>
+              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                Our global editorial board comprises computer scientists, cybersecurity researchers, and enterprise software architects dedicated to upholding editorial integrity and deep empirical testing under Azex editorial lead.
               </p>
-              <div class="p-6 bg-neutral-950 border border-neutral-800 rounded-2xl">
-                <p class="text-xs text-slate-400 leading-relaxed">For research inquiries or press submissions, reach out to <a href="mailto:aristo@azexai.com" class="text-orange-400 font-bold">aristo@azexai.com</a>.</p>
+              <div class="p-5 bg-neutral-950 border border-neutral-800 rounded-2xl">
+                <p class="text-xs text-slate-400 leading-relaxed">For research inquiries or press submissions, reach out to <a href="mailto:aristo@azexai.com" class="text-red-400 font-bold">aristo@azexai.com</a>.</p>
               </div>
             </div>
           </div>
@@ -897,12 +1000,12 @@
 
       if (slug === 'privacy') {
         app.innerHTML = `
-          <div class="max-w-4xl mx-auto pt-4 sm:pt-6 pb-20">
-            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-orange-500 mb-8 transition-colors">
+          <div class="max-w-4xl mx-auto pt-2 sm:pt-4 pb-16">
+            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 transition-colors">
               <i class="fa-solid fa-arrow-left"></i> Back to Home
             </button>
-            <div class="glass-card p-8 sm:p-12 rounded-3xl space-y-6 text-slate-300 text-sm leading-relaxed">
-              <h1 class="text-3xl font-black text-white uppercase">Privacy Policy</h1>
+            <div class="glass-card p-6 sm:p-10 rounded-3xl space-y-4 text-slate-300 text-xs sm:text-sm leading-relaxed">
+              <h1 class="text-2xl font-black text-white uppercase">Privacy Policy</h1>
               <p>At AZEXAI, we respect reader privacy and maintain zero invasive tracking. Standard analytics are anonymized to analyze overall aggregate site performance and bandwidth usage.</p>
               <p>We do not share, sell, or commercialize visitor communications or email dispatches sent to our official desks.</p>
             </div>
@@ -913,12 +1016,12 @@
 
       if (slug === 'terms') {
         app.innerHTML = `
-          <div class="max-w-4xl mx-auto pt-4 sm:pt-6 pb-20">
-            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-orange-500 mb-8 transition-colors">
+          <div class="max-w-4xl mx-auto pt-2 sm:pt-4 pb-16">
+            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 transition-colors">
               <i class="fa-solid fa-arrow-left"></i> Back to Home
             </button>
-            <div class="glass-card p-8 sm:p-12 rounded-3xl space-y-6 text-slate-300 text-sm leading-relaxed">
-              <h1 class="text-3xl font-black text-white uppercase">Terms of Service</h1>
+            <div class="glass-card p-6 sm:p-10 rounded-3xl space-y-4 text-slate-300 text-xs sm:text-sm leading-relaxed">
+              <h1 class="text-2xl font-black text-white uppercase">Terms of Service</h1>
               <p>All research papers, benchmarks, and articles published on AZEXAI are protected under international intellectual property frameworks. Content may be cited with appropriate attribution link to AZEXAI Authority.</p>
             </div>
           </div>
@@ -926,13 +1029,13 @@
         return;
       }
 
-      app.innerHTML = `<div class="max-w-4xl mx-auto pt-6 pb-20"><button onclick="navigateToHome(event)" class="text-xs font-bold uppercase text-slate-400 hover:text-orange-500 mb-6">← Back to Home</button><div class="glass-card p-8 rounded-3xl"><h1 class="text-3xl font-black text-white mb-4 uppercase">${slug}</h1><p class="text-slate-300 text-sm">AZEXAI global intelligence page.</p></div></div>`;
+      app.innerHTML = `<div class="max-w-4xl mx-auto pt-4 pb-16"><button onclick="navigateToHome(event)" class="text-xs font-bold uppercase text-slate-400 hover:text-red-500 mb-4">← Back to Home</button><div class="glass-card p-6 rounded-3xl"><h1 class="text-2xl font-black text-white mb-2 uppercase">${slug}</h1><p class="text-slate-300 text-xs">AZEXAI global intelligence page.</p></div></div>`;
     }
 
     (async function initAzexai() {
       const app = document.getElementById('app');
       if (app) {
-        app.innerHTML = '<div style="min-height:50vh;display:grid;place-items:center;"><div class="text-center p-6"><i class="fa-solid fa-spinner fa-spin text-4xl text-orange-500 mb-4"></i><p class="font-black text-white tracking-widest uppercase text-sm">Initializing Azexai Engine...</p></div></div>';
+        app.innerHTML = '<div style="min-height:40vh;display:grid;place-items:center;"><div class="text-center p-6"><i class="fa-solid fa-spinner fa-spin text-3xl text-red-500 mb-3"></i><p class="font-black text-white tracking-widest uppercase text-xs">Initializing Azexai Engine...</p></div></div>';
       }
       await loadBloggerArticles();
       parseUrlRoute();

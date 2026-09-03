@@ -7,7 +7,7 @@
   <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, software architecture, and digital transformation.">
   <link id="pageCanonical" rel="canonical" href="">
 
-  <!-- High Priority Resource Hints & Preconnects for Maximum Speed -->
+  <!-- Preconnect Domains for Speed -->
   <link rel="preconnect" href="https://images.pexels.com" crossorigin>
   <link rel="dns-prefetch" href="https://images.pexels.com">
   <link rel="preconnect" href="https://blogger.googleusercontent.com" crossorigin>
@@ -15,7 +15,6 @@
   <link rel="preconnect" href="https://www.googleapis.com" crossorigin>
   <link rel="dns-prefetch" href="https://www.googleapis.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
   <!-- Open Graph Meta Tags -->
   <meta id="ogTitle" property="og:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
@@ -30,7 +29,7 @@
   <meta id="twDesc" name="twitter:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
   <meta id="twImage" name="twitter:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=800&q=75">
 
-  <!-- Synchronous Tailwind Config + Non-Blocking Deferred Engine -->
+  <!-- Tailwind CSS Config Script (Synchronous to prevent FOUC / Unstyled Text Flash) -->
   <script>
     window.tailwind = window.tailwind || {};
     window.tailwind.config = {
@@ -67,16 +66,15 @@
       }
     };
   </script>
-  <script src="https://cdn.tailwindcss.com?plugins=typography" defer></script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 
-  <!-- Async Non-blocking FontAwesome Stylesheet -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <!-- FontAwesome Icon Stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     *, ::before, ::after { box-sizing: border-box; }
     
-    /* Strict Normal Typography & Zero-Tilt Policy */
+    /* Global Typography Standard */
     html, body, div, span, p, a, h1, h2, h3, h4, h5, h6, article, section, blockquote, figure, img, button, input {
       font-style: normal !important;
       transform: none !important;
@@ -88,18 +86,15 @@
       color: #f8fafc;
       margin: 0;
       padding: 0;
-      text-rendering: optimizeSpeed;
+      text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
     }
 
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
-    /* Layout stability to eliminate Cumulative Layout Shift */
     #app {
       min-height: 65vh;
-      contain-intrinsic-size: 1000px;
-      content-visibility: auto;
     }
 
     /* Radiant Glowing Neon Red Hero Background */
@@ -127,7 +122,7 @@
       border-radius: 1.25rem;
     }
 
-    /* Prose Article Typography & NO-FRAME NO-CROP Full Image Policy */
+    /* Article Styles */
     .prose * {
       font-style: normal !important;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
@@ -154,7 +149,7 @@
       color: #f8fafc !important;
     }
 
-    /* STRICT NO-BORDER & FULL ASPECT RATIO FOR ARTICLE IMAGES */
+    /* Full Aspect Image Policy */
     .prose img {
       max-width: 100% !important;
       height: auto !important;
@@ -168,7 +163,6 @@
       aspect-ratio: auto !important;
       object-fit: contain !important;
       max-height: none !important;
-      content-visibility: auto;
     }
     
     .prose figure {
@@ -182,7 +176,6 @@
     .prose a { color: #f97316; text-decoration: none; font-weight: 700; transition: color 0.2s; }
     .prose a:hover { color: #ffffff; text-decoration: underline; }
 
-    /* Font Awesome Icon Placeholders to prevent CLS */
     .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands {
       display: inline-block;
       width: 1em;
@@ -235,7 +228,6 @@
 
   <!-- Multi-Color Vibrant Global Footer -->
   <footer class="bg-black border-t border-neutral-900 mt-12 sm:mt-20 py-10 sm:py-14 text-sm text-slate-300 relative overflow-hidden">
-    <!-- Ambient Background Glows -->
     <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-red-600/15 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -410,15 +402,14 @@
 
     const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=800&q=75';
 
-    // High-performance image URL optimizer with Google WebP engine (-rw) and Pexels WebP compression
+    // Image URL Optimizer for high performance and full dimensions
     function optimizeImageUrl(url, targetWidth = 800) {
       if (!url) return DEFAULT_IMAGE;
       if (url.includes('pexels.com')) {
         return url.replace(/w=\d+/, `w=${targetWidth}`).replace(/&cs=tinysrgb/, '') + '&auto=format,compress&q=75';
       }
       if (url.includes('blogger.googleusercontent.com') || url.includes('bp.blogspot.com')) {
-        // Appending -rw instructs Google CDN to serve next-gen WebP format automatically
-        return url.replace(/\/s\d+(-c)?\//, `/s${targetWidth}-rw/`);
+        return url.replace(/\/s\d+(-c)?\//, `/s1600/`);
       }
       return url;
     }
@@ -586,7 +577,6 @@
       return img ? (img.src || img.getAttribute('data-src') || '') : '';
     }
 
-    // Process inside article images for max speed and full visual resolution
     function processArticleImages(html) {
       const div = document.createElement('div');
       div.innerHTML = html || '';
@@ -645,7 +635,7 @@
       };
     }
 
-    // Session-based in-memory caching for instantaneous zero-latency browsing
+    // Fast non-blocking load with local cache
     async function loadBloggerArticles() {
       try {
         const cached = sessionStorage.getItem('azexai_posts');
@@ -930,7 +920,7 @@
             </div>
           </div>
           
-          <!-- ARTICLE FEATURED IMAGE - FULL ASPECT RATIO -->
+          <!-- ARTICLE FEATURED IMAGE -->
           <div class="w-full mb-8 overflow-hidden">
             <img src="${optimizeImageUrl(art.image || DEFAULT_IMAGE, 1200)}" alt="${art.title || ''}" fetchpriority="high" decoding="async" class="w-full h-auto max-w-full mx-auto block">
           </div>
@@ -1105,7 +1095,7 @@
       app.innerHTML = `<div class="max-w-4xl mx-auto pt-4 pb-16"><button onclick="navigateToHome(event)" class="text-xs font-bold uppercase text-slate-400 hover:text-red-500 mb-4">← Back to Home</button><div class="glass-card p-6 rounded-3xl"><h1 class="text-2xl font-black text-white mb-2 uppercase">${slug}</h1><p class="text-slate-300 text-xs">AZEXAI global intelligence page.</p></div></div>`;
     }
 
-    // Instant execution engine
+    // Instant Execution Pipeline (Zero-Flash)
     (function initAzexai() {
       parseUrlRoute();
       router();

@@ -7,9 +7,13 @@
   <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, software architecture, and digital transformation.">
   <link id="pageCanonical" rel="canonical" href="">
 
-  <!-- Optimized Preconnects -->
-  <link rel="preconnect" href="https://images.pexels.com">
+  <!-- High Priority Preconnects & DNS Prefetch for Speed Optimization -->
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+  <link rel="dns-prefetch" href="https://images.pexels.com">
+  <link rel="preconnect" href="https://www.googleapis.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googleapis.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
   <!-- Open Graph Meta Tags -->
   <meta id="ogTitle" property="og:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
@@ -24,10 +28,11 @@
   <meta id="twDesc" name="twitter:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
   <meta id="twImage" name="twitter:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800">
 
-  <!-- Tailwind CSS Engine -->
-  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <!-- Async Non-Blocking Tailwind CSS Engine -->
+  <script src="https://cdn.tailwindcss.com?plugins=typography" defer></script>
   <script>
-    tailwind.config = {
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
@@ -59,7 +64,7 @@
           }
         }
       }
-    }
+    };
   </script>
 
   <!-- Non-blocking Async FontAwesome Stylesheet -->
@@ -81,7 +86,7 @@
       color: #f8fafc;
       margin: 0;
       padding: 0;
-      text-rendering: optimizeLegibility;
+      text-rendering: optimizeSpeed;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -91,6 +96,7 @@
     #app {
       min-height: 65vh;
       contain-intrinsic-size: 1000px;
+      content-visibility: auto;
     }
 
     /* Radiant Glowing Neon Red Hero Background */
@@ -111,8 +117,8 @@
 
     .glass-card {
       background: rgba(14, 14, 14, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
       border-radius: 1.25rem;
@@ -159,6 +165,7 @@
       aspect-ratio: auto !important;
       object-fit: contain !important;
       max-height: none !important;
+      content-visibility: auto;
     }
     
     .prose figure {
@@ -400,14 +407,13 @@
 
     const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800';
 
-    // Image Optimizer Helper - Keeps full dimensions without cropping or limits
+    // High-performance Image Optimizer Helper with WebP and compression
     function optimizeImageUrl(url) {
       if (!url) return DEFAULT_IMAGE;
       if (url.includes('pexels.com')) {
-        return url.replace(/w=\d+/, 'w=1200').replace(/&cs=tinysrgb/, '') + '&auto=format&q=80';
+        return url.replace(/w=\d+/, 'w=800').replace(/&cs=tinysrgb/, '') + '&auto=format,compress&q=70';
       }
       if (url.includes('blogger.googleusercontent.com') || url.includes('bp.blogspot.com')) {
-        // Fetch full original resolution image without cropping (/s1600/)
         return url.replace(/\/s\d+(-c)?\//, '/s1600/');
       }
       return url;
@@ -576,7 +582,7 @@
       return img ? (img.src || img.getAttribute('data-src') || '') : '';
     }
 
-    // Process article images: Remove frames, boxes, borders, and height limits
+    // Process article images: Ultra fast non-blocking lazy load
     function processArticleImages(html) {
       const div = document.createElement('div');
       div.innerHTML = html || '';
@@ -635,11 +641,15 @@
       };
     }
 
+    // In-memory caching for zero network-redundancy
+    let bloggerCache = null;
+
     async function loadBloggerArticles() {
+      if (bloggerCache) return true;
       if (!BLOGGER_CONFIG.apiKey) return false;
       try {
         const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&fetchBodies=true&fetchImages=true&maxResults=${BLOGGER_CONFIG.maxResults}`;
-        const response = await fetch(url, { cache: 'no-cache' });
+        const response = await fetch(url, { cache: 'force-cache' });
         if (!response.ok) throw new Error('Blogger API HTTP error ' + response.status);
         const data = await response.json();
         if (Array.isArray(data.items) && data.items.length > 0) {
@@ -647,6 +657,7 @@
           const existingSlugs = new Set(fetched.map(a => a.slug.toLowerCase()));
           const extra = ARTICLES.filter(a => !existingSlugs.has(a.slug.toLowerCase()));
           ARTICLES = [...fetched, ...extra];
+          bloggerCache = ARTICLES;
           return true;
         }
       } catch (err) {
@@ -847,7 +858,7 @@
             
             <div class="lg:col-span-5 max-h-[220px] sm:max-h-[280px] aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden glass-card border border-red-500/30 shadow-xl relative group-hover:border-red-500 transition-all duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-              <img src="${optimizeImageUrl(hero.image)}" alt="${hero.title}" width="800" height="500" loading="eager" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <img src="${optimizeImageUrl(hero.image)}" alt="${hero.title}" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             </div>
 
           </div>
@@ -908,7 +919,7 @@
           
           <!-- ARTICLE FEATURED IMAGE - NO FRAME NO CROP -->
           <div class="w-full mb-8 overflow-hidden">
-            <img src="${optimizeImageUrl(art.image || DEFAULT_IMAGE)}" alt="${art.title || ''}" loading="eager" class="w-full h-auto max-w-full mx-auto block">
+            <img src="${optimizeImageUrl(art.image || DEFAULT_IMAGE)}" alt="${art.title || ''}" fetchpriority="high" decoding="async" class="w-full h-auto max-w-full mx-auto block">
           </div>
 
           <!-- ARTICLE CONTENT - NO FRAME NO CROP -->

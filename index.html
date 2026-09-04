@@ -7,7 +7,6 @@
   <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, quantum computing, and digital transformation.">
   <link id="pageCanonical" rel="canonical" href="">
 
-  <!-- DNS Preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -37,7 +36,6 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- ABSOLUTE ZERO BORDERS / STRICT 100% STRAIGHT ALIGNMENT -->
   <style>
     /* Absolute Zero Border Radius & Zero Borders Everywhere */
     *, ::before, ::after, div, a, button, input, select, textarea, img, span, header, footer, article, nav, section, main { 
@@ -54,12 +52,30 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Cybernetic Interactive Background Canvas */
+    #cyberCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.25;
+    }
+
+    /* Ensure content stays above background */
+    body > * {
+      position: relative;
+      z-index: 10;
     }
 
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* Clean Card Layout Without Any Borders */
     .clean-card {
       background: #000000;
       display: flex;
@@ -102,6 +118,9 @@
   </style>
 </head>
 <body class="min-h-screen flex flex-col bg-black text-slate-100 selection:bg-orange-600 selection:text-white">
+
+  <!-- Interactive Cybernetic Background Canvas -->
+  <canvas id="cyberCanvas"></canvas>
 
   <!-- System Bar -->
   <div class="bg-black text-[10px] uppercase font-mono tracking-widest text-slate-500 py-1.5 px-4 flex justify-between items-center border-b border-neutral-900">
@@ -257,8 +276,91 @@
     </div>
   </div>
 
-  <!-- JavaScript Engine & Instant Vector Generator -->
+  <!-- JavaScript Engine & Interactive Background Animation -->
   <script>
+    // Cybernetic Background Particle Network Animation
+    const canvas = document.getElementById('cyberCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class CyberParticle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.8;
+        this.vy = (Math.random() - 0.5) * 0.8;
+        this.size = Math.random() * 2 + 1;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.fillStyle = '#ff4500';
+        ctx.fillRect(this.x, this.y, this.size, this.size);
+      }
+    }
+
+    for (let i = 0; i < 50; i++) {
+      particles.push(new CyberParticle());
+    }
+
+    function animateCyberBackground() {
+      ctx.clearRect(0, 0, width, height);
+      
+      // Draw grid lines
+      ctx.strokeStyle = 'rgba(255, 69, 0, 0.04)';
+      ctx.lineWidth = 1;
+      const gridSize = 60;
+      for (let x = 0; x < width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+      }
+      for (let y = 0; y < height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+
+      // Update & draw particles & connections
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.strokeStyle = `rgba(255, 69, 0, ${0.15 * (1 - dist / 120)})`;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateCyberBackground);
+    }
+    animateCyberBackground();
+
     const CONTACT_EMAIL = "contact@azexai.com";
     const BLOGGER_CONFIG = { blogId: '4263033619836681299', apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ', maxResults: 100 };
 
@@ -444,7 +546,6 @@
       renderHome();
     }
 
-    /* Render Home with Equal Equalized Equal Height Cards (No Borders) */
     function renderHome() {
       const app = document.getElementById('app');
       const filtered = ARTICLES.filter(a => AZEXAI.activeCategory === 'All' || a.category.toLowerCase() === AZEXAI.activeCategory.toLowerCase());
@@ -458,30 +559,30 @@
           `).join('')}
         </div>
 
-        <!-- HERO BANNER -->
+        <!-- HERO BANNER (RED HIGHLIGHT ACCENT ON HOMEPAGE HERO ONLY) -->
         ${hero && AZEXAI.activeCategory === 'All' ? `
-        <div onclick="navigateToArticle('${hero.slug}', event)" class="block relative w-full mb-12 clean-card group">
+        <div onclick="navigateToArticle('${hero.slug}', event)" class="block relative w-full mb-12 clean-card group" style="background-color: #ff0000 !important; color: #ffffff !important;">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 sm:p-10 items-stretch">
             <div class="space-y-4 flex flex-col justify-center text-left">
               <div>
-                <span class="inline-block px-3 py-1 bg-orange-600 text-white font-black text-xs uppercase tracking-widest">${hero.category}</span>
+                <span class="inline-block px-3 py-1 bg-black text-white font-black text-xs uppercase tracking-widest">${hero.category}</span>
               </div>
-              <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight group-hover:text-orange-500 transition-colors">${hero.title}</h1>
-              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed line-clamp-3">${hero.excerpt}</p>
-              <div class="flex items-center gap-4 text-xs font-black uppercase tracking-wider text-slate-400 pt-2">
-                <span class="text-white"><i class="fa-solid fa-user-astronaut text-orange-500 mr-2"></i>${hero.author}</span>
+              <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">${hero.title}</h1>
+              <p class="text-red-100 text-xs sm:text-sm leading-relaxed line-clamp-3">${hero.excerpt}</p>
+              <div class="flex items-center gap-4 text-xs font-black uppercase tracking-wider text-red-200 pt-2">
+                <span class="text-white"><i class="fa-solid fa-user-astronaut text-black mr-2"></i>${hero.author}</span>
                 <span>•</span>
-                <span class="text-orange-500"><i class="fa-regular fa-clock mr-2"></i>${hero.readTime}</span>
+                <span class="text-white"><i class="fa-regular fa-clock mr-2"></i>${hero.readTime}</span>
               </div>
             </div>
-            <div class="aspect-[16/10] bg-neutral-950">
+            <div class="aspect-[16/10] bg-black">
               <img src="${hero.image}" onerror="this.src='${generateInstant2100HUD(hero.title, hero.category)}'" alt="${hero.title}" class="w-full h-full object-cover">
             </div>
           </div>
         </div>
         ` : ''}
 
-        <!-- ARTICLES GRID: EXACTLY 2 COLUMNS PER ROW WITH EQUAL HEIGHT STRETCH -->
+        <!-- ARTICLES GRID -->
         <div class="mb-12">
           <h2 class="text-lg sm:text-2xl font-black text-white uppercase tracking-widest mb-6 flex items-center gap-3 border-l-4 border-orange-600 pl-3 text-left">
             ${AZEXAI.activeCategory !== 'All' ? AZEXAI.activeCategory : 'Neural Intelligence Stream'}
@@ -535,7 +636,7 @@
             
             <div class="flex items-center justify-between py-4 border-y border-neutral-900 text-xs font-black uppercase text-slate-400">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-orange-600 text-white font-black flex items-center justify-center text-base">
+                <div class="w-10 h-10 bg-orange-600 text-black font-black flex items-center justify-center text-base">
                   ${art.author.charAt(0)}
                 </div>
                 <div>
@@ -547,12 +648,13 @@
             </div>
           </div>
 
-          <!-- Article Image without frames -->
+          <!-- Article Image Graphic -->
           <div class="w-full aspect-[16/9] mb-10 bg-black">
             <img src="${art.image}" onerror="this.src='${generateInstant2100HUD(art.title, art.category)}'" alt="${art.title}" class="w-full h-full object-cover">
           </div>
 
-          <article class="prose prose-invert max-w-none text-slate-300 font-medium text-sm sm:text-base leading-relaxed mb-10 bg-neutral-950 p-6 sm:p-10">
+          <!-- Strictly Level & Straight Article Content -->
+          <article class="prose max-w-none mb-10 bg-neutral-950 p-6 sm:p-10">
             ${art.content}
           </article>
 
@@ -713,7 +815,7 @@
           <div class="bg-neutral-950 p-6 sm:p-10">
             <span class="inline-block px-3 py-1 bg-orange-600 text-white font-black text-xs uppercase tracking-widest mb-3">${pData.cat}</span>
             <h1 class="text-2xl sm:text-4xl font-black text-white uppercase mb-6 border-l-4 border-orange-500 pl-3">${pData.title}</h1>
-            <div class="prose prose-invert max-w-none text-slate-300 text-xs sm:text-sm leading-relaxed">
+            <div class="prose max-w-none text-slate-300 text-xs sm:text-sm leading-relaxed">
               ${pData.body}
             </div>
           </div>

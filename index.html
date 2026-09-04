@@ -67,7 +67,6 @@
       opacity: 0.25;
     }
 
-    /* Ensure content stays above background */
     body > * {
       position: relative;
       z-index: 10;
@@ -80,7 +79,6 @@
       background: #000000;
       display: flex;
       flex-direction: column;
-      height: 100%;
       cursor: pointer;
     }
 
@@ -121,6 +119,14 @@
 
   <!-- Interactive Cybernetic Background Canvas -->
   <canvas id="cyberCanvas"></canvas>
+
+  <!-- Custom Notification Toast -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-[100] bg-neutral-950 text-white border-l-4 border-orange-500 px-5 py-4 shadow-2xl transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
+    <div class="flex items-center gap-3">
+      <i class="fa-solid fa-circle-info text-orange-500 text-base"></i>
+      <span id="toastMessage" class="text-xs font-black uppercase tracking-wider">Notification</span>
+    </div>
+  </div>
 
   <!-- System Bar -->
   <div class="bg-black text-[10px] uppercase font-mono tracking-widest text-slate-500 py-1.5 px-4 flex justify-between items-center border-b border-neutral-900">
@@ -239,7 +245,7 @@
             <p class="text-slate-400 text-xs mb-3">Get daily tech intelligence reports directly in your inbox.</p>
             <div class="space-y-2">
               <input type="email" placeholder="ENTER YOUR EMAIL" class="w-full px-3.5 py-2.5 bg-neutral-950 text-xs text-white placeholder-slate-500 font-bold uppercase focus:outline-none">
-              <button onclick="alert('Subscribed to AZEXAI Global Intelligence.')" class="w-full py-2.5 cyber-btn-orange text-xs font-black uppercase tracking-widest">Subscribe</button>
+              <button onclick="showToast('Subscribed to AZEXAI Global Intelligence.')" class="w-full py-2.5 cyber-btn-orange text-xs font-black uppercase tracking-widest">Subscribe</button>
             </div>
           </div>
 
@@ -278,6 +284,17 @@
 
   <!-- JavaScript Engine & Interactive Background Animation -->
   <script>
+    // Toast Notification System
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const msg = document.getElementById('toastMessage');
+      msg.textContent = message;
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 3500);
+    }
+
     // Cybernetic Background Particle Network Animation
     const canvas = document.getElementById('cyberCanvas');
     const ctx = canvas.getContext('2d');
@@ -322,7 +339,6 @@
     function animateCyberBackground() {
       ctx.clearRect(0, 0, width, height);
       
-      // Draw grid lines
       ctx.strokeStyle = 'rgba(255, 69, 0, 0.04)';
       ctx.lineWidth = 1;
       const gridSize = 60;
@@ -339,7 +355,6 @@
         ctx.stroke();
       }
 
-      // Update & draw particles & connections
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw();
@@ -361,12 +376,11 @@
     }
     animateCyberBackground();
 
-    const CONTACT_EMAIL = "contact@azexai.com";
     const BLOGGER_CONFIG = { blogId: '4263033619836681299', apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ', maxResults: 100 };
 
     let AZEXAI = { categories: ['All', 'AI', 'Tech', 'Gadgets', 'Software', 'Cybersecurity', 'Reviews'], activeCategory: 'All' };
 
-    function generateInstant2100HUD(title, category) {
+    function generateNatural2100HUD(title, category) {
       const themes = {
         'AI': { primary: '#ff4500', secondary: '#ff8800', bg: '#03050a' },
         'Tech': { primary: '#ff4500', secondary: '#00e5ff', bg: '#000810' },
@@ -404,7 +418,7 @@
         id: 1, slug: 'generative-ai-autonomous-systems',
         title: 'Generative AI and the Dawn of Autonomous Scientific Discovery',
         category: 'AI', author: 'Dr. Elena Vance', date: 'August 26, 2026', readTime: '8 min read',
-        image: generateInstant2100HUD('Generative AI', 'AI'),
+        image: generateNatural2100HUD('Generative AI', 'AI'),
         excerpt: 'How foundational large language models combined with reinforcement learning are independently hypothesizing and validating breakthroughs in material science.',
         tags: ['AI', 'Research'],
         content: '<h2>The Paradigm Shift in Scientific Computation</h2><p>Generative AI is no longer confined to generating prose or synthetic imagery. Today, multi-modal autonomous frameworks are actively driving molecular synthesis and quantum particle simulations.</p><p>By processing petabytes of historical experimental data in fractions of a second, these neural models eliminate empirical bottlenecks that previously required decades of human trial and error.</p>'
@@ -413,7 +427,7 @@
         id: 2, slug: 'neuromorphic-computing-architectures',
         title: 'Neuromorphic Computing: Building Chips That Think Like the Human Brain',
         category: 'Tech', author: 'Marcus Thorne', date: 'August 24, 2026', readTime: '6 min read',
-        image: generateInstant2100HUD('Neuromorphic Computing', 'Tech'),
+        image: generateNatural2100HUD('Neuromorphic Computing', 'Tech'),
         excerpt: 'Silicon-based spiking neural networks promise ultra-low power consumption and real-time edge processing for next-gen robotics.',
         tags: ['Tech', 'Hardware'],
         content: '<h2>Beyond Von Neumann Bottlenecks</h2><p>Traditional computing architectures separate processing and memory, creating massive energy inefficiencies when running deep learning workloads. Neuromorphic chips mimic biological synapses directly on silicon.</p><p>This bio-inspired design reduces power demands by several orders of magnitude, paving the way for autonomous drones and prosthetic neural interfaces operating entirely on micro-watt power budgets.</p>'
@@ -422,7 +436,7 @@
         id: 3, slug: 'quantum-machine-learning-horizons',
         title: 'Quantum Machine Learning: Unlocking Exponential Speedups in Cryptography',
         category: 'Cybersecurity', author: 'Siddharth Mehta', date: 'August 22, 2026', readTime: '9 min read',
-        image: generateInstant2100HUD('Quantum Machine Learning', 'Cybersecurity'),
+        image: generateNatural2100HUD('Quantum Machine Learning', 'Cybersecurity'),
         excerpt: 'As quantum processors reach higher qubit stability, cybersecurity frameworks must urgently transition to post-quantum encryption standards.',
         tags: ['Cybersecurity', 'Quantum'],
         content: '<h2>The Post-Quantum Imperative</h2><p>The intersection of quantum superposition and machine learning algorithms introduces unprecedented optimization capabilities while simultaneously threatening classical asymmetric encryption protocols.</p><p>Enterprise security architects are now racing to implement lattice-based cryptography to safeguard sensitive global infrastructure against impending decryption threats.</p>'
@@ -431,7 +445,7 @@
         id: 4, slug: 'edge-ai-smartphones-privacy',
         title: 'On-Device AI Engines: Redefining Mobile Privacy and Local Intelligence',
         category: 'Gadgets', author: 'Chloe Dupont', date: 'August 20, 2026', readTime: '5 min read',
-        image: generateInstant2100HUD('On-Device AI Engines', 'Gadgets'),
+        image: generateNatural2100HUD('On-Device AI Engines', 'Gadgets'),
         excerpt: 'Running localized billion-parameter models directly on smartphone NPUs ensures zero cloud data leakage and instantaneous offline response.',
         tags: ['Gadgets', 'Mobile'],
         content: '<h2>Zero-Cloud Personal Assistants</h2><p>The era of relaying every voice query and photo adjustment to centralized server farms is rapidly closing. Modern mobile processors embed dedicated neural processing units capable of executing complex context synthesis locally.</p><p>This local execution guarantees complete data sovereignty for users, ensuring sensitive communications and biometrics never leave the physical device.</p>'
@@ -440,7 +454,7 @@
         id: 5, slug: 'autonomous-software-engineering-agents',
         title: 'Autonomous Software Engineering: When AI Writes and Deploys Full-Stack Code',
         category: 'Software', author: 'Dr. Elena Vance', date: 'August 18, 2026', readTime: '7 min read',
-        image: generateInstant2100HUD('Autonomous Software Engineering', 'Software'),
+        image: generateNatural2100HUD('Autonomous Software Engineering', 'Software'),
         excerpt: 'Software development is shifting from manual syntax authoring to high-level architectural specification and autonomous agent oversight.',
         tags: ['Software', 'AI'],
         content: '<h2>The Rise of System Architects</h2><p>Autonomous coding agents can now ingest product requirements, design robust database schemas, write comprehensive test suites, and deploy containerized microservices autonomously.</p><p>Human engineers are transitioning into high-level system supervisors, focusing on ethical compliance, security audits, and visionary product design rather than repetitive boilerplate coding.</p>'
@@ -474,7 +488,7 @@
                 author: p.author?.displayName||'AZEXAI Editor',
                 date: new Date(p.published).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}),
                 readTime: estimateReadTime(raw),
-                image: extImg || generateInstant2100HUD(p.title, cat),
+                image: extImg || generateNatural2100HUD(p.title, cat),
                 excerpt: stripHtml(raw).substring(0,180)+'...',
                 tags: labels.length?labels:[cat],
                 content: raw
@@ -559,46 +573,51 @@
           `).join('')}
         </div>
 
-        <!-- HERO BANNER (RED HIGHLIGHT ACCENT ON HOMEPAGE HERO ONLY) -->
+        <!-- HOMEPAGE HERO BANNER WITH STUNNING RED GRADIENT CONTAINER -->
         ${hero && AZEXAI.activeCategory === 'All' ? `
-        <div onclick="navigateToArticle('${hero.slug}', event)" class="block relative w-full mb-12 clean-card group" style="background-color: #ff0000 !important; color: #ffffff !important;">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 sm:p-10 items-stretch">
+        <div onclick="navigateToArticle('${hero.slug}', event)" class="block relative w-full mb-12 clean-card group overflow-hidden" style="background: linear-gradient(135deg, #990000 0%, #e60000 50%, #cc0000 100%) !important; color: #ffffff !important; box-shadow: 0 0 35px rgba(255, 0, 0, 0.45);">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-black/40 pointer-events-none"></div>
+          <div class="absolute -bottom-12 -right-12 w-48 h-48 bg-orange-500/20 rounded-full blur-2xl pointer-events-none animate-pulse"></div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 sm:p-10 items-center relative z-10">
             <div class="space-y-4 flex flex-col justify-center text-left">
               <div>
                 <span class="inline-block px-3 py-1 bg-black text-white font-black text-xs uppercase tracking-widest">${hero.category}</span>
               </div>
               <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">${hero.title}</h1>
-              <p class="text-red-100 text-xs sm:text-sm leading-relaxed line-clamp-3">${hero.excerpt}</p>
+              <p class="text-red-100 text-xs sm:text-sm leading-relaxed">${hero.excerpt}</p>
               <div class="flex items-center gap-4 text-xs font-black uppercase tracking-wider text-red-200 pt-2">
                 <span class="text-white"><i class="fa-solid fa-user-astronaut text-black mr-2"></i>${hero.author}</span>
                 <span>•</span>
                 <span class="text-white"><i class="fa-regular fa-clock mr-2"></i>${hero.readTime}</span>
               </div>
             </div>
-            <div class="aspect-[16/10] bg-black">
-              <img src="${hero.image}" onerror="this.src='${generateInstant2100HUD(hero.title, hero.category)}'" alt="${hero.title}" class="w-full h-full object-cover">
+            <div class="w-full bg-black/40 backdrop-blur-sm flex items-center justify-center p-2 border border-red-500/30">
+              <img src="${hero.image}" onerror="this.src='${generateNatural2100HUD(hero.title, hero.category)}'" alt="${hero.title}" class="w-full h-auto block object-contain">
             </div>
           </div>
         </div>
         ` : ''}
 
-        <!-- ARTICLES GRID -->
+        <!-- ARTICLES GRID: Full Titles and Natural Images -->
         <div class="mb-12">
           <h2 class="text-lg sm:text-2xl font-black text-white uppercase tracking-widest mb-6 flex items-center gap-3 border-l-4 border-orange-600 pl-3 text-left">
             ${AZEXAI.activeCategory !== 'All' ? AZEXAI.activeCategory : 'Neural Intelligence Stream'}
           </h2>
           
-          <div class="grid grid-cols-2 gap-3 sm:gap-6 items-stretch">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
             ${filtered.map(art => `
-              <div onclick="navigateToArticle('${art.slug}', event)" class="clean-card group flex flex-col h-full bg-neutral-950">
-                <div class="relative aspect-[16/10] overflow-hidden bg-black">
-                  <img src="${art.image}" onerror="this.src='${generateInstant2100HUD(art.title, art.category)}'" alt="${art.title}" class="w-full h-full object-cover">
-                  <span class="absolute top-2 left-2 px-2.5 py-1 bg-black text-white text-[9px] sm:text-xs font-black uppercase tracking-widest">${art.category}</span>
+              <div onclick="navigateToArticle('${art.slug}', event)" class="clean-card group flex flex-col bg-neutral-950 p-4 sm:p-6 border border-neutral-900">
+                <div class="w-full bg-black mb-4 overflow-hidden flex items-center justify-center">
+                  <img src="${art.image}" onerror="this.src='${generateNatural2100HUD(art.title, art.category)}'" alt="${art.title}" class="w-full h-auto block object-contain">
                 </div>
-                <div class="p-3 sm:p-5 flex flex-col flex-grow text-left">
-                  <h3 class="text-xs sm:text-lg font-black text-white mb-2 group-hover:text-orange-500 transition-colors line-clamp-2 leading-snug">${art.title}</h3>
-                  <p class="text-[11px] sm:text-xs text-slate-400 font-medium line-clamp-2 mb-4 flex-grow leading-relaxed hidden sm:block">${art.excerpt}</p>
-                  <div class="flex items-center justify-between pt-3 border-t border-neutral-900 text-[9px] sm:text-xs font-black uppercase text-slate-400 mt-auto">
+                <div class="flex flex-col flex-grow text-left">
+                  <div class="mb-2">
+                    <span class="inline-block px-2.5 py-1 bg-neutral-900 text-orange-500 text-[10px] font-black uppercase tracking-widest">${art.category}</span>
+                  </div>
+                  <!-- Full Title Display without Truncation -->
+                  <h3 class="text-base sm:text-xl font-black text-white mb-3 group-hover:text-orange-500 transition-colors leading-snug">${art.title}</h3>
+                  <p class="text-xs text-slate-400 font-medium mb-4 leading-relaxed">${art.excerpt}</p>
+                  <div class="flex items-center justify-between pt-4 border-t border-neutral-900 text-xs font-black uppercase text-slate-400 mt-auto">
                     <span class="text-slate-300 truncate">${art.author}</span>
                     <span class="text-orange-500 shrink-0 ml-1">${art.readTime}</span>
                   </div>
@@ -609,14 +628,14 @@
         </div>
 
         <!-- Dispatch Panel -->
-        <div class="clean-card p-6 sm:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 items-center text-left bg-neutral-950">
+        <div class="clean-card p-6 sm:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 items-center text-left bg-neutral-950 border border-neutral-900">
           <div>
             <h2 class="text-xl sm:text-3xl font-black uppercase tracking-wider text-white mb-2">Connect To AZEXAI Network</h2>
             <p class="text-xs sm:text-sm font-bold text-slate-400">Direct encrypted transmission of technical intelligence dispatches.</p>
           </div>
           <div class="flex flex-col gap-3">
             <input type="email" placeholder="ENTER YOUR EMAIL ADDRESS" class="w-full px-4 py-3 bg-black text-xs text-white placeholder-slate-500 font-bold uppercase focus:outline-none">
-            <button onclick="alert('Access Granted. Subscribed to AZEXAI Network.')" class="w-full py-3 cyber-btn-orange text-xs font-black uppercase tracking-widest">Subscribe Now</button>
+            <button onclick="showToast('Access Granted. Subscribed to AZEXAI Network.')" class="w-full py-3 cyber-btn-orange text-xs font-black uppercase tracking-widest">Subscribe Now</button>
           </div>
         </div>
       `;
@@ -630,41 +649,48 @@
             <i class="fa-solid fa-arrow-left"></i> Return To Index
           </button>
 
-          <div class="bg-neutral-950 p-6 sm:p-10 mb-8">
-            <span class="inline-block px-3 py-1 bg-orange-600 text-white font-black text-xs uppercase tracking-widest mb-4">${art.category}</span>
-            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">${art.title}</h1>
+          <!-- STUNNING RED GRADIENT CONTAINER FOR MAIN ARTICLE -->
+          <div class="bg-neutral-950 p-6 sm:p-10 mb-8 border border-neutral-900 relative overflow-hidden" style="background: linear-gradient(135deg, #990000 0%, #e60000 50%, #b30000 100%) !important; color: #ffffff !important; box-shadow: 0 0 40px rgba(255, 0, 0, 0.4);">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-white/20 via-transparent to-black/50 pointer-events-none"></div>
+            <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-yellow-500/15 rounded-full blur-2xl pointer-events-none animate-pulse"></div>
             
-            <div class="flex items-center justify-between py-4 border-y border-neutral-900 text-xs font-black uppercase text-slate-400">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-orange-600 text-black font-black flex items-center justify-center text-base">
-                  ${art.author.charAt(0)}
+            <div class="relative z-10">
+              <span class="inline-block px-3 py-1 bg-black text-white font-black text-xs uppercase tracking-widest mb-4">${art.category}</span>
+              <!-- Full Title Display -->
+              <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">${art.title}</h1>
+              
+              <div class="flex items-center justify-between py-4 border-y border-red-500/30 text-xs font-black uppercase text-red-100">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-black text-white font-black flex items-center justify-center text-base border border-red-400/40">
+                    ${art.author.charAt(0)}
+                  </div>
+                  <div>
+                    <p class="text-white">${art.author}</p>
+                    <p class="text-[10px] text-red-200">${art.date}</p>
+                  </div>
                 </div>
-                <div>
-                  <p class="text-white">${art.author}</p>
-                  <p class="text-[10px] text-slate-500">${art.date}</p>
-                </div>
+                <span class="text-white"><i class="fa-regular fa-clock mr-1"></i>${art.readTime}</span>
               </div>
-              <span class="text-orange-500"><i class="fa-regular fa-clock mr-1"></i>${art.readTime}</span>
             </div>
           </div>
 
-          <!-- Article Image Graphic -->
-          <div class="w-full aspect-[16/9] mb-10 bg-black">
-            <img src="${art.image}" onerror="this.src='${generateInstant2100HUD(art.title, art.category)}'" alt="${art.title}" class="w-full h-full object-cover">
+          <!-- Natural Image Aspect Ratio in Article View -->
+          <div class="w-full bg-black mb-10 flex items-center justify-center border border-neutral-900 p-4">
+            <img src="${art.image}" onerror="this.src='${generateNatural2100HUD(art.title, art.category)}'" alt="${art.title}" class="w-full h-auto block object-contain">
           </div>
 
-          <!-- Strictly Level & Straight Article Content -->
-          <article class="prose max-w-none mb-10 bg-neutral-950 p-6 sm:p-10">
+          <!-- Article Content -->
+          <article class="prose max-w-none mb-10 bg-neutral-950 p-6 sm:p-10 border border-neutral-900">
             ${art.content}
           </article>
 
           <!-- Share Component -->
-          <div class="bg-neutral-950 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="bg-neutral-950 p-6 flex flex-col sm:flex-row items-center justify-between gap-4 border border-neutral-900">
             <div>
               <h3 class="text-white font-black uppercase text-xs tracking-widest">Share Transmission</h3>
               <p class="text-xs text-slate-400">Distribute this report across your network.</p>
             </div>
-            <button onclick="navigator.clipboard.writeText(window.location.href); alert('Article URL Copied!');" class="px-6 py-3 cyber-btn-orange text-xs font-black uppercase flex items-center gap-2">
+            <button onclick="document.execCommand ? (function(){ const el=document.createElement('textarea'); el.value=window.location.href; document.body.appendChild(el); el.select(); document.execCommand('copy'); document.body.removeChild(el); showToast('Article URL Copied to Clipboard!'); })() : navigator.clipboard.writeText(window.location.href).then(()=>showToast('Article URL Copied!'));" class="px-6 py-3 cyber-btn-orange text-xs font-black uppercase flex items-center gap-2">
               <i class="fa-solid fa-link"></i> Copy Link
             </button>
           </div>
@@ -682,7 +708,7 @@
               <i class="fa-solid fa-arrow-left"></i> Return To Index
             </button>
 
-            <div class="bg-neutral-950 p-6 sm:p-10 mb-8">
+            <div class="bg-neutral-950 p-6 sm:p-10 mb-8 border border-neutral-900">
               <span class="inline-block px-3 py-1 bg-orange-600 text-white font-black text-xs uppercase tracking-widest mb-3">Direct Communication</span>
               <h1 class="text-2xl sm:text-4xl font-black text-white uppercase mb-4 border-l-4 border-orange-500 pl-3">Contact AZEXAI</h1>
               <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-8">
@@ -691,17 +717,17 @@
 
               <!-- Global Desk Info Cards -->
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                <div class="p-4 bg-black">
+                <div class="p-4 bg-black border border-neutral-900">
                   <h4 class="text-orange-500 font-black text-xs uppercase mb-1">General Inquiries</h4>
                   <p class="text-white font-bold text-xs">contact@azexai.com</p>
                   <p class="text-slate-500 text-[10px] mt-1">SLA: &lt; 2 Hours</p>
                 </div>
-                <div class="p-4 bg-black">
+                <div class="p-4 bg-black border border-neutral-900">
                   <h4 class="text-orange-500 font-black text-xs uppercase mb-1">Press & Media Desk</h4>
                   <p class="text-white font-bold text-xs">press@azexai.com</p>
                   <p class="text-slate-500 text-[10px] mt-1">SLA: Immediate</p>
                 </div>
-                <div class="p-4 bg-black">
+                <div class="p-4 bg-black border border-neutral-900">
                   <h4 class="text-orange-500 font-black text-xs uppercase mb-1">Advertising & Sponsorship</h4>
                   <p class="text-white font-bold text-xs">ads@azexai.com</p>
                   <p class="text-slate-500 text-[10px] mt-1">SLA: &lt; 4 Hours</p>
@@ -709,11 +735,11 @@
               </div>
 
               <!-- Form -->
-              <form onsubmit="event.preventDefault(); alert('Transmission Received. Our editorial desk will respond shortly.');" class="space-y-4">
+              <form onsubmit="event.preventDefault(); showToast('Transmission Received. Our editorial desk will respond shortly.');" class="space-y-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Inquiry Type *</label>
-                    <select class="w-full px-4 py-3 bg-black text-xs text-white font-bold focus:outline-none">
+                    <select class="w-full px-4 py-3 bg-black text-xs text-white font-bold focus:outline-none border border-neutral-900">
                       <option value="Editorial">Editorial & Research Briefs</option>
                       <option value="Partnership">Enterprise Partnerships</option>
                       <option value="Advertising">Advertising & Media Kit</option>
@@ -722,29 +748,29 @@
                   </div>
                   <div>
                     <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Full Name *</label>
-                    <input type="text" required placeholder="DR. ALAN TURING" class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none">
+                    <input type="text" required placeholder="DR. ALAN TURING" class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none border border-neutral-900">
                   </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Email Address *</label>
-                    <input type="email" required placeholder="ALAN@AZEXAI.COM" class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none">
+                    <input type="email" required placeholder="ALAN@AZEXAI.COM" class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none border border-neutral-900">
                   </div>
                   <div>
                     <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Organization / Company</label>
-                    <input type="text" placeholder="OPENAI / MIT / HARVARD" class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none">
+                    <input type="text" placeholder="OPENAI / MIT / HARVARD" class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none border border-neutral-900">
                   </div>
                 </div>
 
                 <div>
                   <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Subject *</label>
-                  <input type="text" required placeholder="RESEARCH COLLABORATION PROPOSAL" class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none">
+                  <input type="text" required placeholder="RESEARCH COLLABORATION PROPOSAL" class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none border border-neutral-900">
                 </div>
 
                 <div>
                   <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Message *</label>
-                  <textarea rows="5" required placeholder="PROVIDE FULL DETAILS OF YOUR INQUIRY OR DISPATCH HERE..." class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none"></textarea>
+                  <textarea rows="5" required placeholder="PROVIDE FULL DETAILS OF YOUR INQUIRY OR DISPATCH HERE..." class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none border border-neutral-900"></textarea>
                 </div>
 
                 <button type="submit" class="w-full py-4 cyber-btn-orange text-xs font-black uppercase tracking-widest">Transmit Message</button>
@@ -812,7 +838,7 @@
           <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-400 hover:text-orange-500 mb-6">
             <i class="fa-solid fa-arrow-left"></i> Return To Index
           </button>
-          <div class="bg-neutral-950 p-6 sm:p-10">
+          <div class="bg-neutral-950 p-6 sm:p-10 border border-neutral-900">
             <span class="inline-block px-3 py-1 bg-orange-600 text-white font-black text-xs uppercase tracking-widest mb-3">${pData.cat}</span>
             <h1 class="text-2xl sm:text-4xl font-black text-white uppercase mb-6 border-l-4 border-orange-500 pl-3">${pData.title}</h1>
             <div class="prose max-w-none text-slate-300 text-xs sm:text-sm leading-relaxed">
@@ -832,7 +858,7 @@
       const match = ARTICLES.filter(a=>a.title.toLowerCase().includes(q) || a.category.toLowerCase().includes(q));
       if(!match.length) { res.innerHTML = '<p class="text-xs text-slate-500 font-bold uppercase tracking-wider text-center py-6">No matching articles found.</p>'; return; }
       res.innerHTML = match.map(m=>`
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" class="block p-3 bg-neutral-950 hover:bg-neutral-900 cursor-pointer text-left">
+        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" class="block p-3 bg-neutral-950 hover:bg-neutral-900 cursor-pointer text-left border border-neutral-900">
           <h4 class="text-xs font-bold text-white hover:text-orange-500">${m.title}</h4>
           <p class="text-[10px] text-slate-500 uppercase mt-1">${m.category}</p>
         </div>

@@ -1,4 +1,3 @@
-html
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -13,12 +12,11 @@ html
   <link rel="dns-prefetch" href="https://images.pexels.com">
   <link rel="preconnect" href="https://blogger.googleusercontent.com" crossorigin>
   <link rel="dns-prefetch" href="https://blogger.googleusercontent.com">
+  <link rel="preconnect" href="https://googleusercontent.com" crossorigin>
+  <link rel="dns-prefetch" href="https://googleusercontent.com">
   <link rel="preconnect" href="https://www.googleapis.com" crossorigin>
   <link rel="dns-prefetch" href="https://www.googleapis.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-
-  <!-- Critical Image Preloads for Instant Speed -->
-  <link rel="preload" as="image" href="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=500&q=70">
 
   <!-- Open Graph Meta Tags -->
   <meta id="ogTitle" property="og:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
@@ -33,14 +31,14 @@ html
   <meta id="twDesc" name="twitter:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
   <meta id="twImage" name="twitter:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=800&q=75">
 
-  <!-- Inlined Critical CSS with Strict Alignment and Straight Layout -->
+  <!-- Inlined Critical CSS -->
   <style>
-    *, ::before, ::after { box-sizing: border-box; font-style: normal !important; transform: none !important; direction: ltr !important; text-align: left; }
+    *, ::before, ::after { box-sizing: border-box; }
     html { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; font-style: normal !important; transform: none !important; }
-    body { background-color: #050505; color: #f8fafc; margin: 0; padding: 0; text-rendering: optimizeSpeed; -webkit-font-smoothing: antialiased; font-style: normal !important; text-align: left !important; }
+    body { background-color: #050505; color: #f8fafc; margin: 0; padding: 0; text-rendering: optimizeSpeed; -webkit-font-smoothing: antialiased; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    #app { min-height: 65vh; content-visibility: auto; contain-intrinsic-size: 1px 1000px; }
+    #app { min-height: 65vh; }
     
     .hero-radiant-red {
       background: radial-gradient(circle at 50% 20%, rgba(239, 68, 68, 0.3) 0%, rgba(153, 27, 27, 0.15) 45%, rgba(5, 5, 5, 0.98) 85%),
@@ -51,16 +49,16 @@ html
     .hero-grid-pattern { background-image: radial-gradient(rgba(239, 68, 68, 0.2) 1px, transparent 1px); background-size: 20px 24px; }
     .glass-card { background: rgba(14, 14, 14, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); border-radius: 1.25rem; }
 
-    .prose * { font-style: normal !important; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; transform: none !important; text-align: left !important; }
-    .prose h1, .prose h2, .prose h3, .prose h4 { color: #ffffff !important; font-weight: 800 !important; font-style: normal !important; margin-top: 1.5rem !important; margin-bottom: 0.75rem !important; line-height: 1.3 !important; text-align: left !important; }
-    .prose p { color: #cbd5e1 !important; font-size: 0.95rem !important; font-style: normal !important; line-height: 1.7 !important; margin-bottom: 1.25rem !important; text-align: left !important; }
-    .prose blockquote { border-left: 4px solid #ef4444 !important; background: rgba(239, 68, 68, 0.08) !important; padding: 1rem 1.25rem !important; border-radius: 0.75rem !important; margin: 1.5rem 0 !important; color: #f8fafc !important; font-style: normal !important; text-align: left !important; }
-    .prose img { max-width: 100% !important; height: auto !important; margin: 1.75rem auto !important; display: block !important; border: none !important; outline: none !important; box-shadow: none !important; border-radius: 0 !important; background: transparent !important; aspect-ratio: auto !important; object-fit: contain !important; transform: none !important; font-style: normal !important; }
+    .prose * { font-style: normal !important; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; }
+    .prose h1, .prose h2, .prose h3, .prose h4 { color: #ffffff !important; font-weight: 800 !important; margin-top: 1.5rem !important; margin-bottom: 0.75rem !important; line-height: 1.3 !important; }
+    .prose p { color: #cbd5e1 !important; font-size: 0.95rem !important; line-height: 1.7 !important; margin-bottom: 1.25rem !important; }
+    .prose blockquote { border-left: 4px solid #ef4444 !important; background: rgba(239, 68, 68, 0.08) !important; padding: 1rem 1.25rem !important; border-radius: 0.75rem !important; margin: 1.5rem 0 !important; color: #f8fafc !important; }
+    .prose img { max-width: 100% !important; height: auto !important; margin: 1.75rem auto !important; display: block !important; border: none !important; outline: none !important; box-shadow: none !important; border-radius: 0.75rem !important; background: #0e0e12 !important; object-fit: cover !important; }
     .prose figure { margin: 1.75rem 0 !important; border: none !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; }
-    .prose a { color: #f97316; text-decoration: none; font-weight: 700; transition: color 0.2s; font-style: normal !important; }
+    .prose a { color: #f97316; text-decoration: none; font-weight: 700; transition: color 0.2s; }
     .prose a:hover { color: #ffffff; text-decoration: underline; }
 
-    .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands { display: inline-block; width: 1em; height: 1em; text-align: center; font-style: normal !important; }
+    .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands { display: inline-block; width: 1em; height: 1em; text-align: center; }
   </style>
 
   <!-- Tailwind Configuration -->
@@ -239,7 +237,7 @@ html
     </div>
   </div>
 
-  <!-- Main Application Engine with Instant Local Cache First -->
+  <!-- Main Application Engine -->
   <script>
     const CONTACT_EMAIL = "aristo@azexai.com";
 
@@ -254,6 +252,7 @@ html
       activeCategory: 'All'
     };
 
+    // Slug Normalizer Helper
     function createSlug(text) {
       if (!text) return '';
       return String(text)
@@ -264,7 +263,6 @@ html
         .replace(/^-+|-+$/g, '');
     }
 
-    // Default High-Speed Articles Preloaded Locally for 0-second Instant Display
     let ARTICLES = [
       {
         id: 101,
@@ -274,7 +272,7 @@ html
         author: 'Azex',
         date: 'September 3, 2026',
         readTime: '16 min read',
-        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=500&q=70',
+        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=800&q=75',
         excerpt: 'Personal Review • Sales Pipeline & Lead Management. Discover why salespeople hate traditional enterprise CRMs and how noCRM.io eliminates admin friction.',
         tags: ['Software', 'CRM', 'Sales', 'Reviews'],
         content: `<h2>Salespeople Hate Traditional Enterprise CRMs. Here is why.</h2>
@@ -295,7 +293,7 @@ html
         author: 'Azex',
         date: 'September 2, 2026',
         readTime: '12 min read',
-        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=500&q=70',
+        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=800&q=75',
         excerpt: 'Raw activity logs told you someone was at their desk. Work intelligence tells you why work is slow, where capacity is going, and what to fix next.',
         tags: ['AI', 'Work Intelligence', 'Software', 'Insightful'],
         content: `<h2>What Work Intelligence Actually Means</h2>
@@ -310,7 +308,7 @@ html
         author: 'Azex',
         date: 'August 28, 2026',
         readTime: '10 min read',
-        image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=format,compress&w=500&q=70',
+        image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=format,compress&w=800&q=75',
         excerpt: 'With post-quantum cryptography entering mandatory compliance standards, distributed mesh networks are adopting hybrid lattice-based encryption algorithms.',
         tags: ['Cybersecurity', 'Cloud', 'Quantum'],
         content: `<h2>The Post-Quantum Security Imperative</h2>
@@ -318,25 +316,22 @@ html
       }
     ];
 
-    const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=500&q=70';
+    const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=800&q=75';
 
-    // Lightning Fast Image Optimizer (Instantly loads low-weight compressed URLs)
-    function optimizeImageUrl(url, targetWidth = 400) {
+    // Perfectly safe image optimizer that keeps the exact original Blogger URL intact and functional
+    function optimizeImageUrl(url, targetWidth = 800) {
       if (!url) return DEFAULT_IMAGE;
-      if (url.includes('pexels.com')) {
-        let cleanUrl = url.split('?')[0];
-        return `${cleanUrl}?auto=format,compress&w=${targetWidth}&q=70`;
-      }
-      if (url.includes('blogger.googleusercontent.com') || url.includes('bp.blogspot.com')) {
-        return url.replace(/\/s\d+(-c)?\//, `/s${targetWidth}/`);
-      }
-      return url;
+      let cleanUrl = String(url).trim();
+      // Keep original Google / Pexels URLs completely untouched to prevent any broken links
+      return cleanUrl;
     }
 
     function sanitizeAuthorName(name) {
       if (!name) return 'Azex';
       const forbiddenPattern = /karim|ouzinba/gi;
-      if (forbiddenPattern.test(name)) return 'Azex';
+      if (forbiddenPattern.test(name)) {
+        return 'Azex';
+      }
       return name;
     }
 
@@ -358,7 +353,11 @@ html
       if (window.location.hash) {
         let cleanPath = window.location.hash.replace(/^#\/?/, '/');
         if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
-        try { window.history.replaceState(null, '', cleanPath); } catch(e){}
+        try {
+          window.history.replaceState(null, '', cleanPath);
+        } catch(err) {
+          console.warn('ReplaceState error:', err);
+        }
       }
     })();
 
@@ -373,7 +372,11 @@ html
       }
       currentView = { type: 'home', slug: null };
       AZEXAI.activeCategory = 'All';
-      try { window.history.pushState(null, '', '/'); } catch(e){}
+      try {
+        window.history.pushState(null, '', '/');
+      } catch(err) {
+        console.warn('PushState failed:', err);
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
       router();
     }
@@ -384,8 +387,13 @@ html
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
       }
       if (!slug) return;
+      
       currentView = { type: 'article', slug: String(slug) };
-      try { window.history.pushState(null, '', '/article/' + encodeURIComponent(slug)); } catch(e){}
+      try {
+        window.history.pushState(null, '', '/article/' + encodeURIComponent(slug));
+      } catch(err) {
+        console.warn('PushState failed:', err);
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
       router();
     }
@@ -396,7 +404,11 @@ html
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
       }
       currentView = { type: 'static', slug: pageSlug };
-      try { window.history.pushState(null, '', '/' + pageSlug); } catch(e){}
+      try {
+        window.history.pushState(null, '', '/' + pageSlug);
+      } catch(err) {
+        console.warn('PushState failed:', err);
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
       router();
     }
@@ -409,7 +421,11 @@ html
       AZEXAI.activeCategory = cat;
       currentView = { type: 'home', slug: null };
       const targetPath = cat === 'All' ? '/' : '/category/' + cat.toLowerCase();
-      try { window.history.pushState(null, '', targetPath); } catch(e){}
+      try {
+        window.history.pushState(null, '', targetPath);
+      } catch(err) {
+        console.warn('PushState failed:', err);
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
       router();
     }
@@ -417,20 +433,27 @@ html
     function parseUrlRoute() {
       if (window.location.hash) {
         const cleanPath = window.location.hash.replace(/^#\/?/, '/');
-        try { window.history.replaceState(null, '', cleanPath.startsWith('/') ? cleanPath : '/' + cleanPath); } catch(e){}
+        try {
+          window.history.replaceState(null, '', cleanPath.startsWith('/') ? cleanPath : '/' + cleanPath);
+        } catch(e){}
       }
+
       const path = window.location.pathname;
+
       if (path.startsWith('/article/')) {
         const slug = decodeURIComponent(path.replace('/article/', ''));
         currentView = { type: 'article', slug: slug };
-      } else if (path.startsWith('/category/')) {
+      } 
+      else if (path.startsWith('/category/')) {
         const catSlug = path.replace('/category/', '');
         const matched = AZEXAI.categories.find(c => c.toLowerCase() === catSlug.toLowerCase());
         if (matched) AZEXAI.activeCategory = matched;
         currentView = { type: 'home', slug: null };
-      } else if (['/contact', '/about', '/privacy', '/terms', '/editorial'].includes(path)) {
+      }
+      else if (['/contact', '/about', '/privacy', '/terms', '/editorial'].includes(path)) {
         currentView = { type: 'static', slug: path.replace('/', '') };
-      } else {
+      }
+      else {
         currentView = { type: 'home', slug: null };
         AZEXAI.activeCategory = 'All';
       }
@@ -445,9 +468,13 @@ html
       const articleEl = e.target.closest('[data-article-slug]');
       if (articleEl) {
         const slug = articleEl.getAttribute('data-article-slug');
-        if (slug) navigateToArticle(slug, e);
+        if (slug) {
+          navigateToArticle(slug, e);
+        }
       }
     });
+
+    // ====================== END ROUTING SYSTEM ======================
 
     function stripHtml(html) {
       const div = document.createElement('div');
@@ -466,15 +493,16 @@ html
       const div = document.createElement('div');
       div.innerHTML = html || '';
       const imgs = div.querySelectorAll('img');
-      imgs.forEach((img, idx) => {
-        img.setAttribute('loading', idx === 0 ? 'eager' : 'lazy');
-        if (idx === 0) img.setAttribute('fetchpriority', 'high');
-        img.setAttribute('decoding', 'async');
+      imgs.forEach(img => {
+        img.setAttribute('loading', 'lazy');
         img.removeAttribute('width');
         img.removeAttribute('height');
         img.removeAttribute('style');
         img.className = 'max-w-full h-auto mx-auto my-6 block';
-        if (img.src) img.src = optimizeImageUrl(img.src, 600);
+        const rawSrc = img.src || img.getAttribute('data-src') || '';
+        if (rawSrc) {
+          img.src = rawSrc;
+        }
       });
       return div.innerHTML;
     }
@@ -496,7 +524,7 @@ html
       const rawBody = sanitizeContent(post.content || '');
       const body = processArticleImages(rawBody);
       const plainText = stripHtml(rawBody);
-      const image = optimizeImageUrl(getFirstImage(rawBody) || DEFAULT_IMAGE, 500);
+      const image = getFirstImage(rawBody) || DEFAULT_IMAGE;
       const rawAuthor = post.author?.displayName || 'Azex';
       const author = sanitizeAuthorName(rawAuthor);
       const date = post.published ? new Date(post.published).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'August 26, 2026';
@@ -519,7 +547,7 @@ html
       };
     }
 
-    // Instant Load with Cached Session Data
+    // Background Fetch with Deduplication
     async function loadBloggerArticles() {
       try {
         const cached = sessionStorage.getItem('azexai_posts');
@@ -528,28 +556,34 @@ html
           if (Array.isArray(parsed) && parsed.length > 0) {
             ARTICLES = parsed;
             router();
-            return;
           }
         }
       } catch(e){}
 
-      if (!BLOGGER_CONFIG.apiKey) return;
+      if (!BLOGGER_CONFIG.apiKey) return false;
       try {
         const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&fetchBodies=true&fetchImages=true&maxResults=${BLOGGER_CONFIG.maxResults}`;
         const response = await fetch(url);
-        if (!response.ok) return;
+        if (!response.ok) throw new Error('Blogger API HTTP error ' + response.status);
         const data = await response.json();
         if (Array.isArray(data.items) && data.items.length > 0) {
           const fetched = data.items.map(normalizeBloggerPost);
+          const fetchedTitleSlugs = new Set(fetched.map(a => createSlug(a.title)));
           const fetchedSlugs = new Set(fetched.map(a => a.slug.toLowerCase()));
-          const extra = ARTICLES.filter(a => !fetchedSlugs.has(a.slug.toLowerCase()));
+
+          const extra = ARTICLES.filter(a => 
+            !fetchedSlugs.has(a.slug.toLowerCase()) && 
+            !fetchedTitleSlugs.has(createSlug(a.title))
+          );
           ARTICLES = [...fetched, ...extra];
           try { sessionStorage.setItem('azexai_posts', JSON.stringify(ARTICLES)); } catch(e){}
           router();
+          return true;
         }
       } catch (err) {
-        console.warn('Using instant fallback data.');
+        console.warn('Notice: Using local fallback data.', err);
       }
+      return false;
     }
 
     function updateSEO(article = null) {
@@ -560,14 +594,29 @@ html
         let desc = article ? article.excerpt : "Global authority on artificial intelligence, frontier technology, and digital transformation.";
         let img = article ? article.image : DEFAULT_IMAGE;
 
-        document.getElementById('pageMetaTitle').textContent = title;
-        document.getElementById('pageMetaDesc').setAttribute('content', desc);
-        document.getElementById('pageCanonical').setAttribute('href', currentUrl);
-        document.getElementById('ogTitle').setAttribute('content', title);
-        document.getElementById('ogDesc').setAttribute('content', desc);
-        document.getElementById('ogImage').setAttribute('content', img);
-        document.getElementById('ogUrl').setAttribute('content', currentUrl);
-      } catch (err) {}
+        const elTitle = document.getElementById('pageMetaTitle');
+        if (elTitle) elTitle.textContent = title;
+
+        const elDesc = document.getElementById('pageMetaDesc');
+        if (elDesc) elDesc.setAttribute('content', desc);
+
+        const elCanon = document.getElementById('pageCanonical');
+        if (elCanon) elCanon.setAttribute('href', currentUrl);
+
+        const elOgTitle = document.getElementById('ogTitle');
+        if (elOgTitle) elOgTitle.setAttribute('content', title);
+
+        const elOgDesc = document.getElementById('ogDesc');
+        if (elOgDesc) elOgDesc.setAttribute('content', desc);
+
+        const elOgImg = document.getElementById('ogImage');
+        if (elOgImg) elOgImg.setAttribute('content', img);
+
+        const elOgUrl = document.getElementById('ogUrl');
+        if (elOgUrl) elOgUrl.setAttribute('content', currentUrl);
+      } catch (err) {
+        console.warn('SEO update error ignored:', err);
+      }
     }
 
     function openSearchModal() {
@@ -586,11 +635,18 @@ html
         resultsContainer.innerHTML = '';
         return;
       }
-      const matches = ARTICLES.filter(a => a.title.toLowerCase().includes(query) || a.excerpt.toLowerCase().includes(query));
+      
+      const matches = ARTICLES.filter(a => 
+        (a.title.toLowerCase().includes(query) || 
+        a.excerpt.toLowerCase().includes(query) || 
+        a.category.toLowerCase().includes(query))
+      );
+
       if (matches.length === 0) {
-        resultsContainer.innerHTML = '<p class="text-xs text-slate-400 font-bold uppercase tracking-wider text-center py-6">No matching articles found.</p>';
+        resultsContainer.innerHTML = '<p class="text-xs text-slate-400 font-bold uppercase tracking-wider text-center py-6">No matching global articles found.</p>';
         return;
       }
+
       resultsContainer.innerHTML = matches.map(m => `
         <div data-article-slug="${m.slug}" onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" class="p-3.5 sm:p-4 bg-neutral-950 border border-neutral-800 hover:border-red-500 rounded-2xl cursor-pointer transition-all flex items-center justify-between group">
           <div>
@@ -602,13 +658,45 @@ html
       `).join('');
     }
 
+    // High-Precision Article Matching (Word Overlap Scoring)
     function findArticleBySlug(slugQuery) {
       if (!slugQuery) return ARTICLES[0];
       let decoded = slugQuery;
       try { decoded = decodeURIComponent(slugQuery); } catch(e){}
+
       const clean = String(decoded).toLowerCase().trim().replace(/_/g, '-').replace(/\.html$/, '');
-      let match = ARTICLES.find(a => a.slug.toLowerCase() === clean || String(a.id) === clean || createSlug(a.title) === clean);
-      return match || ARTICLES[0];
+      
+      // 1. Exact match by slug or id
+      let match = ARTICLES.find(a => a.slug.toLowerCase() === clean || String(a.id) === clean);
+      if (match) return match;
+
+      // 2. Exact match by title slug
+      match = ARTICLES.find(a => createSlug(a.title) === clean);
+      if (match) return match;
+
+      // 3. Best-fit overlap scoring (Highest matching keyword count)
+      const queryWords = clean.split('-').filter(w => w.length > 2);
+      let bestMatch = null;
+      let highestScore = 0;
+
+      for (const art of ARTICLES) {
+        const artSlug = art.slug.toLowerCase();
+        const artTitleSlug = createSlug(art.title);
+        let score = 0;
+
+        for (const word of queryWords) {
+          if (artSlug.includes(word) || artTitleSlug.includes(word)) {
+            score++;
+          }
+        }
+
+        if (score > highestScore) {
+          highestScore = score;
+          bestMatch = art;
+        }
+      }
+
+      return bestMatch || ARTICLES[0];
     }
 
     function router() {
@@ -643,7 +731,7 @@ html
 
       const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject + " - " + firstName + " " + lastName)}&body=${encodeURIComponent("Sender: " + firstName + " " + lastName + "\nEmail: " + email + "\nLocation: " + address + "\n\nMessage:\n" + message)}`;
       window.location.href = mailtoLink;
-      alert(`Thank you ${firstName}! Your message dispatch has been prepared.`);
+      alert(`Thank you ${firstName}! Your message dispatch has been prepared for Azex.`);
       form.reset();
     }
 
@@ -713,7 +801,7 @@ html
             
             <div class="lg:col-span-5 max-h-[220px] sm:max-h-[280px] aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden glass-card border border-red-500/30 shadow-xl relative group-hover:border-red-500 transition-all duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-              <img src="${optimizeImageUrl(hero.image, 500)}" alt="${hero.title}" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <img src="${hero.image}" alt="${hero.title}" loading="eager" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             </div>
 
           </div>
@@ -727,10 +815,10 @@ html
           </h2>
 
           <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
-            ${filtered.map((art, idx) => `
+            ${filtered.map(art => `
               <div data-article-slug="${art.slug}" onclick="navigateToArticle('${art.slug}', event)" class="glass-card rounded-2xl overflow-hidden hover:border-red-500 transition duration-300 flex flex-col cursor-pointer group shadow-lg">
                 <div class="aspect-[16/10] max-h-[180px] overflow-hidden bg-neutral-950 relative">
-                  <img src="${optimizeImageUrl(art.image, 400)}" alt="${art.title}" width="500" height="312" loading="${idx < 6 ? 'eager' : 'lazy'}" ${idx < 6 ? 'fetchpriority="high"' : ''} decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                  <img src="${art.image}" alt="${art.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                   <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 bg-black/80 backdrop-blur-md text-red-400 text-[9px] sm:text-[10px] font-black uppercase tracking-wider rounded-md border border-neutral-800">${art.category}</span>
                 </div>
                 <div class="p-3.5 sm:p-5 flex flex-col flex-grow">
@@ -774,7 +862,7 @@ html
           
           <!-- FEATURED ARTICLE IMAGE -->
           <div class="w-full mb-8 overflow-hidden">
-            <img src="${optimizeImageUrl(art.image || DEFAULT_IMAGE, 600)}" alt="${art.title || ''}" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto max-w-full mx-auto block">
+            <img src="${art.image || DEFAULT_IMAGE}" alt="${art.title || ''}" class="w-full h-auto max-w-full mx-auto block">
           </div>
 
           <!-- ARTICLE CONTENT -->
@@ -947,11 +1035,15 @@ html
       app.innerHTML = `<div class="max-w-4xl mx-auto pt-4 pb-16"><button onclick="navigateToHome(event)" class="text-xs font-bold uppercase text-slate-400 hover:text-red-500 mb-4">← Back to Home</button><div class="glass-card p-6 rounded-3xl"><h1 class="text-2xl font-black text-white mb-2 uppercase">${slug}</h1><p class="text-slate-300 text-xs">AZEXAI global intelligence page.</p></div></div>`;
     }
 
-    // Instant Initialization
+    // Zero-delay initialization
     (function initAzexai() {
       parseUrlRoute();
       router();
-      setTimeout(() => loadBloggerArticles(), 10);
+      if (window.requestIdleCallback) {
+        requestIdleCallback(() => loadBloggerArticles());
+      } else {
+        setTimeout(loadBloggerArticles, 50);
+      }
     })();
   </script>
 </body>

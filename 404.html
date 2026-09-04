@@ -4,43 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="pageMetaTitle">AZEXAI — Global Technology & Artificial Intelligence Authority</title>
-  <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
+  <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, quantum computing, and digital transformation.">
   <link id="pageCanonical" rel="canonical" href="">
 
-  <!-- DNS Preconnects for High Speed -->
+  <!-- High-Priority Preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://images.pexels.com">
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-  <!-- Open Graph Meta Tags -->
-  <meta id="ogTitle" property="og:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
-  <meta id="ogDesc" property="og:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
-  <meta id="ogImage" property="og:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200">
-  <meta id="ogUrl" property="og:url" content="">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta id="twTitle" name="twitter:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
-  <meta id="twDesc" name="twitter:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
-  <meta id="twImage" name="twitter:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200">
-
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json" id="structuredDataScript">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "AZEXAI",
-    "url": "",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
 
   <!-- Tailwind CSS Engine -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
@@ -50,7 +21,13 @@
       theme: {
         extend: {
           colors: {
-            brand: { red: '#ef4444', green: '#22c55e' }
+            cyber: {
+              orange: '#ff4500',
+              glow: '#ff6600',
+              dark: '#000000',
+              panel: '#080a0f',
+              border: '#1a202c'
+            }
           }
         }
       }
@@ -60,225 +37,319 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Core Base Styles -->
+  <!-- STRICT ZERO CURVATURE (0px Border Radius Globally Enforced) -->
   <style>
-    *, ::before, ::after { box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #000000; color: #f8fafc; margin: 0; padding: 0; }
+    /* Absolute Zero Border Radius Enforcement */
+    *, ::before, ::after, div, a, button, input, select, textarea, img, span, header, footer, article, nav, section, main { 
+      border-radius: 0px !important; 
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      background-color: #000000;
+      color: #f1f5f9;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-image: 
+        linear-gradient(to right, rgba(255, 69, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 69, 0, 0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .prose img { max-width: 100%; height: auto; border-radius: 1rem; margin: 1.5rem 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); }
-    .prose a { color: #ef4444; text-decoration: none; transition: color 0.2s; }
-    .prose a:hover { text-decoration: underline; }
+
+    /* Cyber HUD Card Elements */
+    .cyber-hud-card {
+      background: #05070c;
+      border: 1px solid rgba(255, 69, 0, 0.3);
+      position: relative;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+
+    .cyber-hud-card:hover {
+      border-color: #ff4500;
+      box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+    }
+
+    .cyber-btn-orange {
+      background: #ff4500;
+      color: #ffffff;
+      font-weight: 900;
+      text-transform: uppercase;
+      border: 1px solid #ff5500;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .cyber-btn-orange:hover {
+      background: #ffffff;
+      color: #000000;
+      box-shadow: 0 0 25px rgba(255, 69, 0, 0.8);
+    }
+
+    .laser-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, #ff4500 50%, transparent 100%);
+    }
+
+    /* Article Formatting */
+    .prose { max-width: 100%; color: #cbd5e1; }
+    .prose h1, .prose h2, .prose h3 { color: #ffffff; font-weight: 900; border-left: 3px solid #ff4500; padding-left: 12px; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+    .prose a { color: #ff4500; text-decoration: underline; font-weight: 700; }
+    .prose a:hover { color: #ffffff; }
+    .prose p { color: #d1d5db; line-height: 1.8; margin-bottom: 1.25rem; }
+    .prose ul { list-style-type: square; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    .prose li { margin-bottom: 0.5rem; color: #cbd5e1; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-black text-slate-100 selection:bg-red-500 selection:text-white transition-colors duration-300">
+<body class="min-h-screen flex flex-col bg-black text-slate-100 selection:bg-orange-600 selection:text-white">
+
+  <!-- Status HUD Header -->
+  <div class="bg-black border-b border-neutral-900 text-[10px] uppercase font-mono tracking-widest text-slate-400 py-1.5 px-4 flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <span class="flex items-center gap-1.5"><span class="w-2 h-2 bg-emerald-500 inline-block animate-pulse"></span> SYSTEM: ONLINE [2100.99]</span>
+      <span class="hidden sm:inline-block text-slate-600">|</span>
+      <span class="hidden sm:inline-block text-slate-400">LATENCY: 0.00ms</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span>GLOBAL INTEL DESK</span>
+      <span class="text-orange-500 font-bold">LIVE</span>
+    </div>
+  </div>
 
   <!-- Header -->
-  <header class="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-neutral-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+  <header class="sticky top-0 z-50 bg-black border-b border-orange-600/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
       
       <!-- Brand Logo -->
-      <a href="#" onclick="navigateToHome(event)" class="flex items-center group shrink-0" aria-label="AZEXAI Homepage">
-        <span class="text-2xl sm:text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-red-500">AI</span><span class="text-red-500 text-3xl sm:text-4xl leading-none">.</span></span>
+      <a href="javascript:void(0)" onclick="navigateToHome(event)" class="flex items-center gap-3 shrink-0" aria-label="AZEXAI Homepage">
+        <div class="w-8 h-8 bg-orange-600 border border-orange-500 flex items-center justify-center font-mono text-black font-black text-sm">
+          AX
+        </div>
+        <span class="text-2xl sm:text-3xl font-black tracking-widest uppercase text-white">AZEX<span class="text-orange-500">AI</span><span class="text-orange-500 text-3xl">.</span></span>
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold tracking-wide text-slate-300" aria-label="Global Navigation">
-        <a href="#" onclick="navigateToHome(event)" class="text-red-500 transition hover:text-red-400">Home</a>
-        <a href="#" onclick="setCategory('AI'); return false;" class="hover:text-red-500 transition">AI</a>
-        <a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-red-500 transition">Tech</a>
-        <a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-red-500 transition">Gadgets</a>
-        <a href="#" onclick="setCategory('Software'); return false;" class="hover:text-red-500 transition">Software</a>
-        <a href="#" onclick="setCategory('Cybersecurity'); return false;" class="hover:text-red-500 transition">Cybersecurity</a>
-        <a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-red-500 transition">Reviews</a>
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center gap-6 text-xs lg:text-sm font-black tracking-widest text-slate-300 uppercase" aria-label="Global Navigation">
+        <a href="javascript:void(0)" onclick="navigateToHome(event)" class="text-white hover:text-orange-500 transition-colors">Home</a>
+        <a href="javascript:void(0)" onclick="setCategory('AI', event)" class="hover:text-orange-500 transition-colors">AI & Robotics</a>
+        <a href="javascript:void(0)" onclick="setCategory('Tech', event)" class="hover:text-orange-500 transition-colors">Quantum Tech</a>
+        <a href="javascript:void(0)" onclick="setCategory('Gadgets', event)" class="hover:text-orange-500 transition-colors">Devices</a>
+        <a href="javascript:void(0)" onclick="setCategory('Software', event)" class="hover:text-orange-500 transition-colors">Software</a>
+        <a href="javascript:void(0)" onclick="setCategory('Cybersecurity', event)" class="hover:text-orange-500 transition-colors">Cybersecurity</a>
       </nav>
-      
-      <!-- Header Actions -->
-      <div class="flex items-center gap-2 sm:gap-3">
-        <button onclick="openSearchModal()" class="p-2.5 sm:p-3 rounded-2xl bg-neutral-900 text-slate-200 hover:border-red-500 transition border border-neutral-800 shadow-sm" aria-label="Search Articles">
-          <i class="fa-solid fa-magnifying-glass text-base sm:text-lg" aria-hidden="true"></i>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-2">
+        <button onclick="openSearchModal()" class="w-10 h-10 bg-black border border-orange-600/50 text-white hover:bg-orange-600 transition-all flex items-center justify-center" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass text-sm"></i>
         </button>
-        <button onclick="navigateToStaticPage('contact', event)" class="hidden sm:flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-red-500 hover:bg-white hover:text-slate-900 text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-red-500/20" aria-label="Subscribe Newsletter">
-          <span>Subscribe</span>
+        <button onclick="navigateToStaticPage('contact', event)" class="hidden sm:flex items-center px-5 py-2.5 cyber-btn-orange text-xs font-black tracking-widest">
+          <span>Contact Us</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Main Content Area -->
-  <main class="flex-grow max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-10 w-full bg-black">
-    
-    <!-- Dynamic JavaScript Render Target -->
+  <!-- Main Render Target -->
+  <main class="flex-grow w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
     <div id="app">
-      <!-- Loaded dynamically via Application Engine -->
+      <!-- Dynamic Views Rendered Immediately -->
     </div>
-
   </main>
 
   <!-- Global Footer -->
-  <footer class="bg-black border-t border-neutral-900 mt-16 sm:mt-24 py-12 sm:py-16 text-sm text-slate-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
-      <div>
-        <div class="flex items-center mb-4 cursor-pointer" onclick="navigateToHome(event)">
-          <span class="text-2xl sm:text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-red-500">AI</span><span class="text-red-500 text-3xl sm:text-4xl leading-none">.</span></span>
-        </div>
-        <p class="text-slate-400 text-xs sm:text-sm mb-6 leading-relaxed">Global authority on artificial intelligence, frontier technology, and digital transformation.</p>
-        <div class="flex items-center gap-3">
-          <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="X Twitter Profile"><i class="fa-solid fa-x text-xs"></i></a>
-          <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="Facebook Page"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-          <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="LinkedIn Company Page"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
-          <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" aria-label="YouTube Channel"><i class="fa-brands fa-youtube text-xs"></i></a>
-        </div>
-      </div>
+  <footer class="bg-black border-t border-orange-600/40 pt-12 pb-10 relative">
+    <div class="laser-line mb-10"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div>
-        <h3 class="text-white font-bold mb-4 sm:mb-5 text-xs uppercase tracking-widest">Company</h3>
-        <ul class="space-y-2.5 font-medium text-xs sm:text-sm text-slate-400">
-          <li><a href="#" onclick="navigateToStaticPage('about', event)" class="hover:text-red-500 transition">About Us</a></li>
-          <li><a href="#" onclick="navigateToStaticPage('editorial', event)" class="hover:text-red-500 transition">Global Editorial Board</a></li>
-          <li><a href="#" onclick="navigateToStaticPage('privacy', event)" class="hover:text-red-500 transition">Privacy Policy</a></li>
-          <li><a href="#" onclick="navigateToStaticPage('terms', event)" class="hover:text-red-500 transition">Terms of Service</a></li>
-          <li><a href="#" onclick="navigateToStaticPage('affiliate', event)" class="hover:text-red-500 transition">Affiliate Disclosure</a></li>
-          <li><a href="#" onclick="navigateToStaticPage('advertise', event)" class="hover:text-red-500 transition">Advertise With Us</a></li>
-          <li><a href="#" onclick="navigateToStaticPage('contact', event)" class="hover:text-red-500 transition">Contact</a></li>
-        </ul>
+      <!-- Footer Navigation Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-12 border-b border-neutral-900">
+        
+        <!-- Left Side: Brand -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3 cursor-pointer" onclick="navigateToHome(event)">
+            <span class="text-3xl font-black tracking-widest uppercase text-white">AZEX<span class="text-orange-500">AI</span><span class="text-orange-500">.</span></span>
+          </div>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-md">
+            AZEXAI is the premier global authority on artificial intelligence, quantum computing architectures, frontier hardware engineering, and digital security systems.
+          </p>
+          <div class="flex items-center gap-2 pt-2">
+            <a href="javascript:void(0)" class="w-9 h-9 bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-orange-600 hover:border-orange-600"><i class="fa-solid fa-x text-xs"></i></a>
+            <a href="javascript:void(0)" class="w-9 h-9 bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-orange-600 hover:border-orange-600"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+            <a href="javascript:void(0)" class="w-9 h-9 bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-orange-600 hover:border-orange-600"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+            <a href="javascript:void(0)" class="w-9 h-9 bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-orange-600 hover:border-orange-600"><i class="fa-brands fa-youtube text-xs"></i></a>
+          </div>
+        </div>
+
+        <!-- Right Side: Navigation Lists -->
+        <div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6">
+          
+          <!-- Corporate Links -->
+          <div>
+            <h3 class="text-orange-500 font-black text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+              <i class="fa-solid fa-building"></i> Corporate
+            </h3>
+            <ul class="space-y-2.5 font-bold text-xs uppercase text-slate-300">
+              <li><a href="javascript:void(0)" onclick="navigateToStaticPage('about', event)" class="hover:text-orange-500">About Us</a></li>
+              <li><a href="javascript:void(0)" onclick="navigateToStaticPage('editorial', event)" class="hover:text-orange-500">Editorial Board</a></li>
+              <li><a href="javascript:void(0)" onclick="navigateToStaticPage('privacy', event)" class="hover:text-orange-500">Privacy Policy</a></li>
+              <li><a href="javascript:void(0)" onclick="navigateToStaticPage('terms', event)" class="hover:text-orange-500">Terms of Service</a></li>
+              <li><a href="javascript:void(0)" onclick="navigateToStaticPage('affiliate', event)" class="hover:text-orange-500">Affiliate Disclosure</a></li>
+              <li><a href="javascript:void(0)" onclick="navigateToStaticPage('advertise', event)" class="hover:text-orange-500">Advertise With Us</a></li>
+              <li><a href="javascript:void(0)" onclick="navigateToStaticPage('contact', event)" class="text-orange-500 font-black hover:underline">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Domains List -->
+          <div>
+            <h3 class="text-orange-500 font-black text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+              <i class="fa-solid fa-layer-group"></i> Domains
+            </h3>
+            <ul class="space-y-2.5 font-bold text-xs uppercase text-slate-300">
+              <li><a href="javascript:void(0)" onclick="setCategory('AI', event)" class="hover:text-orange-500">Artificial Intelligence</a></li>
+              <li><a href="javascript:void(0)" onclick="setCategory('Tech', event)" class="hover:text-orange-500">Frontier Tech</a></li>
+              <li><a href="javascript:void(0)" onclick="setCategory('Gadgets', event)" class="hover:text-orange-500">Smart Gadgets</a></li>
+              <li><a href="javascript:void(0)" onclick="setCategory('Software', event)" class="hover:text-orange-500">Software Architecture</a></li>
+              <li><a href="javascript:void(0)" onclick="setCategory('Cybersecurity', event)" class="hover:text-orange-500">Cybersecurity</a></li>
+              <li><a href="javascript:void(0)" onclick="setCategory('Reviews', event)" class="hover:text-orange-500">Expert Reviews</a></li>
+            </ul>
+          </div>
+
+          <!-- Newsletter Box -->
+          <div class="col-span-2 sm:col-span-1">
+            <h3 class="text-orange-500 font-black text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+              <i class="fa-solid fa-paper-plane"></i> Newsletter
+            </h3>
+            <p class="text-slate-400 text-xs mb-3">Get daily tech intelligence reports directly in your inbox.</p>
+            <div class="space-y-2">
+              <input type="email" placeholder="ENTER YOUR EMAIL" class="w-full px-3.5 py-2.5 bg-neutral-950 border border-neutral-800 text-xs text-white placeholder-slate-500 font-bold uppercase focus:outline-none focus:border-orange-500">
+              <button onclick="alert('Subscribed to AZEXAI Global Intelligence.')" class="w-full py-2.5 cyber-btn-orange text-xs font-black uppercase tracking-widest">Subscribe</button>
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
-      <div>
-        <h3 class="text-white font-bold mb-4 sm:mb-5 text-xs uppercase tracking-widest">Categories</h3>
-        <ul class="space-y-2.5 font-medium text-xs sm:text-sm text-slate-400">
-          <li><a href="#" onclick="setCategory('AI'); return false;" class="hover:text-red-500 transition">Artificial Intelligence</a></li>
-          <li><a href="#" onclick="setCategory('Tech'); return false;" class="hover:text-red-500 transition">Frontier Tech</a></li>
-          <li><a href="#" onclick="setCategory('Gadgets'); return false;" class="hover:text-red-500 transition">Smart Gadgets</a></li>
-          <li><a href="#" onclick="setCategory('Software'); return false;" class="hover:text-red-500 transition">Software Architecture</a></li>
-          <li><a href="#" onclick="setCategory('Cybersecurity'); return false;" class="hover:text-red-500 transition">Cybersecurity</a></li>
-          <li><a href="#" onclick="setCategory('Reviews'); return false;" class="hover:text-red-500 transition">Expert Reviews</a></li>
-        </ul>
+      <!-- Copyright Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold text-slate-500 uppercase">
+        <p>&copy; 2026 AZEXAI AUTHORITATIVE MEDIA CORP. ALL RIGHTS RESERVED.</p>
+        <div class="flex gap-6">
+          <a href="javascript:void(0)" onclick="navigateToStaticPage('privacy', event)" class="hover:text-orange-500">Privacy</a>
+          <a href="javascript:void(0)" onclick="navigateToStaticPage('terms', event)" class="hover:text-orange-500">Terms</a>
+          <a href="javascript:void(0)" onclick="navigateToStaticPage('contact', event)" class="hover:text-orange-500">Contact Us</a>
+        </div>
       </div>
 
-      <div>
-        <h3 class="text-white font-bold mb-4 sm:mb-5 text-xs uppercase tracking-widest">Connect</h3>
-        <ul class="space-y-2.5 font-medium text-xs sm:text-sm text-slate-400">
-          <li><a href="#" onclick="navigateToStaticPage('contact', event)" class="hover:text-red-500 transition">Global Newsletter</a></li>
-          <li><a href="#" onclick="openSearchModal(); return false;" class="hover:text-red-500 transition">Advanced Search</a></li>
-        </ul>
-      </div>
     </div>
   </footer>
 
-  <!-- Cookie Consent Modal -->
-  <div id="cookieNotice" class="fixed bottom-4 right-4 left-4 sm:left-auto sm:max-w-sm bg-neutral-900 rounded-3xl shadow-2xl border border-neutral-800 p-5 z-50 hidden text-sm">
-    <div class="flex items-start gap-4">
-      <div class="p-3 bg-green-500/10 text-green-500 rounded-2xl mt-0.5 border border-green-500/20 shrink-0">
-        <i class="fa-solid fa-shield-halved text-lg" aria-hidden="true"></i>
-      </div>
-      <div class="flex-1">
-        <p class="text-white font-bold mb-1">Cookie Policy</p>
-        <p class="text-slate-400 mb-4 text-xs leading-relaxed">We use essential cookies to analyze global traffic and secure your browsing experience on Azexai.</p>
-        <div class="flex items-center gap-2">
-          <button onclick="acceptCookies()" class="px-4 py-2 bg-white text-slate-900 font-bold rounded-xl text-xs hover:bg-red-500 hover:text-white transition" aria-label="Accept Cookies">Accept</button>
-          <button onclick="declineCookies()" class="px-4 py-2 bg-neutral-800 text-slate-300 font-bold rounded-xl text-xs hover:text-red-500 transition" aria-label="Decline Cookies">Decline</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Search Modal -->
-  <div id="searchModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-20 sm:pt-28 hidden">
-    <div class="bg-neutral-900 rounded-3xl max-w-2xl w-full p-5 sm:p-6 shadow-2xl border border-neutral-800">
+  <div id="searchModal" class="fixed inset-0 bg-black/95 z-[60] flex items-start justify-center p-4 pt-20 hidden">
+    <div class="bg-black border border-orange-600/50 max-w-2xl w-full p-6 shadow-2xl">
       <div class="flex items-center justify-between mb-4">
-        <h3 class="text-base sm:text-lg font-black uppercase tracking-wider text-white">Search Global Articles</h3>
-        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-red-500 transition p-1" aria-label="Close Modal"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <h3 class="text-xs font-black uppercase tracking-widest text-white">Search Intelligence Database</h3>
+        <button onclick="closeSearchModal()" class="w-8 h-8 bg-neutral-950 border border-neutral-800 text-slate-400 hover:text-white hover:bg-orange-600"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="relative mb-4">
-        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true"></i>
-        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search AI breakthroughs, neural networks, quantum computing..." class="w-full pl-11 pr-4 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-sm focus:outline-none focus:border-red-500 text-white transition-colors" aria-label="Search term input">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-orange-500"></i>
+        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="SEARCH AI, QUANTUM, CYBERSECURITY..." class="w-full pl-11 pr-4 py-3 bg-neutral-950 border border-neutral-800 text-xs font-bold focus:outline-none focus:border-orange-500 text-white uppercase">
       </div>
       <div id="modalSearchResults" class="max-h-72 overflow-y-auto space-y-2 no-scrollbar">
-        <!-- Results auto-injected -->
+        <!-- Results -->
       </div>
     </div>
   </div>
 
-  <!-- Main JavaScript Engine -->
+  <!-- JavaScript Engine & Instant Vector Generator -->
   <script>
     const CONTACT_EMAIL = "contact@azexai.com";
+    const BLOGGER_CONFIG = { blogId: '4263033619836681299', apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ', maxResults: 100 };
 
-    // Blogger API Configuration
-    const BLOGGER_CONFIG = {
-      blogId: '4263033619836681299',
-      apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
-      maxResults: 100
-    };
+    let AZEXAI = { categories: ['All', 'AI', 'Tech', 'Gadgets', 'Software', 'Cybersecurity', 'Reviews'], activeCategory: 'All' };
 
-    let AZEXAI = {
-      categories: ['All', 'AI', 'Tech', 'Gadgets', 'Software', 'Cybersecurity', 'Internet', 'Mobile', 'Gaming', 'Reviews', 'How-To'],
-      activeCategory: 'All'
-    };
+    /* ================= INSTANT 0.00s VECTOR SVG GENERATOR ================= */
+    function generateInstant2100HUD(title, category) {
+      const themes = {
+        'AI': { primary: '#ff4500', secondary: '#ff8800', bg: '#03050a' },
+        'Tech': { primary: '#ff4500', secondary: '#00e5ff', bg: '#000810' },
+        'Gadgets': { primary: '#ff4500', secondary: '#00ff66', bg: '#001008' },
+        'Software': { primary: '#ff6600', secondary: '#ff0055', bg: '#100008' },
+        'Cybersecurity': { primary: '#ff2200', secondary: '#ffbb00', bg: '#080005' },
+        'Reviews': { primary: '#ff4500', secondary: '#ffffff', bg: '#0a0a0a' }
+      };
+      const t = themes[category] || { primary: '#ff4500', secondary: '#ff6600', bg: '#000000' };
 
-    // Initial Fallback / Offline Dataset
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+          <defs>
+            <radialGradient id="bg_${category}" cx="50%" cy="50%" r="70%">
+              <stop offset="0%" stop-color="${t.primary}" stop-opacity="0.35" />
+              <stop offset="70%" stop-color="${t.bg}" />
+              <stop offset="100%" stop-color="#000000" />
+            </radialGradient>
+          </defs>
+          <rect width="800" height="450" fill="url(#bg_${category})" />
+          <line x1="0" y1="225" x2="800" y2="225" stroke="${t.primary}" stroke-width="1" opacity="0.3"/>
+          <line x1="400" y1="0" x2="400" y2="450" stroke="${t.primary}" stroke-width="1" opacity="0.3"/>
+          <rect x="250" y="100" width="300" height="250" fill="none" stroke="${t.primary}" stroke-width="1.5" opacity="0.6"/>
+          <rect x="280" y="130" width="240" height="190" fill="none" stroke="${t.secondary}" stroke-width="2" opacity="0.8"/>
+          <path d="M230 100 H270 M530 100 H570 M230 350 H270 M530 350 H570" stroke="${t.primary}" stroke-width="3"/>
+          <rect x="30" y="380" width="320" height="40" fill="#000000" stroke="${t.primary}" stroke-width="1.5"/>
+          <text x="50" y="406" font-family="monospace" font-size="14" font-weight="900" fill="#ffffff" letter-spacing="3">${category.toUpperCase()} // SYSTEM DISPATCH</text>
+        </svg>
+      `;
+      return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+    }
+
     let ARTICLES = [
       {
-        id: 1,
-        slug: 'generative-ai-autonomous-systems',
+        id: 1, slug: 'generative-ai-autonomous-systems',
         title: 'Generative AI and the Dawn of Autonomous Scientific Discovery',
-        category: 'AI',
-        author: 'Dr. Elena Vance',
-        date: 'August 26, 2026',
-        readTime: '8 min read',
-        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        category: 'AI', author: 'Dr. Elena Vance', date: 'August 26, 2026', readTime: '8 min read',
+        image: generateInstant2100HUD('Generative AI', 'AI'),
         excerpt: 'How foundational large language models combined with reinforcement learning are independently hypothesizing and validating breakthroughs in material science.',
         tags: ['AI', 'Research'],
         content: '<h2>The Paradigm Shift in Scientific Computation</h2><p>Generative AI is no longer confined to generating prose or synthetic imagery. Today, multi-modal autonomous frameworks are actively driving molecular synthesis and quantum particle simulations.</p><p>By processing petabytes of historical experimental data in fractions of a second, these neural models eliminate empirical bottlenecks that previously required decades of human trial and error.</p>'
       },
       {
-        id: 2,
-        slug: 'neuromorphic-computing-architectures',
+        id: 2, slug: 'neuromorphic-computing-architectures',
         title: 'Neuromorphic Computing: Building Chips That Think Like the Human Brain',
-        category: 'Tech',
-        author: 'Marcus Thorne',
-        date: 'August 24, 2026',
-        readTime: '6 min read',
-        image: 'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        category: 'Tech', author: 'Marcus Thorne', date: 'August 24, 2026', readTime: '6 min read',
+        image: generateInstant2100HUD('Neuromorphic Computing', 'Tech'),
         excerpt: 'Silicon-based spiking neural networks promise ultra-low power consumption and real-time edge processing for next-gen robotics.',
         tags: ['Tech', 'Hardware'],
         content: '<h2>Beyond Von Neumann Bottlenecks</h2><p>Traditional computing architectures separate processing and memory, creating massive energy inefficiencies when running deep learning workloads. Neuromorphic chips mimic biological synapses directly on silicon.</p><p>This bio-inspired design reduces power demands by several orders of magnitude, paving the way for autonomous drones and prosthetic neural interfaces operating entirely on micro-watt power budgets.</p>'
       },
       {
-        id: 3,
-        slug: 'quantum-machine-learning-horizons',
+        id: 3, slug: 'quantum-machine-learning-horizons',
         title: 'Quantum Machine Learning: Unlocking Exponential Speedups in Cryptography',
-        category: 'Cybersecurity',
-        author: 'Siddharth Mehta',
-        date: 'August 22, 2026',
-        readTime: '9 min read',
-        image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        category: 'Cybersecurity', author: 'Siddharth Mehta', date: 'August 22, 2026', readTime: '9 min read',
+        image: generateInstant2100HUD('Quantum Machine Learning', 'Cybersecurity'),
         excerpt: 'As quantum processors reach higher qubit stability, cybersecurity frameworks must urgently transition to post-quantum encryption standards.',
         tags: ['Cybersecurity', 'Quantum'],
         content: '<h2>The Post-Quantum Imperative</h2><p>The intersection of quantum superposition and machine learning algorithms introduces unprecedented optimization capabilities while simultaneously threatening classical asymmetric encryption protocols.</p><p>Enterprise security architects are now racing to implement lattice-based cryptography to safeguard sensitive global infrastructure against impending decryption threats.</p>'
       },
       {
-        id: 4,
-        slug: 'edge-ai-smartphones-privacy',
+        id: 4, slug: 'edge-ai-smartphones-privacy',
         title: 'On-Device AI Engines: Redefining Mobile Privacy and Local Intelligence',
-        category: 'Gadgets',
-        author: 'Chloe Dupont',
-        date: 'August 20, 2026',
-        readTime: '5 min read',
-        image: 'https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        category: 'Gadgets', author: 'Chloe Dupont', date: 'August 20, 2026', readTime: '5 min read',
+        image: generateInstant2100HUD('On-Device AI Engines', 'Gadgets'),
         excerpt: 'Running localized billion-parameter models directly on smartphone NPUs ensures zero cloud data leakage and instantaneous offline response.',
         tags: ['Gadgets', 'Mobile'],
         content: '<h2>Zero-Cloud Personal Assistants</h2><p>The era of relaying every voice query and photo adjustment to centralized server farms is rapidly closing. Modern mobile processors embed dedicated neural processing units capable of executing complex context synthesis locally.</p><p>This local execution guarantees complete data sovereignty for users, ensuring sensitive communications and biometrics never leave the physical device.</p>'
       },
       {
-        id: 5,
-        slug: 'autonomous-software-engineering-agents',
+        id: 5, slug: 'autonomous-software-engineering-agents',
         title: 'Autonomous Software Engineering: When AI Writes and Deploys Full-Stack Code',
-        category: 'Software',
-        author: 'Dr. Elena Vance',
-        date: 'August 18, 2026',
-        readTime: '7 min read',
-        image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        category: 'Software', author: 'Dr. Elena Vance', date: 'August 18, 2026', readTime: '7 min read',
+        image: generateInstant2100HUD('Autonomous Software Engineering', 'Software'),
         excerpt: 'Software development is shifting from manual syntax authoring to high-level architectural specification and autonomous agent oversight.',
         tags: ['Software', 'AI'],
         content: '<h2>The Rise of System Architects</h2><p>Autonomous coding agents can now ingest product requirements, design robust database schemas, write comprehensive test suites, and deploy containerized microservices autonomously.</p><p>Human engineers are transitioning into high-level system supervisors, focusing on ethical compliance, security audits, and visionary product design rather than repetitive boilerplate coding.</p>'
@@ -287,292 +358,119 @@
 
     let currentView = { type: 'home', slug: null };
 
-    /* ==================== HELPER UTILS ==================== */
-    const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200';
-
-    function stripHtml(html) {
-      const div = document.createElement('div');
-      div.innerHTML = html || '';
-      return (div.textContent || div.innerText || '').replace(/\s+/g, ' ').trim();
-    }
-
-    function getFirstImage(html) {
-      const div = document.createElement('div');
-      div.innerHTML = html || '';
-      const img = div.querySelector('img');
-      return img ? (img.src || img.getAttribute('data-src') || '') : '';
-    }
-
-    function processArticleImages(html) {
-      const div = document.createElement('div');
-      div.innerHTML = html || '';
-      const imgs = div.querySelectorAll('img');
-      imgs.forEach(img => {
-        img.setAttribute('loading', 'lazy');
-        img.setAttribute('decoding', 'async');
-        img.className = 'w-full h-auto object-cover rounded-2xl my-6 shadow-md max-h-[500px]';
-      });
-      return div.innerHTML;
-    }
-
-    function estimateReadTime(html) {
-      const text = stripHtml(html);
-      const words = text.split(/\s+/).filter(Boolean).length;
-      return Math.max(1, Math.ceil(words / 220)) + ' min read';
-    }
-
-    function bloggerSlug(post) {
-      const match = (post.url || '').match(/[^/]+$/);
-      return match ? decodeURIComponent(match[0]).replace(/\.html$/, '') : String(post.id);
-    }
-
-    function normalizeBloggerPost(post, index) {
-      const labels = Array.isArray(post.labels) ? post.labels : [];
-      const category = labels[0] || 'AI';
-      const rawBody = post.content || '';
-      const body = processArticleImages(rawBody);
-      const plainText = stripHtml(rawBody);
-      const image = getFirstImage(rawBody) || DEFAULT_IMAGE;
-      const author = post.author?.displayName || 'AZEXAI Research';
-      const date = post.published ? new Date(post.published).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'August 26, 2026';
-
-      return {
-        id: Number(post.id) || index + 1,
-        slug: bloggerSlug(post),
-        title: post.title || 'Untitled',
-        category: category,
-        author: author,
-        date: date,
-        publishedISO: post.published || new Date().toISOString(),
-        updatedISO: post.updated || new Date().toISOString(),
-        readTime: estimateReadTime(rawBody),
-        image: image,
-        excerpt: plainText.length > 180 ? plainText.substring(0, 180) + '...' : plainText,
-        tags: labels.length ? labels : [category],
-        content: body,
-        url: post.url || window.location.href
-      };
-    }
+    function stripHtml(html) { const d=document.createElement('div'); d.innerHTML=html||''; return (d.textContent||d.innerText||'').replace(/\s+/g,' ').trim(); }
+    function getFirstImage(html) { const d=document.createElement('div'); d.innerHTML=html||''; const img=d.querySelector('img'); return img?(img.src||img.getAttribute('data-src')||''):''; }
+    function estimateReadTime(html) { const w=stripHtml(html).split(/\s+/).filter(Boolean).length; return Math.max(1,Math.ceil(w/220))+' min read'; }
 
     async function loadBloggerArticles() {
-      if (!BLOGGER_CONFIG.apiKey) return false;
+      if (!BLOGGER_CONFIG.apiKey) return;
       try {
-        const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&fetchBodies=true&fetchImages=true&maxResults=${BLOGGER_CONFIG.maxResults}`;
-        const response = await fetch(url, { cache: 'no-cache' });
-        if (!response.ok) throw new Error('Blogger API HTTP error ' + response.status);
-        const data = await response.json();
-        if (Array.isArray(data.items) && data.items.length > 0) {
-          ARTICLES = data.items.map(normalizeBloggerPost);
-          const bloggerCategories = [...new Set(ARTICLES.map(a => a.category).filter(Boolean))];
-          AZEXAI.categories = ['All', ...new Set([...bloggerCategories, ...AZEXAI.categories.filter(c => c !== 'All')])];
-          return true;
+        const res = await fetch(`https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${BLOGGER_CONFIG.apiKey}&fetchBodies=true&fetchImages=true&maxResults=${BLOGGER_CONFIG.maxResults}`);
+        if(res.ok){
+          const data = await res.json();
+          if(data.items && data.items.length){
+            ARTICLES = data.items.map((p,i) => {
+              const labels = p.labels||[];
+              const cat = labels[0]||'AI';
+              const raw = p.content||'';
+              const slugMatch = (p.url||'').match(/[^/]+$/);
+              const extImg = getFirstImage(raw);
+              return {
+                id: p.id||i+1,
+                slug: slugMatch ? decodeURIComponent(slugMatch[0]).replace(/\.html$/,'') : String(p.id),
+                title: p.title||'Untitled',
+                category: cat,
+                author: p.author?.displayName||'AZEXAI Editor',
+                date: new Date(p.published).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}),
+                readTime: estimateReadTime(raw),
+                image: extImg || generateInstant2100HUD(p.title, cat),
+                excerpt: stripHtml(raw).substring(0,180)+'...',
+                tags: labels.length?labels:[cat],
+                content: raw
+              };
+            });
+            const cats = [...new Set(ARTICLES.map(a=>a.category).filter(Boolean))];
+            AZEXAI.categories = ['All', ...new Set([...cats, ...AZEXAI.categories.filter(c=>c!=='All')])];
+          }
         }
-      } catch (err) {
-        console.warn('Notice: Using local fallback data.', err);
-      }
-      return false;
+      } catch(e) { console.log('Instant Vector Engine Active.'); }
     }
 
-    /* ==================== SEO & STRUCTURED DATA ==================== */
-    function updateSEO(article = null) {
-      const currentUrl = window.location.href;
-      const siteName = "AZEXAI";
-
-      let title, desc, img, pubDate, modDate, authorName;
-
-      if (article) {
-        title = `${article.title} — ${siteName}`;
-        desc = article.excerpt;
-        img = article.image;
-        pubDate = article.publishedISO || new Date().toISOString();
-        modDate = article.updatedISO || pubDate;
-        authorName = article.author;
-      } else {
-        title = "AZEXAI — Global Technology & Artificial Intelligence Authority";
-        desc = "Global authority on artificial intelligence, frontier technology, and digital transformation.";
-        img = DEFAULT_IMAGE;
-      }
-
-      document.getElementById('pageMetaTitle').textContent = title;
-      document.getElementById('pageMetaDesc').setAttribute('content', desc);
-      document.getElementById('pageCanonical').setAttribute('href', currentUrl);
-
-      document.getElementById('ogTitle').setAttribute('content', title);
-      document.getElementById('ogDesc').setAttribute('content', desc);
-      document.getElementById('ogImage').setAttribute('content', img);
-      document.getElementById('ogUrl').setAttribute('content', currentUrl);
-
-      document.getElementById('twTitle').setAttribute('content', title);
-      document.getElementById('twDesc').setAttribute('content', desc);
-      document.getElementById('twImage').setAttribute('content', img);
-
-      const scriptEl = document.getElementById('structuredDataScript');
-      if (article) {
-        scriptEl.textContent = JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "NewsArticle",
-          "headline": article.title,
-          "description": article.excerpt,
-          "image": [article.image],
-          "datePublished": pubDate,
-          "dateModified": modDate,
-          "author": [{
-            "@type": "Person",
-            "name": authorName
-          }],
-          "publisher": {
-            "@type": "Organization",
-            "name": "AZEXAI",
-            "logo": {
-              "@type": "ImageObject",
-              "url": DEFAULT_IMAGE
-            }
-          },
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": currentUrl
-          }
-        });
-      } else {
-        scriptEl.textContent = JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": "AZEXAI",
-          "url": currentUrl,
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": currentUrl + "?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-          }
-        });
-      }
-    }
-
-    /* ==================== COOKIE CONTROLLER ==================== */
-    function initCookieNotice() {
-      if (!localStorage.getItem('azexai_cookies')) {
-        document.getElementById('cookieNotice').classList.remove('hidden');
-      }
-    }
-
-    function acceptCookies() {
-      localStorage.setItem('azexai_cookies', 'accepted');
-      document.getElementById('cookieNotice').classList.add('hidden');
-    }
-
-    function declineCookies() {
-      localStorage.setItem('azexai_cookies', 'declined');
-      document.getElementById('cookieNotice').classList.add('hidden');
-    }
-
-    /* ==================== SEARCH MODAL ==================== */
-    function openSearchModal() {
-      document.getElementById('searchModal').classList.remove('hidden');
-      setTimeout(() => document.getElementById('modalSearchInput').focus(), 100);
-    }
-
-    function closeSearchModal() {
-      document.getElementById('searchModal').classList.add('hidden');
-    }
-
-    function handleModalSearch(e) {
-      const query = e.target.value.toLowerCase();
-      const resultsContainer = document.getElementById('modalSearchResults');
-      if (!query) {
-        resultsContainer.innerHTML = '';
-        return;
-      }
-      const matches = ARTICLES.filter(a => 
-        a.title.toLowerCase().includes(query) || 
-        a.excerpt.toLowerCase().includes(query) || 
-        a.category.toLowerCase().includes(query) ||
-        (a.tags && a.tags.some(tag => tag.toLowerCase().includes(query)))
-      );
-      if (matches.length === 0) {
-        resultsContainer.innerHTML = '<p class="text-xs text-slate-400 font-bold uppercase tracking-wider text-center py-6">No matching global articles found.</p>';
-        return;
-      }
-      resultsContainer.innerHTML = matches.map(m => `
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}')" class="p-3.5 sm:p-4 bg-neutral-950 border border-neutral-800 hover:border-red-500 rounded-2xl cursor-pointer transition-all flex items-center justify-between group">
-          <div>
-            <h4 class="text-xs sm:text-sm font-bold text-white mb-1 group-hover:text-red-500 transition-colors line-clamp-1">${m.title}</h4>
-            <p class="text-xs text-slate-400 line-clamp-1">${m.excerpt}</p>
-          </div>
-          <i class="fa-solid fa-arrow-right text-red-500 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all text-xs sm:text-sm ml-4 shrink-0" aria-hidden="true"></i>
-        </div>
-      `).join('');
-    }
-
-    /* ==================== ROUTING & URL SYNC ==================== */
+    /* SAFE ROUTING ENGINE - IN-MEMORY ROUTER (Guaranteed zero crashes in iframe) */
     function updateUrlState() {
-      let path = '#/';
-      if (currentView.type === 'article') {
-        path = `#/article/${currentView.slug}`;
-      } else if (currentView.type === 'static') {
-        path = `#/page/${currentView.slug}`;
-      } else if (AZEXAI.activeCategory !== 'All') {
-        path = `#/category/${AZEXAI.activeCategory.toLowerCase()}`;
+      try {
+        let url = window.location.pathname;
+        let params = new URLSearchParams();
+        
+        if (currentView.type === 'article') params.set('article', currentView.slug);
+        else if (currentView.type === 'static') params.set('page', currentView.slug);
+        else if (AZEXAI.activeCategory !== 'All') params.set('category', AZEXAI.activeCategory.toLowerCase());
+        
+        let finalUrl = params.toString() ? `${url}?${params.toString()}` : url;
+        window.history.pushState(currentView, '', finalUrl);
+      } catch (err) {
+        // Safe fallback for sandboxed iframe environments
       }
-      window.history.pushState(currentView, '', path);
     }
 
-    function navigateToHome(e) {
-      if (e) e.preventDefault();
-      currentView = { type: 'home', slug: null };
-      AZEXAI.activeCategory = 'All';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      updateUrlState();
-      router();
-    }
-
-    function navigateToArticle(slug, e) {
-      if (e) e.preventDefault();
-      currentView = { type: 'article', slug: slug };
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      updateUrlState();
-      router();
-    }
-
-    function navigateToStaticPage(pageSlug, e) {
-      if (e) e.preventDefault();
-      currentView = { type: 'static', slug: pageSlug };
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      updateUrlState();
-      router();
-    }
-
-    function setCategory(cat) {
-      AZEXAI.activeCategory = cat;
-      currentView = { type: 'home', slug: null };
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      updateUrlState();
-      router();
+    function parseUrlParams() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('article')) {
+          currentView = { type: 'article', slug: params.get('article') };
+        } else if (params.has('page')) {
+          currentView = { type: 'static', slug: params.get('page') };
+        } else if (params.has('category')) {
+          const catSlug = params.get('category').toLowerCase();
+          const matched = AZEXAI.categories.find(c => c.toLowerCase() === catSlug);
+          AZEXAI.activeCategory = matched || 'All';
+          currentView = { type: 'home', slug: null };
+        } else {
+          currentView = { type: 'home', slug: null };
+          AZEXAI.activeCategory = 'All';
+        }
+      } catch(e) {
+        currentView = { type: 'home', slug: null };
+      }
     }
 
     window.addEventListener('popstate', () => {
-      parseUrlHash();
+      parseUrlParams();
       router();
     });
 
-    function parseUrlHash() {
-      const hash = window.location.hash;
-      if (hash.startsWith('#/article/')) {
-        const slug = hash.replace('#/article/', '');
-        currentView = { type: 'article', slug: slug };
-      } else if (hash.startsWith('#/page/')) {
-        const slug = hash.replace('#/page/', '');
-        currentView = { type: 'static', slug: slug };
-      } else if (hash.startsWith('#/category/')) {
-        const catSlug = hash.replace('#/category/', '');
-        const matchedCat = AZEXAI.categories.find(c => c.toLowerCase() === catSlug);
-        if (matchedCat) {
-          AZEXAI.activeCategory = matchedCat;
-        }
-        currentView = { type: 'home', slug: null };
-      } else {
-        currentView = { type: 'home', slug: null };
-        AZEXAI.activeCategory = 'All';
-      }
+    function navigateToHome(e) { 
+      if(e && e.preventDefault) e.preventDefault(); 
+      currentView = {type:'home', slug:null}; 
+      AZEXAI.activeCategory = 'All'; 
+      window.scrollTo(0,0); 
+      updateUrlState(); 
+      router(); 
+    }
+    
+    function navigateToArticle(slug, e) { 
+      if(e && e.preventDefault) e.preventDefault(); 
+      currentView = {type:'article', slug:slug}; 
+      window.scrollTo(0,0); 
+      updateUrlState(); 
+      router(); 
+    }
+    
+    function navigateToStaticPage(slug, e) { 
+      if(e && e.preventDefault) e.preventDefault(); 
+      currentView = {type:'static', slug:slug}; 
+      window.scrollTo(0,0); 
+      updateUrlState(); 
+      router(); 
+    }
+    
+    function setCategory(cat, e) { 
+      if(e && e.preventDefault) e.preventDefault(); 
+      AZEXAI.activeCategory = cat; 
+      currentView = {type:'home', slug:null}; 
+      window.scrollTo(0,0); 
+      updateUrlState(); 
+      router(); 
     }
 
     function router() {
@@ -580,88 +478,72 @@
       if (!app) return;
 
       if (currentView.type === 'article') {
-        const article = ARTICLES.find(a => a.slug === currentView.slug || String(a.id) === currentView.slug);
-        if (article) {
-          updateSEO(article);
-          renderArticleView(article);
-          return;
-        }
+        const art = ARTICLES.find(a => a.slug === currentView.slug || String(a.id) === currentView.slug);
+        if (art) { document.title = `${art.title} - AZEXAI`; renderArticleView(art); return; }
       } else if (currentView.type === 'static') {
-        updateSEO(null);
-        renderStaticPageView(currentView.slug);
-        return;
+        document.title = `AZEXAI - ${currentView.slug}`;
+        renderStaticPageView(currentView.slug); return;
       }
-      updateSEO(null);
+      
+      document.title = "AZEXAI - Global Technology & Artificial Intelligence Authority";
       renderHome();
     }
 
-    /* ==================== VIEWS RENDERING ==================== */
+    /* RENDER VIEWS - 2 Columns Grid, Instant Response & 0px Geometry */
     function renderHome() {
       const app = document.getElementById('app');
-      
-      const filtered = ARTICLES.filter(a => {
-        if (AZEXAI.activeCategory === 'All') return true;
-        return a.category.toLowerCase() === AZEXAI.activeCategory.toLowerCase();
-      });
-
+      const filtered = ARTICLES.filter(a => AZEXAI.activeCategory === 'All' || a.category.toLowerCase() === AZEXAI.activeCategory.toLowerCase());
       const hero = filtered[0] || ARTICLES[0];
-      const categoryCards = [
-        { name: 'AI', desc: 'Neural networks, generative models, and autonomous machine learning.' },
-        { name: 'Tech', desc: 'Quantum computing, semiconductors, and frontier engineering.' },
-        { name: 'Gadgets', desc: 'Next-gen hardware, AR/VR wearables, and smart devices.' },
-        { name: 'Software', desc: 'Cloud architecture, distributed systems, and modern frameworks.' },
-        { name: 'Cybersecurity', desc: 'Post-quantum encryption, threat intelligence, and digital defense.' },
-        { name: 'Reviews', desc: 'Rigorous expert evaluations of enterprise and consumer technology.' }
-      ];
 
       app.innerHTML = `
-        <!-- Sticky Top Category Filter Bar -->
-        <div class="sticky top-20 z-40 bg-black/95 backdrop-blur-md pt-2 pb-3 mb-6 sm:mb-10 border-b border-neutral-900 flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar -mx-3 px-3 sm:mx-0 sm:px-0">
+        <!-- Category Filter Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-4 mb-8 border-b border-neutral-900">
           ${AZEXAI.categories.map(cat => `
-            <button onclick="setCategory('${cat}')" class="px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-2xl text-[10px] sm:text-xs font-black uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${AZEXAI.activeCategory === cat ? 'bg-red-500 text-white border-red-500 shadow-lg shadow-red-500/20' : 'bg-neutral-900 text-slate-300 border-neutral-800 hover:border-red-500'}" aria-label="Filter category ${cat}">${cat}</button>
+            <button onclick="setCategory('${cat}', event)" class="px-4 py-2 text-xs font-black uppercase tracking-widest whitespace-nowrap transition-all border ${AZEXAI.activeCategory === cat ? 'bg-orange-600 text-white border-orange-500 shadow-[0_0_15px_rgba(255,69,0,0.6)]' : 'bg-black border-neutral-800 text-slate-400 hover:text-white hover:border-orange-600'}">${cat}</button>
           `).join('')}
         </div>
 
-        <!-- Hero Section -->
+        <!-- HERO BANNER -->
         ${hero && AZEXAI.activeCategory === 'All' ? `
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 mb-8 sm:mb-20 items-center bg-neutral-900 p-5 sm:p-10 lg:p-12 rounded-[1.8rem] sm:rounded-[2.5rem] border border-neutral-800 shadow-xl cursor-pointer group" onclick="navigateToArticle('${hero.slug}')">
-          <div class="space-y-3 sm:space-y-6">
-            <span class="px-3 py-1 bg-red-500/10 text-red-500 text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-full border border-red-500/20">${hero.category}</span>
-            <h1 class="text-xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-snug lg:leading-[1.1] group-hover:text-red-500 transition-colors">${hero.title}</h1>
-            <p class="text-slate-300 text-xs sm:text-base font-medium line-clamp-2 sm:line-clamp-3 leading-relaxed">${hero.excerpt}</p>
-            <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
-              <span class="text-white">${hero.author}</span>
-              <span>&bull;</span>
-              <span>${hero.date}</span>
-              <span>&bull;</span>
-              <span class="text-green-500">${hero.readTime}</span>
+        <div onclick="navigateToArticle('${hero.slug}', event)" class="block relative w-full mb-12 cyber-hud-card group">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 sm:p-10 items-center">
+            <div class="space-y-4">
+              <span class="inline-block px-3 py-1 bg-orange-600 text-white font-black text-xs uppercase tracking-widest">${hero.category}</span>
+              <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight group-hover:text-orange-500 transition-colors">${hero.title}</h1>
+              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed line-clamp-3">${hero.excerpt}</p>
+              <div class="flex items-center gap-4 text-xs font-black uppercase tracking-wider text-slate-400 pt-2">
+                <span class="text-white"><i class="fa-solid fa-user-astronaut text-orange-500 mr-2"></i>${hero.author}</span>
+                <span>•</span>
+                <span class="text-orange-500"><i class="fa-regular fa-clock mr-2"></i>${hero.readTime}</span>
+              </div>
             </div>
-            <div class="pt-1 sm:pt-4">
-              <button onclick="navigateToArticle('${hero.slug}', event)" class="w-full sm:w-auto px-5 sm:px-8 py-3 sm:py-4 bg-white text-slate-900 hover:bg-red-500 hover:text-white font-black uppercase tracking-wider rounded-2xl transition-all shadow-lg text-xs sm:text-sm" aria-label="Read Report">Read Global Report</button>
+            <!-- Instant 0.00s HUD Vector Graphic -->
+            <div class="aspect-[16/10] border border-orange-600/40 bg-black">
+              <img src="${hero.image}" onerror="this.src='${generateInstant2100HUD(hero.title, hero.category)}'" alt="${hero.title}" class="w-full h-full object-cover">
             </div>
-          </div>
-          <div class="aspect-[16/10] sm:aspect-[16/11] rounded-[1.2rem] sm:rounded-[2rem] overflow-hidden bg-neutral-950 border border-neutral-800 shadow-inner">
-            <img src="${hero.image}" alt="${hero.title}" width="1200" height="825" loading="eager" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
           </div>
         </div>
         ` : ''}
 
-        <!-- Featured Section (2 Articles Per Row on Mobile, 3 on Desktop) -->
-        <div class="mb-10 sm:mb-20">
-          <h2 class="text-xl sm:text-3xl font-black text-white uppercase tracking-tight mb-4 sm:mb-8">${AZEXAI.activeCategory !== 'All' ? AZEXAI.activeCategory + ' ' : ''}Analyses</h2>
-          <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
+        <!-- ARTICLES GRID: EXACTLY 2 COLUMNS PER ROW (MOBILE & DESKTOP) -->
+        <div class="mb-12">
+          <h2 class="text-lg sm:text-2xl font-black text-white uppercase tracking-widest mb-6 flex items-center gap-3 border-l-4 border-orange-600 pl-3">
+            ${AZEXAI.activeCategory !== 'All' ? AZEXAI.activeCategory : 'Neural Intelligence Stream'}
+          </h2>
+          
+          <div class="grid grid-cols-2 gap-3 sm:gap-6">
             ${filtered.map(art => `
-              <div onclick="navigateToArticle('${art.slug}')" class="bg-neutral-900 rounded-2xl sm:rounded-[2rem] overflow-hidden border border-neutral-800 hover:border-red-500 transition duration-300 flex flex-col cursor-pointer group shadow-xl">
-                <div class="aspect-[16/10] overflow-hidden bg-neutral-950 relative">
-                  <img src="${art.image}" alt="${art.title}" width="600" height="375" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                  <span class="absolute top-2 left-2 sm:top-4 sm:left-4 px-2 py-0.5 sm:px-3 sm:py-1 bg-neutral-900/90 backdrop-blur-md text-white text-[9px] sm:text-xs font-black uppercase tracking-wider rounded-full border border-neutral-800">${art.category}</span>
+              <div onclick="navigateToArticle('${art.slug}', event)" class="cyber-hud-card flex flex-col group">
+                <div class="relative aspect-[16/10] overflow-hidden bg-black border-b border-neutral-900">
+                  <img src="${art.image}" onerror="this.src='${generateInstant2100HUD(art.title, art.category)}'" alt="${art.title}" class="w-full h-full object-cover">
+                  <span class="absolute top-2 left-2 px-2.5 py-1 bg-black text-white text-[9px] sm:text-xs font-black uppercase tracking-widest border border-orange-600/50">${art.category}</span>
                 </div>
-                <div class="p-3 sm:p-6 flex flex-col flex-grow">
-                  <h3 class="text-xs sm:text-xl font-bold text-white mb-1.5 sm:mb-3 group-hover:text-red-500 transition-colors line-clamp-2 leading-tight sm:leading-snug">${art.title}</h3>
-                  <p class="text-[11px] sm:text-sm text-slate-400 font-medium line-clamp-2 sm:line-clamp-3 mb-2 sm:mb-6 flex-grow leading-relaxed">${art.excerpt}</p>
-                  <div class="flex items-center justify-between pt-2 sm:pt-3.5 border-t border-neutral-800/80 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
-                    <span class="text-slate-300 line-clamp-1">${art.author}</span>
-                    <span class="text-green-500 shrink-0 ml-1 sm:ml-2">${art.readTime}</span>
+                <div class="p-3 sm:p-5 flex flex-col flex-grow">
+                  <h3 class="text-xs sm:text-lg font-black text-white mb-2 group-hover:text-orange-500 transition-colors line-clamp-2 leading-snug">${art.title}</h3>
+                  <p class="text-[11px] sm:text-xs text-slate-400 font-medium line-clamp-2 mb-4 flex-grow leading-relaxed hidden sm:block">${art.excerpt}</p>
+                  <div class="flex items-center justify-between pt-3 border-t border-neutral-900 text-[9px] sm:text-xs font-black uppercase text-slate-400">
+                    <span class="text-slate-300 truncate">${art.author}</span>
+                    <span class="text-orange-500 shrink-0 ml-1">${art.readTime}</span>
                   </div>
                 </div>
               </div>
@@ -669,35 +551,15 @@
           </div>
         </div>
 
-        <!-- Explore Domains -->
-        <div class="mb-10 sm:mb-20">
-          <h2 class="text-xl sm:text-3xl font-black text-white uppercase tracking-tight mb-4 sm:mb-8">Explore <span class="text-red-500">Domains</span></h2>
-          <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
-            ${categoryCards.map(c => `
-              <div onclick="setCategory('${c.name}')" class="bg-neutral-900 border border-neutral-800 p-4 sm:p-8 rounded-2xl sm:rounded-3xl hover:border-red-500 transition-all cursor-pointer group shadow-lg flex flex-col justify-between">
-                <div>
-                  <div class="flex items-center justify-between mb-3 sm:mb-6">
-                    <span class="w-8 h-8 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-neutral-950 border border-neutral-800 text-white group-hover:bg-red-500 group-hover:text-white transition-colors flex items-center justify-center text-xs sm:text-base shadow-sm">
-                      <i class="fa-solid fa-microchip" aria-hidden="true"></i>
-                    </span>
-                  </div>
-                  <h3 class="text-sm sm:text-xl font-black text-white mb-1 sm:mb-2 group-hover:text-red-500 transition">${c.name}</h3>
-                  <p class="text-[11px] sm:text-sm font-medium text-slate-400 leading-relaxed line-clamp-2 sm:line-clamp-none">${c.desc}</p>
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-
-        <!-- Newsletter Section -->
-        <div class="bg-red-500 border border-red-600 p-6 sm:p-12 lg:p-14 rounded-2xl sm:rounded-[3rem] grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center shadow-2xl shadow-red-500/20 text-white">
+        <!-- Dispatch Panel -->
+        <div class="cyber-hud-card p-6 sm:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <div>
-            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-2 sm:mb-4 leading-none">Stay Ahead<br>Of What's Next.</h2>
-            <p class="text-xs sm:text-base font-medium text-red-100 leading-relaxed">Receive elite global intelligence reports on artificial intelligence and frontier technology directly in your inbox.</p>
+            <h2 class="text-xl sm:text-3xl font-black uppercase tracking-wider text-white mb-2">Connect To AZEXAI Network</h2>
+            <p class="text-xs sm:text-sm font-bold text-slate-400">Direct encrypted transmission of technical intelligence dispatches.</p>
           </div>
-          <div class="space-y-3 sm:space-y-4">
-            <input type="email" placeholder="ENTER YOUR PROFESSIONAL EMAIL" class="w-full px-4 sm:px-6 py-3 sm:py-4 bg-neutral-950/40 border border-white/30 rounded-2xl text-xs sm:text-sm text-white placeholder-red-200 focus:outline-none focus:bg-neutral-950 font-bold tracking-wider transition-colors" aria-label="Newsletter email address">
-            <button onclick="alert('Thank you for subscribing to the Azexai Global Newsletter.')" class="w-full py-3 sm:py-4 bg-white hover:bg-neutral-950 text-slate-900 hover:text-white font-black uppercase tracking-widest rounded-2xl transition-all shadow-xl text-xs sm:text-sm" aria-label="Subscribe now">Subscribe Now</button>
+          <div class="flex flex-col gap-3">
+            <input type="email" placeholder="ENTER YOUR EMAIL ADDRESS" class="w-full px-4 py-3 bg-black border border-neutral-800 text-xs text-white placeholder-slate-500 font-bold uppercase focus:outline-none focus:border-orange-500">
+            <button onclick="alert('Access Granted. Subscribed to AZEXAI Network.')" class="w-full py-3 cyber-btn-orange text-xs font-black uppercase tracking-widest">Subscribe Now</button>
           </div>
         </div>
       `;
@@ -705,137 +567,148 @@
 
     function renderArticleView(art) {
       const app = document.getElementById('app');
-
-      const tagsHtml = art.tags.map(t => `
-        <span class="px-3.5 py-1.5 bg-neutral-900 text-slate-300 text-xs font-bold uppercase tracking-wider rounded-2xl border border-neutral-800">#${t}</span>
-      `).join('');
-
-      const shareUrl = encodeURIComponent(window.location.href);
-      const shareTitle = encodeURIComponent(art.title);
-
       app.innerHTML = `
-        <div class="max-w-4xl mx-auto pt-4 sm:pt-6 pb-16 sm:pb-20">
-          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 sm:mb-10 transition-colors group" aria-label="Back to home">
-            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform" aria-hidden="true"></i> Back to Global Index
+        <div class="max-w-4xl mx-auto pt-2 pb-16">
+          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-400 hover:text-orange-500 mb-6 group">
+            <i class="fa-solid fa-arrow-left"></i> Return To Index
           </button>
 
-          <div class="mb-8 sm:mb-10">
-            <span class="px-3.5 py-1.5 bg-red-500/10 text-red-500 font-black text-[11px] sm:text-xs uppercase tracking-widest rounded-full border border-red-500/20">${art.category}</span>
-            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mt-4 sm:mt-6 mb-6 leading-snug sm:leading-[1.15]">${art.title}</h1>
+          <div class="cyber-hud-card p-6 sm:p-10 mb-8">
+            <span class="inline-block px-3 py-1 bg-orange-600 text-white font-black text-xs uppercase tracking-widest mb-4">${art.category}</span>
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">${art.title}</h1>
             
-            <div class="flex flex-wrap items-center justify-between gap-4 py-4 sm:py-6 border-y border-neutral-800 text-xs sm:text-sm">
-              <div class="flex items-center gap-3 sm:gap-4">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-red-500 text-white font-black text-base sm:text-lg flex items-center justify-center shadow-lg shrink-0">
+            <div class="flex items-center justify-between py-4 border-y border-neutral-900 text-xs font-black uppercase text-slate-400">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-orange-600 text-white font-black flex items-center justify-center text-base">
                   ${art.author.charAt(0)}
                 </div>
                 <div>
-                  <p class="font-bold text-white text-xs sm:text-base">${art.author}</p>
-                  <p class="text-[10px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider mt-0.5">${art.date}</p>
+                  <p class="text-white">${art.author}</p>
+                  <p class="text-[10px] text-slate-500">${art.date}</p>
                 </div>
               </div>
-              <span class="flex items-center text-green-500 font-bold uppercase tracking-wider bg-green-500/10 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl border border-green-500/20 text-xs"><i class="fa-regular fa-clock mr-2" aria-hidden="true"></i>${art.readTime}</span>
+              <span class="text-orange-500"><i class="fa-regular fa-clock mr-1"></i>${art.readTime}</span>
             </div>
           </div>
 
-          <div class="aspect-[16/9] rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden mb-10 sm:mb-14 bg-neutral-950 border border-neutral-800 shadow-2xl">
-            <img src="${art.image}" alt="${art.title}" width="1200" height="675" loading="eager" class="w-full h-full object-cover">
+          <!-- Article Image Graphic -->
+          <div class="w-full aspect-[16/9] border border-orange-600/40 mb-10 bg-black">
+            <img src="${art.image}" onerror="this.src='${generateInstant2100HUD(art.title, art.category)}'" alt="${art.title}" class="w-full h-full object-cover">
           </div>
 
-          <article class="prose prose-invert max-w-none text-slate-300 text-sm sm:text-base font-medium leading-relaxed mb-12 sm:mb-16">
+          <article class="prose prose-invert max-w-none text-slate-300 font-medium text-sm sm:text-base leading-relaxed mb-10 cyber-hud-card p-6 sm:p-10">
             ${art.content}
           </article>
 
           <!-- Share Component -->
-          <div class="p-6 sm:p-8 bg-neutral-900 border border-neutral-800 rounded-3xl mb-10 sm:mb-14 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="cyber-hud-card p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <h3 class="text-white font-black uppercase tracking-wider text-xs sm:text-sm mb-1 text-center sm:text-left">Share This Global Report</h3>
-              <p class="text-xs text-slate-400 text-center sm:text-left">Spread elite insights across your professional network.</p>
+              <h3 class="text-white font-black uppercase text-xs tracking-widest">Share Transmission</h3>
+              <p class="text-xs text-slate-400">Distribute this report across your network.</p>
             </div>
-            <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
-              <a href="https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}" target="_blank" rel="noopener" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Share X"><i class="fa-solid fa-x text-xs"></i></a>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" rel="noopener" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Share Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}" target="_blank" rel="noopener" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Share LinkedIn"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
-              <a href="https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-white hover:bg-green-600 hover:border-green-600 transition" aria-label="Share WhatsApp"><i class="fa-brands fa-whatsapp text-sm"></i></a>
-              <button onclick="navigator.clipboard.writeText(window.location.href); alert('Article URL copied to clipboard!');" class="px-3.5 h-10 sm:h-11 rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white hover:bg-red-500 hover:border-red-500 transition" aria-label="Copy Link"><i class="fa-solid fa-link" aria-hidden="true"></i> Copy</button>
-            </div>
-          </div>
-
-          <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-8 sm:pt-10 border-t border-neutral-800">
-            <span class="text-xs font-black uppercase tracking-widest text-white mr-2">Indexed Tags:</span>
-            ${tagsHtml}
+            <button onclick="navigator.clipboard.writeText(window.location.href); alert('Article URL Copied!');" class="px-6 py-3 cyber-btn-orange text-xs font-black uppercase flex items-center gap-2">
+              <i class="fa-solid fa-link"></i> Copy Link
+            </button>
           </div>
         </div>
       `;
     }
 
-    /* ==================== STATIC PAGES ==================== */
+    /* FULL WORLD-CLASS STATIC PAGES IMPLEMENTATION */
     function renderStaticPageView(slug) {
       const app = document.getElementById('app');
 
       if (slug === 'contact') {
         app.innerHTML = `
-          <div class="max-w-3xl mx-auto pt-4 sm:pt-6 pb-16 sm:pb-20">
-            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 sm:mb-10 transition-colors group" aria-label="Back Home">
-              <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform" aria-hidden="true"></i> Back to Global Index
+          <div class="max-w-4xl mx-auto pt-2 pb-16">
+            <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-400 hover:text-orange-500 mb-6">
+              <i class="fa-solid fa-arrow-left"></i> Return To Index
             </button>
-            
-            <div class="bg-neutral-900 border border-neutral-800 p-6 sm:p-10 lg:p-12 rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl">
-              <span class="px-3.5 py-1.5 bg-red-500/10 text-red-500 font-black text-[11px] sm:text-xs uppercase tracking-widest rounded-full border border-red-500/20">Direct Communication</span>
-              <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-white mt-4 sm:mt-6 mb-3 sm:mb-4">Contact AZEXAI</h1>
-              <p class="text-slate-400 text-xs sm:text-base mb-6 sm:mb-8 leading-relaxed">Get in touch with our global editorial board, partnership directors, or technical divisions. We respond to verified inquiries within 24 business hours.</p>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 p-5 sm:p-6 bg-neutral-950 border border-neutral-800 rounded-3xl text-xs sm:text-sm">
-                <div>
-                  <p class="text-white font-bold mb-1">Direct Email Desk</p>
-                  <a href="mailto:${CONTACT_EMAIL}" class="text-red-500 font-bold hover:underline">${CONTACT_EMAIL}</a>
+            <div class="cyber-hud-card p-6 sm:p-10 mb-8">
+              <span class="inline-block px-3 py-1 bg-orange-600 text-white font-black text-xs uppercase tracking-widest mb-3">Direct Communication</span>
+              <h1 class="text-2xl sm:text-4xl font-black text-white uppercase mb-4 border-l-4 border-orange-500 pl-3">Contact AZEXAI</h1>
+              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-8">
+                Connect with our global editorial board, technical audit division, or partnership team. We guarantee verified responses within 2 hours.
+              </p>
+
+              <!-- Global Desk Info Cards -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                <div class="p-4 bg-black border border-neutral-800">
+                  <h4 class="text-orange-500 font-black text-xs uppercase mb-1">General Inquiries</h4>
+                  <p class="text-white font-bold text-xs">contact@azexai.com</p>
+                  <p class="text-slate-500 text-[10px] mt-1">SLA: &lt; 2 Hours</p>
                 </div>
-                <div>
-                  <p class="text-white font-bold mb-1">Global Response SLA</p>
-                  <p class="text-slate-400">Under 24 Hours</p>
+                <div class="p-4 bg-black border border-neutral-800">
+                  <h4 class="text-orange-500 font-black text-xs uppercase mb-1">Press & Media Desk</h4>
+                  <p class="text-white font-bold text-xs">press@azexai.com</p>
+                  <p class="text-slate-500 text-[10px] mt-1">SLA: Immediate</p>
+                </div>
+                <div class="p-4 bg-black border border-neutral-800">
+                  <h4 class="text-orange-500 font-black text-xs uppercase mb-1">Advertising & Sponsorship</h4>
+                  <p class="text-white font-bold text-xs">ads@azexai.com</p>
+                  <p class="text-slate-500 text-[10px] mt-1">SLA: &lt; 4 Hours</p>
                 </div>
               </div>
 
-              <form action="mailto:${CONTACT_EMAIL}" method="POST" enctype="text/plain" class="space-y-4 sm:space-y-6">
-                <div>
-                  <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Inquiry Category</label>
-                  <select name="Category" class="w-full px-4 sm:px-5 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs sm:text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
-                    <option value="General Inquiries">General Inquiries</option>
-                    <option value="Editorial">Editorial</option>
-                    <option value="Business & Partnerships">Business & Partnerships</option>
-                    <option value="Advertising">Advertising</option>
-                    <option value="Affiliate / Commercial">Affiliate / Commercial</option>
-                  </select>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              <!-- Form -->
+              <form onsubmit="event.preventDefault(); alert('Transmission Received. Our editorial desk will respond shortly.');" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Full Name *</label>
-                    <input type="text" name="Name" required placeholder="Dr. Alan Turing" class="w-full px-4 sm:px-5 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs sm:text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
+                    <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Inquiry Type *</label>
+                    <select class="w-full px-4 py-3 bg-black border border-neutral-800 text-xs text-white font-bold focus:outline-none focus:border-orange-500">
+                      <option value="Editorial">Editorial & Research Briefs</option>
+                      <option value="Partnership">Enterprise Partnerships</option>
+                      <option value="Advertising">Advertising & Media Kit</option>
+                      <option value="General">General Inquiry</option>
+                    </select>
                   </div>
                   <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Email Address *</label>
-                    <input type="email" name="Email" required placeholder="alan@example.com" class="w-full px-4 sm:px-5 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs sm:text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
+                    <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Full Name *</label>
+                    <input type="text" required placeholder="DR. ALAN TURING" class="w-full px-4 py-3 bg-black border border-neutral-800 text-xs text-white font-bold uppercase focus:outline-none focus:border-orange-500">
                   </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Company (Optional)</label>
-                    <input type="text" name="Company" placeholder="OpenAI / MIT" class="w-full px-4 sm:px-5 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs sm:text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
+                    <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Email Address *</label>
+                    <input type="email" required placeholder="ALAN@AZEXAI.COM" class="w-full px-4 py-3 bg-black border border-neutral-800 text-xs text-white font-bold uppercase focus:outline-none focus:border-orange-500">
                   </div>
                   <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Subject *</label>
-                    <input type="text" name="Subject" required placeholder="Research Collaboration Proposal" class="w-full px-4 sm:px-5 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs sm:text-sm text-white focus:outline-none focus:border-red-500 transition-colors">
+                    <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Organization / Company</label>
+                    <input type="text" placeholder="OPENAI / MIT / HARVARD" class="w-full px-4 py-3 bg-black border border-neutral-800 text-xs text-white font-bold uppercase focus:outline-none focus:border-orange-500">
                   </div>
                 </div>
 
                 <div>
-                  <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-300">Message *</label>
-                  <textarea name="Message" rows="5" required placeholder="Detail your inquiry here..." class="w-full px-4 sm:px-5 py-3.5 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs sm:text-sm text-white focus:outline-none focus:border-red-500 transition-colors resize-none"></textarea>
+                  <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Subject *</label>
+                  <input type="text" required placeholder="RESEARCH COLLABORATION PROPOSAL" class="w-full px-4 py-3 bg-black border border-neutral-800 text-xs text-white font-bold uppercase focus:outline-none focus:border-orange-500">
                 </div>
 
-                <button type="submit" class="w-full py-3.5 sm:py-4 bg-red-500 hover:bg-white hover:text-slate-900 text-white font-black uppercase tracking-wider rounded-2xl transition-all shadow-xl shadow-red-500/20 text-xs sm:text-sm" aria-label="Submit contact form">Send Dispatch</button>
+                <div>
+                  <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Message *</label>
+                  <textarea rows="5" required placeholder="PROVIDE FULL DETAILS OF YOUR INQUIRY OR DISPATCH HERE..." class="w-full px-4 py-3 bg-black border border-neutral-800 text-xs text-white font-bold uppercase focus:outline-none focus:border-orange-500"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 cyber-btn-orange text-xs font-black uppercase tracking-widest">Transmit Message</button>
               </form>
+
+              <!-- Global Headquarters Footer -->
+              <div class="mt-8 pt-6 border-t border-neutral-900 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                <div>
+                  <h5 class="text-white font-black mb-1">Silicon Valley HQ</h5>
+                  <p class="text-slate-500">100 Cybernetic Way, Palo Alto, CA</p>
+                </div>
+                <div>
+                  <h5 class="text-white font-black mb-1">London Bureau</h5>
+                  <p class="text-slate-500">25 Tech City Road, London EC1V</p>
+                </div>
+                <div>
+                  <h5 class="text-white font-black mb-1">Tokyo Research Hub</h5>
+                  <p class="text-slate-500">Shibuya Quantum Tower 14F, Tokyo</p>
+                </div>
+              </div>
+
             </div>
           </div>
         `;
@@ -846,47 +719,46 @@
         about: {
           title: "About AZEXAI",
           cat: "Corporate Overview",
-          body: "<p>AZEXAI is the premier global authority on artificial intelligence, frontier technology, and digital transformation. Founded by a coalition of researchers and technologists, we deliver uncompromising journalistic integrity and deep technical analyses.</p><p>Our mission is to decode complex algorithmic breakthroughs and evaluate their practical impact on enterprise systems, cybersecurity protocols, and society at large.</p>"
+          body: `<p>AZEXAI is the premier global authority on artificial intelligence, frontier technology, quantum computing, and digital transformation. Founded by a coalition of lead researchers and computer scientists, we deliver uncompromising journalistic integrity and technical depth.</p><h2>Our Core Pillars</h2><ul><li><span><strong>Technical Rigor:</strong> Every benchmark and code review is independently verified by domain engineers.</span></li><li><span><strong>Unbiased Authority:</strong> Complete editorial independence from corporate tech vendors and advertising sponsors.</span></li><li><span><strong>Global Reach:</strong> Serving over 500,000 technology executives, researchers, and software architects worldwide.</span></li></ul>`
         },
         editorial: {
           title: "Global Editorial Board",
           cat: "Governance & Ethics",
-          body: "<p>The AZEXAI Global Editorial Board maintains rigorous standards of factual precision, technical depth, and strict independence across all published reports.</p><h2>Board Principles</h2><ul><li>Absolute independence from corporate sponsors and technology vendors.</li><li>Mandatory peer review by domain specialists prior to publication.</li><li>Transparent sourcing and rigorous verification of algorithmic benchmarking.</li></ul>"
+          body: `<p>The AZEXAI Global Editorial Board maintains strict standards of factual precision, technical audits, and journalistic independence across all published research reports.</p><h2>Editorial Directives</h2><ul><li><span>100% peer review by certified domain specialists prior to release.</span></li><li><span>Full disclosure of algorithmic benchmark environments and open-source data.</span></li><li><span>Zero tolerance for sponsored bias or unverified marketing claims.</span></li></ul>`
         },
         privacy: {
           title: "Privacy Policy",
           cat: "Legal Compliance",
-          body: "<p>At AZEXAI, we respect your digital privacy. We collect minimal telemetry data strictly necessary to optimize our global content delivery network and secure user sessions.</p><p>We do not sell, rent, or monetize personal user logs or reading telemetry with third-party advertising brokers.</p>"
+          body: `<p>At AZEXAI, we respect your digital privacy. We collect minimal telemetry data strictly necessary to optimize our global content delivery network and secure user sessions.</p><h2>Data Protection Principles</h2><ul><li><span>We never sell, trade, or share user telemetry with third-party advertising brokers.</span></li><li><span>Full compliance with global data protection standards (GDPR, CCPA).</span></li><li><span>Complete user right to data erasure upon request.</span></li></ul>`
         },
         terms: {
           title: "Terms of Service",
           cat: "User Agreement",
-          body: "<p>By accessing AZEXAI, you agree to abide by our intellectual property guidelines. All proprietary research articles, visual graphics, and code structures are protected by international copyright laws.</p><p>Educational citation and commentary are permitted provided proper attribution is maintained.</p>"
+          body: `<p>By accessing AZEXAI, you agree to abide by our intellectual property guidelines. All proprietary research articles, visual graphics, and code structures are protected by international copyright laws.</p><p>Educational citation and commentary are permitted provided proper attribution and direct back-links to AZEXAI are maintained.</p>`
         },
         affiliate: {
           title: "Affiliate Disclosure",
           cat: "Commercial Transparency",
-          body: "<p>AZEXAI participates in various affiliate marketing programs. This means we may earn a commission on qualifying software subscriptions or hardware purchases made through referral links on our platform.</p><p>Affiliate relationships never influence our editorial scoring, benchmark reviews, or investigative conclusions.</p>"
+          body: `<p>AZEXAI participates in various commercial affiliate marketing programs. We may earn a referral commission on qualifying software subscriptions or hardware purchases made through links on our site.</p><p>Affiliate relationships never influence our editorial ratings, benchmark evaluations, or technical conclusions.</p>`
         },
         advertise: {
           title: "Advertise With Us",
           cat: "Partnership & Growth",
-          body: "<p>Reach an elite global audience of CTOs, artificial intelligence researchers, software architects, and enterprise decision-makers.</p><p>We offer high-impact sponsorship opportunities, targeted newsletter placements, and custom research briefs. Contact our commercial team at <a href='mailto:" + CONTACT_EMAIL + "' class='text-red-500 font-bold'>" + CONTACT_EMAIL + "</a>.</p>"
+          body: `<p>Reach an elite global audience of CTOs, artificial intelligence researchers, software architects, and enterprise decision-makers.</p><p>We offer high-impact sponsorship opportunities, newsletter placements, and custom research briefs. Contact our commercial team directly at <strong class="text-orange-500">ads@azexai.com</strong>.</p>`
         }
       };
 
       const pData = pages[slug] || pages['about'];
 
       app.innerHTML = `
-        <div class="max-w-4xl mx-auto pt-4 sm:pt-6 pb-16 sm:pb-20">
-          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-500 mb-6 sm:mb-10 transition-colors group" aria-label="Back Home">
-            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform" aria-hidden="true"></i> Back to Global Index
+        <div class="max-w-3xl mx-auto pt-2 pb-16">
+          <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-400 hover:text-orange-500 mb-6">
+            <i class="fa-solid fa-arrow-left"></i> Return To Index
           </button>
-
-          <div class="bg-neutral-900 border border-neutral-800 p-6 sm:p-10 lg:p-12 rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl">
-            <span class="px-3.5 py-1.5 bg-red-500/10 text-red-500 font-black text-[11px] sm:text-xs uppercase tracking-widest rounded-full border border-red-500/20">${pData.cat}</span>
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mt-4 sm:mt-6 mb-6">${pData.title}</h1>
-            <div class="prose prose-invert max-w-none text-slate-300 text-xs sm:text-base font-medium leading-relaxed">
+          <div class="cyber-hud-card p-6 sm:p-10">
+            <span class="inline-block px-3 py-1 bg-orange-600 text-white font-black text-xs uppercase tracking-widest mb-3">${pData.cat}</span>
+            <h1 class="text-2xl sm:text-4xl font-black text-white uppercase mb-6 border-l-4 border-orange-500 pl-3">${pData.title}</h1>
+            <div class="prose prose-invert max-w-none text-slate-300 text-xs sm:text-sm leading-relaxed">
               ${pData.body}
             </div>
           </div>
@@ -894,21 +766,31 @@
       `;
     }
 
-    /* ==================== INITIALIZATION ==================== */
-    initCookieNotice();
+    /* Search Operations */
+    function openSearchModal() { document.getElementById('searchModal').classList.remove('hidden'); setTimeout(()=>document.getElementById('modalSearchInput').focus(),100); }
+    function closeSearchModal() { document.getElementById('searchModal').classList.add('hidden'); }
+    function handleModalSearch(e) {
+      const q = e.target.value.toLowerCase();
+      const res = document.getElementById('modalSearchResults');
+      if(!q){ res.innerHTML=''; return; }
+      const match = ARTICLES.filter(a=>a.title.toLowerCase().includes(q) || a.category.toLowerCase().includes(q));
+      if(!match.length) { res.innerHTML = '<p class="text-xs text-slate-500 font-bold uppercase tracking-wider text-center py-6">No matching articles found.</p>'; return; }
+      res.innerHTML = match.map(m=>`
+        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" class="block p-3 bg-black border border-neutral-800 hover:border-orange-500 cursor-pointer">
+          <h4 class="text-xs font-bold text-white hover:text-orange-500">${m.title}</h4>
+          <p class="text-[10px] text-slate-500 uppercase mt-1">${m.category}</p>
+        </div>
+      `).join('');
+    }
 
-    (async function initAzexai() {
-      const app = document.getElementById('app');
-      if (app) {
-        app.innerHTML = '<div style="min-height:50vh;display:grid;place-items:center;"><div class="text-center p-6"><i class="fa-solid fa-spinner fa-spin text-3xl sm:text-4xl text-red-500 mb-4" aria-hidden="true"></i><p class="font-black text-white tracking-widest uppercase text-xs sm:text-sm">Initializing Azexai Intelligence Engine...</p></div></div>';
-      }
-      await loadBloggerArticles();
-      parseUrlHash();
-      router();
+    /* Immediate Non-Blocking Init Execution */
+    (function init() {
+      parseUrlParams();
+      router(); // Render immediately!
+      loadBloggerArticles().then(() => {
+        router(); // Re-render when Blogger data is ready
+      }).catch(() => {});
     })();
   </script>
-
-  <!-- Crosslynk Script -->
-  <script src="https://crosslynk.io/crosslynk.js" data-project-id="cmtayxsxs009vrv01dpj80nun" async></script>
 </body>
 </html>

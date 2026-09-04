@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
   <!-- Critical Image Preloads for Instant Speed -->
-  <link rel="preload" as="image" href="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=600&q=70">
+  <link rel="preload" as="image" href="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=500&q=70">
 
   <!-- Open Graph Meta Tags -->
   <meta id="ogTitle" property="og:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
@@ -32,7 +32,7 @@
   <meta id="twDesc" name="twitter:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
   <meta id="twImage" name="twitter:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=800&q=75">
 
-  <!-- Inlined Critical CSS with Absolute Alignment and Straight Layout -->
+  <!-- Inlined Critical CSS with Straight Alignment and Strict Normal Styles -->
   <style>
     *, ::before, ::after { box-sizing: border-box; font-style: normal !important; transform: none !important; direction: ltr !important; text-align: left; }
     html { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; font-style: normal !important; transform: none !important; }
@@ -273,7 +273,7 @@
         author: 'Azex',
         date: 'September 3, 2026',
         readTime: '16 min read',
-        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=600&q=70',
+        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=500&q=70',
         excerpt: 'Personal Review • Sales Pipeline & Lead Management. Discover why salespeople hate traditional enterprise CRMs and how noCRM.io eliminates admin friction.',
         tags: ['Software', 'CRM', 'Sales', 'Reviews'],
         content: `<h2>Salespeople Hate Traditional Enterprise CRMs. Here is why.</h2>
@@ -294,7 +294,7 @@
         author: 'Azex',
         date: 'September 2, 2026',
         readTime: '12 min read',
-        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=600&q=70',
+        image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=500&q=70',
         excerpt: 'Raw activity logs told you someone was at their desk. Work intelligence tells you why work is slow, where capacity is going, and what to fix next.',
         tags: ['AI', 'Work Intelligence', 'Software', 'Insightful'],
         content: `<h2>What Work Intelligence Actually Means</h2>
@@ -309,7 +309,7 @@
         author: 'Azex',
         date: 'August 28, 2026',
         readTime: '10 min read',
-        image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=format,compress&w=800&q=75',
+        image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=format,compress&w=500&q=70',
         excerpt: 'With post-quantum cryptography entering mandatory compliance standards, distributed mesh networks are adopting hybrid lattice-based encryption algorithms.',
         tags: ['Cybersecurity', 'Cloud', 'Quantum'],
         content: `<h2>The Post-Quantum Security Imperative</h2>
@@ -317,10 +317,10 @@
       }
     ];
 
-    const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=600&q=70';
+    const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format,compress&w=500&q=70';
 
-    // Fast image URL optimizer without any distortion or slant
-    function optimizeImageUrl(url, targetWidth = 500) {
+    // تحسين أبعاد وسرعة جلب الصور فوراً (تصغير الحجم قليلاً لضمان التحميل الفوري بدون تأخير)
+    function optimizeImageUrl(url, targetWidth = 400) {
       if (!url) return DEFAULT_IMAGE;
       if (url.includes('pexels.com')) {
         let cleanUrl = url.split('?')[0];
@@ -508,7 +508,7 @@
         img.removeAttribute('style');
         img.className = 'max-w-full h-auto mx-auto my-6 block';
         if (img.src) {
-          img.src = optimizeImageUrl(img.src, 800);
+          img.src = optimizeImageUrl(img.src, 600);
         }
       });
       return div.innerHTML;
@@ -531,7 +531,7 @@
       const rawBody = sanitizeContent(post.content || '');
       const body = processArticleImages(rawBody);
       const plainText = stripHtml(rawBody);
-      const image = optimizeImageUrl(getFirstImage(rawBody) || DEFAULT_IMAGE, 600);
+      const image = optimizeImageUrl(getFirstImage(rawBody) || DEFAULT_IMAGE, 500);
       const rawAuthor = post.author?.displayName || 'Azex';
       const author = sanitizeAuthorName(rawAuthor);
       const date = post.published ? new Date(post.published).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'August 26, 2026';
@@ -808,7 +808,7 @@
             
             <div class="lg:col-span-5 max-h-[220px] sm:max-h-[280px] aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden glass-card border border-red-500/30 shadow-xl relative group-hover:border-red-500 transition-all duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-              <img src="${optimizeImageUrl(hero.image, 600)}" alt="${hero.title}" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <img src="${optimizeImageUrl(hero.image, 500)}" alt="${hero.title}" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             </div>
 
           </div>
@@ -825,7 +825,7 @@
             ${filtered.map((art, idx) => `
               <div data-article-slug="${art.slug}" onclick="navigateToArticle('${art.slug}', event)" class="glass-card rounded-2xl overflow-hidden hover:border-red-500 transition duration-300 flex flex-col cursor-pointer group shadow-lg">
                 <div class="aspect-[16/10] max-h-[180px] overflow-hidden bg-neutral-950 relative">
-                  <img src="${optimizeImageUrl(art.image, 400)}" alt="${art.title}" width="500" height="312" loading="${idx < 3 ? 'eager' : 'lazy'}" ${idx < 3 ? 'fetchpriority="high"' : ''} decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                  <img src="${optimizeImageUrl(art.image, 400)}" alt="${art.title}" width="500" height="312" loading="${idx < 4 ? 'eager' : 'lazy'}" ${idx < 4 ? 'fetchpriority="high"' : ''} decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                   <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 bg-black/80 backdrop-blur-md text-red-400 text-[9px] sm:text-[10px] font-black uppercase tracking-wider rounded-md border border-neutral-800">${art.category}</span>
                 </div>
                 <div class="p-3.5 sm:p-5 flex flex-col flex-grow">
@@ -869,7 +869,7 @@
           
           <!-- FEATURED ARTICLE IMAGE -->
           <div class="w-full mb-8 overflow-hidden">
-            <img src="${optimizeImageUrl(art.image || DEFAULT_IMAGE, 800)}" alt="${art.title || ''}" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto max-w-full mx-auto block">
+            <img src="${optimizeImageUrl(art.image || DEFAULT_IMAGE, 600)}" alt="${art.title || ''}" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto max-w-full mx-auto block">
           </div>
 
           <!-- ARTICLE CONTENT -->

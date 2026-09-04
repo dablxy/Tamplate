@@ -51,6 +51,7 @@
       padding: 0;
       overflow-x: hidden;
       position: relative;
+      text-align: left;
     }
 
     /* Cybernetic Interactive Background Canvas */
@@ -62,7 +63,7 @@
       height: 100vh;
       pointer-events: none;
       z-index: 0;
-      opacity: 0.25;
+      opacity: 0.2;
     }
 
     body > * {
@@ -73,14 +74,15 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+    /* Borderless clean cards */
     .clean-card {
-      background: #0a0a0a;
+      background: transparent;
       display: flex;
       flex-direction: column;
       cursor: pointer;
     }
 
-    .clean-card:hover h3 {
+    .clean-card:hover h3, .clean-card:hover h2 {
       color: #ff4500;
     }
 
@@ -105,7 +107,7 @@
 
     /* Article Reader Typography */
     .prose { max-width: 100%; color: #cbd5e1; text-align: left; }
-    .prose h1, .prose h2, .prose h3 { color: #ffffff; font-weight: 900; border-left: 4px solid #ff4500; padding-left: 12px; margin-top: 1.5rem; margin-bottom: 0.75rem; text-align: left; }
+    .prose h1, .prose h2, .prose h3 { color: #ffffff; font-weight: 900; border-left: 4px solid #ff4500 !important; padding-left: 12px; margin-top: 1.5rem; margin-bottom: 0.75rem; text-align: left; }
     .prose a { color: #ff4500; text-decoration: underline; font-weight: 700; }
     .prose a:hover { color: #ffffff; }
     .prose p { color: #d1d5db; line-height: 1.8; margin-bottom: 1.25rem; text-align: left; }
@@ -117,7 +119,7 @@
 
   <canvas id="cyberCanvas"></canvas>
 
-  <div id="toastNotification" class="fixed bottom-6 right-6 z-[100] bg-neutral-950 text-white px-5 py-4 shadow-2xl transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-[100] bg-neutral-900 text-white px-5 py-4 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
     <div class="flex items-center gap-3">
       <i class="fa-solid fa-circle-info text-orange-500 text-base"></i>
       <span id="toastMessage" class="text-xs font-black uppercase tracking-wider">Notification</span>
@@ -125,7 +127,7 @@
   </div>
 
   <!-- System Bar -->
-  <div class="bg-black text-[10px] uppercase font-mono tracking-widest text-slate-500 py-1.5 px-4 flex justify-between items-center">
+  <div class="bg-black text-[10px] uppercase font-mono tracking-widest text-slate-500 py-1.5 px-4 flex justify-between items-center border-b border-neutral-900">
     <div class="flex items-center gap-4">
       <span class="flex items-center gap-1.5"><span class="w-2 h-2 bg-emerald-500 inline-block animate-pulse"></span> SYSTEM: ONLINE [2100.99]</span>
       <span class="hidden sm:inline-block text-slate-800">|</span>
@@ -137,11 +139,11 @@
     </div>
   </div>
 
-  <header class="sticky top-0 z-50 bg-black">
+  <header class="sticky top-0 z-50 bg-black/95 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
       
       <!-- Logo -->
-      <a href="javascript:void(0)" onclick="navigateToHome(event)" class="flex items-center gap-3 shrink-0" aria-label="AZEXAI Homepage">
+      <a href="javascript:void(0)" onclick="navigateToHome(event)" class="flex items-center gap-3 shrink-0 text-left" aria-label="AZEXAI Homepage">
         <div class="w-8 h-8 bg-orange-600 flex items-center justify-center font-mono text-black font-black text-sm">
           AX
         </div>
@@ -156,11 +158,12 @@
         <a href="javascript:void(0)" onclick="setCategory('Gadgets', event)" class="hover:text-orange-500 transition-colors">Devices</a>
         <a href="javascript:void(0)" onclick="setCategory('Software', event)" class="hover:text-orange-500 transition-colors">Software</a>
         <a href="javascript:void(0)" onclick="setCategory('Cybersecurity', event)" class="hover:text-orange-500 transition-colors">Cybersecurity</a>
+        <a href="javascript:void(0)" onclick="setCategory('Reviews', event)" class="hover:text-orange-500 transition-colors">Reviews</a>
       </nav>
 
       <!-- Actions -->
       <div class="flex items-center gap-2">
-        <button onclick="openSearchModal()" class="w-10 h-10 bg-neutral-950 text-white hover:bg-orange-600 transition-all flex items-center justify-center" aria-label="Search">
+        <button onclick="openSearchModal()" class="w-10 h-10 bg-neutral-900 text-white hover:bg-orange-600 transition-all flex items-center justify-center" aria-label="Search">
           <i class="fa-solid fa-magnifying-glass text-sm"></i>
         </button>
         <button onclick="navigateToStaticPage('contact', event)" class="hidden sm:flex items-center px-5 py-2.5 cyber-btn-orange text-xs font-black tracking-widest">
@@ -170,8 +173,8 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="flex-grow w-full max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4 sm:py-8">
+  <!-- Main Content Viewport -->
+  <main class="flex-grow w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 text-left">
     <div id="app">
       <!-- Dynamic Views Engine -->
     </div>
@@ -180,12 +183,12 @@
   <footer class="bg-black pt-12 pb-10 relative">
     <div class="laser-line mb-10"></div>
     
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
       
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-12">
         
         <!-- Left Column -->
-        <div class="md:col-span-5 space-y-4 text-left">
+        <div class="md:col-span-5 space-y-4">
           <div class="flex items-center gap-3 cursor-pointer" onclick="navigateToHome(event)">
             <span class="text-3xl font-black tracking-widest uppercase text-white">AZEX<span class="text-orange-500">AI</span><span class="text-orange-500">.</span></span>
           </div>
@@ -193,15 +196,15 @@
             AZEXAI is the premier global authority on artificial intelligence, quantum computing architectures, frontier hardware engineering, and digital security systems.
           </p>
           <div class="flex items-center gap-2 pt-2">
-            <a href="javascript:void(0)" class="w-9 h-9 bg-neutral-950 flex items-center justify-center text-white hover:bg-orange-600"><i class="fa-solid fa-x text-xs"></i></a>
-            <a href="javascript:void(0)" class="w-9 h-9 bg-neutral-950 flex items-center justify-center text-white hover:bg-orange-600"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
-            <a href="javascript:void(0)" class="w-9 h-9 bg-neutral-950 flex items-center justify-center text-white hover:bg-orange-600"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-            <a href="javascript:void(0)" class="w-9 h-9 bg-neutral-950 flex items-center justify-center text-white hover:bg-orange-600"><i class="fa-brands fa-youtube text-xs"></i></a>
+            <a href="javascript:void(0)" class="w-9 h-9 bg-neutral-900 flex items-center justify-center text-white hover:bg-orange-600"><i class="fa-solid fa-x text-xs"></i></a>
+            <a href="javascript:void(0)" class="w-9 h-9 bg-neutral-900 flex items-center justify-center text-white hover:bg-orange-600"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+            <a href="javascript:void(0)" class="w-9 h-9 bg-neutral-900 flex items-center justify-center text-white hover:bg-orange-600"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+            <a href="javascript:void(0)" class="w-9 h-9 bg-neutral-900 flex items-center justify-center text-white hover:bg-orange-600"><i class="fa-brands fa-youtube text-xs"></i></a>
           </div>
         </div>
 
         <!-- Right Side Nav Lists -->
-        <div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6 text-left">
+        <div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6">
           
           <div>
             <h3 class="text-orange-500 font-black text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
@@ -238,7 +241,7 @@
             </h3>
             <p class="text-slate-400 text-xs mb-3">Get daily tech intelligence reports directly in your inbox.</p>
             <div class="space-y-2">
-              <input type="email" placeholder="ENTER YOUR EMAIL" class="w-full px-3.5 py-2.5 bg-neutral-950 text-xs text-white placeholder-slate-500 font-bold uppercase focus:outline-none">
+              <input type="email" placeholder="ENTER YOUR EMAIL" class="w-full px-3.5 py-2.5 bg-neutral-900 text-xs text-white placeholder-slate-500 font-bold uppercase">
               <button onclick="showToast('Subscribed to AZEXAI Global Intelligence.')" class="w-full py-2.5 cyber-btn-orange text-xs font-black uppercase tracking-widest">Subscribe</button>
             </div>
           </div>
@@ -259,16 +262,15 @@
     </div>
   </footer>
 
-  <!-- Search Modal -->
   <div id="searchModal" class="fixed inset-0 bg-black/95 z-[60] flex items-start justify-center p-4 pt-20 hidden">
-    <div class="bg-black max-w-2xl w-full p-6">
+    <div class="bg-black max-w-2xl w-full p-6 text-left">
       <div class="flex items-center justify-between mb-4">
         <h3 class="text-xs font-black uppercase tracking-widest text-white">Search Intelligence Database</h3>
-        <button onclick="closeSearchModal()" class="w-8 h-8 bg-neutral-950 text-slate-400 hover:text-white hover:bg-orange-600"><i class="fa-solid fa-xmark"></i></button>
+        <button onclick="closeSearchModal()" class="w-8 h-8 bg-neutral-900 text-slate-400 hover:text-white hover:bg-orange-600"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="relative mb-4">
         <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-orange-500"></i>
-        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="SEARCH AI, QUANTUM, CYBERSECURITY..." class="w-full pl-11 pr-4 py-3 bg-neutral-950 text-xs font-bold focus:outline-none text-white uppercase">
+        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="SEARCH AI, QUANTUM, CYBERSECURITY..." class="w-full pl-11 pr-4 py-3 bg-neutral-900 text-xs font-bold text-white uppercase">
       </div>
       <div id="modalSearchResults" class="max-h-72 overflow-y-auto space-y-2 no-scrollbar">
         <!-- Results -->
@@ -323,14 +325,14 @@
       }
     }
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 40; i++) {
       particles.push(new CyberParticle());
     }
 
     function animateCyberBackground() {
       ctx.clearRect(0, 0, width, height);
       
-      ctx.strokeStyle = 'rgba(255, 69, 0, 0.04)';
+      ctx.strokeStyle = 'rgba(255, 69, 0, 0.03)';
       ctx.lineWidth = 1;
       const gridSize = 60;
       for (let x = 0; x < width; x += gridSize) {
@@ -355,7 +357,7 @@
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 120) {
-            ctx.strokeStyle = `rgba(255, 69, 0, ${0.15 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(255, 69, 0, ${0.12 * (1 - dist / 120)})`;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -405,6 +407,48 @@
     }
 
     let ARTICLES = [
+      {
+        id: 0, slug: 'nocrm-io-personal-review-sales-pipeline',
+        title: 'noCRM.io Personal Review: Sales Pipeline & Lead Management',
+        category: 'Reviews', author: 'SHV', date: 'September 3, 2026', readTime: '16 min read',
+        image: generateNatural2100HUD('noCRM.io Review', 'Reviews'),
+        excerpt: 'Salespeople hate CRMs. Here is an exhaustive, transparent personal review of noCRM.io—exploring sales activities, pipeline stages, lead importing limits, and pricing tiers.',
+        tags: ['Reviews', 'Software', 'CRM'],
+        content: `
+          <h2>Salespeople Hate CRMs. Here Is Why.</h2>
+          <p>Traditional customer relationship management tools are notorious for creating administrative bloat, forcing sales reps to spend more time entering data than closing deals. That is precisely why I started looking for a lean, action-driven alternative.</p>
+          
+          <div class="grid grid-cols-2 gap-4 my-6 p-6 bg-neutral-950 border border-neutral-900">
+            <div>
+              <p class="text-2xl sm:text-4xl font-black text-orange-500">23</p>
+              <p class="text-[10px] uppercase font-bold text-slate-400 mt-1">Admin panel sections explained</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-4xl font-black text-white">3,000</p>
+              <p class="text-[10px] uppercase font-bold text-slate-400 mt-1">Leads importable per CSV</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-4xl font-black text-white">€29</p>
+              <p class="text-[10px] uppercase font-bold text-slate-400 mt-1">The plan I actually chose</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-4xl font-black text-orange-500">2 days</p>
+              <p class="text-[10px] uppercase font-bold text-slate-400 mt-1">It took me to flag a late lead</p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-neutral-900 border-l-4 border-orange-500 my-6">
+            <p class="text-xs text-slate-300 font-medium"><strong>Full transparency:</strong> This is my own noCRM.io account, set up for my own project, Azex. Every screenshot in this article is my real admin panel, in the exact order I clicked through it—not a demo account, not stock images. My opinions below are mine, for better or worse.</p>
+          </div>
+
+          <h2>Sales Activities and Pipeline Mastery</h2>
+          <p>Defining the activities that you regularly do with your leads, such as calling, meeting, or emailing, is a great way of speeding up your daily tasks. Thanks to these activities, you'll be able to define what's the next action with a lead in a single click.</p>
+          <p>Also, using the activities feature will allow you to know how your team is performing thanks to advanced and detailed statistics: how many calls were made? How many of them were successful?</p>
+
+          <h2>Why I Went Looking for a CRM Alternative in the First Place</h2>
+          <p>Below that headline sat a live-looking demo pipeline—Qualified, Proposal, Negotiation, Closing—with real-looking company leads, deal values, and small red and orange badges counting down days. It wasn't a sterile mockup. It looked like an actual working sales board, which told me they weren't just selling a promise, they were showing the product doing the thing they claimed it does.</p>
+        `
+      },
       {
         id: 1, slug: 'generative-ai-autonomous-systems',
         title: 'Generative AI and the Dawn of Autonomous Scientific Discovery',
@@ -560,50 +604,54 @@
         <!-- Category Filter Pills -->
         <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-6">
           ${AZEXAI.categories.map(cat => `
-            <button onclick="setCategory('${cat}', event)" class="px-3 py-1.5 text-[11px] font-black uppercase tracking-widest whitespace-nowrap transition-all ${AZEXAI.activeCategory === cat ? 'bg-orange-600 text-white shadow-[0_0_15px_rgba(255,69,0,0.6)]' : 'bg-neutral-950 text-slate-400 hover:text-white'}">${cat}</button>
+            <button onclick="setCategory('${cat}', event)" class="px-3.5 py-1.5 text-[11px] font-black uppercase tracking-widest whitespace-nowrap transition-all ${AZEXAI.activeCategory === cat ? 'bg-orange-600 text-white shadow-[0_0_15px_rgba(255,69,0,0.5)]' : 'bg-neutral-900 text-slate-400 hover:text-white'}">${cat}</button>
           `).join('')}
         </div>
 
+        <!-- COMPACT BORDERLESS FEATURED HERO -->
         ${hero && AZEXAI.activeCategory === 'All' ? `
-        <div onclick="navigateToArticle('${hero.slug}', event)" class="block relative w-full mb-8 clean-card group overflow-hidden bg-neutral-950 p-4 sm:p-6">
+        <div onclick="navigateToArticle('${hero.slug}', event)" class="block w-full mb-10 clean-card group text-left">
           <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-            <div class="md:col-span-7 space-y-2 text-left">
-              <span class="inline-block px-2 py-0.5 bg-neutral-900 text-orange-500 font-black text-[9px] uppercase tracking-widest">${hero.category}</span>
-              <h1 class="text-base sm:text-xl lg:text-2xl font-black text-white leading-snug group-hover:text-orange-500 transition-colors">${hero.title}</h1>
-              <p class="text-slate-400 text-xs line-clamp-2">${hero.excerpt}</p>
-              <div class="flex items-center gap-3 text-[10px] font-black uppercase tracking-wider text-slate-400 pt-1">
-                <span class="text-slate-300">${hero.author}</span>
-                <span>•</span>
-                <span class="text-orange-500">${hero.readTime}</span>
+            <div class="md:col-span-7 space-y-2 order-2 md:order-1">
+              <div class="flex items-center gap-2">
+                <span class="inline-block text-orange-500 font-black text-[10px] uppercase tracking-widest">${hero.category}</span>
+                <span class="text-slate-600">•</span>
+                <span class="text-slate-400 text-[10px] font-bold">${hero.readTime}</span>
+              </div>
+              <h1 class="text-lg sm:text-2xl lg:text-3xl font-black text-white leading-tight group-hover:text-orange-500 transition-colors">${hero.title}</h1>
+              <p class="text-slate-400 text-xs sm:text-sm line-clamp-2 leading-relaxed">${hero.excerpt}</p>
+              <div class="text-[10px] font-black uppercase tracking-wider text-slate-400 pt-1">
+                <span>By ${hero.author}</span>
               </div>
             </div>
-            <div class="md:col-span-5 bg-black flex items-center justify-center p-2">
-              <img src="${hero.image}" onerror="this.src='${generateNatural2100HUD(hero.title, hero.category)}'" alt="${hero.title}" class="w-full h-auto block object-contain max-h-[220px]">
+            <div class="md:col-span-5 order-1 md:order-2 flex items-center justify-center">
+              <img src="${hero.image}" onerror="this.src='${generateNatural2100HUD(hero.title, hero.category)}'" alt="${hero.title}" class="w-full h-auto object-contain max-h-[200px] sm:max-h-[220px]">
             </div>
           </div>
         </div>
+        <div class="laser-line mb-8"></div>
         ` : ''}
 
-        <!-- ARTICLES GRID: 2 Columns on Mobile and Desktop -->
+        <!-- ARTICLES GRID: Exactly 2 Columns on Mobile and Desktop, Borderless & Uncropped Images -->
         <div class="mb-12">
-          <h2 class="text-sm sm:text-xl font-black text-white uppercase tracking-widest mb-4 flex items-center gap-2 border-l-4 border-orange-600 pl-3 text-left">
+          <h2 class="text-sm sm:text-lg font-black text-white uppercase tracking-widest mb-6 flex items-center gap-2 border-l-4 border-orange-600 pl-3">
             ${AZEXAI.activeCategory !== 'All' ? AZEXAI.activeCategory : 'Neural Intelligence Stream'}
           </h2>
           
-          <div class="grid grid-cols-2 gap-3 sm:gap-6 items-start">
+          <div class="grid grid-cols-2 gap-4 sm:gap-8 items-start text-left">
             ${filtered.map(art => `
-              <div onclick="navigateToArticle('${art.slug}', event)" class="clean-card group flex flex-col bg-neutral-950 p-2.5 sm:p-5">
-                <div class="w-full bg-black mb-3 overflow-hidden flex items-center justify-center p-1">
-                  <img src="${art.image}" onerror="this.src='${generateNatural2100HUD(art.title, art.category)}'" alt="${art.title}" class="w-full h-auto block object-contain max-h-[160px] sm:max-h-[240px]">
+              <div onclick="navigateToArticle('${art.slug}', event)" class="clean-card group flex flex-col">
+                <div class="w-full mb-3 flex items-center justify-center overflow-hidden">
+                  <img src="${art.image}" onerror="this.src='${generateNatural2100HUD(art.title, art.category)}'" alt="${art.title}" class="w-full h-auto object-contain max-h-[140px] sm:max-h-[220px]">
                 </div>
-                <div class="flex flex-col flex-grow text-left">
-                  <div class="mb-1.5">
-                    <span class="inline-block px-2 py-0.5 bg-neutral-900 text-orange-500 text-[9px] font-black uppercase tracking-widest">${art.category}</span>
+                <div class="flex flex-col flex-grow">
+                  <div class="mb-1">
+                    <span class="text-orange-500 text-[9px] sm:text-[10px] font-black uppercase tracking-widest">${art.category}</span>
                   </div>
                   <h3 class="text-xs sm:text-base font-black text-white mb-2 group-hover:text-orange-500 transition-colors leading-snug line-clamp-2">${art.title}</h3>
-                  <p class="hidden sm:block text-[11px] text-slate-400 font-medium mb-3 leading-relaxed line-clamp-2">${art.excerpt}</p>
-                  <div class="flex items-center justify-between pt-2.5 border-t border-neutral-900 text-[10px] font-black uppercase text-slate-400 mt-auto">
-                    <span class="text-slate-300 truncate max-w-[100px] sm:max-w-none">${art.author}</span>
+                  <p class="hidden sm:block text-xs text-slate-400 font-medium mb-3 leading-relaxed line-clamp-2">${art.excerpt}</p>
+                  <div class="flex items-center justify-between pt-2 text-[10px] font-black uppercase text-slate-400 mt-auto">
+                    <span class="truncate max-w-[80px] sm:max-w-none">${art.author}</span>
                     <span class="text-orange-500 shrink-0 ml-1">${art.readTime}</span>
                   </div>
                 </div>
@@ -613,13 +661,13 @@
         </div>
 
         <!-- Dispatch Panel -->
-        <div class="clean-card p-5 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-center text-left bg-neutral-950">
+        <div class="p-6 sm:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 items-center text-left bg-neutral-950">
           <div>
             <h2 class="text-lg sm:text-2xl font-black uppercase tracking-wider text-white mb-1">Connect To AZEXAI Network</h2>
             <p class="text-xs font-bold text-slate-400">Direct encrypted transmission of technical intelligence dispatches.</p>
           </div>
           <div class="flex flex-col gap-2.5">
-            <input type="email" placeholder="ENTER YOUR EMAIL ADDRESS" class="w-full px-3.5 py-2.5 bg-black text-xs text-white placeholder-slate-500 font-bold uppercase focus:outline-none">
+            <input type="email" placeholder="ENTER YOUR EMAIL ADDRESS" class="w-full px-3.5 py-2.5 bg-black text-xs text-white placeholder-slate-500 font-bold uppercase">
             <button onclick="showToast('Access Granted. Subscribed to AZEXAI Network.')" class="w-full py-2.5 cyber-btn-orange text-xs font-black uppercase tracking-widest">Subscribe Now</button>
           </div>
         </div>
@@ -635,13 +683,13 @@
           </button>
 
           <!-- Article Header -->
-          <div class="bg-neutral-950 p-5 sm:p-8 mb-6 relative overflow-hidden">
-            <span class="inline-block px-3 py-1 bg-neutral-900 text-orange-500 font-black text-xs uppercase tracking-widest mb-3">${art.category}</span>
-            <h1 class="text-xl sm:text-3xl lg:text-4xl font-black text-white leading-snug mb-5">${art.title}</h1>
+          <div class="mb-6">
+            <span class="inline-block text-orange-500 font-black text-xs uppercase tracking-widest mb-2">${art.category}</span>
+            <h1 class="text-xl sm:text-3xl lg:text-4xl font-black text-white leading-snug mb-4">${art.title}</h1>
             
-            <div class="flex items-center justify-between py-3 border-t border-neutral-900 text-xs font-black uppercase text-slate-300">
+            <div class="flex items-center justify-between py-3 border-t border-b border-neutral-900 text-xs font-black uppercase text-slate-300">
               <div class="flex items-center gap-3">
-                <div class="w-9 h-9 bg-neutral-900 text-orange-500 font-black flex items-center justify-center text-sm">
+                <div class="w-8 h-8 bg-neutral-900 text-orange-500 font-black flex items-center justify-center text-xs">
                   ${art.author.charAt(0)}
                 </div>
                 <div>
@@ -653,18 +701,18 @@
             </div>
           </div>
 
-          <!-- Full Uncropped Image -->
-          <div class="w-full bg-black mb-8 flex items-center justify-center p-2">
-            <img src="${art.image}" onerror="this.src='${generateNatural2100HUD(art.title, art.category)}'" alt="${art.title}" class="w-full h-auto block object-contain">
+          <!-- Uncropped Full Image -->
+          <div class="w-full mb-8 flex items-center justify-center">
+            <img src="${art.image}" onerror="this.src='${generateNatural2100HUD(art.title, art.category)}'" alt="${art.title}" class="w-full h-auto object-contain">
           </div>
 
           <!-- Article Content -->
-          <article class="prose max-w-none mb-10 bg-neutral-950 p-6 sm:p-10">
+          <article class="prose max-w-none mb-10">
             ${art.content}
           </article>
 
           <!-- Share Component -->
-          <div class="bg-neutral-950 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="p-6 bg-neutral-950 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <h3 class="text-white font-black uppercase text-xs tracking-widest">Share Transmission</h3>
               <p class="text-xs text-slate-400">Distribute this report across your network.</p>
@@ -687,8 +735,8 @@
               <i class="fa-solid fa-arrow-left"></i> Return To Index
             </button>
 
-            <div class="bg-neutral-950 p-6 sm:p-10 mb-8">
-              <span class="inline-block px-3 py-1 bg-orange-600 text-white font-black text-xs uppercase tracking-widest mb-3">Direct Communication</span>
+            <div class="mb-8">
+              <span class="inline-block text-orange-500 font-black text-xs uppercase tracking-widest mb-2">Direct Communication</span>
               <h1 class="text-2xl sm:text-4xl font-black text-white uppercase mb-4 border-l-4 border-orange-500 pl-3">Contact AZEXAI</h1>
               <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-8">
                 Connect with our global editorial board, technical audit division, or partnership team. We guarantee verified responses within 2 hours.
@@ -696,17 +744,17 @@
 
               <!-- Global Desk Info Cards -->
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                <div class="p-4 bg-black">
+                <div class="p-4 bg-neutral-950">
                   <h4 class="text-orange-500 font-black text-xs uppercase mb-1">General Inquiries</h4>
                   <p class="text-white font-bold text-xs">contact@azexai.com</p>
                   <p class="text-slate-500 text-[10px] mt-1">SLA: &lt; 2 Hours</p>
                 </div>
-                <div class="p-4 bg-black">
+                <div class="p-4 bg-neutral-950">
                   <h4 class="text-orange-500 font-black text-xs uppercase mb-1">Press & Media Desk</h4>
                   <p class="text-white font-bold text-xs">press@azexai.com</p>
                   <p class="text-slate-500 text-[10px] mt-1">SLA: Immediate</p>
                 </div>
-                <div class="p-4 bg-black">
+                <div class="p-4 bg-neutral-950">
                   <h4 class="text-orange-500 font-black text-xs uppercase mb-1">Advertising & Sponsorship</h4>
                   <p class="text-white font-bold text-xs">ads@azexai.com</p>
                   <p class="text-slate-500 text-[10px] mt-1">SLA: &lt; 4 Hours</p>
@@ -718,7 +766,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Inquiry Type *</label>
-                    <select class="w-full px-4 py-3 bg-black text-xs text-white font-bold focus:outline-none">
+                    <select class="w-full px-4 py-3 bg-neutral-950 text-xs text-white font-bold">
                       <option value="Editorial">Editorial & Research Briefs</option>
                       <option value="Partnership">Enterprise Partnerships</option>
                       <option value="Advertising">Advertising & Media Kit</option>
@@ -727,49 +775,33 @@
                   </div>
                   <div>
                     <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Full Name *</label>
-                    <input type="text" required placeholder="DR. ALAN TURING" class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none">
+                    <input type="text" required placeholder="DR. ALAN TURING" class="w-full px-4 py-3 bg-neutral-950 text-xs text-white font-bold uppercase">
                   </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Email Address *</label>
-                    <input type="email" required placeholder="ALAN@AZEXAI.COM" class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none">
+                    <input type="email" required placeholder="ALAN@AZEXAI.COM" class="w-full px-4 py-3 bg-neutral-950 text-xs text-white font-bold uppercase">
                   </div>
                   <div>
                     <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Organization / Company</label>
-                    <input type="text" placeholder="OPENAI / MIT / HARVARD" class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none">
+                    <input type="text" placeholder="OPENAI / MIT / HARVARD" class="w-full px-4 py-3 bg-neutral-950 text-xs text-white font-bold uppercase">
                   </div>
                 </div>
 
                 <div>
                   <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Subject *</label>
-                  <input type="text" required placeholder="RESEARCH COLLABORATION PROPOSAL" class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none">
+                  <input type="text" required placeholder="RESEARCH COLLABORATION PROPOSAL" class="w-full px-4 py-3 bg-neutral-950 text-xs text-white font-bold uppercase">
                 </div>
 
                 <div>
                   <label class="block text-xs font-black uppercase tracking-wider text-slate-300 mb-1">Message *</label>
-                  <textarea rows="5" required placeholder="PROVIDE FULL DETAILS OF YOUR INQUIRY OR DISPATCH HERE..." class="w-full px-4 py-3 bg-black text-xs text-white font-bold uppercase focus:outline-none"></textarea>
+                  <textarea rows="5" required placeholder="PROVIDE FULL DETAILS OF YOUR INQUIRY OR DISPATCH HERE..." class="w-full px-4 py-3 bg-neutral-950 text-xs text-white font-bold uppercase"></textarea>
                 </div>
 
                 <button type="submit" class="w-full py-4 cyber-btn-orange text-xs font-black uppercase tracking-widest">Transmit Message</button>
               </form>
-
-              <!-- Global Headquarters Footer -->
-              <div class="mt-8 pt-6 border-t border-neutral-900 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-                <div>
-                  <h5 class="text-white font-black mb-1">Silicon Valley HQ</h5>
-                  <p class="text-slate-500">100 Cybernetic Way, Palo Alto, CA</p>
-                </div>
-                <div>
-                  <h5 class="text-white font-black mb-1">London Bureau</h5>
-                  <p class="text-slate-500">25 Tech City Road, London EC1V</p>
-                </div>
-                <div>
-                  <h5 class="text-white font-black mb-1">Tokyo Research Hub</h5>
-                  <p class="text-slate-500">Shibuya Quantum Tower 14F, Tokyo</p>
-                </div>
-              </div>
 
             </div>
           </div>
@@ -817,8 +849,8 @@
           <button onclick="navigateToHome(event)" class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-400 hover:text-orange-500 mb-6">
             <i class="fa-solid fa-arrow-left"></i> Return To Index
           </button>
-          <div class="bg-neutral-950 p-6 sm:p-10">
-            <span class="inline-block px-3 py-1 bg-orange-600 text-white font-black text-xs uppercase tracking-widest mb-3">${pData.cat}</span>
+          <div class="mb-6">
+            <span class="inline-block text-orange-500 font-black text-xs uppercase tracking-widest mb-2">${pData.cat}</span>
             <h1 class="text-2xl sm:text-4xl font-black text-white uppercase mb-6 border-l-4 border-orange-500 pl-3">${pData.title}</h1>
             <div class="prose max-w-none text-slate-300 text-xs sm:text-sm leading-relaxed">
               ${pData.body}
@@ -837,7 +869,7 @@
       const match = ARTICLES.filter(a=>a.title.toLowerCase().includes(q) || a.category.toLowerCase().includes(q));
       if(!match.length) { res.innerHTML = '<p class="text-xs text-slate-500 font-bold uppercase tracking-wider text-center py-6">No matching articles found.</p>'; return; }
       res.innerHTML = match.map(m=>`
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" class="block p-3 bg-neutral-950 hover:bg-neutral-900 cursor-pointer text-left">
+        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" class="block p-3 bg-neutral-900 hover:bg-neutral-800 cursor-pointer text-left">
           <h4 class="text-xs font-bold text-white hover:text-orange-500">${m.title}</h4>
           <p class="text-[10px] text-slate-500 uppercase mt-1">${m.category}</p>
         </div>

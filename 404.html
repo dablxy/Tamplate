@@ -1,497 +1,514 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AZEXAI - Journal of Machine Intelligence</title>
-​<!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-darkMode: 'class',
-theme: {
-extend: {
-fontFamily: {
-serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
-}
-}
-}
-}
-</script>
-​<!-- React & ReactDOM CDNs -->
-<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-​<!-- Babel Standalone for JSX compilation in browser -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageMetaTitle">AZEXAI — Global Technology & Artificial Intelligence Authority</title>
+  <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, software architecture, and digital transformation.">
+  <link id="pageCanonical" rel="canonical" href="">
+
+  <!-- Preconnects for Speed Optimization -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.pexels.com">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Open Graph & Twitter Meta Tags -->
+  <meta id="ogTitle" property="og:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
+  <meta id="ogDesc" property="og:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
+  <meta id="ogImage" property="og:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200">
+  <meta id="ogUrl" property="og:url" content="">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS Engine -->
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#f97316',
+              red: '#ef4444',
+              darkBg: '#050505',
+              cardBg: '#0a0a0a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    *, ::before, ::after { box-sizing: border-box; border-style: none !important; }
+    
+    html, body, div, span, p, a, h1, h2, h3, h4, h5, h6, article, section, figure, img, button, input {
+      font-style: normal !important;
+      transform: none !important;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    }
+
+    body {
+      background-color: #050505;
+      color: #f8fafc;
+      margin: 0;
+      padding: 0;
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Clean Card Style with Absolutely No Borders */
+    .clean-card {
+      background: #0d0d0d;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    .prose * {
+      font-style: normal !important;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      border: none !important;
+    }
+    .prose h1, .prose h2, .prose h3, .prose h4 {
+      color: #ffffff !important;
+      font-weight: 800 !important;
+      margin-top: 1.5rem !important;
+      margin-bottom: 0.75rem !important;
+      line-height: 1.3 !important;
+    }
+    .prose p {
+      color: #cbd5e1 !important;
+      font-size: 0.95rem !important;
+      line-height: 1.7 !important;
+      margin-bottom: 1.25rem !important;
+    }
+    .prose img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.75rem;
+      margin: 1.5rem 0;
+      border: none !important;
+    }
+    .prose a { color: #f97316; text-decoration: none; font-weight: 700; }
+    .prose a:hover { color: #ffffff; text-decoration: underline; }
+  </style>
 </head>
-<body class="bg-[#FAF8F5] text-stone-900 dark:bg-stone-950 dark:text-stone-100 antialiased selection:bg-amber-200 dark:selection:bg-amber-900/60">
-<div id="root"></div>
-​<script type="text/babel">
-const { useState, useEffect } = React;
-​// ============================================================================
-// CONFIGURATION & AZEXAI BRAND IDENTITY
-// ============================================================================
-const CONFIG = {
-BRAND_NAME: "AZEXAI",
-TAGLINE: "The Journal of Machine Intelligence, Silicon & Technological Philosophy",
-FOUNDED_YEAR: "1997",
-BLOGGER_BLOG_ID: "4263033619836681299",
-BLOGGER_API_KEY: "", // Configured via secure server-side proxy or environment
-DEFAULT_CATEGORY: "AI & Machine Learning",
-ITEMS_PER_PAGE: 10
-};
-​// Categorization Engine Mapping
-const CATEGORY_MAPPINGS = {
-"AI & Machine Learning": ["ai", "artificial intelligence", "machine learning", "deep learning", "llm", "neural networks", "gpt", "azexai-intelligence"],
-"Robotics & Automation": ["robotics", "automation", "drones", "bots", "boston dynamics", "hardware-automation"],
-"Hardware & Gadgets": ["hardware", "gadgets", "chips", "semiconductors", "processors", "cpus", "gpus", "devices"],
-"Software Engineering": ["software", "programming", "coding", "web dev", "javascript", "python", "open source"],
-"Future Technology": ["future tech", "quantum", "space", "biotech", "neurotech", "cyberpunk", "futurism"],
-"Guides & Tutorials": ["guides", "tutorials", "how to", "developer guide", "explainers"],
-"Ethics & Society": ["ethics", "society", "policy", "privacy", "copyright", "regulation", "ai safety"]
-};
-​const CATEGORY_STYLES = {
-"AI & Machine Learning": "bg-blue-950 text-blue-100 border-blue-800 dark:bg-blue-900/60 dark:text-blue-200 dark:border-blue-700",
-"Robotics & Automation": "bg-emerald-950 text-emerald-100 border-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-200 dark:border-emerald-700",
-"Hardware & Gadgets": "bg-amber-950 text-amber-100 border-amber-800 dark:bg-amber-900/60 dark:text-amber-200 dark:border-amber-700",
-"Software Engineering": "bg-indigo-950 text-indigo-100 border-indigo-800 dark:bg-indigo-900/60 dark:text-indigo-200 dark:border-indigo-700",
-"Future Technology": "bg-purple-950 text-purple-100 border-purple-800 dark:bg-purple-900/60 dark:text-purple-200 dark:border-purple-700",
-"Guides & Tutorials": "bg-orange-950 text-orange-100 border-orange-800 dark:bg-orange-900/60 dark:text-orange-200 dark:border-orange-700",
-"Ethics & Society": "bg-stone-900 text-stone-100 border-stone-700 dark:bg-stone-800 dark:text-stone-200 dark:border-stone-600",
-"Technology": "bg-slate-900 text-slate-100 border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-600"
-};
-​// SVG Icon Helpers
-const Icon = ({ path, className = "w-4 h-4" }) => (
-<svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-{path}
-</svg>
-);
-​const SearchIcon = (props) => <Icon {...props} path={<><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></>} />;
-const SunIcon = (props) => <Icon {...props} path={<><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></>} />;
-const MoonIcon = (props) => <Icon {...props} path={<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>} />;
-const BookmarkIcon = ({ filled, className = "w-4 h-4" }) => (
-<svg className={className} fill={filled ? "currentColor" : "none"} stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
-</svg>
-);
-const MenuIcon = (props) => <Icon {...props} path={<><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></>} />;
-const XIcon = (props) => <Icon {...props} path={<><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>} />;
-const ClockIcon = (props) => <Icon {...props} path={<><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>} />;
-const UserIcon = (props) => <Icon {...props} path={<><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></>} />;
-const CalendarIcon = (props) => <Icon {...props} path={<><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></>} />;
-const AlertTriangleIcon = (props) => <Icon {...props} path={<><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></>} />;
-const FileTextIcon = (props) => <Icon {...props} path={<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></>} />;
-const GlobeIcon = (props) => <Icon {...props} path={<><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></>} />;
-const LayersIcon = (props) => <Icon {...props} path={<><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></>} />;
-const ArrowLeftIcon = (props) => <Icon {...props} path={<><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></>} />;
-const PrinterIcon = (props) => <Icon {...props} path={<><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></>} />;
-const RefreshCwIcon = (props) => <Icon {...props} path={<><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></>} />;
-const SparklesIcon = (props) => <Icon {...props} path={<path d="M12 3l1.912 5.813a2 2 0 001.275 1.275L21 12l-5.813 1.912a2 2 0 00-1.275 1.275L12 21l-1.912-5.813a2 2 0 00-1.275-1.275L3 12l5.813-1.912a2 2 0 001.275-1.275L12 3z"/>} />;
-const CopyIcon = (props) => <Icon {...props} path={<><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></>} />;
-const CheckIcon = (props) => <Icon {...props} path={<polyline points="20 6 9 17 4 12"/>} />;
-​// Fallback Blogger Dataset
-const FALLBACK_BLOGGER_POSTS = [
-{
-id: "azexai-post-001",
-title: "Architectural Shift: Beyond Transformer Models in Enterprise Neural Systems",
-slug: "architectural-shift-beyond-transformer-models",
-excerpt: "As computational limits plateau, researchers are pivoting toward sparse state-space architectures and liquid neural networks for real-time inference without quadratic RAM overhead.",
-content: <p class="lead font-serif text-lg text-stone-800 dark:text-stone-200 mb-4">For the past five years, the transformer architecture has served as the undisputed backbone of modern artificial intelligence. However, quadratic scaling costs ($O(N^2)$ time and memory complexity) are fast creating an operational ceiling for real-time edge processing and continuous token streams.</p> <p class="mb-4">Enter <strong>State Space Models (SSMs)</strong> and continuous-time neural architectures. By replacing global attention matrices with selective state compression, newly proposed systems achieve linear time complexity while retaining long-context comprehension.</p> <blockquote class="my-6 p-4 border-l-4 border-amber-700 bg-stone-100 dark:bg-stone-900 italic font-serif text-stone-800 dark:text-stone-200"> "AZEXAI / ANALYSIS: We are witnessing a fundamental transition from static snapshot inference to continuous algorithmic reasoning. Modern enterprises can no longer afford giant compute clusters for simple contextual retrieval." </blockquote> <h2 class="font-serif text-xl font-bold mt-6 mb-3 text-stone-900 dark:text-stone-100">Hardware Implications and Memory Bottlenecks</h2> <p class="mb-4">Modern silicon architectures have historically favored large matrix multiplications. Adapting current GPU clusters to execute recurrence-based state updates efficiently requires specialized kernels like FlashAttention-3 and custom SRAM cache management routines.</p>,
-featuredImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
-author: "Dr. Elena Vance",
-publishedAt: "2026-03-01T08:30:00Z",
-labels: ["AI & Machine Learning", "AZEXAI-Analysis", "Software Engineering"],
-category: "AI & Machine Learning",
-readingTime: 6
-},
-{
-id: "azexai-post-002",
-title: "Silicon Frontiers: Wafer-Scale Engines and Sub-Nanometer Photonic Links",
-slug: "silicon-frontiers-wafer-scale-engines",
-excerpt: "Physical interconnects have replaced logic gates as the principal barrier in computing speed. Photonic interconnects on-chip offer a path forward.",
-content: <p class="mb-4">For decades, Moore's Law focused on packing more transistors into smaller square millimeters. Today, logic gates are so fast that transferring data across copper interconnects consumes over 70% of total chip energy.</p>,
-featuredImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-author: "Marcus Thorne",
-publishedAt: "2026-02-28T14:15:00Z",
-labels: ["Hardware & Gadgets", "Semiconductors"],
-category: "Hardware & Gadgets",
-readingTime: 5
-}
-];
-​// Helper Functions
-const normalizeCategory = (labels = []) => {
-if (!labels || labels.length === 0) return CONFIG.DEFAULT_CATEGORY;
-const lowerLabels = labels.map(l => String(l).toLowerCase());
-for (const [category, keywords] of Object.entries(CATEGORY_MAPPINGS)) {
-for (const keyword of keywords) {
-if (lowerLabels.some(l => l.includes(keyword))) return category;
-}
-}
-return labels[0] || CONFIG.DEFAULT_CATEGORY;
-};
-​const calculateReadingTime = (contentHtml) => {
-const text = (contentHtml || '').replace(/<[^>]*>/g, '');
-const wordCount = text.trim().split(/\s+/).length;
-const time = Math.ceil(wordCount / 200);
-return time < 1 ? 1 : time;
-};
-​const extractFirstImage = (contentHtml) => {
-if (!contentHtml) return null;
-const match = contentHtml.match(/<img[^>]+src="([^">]+)"/i);
-return match ? match[1] : null;
-};
-​const createExcerpt = (contentHtml, maxLength = 160) => {
-if (!contentHtml) return "";
-const plainText = contentHtml.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-if (plainText.length <= maxLength) return plainText;
-return plainText.substring(0, maxLength).trim() + "...";
-};
-​const formatDate = (dateString) => {
-if (!dateString) return "Editorial Issue";
-try {
-const d = new Date(dateString);
-return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-} catch (e) {
-return dateString;
-}
-};
-​const normalizeFeedEntry = (entry) => {
-const id = entry.id?.$t || Math.random().toString();
-const title = entry.title?.$t || "Untitled Dispatch";
-const content = entry.content?.$t \vert{}\vert{} entry.summary?.$t || "";
-const publishedAt = entry.published?.$t || new Date().toISOString();
-const author = entry.author?.[0]?.name?.t || "AZEXAI Editorial Desk";
-const rawCategories = entry.category ? entry.category.map(c => c.term) : [];
-const category = normalizeCategory(rawCategories);
-const excerpt = createExcerpt(content, 180);
-const featuredImage = extractFirstImage(content) || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80";
-const slug = title ? title.toLowerCase().replace(/[^a-z0-9\u0600-\u06FF]+/g, '-').replace(/(^-|-)/g, '') : id;
-​return {
-id, title, slug: slug || id, excerpt, content, featuredImage, author,
-publishedAt, labels: rawCategories, category, readingTime: calculateReadingTime(content)
-};
-};
-​async function fetchAllPublicBloggerPosts(blogId) {
-let allEntries = [];
-let startIndex = 1;
-const maxResults = 150;
-let keepFetching = true;
-​while (keepFetching && allEntries.length < 3000) {
-const feedUrl = https://www.blogger.com/feeds/${blogId}/posts/default?alt=json&start-index=${startIndex}&max-results=${maxResults};
-try {
-const res = await fetch(feedUrl);
-if (!res.ok) break;
-const data = await res.json();
-const entries = data.feed?.entry || [];
-if (entries.length === 0) {
-keepFetching = false;
-} else {
-allEntries.push(...entries.map(normalizeFeedEntry));
-if (entries.length < maxResults) keepFetching = false;
-else startIndex += maxResults;
-}
-} catch (e) {
-break;
-}
-}
-return allEntries;
-}
-​function TopUtilityBar({ darkMode, setDarkMode, searchQuery, setSearchQuery, onSearchSubmit }) {
-return (
-<div className="bg-stone-900 text-stone-300 font-mono text-xs py-1.5 px-4 sm:px-8 border-b border-stone-800 flex flex-wrap justify-between items-center gap-2">
-<div className="flex items-center space-x-4">
-<span className="text-amber-500 font-bold">AZEXAI // INTELLIGENCE SYSTEM</span>
-<span className="hidden sm:inline text-stone-500">|</span>
-<span className="hidden sm:inline text-stone-400">VOL. XXVII • NO. 42</span>
-</div>
-<div className="flex items-center space-x-4">
-<form onSubmit={onSearchSubmit} className="relative flex items-center">
-<input
-type="text"
-value={searchQuery}
-onChange={(e) => setSearchQuery(e.target.value)}
-placeholder="Search dispatches..."
-className="bg-stone-800 text-stone-100 placeholder-stone-500 text-[11px] px-2.5 py-1 pr-7 border border-stone-700 focus:outline-none focus:border-amber-500"
-/>
-<button type="submit" className="absolute right-1.5 text-stone-400 hover:text-amber-400">
-<SearchIcon className="w-3.5 h-3.5" />
-</button>
-</form>
-<button
-onClick={() => setDarkMode(!darkMode)}
-className="p-1 text-stone-400 hover:text-amber-400 transition-colors"
-title="Toggle Theme"
->
-{darkMode ? <SunIcon className="w-3.5 h-3.5 text-amber-400" /> : <MoonIcon className="w-3.5 h-3.5" />}
-</button>
-</div>
-</div>
-);
-}
-​function PublicationHeader({ currentPath, navigateTo, mobileMenuOpen, setMobileMenuOpen, setShowSettings, articleCount }) {
-const categories = Object.keys(CATEGORY_MAPPINGS);
-​return (
-<header className="border-b-2 border-stone-900 dark:border-stone-100 bg-[#FAF8F5] dark:bg-stone-950 sticky top-0 z-40">
-<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex justify-between items-center">
-<div className="cursor-pointer" onClick={() => navigateTo('/')}>
-<div className="flex items-baseline space-x-2">
-<span className="font-mono text-xs font-bold text-amber-700 dark:text-amber-500 border-r border-stone-400 pr-2 uppercase tracking-widest">
-AZEXAI / JOURNAL
-</span>
-<h1 className="font-serif text-3xl sm:text-5xl font-black tracking-tight text-stone-950 dark:text-stone-50">
-{CONFIG.BRAND_NAME}
-</h1>
-</div>
-<p className="font-serif italic text-xs sm:text-sm text-stone-600 dark:text-stone-400 mt-1">
-{CONFIG.TAGLINE}
-</p>
-</div>
-​<div className="hidden lg:flex items-center space-x-4 font-mono text-xs text-stone-700 dark:text-stone-300">
-<button
-onClick={() => setShowSettings(true)}
-className="flex items-center gap-1.5 px-2.5 py-1 bg-stone-200 dark:bg-stone-800 text-stone-900 dark:text-stone-100 font-bold border border-stone-400 dark:border-stone-700 hover:border-amber-600 transition-all"
->
-<RefreshCwIcon className="w-3 h-3 text-amber-700 dark:text-amber-400" />
-<span>{articleCount} Posts Synced</span>
-</button>
-<span>•</span>
-<button onClick={() => navigateTo('/archive')} className="hover:underline flex items-center gap-1">
-<FileTextIcon className="w-3.5 h-3.5 text-amber-700" /> Archive ({articleCount})
-</button>
-<span>•</span>
-<button onClick={() => navigateTo('/about')} className="hover:underline flex items-center gap-1">
-<GlobeIcon className="w-3.5 h-3.5 text-amber-700" /> Standards
-</button>
-</div>
-​<button
-className="lg:hidden p-2 text-stone-900 dark:text-stone-100 border border-stone-400 dark:border-stone-700"
-onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
->
-{mobileMenuOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
-</button>
-</div>
-​<nav className="hidden lg:block border-t border-stone-300 dark:border-stone-800 bg-stone-100/80 dark:bg-stone-900">
-<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center font-sans text-xs font-bold uppercase tracking-wider py-2 overflow-x-auto">
-<button
-onClick={() => navigateTo('/')}
-className={py-1 px-3 border-b-2 transition-all ${currentPath === '/' ? 'border-amber-700 text-stone-950 dark:text-stone-100 font-extrabold' : 'border-transparent text-stone-600 dark:text-stone-400'}}
->
-Front Page
-</button>
-{categories.map((cat) => (
-<button
-key={cat}
-onClick={() => navigateTo(/category/${encodeURIComponent(cat)})}
-className={py-1 px-2.5 border-b-2 whitespace-nowrap transition-all ${currentPath === /category/${encodeURIComponent(cat)} ? 'border-amber-700 text-stone-950 dark:text-stone-100 font-extrabold' : 'border-transparent text-stone-600 dark:text-stone-400'}}
->
-{cat}
-</button>
-))}
-</div>
-</nav>
-</header>
-);
-}
-​function ArticleCard({ article, navigateTo, isBookmarked, onToggleBookmark }) {
-return (
-<article
-onClick={() => navigateTo(/blog/${article.slug})}
-className="group cursor-pointer border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900 p-3 sm:p-4 shadow-sm hover:border-stone-500 transition-all flex flex-col justify-between"
->
-<div>
-<div className="relative aspect-[16/9] w-full bg-stone-950 mb-3 overflow-hidden border border-stone-200 dark:border-stone-800 flex items-center justify-center">
-<img src={article.featuredImage} alt={article.title} className="max-h-full max-w-full object-contain group-hover:scale-102 transition-transform duration-300" />
-</div>
-<span className={inline-block font-mono text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 border mb-2 ${CATEGORY_STYLES[article.category] || CATEGORY_STYLES["Technology"]}}>
-{article.category}
-</span>
-<h3 className="font-serif text-sm sm:text-base font-bold text-stone-950 dark:text-stone-100 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors line-clamp-2 leading-snug">
-{article.title}
-</h3>
-<p className="font-serif text-xs text-stone-600 dark:text-stone-400 mt-1 line-clamp-2 leading-relaxed">
-{article.excerpt}
-</p>
-</div>
-<div className="flex items-center justify-between pt-3 mt-3 border-t border-stone-200 dark:border-stone-800 font-mono text-[10px] text-stone-500">
-<span>{formatDate(article.publishedAt)} • {article.readingTime}m</span>
-<button onClick={(e) => { e.stopPropagation(); onToggleBookmark(article.id); }} className="hover:text-amber-700">
-<BookmarkIcon filled={isBookmarked} className="w-3.5 h-3.5 text-amber-700" />
-</button>
-</div>
-</article>
-);
-}
-​function HomePageView({ articles, navigateTo, bookmarks, toggleBookmark }) {
-const [visibleCount, setVisibleCount] = useState(12);
-if (!articles || articles.length === 0) return null;
-​const leadStory = articles[0];
-const secondaryStories = articles.slice(1, 4);
-const gridArticles = articles.slice(0, visibleCount);
-​return (
-<div className="space-y-12">
-<section className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b-2 border-stone-300 dark:border-stone-800 pb-10">
-<div
-onClick={() => navigateTo(/blog/${leadStory.slug})}
-className="lg:col-span-8 group cursor-pointer border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900 p-4 sm:p-6 shadow-sm hover:border-stone-500 transition-all"
->
-<div className="relative aspect-[16/9] w-full bg-stone-950 mb-4 overflow-hidden border border-stone-300 dark:border-stone-700 flex items-center justify-center">
-<img src={leadStory.featuredImage} alt={leadStory.title} className="max-h-full max-w-full object-contain group-hover:scale-102 transition-transform duration-500" />
-<span className="absolute top-3 left-3 bg-stone-950 text-amber-400 border border-amber-600/40 font-mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1">
-AZEXAI / LEAD STORY
-</span>
-</div>
-<div className="space-y-3">
-<span className={inline-block font-mono text-xs font-bold uppercase tracking-wider px-2 py-0.5 border ${CATEGORY_STYLES[leadStory.category] || CATEGORY_STYLES["Technology"]}}>
-{leadStory.category}
-</span>
-<h2 className="font-serif text-2xl sm:text-4xl font-extrabold text-stone-950 dark:text-stone-50 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors leading-tight">
-{leadStory.title}
-</h2>
-<p className="font-serif text-stone-700 dark:text-stone-300 text-base leading-relaxed line-clamp-3">
-{leadStory.excerpt}
-</p>
-<div className="flex items-center justify-between pt-3 border-t border-stone-200 dark:border-stone-800 font-mono text-xs text-stone-600 dark:text-stone-400">
-<div className="flex items-center space-x-2">
-<span className="font-bold text-stone-900 dark:text-stone-200">{leadStory.author}</span>
-<span>•</span>
-<span>{formatDate(leadStory.publishedAt)}</span>
-</div>
-</div>
-</div>
-</div>
-​<div className="lg:col-span-4 flex flex-col justify-between space-y-4">
-<div className="border-b-2 border-amber-700 pb-1">
-<h3 className="font-mono text-xs font-bold uppercase tracking-widest text-stone-900 dark:text-stone-100 flex items-center justify-between">
-<span>EDITORIAL SELECTION</span>
-<SparklesIcon className="w-3.5 h-3.5 text-amber-700" />
-</h3>
-</div>
-<div className="divide-y divide-stone-300 dark:divide-stone-800 space-y-4">
-{secondaryStories.map((story) => (
-<article key={story.id} onClick={() => navigateTo(/blog/${story.slug})} className="pt-3 first:pt-0 group cursor-pointer">
-<span className="font-mono text-[10px] font-bold uppercase text-amber-800 dark:text-amber-400 tracking-wider">{story.category}</span>
-<h4 className="font-serif text-base font-bold text-stone-950 dark:text-stone-100 group-hover:text-amber-800 leading-snug transition-colors mt-0.5">{story.title}</h4>
-<p className="font-serif text-xs text-stone-600 dark:text-stone-400 line-clamp-2 mt-1">{story.excerpt}</p>
-</article>
-))}
-</div>
-</div>
-</section>
-​<section className="space-y-6">
-<div className="flex items-center justify-between border-b-2 border-stone-900 dark:border-stone-100 pb-2">
-<h3 className="font-serif text-2xl font-extrabold text-stone-950 dark:text-stone-50 flex items-center gap-2">
-<LayersIcon className="w-5 h-5 text-amber-700" />
-ALL PUBLISHED DISPATCHES ({gridArticles.length} OF {articles.length})
-</h3>
-</div>
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-{gridArticles.map((article) => (
-<ArticleCard key={article.id} article={article} navigateTo={navigateTo} isBookmarked={bookmarks.includes(article.id)} onToggleBookmark={toggleBookmark} />
-))}
-</div>
-{visibleCount < articles.length && (
-<div className="text-center pt-6">
-<button
-onClick={() => setVisibleCount(prev => Math.min(prev + 12, articles.length))}
-className="px-6 py-3 bg-stone-900 dark:bg-stone-100 text-stone-100 dark:text-stone-900 font-mono text-xs font-bold uppercase border hover:bg-amber-700 transition-colors"
->
-Load More Articles ({articles.length - visibleCount} Remaining)
-</button>
-</div>
-)}
-</section>
-</div>
-);
-}
-​function ArticlePageView({ article, navigateTo }) {
-return (
-<div className="max-w-4xl mx-auto space-y-8">
-<button onClick={() => navigateTo('/')} className="font-mono text-xs text-amber-800 dark:text-amber-400 font-bold hover:underline flex items-center gap-1">
-<ArrowLeftIcon className="w-3.5 h-3.5" /> Return to Front Page
-</button>
-<header className="space-y-4 border-b border-stone-300 dark:border-stone-800 pb-6">
-<span className={inline-block font-mono text-xs font-bold uppercase tracking-wider px-2.5 py-1 border ${CATEGORY_STYLES[article.category] || CATEGORY_STYLES["Technology"]}}>
-{article.category}
-</span>
-<h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-stone-950 dark:text-stone-50 leading-tight">
-{article.title}
-</h1>
-<p className="font-serif text-lg text-stone-700 dark:text-stone-300 italic leading-relaxed">
-{article.excerpt}
-</p>
-</header>
-<div className="relative aspect-[16/9] w-full bg-stone-950 border border-stone-300 dark:border-stone-800 overflow-hidden flex items-center justify-center">
-<img src={article.featuredImage} alt={article.title} className="max-h-full max-w-full object-contain" />
-</div>
-<article className="font-serif text-stone-900 dark:text-stone-100 text-base sm:text-lg leading-relaxed space-y-4" dangerouslySetInnerHTML={{ __html: article.content }} />
-</div>
-);
-}
-​function App() {
-const [articles, setArticles] = useState([]);
-const [loading, setLoading] = useState(true);
-const [blogId, setBlogId] = useState(CONFIG.BLOGGER_BLOG_ID);
-const [currentPath, setCurrentPath] = useState('/');
-const [searchQuery, setSearchQuery] = useState('');
-const [darkMode, setDarkMode] = useState(false);
-const [bookmarks, setBookmarks] = useState([]);
-const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-​const navigateTo = (path) => {
-setCurrentPath(path);
-setMobileMenuOpen(false);
-window.scrollTo({ top: 0, behavior: 'smooth' });
-};
-​useEffect(() => {
-async function loadAllPosts() {
-setLoading(true);
-let fetchedPosts = [];
-try {
-const feedPosts = await fetchAllPublicBloggerPosts(blogId);
-if (feedPosts.length > 0) fetchedPosts = feedPosts;
-} catch (e) {}
-​if (fetchedPosts.length === 0) fetchedPosts = FALLBACK_BLOGGER_POSTS;
-​const uniqueMap = new Map();
-fetchedPosts.forEach(p => uniqueMap.set(p.id || p.title, p));
-const sorted = Array.from(uniqueMap.values()).sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
-​setArticles(sorted);
-setLoading(false);
-}
-loadAllPosts();
-}, [blogId]);
-​useEffect(() => {
-if (darkMode) document.documentElement.classList.add('dark');
-else document.documentElement.classList.remove('dark');
-}, [darkMode]);
-​const isHome = currentPath === '/';
-const isArticle = currentPath.startsWith('/blog/');
-const activeArticleSlug = isArticle ? currentPath.replace('/blog/', '') : null;
-const selectedArticle = isArticle ? articles.find(a => a.slug === activeArticleSlug) || articles[0] : null;
-​const toggleBookmark = (id) => {
-setBookmarks(prev => prev.includes(id) ? prev.filter(b => b !== id) : [...prev, id]);
-};
-​return (
-<div className="min-h-screen bg-[#FAF8F5] text-stone-900 dark:bg-stone-950 dark:text-stone-100 font-serif antialiased">
-<TopUtilityBar darkMode={darkMode} setDarkMode={setDarkMode} searchQuery={searchQuery} setSearchQuery={setSearchQuery} onSearchSubmit={(e) => { e.preventDefault(); }} />
-<PublicationHeader currentPath={currentPath} navigateTo={navigateTo} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} articleCount={articles.length} />
-​<main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-{loading ? (
-<div className="p-8 text-center font-mono text-xs">Loading AZEXAI Intelligence Stream...</div>
-) : (
-<>
-{isHome && <HomePageView articles={articles} navigateTo={navigateTo} bookmarks={bookmarks} toggleBookmark={toggleBookmark} />}
-{isArticle && selectedArticle && <ArticlePageView article={selectedArticle} navigateTo={navigateTo} />}
-</>
-)}
-</main>
-​<footer className="bg-stone-900 text-stone-300 border-t-4 border-stone-800 py-8 font-sans text-xs text-center font-mono">
-© {new Date().getFullYear()} AZEXAI Journal. All rights reserved.
-</footer>
-</div>
-);
-}
-​const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
-</script>
+<body class="min-h-screen flex flex-col bg-[#050505] text-slate-100">
+
+  <!-- Header Section without Borders -->
+  <header class="sticky top-0 z-50 bg-black/95 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="/" onclick="navigateToHome(event)" class="flex items-center group shrink-0" aria-label="AZEXAI Homepage">
+        <span class="text-xl sm:text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-orange-500">AI</span><span class="text-red-500 text-2xl sm:text-4xl leading-none">.</span></span>
+      </a>
+
+      <!-- Dynamic Navigation Categories -->
+      <nav id="headerCategories" class="hidden md:flex items-center gap-4 lg:gap-6 text-xs sm:text-sm font-bold tracking-wide text-slate-300 overflow-x-auto no-scrollbar" aria-label="Global Navigation">
+        <!-- Generated Dynamically via JS -->
+      </nav>
+      
+      <!-- Header Actions -->
+      <div class="flex items-center gap-2">
+        <button onclick="openSearchModal()" class="p-2 sm:p-2.5 rounded-xl bg-neutral-900 text-slate-200 hover:text-white transition" aria-label="Search Articles">
+          <i class="fa-solid fa-magnifying-glass text-xs sm:text-base"></i>
+        </button>
+        <button onclick="navigateToStaticPage('contact', event)" class="flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-gradient-to-r from-orange-500 to-red-600 hover:from-red-600 hover:to-orange-500 text-white text-[11px] sm:text-xs font-black uppercase tracking-wider rounded-xl transition">
+          <i class="fa-solid fa-paper-plane text-[10px]"></i>
+          <span>Contact</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dynamic Content Area -->
+  <main class="flex-grow max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-3 sm:py-6 w-full">
+    <div id="app"></div>
+  </main>
+
+  <!-- Clean Minimal Global Footer -->
+  <footer class="bg-black py-10 sm:py-14 text-xs text-slate-400 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center md:text-left">
+          <span class="text-2xl font-black uppercase text-white">AZEX<span class="text-orange-500">AI</span>.</span>
+          <p class="max-w-md text-slate-400">Global authority on artificial intelligence, software architecture, and digital transformation.</p>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="/about" onclick="navigateToStaticPage('about', event)" class="hover:text-white transition">About</a>
+          <a href="/editorial" onclick="navigateToStaticPage('editorial', event)" class="hover:text-white transition">Editorial Board</a>
+          <a href="/privacy" onclick="navigateToStaticPage('privacy', event)" class="hover:text-white transition">Privacy Policy</a>
+          <a href="/terms" onclick="navigateToStaticPage('terms', event)" class="hover:text-white transition">Terms</a>
+          <a href="/contact" onclick="navigateToStaticPage('contact', event)" class="hover:text-white transition">Contact</a>
+        </div>
+      </div>
+      <div class="text-center text-slate-600 text-[11px]">
+        © 2026 AZEXAI Authority. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div id="searchModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-start justify-center p-4 pt-16 sm:pt-24 hidden">
+    <div class="bg-neutral-900 rounded-2xl max-w-2xl w-full p-4 sm:p-6 text-white">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm sm:text-base font-black uppercase tracking-wider">Search Articles</h3>
+        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-white p-1"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+      <div class="relative mb-4">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"></i>
+        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search all articles..." class="w-full pl-10 pr-4 py-2.5 bg-neutral-950 rounded-xl text-xs sm:text-sm focus:outline-none text-white">
+      </div>
+      <div id="modalSearchResults" class="max-h-72 overflow-y-auto space-y-2 no-scrollbar"></div>
+    </div>
+  </div>
+
+  <!-- Main JS Engine -->
+  <script>
+    const CONTACT_EMAIL = "aristo@azexai.com";
+
+    // Blogger Config API
+    const BLOGGER_CONFIG = {
+      blogId: '4263033619836681299',
+      apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
+      maxResults: 500
+    };
+
+    let AZEXAI = {
+      categories: ['All'],
+      activeCategory: 'All'
+    };
+
+    let ARTICLES = [];
+
+    const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200';
+
+    function sanitizeText(text) {
+      if (!text) return '';
+      return text
+        .replace(/Karim Ouzinba/gi, 'Azex')
+        .replace(/Karim/gi, 'Azex')
+        .replace(/Ouzinba/gi, 'Azex')
+        .replace(/<em>/gi, '<span>')
+        .replace(/<\/em>/gi, '</span>')
+        .replace(/<i>/gi, '<span>')
+        .replace(/<\/i>/gi, '</span>');
+    }
+
+    function stripHtml(html) {
+      const div = document.createElement('div');
+      div.innerHTML = html || '';
+      return (div.textContent || div.innerText || '').replace(/\s+/g, ' ').trim();
+    }
+
+    function getFirstImage(html) {
+      const div = document.createElement('div');
+      div.innerHTML = html || '';
+      const img = div.querySelector('img');
+      return img ? (img.src || img.getAttribute('data-src') || '') : '';
+    }
+
+    function estimateReadTime(html) {
+      const text = stripHtml(html);
+      const words = text.split(/\s+/).filter(Boolean).length;
+      return Math.max(1, Math.ceil(words / 200)) + ' min read';
+    }
+
+    function bloggerSlug(post) {
+      const match = (post.url || '').match(/[^/]+$/);
+      return match ? decodeURIComponent(match[0]).replace(/\.html$/, '') : String(post.id);
+    }
+
+    function normalizeBloggerPost(post, index) {
+      const labels = Array.isArray(post.labels) ? post.labels : [];
+      const category = labels[0] || 'General';
+      const rawBody = sanitizeText(post.content || '');
+      const plainText = stripHtml(rawBody);
+      const image = getFirstImage(rawBody) || DEFAULT_IMAGE;
+      const date = post.published ? new Date(post.published).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '2026';
+
+      return {
+        id: String(post.id || index + 1),
+        slug: bloggerSlug(post),
+        title: sanitizeText(post.title || 'Untitled Article'),
+        category: category,
+        author: 'Azex',
+        date: date,
+        readTime: estimateReadTime(rawBody),
+        image: image,
+        excerpt: plainText.length > 120 ? plainText.substring(0, 120) + '...' : plainText,
+        tags: labels,
+        content: rawBody
+      };
+    }
+
+    async function loadBloggerArticles() {
+      try {
+        const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&fetchBodies=true&fetchImages=true&maxResults=${BLOGGER_CONFIG.maxResults}`;
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('HTTP Error ' + response.status);
+        const data = await response.json();
+        
+        if (Array.isArray(data.items) && data.items.length > 0) {
+          ARTICLES = data.items.map(normalizeBloggerPost);
+          
+          // Extract All Categories automatically from Blogger Labels
+          const catSet = new Set(['All']);
+          ARTICLES.forEach(art => {
+            if (art.category) catSet.add(art.category);
+            if (Array.isArray(art.tags)) {
+              art.tags.forEach(t => catSet.add(t));
+            }
+          });
+          AZEXAI.categories = Array.from(catSet);
+          renderHeaderCategories();
+          return true;
+        }
+      } catch (err) {
+        console.error('Failed to load Blogger articles:', err);
+      }
+      return false;
+    }
+
+    function renderHeaderCategories() {
+      const nav = document.getElementById('headerCategories');
+      if (!nav) return;
+      nav.innerHTML = AZEXAI.categories.slice(0, 7).map(cat => `
+        <a href="/category/${cat.toLowerCase()}" onclick="setCategory('${cat}', event)" class="hover:text-orange-500 transition whitespace-nowrap ${AZEXAI.activeCategory === cat ? 'text-orange-500' : ''}">${cat}</a>
+      `).join('');
+    }
+
+    // ================= Routing System =================
+    let currentView = { type: 'home', slug: null };
+
+    function navigateToHome(e) {
+      if (e) e.preventDefault();
+      currentView = { type: 'home', slug: null };
+      AZEXAI.activeCategory = 'All';
+      window.history.pushState(null, '', '/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      router();
+    }
+
+    function navigateToArticle(slug, e) {
+      if (e) e.preventDefault();
+      currentView = { type: 'article', slug: String(slug) };
+      window.history.pushState(null, '', '/article/' + encodeURIComponent(slug));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      router();
+    }
+
+    function navigateToStaticPage(pageSlug, e) {
+      if (e) e.preventDefault();
+      currentView = { type: 'static', slug: pageSlug };
+      window.history.pushState(null, '', '/' + pageSlug);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      router();
+    }
+
+    function setCategory(cat, e) {
+      if (e) e.preventDefault();
+      AZEXAI.activeCategory = cat;
+      currentView = { type: 'home', slug: null };
+      const targetPath = cat === 'All' ? '/' : '/category/' + encodeURIComponent(cat.toLowerCase());
+      window.history.pushState(null, '', targetPath);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      router();
+    }
+
+    function parseUrlRoute() {
+      const path = window.location.pathname;
+      if (path.startsWith('/article/')) {
+        const slug = decodeURIComponent(path.replace('/article/', ''));
+        currentView = { type: 'article', slug: slug };
+      } else if (path.startsWith('/category/')) {
+        const catSlug = decodeURIComponent(path.replace('/category/', ''));
+        const matched = AZEXAI.categories.find(c => c.toLowerCase() === catSlug.toLowerCase());
+        if (matched) AZEXAI.activeCategory = matched;
+        currentView = { type: 'home', slug: null };
+      } else if (['/contact', '/about', '/privacy', '/terms', '/editorial'].includes(path)) {
+        currentView = { type: 'static', slug: path.replace('/', '') };
+      } else {
+        currentView = { type: 'home', slug: null };
+        AZEXAI.activeCategory = 'All';
+      }
+    }
+
+    window.addEventListener('popstate', () => {
+      parseUrlRoute();
+      router();
+    });
+
+    document.addEventListener('click', function(e) {
+      const articleEl = e.target.closest('[data-article-slug]');
+      if (articleEl) {
+        const slug = articleEl.getAttribute('data-article-slug');
+        if (slug) navigateToArticle(slug, e);
+      }
+    });
+
+    function openSearchModal() {
+      document.getElementById('searchModal').classList.remove('hidden');
+      setTimeout(() => document.getElementById('modalSearchInput').focus(), 100);
+    }
+
+    function closeSearchModal() {
+      document.getElementById('searchModal').classList.add('hidden');
+    }
+
+    function handleModalSearch(e) {
+      const query = e.target.value.toLowerCase().trim();
+      const resultsContainer = document.getElementById('modalSearchResults');
+      if (!query) { resultsContainer.innerHTML = ''; return; }
+
+      const matches = ARTICLES.filter(a => 
+        a.title.toLowerCase().includes(query) || 
+        a.excerpt.toLowerCase().includes(query) ||
+        a.category.toLowerCase().includes(query)
+      );
+
+      if (matches.length === 0) {
+        resultsContainer.innerHTML = '<p class="text-xs text-slate-500 text-center py-4">No matching articles found.</p>';
+        return;
+      }
+
+      resultsContainer.innerHTML = matches.map(m => `
+        <div data-article-slug="${m.slug}" onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" class="p-3 bg-neutral-950 rounded-xl cursor-pointer hover:bg-neutral-800 transition">
+          <h4 class="text-xs font-bold text-white line-clamp-1">${m.title}</h4>
+          <p class="text-[10px] text-slate-400 line-clamp-1">${m.excerpt}</p>
+        </div>
+      `).join('');
+    }
+
+    function router() {
+      renderHeaderCategories();
+      const app = document.getElementById('app');
+      if (!app) return;
+
+      if (currentView.type === 'article') {
+        const article = ARTICLES.find(a => a.slug.toLowerCase() === currentView.slug.toLowerCase() || a.id === currentView.slug);
+        if (article) {
+          renderArticleView(article);
+          return;
+        }
+      } else if (currentView.type === 'static') {
+        renderStaticPageView(currentView.slug);
+        return;
+      }
+      renderHome();
+    }
+
+    // Modern Main Home Layout Grid: 2 columns in Mobile, 3 columns in Desktop, No Frames
+    function renderHome() {
+      const app = document.getElementById('app');
+      const filtered = ARTICLES.filter(a => {
+        if (AZEXAI.activeCategory === 'All') return true;
+        return a.category.toLowerCase() === AZEXAI.activeCategory.toLowerCase() ||
+               (Array.isArray(a.tags) && a.tags.some(t => t.toLowerCase() === AZEXAI.activeCategory.toLowerCase()));
+      });
+
+      app.innerHTML = `
+        <!-- Categories Bar -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 mb-4">
+          ${AZEXAI.categories.map(cat => `
+            <button onclick="setCategory('${cat}', event)" class="px-3 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition ${AZEXAI.activeCategory === cat ? 'bg-orange-500 text-white' : 'bg-neutral-900 text-slate-400 hover:text-white'}">${cat}</button>
+          `).join('')}
+        </div>
+
+        <!-- Headline Article Count -->
+        <div class="mb-4 text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+          <span>${AZEXAI.activeCategory} (${filtered.length} Articles)</span>
+        </div>
+
+        <!-- Strict Grid Requirement: 2 items per line on Mobile, 3 items per line on Desktop, Zero Frames/Borders -->
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+          ${filtered.map(art => `
+            <div data-article-slug="${art.slug}" onclick="navigateToArticle('${art.slug}', event)" class="clean-card rounded-xl overflow-hidden flex flex-col cursor-pointer group">
+              <!-- No image frames -->
+              <div class="aspect-[16/10] bg-neutral-950 relative overflow-hidden">
+                <img src="${art.image}" alt="${art.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-orange-400 text-[9px] font-bold uppercase rounded">${art.category}</span>
+              </div>
+              <div class="p-2 sm:p-4 flex flex-col flex-grow">
+                <h3 class="text-xs sm:text-base font-bold text-white mb-1 group-hover:text-orange-400 transition line-clamp-2 leading-snug">${art.title}</h3>
+                <p class="text-[10px] sm:text-xs text-slate-400 line-clamp-2 mb-2 flex-grow leading-relaxed">${art.excerpt}</p>
+                <div class="flex items-center justify-between text-[9px] sm:text-[10px] text-slate-500 font-medium">
+                  <span>${art.date}</span>
+                  <span class="text-emerald-400">${art.readTime}</span>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function renderArticleView(art) {
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <div class="max-w-3xl mx-auto py-4">
+          <button onclick="navigateToHome(event)" class="text-xs font-bold uppercase text-slate-400 hover:text-orange-500 mb-4 inline-flex items-center gap-1">
+            <i class="fa-solid fa-arrow-left"></i> Back to Articles
+          </button>
+          <span class="px-2.5 py-1 bg-orange-500/20 text-orange-400 font-bold text-[10px] uppercase rounded">${art.category}</span>
+          <h1 class="text-xl sm:text-3xl font-black text-white mt-3 mb-4 leading-tight">${art.title}</h1>
+          <div class="flex items-center gap-3 text-xs text-slate-400 mb-6">
+            <span>By ${art.author}</span>
+            <span>•</span>
+            <span>${art.date}</span>
+            <span>•</span>
+            <span class="text-emerald-400">${art.readTime}</span>
+          </div>
+          <div class="aspect-[16/9] rounded-xl overflow-hidden mb-6 bg-neutral-950">
+            <img src="${art.image}" alt="${art.title}" class="w-full h-full object-cover">
+          </div>
+          <article class="prose prose-invert max-w-none text-slate-300">${art.content}</article>
+        </div>
+      `;
+    }
+
+    function renderStaticPageView(slug) {
+      const app = document.getElementById('app');
+      if (slug === 'contact') {
+        app.innerHTML = `
+          <div class="max-w-xl mx-auto py-6">
+            <h1 class="text-2xl font-black text-white mb-2 uppercase">Contact Editorial Desk</h1>
+            <p class="text-xs text-slate-400 mb-6">Reach out directly to AZEXAI global team via official email address: <a href="mailto:${CONTACT_EMAIL}" class="text-orange-400 font-bold">${CONTACT_EMAIL}</a></p>
+            <form onsubmit="event.preventDefault(); window.location.href='mailto:${CONTACT_EMAIL}'; " class="space-y-3">
+              <input type="text" placeholder="Your Name" required class="w-full p-3 bg-neutral-900 rounded-xl text-xs text-white focus:outline-none">
+              <input type="email" placeholder="Your Email" required class="w-full p-3 bg-neutral-900 rounded-xl text-xs text-white focus:outline-none">
+              <textarea rows="4" placeholder="Your Message" required class="w-full p-3 bg-neutral-900 rounded-xl text-xs text-white focus:outline-none"></textarea>
+              <button type="submit" class="w-full py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white text-xs font-black uppercase rounded-xl">Send Message</button>
+            </form>
+          </div>
+        `;
+        return;
+      }
+      app.innerHTML = `
+        <div class="max-w-2xl mx-auto py-6 text-slate-300">
+          <h1 class="text-2xl font-black text-white mb-4 uppercase">${slug}</h1>
+          <p class="text-xs leading-relaxed">Official page content for AZEXAI global technology network.</p>
+        </div>
+      `;
+    }
+
+    (async function init() {
+      const app = document.getElementById('app');
+      app.innerHTML = '<div class="min-h-[50vh] grid place-items-center text-xs font-bold text-white uppercase"><i class="fa-solid fa-spinner fa-spin text-2xl text-orange-500 mb-2"></i>Fetching All Blogger Posts...</div>';
+      
+      await loadBloggerArticles();
+      parseUrlRoute();
+      router();
+    })();
+  </script>
 </body>
 </html>

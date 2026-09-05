@@ -7,7 +7,7 @@
   <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, software architecture, and digital transformation.">
   <link id="pageCanonical" rel="canonical" href="">
 
-  <!-- Preconnects for Speed Optimization -->
+  <!-- Preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.pexels.com">
@@ -48,20 +48,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    *, ::before, ::after { box-sizing: border-box; border-style: none !important; }
-    
-    html, body, div, span, p, a, h1, h2, h3, h4, h5, h6, article, section, figure, img, button, input {
-      font-style: normal !important;
-      transform: none !important;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    /* Reset & Base Normalization - Fixing alignment issues */
+    *, ::before, ::after {
+      box-sizing: border-box;
+      border: 0 solid transparent;
     }
-
-    body {
+    
+    html, body {
       background-color: #030712;
       color: #f8fafc;
       margin: 0;
       padding: 0;
-      position: relative;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       overflow-x: hidden;
     }
 
@@ -80,19 +78,25 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* Clean Card Style with Absolutely No Borders or Frames */
+    /* Clean Card Style with Zero Frames */
     .clean-card {
-      background: rgba(13, 18, 30, 0.75);
-      backdrop-filter: blur(8px);
+      background: rgba(13, 18, 30, 0.85);
+      backdrop-filter: blur(12px);
       border: none !important;
       outline: none !important;
       box-shadow: none !important;
     }
 
-    .prose * {
-      font-style: normal !important;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-      border: none !important;
+    /* Hero Glow Card Animation */
+    .hero-glow-card {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.12) 0%, rgba(99, 102, 241, 0.12) 50%, rgba(168, 85, 247, 0.12) 100%);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 0 40px -10px rgba(56, 189, 248, 0.25);
+    }
+
+    /* Article Content Typography Straightening */
+    .prose {
+      max-width: 100% !important;
     }
     .prose h1, .prose h2, .prose h3, .prose h4 {
       color: #ffffff !important;
@@ -100,18 +104,24 @@
       margin-top: 1.5rem !important;
       margin-bottom: 0.75rem !important;
       line-height: 1.3 !important;
+      text-align: left !important;
     }
     .prose p {
       color: #cbd5e1 !important;
-      font-size: 0.95rem !important;
-      line-height: 1.7 !important;
+      font-size: 0.98rem !important;
+      line-height: 1.75 !important;
       margin-bottom: 1.25rem !important;
+      text-align: left !important;
     }
+    /* Native Aspect Ratio Images Display for Articles */
     .prose img {
-      max-width: 100%;
-      height: auto;
+      width: 100% !important;
+      height: auto !important;
+      max-width: 100% !important;
+      object-fit: contain !important;
       border-radius: 0.75rem;
-      margin: 1.5rem 0;
+      margin: 1.5rem auto !important;
+      display: block !important;
       border: none !important;
     }
     .prose a { color: #38bdf8; text-decoration: none; font-weight: 700; }
@@ -123,11 +133,11 @@
   <!-- Interactive Animated Canvas Background -->
   <canvas id="bgCanvas"></canvas>
 
-  <!-- NEW EXTRA TOP NAVIGATION BAR -->
+  <!-- TOP EXTRA SECTIONS BAR -->
   <div class="bg-black/80 backdrop-blur-md text-[11px] font-bold tracking-wider uppercase py-2 border-b border-cyan-900/30">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
       <div class="flex items-center gap-4 text-cyan-400 overflow-x-auto no-scrollbar whitespace-nowrap">
-        <span class="flex items-center gap-1.5 text-white"><i class="fa-solid fa-bolt text-cyan-400"></i> TOP SECTIONS:</span>
+        <span class="flex items-center gap-1.5 text-white"><i class="fa-solid fa-bolt text-cyan-400"></i> SECTIONS:</span>
         <a href="/category/ai" onclick="setCategory('AI', event)" class="hover:text-white transition">Artificial Intelligence</a>
         <span class="text-slate-700">•</span>
         <a href="/category/tech" onclick="setCategory('Tech', event)" class="hover:text-white transition">Frontier Tech</a>
@@ -145,7 +155,7 @@
     </div>
   </div>
 
-  <!-- Header Section with Multi-color Actions -->
+  <!-- Header Section -->
   <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
       
@@ -156,7 +166,7 @@
 
       <!-- Dynamic Navigation Categories -->
       <nav id="headerCategories" class="hidden md:flex items-center gap-4 lg:gap-6 text-xs sm:text-sm font-bold tracking-wide text-slate-300 overflow-x-auto no-scrollbar" aria-label="Global Navigation">
-        <!-- Generated Dynamically via JS -->
+        <!-- Generated Dynamically -->
       </nav>
       
       <!-- Header Actions -->
@@ -173,22 +183,21 @@
   </header>
 
   <!-- Dynamic Content Area -->
-  <main class="flex-grow max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-3 sm:py-6 w-full relative z-10">
+  <main class="flex-grow max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 w-full relative z-10">
     <div id="app"></div>
   </main>
 
-  <!-- Multi-Color Full Featured Footer -->
+  <!-- Footer -->
   <footer class="bg-black/95 py-12 sm:py-16 text-xs text-slate-300 mt-12 relative overflow-hidden z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
       
-      <!-- Brand & Socials Header -->
+      <!-- Brand & Socials -->
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-neutral-900">
         <div class="space-y-2">
           <a href="/" onclick="navigateToHome(event)" class="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white">AZEX<span class="text-cyan-400">AI</span><span class="text-red-500">.</span></a>
           <p class="text-slate-400 text-xs max-w-md">Global authority on artificial intelligence, frontier tech, cybersecurity, and digital intelligence dispatches.</p>
         </div>
 
-        <!-- Social Icons -->
         <div class="flex items-center gap-2">
           <a href="#" class="w-9 h-9 rounded-xl bg-neutral-900 flex items-center justify-center text-slate-400 hover:bg-sky-500 hover:text-white transition"><i class="fa-brands fa-x-twitter text-sm"></i></a>
           <a href="#" class="w-9 h-9 rounded-xl bg-neutral-900 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
@@ -197,10 +206,8 @@
         </div>
       </div>
 
-      <!-- Vibrant Category Columns Grid -->
+      <!-- Footer Columns -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <!-- CORPORATE (CYAN / SKY BLUE THEME) -->
         <div class="space-y-4">
           <h3 class="text-sky-400 font-black text-xs uppercase tracking-widest flex items-center gap-2">
             <i class="fa-solid fa-city"></i> CORPORATE
@@ -210,49 +217,36 @@
             <li><a href="/editorial" onclick="navigateToStaticPage('editorial', event)" class="text-slate-400 hover:text-sky-400 transition">EDITORIAL BOARD</a></li>
             <li><a href="/privacy" onclick="navigateToStaticPage('privacy', event)" class="text-slate-400 hover:text-sky-400 transition">PRIVACY POLICY</a></li>
             <li><a href="/terms" onclick="navigateToStaticPage('terms', event)" class="text-slate-400 hover:text-sky-400 transition">TERMS OF SERVICE</a></li>
-            <li><a href="/contact" onclick="navigateToStaticPage('contact', event)" class="text-slate-400 hover:text-sky-400 transition">AFFILIATE DISCLOSURE</a></li>
-            <li><a href="/contact" onclick="navigateToStaticPage('contact', event)" class="text-slate-400 hover:text-sky-400 transition">ADVERTISE WITH US</a></li>
             <li><a href="/contact" onclick="navigateToStaticPage('contact', event)" class="text-cyan-400 font-black hover:text-white transition">CONTACT US</a></li>
           </ul>
         </div>
 
-        <!-- DOMAINS & CATEGORIES (PURPLE & ORANGE THEME) -->
         <div class="space-y-4">
           <h3 class="text-purple-400 font-black text-xs uppercase tracking-widest flex items-center gap-2">
             <i class="fa-solid fa-layer-group"></i> DOMAINS
           </h3>
           <ul class="space-y-2.5 font-bold text-xs" id="footerDomains">
-            <li><a href="/category/ai" onclick="setCategory('AI', event)" class="text-slate-400 hover:text-purple-400 transition">ARTIFICIAL INTELLIGENCE</a></li>
-            <li><a href="/category/tech" onclick="setCategory('Tech', event)" class="text-slate-400 hover:text-purple-400 transition">FRONTIER TECH</a></li>
-            <li><a href="/category/gadgets" onclick="setCategory('Gadgets', event)" class="text-slate-400 hover:text-purple-400 transition">SMART GADGETS</a></li>
-            <li><a href="/category/software" onclick="setCategory('Software', event)" class="text-slate-400 hover:text-purple-400 transition">SOFTWARE ARCHITECTURE</a></li>
-            <li><a href="/category/cybersecurity" onclick="setCategory('Cybersecurity', event)" class="text-slate-400 hover:text-purple-400 transition">CYBERSECURITY</a></li>
-            <li><a href="/category/reviews" onclick="setCategory('Reviews', event)" class="text-slate-400 hover:text-purple-400 transition">EXPERT REVIEWS</a></li>
+            <!-- Dynamic Domains -->
           </ul>
         </div>
 
-        <!-- NEWSLETTER (EMERALD / GREEN THEME) -->
         <div class="space-y-4">
           <h3 class="text-emerald-400 font-black text-xs uppercase tracking-widest flex items-center gap-2">
             <i class="fa-solid fa-paper-plane"></i> NEWSLETTER
           </h3>
           <p class="text-slate-400 text-xs leading-relaxed">Get daily tech intelligence reports directly in your inbox.</p>
-
           <form onsubmit="handleNewsletterSubmit(event)" class="space-y-2.5">
             <input type="email" id="newsletterEmail" required placeholder="ENTER YOUR EMAIL" class="w-full px-4 py-3 bg-neutral-900 text-xs text-white placeholder-slate-500 rounded-xl focus:outline-none focus:ring-1 focus:ring-emerald-400">
             <button type="submit" class="w-full py-3 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-teal-600 hover:to-emerald-500 text-white font-black uppercase tracking-wider rounded-xl transition text-xs shadow-lg shadow-emerald-950">
               SUBSCRIBE
             </button>
           </form>
-
           <div class="pt-2 text-[11px] text-slate-500">
             Official Desk: <a href="mailto:aristo@azexai.com" class="text-emerald-400 font-bold hover:underline">aristo@azexai.com</a>
           </div>
         </div>
-
       </div>
 
-      <!-- Footer Bottom Legal -->
       <div class="pt-8 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
         <p>© 2026 AZEXAI AUTHORITATIVE MEDIA CORP. ALL RIGHTS RESERVED.</p>
         <div class="flex items-center gap-4 font-bold">
@@ -261,7 +255,6 @@
           <a href="/contact" onclick="navigateToStaticPage('contact', event)" class="hover:text-slate-300 transition">CONTACT US</a>
         </div>
       </div>
-
     </div>
   </footer>
 
@@ -280,11 +273,11 @@
     </div>
   </div>
 
-  <!-- Main JS Engine -->
+  <!-- JavaScript Engine -->
   <script>
     const CONTACT_EMAIL = "aristo@azexai.com";
 
-    // Animated Blue Particles Background Script
+    // Animated Particles Background Script
     (function initBackgroundCanvas() {
       const canvas = document.getElementById('bgCanvas');
       const ctx = canvas.getContext('2d');
@@ -301,8 +294,8 @@
         constructor() {
           this.x = Math.random() * canvas.width;
           this.y = Math.random() * canvas.height;
-          this.vx = (Math.random() - 0.5) * 0.6;
-          this.vy = (Math.random() - 0.5) * 0.6;
+          this.vx = (Math.random() - 0.5) * 0.5;
+          this.vy = (Math.random() - 0.5) * 0.5;
           this.radius = Math.random() * 1.8 + 0.8;
           this.alpha = Math.random() * 0.6 + 0.2;
         }
@@ -325,7 +318,7 @@
         }
       }
 
-      const count = Math.min(Math.floor(window.innerWidth / 15), 70);
+      const count = Math.min(Math.floor(window.innerWidth / 15), 65);
       for (let i = 0; i < count; i++) {
         particles.push(new Particle());
       }
@@ -333,7 +326,6 @@
       function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Draw connecting lines between close particles
         for (let i = 0; i < particles.length; i++) {
           for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
@@ -344,7 +336,7 @@
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = `rgba(56, 189, 248, ${0.15 * (1 - dist / 120)})`;
+              ctx.strokeStyle = `rgba(56, 189, 248, ${0.12 * (1 - dist / 120)})`;
               ctx.lineWidth = 0.6;
               ctx.stroke();
             }
@@ -430,7 +422,7 @@
         date: date,
         readTime: estimateReadTime(rawBody),
         image: image,
-        excerpt: plainText.length > 120 ? plainText.substring(0, 120) + '...' : plainText,
+        excerpt: plainText.length > 130 ? plainText.substring(0, 130) + '...' : plainText,
         tags: labels,
         content: rawBody
       };
@@ -446,7 +438,6 @@
         if (Array.isArray(data.items) && data.items.length > 0) {
           ARTICLES = data.items.map(normalizeBloggerPost);
           
-          // Extract All Categories automatically from Blogger Labels
           const catSet = new Set(['All']);
           ARTICLES.forEach(art => {
             if (art.category) catSet.add(art.category);
@@ -486,12 +477,12 @@
       const email = document.getElementById('newsletterEmail').value;
       if (email) {
         window.location.href = `mailto:${CONTACT_EMAIL}?subject=Newsletter Subscription Request&body=Please subscribe ${encodeURIComponent(email)} to daily Azexai dispatches.`;
-        alert(`Thank you! Subscription request for ${email} generated.`);
+        alert(`Thank you! Subscription request generated for ${email}`);
         document.getElementById('newsletterEmail').value = '';
       }
     }
 
-    // ================= Routing System =================
+    // Routing System
     let currentView = { type: 'home', slug: null };
 
     function navigateToHome(e) {
@@ -552,14 +543,6 @@
       router();
     });
 
-    document.addEventListener('click', function(e) {
-      const articleEl = e.target.closest('[data-article-slug]');
-      if (articleEl) {
-        const slug = articleEl.getAttribute('data-article-slug');
-        if (slug) navigateToArticle(slug, e);
-      }
-    });
-
     function openSearchModal() {
       document.getElementById('searchModal').classList.remove('hidden');
       setTimeout(() => document.getElementById('modalSearchInput').focus(), 100);
@@ -586,7 +569,7 @@
       }
 
       resultsContainer.innerHTML = matches.map(m => `
-        <div data-article-slug="${m.slug}" onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" class="p-3 bg-neutral-950 rounded-xl cursor-pointer hover:bg-neutral-800 transition">
+        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" class="p-3 bg-neutral-950 rounded-xl cursor-pointer hover:bg-neutral-800 transition">
           <h4 class="text-xs font-bold text-white line-clamp-1">${m.title}</h4>
           <p class="text-[10px] text-slate-400 line-clamp-1">${m.excerpt}</p>
         </div>
@@ -611,7 +594,7 @@
       renderHome();
     }
 
-    // Modern Main Home Layout Grid: 2 columns in Mobile, 3 columns in Desktop, Zero Frames
+    // HOME RENDER ENGINE WITH FEATURED LATEST ARTICLE BANNER & NATIVE IMAGE RATIOS
     function renderHome() {
       const app = document.getElementById('app');
       const filtered = ARTICLES.filter(a => {
@@ -620,63 +603,112 @@
                (Array.isArray(a.tags) && a.tags.some(t => t.toLowerCase() === AZEXAI.activeCategory.toLowerCase()));
       });
 
+      const latestArticle = ARTICLES[0]; // Newest published article automatically selected
+
       app.innerHTML = `
+        <!-- STUNNING LATEST PUBLISHED ARTICLE BANNER (NEW EMBEDDED HERO) -->
+        ${latestArticle && AZEXAI.activeCategory === 'All' ? `
+          <div onclick="navigateToArticle('${latestArticle.slug}', event)" class="hero-glow-card rounded-2xl p-4 sm:p-6 mb-8 cursor-pointer group transition-all duration-300 relative overflow-hidden">
+            
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2.5 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-black text-[9px] sm:text-[10px] uppercase tracking-wider rounded-md shadow-md shadow-cyan-950 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> LATEST DISPATCH
+              </span>
+              <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest">${latestArticle.category}</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
+              <div class="md:col-span-7 space-y-2 sm:space-y-3">
+                <h2 class="text-base sm:text-2xl font-black text-white group-hover:text-cyan-300 transition-colors leading-snug">
+                  ${latestArticle.title}
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-300 line-clamp-3 leading-relaxed">
+                  ${latestArticle.excerpt}
+                </p>
+                <div class="flex items-center gap-4 text-[10px] sm:text-xs text-slate-400 pt-2 font-semibold">
+                  <span><i class="fa-regular fa-user text-cyan-400 mr-1"></i>${latestArticle.author}</span>
+                  <span><i class="fa-regular fa-clock text-emerald-400 mr-1"></i>${latestArticle.readTime}</span>
+                  <span><i class="fa-regular fa-calendar text-slate-500 mr-1"></i>${latestArticle.date}</span>
+                </div>
+              </div>
+
+              <!-- Native Image Banner Presentation -->
+              <div class="md:col-span-5 rounded-xl overflow-hidden bg-black/50 p-1 flex items-center justify-center">
+                <img src="${latestArticle.image}" alt="${latestArticle.title}" loading="eager" class="w-full h-auto max-h-60 object-contain rounded-lg group-hover:scale-102 transition duration-500">
+              </div>
+            </div>
+
+          </div>
+        ` : ''}
+
         <!-- Categories Bar -->
-        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 mb-4">
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 mb-6">
           ${AZEXAI.categories.map(cat => `
-            <button onclick="setCategory('${cat}', event)" class="px-3 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition ${AZEXAI.activeCategory === cat ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white' : 'bg-slate-900/80 text-slate-400 hover:text-white'}">${cat}</button>
+            <button onclick="setCategory('${cat}', event)" class="px-3.5 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition ${AZEXAI.activeCategory === cat ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white' : 'bg-slate-900/80 text-slate-400 hover:text-white'}">${cat}</button>
           `).join('')}
         </div>
 
         <!-- Headline Article Count -->
         <div class="mb-4 text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-cyan-400 shadow-md shadow-cyan-500"></span>
-          <span>${AZEXAI.activeCategory} (${filtered.length} Articles)</span>
+          <span>${AZEXAI.activeCategory} Articles (${filtered.length})</span>
         </div>
 
-        <!-- Strict Grid Requirement: 2 items per line on Mobile, 3 items per line on Desktop, Zero Frames/Borders -->
-        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+        <!-- Clean Grid Structure: Straightened 2 columns on Mobile, 3 columns on Desktop -->
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 items-start">
           ${filtered.map(art => `
-            <div data-article-slug="${art.slug}" onclick="navigateToArticle('${art.slug}', event)" class="clean-card rounded-xl overflow-hidden flex flex-col cursor-pointer group hover:bg-slate-900/90 transition">
-              <!-- No image frames -->
-              <div class="aspect-[16/10] bg-neutral-950 relative overflow-hidden">
-                <img src="${art.image}" alt="${art.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-cyan-300 text-[9px] font-bold uppercase rounded">${art.category}</span>
+            <div onclick="navigateToArticle('${art.slug}', event)" class="clean-card rounded-xl overflow-hidden flex flex-col cursor-pointer group hover:bg-slate-900/90 transition h-full">
+              
+              <!-- NATIVE IMAGE CONTAINER - Shows full original image without awkward cropping -->
+              <div class="w-full bg-neutral-950/80 p-1 flex items-center justify-center relative min-h-[120px] sm:min-h-[180px]">
+                <img src="${art.image}" alt="${art.title}" loading="lazy" class="w-full h-auto object-contain rounded-lg group-hover:scale-102 transition duration-300">
+                <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/85 text-cyan-300 text-[9px] font-bold uppercase rounded z-10">${art.category}</span>
               </div>
-              <div class="p-2 sm:p-4 flex flex-col flex-grow">
-                <h3 class="text-xs sm:text-base font-bold text-white mb-1 group-hover:text-cyan-400 transition line-clamp-2 leading-snug">${art.title}</h3>
-                <p class="text-[10px] sm:text-xs text-slate-400 line-clamp-2 mb-2 flex-grow leading-relaxed">${art.excerpt}</p>
-                <div class="flex items-center justify-between text-[9px] sm:text-[10px] text-slate-500 font-medium">
+
+              <div class="p-2.5 sm:p-4 flex flex-col flex-grow text-left">
+                <h3 class="text-xs sm:text-base font-bold text-white mb-1.5 group-hover:text-cyan-400 transition line-clamp-2 leading-snug">${art.title}</h3>
+                <p class="text-[10px] sm:text-xs text-slate-400 line-clamp-2 mb-3 flex-grow leading-relaxed">${art.excerpt}</p>
+                <div class="flex items-center justify-between text-[9px] sm:text-[10px] text-slate-500 font-semibold pt-2 border-t border-slate-800/40">
                   <span>${art.date}</span>
                   <span class="text-emerald-400">${art.readTime}</span>
                 </div>
               </div>
+
             </div>
           `).join('')}
         </div>
       `;
     }
 
+    // Single Article Reader View
     function renderArticleView(art) {
       const app = document.getElementById('app');
       app.innerHTML = `
         <div class="max-w-3xl mx-auto py-4">
-          <button onclick="navigateToHome(event)" class="text-xs font-bold uppercase text-slate-400 hover:text-cyan-400 mb-4 inline-flex items-center gap-1">
+          <button onclick="navigateToHome(event)" class="text-xs font-bold uppercase text-slate-400 hover:text-cyan-400 mb-6 inline-flex items-center gap-1.5">
             <i class="fa-solid fa-arrow-left"></i> Back to Articles
           </button>
-          <span class="px-2.5 py-1 bg-cyan-500/20 text-cyan-400 font-bold text-[10px] uppercase rounded">${art.category}</span>
-          <h1 class="text-xl sm:text-3xl font-black text-white mt-3 mb-4 leading-tight">${art.title}</h1>
-          <div class="flex items-center gap-3 text-xs text-slate-400 mb-6">
-            <span>By ${art.author}</span>
-            <span>•</span>
-            <span>${art.date}</span>
-            <span>•</span>
-            <span class="text-emerald-400">${art.readTime}</span>
+          
+          <div>
+            <span class="px-2.5 py-1 bg-cyan-500/20 text-cyan-400 font-bold text-[10px] uppercase rounded">${art.category}</span>
+            <h1 class="text-xl sm:text-3xl font-black text-white mt-3 mb-4 leading-snug text-left">${art.title}</h1>
+            
+            <div class="flex items-center gap-3 text-xs text-slate-400 mb-6">
+              <span>By ${art.author}</span>
+              <span>•</span>
+              <span>${art.date}</span>
+              <span>•</span>
+              <span class="text-emerald-400">${art.readTime}</span>
+            </div>
+
+            <!-- Native Image Display for Single Post view -->
+            <div class="w-full rounded-xl overflow-hidden mb-8 bg-neutral-950 p-1 flex justify-center">
+              <img src="${art.image}" alt="${art.title}" class="w-full h-auto object-contain rounded-lg">
+            </div>
+
+            <!-- Article Body Content -->
+            <article class="prose prose-invert max-w-none text-slate-300">${art.content}</article>
           </div>
-          <div class="aspect-[16/9] rounded-xl overflow-hidden mb-6 bg-neutral-950">
-            <img src="${art.image}" alt="${art.title}" class="w-full h-full object-cover">
-          </div>
-          <article class="prose prose-invert max-w-none text-slate-300">${art.content}</article>
         </div>
       `;
     }
@@ -688,7 +720,7 @@
           <div class="max-w-xl mx-auto py-6">
             <h1 class="text-2xl font-black text-white mb-2 uppercase">Contact Editorial Desk</h1>
             <p class="text-xs text-slate-400 mb-6">Reach out directly to AZEXAI global team via official email address: <a href="mailto:${CONTACT_EMAIL}" class="text-cyan-400 font-bold">${CONTACT_EMAIL}</a></p>
-            <form onsubmit="event.preventDefault(); window.location.href='mailto:${CONTACT_EMAIL}'; " class="space-y-3">
+            <form onsubmit="event.preventDefault(); window.location.href='mailto:${CONTACT_EMAIL}';" class="space-y-3">
               <input type="text" placeholder="Your Name" required class="w-full p-3 bg-neutral-900 rounded-xl text-xs text-white focus:outline-none">
               <input type="email" placeholder="Your Email" required class="w-full p-3 bg-neutral-900 rounded-xl text-xs text-white focus:outline-none">
               <textarea rows="4" placeholder="Your Message" required class="w-full p-3 bg-neutral-900 rounded-xl text-xs text-white focus:outline-none"></textarea>
@@ -708,7 +740,7 @@
 
     (async function init() {
       const app = document.getElementById('app');
-      app.innerHTML = '<div class="min-h-[50vh] grid place-items-center text-xs font-bold text-white uppercase"><i class="fa-solid fa-spinner fa-spin text-2xl text-cyan-400 mb-2"></i>Fetching All Blogger Posts...</div>';
+      app.innerHTML = '<div class="min-h-[50vh] grid place-items-center text-xs font-bold text-white uppercase"><i class="fa-solid fa-spinner fa-spin text-2xl text-cyan-400 mb-2"></i>Loading AZEXAI Content...</div>';
       
       await loadBloggerArticles();
       parseUrlRoute();

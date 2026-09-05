@@ -1,751 +1,954 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="pageMetaTitle">AZEXAI — Global Technology & Artificial Intelligence Authority</title>
-  <meta id="pageMetaDesc" name="description" content="Global authority on artificial intelligence, frontier technology, software architecture, and digital transformation.">
-  <link id="pageCanonical" rel="canonical" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>AZEXAI — Technology & Artificial Intelligence</title>
+    <meta name="description" content="AZEXAI explores breakthroughs, systems, code, and ethics shaping artificial intelligence, machine learning, software engineering, and future computing.">
+    <meta name="robots" content="index, follow">
 
-  <!-- Preconnects -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://images.pexels.com">
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <!-- Favicon SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230f172a'/><path d='M25 75 L50 25 L75 75 M35 60 L65 60' stroke='%232563eb' stroke-width='8' fill='none'/></svg>">
 
-  <!-- Open Graph & Twitter Meta Tags -->
-  <meta id="ogTitle" property="og:title" content="AZEXAI — Global Technology & Artificial Intelligence Authority">
-  <meta id="ogDesc" property="og:description" content="Global authority on artificial intelligence, frontier technology, and digital transformation.">
-  <meta id="ogImage" property="og:image" content="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200">
-  <meta id="ogUrl" property="og:url" content="">
-  <meta property="og:type" content="website">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS Engine -->
-  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              orange: '#f97316',
-              red: '#ef4444',
-              cyan: '#38bdf8',
-              purple: '#c084fc',
-              emerald: '#34d399',
-              darkBg: '#030712',
-              cardBg: '#090d16'
-            }
-          }
+    <!-- DOMPurify for sanitizing Blogger HTML -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.8/purify.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        :root {
+            --bg-primary: #fcfcfd;
+            --bg-secondary: #f1f3f7;
+            --bg-surface: #ffffff;
+            --bg-elevated: #ffffff;
+            
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --text-inverse: #f8fafc;
+
+            --border-light: #e2e8f0;
+            --border-subtle: #f1f5f9;
+            --border-focus: #0f172a;
+
+            --accent-primary: #2563eb;
+            --accent-hover: #1d4ed8;
+            --accent-subtle: #eff6ff;
+
+            --badge-bg: #f1f5f9;
+            --badge-text: #334155;
+
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-serif: 'Newsreader', Georgia, Cambria, "Times New Roman", serif;
+            --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
+
+            --max-width: 1320px;
+            --reading-width: 760px;
+            --header-height: 72px;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+
+            --transition-fast: 0.15s ease;
+            --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
         }
-      }
-    }
-  </script>
 
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        [data-theme="dark"] {
+            --bg-primary: #0b0f17;
+            --bg-secondary: #131b2a;
+            --bg-surface: #111827;
+            --bg-elevated: #1e293b;
 
-  <style>
-    /* Reset & Base Normalization - Fixing alignment issues */
-    *, ::before, ::after {
-      box-sizing: border-box;
-      border: 0 solid transparent;
-    }
-    
-    html, body {
-      background-color: #030712;
-      color: #f8fafc;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      overflow-x: hidden;
-    }
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --text-inverse: #0f172a;
 
-    /* Animated Blue Particles Canvas Background */
-    #bgCanvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      pointer-events: none;
-      background: radial-gradient(circle at center, #070e24 0%, #030712 100%);
-    }
+            --border-light: #1e293b;
+            --border-subtle: #172033;
+            --border-focus: #38bdf8;
 
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+            --accent-primary: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --accent-subtle: #0c4a6e;
 
-    /* Clean Card Style with Zero Frames */
-    .clean-card {
-      background: rgba(13, 18, 30, 0.85);
-      backdrop-filter: blur(12px);
-      border: none !important;
-      outline: none !important;
-      box-shadow: none !important;
-    }
+            --badge-bg: #1e293b;
+            --badge-text: #e2e8f0;
 
-    /* Hero Glow Card Animation */
-    .hero-glow-card {
-      background: linear-gradient(135deg, rgba(14, 165, 233, 0.12) 0%, rgba(99, 102, 241, 0.12) 50%, rgba(168, 85, 247, 0.12) 100%);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 0 40px -10px rgba(56, 189, 248, 0.25);
-    }
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.5);
+        }
 
-    /* Article Content Typography Straightening */
-    .prose {
-      max-width: 100% !important;
-    }
-    .prose h1, .prose h2, .prose h3, .prose h4 {
-      color: #ffffff !important;
-      font-weight: 800 !important;
-      margin-top: 1.5rem !important;
-      margin-bottom: 0.75rem !important;
-      line-height: 1.3 !important;
-      text-align: left !important;
-    }
-    .prose p {
-      color: #cbd5e1 !important;
-      font-size: 0.98rem !important;
-      line-height: 1.75 !important;
-      margin-bottom: 1.25rem !important;
-      text-align: left !important;
-    }
-    /* Native Aspect Ratio Images Display for Articles */
-    .prose img {
-      width: 100% !important;
-      height: auto !important;
-      max-width: 100% !important;
-      object-fit: contain !important;
-      border-radius: 0.75rem;
-      margin: 1.5rem auto !important;
-      display: block !important;
-      border: none !important;
-    }
-    .prose a { color: #38bdf8; text-decoration: none; font-weight: 700; }
-    .prose a:hover { color: #ffffff; text-decoration: underline; }
-  </style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        
+        body {
+            background-color: var(--bg-primary); color: var(--text-primary); font-family: var(--font-sans);
+            line-height: 1.6; letter-spacing: -0.011em; overflow-x: hidden;
+            transition: background-color var(--transition-smooth), color var(--transition-smooth);
+            min-height: 100vh; display: flex; flex-direction: column;
+        }
+
+        a { color: inherit; text-decoration: none; transition: color var(--transition-fast); }
+        img { max-width: 100%; height: auto; display: block; object-fit: cover; }
+        button, input, textarea, select { font: inherit; color: inherit; background: none; border: none; outline: none; }
+        button { cursor: pointer; }
+
+        .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+        .main-layout { flex: 1; padding-top: var(--header-height); }
+
+        #reading-progress {
+            position: fixed; top: 0; left: 0; height: 3px; background: var(--accent-primary); width: 0%; z-index: 1001; transition: width 0.1s linear;
+        }
+
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; height: var(--header-height);
+            background-color: rgba(252, 252, 253, 0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light); z-index: 1000;
+            transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
+        }
+        [data-theme="dark"] .site-header { background-color: rgba(11, 15, 23, 0.88); }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+        .brand-logo { font-family: var(--font-sans); font-weight: 800; font-size: 1.625rem; letter-spacing: -0.04em; color: var(--text-primary); display: flex; align-items: center; user-select: none; }
+        
+        .desktop-nav { display: flex; align-items: center; gap: 1.5rem; }
+        .nav-link { font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); position: relative; padding: 0.5rem 0; cursor: pointer; }
+        .nav-link:hover, .nav-link.active { color: var(--text-primary); }
+        .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background-color: var(--accent-primary); border-radius: 2px; }
+
+        .header-actions { display: flex; align-items: center; gap: 0.5rem; }
+        .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; color: var(--text-secondary); transition: background-color var(--transition-fast), color var(--transition-fast); }
+        .icon-btn:hover { background-color: var(--bg-secondary); color: var(--text-primary); }
+        .mobile-toggle { display: none; }
+
+        /* MOBILE DRAWER */
+        .mobile-drawer {
+            position: fixed; top: 0; left: 0; bottom: 0; width: 320px; max-width: 85vw; background: var(--bg-surface);
+            z-index: 1100; transform: translateX(-100%); transition: transform var(--transition-smooth); box-shadow: var(--shadow-lg);
+            display: flex; flex-direction: column; padding: 1.5rem; overflow-y: auto;
+        }
+        .mobile-drawer.open { transform: translateX(0); }
+        .drawer-overlay {
+            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); z-index: 1090;
+            opacity: 0; pointer-events: none; transition: opacity var(--transition-smooth);
+        }
+        .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+        .drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-light); }
+        .mobile-nav-list { display: flex; flex-direction: column; gap: 1.25rem; list-style: none; }
+        .mobile-nav-link { font-size: 1.125rem; font-weight: 600; color: var(--text-primary); cursor: pointer; }
+
+        .hero-section { padding: 2.5rem 0 3rem 0; border-bottom: 1px solid var(--border-light); }
+        .hero-grid { display: grid; grid-template-columns: 2.2fr 1fr; gap: 2.5rem; }
+        .featured-story { display: flex; flex-direction: column; gap: 1.25rem; cursor: pointer; }
+        .featured-image-wrap { width: 100%; aspect-ratio: 16 / 9; background-color: var(--bg-secondary); border-radius: var(--radius-md); overflow: hidden; position: relative; }
+        .featured-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .featured-story:hover .featured-image-wrap img { transform: scale(1.02); }
+        
+        .meta-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-primary); }
+        .featured-title { font-family: var(--font-serif); font-size: 2.25rem; line-height: 1.2; font-weight: 600; letter-spacing: -0.02em; color: var(--text-primary); }
+        .featured-excerpt { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .article-meta-line { display: flex; align-items: center; gap: 0.75rem; font-size: 0.8125rem; color: var(--text-muted); font-weight: 500; flex-wrap: wrap; }
+
+        .hero-sidebar { display: flex; flex-direction: column; gap: 1.5rem; border-left: 1px solid var(--border-light); padding-left: 2rem; }
+        .sidebar-heading { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding-bottom: 0.5rem; border-bottom: 2px solid var(--text-primary); }
+        .secondary-story-card { display: flex; flex-direction: column; gap: 0.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-subtle); cursor: pointer; }
+        .secondary-story-card:last-child { border-bottom: none; }
+        .secondary-title { font-family: var(--font-serif); font-size: 1.125rem; line-height: 1.3; font-weight: 600; color: var(--text-primary); transition: color var(--transition-fast); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .secondary-story-card:hover .secondary-title { color: var(--accent-primary); }
+
+        /* ARTICLE GRID SYSTEM — MANDATORY 2 cols mobile, 3 cols desktop */
+        .section-padding { padding: 3.5rem 0; }
+        .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-light); }
+        .section-title { font-family: var(--font-sans); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; text-transform: uppercase; }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        @media (min-width: 1024px) {
+            .articles-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        }
+
+        .article-card {
+            display: flex; flex-direction: column; background: var(--bg-surface); border-radius: var(--radius-md);
+            overflow: hidden; border: 1px solid var(--border-light); transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+            cursor: pointer; height: 100%; text-decoration: none;
+        }
+        .article-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .card-image-wrap { width: 100%; aspect-ratio: 16 / 10; background: var(--bg-secondary); overflow: hidden; position: relative; }
+        .card-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .article-card:hover .card-image-wrap img { transform: scale(1.04); }
+
+        .card-content { padding: 1rem; display: flex; flex-direction: column; flex: 1; gap: 0.5rem; }
+        @media (min-width: 768px) { .card-content { padding: 1.5rem; gap: 0.75rem; } }
+
+        .card-title {
+            font-family: var(--font-serif); font-size: 1rem; font-weight: 600; line-height: 1.3;
+            color: var(--text-primary); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        @media (min-width: 768px) { .card-title { font-size: 1.25rem; } }
+
+        .card-excerpt {
+            font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; flex: 1;
+        }
+
+        .card-footer {
+            margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);
+            display: flex; align-items: center; justify-content: space-between; font-size: 0.6875rem; color: var(--text-muted); font-weight: 500;
+        }
+
+        .article-view-container { max-width: var(--max-width); margin: 0 auto; padding: 3rem 1.5rem 5rem 1.5rem; }
+        .article-header { max-width: 860px; margin: 0 auto 2.5rem auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+        .article-main-title { font-family: var(--font-serif); font-size: 2.5rem; line-height: 1.1; font-weight: 600; letter-spacing: -0.02em; color: var(--text-primary); }
+        @media (min-width: 768px) { .article-main-title { font-size: 3.25rem; } }
+        
+        .article-submeta { display: flex; align-items: center; gap: 1.5rem; font-size: 0.875rem; color: var(--text-muted); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); padding: 0.875rem 0; width: 100%; justify-content: center; flex-wrap: wrap; }
+        .article-hero-media { width: 100%; max-width: 1100px; margin: 0 auto 3.5rem auto; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-secondary); }
+        .article-hero-media img { width: 100%; max-height: 600px; object-fit: cover; }
+        .article-body-layout { display: grid; grid-template-columns: var(--reading-width) 300px; gap: 4rem; justify-content: center; }
+        
+        .article-prose { font-family: var(--font-serif); font-size: 1.125rem; line-height: 1.75; color: var(--text-primary); overflow-wrap: break-word; word-break: break-word; }
+        @media (min-width: 768px) { .article-prose { font-size: 1.25rem; } }
+        .article-prose p { margin-bottom: 1.75rem; }
+        .article-prose h2 { font-size: 1.75rem; margin: 2.5rem 0 1rem 0; font-family: var(--font-sans); }
+        .article-prose h3 { font-size: 1.35rem; margin: 2rem 0 1rem 0; font-family: var(--font-sans); }
+        .article-prose img { width: 100%; height: auto; border-radius: var(--radius-md); margin: 2rem 0; }
+        .article-prose blockquote { border-left: 4px solid var(--accent-primary); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: var(--text-secondary); font-size: 1.25rem; }
+        
+        .article-sidebar-sticky { position: sticky; top: calc(var(--header-height) + 2rem); height: fit-content; }
+        .share-box { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem; }
+        .share-box-title { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--text-muted); }
+        .share-actions { display: flex; align-items: center; gap: 0.5rem; }
+
+        /* SEARCH MODAL */
+        .search-modal {
+            position: fixed; inset: 0; background: rgba(11, 15, 23, 0.85); backdrop-filter: blur(12px); z-index: 2000;
+            display: flex; flex-direction: column; align-items: center; padding: 4rem 1.5rem; opacity: 0; pointer-events: none; transition: opacity var(--transition-smooth);
+        }
+        .search-modal.active { opacity: 1; pointer-events: auto; }
+        .search-container { width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 2rem; }
+        .search-input-wrap { position: relative; width: 100%; }
+        .search-input {
+            width: 100%; font-family: var(--font-sans); font-size: 1.5rem; padding: 1.25rem 1.5rem 1.25rem 3.5rem;
+            background: var(--bg-surface); border: 2px solid var(--border-light); border-radius: var(--radius-lg); color: var(--text-primary); box-shadow: var(--shadow-lg);
+        }
+        .search-input:focus { border-color: var(--accent-primary); }
+        .search-icon-pos { position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
+        .search-results-list { display: flex; flex-direction: column; gap: 1rem; max-height: 60vh; overflow-y: auto; }
+        .search-item-card { background: var(--bg-surface); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-light); cursor: pointer; text-decoration: none; display: block; }
+        .search-item-card:hover { background-color: var(--bg-secondary); }
+
+        /* PAGINATION UI */
+        .pagination-container { display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 3rem; flex-wrap: wrap; }
+        .page-btn { padding: 0.5rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: all var(--transition-fast); text-decoration: none; display: inline-block; }
+        .page-btn:hover { background: var(--bg-secondary); }
+        .page-btn.active { background: var(--text-primary); color: var(--text-inverse); border-color: var(--text-primary); }
+        
+        /* STATIC PAGES & ERRORS */
+        .page-header { padding: 3rem 0; border-bottom: 1px solid var(--border-light); margin-bottom: 3rem; text-align: center; }
+        .page-title { font-size: 3rem; font-weight: 800; letter-spacing: -0.03em; }
+        .page-content-body { max-width: var(--reading-width); margin: 0 auto; font-size: 1.0625rem; line-height: 1.7; color: var(--text-secondary); }
+        .error-container { text-align: center; padding: 5rem 1.5rem; max-width: 600px; margin: 0 auto; }
+        .error-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
+
+        /* FOOTER */
+        .site-footer { background: var(--bg-surface); border-top: 1px solid var(--border-light); padding: 4rem 0 2rem 0; margin-top: auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 3rem; margin-bottom: 3.5rem; }
+        .footer-brand { display: flex; flex-direction: column; gap: 1rem; }
+        .footer-desc { font-size: 0.9375rem; color: var(--text-muted); max-width: 320px; line-height: 1.5; }
+        .footer-col-title { font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem; }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-link { font-size: 0.875rem; color: var(--text-secondary); cursor: pointer; }
+        .footer-link:hover { color: var(--accent-primary); }
+        .footer-bottom { padding-top: 2rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; font-size: 0.8125rem; color: var(--text-muted); }
+
+        .back-to-top {
+            position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: var(--text-primary); color: var(--text-inverse);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md);
+            opacity: 0; pointer-events: none; transition: opacity var(--transition-fast); z-index: 900;
+        }
+        .back-to-top.visible { opacity: 1; pointer-events: auto; }
+
+        @media (max-width: 1100px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-sidebar { border-left: none; padding-left: 0; border-top: 1px solid var(--border-light); padding-top: 2rem; }
+            .article-body-layout { grid-template-columns: 1fr; }
+            .article-sidebar-sticky { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            :root { --header-height: 64px; }
+            .desktop-nav { display: none; }
+            .mobile-toggle { display: inline-flex; }
+            .featured-title { font-size: 1.875rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
 </head>
-<body class="min-h-screen flex flex-col text-slate-100">
+<body>
 
-  <!-- Interactive Animated Canvas Background -->
-  <canvas id="bgCanvas"></canvas>
+    <div id="reading-progress"></div>
 
-  <!-- TOP EXTRA SECTIONS BAR -->
-  <div class="bg-black/80 backdrop-blur-md text-[11px] font-bold tracking-wider uppercase py-2 border-b border-cyan-900/30">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
-      <div class="flex items-center gap-4 text-cyan-400 overflow-x-auto no-scrollbar whitespace-nowrap">
-        <span class="flex items-center gap-1.5 text-white"><i class="fa-solid fa-bolt text-cyan-400"></i> SECTIONS:</span>
-        <a href="/category/ai" onclick="setCategory('AI', event)" class="hover:text-white transition">Artificial Intelligence</a>
-        <span class="text-slate-700">•</span>
-        <a href="/category/tech" onclick="setCategory('Tech', event)" class="hover:text-white transition">Frontier Tech</a>
-        <span class="text-slate-700">•</span>
-        <a href="/category/cybersecurity" onclick="setCategory('Cybersecurity', event)" class="hover:text-white transition">Cybersecurity</a>
-        <span class="text-slate-700">•</span>
-        <a href="/category/software" onclick="setCategory('Software', event)" class="hover:text-white transition">Software Architecture</a>
-        <span class="text-slate-700">•</span>
-        <a href="/category/gadgets" onclick="setCategory('Gadgets', event)" class="hover:text-white transition">Smart Devices</a>
-      </div>
-      <div class="hidden sm:flex items-center gap-4 text-slate-400 shrink-0">
-        <a href="/editorial" onclick="navigateToStaticPage('editorial', event)" class="hover:text-white transition">Editorial Board</a>
-        <a href="/about" onclick="navigateToStaticPage('about', event)" class="hover:text-white transition">About</a>
-      </div>
-    </div>
-  </div>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="?view=home" class="brand-logo spa-link">AZEXAI</a>
 
-  <!-- Header Section -->
-  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
-      
-      <!-- Brand Logo -->
-      <a href="/" onclick="navigateToHome(event)" class="flex items-center group shrink-0" aria-label="AZEXAI Homepage">
-        <span class="text-xl sm:text-3xl font-black tracking-tighter uppercase text-white">AZEX<span class="text-cyan-400">AI</span><span class="text-red-500 text-2xl sm:text-4xl leading-none">.</span></span>
-      </a>
+            <nav class="desktop-nav">
+                <a href="?view=home" class="nav-link spa-link active">Home</a>
+                <a href="?view=category&name=AI" class="nav-link spa-link">AI</a>
+                <a href="?view=category&name=Robotics" class="nav-link spa-link">Robotics</a>
+                <a href="?view=category&name=Hardware" class="nav-link spa-link">Hardware</a>
+                <a href="?view=category&name=Software" class="nav-link spa-link">Software</a>
+                <a href="?view=category&name=Future Tech" class="nav-link spa-link">Future Tech</a>
+                <a href="?view=category&name=Guides" class="nav-link spa-link">Guides</a>
+                <a href="?view=category&name=Reviews" class="nav-link spa-link">Reviews</a>
+                <a href="?view=category&name=Ethics" class="nav-link spa-link">Ethics</a>
+                <a href="?view=archive" class="nav-link spa-link">Archive</a>
+            </nav>
 
-      <!-- Dynamic Navigation Categories -->
-      <nav id="headerCategories" class="hidden md:flex items-center gap-4 lg:gap-6 text-xs sm:text-sm font-bold tracking-wide text-slate-300 overflow-x-auto no-scrollbar" aria-label="Global Navigation">
-        <!-- Generated Dynamically -->
-      </nav>
-      
-      <!-- Header Actions -->
-      <div class="flex items-center gap-2">
-        <button onclick="openSearchModal()" class="p-2 sm:p-2.5 rounded-xl bg-slate-900/80 text-slate-200 hover:text-cyan-400 transition" aria-label="Search Articles">
-          <i class="fa-solid fa-magnifying-glass text-xs sm:text-base"></i>
-        </button>
-        <button onclick="navigateToStaticPage('contact', event)" class="flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:opacity-90 text-white text-[11px] sm:text-xs font-black uppercase tracking-wider rounded-xl transition shadow-lg shadow-cyan-950">
-          <i class="fa-solid fa-paper-plane text-[10px]"></i>
-          <span>Contact</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Dynamic Content Area -->
-  <main class="flex-grow max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 w-full relative z-10">
-    <div id="app"></div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-black/95 py-12 sm:py-16 text-xs text-slate-300 mt-12 relative overflow-hidden z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-      
-      <!-- Brand & Socials -->
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-neutral-900">
-        <div class="space-y-2">
-          <a href="/" onclick="navigateToHome(event)" class="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white">AZEX<span class="text-cyan-400">AI</span><span class="text-red-500">.</span></a>
-          <p class="text-slate-400 text-xs max-w-md">Global authority on artificial intelligence, frontier tech, cybersecurity, and digital intelligence dispatches.</p>
+            <div class="header-actions">
+                <button class="icon-btn" id="search-trigger" aria-label="Search articles">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </button>
+                <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </button>
+                <button class="icon-btn mobile-toggle" id="menu-toggle" aria-label="Open menu">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
         </div>
+    </header>
 
-        <div class="flex items-center gap-2">
-          <a href="#" class="w-9 h-9 rounded-xl bg-neutral-900 flex items-center justify-center text-slate-400 hover:bg-sky-500 hover:text-white transition"><i class="fa-brands fa-x-twitter text-sm"></i></a>
-          <a href="#" class="w-9 h-9 rounded-xl bg-neutral-900 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
-          <a href="#" class="w-9 h-9 rounded-xl bg-neutral-900 flex items-center justify-center text-slate-400 hover:bg-blue-500 hover:text-white transition"><i class="fa-brands fa-facebook-f text-sm"></i></a>
-          <a href="#" class="w-9 h-9 rounded-xl bg-neutral-900 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white transition"><i class="fa-brands fa-youtube text-sm"></i></a>
-        </div>
-      </div>
-
-      <!-- Footer Columns -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="space-y-4">
-          <h3 class="text-sky-400 font-black text-xs uppercase tracking-widest flex items-center gap-2">
-            <i class="fa-solid fa-city"></i> CORPORATE
-          </h3>
-          <ul class="space-y-2.5 font-bold text-xs">
-            <li><a href="/about" onclick="navigateToStaticPage('about', event)" class="text-slate-400 hover:text-sky-400 transition">ABOUT US</a></li>
-            <li><a href="/editorial" onclick="navigateToStaticPage('editorial', event)" class="text-slate-400 hover:text-sky-400 transition">EDITORIAL BOARD</a></li>
-            <li><a href="/privacy" onclick="navigateToStaticPage('privacy', event)" class="text-slate-400 hover:text-sky-400 transition">PRIVACY POLICY</a></li>
-            <li><a href="/terms" onclick="navigateToStaticPage('terms', event)" class="text-slate-400 hover:text-sky-400 transition">TERMS OF SERVICE</a></li>
-            <li><a href="/contact" onclick="navigateToStaticPage('contact', event)" class="text-cyan-400 font-black hover:text-white transition">CONTACT US</a></li>
-          </ul>
-        </div>
-
-        <div class="space-y-4">
-          <h3 class="text-purple-400 font-black text-xs uppercase tracking-widest flex items-center gap-2">
-            <i class="fa-solid fa-layer-group"></i> DOMAINS
-          </h3>
-          <ul class="space-y-2.5 font-bold text-xs" id="footerDomains">
-            <!-- Dynamic Domains -->
-          </ul>
-        </div>
-
-        <div class="space-y-4">
-          <h3 class="text-emerald-400 font-black text-xs uppercase tracking-widest flex items-center gap-2">
-            <i class="fa-solid fa-paper-plane"></i> NEWSLETTER
-          </h3>
-          <p class="text-slate-400 text-xs leading-relaxed">Get daily tech intelligence reports directly in your inbox.</p>
-          <form onsubmit="handleNewsletterSubmit(event)" class="space-y-2.5">
-            <input type="email" id="newsletterEmail" required placeholder="ENTER YOUR EMAIL" class="w-full px-4 py-3 bg-neutral-900 text-xs text-white placeholder-slate-500 rounded-xl focus:outline-none focus:ring-1 focus:ring-emerald-400">
-            <button type="submit" class="w-full py-3 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-teal-600 hover:to-emerald-500 text-white font-black uppercase tracking-wider rounded-xl transition text-xs shadow-lg shadow-emerald-950">
-              SUBSCRIBE
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <span class="brand-logo">AZEXAI</span>
+            <button class="icon-btn" id="drawer-close" aria-label="Close menu">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
-          </form>
-          <div class="pt-2 text-[11px] text-slate-500">
-            Official Desk: <a href="mailto:aristo@azexai.com" class="text-emerald-400 font-bold hover:underline">aristo@azexai.com</a>
-          </div>
         </div>
-      </div>
+        <ul class="mobile-nav-list">
+            <li><a href="?view=home" class="mobile-nav-link spa-link">Home</a></li>
+            <li><a href="?view=category&name=AI" class="mobile-nav-link spa-link">AI</a></li>
+            <li><a href="?view=category&name=Robotics" class="mobile-nav-link spa-link">Robotics</a></li>
+            <li><a href="?view=category&name=Hardware" class="mobile-nav-link spa-link">Hardware</a></li>
+            <li><a href="?view=category&name=Software" class="mobile-nav-link spa-link">Software</a></li>
+            <li><a href="?view=category&name=Future Tech" class="mobile-nav-link spa-link">Future Tech</a></li>
+            <li><a href="?view=category&name=Guides" class="mobile-nav-link spa-link">Guides</a></li>
+            <li><a href="?view=category&name=Reviews" class="mobile-nav-link spa-link">Reviews</a></li>
+            <li><a href="?view=category&name=Ethics" class="mobile-nav-link spa-link">Ethics</a></li>
+            <li><a href="?view=archive" class="mobile-nav-link spa-link">Full Archive</a></li>
+            <li><a href="?view=about" class="mobile-nav-link spa-link">About AZEXAI</a></li>
+            <li><a href="?view=contact" class="mobile-nav-link spa-link">Contact Desk</a></li>
+        </ul>
+    </div>
 
-      <div class="pt-8 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-        <p>© 2026 AZEXAI AUTHORITATIVE MEDIA CORP. ALL RIGHTS RESERVED.</p>
-        <div class="flex items-center gap-4 font-bold">
-          <a href="/privacy" onclick="navigateToStaticPage('privacy', event)" class="hover:text-slate-300 transition">PRIVACY</a>
-          <a href="/terms" onclick="navigateToStaticPage('terms', event)" class="hover:text-slate-300 transition">TERMS</a>
-          <a href="/contact" onclick="navigateToStaticPage('contact', event)" class="hover:text-slate-300 transition">CONTACT US</a>
+    <main class="main-layout" id="app-root"></main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="?view=home" class="brand-logo spa-link">AZEXAI</a>
+                    <p class="footer-desc">
+                        Independent publication exploring frontier technology, software architecture, machine learning systems, and computational security.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-col-title">Sections</h4>
+                    <ul class="footer-links">
+                        <li><a href="?view=category&name=AI" class="footer-link spa-link">Artificial Intelligence</a></li>
+                        <li><a href="?view=category&name=Robotics" class="footer-link spa-link">Robotics</a></li>
+                        <li><a href="?view=category&name=Hardware" class="footer-link spa-link">Hardware</a></li>
+                        <li><a href="?view=archive" class="footer-link spa-link">Full Archive</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-col-title">Publication</h4>
+                    <ul class="footer-links">
+                        <li><a href="?view=about" class="footer-link spa-link">About AZEXAI</a></li>
+                        <li><a href="?view=contact" class="footer-link spa-link">Contact Desk</a></li>
+                        <li><a href="?view=privacy" class="footer-link spa-link">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-col-title">System Status</h4>
+                    <p id="footer-status-text" class="footer-desc" style="font-size: 0.8125rem;">Connecting via Blogger API...</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; <span id="copyright-year"></span> AZEXAI. All rights reserved.</span>
+                <span>Blog ID: <span id="display-blog-id">4263033619836681299</span></span>
+            </div>
         </div>
-      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7"></path></svg>
+    </button>
+
+    <div class="search-modal" id="search-modal">
+        <div class="search-container">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.875rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Search AZEXAI Archive</span>
+                <button class="icon-btn" id="search-close" style="color: var(--text-primary);"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            </div>
+            <div class="search-input-wrap">
+                <svg class="search-icon-pos" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <input type="text" id="search-input" class="search-input" placeholder="Search stories, topics, models..." autofocus>
+            </div>
+            <div class="search-results-list" id="search-results"></div>
+        </div>
     </div>
-  </footer>
 
-  <!-- Search Modal -->
-  <div id="searchModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-start justify-center p-4 pt-16 sm:pt-24 hidden">
-    <div class="bg-neutral-900 rounded-2xl max-w-2xl w-full p-4 sm:p-6 text-white">
-      <div class="flex items-center justify-between mb-4">
-        <h3 class="text-sm sm:text-base font-black uppercase tracking-wider">Search Articles</h3>
-        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-white p-1"><i class="fa-solid fa-xmark text-lg"></i></button>
-      </div>
-      <div class="relative mb-4">
-        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"></i>
-        <input type="text" id="modalSearchInput" oninput="handleModalSearch(event)" placeholder="Search all articles..." class="w-full pl-10 pr-4 py-2.5 bg-neutral-950 rounded-xl text-xs sm:text-sm focus:outline-none text-white">
-      </div>
-      <div id="modalSearchResults" class="max-h-72 overflow-y-auto space-y-2 no-scrollbar"></div>
-    </div>
-  </div>
+    <script>
+        const CONFIG = {
+            BLOG_ID: "4263033619836681299",
+            API_KEY: "AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ"
+        };
 
-  <!-- JavaScript Engine -->
-  <script>
-    const CONTACT_EMAIL = "aristo@azexai.com";
+        const BloggerStore = {
+            posts: [],
+            isLoaded: false,
+            isLoading: false,
+            slugMap: new Map()
+        };
 
-    // Animated Particles Background Script
-    (function initBackgroundCanvas() {
-      const canvas = document.getElementById('bgCanvas');
-      const ctx = canvas.getContext('2d');
-      let particles = [];
-      
-      function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      window.addEventListener('resize', resizeCanvas);
-      resizeCanvas();
-
-      class Particle {
-        constructor() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.vx = (Math.random() - 0.5) * 0.5;
-          this.vy = (Math.random() - 0.5) * 0.5;
-          this.radius = Math.random() * 1.8 + 0.8;
-          this.alpha = Math.random() * 0.6 + 0.2;
-        }
-
-        update() {
-          this.x += this.vx;
-          this.y += this.vy;
-
-          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-        }
-
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(56, 189, 248, ${this.alpha})`;
-          ctx.shadowBlur = 8;
-          ctx.shadowColor = '#38bdf8';
-          ctx.fill();
-        }
-      }
-
-      const count = Math.min(Math.floor(window.innerWidth / 15), 65);
-      for (let i = 0; i < count; i++) {
-        particles.push(new Particle());
-      }
-
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < 120) {
-              ctx.beginPath();
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = `rgba(56, 189, 248, ${0.12 * (1 - dist / 120)})`;
-              ctx.lineWidth = 0.6;
-              ctx.stroke();
+        function extractArticleImage(post) {
+            if (post.images && post.images.length > 0 && post.images[0].url) {
+                return post.images[0].url;
             }
-          }
+            if (post.content) {
+                const div = document.createElement('div');
+                div.innerHTML = post.content;
+                const img = div.querySelector('img');
+                if (img && img.src) return img.src;
+            }
+            return null;
         }
 
-        particles.forEach(p => {
-          p.update();
-          p.draw();
+        function cleanExcerpt(htmlContent, maxLength = 130) {
+            if (!htmlContent) return '';
+            const div = document.createElement('div');
+            div.innerHTML = htmlContent;
+            const text = div.textContent || div.innerText || '';
+            const clean = text.replace(/\s+/g, ' ').trim();
+            return clean.length > maxLength ? clean.substring(0, maxLength) + '...' : clean;
+        }
+
+        function calculateReadingTime(htmlContent) {
+            if (!htmlContent) return '3 min read';
+            const text = htmlContent.replace(/<[^>]*>/g, '');
+            const words = text.trim().split(/\s+/).filter(Boolean).length;
+            const minutes = Math.max(1, Math.ceil(words / 225));
+            return `${minutes} min read`;
+        }
+
+        function slugify(text) {
+            if (!text) return 'article';
+            return text.toString().toLowerCase()
+                .trim()
+                .replace(/\s+/g, '-')
+                .replace(/[^\w\-]+/g, '')
+                .replace(/\-\-+/g, '-');
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+
+        async function fetchFromBloggerApi() {
+            let allItems = [];
+            let pageToken = null;
+
+            do {
+                let url = `https://www.googleapis.com/blogger/v3/blogs/${CONFIG.BLOG_ID}/posts?maxResults=500&fetchBodies=true&fetchImages=true`;
+                if (CONFIG.API_KEY) url += `&key=${CONFIG.API_KEY}`;
+                if (pageToken) url += `&pageToken=${pageToken}`;
+
+                const response = await fetch(url);
+                if (!response.ok) {
+                    const errBody = await response.text();
+                    throw new Error(`Blogger API HTTP ${response.status}: ${errBody}`);
+                }
+
+                const data = await response.json();
+                if (data && Array.isArray(data.items)) {
+                    allItems = allItems.concat(data.items);
+                }
+                pageToken = data.nextPageToken || null;
+            } while (pageToken);
+
+            return allItems.map(item => {
+                const title = item.title || 'Untitled Article';
+                const slug = slugify(title);
+                const content = item.content || '';
+                const featuredImage = extractArticleImage(item);
+                const author = item.author && item.author.displayName ? item.author.displayName : 'AZEXAI Editorial';
+                const publishedAt = item.published || new Date().toISOString();
+                const labels = Array.isArray(item.labels) ? item.labels : [];
+                const url = `?view=article&slug=${encodeURIComponent(slug)}`;
+                const excerpt = cleanExcerpt(content, 130);
+                const readingTime = calculateReadingTime(content);
+
+                return { id: item.id, title, slug, excerpt, content, featuredImage, author, publishedAt, labels, url, readingTime };
+            });
+        }
+
+        async function fetchFromPublicFeed() {
+            const feedUrl = `https://www.blogger.com/feeds/${CONFIG.BLOG_ID}/posts/default?alt=json&max-results=500`;
+            const response = await fetch(feedUrl);
+            if (!response.ok) {
+                throw new Error(`Public Feed HTTP ${response.status}`);
+            }
+
+            const data = await response.json();
+            const entries = (data && data.feed && data.feed.entry) ? data.feed.entry : [];
+
+            return entries.map(entry => {
+                const title = entry.title && entry.title.$t ? entry.title.$t : 'Untitled Article';
+                const slug = slugify(title);
+                const contentObj = entry.content || entry.summary || {};
+                const content = contentObj.$t || '';
+                
+                let featuredImage = null;
+                const div = document.createElement('div');
+                div.innerHTML = content;
+                const img = div.querySelector('img');
+                if (img && img.src) featuredImage = img.src;
+
+                const authorName = (entry.author && entry.author[0] && entry.author[0].name && entry.author[0].name.$t) ? entry.author[0].name.$t : 'AZEXAI Editorial';
+                const publishedAt = entry.published && entry.published.$t ? entry.published.$t : new Date().toISOString();
+                
+                const labels = [];
+                if (Array.isArray(entry.category)) {
+                    entry.category.forEach(cat => {
+                        if (cat && cat.term) labels.push(cat.term);
+                    });
+                }
+
+                const url = `?view=article&slug=${encodeURIComponent(slug)}`;
+                const excerpt = cleanExcerpt(content, 130);
+                const readingTime = calculateReadingTime(content);
+
+                return {
+                    id: entry.id && entry.id.$t ? entry.id.$t : slug,
+                    title,
+                    slug,
+                    excerpt,
+                    content,
+                    featuredImage,
+                    author: authorName,
+                    publishedAt,
+                    labels,
+                    url,
+                    readingTime
+                };
+            });
+        }
+
+        async function fetchAllBloggerPosts() {
+            if (BloggerStore.isLoaded) return BloggerStore.posts;
+            if (BloggerStore.isLoading) {
+                // Wait until loading finishes
+                while (BloggerStore.isLoading) {
+                    await new Promise(r => setTimeout(r, 100));
+                }
+                return BloggerStore.posts;
+            }
+
+            BloggerStore.isLoading = true;
+            let normalized = [];
+            
+            try {
+                normalized = await fetchFromBloggerApi();
+            } catch (apiErr) {
+                console.warn("[AZEXAI Notice] Official API fetch failed, trying public Blogger feed...", apiErr.message);
+                try {
+                    normalized = await fetchFromPublicFeed();
+                } catch (feedErr) {
+                    console.error("[AZEXAI Error] Both API and public feed failed:", feedErr.message);
+                }
+            }
+
+            const uniqueMap = new Map();
+            normalized.forEach(p => uniqueMap.set(p.id || p.slug, p));
+            
+            BloggerStore.posts = Array.from(uniqueMap.values()).sort((a, b) => 
+                new Date(b.publishedAt) - new Date(a.publishedAt)
+            );
+
+            BloggerStore.slugMap.clear();
+            BloggerStore.posts.forEach(p => BloggerStore.slugMap.set(p.slug, p));
+
+            BloggerStore.isLoaded = true;
+            BloggerStore.isLoading = false;
+
+            const statusEl = document.getElementById('footer-status-text');
+            if (statusEl) {
+                statusEl.textContent = BloggerStore.posts.length > 0 
+                    ? `Connected! ${BloggerStore.posts.length} articles retrieved from Blogger.` 
+                    : `Connected to Blog ID ${CONFIG.BLOG_ID} (0 posts found).`;
+            }
+
+            return BloggerStore.posts;
+        }
+
+        function renderSkeleton() {
+            return `<div class="container section-padding" style="text-align:center;"><p style="color:var(--text-muted); font-size:1.125rem;">Fetching articles from Blogger API (${CONFIG.BLOG_ID})...</p></div>`;
+        }
+        
+        function renderErrorState() {
+            return `
+                <div class="error-container">
+                    <h2 class="error-title">Article Not Found</h2>
+                    <p style="color:var(--text-muted); margin-bottom: 2rem;">We couldn't locate the requested article or page in the archive.</p>
+                    <a href="?view=home" class="page-btn active spa-link" style="padding:0.75rem 1.5rem;">Return Home</a>
+                </div>
+            `;
+        }
+
+        function renderArticleCard(post) {
+            const category = (post.labels && post.labels[0]) ? post.labels[0] : 'Insight';
+            const imgHtml = post.featuredImage 
+                ? `<img src="${post.featuredImage}" alt="${escapeHtml(post.title)}" loading="lazy">` 
+                : `<div style="background:var(--bg-secondary); width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:0.8125rem;">AZEXAI</div>`;
+
+            return `
+                <a class="article-card spa-link" href="${post.url}">
+                    <div class="card-image-wrap">${imgHtml}</div>
+                    <div class="card-content">
+                        <span class="meta-badge">${escapeHtml(category)}</span>
+                        <h3 class="card-title">${escapeHtml(post.title)}</h3>
+                        <p class="card-excerpt">${escapeHtml(post.excerpt)}</p>
+                        <div class="card-footer">
+                            <span>${new Date(post.publishedAt).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'})}</span>
+                            <span>${post.readingTime}</span>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+
+        function renderHomeView(posts) {
+            if (!posts || posts.length === 0) return `<div class="container section-padding" style="text-align:center;"><h2>No published articles found in Blog ID ${CONFIG.BLOG_ID}.</h2></div>`;
+
+            const hero = posts[0];
+            const secondary = posts.slice(1, 5);
+
+            return `
+                <section class="hero-section">
+                    <div class="container hero-grid">
+                        <a class="featured-story spa-link" href="${hero.url}">
+                            <div class="featured-image-wrap">
+                                ${hero.featuredImage ? `<img src="${hero.featuredImage}" alt="${escapeHtml(hero.title)}">` : ''}
+                            </div>
+                            <div>
+                                <span class="meta-badge" style="margin-bottom:0.75rem;">${(hero.labels && hero.labels[0]) || 'Featured'}</span>
+                                <h1 class="featured-title" style="margin-bottom:1rem;">${escapeHtml(hero.title)}</h1>
+                                <p class="featured-excerpt" style="margin-bottom:1rem;">${escapeHtml(hero.excerpt)}</p>
+                                <div class="article-meta-line">
+                                    <span>${escapeHtml(hero.author)}</span> &bull; 
+                                    <span>${new Date(hero.publishedAt).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'})}</span> &bull; 
+                                    <span>${hero.readingTime}</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <div class="hero-sidebar">
+                            <h3 class="sidebar-heading">Editorial Highlights</h3>
+                            ${secondary.map(post => `
+                                <a class="secondary-story-card spa-link" href="${post.url}">
+                                    <span class="meta-badge">${(post.labels && post.labels[0]) || 'Analysis'}</span>
+                                    <h4 class="secondary-title">${escapeHtml(post.title)}</h4>
+                                    <div class="article-meta-line" style="font-size:0.75rem;">
+                                        <span>${new Date(post.publishedAt).toLocaleDateString('en-US', {month:'short', day:'numeric'})}</span>
+                                    </div>
+                                </a>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+
+                <section class="container section-padding">
+                    <div class="section-header">
+                        <h2 class="section-title">All Articles (${posts.length} Total Posts)</h2>
+                    </div>
+                    <div class="articles-grid">
+                        ${posts.map(post => renderArticleCard(post)).join('')}
+                    </div>
+                </section>
+            `;
+        }
+
+        function renderArchiveView(posts, currentPage = 1) {
+            const PER_PAGE = 18;
+            const totalPages = Math.ceil(posts.length / PER_PAGE) || 1;
+            const start = (currentPage - 1) * PER_PAGE;
+            const paginated = posts.slice(start, start + PER_PAGE);
+
+            let pageControls = '';
+            if (totalPages > 1) {
+                pageControls += `<div class="pagination-container">`;
+                for (let i = 1; i <= totalPages; i++) {
+                    pageControls += `<a class="page-btn spa-link ${i === currentPage ? 'active' : ''}" href="?view=archive&page=${i}">${i}</a>`;
+                }
+                pageControls += `</div>`;
+            }
+
+            return `
+                <div class="container section-padding">
+                    <header class="page-header">
+                        <h1 class="page-title">Full Archive</h1>
+                        <p style="color:var(--text-muted); margin-top:0.75rem;">Showing ${paginated.length} of ${posts.length} total articles from Blogger ID ${CONFIG.BLOG_ID} (Page ${currentPage} of ${totalPages})</p>
+                    </header>
+                    <div class="articles-grid">
+                        ${paginated.map(post => renderArticleCard(post)).join('')}
+                    </div>
+                    ${pageControls}
+                </div>
+            `;
+        }
+
+        function renderCategoryView(categoryName, posts) {
+            const filtered = posts.filter(p => p.labels.some(l => l.toLowerCase() === categoryName.toLowerCase()));
+            return `
+                <div class="container section-padding">
+                    <header class="page-header">
+                        <h1 class="page-title">${escapeHtml(categoryName)}</h1>
+                        <p style="color:var(--text-muted); margin-top:0.75rem;">Showing ${filtered.length} articles matching this category.</p>
+                    </header>
+                    <div class="articles-grid">
+                        ${filtered.length > 0 ? filtered.map(post => renderArticleCard(post)).join('') : `<div style="grid-column: 1 / -1; text-align: center; padding: 3rem;"><p>No articles found in this category.</p></div>`}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderArticleView(slug) {
+            const post = BloggerStore.slugMap.get(slug);
+            if (!post) {
+                return renderErrorState();
+            }
+
+            document.title = `${post.title} — AZEXAI`;
+            const purifyConfig = { ADD_TAGS: ['iframe', 'img', 'figure', 'figcaption', 'picture', 'source', 'video'], ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'scrolling', 'loading', 'srcset', 'sizes'] };
+            const cleanContent = window.DOMPurify ? DOMPurify.sanitize(post.content, purifyConfig) : post.content;
+
+            return `
+                <div class="article-view-container">
+                    <header class="article-header">
+                        <span class="meta-badge">${(post.labels && post.labels[0]) || 'Technology'}</span>
+                        <h1 class="article-main-title">${escapeHtml(post.title)}</h1>
+                        <div class="article-submeta">
+                            <span>By <strong>${escapeHtml(post.author)}</strong></span>
+                            &bull; <span>Published ${new Date(post.publishedAt).toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'})}</span>
+                            &bull; <span>${post.readingTime}</span>
+                        </div>
+                    </header>
+                    ${post.featuredImage ? `
+                    <div class="article-hero-media">
+                        <img src="${post.featuredImage}" alt="${escapeHtml(post.title)}">
+                    </div>` : ''}
+                    <div class="article-body-layout">
+                        <article class="article-prose">${cleanContent}</article>
+                        <aside class="article-sidebar-sticky">
+                            <div class="share-box">
+                                <div class="share-box-title">Share Story</div>
+                                <div class="share-actions">
+                                    <button class="icon-btn" id="copy-link-btn" title="Copy Link"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderStaticPage(title, htmlBody) {
+            document.title = `${title} — AZEXAI`;
+            return `
+                <div class="container section-padding">
+                    <header class="page-header"><h1 class="page-title">${escapeHtml(title)}</h1></header>
+                    <div class="page-content-body">${htmlBody}</div>
+                </div>
+            `;
+        }
+
+        async function router() {
+            const root = document.getElementById('app-root');
+            const params = new URLSearchParams(window.location.search);
+            const view = params.get('view') || 'home';
+            window.scrollTo({ top: 0, behavior: 'instant' });
+
+            // Update active states in navigation
+            document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(l => {
+                const href = l.getAttribute('href');
+                if (href && href.includes(`view=${view}`) || (view === 'home' && href.includes('view=home'))) {
+                    l.classList.add('active');
+                } else {
+                    l.classList.remove('active');
+                }
+            });
+
+            if (view === 'about') {
+                root.innerHTML = renderStaticPage('About AZEXAI', '<p>AZEXAI is an independent publication exploring frontier technology, artificial intelligence, software architecture, and computational security.</p>');
+                return;
+            }
+            if (view === 'contact') {
+                root.innerHTML = renderStaticPage('Contact Desk', '<p>Get in touch with the AZEXAI editorial team at desk@azexai.com or through our central communication channels.</p>');
+                return;
+            }
+            if (view === 'privacy') {
+                root.innerHTML = renderStaticPage('Privacy Policy', '<p>We respect your privacy and do not track personal identifying information.</p>');
+                return;
+            }
+
+            // Only show skeleton if posts aren't loaded yet
+            if (!BloggerStore.isLoaded) {
+                root.innerHTML = renderSkeleton();
+            }
+
+            try {
+                const posts = await fetchAllBloggerPosts();
+
+                if (view === 'archive') {
+                    const page = parseInt(params.get('page') || '1', 10);
+                    root.innerHTML = renderArchiveView(posts, page);
+                    return;
+                }
+
+                if (view === 'category') {
+                    const catName = params.get('name') || 'AI';
+                    root.innerHTML = renderCategoryView(catName, posts);
+                    return;
+                }
+
+                if (view === 'article') {
+                    const slug = params.get('slug');
+                    root.innerHTML = renderArticleView(slug);
+                    const copyBtn = document.getElementById('copy-link-btn');
+                    if (copyBtn) copyBtn.onclick = copyLink;
+                    return;
+                }
+
+                root.innerHTML = renderHomeView(posts);
+
+            } catch (err) {
+                root.innerHTML = renderHomeView([]);
+            }
+        }
+
+        function copyLink() {
+            const url = window.location.href;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).catch(() => document.execCommand('copy'));
+            } else {
+                const tmp = document.createElement('input');
+                document.body.appendChild(tmp);
+                tmp.value = url; tmp.select(); document.execCommand('copy');
+                document.body.removeChild(tmp);
+            }
+            const btn = document.getElementById('copy-link-btn');
+            if (btn) {
+                const original = btn.innerHTML;
+                btn.innerHTML = '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>';
+                setTimeout(() => btn.innerHTML = original, 2000);
+            }
+        }
+
+        // Global click interceptor for seamless Single Page App (SPA) navigation
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a.spa-link');
+            if (link) {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('?')) {
+                    e.preventDefault();
+                    history.pushState(null, '', href);
+                    router();
+                    // Close mobile drawer if open
+                    document.getElementById('mobile-drawer').classList.remove('open');
+                    document.getElementById('drawer-overlay').classList.remove('open');
+                }
+            }
         });
 
-        requestAnimationFrame(animate);
-      }
-      animate();
-    })();
+        window.addEventListener('popstate', () => {
+            router();
+        });
 
-    // Blogger Config API
-    const BLOGGER_CONFIG = {
-      blogId: '4263033619836681299',
-      apiKey: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
-      maxResults: 500
-    };
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
+            document.getElementById('display-blog-id').textContent = CONFIG.BLOG_ID;
 
-    let AZEXAI = {
-      categories: ['All'],
-      activeCategory: 'All'
-    };
+            window.addEventListener('scroll', () => {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+                const bar = document.getElementById('reading-progress');
+                if (bar) bar.style.width = scrolled + '%';
 
-    let ARTICLES = [];
+                const btt = document.getElementById('back-to-top');
+                if (btt) {
+                    if (winScroll > 500) btt.classList.add('visible');
+                    else btt.classList.remove('visible');
+                }
+            });
 
-    const DEFAULT_IMAGE = 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200';
+            document.getElementById('back-to-top').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    function sanitizeText(text) {
-      if (!text) return '';
-      return text
-        .replace(/Karim Ouzinba/gi, 'Azex')
-        .replace(/Karim/gi, 'Azex')
-        .replace(/Ouzinba/gi, 'Azex')
-        .replace(/<em>/gi, '<span>')
-        .replace(/<\/em>/gi, '</span>')
-        .replace(/<i>/gi, '<span>')
-        .replace(/<\/i>/gi, '</span>');
-    }
+            const modal = document.getElementById('search-modal');
+            document.getElementById('search-trigger').onclick = () => { modal.classList.add('active'); document.getElementById('search-input').focus(); };
+            document.getElementById('search-close').onclick = () => modal.classList.remove('active');
 
-    function stripHtml(html) {
-      const div = document.createElement('div');
-      div.innerHTML = html || '';
-      return (div.textContent || div.innerText || '').replace(/\s+/g, ' ').trim();
-    }
+            document.getElementById('search-input').oninput = (e) => {
+                const q = e.target.value.toLowerCase().trim();
+                const resList = document.getElementById('search-results');
+                if (q.length < 2) { resList.innerHTML = ''; return; }
+                const matches = BloggerStore.posts.filter(p => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q));
+                resList.innerHTML = matches.map(m => `
+                    <a class="search-item-card spa-link" href="${m.url}" onclick="document.getElementById('search-modal').classList.remove('active');">
+                        <span class="meta-badge">${m.labels[0] || 'Story'}</span>
+                        <h4 style="margin-top:0.25rem; color:var(--text-primary);">${escapeHtml(m.title)}</h4>
+                    </a>
+                `).join('') || `<p style="color:var(--text-muted); text-align:center;">No matching stories found.</p>`;
+            };
 
-    function getFirstImage(html) {
-      const div = document.createElement('div');
-      div.innerHTML = html || '';
-      const img = div.querySelector('img');
-      return img ? (img.src || img.getAttribute('data-src') || '') : '';
-    }
+            const toggle = document.getElementById('menu-toggle');
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            const close = document.getElementById('drawer-close');
+            const openDrawer = () => { drawer.classList.add('open'); overlay.classList.add('open'); };
+            const closeDrawer = () => { drawer.classList.remove('open'); overlay.classList.remove('open'); };
+            if (toggle) toggle.onclick = openDrawer;
+            if (close) close.onclick = closeDrawer;
+            if (overlay) overlay.onclick = closeDrawer;
 
-    function estimateReadTime(html) {
-      const text = stripHtml(html);
-      const words = text.split(/\s+/).filter(Boolean).length;
-      return Math.max(1, Math.ceil(words / 200)) + ' min read';
-    }
+            const themeBtn = document.getElementById('theme-toggle');
+            const savedTheme = localStorage.getItem('azexai_theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            themeBtn.onclick = () => {
+                const cur = document.documentElement.getAttribute('data-theme');
+                const next = cur === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('azexai_theme', next);
+            };
 
-    function bloggerSlug(post) {
-      const match = (post.url || '').match(/[^/]+$/);
-      return match ? decodeURIComponent(match[0]).replace(/\.html$/, '') : String(post.id);
-    }
-
-    function normalizeBloggerPost(post, index) {
-      const labels = Array.isArray(post.labels) ? post.labels : [];
-      const category = labels[0] || 'General';
-      const rawBody = sanitizeText(post.content || '');
-      const plainText = stripHtml(rawBody);
-      const image = getFirstImage(rawBody) || DEFAULT_IMAGE;
-      const date = post.published ? new Date(post.published).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '2026';
-
-      return {
-        id: String(post.id || index + 1),
-        slug: bloggerSlug(post),
-        title: sanitizeText(post.title || 'Untitled Article'),
-        category: category,
-        author: 'Azex',
-        date: date,
-        readTime: estimateReadTime(rawBody),
-        image: image,
-        excerpt: plainText.length > 130 ? plainText.substring(0, 130) + '...' : plainText,
-        tags: labels,
-        content: rawBody
-      };
-    }
-
-    async function loadBloggerArticles() {
-      try {
-        const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOGGER_CONFIG.blogId}/posts?key=${encodeURIComponent(BLOGGER_CONFIG.apiKey)}&fetchBodies=true&fetchImages=true&maxResults=${BLOGGER_CONFIG.maxResults}`;
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('HTTP Error ' + response.status);
-        const data = await response.json();
-        
-        if (Array.isArray(data.items) && data.items.length > 0) {
-          ARTICLES = data.items.map(normalizeBloggerPost);
-          
-          const catSet = new Set(['All']);
-          ARTICLES.forEach(art => {
-            if (art.category) catSet.add(art.category);
-            if (Array.isArray(art.tags)) {
-              art.tags.forEach(t => catSet.add(t));
-            }
-          });
-          AZEXAI.categories = Array.from(catSet);
-          renderHeaderCategories();
-          renderFooterDomains();
-          return true;
-        }
-      } catch (err) {
-        console.error('Failed to load Blogger articles:', err);
-      }
-      return false;
-    }
-
-    function renderHeaderCategories() {
-      const nav = document.getElementById('headerCategories');
-      if (!nav) return;
-      nav.innerHTML = AZEXAI.categories.slice(0, 7).map(cat => `
-        <a href="/category/${cat.toLowerCase()}" onclick="setCategory('${cat}', event)" class="hover:text-cyan-400 transition whitespace-nowrap ${AZEXAI.activeCategory === cat ? 'text-cyan-400' : ''}">${cat}</a>
-      `).join('');
-    }
-
-    function renderFooterDomains() {
-      const domainsEl = document.getElementById('footerDomains');
-      if (!domainsEl) return;
-      domainsEl.innerHTML = AZEXAI.categories.filter(c => c !== 'All').slice(0, 7).map(cat => `
-        <li><a href="/category/${cat.toLowerCase()}" onclick="setCategory('${cat}', event)" class="text-slate-400 hover:text-purple-400 transition uppercase">${cat}</a></li>
-      `).join('');
-    }
-
-    function handleNewsletterSubmit(e) {
-      e.preventDefault();
-      const email = document.getElementById('newsletterEmail').value;
-      if (email) {
-        window.location.href = `mailto:${CONTACT_EMAIL}?subject=Newsletter Subscription Request&body=Please subscribe ${encodeURIComponent(email)} to daily Azexai dispatches.`;
-        alert(`Thank you! Subscription request generated for ${email}`);
-        document.getElementById('newsletterEmail').value = '';
-      }
-    }
-
-    // Routing System
-    let currentView = { type: 'home', slug: null };
-
-    function navigateToHome(e) {
-      if (e) e.preventDefault();
-      currentView = { type: 'home', slug: null };
-      AZEXAI.activeCategory = 'All';
-      window.history.pushState(null, '', '/');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      router();
-    }
-
-    function navigateToArticle(slug, e) {
-      if (e) e.preventDefault();
-      currentView = { type: 'article', slug: String(slug) };
-      window.history.pushState(null, '', '/article/' + encodeURIComponent(slug));
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      router();
-    }
-
-    function navigateToStaticPage(pageSlug, e) {
-      if (e) e.preventDefault();
-      currentView = { type: 'static', slug: pageSlug };
-      window.history.pushState(null, '', '/' + pageSlug);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      router();
-    }
-
-    function setCategory(cat, e) {
-      if (e) e.preventDefault();
-      AZEXAI.activeCategory = cat;
-      currentView = { type: 'home', slug: null };
-      const targetPath = cat === 'All' ? '/' : '/category/' + encodeURIComponent(cat.toLowerCase());
-      window.history.pushState(null, '', targetPath);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      router();
-    }
-
-    function parseUrlRoute() {
-      const path = window.location.pathname;
-      if (path.startsWith('/article/')) {
-        const slug = decodeURIComponent(path.replace('/article/', ''));
-        currentView = { type: 'article', slug: slug };
-      } else if (path.startsWith('/category/')) {
-        const catSlug = decodeURIComponent(path.replace('/category/', ''));
-        const matched = AZEXAI.categories.find(c => c.toLowerCase() === catSlug.toLowerCase());
-        if (matched) AZEXAI.activeCategory = matched;
-        currentView = { type: 'home', slug: null };
-      } else if (['/contact', '/about', '/privacy', '/terms', '/editorial'].includes(path)) {
-        currentView = { type: 'static', slug: path.replace('/', '') };
-      } else {
-        currentView = { type: 'home', slug: null };
-        AZEXAI.activeCategory = 'All';
-      }
-    }
-
-    window.addEventListener('popstate', () => {
-      parseUrlRoute();
-      router();
-    });
-
-    function openSearchModal() {
-      document.getElementById('searchModal').classList.remove('hidden');
-      setTimeout(() => document.getElementById('modalSearchInput').focus(), 100);
-    }
-
-    function closeSearchModal() {
-      document.getElementById('searchModal').classList.add('hidden');
-    }
-
-    function handleModalSearch(e) {
-      const query = e.target.value.toLowerCase().trim();
-      const resultsContainer = document.getElementById('modalSearchResults');
-      if (!query) { resultsContainer.innerHTML = ''; return; }
-
-      const matches = ARTICLES.filter(a => 
-        a.title.toLowerCase().includes(query) || 
-        a.excerpt.toLowerCase().includes(query) ||
-        a.category.toLowerCase().includes(query)
-      );
-
-      if (matches.length === 0) {
-        resultsContainer.innerHTML = '<p class="text-xs text-slate-500 text-center py-4">No matching articles found.</p>';
-        return;
-      }
-
-      resultsContainer.innerHTML = matches.map(m => `
-        <div onclick="closeSearchModal(); navigateToArticle('${m.slug}', event)" class="p-3 bg-neutral-950 rounded-xl cursor-pointer hover:bg-neutral-800 transition">
-          <h4 class="text-xs font-bold text-white line-clamp-1">${m.title}</h4>
-          <p class="text-[10px] text-slate-400 line-clamp-1">${m.excerpt}</p>
-        </div>
-      `).join('');
-    }
-
-    function router() {
-      renderHeaderCategories();
-      const app = document.getElementById('app');
-      if (!app) return;
-
-      if (currentView.type === 'article') {
-        const article = ARTICLES.find(a => a.slug.toLowerCase() === currentView.slug.toLowerCase() || a.id === currentView.slug);
-        if (article) {
-          renderArticleView(article);
-          return;
-        }
-      } else if (currentView.type === 'static') {
-        renderStaticPageView(currentView.slug);
-        return;
-      }
-      renderHome();
-    }
-
-    // HOME RENDER ENGINE WITH FEATURED LATEST ARTICLE BANNER & NATIVE IMAGE RATIOS
-    function renderHome() {
-      const app = document.getElementById('app');
-      const filtered = ARTICLES.filter(a => {
-        if (AZEXAI.activeCategory === 'All') return true;
-        return a.category.toLowerCase() === AZEXAI.activeCategory.toLowerCase() ||
-               (Array.isArray(a.tags) && a.tags.some(t => t.toLowerCase() === AZEXAI.activeCategory.toLowerCase()));
-      });
-
-      const latestArticle = ARTICLES[0]; // Newest published article automatically selected
-
-      app.innerHTML = `
-        <!-- STUNNING LATEST PUBLISHED ARTICLE BANNER (NEW EMBEDDED HERO) -->
-        ${latestArticle && AZEXAI.activeCategory === 'All' ? `
-          <div onclick="navigateToArticle('${latestArticle.slug}', event)" class="hero-glow-card rounded-2xl p-4 sm:p-6 mb-8 cursor-pointer group transition-all duration-300 relative overflow-hidden">
-            
-            <div class="flex items-center gap-2 mb-3">
-              <span class="px-2.5 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-black text-[9px] sm:text-[10px] uppercase tracking-wider rounded-md shadow-md shadow-cyan-950 flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> LATEST DISPATCH
-              </span>
-              <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest">${latestArticle.category}</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
-              <div class="md:col-span-7 space-y-2 sm:space-y-3">
-                <h2 class="text-base sm:text-2xl font-black text-white group-hover:text-cyan-300 transition-colors leading-snug">
-                  ${latestArticle.title}
-                </h2>
-                <p class="text-xs sm:text-sm text-slate-300 line-clamp-3 leading-relaxed">
-                  ${latestArticle.excerpt}
-                </p>
-                <div class="flex items-center gap-4 text-[10px] sm:text-xs text-slate-400 pt-2 font-semibold">
-                  <span><i class="fa-regular fa-user text-cyan-400 mr-1"></i>${latestArticle.author}</span>
-                  <span><i class="fa-regular fa-clock text-emerald-400 mr-1"></i>${latestArticle.readTime}</span>
-                  <span><i class="fa-regular fa-calendar text-slate-500 mr-1"></i>${latestArticle.date}</span>
-                </div>
-              </div>
-
-              <!-- Native Image Banner Presentation -->
-              <div class="md:col-span-5 rounded-xl overflow-hidden bg-black/50 p-1 flex items-center justify-center">
-                <img src="${latestArticle.image}" alt="${latestArticle.title}" loading="eager" class="w-full h-auto max-h-60 object-contain rounded-lg group-hover:scale-102 transition duration-500">
-              </div>
-            </div>
-
-          </div>
-        ` : ''}
-
-        <!-- Categories Bar -->
-        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 mb-6">
-          ${AZEXAI.categories.map(cat => `
-            <button onclick="setCategory('${cat}', event)" class="px-3.5 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition ${AZEXAI.activeCategory === cat ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white' : 'bg-slate-900/80 text-slate-400 hover:text-white'}">${cat}</button>
-          `).join('')}
-        </div>
-
-        <!-- Headline Article Count -->
-        <div class="mb-4 text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-cyan-400 shadow-md shadow-cyan-500"></span>
-          <span>${AZEXAI.activeCategory} Articles (${filtered.length})</span>
-        </div>
-
-        <!-- Clean Grid Structure: Straightened 2 columns on Mobile, 3 columns on Desktop -->
-        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 items-start">
-          ${filtered.map(art => `
-            <div onclick="navigateToArticle('${art.slug}', event)" class="clean-card rounded-xl overflow-hidden flex flex-col cursor-pointer group hover:bg-slate-900/90 transition h-full">
-              
-              <!-- NATIVE IMAGE CONTAINER - Shows full original image without awkward cropping -->
-              <div class="w-full bg-neutral-950/80 p-1 flex items-center justify-center relative min-h-[120px] sm:min-h-[180px]">
-                <img src="${art.image}" alt="${art.title}" loading="lazy" class="w-full h-auto object-contain rounded-lg group-hover:scale-102 transition duration-300">
-                <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/85 text-cyan-300 text-[9px] font-bold uppercase rounded z-10">${art.category}</span>
-              </div>
-
-              <div class="p-2.5 sm:p-4 flex flex-col flex-grow text-left">
-                <h3 class="text-xs sm:text-base font-bold text-white mb-1.5 group-hover:text-cyan-400 transition line-clamp-2 leading-snug">${art.title}</h3>
-                <p class="text-[10px] sm:text-xs text-slate-400 line-clamp-2 mb-3 flex-grow leading-relaxed">${art.excerpt}</p>
-                <div class="flex items-center justify-between text-[9px] sm:text-[10px] text-slate-500 font-semibold pt-2 border-t border-slate-800/40">
-                  <span>${art.date}</span>
-                  <span class="text-emerald-400">${art.readTime}</span>
-                </div>
-              </div>
-
-            </div>
-          `).join('')}
-        </div>
-      `;
-    }
-
-    // Single Article Reader View
-    function renderArticleView(art) {
-      const app = document.getElementById('app');
-      app.innerHTML = `
-        <div class="max-w-3xl mx-auto py-4">
-          <button onclick="navigateToHome(event)" class="text-xs font-bold uppercase text-slate-400 hover:text-cyan-400 mb-6 inline-flex items-center gap-1.5">
-            <i class="fa-solid fa-arrow-left"></i> Back to Articles
-          </button>
-          
-          <div>
-            <span class="px-2.5 py-1 bg-cyan-500/20 text-cyan-400 font-bold text-[10px] uppercase rounded">${art.category}</span>
-            <h1 class="text-xl sm:text-3xl font-black text-white mt-3 mb-4 leading-snug text-left">${art.title}</h1>
-            
-            <div class="flex items-center gap-3 text-xs text-slate-400 mb-6">
-              <span>By ${art.author}</span>
-              <span>•</span>
-              <span>${art.date}</span>
-              <span>•</span>
-              <span class="text-emerald-400">${art.readTime}</span>
-            </div>
-
-            <!-- Native Image Display for Single Post view -->
-            <div class="w-full rounded-xl overflow-hidden mb-8 bg-neutral-950 p-1 flex justify-center">
-              <img src="${art.image}" alt="${art.title}" class="w-full h-auto object-contain rounded-lg">
-            </div>
-
-            <!-- Article Body Content -->
-            <article class="prose prose-invert max-w-none text-slate-300">${art.content}</article>
-          </div>
-        </div>
-      `;
-    }
-
-    function renderStaticPageView(slug) {
-      const app = document.getElementById('app');
-      if (slug === 'contact') {
-        app.innerHTML = `
-          <div class="max-w-xl mx-auto py-6">
-            <h1 class="text-2xl font-black text-white mb-2 uppercase">Contact Editorial Desk</h1>
-            <p class="text-xs text-slate-400 mb-6">Reach out directly to AZEXAI global team via official email address: <a href="mailto:${CONTACT_EMAIL}" class="text-cyan-400 font-bold">${CONTACT_EMAIL}</a></p>
-            <form onsubmit="event.preventDefault(); window.location.href='mailto:${CONTACT_EMAIL}';" class="space-y-3">
-              <input type="text" placeholder="Your Name" required class="w-full p-3 bg-neutral-900 rounded-xl text-xs text-white focus:outline-none">
-              <input type="email" placeholder="Your Email" required class="w-full p-3 bg-neutral-900 rounded-xl text-xs text-white focus:outline-none">
-              <textarea rows="4" placeholder="Your Message" required class="w-full p-3 bg-neutral-900 rounded-xl text-xs text-white focus:outline-none"></textarea>
-              <button type="submit" class="w-full py-3 bg-gradient-to-r from-purple-500 via-cyan-500 to-emerald-500 text-white text-xs font-black uppercase rounded-xl">Send Message</button>
-            </form>
-          </div>
-        `;
-        return;
-      }
-      app.innerHTML = `
-        <div class="max-w-2xl mx-auto py-6 text-slate-300">
-          <h1 class="text-2xl font-black text-white mb-4 uppercase">${slug}</h1>
-          <p class="text-xs leading-relaxed">Official page content for AZEXAI global technology network.</p>
-        </div>
-      `;
-    }
-
-    (async function init() {
-      const app = document.getElementById('app');
-      app.innerHTML = '<div class="min-h-[50vh] grid place-items-center text-xs font-bold text-white uppercase"><i class="fa-solid fa-spinner fa-spin text-2xl text-cyan-400 mb-2"></i>Loading AZEXAI Content...</div>';
-      
-      await loadBloggerArticles();
-      parseUrlRoute();
-      router();
-    })();
-  </script>
+            router();
+        });
+    </script>
 </body>
 </html>

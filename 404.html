@@ -1,1420 +1,497 @@
-react
-import React, { useState, useEffect } from 'react';
-import {
-  Search, Sun, Moon, Bookmark, Share2, Menu, X, Clock, User, 
-  Calendar, ChevronRight, CheckCircle2, Mail, AlertTriangle, 
-  Rss, FileText, Globe, Layers, ArrowLeft, Printer, RefreshCw, Sparkles,
-  Copy, Check, BookOpen, Hash, ArrowUpRight, Compass, Shield
-} from 'lucide-react';
-
-// ============================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AZEXAI - Journal of Machine Intelligence</title>
+​<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+darkMode: 'class',
+theme: {
+extend: {
+fontFamily: {
+serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+}
+}
+}
+}
+</script>
+​<!-- React & ReactDOM CDNs -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+​<!-- Babel Standalone for JSX compilation in browser -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-[#FAF8F5] text-stone-900 dark:bg-stone-950 dark:text-stone-100 antialiased selection:bg-amber-200 dark:selection:bg-amber-900/60">
+<div id="root"></div>
+​<script type="text/babel">
+const { useState, useEffect } = React;
+​// ============================================================================
 // CONFIGURATION & AZEXAI BRAND IDENTITY
 // ============================================================================
 const CONFIG = {
-  BRAND_NAME: "AZEXAI",
-  TAGLINE: "The Journal of Machine Intelligence, Silicon & Technological Philosophy",
-  FOUNDED_YEAR: "1997",
-  BLOGGER_BLOG_ID: "4263033619836681299",
-  BLOGGER_API_KEY: "", // Configured via secure server-side proxy or environment
-  DEFAULT_CATEGORY: "AI & Machine Learning",
-  ITEMS_PER_PAGE: 10
+BRAND_NAME: "AZEXAI",
+TAGLINE: "The Journal of Machine Intelligence, Silicon & Technological Philosophy",
+FOUNDED_YEAR: "1997",
+BLOGGER_BLOG_ID: "4263033619836681299",
+BLOGGER_API_KEY: "", // Configured via secure server-side proxy or environment
+DEFAULT_CATEGORY: "AI & Machine Learning",
+ITEMS_PER_PAGE: 10
 };
-
-// Categorization Engine Mapping
+​// Categorization Engine Mapping
 const CATEGORY_MAPPINGS = {
-  "AI & Machine Learning": ["ai", "artificial intelligence", "machine learning", "deep learning", "llm", "neural networks", "gpt", "azexai-intelligence"],
-  "Robotics & Automation": ["robotics", "automation", "drones", "bots", "boston dynamics", "hardware-automation"],
-  "Hardware & Gadgets": ["hardware", "gadgets", "chips", "semiconductors", "processors", "cpus", "gpus", "devices"],
-  "Software Engineering": ["software", "programming", "coding", "web dev", "javascript", "python", "open source"],
-  "Future Technology": ["future tech", "quantum", "space", "biotech", "neurotech", "cyberpunk", "futurism"],
-  "Guides & Tutorials": ["guides", "tutorials", "how to", "developer guide", "explainers"],
-  "Ethics & Society": ["ethics", "society", "policy", "privacy", "copyright", "regulation", "ai safety"]
+"AI & Machine Learning": ["ai", "artificial intelligence", "machine learning", "deep learning", "llm", "neural networks", "gpt", "azexai-intelligence"],
+"Robotics & Automation": ["robotics", "automation", "drones", "bots", "boston dynamics", "hardware-automation"],
+"Hardware & Gadgets": ["hardware", "gadgets", "chips", "semiconductors", "processors", "cpus", "gpus", "devices"],
+"Software Engineering": ["software", "programming", "coding", "web dev", "javascript", "python", "open source"],
+"Future Technology": ["future tech", "quantum", "space", "biotech", "neurotech", "cyberpunk", "futurism"],
+"Guides & Tutorials": ["guides", "tutorials", "how to", "developer guide", "explainers"],
+"Ethics & Society": ["ethics", "society", "policy", "privacy", "copyright", "regulation", "ai safety"]
 };
-
-// Editorial Category Accent Badges
-const CATEGORY_STYLES = {
-  "AI & Machine Learning": "bg-blue-950 text-blue-100 border-blue-800 dark:bg-blue-900/60 dark:text-blue-200 dark:border-blue-700",
-  "Robotics & Automation": "bg-emerald-950 text-emerald-100 border-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-200 dark:border-emerald-700",
-  "Hardware & Gadgets": "bg-amber-950 text-amber-100 border-amber-800 dark:bg-amber-900/60 dark:text-amber-200 dark:border-amber-700",
-  "Software Engineering": "bg-indigo-950 text-indigo-100 border-indigo-800 dark:bg-indigo-900/60 dark:text-indigo-200 dark:border-indigo-700",
-  "Future Technology": "bg-purple-950 text-purple-100 border-purple-800 dark:bg-purple-900/60 dark:text-purple-200 dark:border-purple-700",
-  "Guides & Tutorials": "bg-orange-950 text-orange-100 border-orange-800 dark:bg-orange-900/60 dark:text-orange-200 dark:border-orange-700",
-  "Ethics & Society": "bg-stone-900 text-stone-100 border-stone-700 dark:bg-stone-800 dark:text-stone-200 dark:border-stone-600",
-  "Technology": "bg-slate-900 text-slate-100 border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-600"
+​const CATEGORY_STYLES = {
+"AI & Machine Learning": "bg-blue-950 text-blue-100 border-blue-800 dark:bg-blue-900/60 dark:text-blue-200 dark:border-blue-700",
+"Robotics & Automation": "bg-emerald-950 text-emerald-100 border-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-200 dark:border-emerald-700",
+"Hardware & Gadgets": "bg-amber-950 text-amber-100 border-amber-800 dark:bg-amber-900/60 dark:text-amber-200 dark:border-amber-700",
+"Software Engineering": "bg-indigo-950 text-indigo-100 border-indigo-800 dark:bg-indigo-900/60 dark:text-indigo-200 dark:border-indigo-700",
+"Future Technology": "bg-purple-950 text-purple-100 border-purple-800 dark:bg-purple-900/60 dark:text-purple-200 dark:border-purple-700",
+"Guides & Tutorials": "bg-orange-950 text-orange-100 border-orange-800 dark:bg-orange-900/60 dark:text-orange-200 dark:border-orange-700",
+"Ethics & Society": "bg-stone-900 text-stone-100 border-stone-700 dark:bg-stone-800 dark:text-stone-200 dark:border-stone-600",
+"Technology": "bg-slate-900 text-slate-100 border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-600"
 };
-
-// Fallback Blogger Dataset ordered Chronologically (Newest -> Oldest)
+​// SVG Icon Helpers
+const Icon = ({ path, className = "w-4 h-4" }) => (
+<svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+{path}
+</svg>
+);
+​const SearchIcon = (props) => <Icon {...props} path={<><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></>} />;
+const SunIcon = (props) => <Icon {...props} path={<><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></>} />;
+const MoonIcon = (props) => <Icon {...props} path={<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>} />;
+const BookmarkIcon = ({ filled, className = "w-4 h-4" }) => (
+<svg className={className} fill={filled ? "currentColor" : "none"} stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+</svg>
+);
+const MenuIcon = (props) => <Icon {...props} path={<><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></>} />;
+const XIcon = (props) => <Icon {...props} path={<><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>} />;
+const ClockIcon = (props) => <Icon {...props} path={<><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>} />;
+const UserIcon = (props) => <Icon {...props} path={<><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></>} />;
+const CalendarIcon = (props) => <Icon {...props} path={<><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></>} />;
+const AlertTriangleIcon = (props) => <Icon {...props} path={<><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></>} />;
+const FileTextIcon = (props) => <Icon {...props} path={<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></>} />;
+const GlobeIcon = (props) => <Icon {...props} path={<><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></>} />;
+const LayersIcon = (props) => <Icon {...props} path={<><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></>} />;
+const ArrowLeftIcon = (props) => <Icon {...props} path={<><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></>} />;
+const PrinterIcon = (props) => <Icon {...props} path={<><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></>} />;
+const RefreshCwIcon = (props) => <Icon {...props} path={<><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></>} />;
+const SparklesIcon = (props) => <Icon {...props} path={<path d="M12 3l1.912 5.813a2 2 0 001.275 1.275L21 12l-5.813 1.912a2 2 0 00-1.275 1.275L12 21l-1.912-5.813a2 2 0 00-1.275-1.275L3 12l5.813-1.912a2 2 0 001.275-1.275L12 3z"/>} />;
+const CopyIcon = (props) => <Icon {...props} path={<><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></>} />;
+const CheckIcon = (props) => <Icon {...props} path={<polyline points="20 6 9 17 4 12"/>} />;
+​// Fallback Blogger Dataset
 const FALLBACK_BLOGGER_POSTS = [
-  {
-    id: "azexai-post-001",
-    title: "Architectural Shift: Beyond Transformer Models in Enterprise Neural Systems",
-    slug: "architectural-shift-beyond-transformer-models",
-    excerpt: "As computational limits plateau, researchers are pivoting toward sparse state-space architectures and liquid neural networks for real-time inference without quadratic RAM overhead.",
-    content: `
-      <p class="lead font-serif text-lg text-stone-800 dark:text-stone-200 mb-4">For the past five years, the transformer architecture has served as the undisputed backbone of modern artificial intelligence. However, quadratic scaling costs ($O(N^2)$ time and memory complexity) are fast creating an operational ceiling for real-time edge processing and continuous token streams.</p>
-      
-      <p class="mb-4">Enter <strong>State Space Models (SSMs)</strong> and continuous-time neural architectures. By replacing global attention matrices with selective state compression, newly proposed systems achieve linear time complexity while retaining long-context comprehension.</p>
-      
-      <blockquote class="my-6 p-4 border-l-4 border-amber-700 bg-stone-100 dark:bg-stone-900 italic font-serif text-stone-800 dark:text-stone-200">
-        "AZEXAI / ANALYSIS: We are witnessing a fundamental transition from static snapshot inference to continuous algorithmic reasoning. Modern enterprises can no longer afford giant compute clusters for simple contextual retrieval."
-      </blockquote>
-
-      <h2 class="font-serif text-xl font-bold mt-6 mb-3 text-stone-900 dark:text-stone-100">Hardware Implications and Memory Bottlenecks</h2>
-      <p class="mb-4">Modern silicon architectures have historically favored large matrix multiplications. Adapting current GPU clusters to execute recurrence-based state updates efficiently requires specialized kernels like FlashAttention-3 and custom SRAM cache management routines.</p>
-      
-      <div class="my-6 border border-stone-400 dark:border-stone-700 bg-stone-50 dark:bg-stone-900 p-4">
-        <h3 class="font-mono text-xs font-bold uppercase mb-2 text-amber-800 dark:text-amber-400">Technical Performance Breakdown</h3>
-        <table class="w-full text-left font-mono text-xs border-collapse">
-          <thead>
-            <tr class="border-b border-stone-400 dark:border-stone-700 bg-stone-200 dark:bg-stone-800">
-              <th class="p-2">Architecture</th>
-              <th class="p-2">Complexity</th>
-              <th class="p-2">Context Limit</th>
-              <th class="p-2">Primary Bottleneck</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-stone-300 dark:divide-stone-800">
-            <tr>
-              <td class="p-2 font-bold">Standard Transformer</td>
-              <td class="p-2">O(N²)</td>
-              <td class="p-2">32k - 128k</td>
-              <td class="p-2">VRAM Bandwidth</td>
-            </tr>
-            <tr>
-              <td class="p-2 font-bold">Selective SSM (Mamba-2)</td>
-              <td class="p-2">O(N)</td>
-              <td class="p-2">1,000,000+</td>
-              <td class="p-2">Sequential Updates</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2 class="font-serif text-xl font-bold mt-6 mb-3 text-stone-900 dark:text-stone-100">Strategic Outlook for 2026 and Beyond</h2>
-      <p class="mb-4">As organizations integrate autonomous software agents into production pipelines, stability and deterministic reliability outweigh scale. Expect hybrid architectures combining transformers for high-reasoning tasks and state-space systems for continuous streaming inputs to dominate software engineering.</p>
-    `,
-    featuredImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
-    author: "Dr. Elena Vance",
-    publishedAt: "2026-03-01T08:30:00Z",
-    labels: ["AI & Machine Learning", "AZEXAI-Analysis", "Software Engineering"],
-    category: "AI & Machine Learning",
-    readingTime: 6
-  },
-  {
-    id: "azexai-post-002",
-    title: "Silicon Frontiers: Wafer-Scale Engines and Sub-Nanometer Photonic Links",
-    slug: "silicon-frontiers-wafer-scale-engines",
-    excerpt: "Physical interconnects have replaced logic gates as the principal barrier in computing speed. Photonic interconnects on-chip offer a path forward.",
-    content: `
-      <p class="mb-4">For decades, Moore's Law focused on packing more transistors into smaller square millimeters. Today, logic gates are so fast that transferring data across copper interconnects consumes over 70% of total chip energy.</p>
-      <p class="mb-4">Silicon photonics solves this by routing light through microscopic optical waveguides etched directly onto silicon dies. The resulting bandwidth densities are unprecedented.</p>
-      <h2 class="font-serif text-xl font-bold mt-6 mb-3 text-stone-900 dark:text-stone-100">Photonic Co-Packaged Optics</h2>
-      <p class="mb-4">By bringing laser modulators directly inside the processor package, latency drops into picosecond regimes while thermal throttling drops by 40%.</p>
-    `,
-    featuredImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-    author: "Marcus Thorne",
-    publishedAt: "2026-02-28T14:15:00Z",
-    labels: ["Hardware & Gadgets", "Semiconductors"],
-    category: "Hardware & Gadgets",
-    readingTime: 5
-  },
-  {
-    id: "azexai-post-003",
-    title: "High-Precision Actuation in Bipedal Robotics: Hydraulic vs. High-Torque Electric Systems",
-    slug: "bipedal-robotics-hydraulic-vs-electric",
-    excerpt: "A technical evaluation of power density, structural resilience, and control latency in autonomous humanoid platforms.",
-    content: `
-      <p class="mb-4">Humanoid platforms demand high burst torque during dynamic landing while requiring precise, low-torque force control for delicate interaction. Modern electric flux motors are narrowing the gap with hydraulics.</p>
-      <blockquote class="my-6 p-4 border-l-4 border-amber-700 bg-stone-100 dark:bg-stone-900 italic font-serif">
-        "Efficiency in physical robotics is determined not by raw horsepower, but by dynamic back-drivability and energy harvesting during deceleration phases."
-      </blockquote>
-      <p class="mb-4">New strain-wave gearing coupled with planar motor geometry allows bipedal platforms to walk silently while carrying heavy industrial payloads.</p>
-    `,
-    featuredImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
-    author: "Kaito Tanaka",
-    publishedAt: "2026-02-24T11:00:00Z",
-    labels: ["Robotics & Automation", "AZEXAI-FieldNotes"],
-    category: "Robotics & Automation",
-    readingTime: 8
-  },
-  {
-    id: "azexai-post-004",
-    title: "Clean Code in the Era of Synthetic Generation: Re-evaluating Software Quality",
-    slug: "clean-code-in-era-of-synthetic-generation",
-    excerpt: "When code is generated by non-deterministic statistical engines, traditional code coverage metrics fall short. Here is how static analysis must adapt.",
-    content: `
-      <p class="mb-4">Codebases are expanding three times faster than they did in 2020. However, maintainability indices are dropping due to repetitive, verbose code structures emitted by automated assistant models.</p>
-      <p class="mb-4">To preserve maintainability, engineering teams are shifting away from traditional line-coverage toward semantic mutation testing and invariant checking.</p>
-    `,
-    featuredImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-    author: "Sarah Jenkins",
-    publishedAt: "2026-02-20T09:45:00Z",
-    labels: ["Software Engineering", "Guides & Tutorials"],
-    category: "Software Engineering",
-    readingTime: 7
-  },
-  {
-    id: "azexai-post-005",
-    title: "Quantum Key Distribution in Commercial Satellite Mesh Networks",
-    slug: "quantum-key-distribution-satellite-mesh",
-    excerpt: "Low Earth Orbit constellation networks deploy optical links to deliver post-quantum cryptographic security globally.",
-    content: `
-      <p class="mb-4">Photonic quantum polarization states sent through vacuum atmosphere yield near-zero interception risks, making QKD a practical reality for critical financial backbones.</p>
-      <p class="mb-4">Deploying optical transceivers on LEO satellites requires precision beam-steering technology capable of tracking ground stations across orbital velocities.</p>
-    `,
-    featuredImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
-    author: "Dr. Aris Thorne",
-    publishedAt: "2026-02-15T16:20:00Z",
-    labels: ["Future Technology", "Security"],
-    category: "Future Technology",
-    readingTime: 9
-  },
-  {
-    id: "azexai-post-006",
-    title: "Algorithmic Governance and Automated Labor Allocation: An Empirical Audit",
-    slug: "algorithmic-governance-automated-labor",
-    excerpt: "Examining legal liabilities, worker autonomy, and systemic bias in algorithmic scheduling software across global logistics hubs.",
-    content: `
-      <p class="mb-4">Beyond technical execution, algorithms are increasingly acting as operational managers—evaluating efficiency, assigning tasks, and dynamically terminating access.</p>
-      <p class="mb-4">Auditing these non-transparent systems requires cross-disciplinary legal frameworks to protect human dignity while preserving computational productivity.</p>
-    `,
-    featuredImage: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=800&q=80",
-    author: "Prof. Clara Oswald",
-    publishedAt: "2026-02-10T10:10:00Z",
-    labels: ["Ethics & Society", "AI & Machine Learning"],
-    category: "Ethics & Society",
-    readingTime: 11
-  },
-  {
-    id: "azexai-post-007",
-    title: "Practical Guide: Implementing Distributed Tracing for Micro-Frontends",
-    slug: "practical-guide-distributed-tracing-microfrontends",
-    excerpt: "Step-by-step engineering tutorial on passing trace context across decoupled web applications using OpenTelemetry and W3C headers.",
-    content: `
-      <p class="mb-4">When multiple independent frontend builds communicate with federated GraphQL or REST gateways, correlation IDs must survive cross-domain transitions cleanly.</p>
-      <p class="mb-4">This tutorial outlines how to inject custom telemetry headers without breaking browser CORS constraints or creating performance regressions.</p>
-    `,
-    featuredImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
-    author: "David Miller",
-    publishedAt: "2026-02-01T13:30:00Z",
-    labels: ["Guides & Tutorials", "Software Engineering"],
-    category: "Guides & Tutorials",
-    readingTime: 12
-  }
+{
+id: "azexai-post-001",
+title: "Architectural Shift: Beyond Transformer Models in Enterprise Neural Systems",
+slug: "architectural-shift-beyond-transformer-models",
+excerpt: "As computational limits plateau, researchers are pivoting toward sparse state-space architectures and liquid neural networks for real-time inference without quadratic RAM overhead.",
+content: <p class="lead font-serif text-lg text-stone-800 dark:text-stone-200 mb-4">For the past five years, the transformer architecture has served as the undisputed backbone of modern artificial intelligence. However, quadratic scaling costs ($O(N^2)$ time and memory complexity) are fast creating an operational ceiling for real-time edge processing and continuous token streams.</p> <p class="mb-4">Enter <strong>State Space Models (SSMs)</strong> and continuous-time neural architectures. By replacing global attention matrices with selective state compression, newly proposed systems achieve linear time complexity while retaining long-context comprehension.</p> <blockquote class="my-6 p-4 border-l-4 border-amber-700 bg-stone-100 dark:bg-stone-900 italic font-serif text-stone-800 dark:text-stone-200"> "AZEXAI / ANALYSIS: We are witnessing a fundamental transition from static snapshot inference to continuous algorithmic reasoning. Modern enterprises can no longer afford giant compute clusters for simple contextual retrieval." </blockquote> <h2 class="font-serif text-xl font-bold mt-6 mb-3 text-stone-900 dark:text-stone-100">Hardware Implications and Memory Bottlenecks</h2> <p class="mb-4">Modern silicon architectures have historically favored large matrix multiplications. Adapting current GPU clusters to execute recurrence-based state updates efficiently requires specialized kernels like FlashAttention-3 and custom SRAM cache management routines.</p>,
+featuredImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+author: "Dr. Elena Vance",
+publishedAt: "2026-03-01T08:30:00Z",
+labels: ["AI & Machine Learning", "AZEXAI-Analysis", "Software Engineering"],
+category: "AI & Machine Learning",
+readingTime: 6
+},
+{
+id: "azexai-post-002",
+title: "Silicon Frontiers: Wafer-Scale Engines and Sub-Nanometer Photonic Links",
+slug: "silicon-frontiers-wafer-scale-engines",
+excerpt: "Physical interconnects have replaced logic gates as the principal barrier in computing speed. Photonic interconnects on-chip offer a path forward.",
+content: <p class="mb-4">For decades, Moore's Law focused on packing more transistors into smaller square millimeters. Today, logic gates are so fast that transferring data across copper interconnects consumes over 70% of total chip energy.</p>,
+featuredImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+author: "Marcus Thorne",
+publishedAt: "2026-02-28T14:15:00Z",
+labels: ["Hardware & Gadgets", "Semiconductors"],
+category: "Hardware & Gadgets",
+readingTime: 5
+}
 ];
-
-// Helper Functions
+​// Helper Functions
 const normalizeCategory = (labels = []) => {
-  if (!labels || labels.length === 0) return CONFIG.DEFAULT_CATEGORY;
-  const lowerLabels = labels.map(l => String(l).toLowerCase());
-  
-  for (const [category, keywords] of Object.entries(CATEGORY_MAPPINGS)) {
-    for (const keyword of keywords) {
-      if (lowerLabels.some(l => l.includes(keyword))) {
-        return category;
-      }
-    }
-  }
-  return labels[0] || CONFIG.DEFAULT_CATEGORY;
+if (!labels || labels.length === 0) return CONFIG.DEFAULT_CATEGORY;
+const lowerLabels = labels.map(l => String(l).toLowerCase());
+for (const [category, keywords] of Object.entries(CATEGORY_MAPPINGS)) {
+for (const keyword of keywords) {
+if (lowerLabels.some(l => l.includes(keyword))) return category;
+}
+}
+return labels[0] || CONFIG.DEFAULT_CATEGORY;
 };
-
-const calculateReadingTime = (contentHtml) => {
-  const text = (contentHtml || '').replace(/<[^>]*>/g, '');
-  const wordCount = text.trim().split(/\s+/).length;
-  const time = Math.ceil(wordCount / 200);
-  return time < 1 ? 1 : time;
+​const calculateReadingTime = (contentHtml) => {
+const text = (contentHtml || '').replace(/<[^>]*>/g, '');
+const wordCount = text.trim().split(/\s+/).length;
+const time = Math.ceil(wordCount / 200);
+return time < 1 ? 1 : time;
 };
-
-const extractFirstImage = (contentHtml) => {
-  if (!contentHtml) return null;
-  const match = contentHtml.match(/<img[^>]+src="([^">]+)"/i);
-  return match ? match[1] : null;
+​const extractFirstImage = (contentHtml) => {
+if (!contentHtml) return null;
+const match = contentHtml.match(/<img[^>]+src="([^">]+)"/i);
+return match ? match[1] : null;
 };
-
-const createExcerpt = (contentHtml, maxLength = 160) => {
-  if (!contentHtml) return "";
-  const plainText = contentHtml.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-  if (plainText.length <= maxLength) return plainText;
-  return plainText.substring(0, maxLength).trim() + "...";
+​const createExcerpt = (contentHtml, maxLength = 160) => {
+if (!contentHtml) return "";
+const plainText = contentHtml.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+if (plainText.length <= maxLength) return plainText;
+return plainText.substring(0, maxLength).trim() + "...";
 };
-
-const formatDate = (dateString) => {
-  if (!dateString) return "Editorial Issue";
-  try {
-    const d = new Date(dateString);
-    return d.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
-  } catch (e) {
-    return dateString;
-  }
+​const formatDate = (dateString) => {
+if (!dateString) return "Editorial Issue";
+try {
+const d = new Date(dateString);
+return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+} catch (e) {
+return dateString;
+}
 };
-
-const normalizeFeedEntry = (entry) => {
-  const id = entry.id?.$t || Math.random().toString();
-  const title = entry.title?.$t || "Untitled Dispatch";
-  const content = entry.content?.$t || entry.summary?.$t || "";
-  const publishedAt = entry.published?.$t || new Date().toISOString();
-  const updatedAt = entry.updated?.$t || publishedAt;
-  const author = entry.author?.[0]?.name?.$t || "AZEXAI Editorial Desk";
-  
-  const rawCategories = entry.category ? entry.category.map(c => c.term) : [];
-  const category = normalizeCategory(rawCategories);
-  
-  const excerpt = createExcerpt(content, 180);
-  const featuredImage = extractFirstImage(content) || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80";
-  
-  const slug = title
-    ? title.toLowerCase().replace(/[^a-z0-9\u0600-\u06FF]+/g, '-').replace(/(^-|-$)/g, '')
-    : id;
-
-  return {
-    id,
-    title,
-    slug: slug || id,
-    excerpt,
-    content,
-    featuredImage,
-    author,
-    publishedAt,
-    updatedAt,
-    labels: rawCategories,
-    category,
-    readingTime: calculateReadingTime(content)
-  };
+​const normalizeFeedEntry = (entry) => {
+const id = entry.id?.$t || Math.random().toString();
+const title = entry.title?.$t || "Untitled Dispatch";
+const content = entry.content?.$t \vert{}\vert{} entry.summary?.$t || "";
+const publishedAt = entry.published?.$t || new Date().toISOString();
+const author = entry.author?.[0]?.name?.t || "AZEXAI Editorial Desk";
+const rawCategories = entry.category ? entry.category.map(c => c.term) : [];
+const category = normalizeCategory(rawCategories);
+const excerpt = createExcerpt(content, 180);
+const featuredImage = extractFirstImage(content) || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80";
+const slug = title ? title.toLowerCase().replace(/[^a-z0-9\u0600-\u06FF]+/g, '-').replace(/(^-|-)/g, '') : id;
+​return {
+id, title, slug: slug || id, excerpt, content, featuredImage, author,
+publishedAt, labels: rawCategories, category, readingTime: calculateReadingTime(content)
 };
-
-// Fetch ALL published entries using Blogger Public Feed with pagination loop
-async function fetchAllPublicBloggerPosts(blogId) {
-  let allEntries = [];
-  let startIndex = 1;
-  const maxResults = 150;
-  let keepFetching = true;
-
-  while (keepFetching && allEntries.length < 3000) {
-    const feedUrl = `https://www.blogger.com/feeds/${blogId}/posts/default?alt=json&start-index=${startIndex}&max-results=${maxResults}`;
-    const res = await fetch(feedUrl);
-    if (!res.ok) break;
-    const data = await res.json();
-    const entries = data.feed?.entry || [];
-    
-    if (entries.length === 0) {
-      keepFetching = false;
-    } else {
-      allEntries.push(...entries.map(normalizeFeedEntry));
-      if (entries.length < maxResults) {
-        keepFetching = false;
-      } else {
-        startIndex += maxResults;
-      }
-    }
-  }
-  return allEntries;
+};
+​async function fetchAllPublicBloggerPosts(blogId) {
+let allEntries = [];
+let startIndex = 1;
+const maxResults = 150;
+let keepFetching = true;
+​while (keepFetching && allEntries.length < 3000) {
+const feedUrl = https://www.blogger.com/feeds/${blogId}/posts/default?alt=json&start-index=${startIndex}&max-results=${maxResults};
+try {
+const res = await fetch(feedUrl);
+if (!res.ok) break;
+const data = await res.json();
+const entries = data.feed?.entry || [];
+if (entries.length === 0) {
+keepFetching = false;
+} else {
+allEntries.push(...entries.map(normalizeFeedEntry));
+if (entries.length < maxResults) keepFetching = false;
+else startIndex += maxResults;
 }
-
-function TopUtilityBar({ darkMode, setDarkMode, searchQuery, setSearchQuery, onSearchSubmit }) {
-  return (
-    <div className="bg-stone-900 text-stone-300 font-mono text-xs py-1.5 px-4 sm:px-8 border-b border-stone-800 flex flex-wrap justify-between items-center gap-2">
-      <div className="flex items-center space-x-4">
-        <span className="text-amber-500 font-bold">AZEXAI // INTELLIGENCE SYSTEM</span>
-        <span className="hidden sm:inline text-stone-500">|</span>
-        <span className="hidden sm:inline text-stone-400">VOL. XXVII • NO. 42</span>
-      </div>
-      <div className="flex items-center space-x-4">
-        <form onSubmit={onSearchSubmit} className="relative flex items-center">
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search dispatches..."
-            className="bg-stone-800 text-stone-100 placeholder-stone-500 text-[11px] px-2.5 py-1 pr-7 border border-stone-700 focus:outline-none focus:border-amber-500"
-          />
-          <button type="submit" className="absolute right-1.5 text-stone-400 hover:text-amber-400">
-            <Search className="w-3.5 h-3.5" />
-          </button>
-        </form>
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="p-1 text-stone-400 hover:text-amber-400 transition-colors"
-          title="Toggle Theme"
-        >
-          {darkMode ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5" />}
-        </button>
-      </div>
-    </div>
-  );
+} catch (e) {
+break;
 }
-
-// ============================================================================
-// MAIN APPLICATION COMPONENT
-// ============================================================================
-export default function App() {
-  const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [blogId, setBlogId] = useState(CONFIG.BLOGGER_BLOG_ID);
-  const [apiKey, setApiKey] = useState(CONFIG.BLOGGER_API_KEY);
-  const [showSettings, setShowSettings] = useState(false);
-  const [syncSource, setSyncSource] = useState('Synchronizing...');
-
-  const [currentPath, setCurrentPath] = useState('/');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [archivePage, setArchivePage] = useState(1);
-
-  const [darkMode, setDarkMode] = useState(false);
-  const [bookmarks, setBookmarks] = useState([]);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navigateTo = (path) => {
-    setCurrentPath(path);
-    setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    async function loadAllPosts() {
-      setLoading(true);
-      setError(null);
-      let fetchedPosts = [];
-      let sourceName = "";
-
-      // Strategy 1: Attempt Blogger API v3 pagination if API Key is configured
-      if (apiKey) {
-        try {
-          let allRawItems = [];
-          let pageToken = null;
-
-          do {
-            let url = `https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts?key=${apiKey}&fetchBodies=true&fetchImages=true&maxResults=50`;
-            if (pageToken) url += `&pageToken=${encodeURIComponent(pageToken)}`;
-
-            const response = await fetch(url);
-            if (response.ok) {
-              const data = await response.json();
-              if (data.items && data.items.length > 0) {
-                allRawItems.push(...data.items);
-              }
-              pageToken = data.nextPageToken || null;
-            } else {
-              break;
-            }
-          } while (pageToken);
-
-          if (allRawItems.length > 0) {
-            fetchedPosts = allRawItems.map((item) => {
-              const labels = item.labels || [];
-              const category = normalizeCategory(labels);
-              const content = item.content || "";
-              const excerpt = item.snippet || createExcerpt(content);
-              const featuredImage = item.images?.[0]?.url || extractFirstImage(content) || FALLBACK_BLOGGER_POSTS[0].featuredImage;
-              const slug = item.title 
-                ? item.title.toLowerCase().replace(/[^a-z0-9\u0600-\u06FF]+/g, '-').replace(/(^-|-$)/g, '') 
-                : item.id;
-
-              return {
-                id: item.id,
-                title: item.title || "Untitled Dispatch",
-                slug: slug || item.id,
-                excerpt: excerpt,
-                content: content,
-                featuredImage: featuredImage,
-                author: item.author?.displayName || "AZEXAI Editorial Desk",
-                publishedAt: item.published,
-                updatedAt: item.updated,
-                labels: labels,
-                category: category,
-                readingTime: calculateReadingTime(content)
-              };
-            });
-            sourceName = "Blogger API v3";
-          }
-        } catch (e) {
-          console.warn("Blogger API v3 fetch failed, switching to Public Feeds...", e);
-        }
-      }
-
-      // Strategy 2: Fallback to Blogger Public Atom/JSON Feed with multi-page loop
-      if (fetchedPosts.length === 0) {
-        try {
-          const feedPosts = await fetchAllPublicBloggerPosts(blogId);
-          if (feedPosts.length > 0) {
-            fetchedPosts = feedPosts;
-            sourceName = "Blogger Public Feed";
-          }
-        } catch (e) {
-          console.warn("Blogger Public Feed fetch failed...", e);
-        }
-      }
-
-      // Strategy 3: Local Cache fallback if network is unreachable
-      if (fetchedPosts.length === 0) {
-        fetchedPosts = FALLBACK_BLOGGER_POSTS;
-        sourceName = "Local Editorial Cache";
-      }
-
-      // Deduplicate posts by ID or Title & Sort chronologically (Newest -> Oldest)
-      const uniqueMap = new Map();
-      fetchedPosts.forEach(p => uniqueMap.set(p.id || p.title, p));
-      const sorted = Array.from(uniqueMap.values()).sort(
-        (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-      );
-
-      setArticles(sorted);
-      setSyncSource(`${sourceName} (${sorted.length} Articles Synced)`);
-      setLoading(false);
-    }
-
-    loadAllPosts();
-  }, [blogId, apiKey]);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
-
-  const isHome = currentPath === '/';
-  const isArchive = currentPath.startsWith('/archive');
-  const isAbout = currentPath === '/about';
-  const isContact = currentPath === '/contact';
-  const isSearch = currentPath.startsWith('/search');
-  const isCategory = currentPath.startsWith('/category/');
-  const isArticle = currentPath.startsWith('/blog/') || (!isHome && !isArchive && !isAbout && !isContact && !isSearch && !isCategory);
-
-  const activeCategory = isCategory ? decodeURIComponent(currentPath.replace('/category/', '')) : null;
-
-  const activeArticleSlug = isArticle ? currentPath.replace('/blog/', '').replace('/', '') : null;
-  const selectedArticle = isArticle ? articles.find(a => a.slug === activeArticleSlug) || articles[0] : null;
-
-  const toggleBookmark = (id) => {
-    setBookmarks(prev => prev.includes(id) ? prev.filter(b => b !== id) : [...prev, id]);
-  };
-
-  return (
-    <div className="min-h-screen bg-[#FAF8F5] text-stone-900 dark:bg-stone-950 dark:text-stone-100 font-serif antialiased selection:bg-amber-200 dark:selection:bg-amber-900/60">
-      
-      <TopUtilityBar 
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        onSearchSubmit={(e) => {
-          e.preventDefault();
-          if (searchQuery.trim()) navigateTo(`/search?q=${encodeURIComponent(searchQuery)}`);
-        }}
-      />
-
-      <PublicationHeader 
-        currentPath={currentPath}
-        navigateTo={navigateTo}
-        mobileMenuOpen={mobileMenuOpen}
-        setMobileMenuOpen={setMobileMenuOpen}
-        showSettings={showSettings}
-        setShowSettings={setShowSettings}
-        syncSource={syncSource}
-        articleCount={articles.length}
-      />
-
-      {showSettings && (
-        <BloggerSettingsModal 
-          blogId={blogId}
-          setBlogId={setBlogId}
-          apiKey={apiKey}
-          setApiKey={setApiKey}
-          onClose={() => setShowSettings(false)}
-        />
-      )}
-
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {loading ? (
-          <LoadingSkeleton />
-        ) : error ? (
-          <ErrorBanner message={error} />
-        ) : (
-          <>
-            {isHome && (
-              <HomePageView 
-                articles={articles}
-                navigateTo={navigateTo}
-                bookmarks={bookmarks}
-                toggleBookmark={toggleBookmark}
-              />
-            )}
-
-            {isArticle && selectedArticle && (
-              <ArticlePageView 
-                article={selectedArticle}
-                allArticles={articles}
-                navigateTo={navigateTo}
-                bookmarks={bookmarks}
-                toggleBookmark={toggleBookmark}
-              />
-            )}
-
-            {isCategory && (
-              <CategoryPageView 
-                category={activeCategory}
-                articles={articles.filter(a => a.category === activeCategory)}
-                navigateTo={navigateTo}
-                bookmarks={bookmarks}
-                toggleBookmark={toggleBookmark}
-              />
-            )}
-
-            {isSearch && (
-              <SearchPageView 
-                query={new URLSearchParams(currentPath.split('?')[1] || '').get('q') || searchQuery}
-                articles={articles}
-                navigateTo={navigateTo}
-                bookmarks={bookmarks}
-                toggleBookmark={toggleBookmark}
-              />
-            )}
-
-            {isArchive && (
-              <ArchivePageView 
-                articles={articles}
-                page={archivePage}
-                setPage={setArchivePage}
-                navigateTo={navigateTo}
-              />
-            )}
-
-            {isAbout && <AboutPageView />}
-
-            {isContact && <ContactPageView />}
-          </>
-        )}
-
-        {!isArticle && <NewsletterDesk />}
-      </main>
-
-      <PublicationFooter navigateTo={navigateTo} />
-    </div>
-  );
 }
-
-// ============================================================================
-// COMPONENT: PUBLICATION HEADER
-// ============================================================================
-function PublicationHeader({ currentPath, navigateTo, mobileMenuOpen, setMobileMenuOpen, setShowSettings, syncSource, articleCount }) {
-  const categories = Object.keys(CATEGORY_MAPPINGS);
-
-  return (
-    <header className="border-b-2 border-stone-900 dark:border-stone-100 bg-[#FAF8F5] dark:bg-stone-950 sticky top-0 z-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex justify-between items-center">
-        <div className="cursor-pointer" onClick={() => navigateTo('/')}>
-          <div className="flex items-baseline space-x-2">
-            <span className="font-mono text-xs font-bold text-amber-700 dark:text-amber-500 border-r border-stone-400 pr-2 uppercase tracking-widest">
-              AZEXAI / JOURNAL
-            </span>
-            <h1 className="font-serif text-3xl sm:text-5xl font-black tracking-tight text-stone-950 dark:text-stone-50">
-              {CONFIG.BRAND_NAME}
-            </h1>
-          </div>
-          <p className="font-serif italic text-xs sm:text-sm text-stone-600 dark:text-stone-400 mt-1">
-            {CONFIG.TAGLINE}
-          </p>
-        </div>
-
-        <div className="hidden lg:flex items-center space-x-4 font-mono text-xs text-stone-700 dark:text-stone-300">
-          <button 
-            onClick={() => setShowSettings(true)}
-            className="flex items-center gap-1.5 px-2.5 py-1 bg-stone-200 dark:bg-stone-800 text-stone-900 dark:text-stone-100 font-bold border border-stone-400 dark:border-stone-700 hover:border-amber-600 transition-all"
-            title="Configure Blogger Sync"
-          >
-            <RefreshCw className="w-3 h-3 text-amber-700 dark:text-amber-400" />
-            <span>{articleCount} Posts Synced</span>
-          </button>
-          <span>•</span>
-          <button onClick={() => navigateTo('/archive')} className="hover:underline flex items-center gap-1">
-            <FileText className="w-3.5 h-3.5 text-amber-700" /> Archive ({articleCount})
-          </button>
-          <span>•</span>
-          <button onClick={() => navigateTo('/about')} className="hover:underline flex items-center gap-1">
-            <Globe className="w-3.5 h-3.5 text-amber-700" /> Standards
-          </button>
-        </div>
-
-        <button 
-          className="lg:hidden p-2 text-stone-900 dark:text-stone-100 border border-stone-400 dark:border-stone-700"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle Menu"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      <nav className="hidden lg:block border-t border-stone-300 dark:border-stone-800 bg-stone-100/80 dark:bg-stone-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center font-sans text-xs font-bold uppercase tracking-wider py-2 overflow-x-auto">
-          <button 
-            onClick={() => navigateTo('/')}
-            className={`py-1 px-3 border-b-2 transition-all ${currentPath === '/' ? 'border-amber-700 text-stone-950 dark:text-stone-100 font-extrabold' : 'border-transparent text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-200'}`}
-          >
-            Front Page
-          </button>
-
-          {categories.map((cat) => {
-            const catPath = `/category/${encodeURIComponent(cat)}`;
-            const isActive = currentPath === catPath;
-            return (
-              <button
-                key={cat}
-                onClick={() => navigateTo(catPath)}
-                className={`py-1 px-2.5 border-b-2 whitespace-nowrap transition-all ${isActive ? 'border-amber-700 text-stone-950 dark:text-stone-100 font-extrabold' : 'border-transparent text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-200'}`}
-              >
-                {cat}
-              </button>
-            );
-          })}
-        </div>
-      </nav>
-
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-stone-100 dark:bg-stone-900 border-t border-stone-300 dark:border-stone-800 p-4 space-y-3 font-sans text-sm">
-          <div className="font-mono text-xs uppercase font-bold text-amber-700 pb-1 border-b border-stone-300 flex justify-between items-center">
-            <span>Sections</span>
-            <button onClick={() => setShowSettings(true)} className="text-stone-900 dark:text-stone-100 font-normal underline">
-              Sync ({articleCount})
-            </button>
-          </div>
-          <button onClick={() => navigateTo('/')} className="block w-full text-left font-bold text-stone-900 dark:text-stone-100">Front Page</button>
-          
-          {categories.map(cat => (
-            <button 
-              key={cat} 
-              onClick={() => navigateTo(`/category/${encodeURIComponent(cat)}`)}
-              className="block w-full text-left text-stone-700 dark:text-stone-300 hover:pl-2 transition-all border-l-2 border-transparent hover:border-amber-700"
-            >
-              {cat}
-            </button>
-          ))}
-
-          <div className="font-mono text-xs uppercase font-bold text-amber-700 pt-2 pb-1 border-b border-stone-300">Journal Desk</div>
-          <button onClick={() => navigateTo('/archive')} className="block w-full text-left text-stone-700 dark:text-stone-300">Archive Index ({articleCount})</button>
-          <button onClick={() => navigateTo('/about')} className="block w-full text-left text-stone-700 dark:text-stone-300">About & Standards</button>
-          <button onClick={() => navigateTo('/contact')} className="block w-full text-left text-stone-700 dark:text-stone-300">Contact</button>
-        </div>
-      )}
-    </header>
-  );
+return allEntries;
 }
-
-// ============================================================================
-// PAGE: HOMEPAGE VIEW
-// ============================================================================
-function HomePageView({ articles, navigateTo, bookmarks, toggleBookmark }) {
-  const [visibleCount, setVisibleCount] = useState(12);
-
-  if (!articles || articles.length === 0) return null;
-
-  const leadStory = articles[0];
-  const secondaryStories = articles.slice(1, 4);
-  const gridArticles = articles.slice(0, visibleCount);
-
-  return (
-    <div className="space-y-12">
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b-2 border-stone-300 dark:border-stone-800 pb-10">
-        <div 
-          onClick={() => navigateTo(`/blog/${leadStory.slug}`)}
-          className="lg:col-span-8 group cursor-pointer border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900 p-4 sm:p-6 shadow-sm hover:border-stone-500 transition-all"
-        >
-          <div className="relative aspect-[16/9] w-full bg-stone-950 mb-4 overflow-hidden border border-stone-300 dark:border-stone-700 flex items-center justify-center">
-            <img 
-              src={leadStory.featuredImage} 
-              alt={leadStory.title}
-              className="max-h-full max-w-full object-contain group-hover:scale-102 transition-transform duration-500"
-            />
-            <span className="absolute top-3 left-3 bg-stone-950 text-amber-400 border border-amber-600/40 font-mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1">
-              AZEXAI / LEAD STORY
-            </span>
-          </div>
-
-          <div className="space-y-3">
-            <span className={`inline-block font-mono text-xs font-bold uppercase tracking-wider px-2 py-0.5 border ${CATEGORY_STYLES[leadStory.category] || CATEGORY_STYLES["Technology"]}`}>
-              {leadStory.category}
-            </span>
-
-            <h2 className="font-serif text-2xl sm:text-4xl font-extrabold text-stone-950 dark:text-stone-50 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors leading-tight">
-              {leadStory.title}
-            </h2>
-
-            <p className="font-serif text-stone-700 dark:text-stone-300 text-base leading-relaxed line-clamp-3">
-              {leadStory.excerpt}
-            </p>
-
-            <div className="flex items-center justify-between pt-3 border-t border-stone-200 dark:border-stone-800 font-mono text-xs text-stone-600 dark:text-stone-400">
-              <div className="flex items-center space-x-2">
-                <span className="font-bold text-stone-900 dark:text-stone-200">{leadStory.author}</span>
-                <span>•</span>
-                <span>{formatDate(leadStory.publishedAt)}</span>
-                <span>•</span>
-                <span>{leadStory.readingTime}m read</span>
-              </div>
-              <button 
-                onClick={(e) => { e.stopPropagation(); toggleBookmark(leadStory.id); }}
-                className="hover:text-amber-700"
-              >
-                <Bookmark className={`w-4 h-4 ${bookmarks.includes(leadStory.id) ? "fill-amber-700 text-amber-700" : ""}`} />
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="lg:col-span-4 flex flex-col justify-between space-y-4">
-          <div className="border-b-2 border-amber-700 pb-1">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-stone-900 dark:text-stone-100 flex items-center justify-between">
-              <span>EDITORIAL SELECTION</span>
-              <Sparkles className="w-3.5 h-3.5 text-amber-700" />
-            </h3>
-          </div>
-
-          <div className="divide-y divide-stone-300 dark:divide-stone-800 space-y-4">
-            {secondaryStories.map((story) => (
-              <article 
-                key={story.id}
-                onClick={() => navigateTo(`/blog/${story.slug}`)}
-                className="pt-3 first:pt-0 group cursor-pointer"
-              >
-                <span className="font-mono text-[10px] font-bold uppercase text-amber-800 dark:text-amber-400 tracking-wider">
-                  {story.category}
-                </span>
-                <h4 className="font-serif text-base font-bold text-stone-950 dark:text-stone-100 group-hover:text-amber-800 leading-snug transition-colors mt-0.5">
-                  {story.title}
-                </h4>
-                <p className="font-serif text-xs text-stone-600 dark:text-stone-400 line-clamp-2 mt-1">
-                  {story.excerpt}
-                </p>
-                <div className="mt-2 font-mono text-[10px] text-stone-500">
-                  {formatDate(story.publishedAt)} • {story.readingTime}m read
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="p-4 bg-stone-900 text-stone-100 border border-stone-800 rounded-none">
-            <span className="font-mono text-[10px] text-amber-400 font-bold uppercase">BLOGGER LIVE FEED ACTIVE</span>
-            <p className="font-serif text-xs italic text-stone-300 mt-1">
-              "Currently listing all {articles.length} published dispatches directly from Blogger."
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <div className="flex items-center justify-between border-b-2 border-stone-900 dark:border-stone-100 pb-2">
-          <h3 className="font-serif text-2xl font-extrabold text-stone-950 dark:text-stone-50 flex items-center gap-2">
-            <Layers className="w-5 h-5 text-amber-700" />
-            ALL PUBLISHED DISPATCHES ({gridArticles.length} OF {articles.length})
-          </h3>
-          <span className="font-mono text-xs text-stone-500 uppercase">Chronological Order</span>
-        </div>
-
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
-          {gridArticles.map((article) => (
-            <ArticleCard 
-              key={article.id} 
-              article={article}
-              navigateTo={navigateTo}
-              isBookmarked={bookmarks.includes(article.id)}
-              onToggleBookmark={toggleBookmark}
-            />
-          ))}
-        </div>
-
-        {visibleCount < articles.length && (
-          <div className="text-center pt-6">
-            <button
-              onClick={() => setVisibleCount(prev => Math.min(prev + 12, articles.length))}
-              className="px-6 py-3 bg-stone-900 dark:bg-stone-100 text-stone-100 dark:text-stone-900 font-mono text-xs font-bold uppercase border border-stone-700 hover:bg-amber-700 dark:hover:bg-amber-500 dark:hover:text-stone-950 transition-colors shadow-md"
-            >
-              Load More Articles ({articles.length - visibleCount} Remaining)
-            </button>
-          </div>
-        )}
-      </section>
-    </div>
-  );
+​function TopUtilityBar({ darkMode, setDarkMode, searchQuery, setSearchQuery, onSearchSubmit }) {
+return (
+<div className="bg-stone-900 text-stone-300 font-mono text-xs py-1.5 px-4 sm:px-8 border-b border-stone-800 flex flex-wrap justify-between items-center gap-2">
+<div className="flex items-center space-x-4">
+<span className="text-amber-500 font-bold">AZEXAI // INTELLIGENCE SYSTEM</span>
+<span className="hidden sm:inline text-stone-500">|</span>
+<span className="hidden sm:inline text-stone-400">VOL. XXVII • NO. 42</span>
+</div>
+<div className="flex items-center space-x-4">
+<form onSubmit={onSearchSubmit} className="relative flex items-center">
+<input
+type="text"
+value={searchQuery}
+onChange={(e) => setSearchQuery(e.target.value)}
+placeholder="Search dispatches..."
+className="bg-stone-800 text-stone-100 placeholder-stone-500 text-[11px] px-2.5 py-1 pr-7 border border-stone-700 focus:outline-none focus:border-amber-500"
+/>
+<button type="submit" className="absolute right-1.5 text-stone-400 hover:text-amber-400">
+<SearchIcon className="w-3.5 h-3.5" />
+</button>
+</form>
+<button
+onClick={() => setDarkMode(!darkMode)}
+className="p-1 text-stone-400 hover:text-amber-400 transition-colors"
+title="Toggle Theme"
+>
+{darkMode ? <SunIcon className="w-3.5 h-3.5 text-amber-400" /> : <MoonIcon className="w-3.5 h-3.5" />}
+</button>
+</div>
+</div>
+);
 }
-
-// ============================================================================
-// COMPONENT: BLOGGER SETTINGS MODAL
-// ============================================================================
-function BloggerSettingsModal({ blogId, setBlogId, apiKey, setApiKey, onClose }) {
-  const [tempId, setTempId] = useState(blogId);
-  const [tempKey, setTempKey] = useState(apiKey);
-
-  const handleSave = (e) => {
-    e.preventDefault();
-    if (tempId.trim()) setBlogId(tempId.trim());
-    setApiKey(tempKey.trim());
-    onClose();
-  };
-
-  return (
-    <div className="fixed inset-0 z-50 bg-stone-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-stone-900 text-stone-100 border-2 border-amber-600 max-w-md w-full p-6 space-y-4 shadow-2xl">
-        <div className="flex justify-between items-center border-b border-stone-800 pb-3">
-          <h3 className="font-mono text-sm font-bold uppercase text-amber-400 flex items-center gap-2">
-            <RefreshCw className="w-4 h-4" /> Blogger Feed Settings
-          </h3>
-          <button onClick={onClose} className="p-1 text-stone-400 hover:text-stone-100">
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-
-        <p className="font-serif text-xs text-stone-300 leading-relaxed">
-          Enter your Blogger Blog ID to stream all published articles into this site. If no Google API key is entered, public RSS/Atom feeds will be fetched automatically.
-        </p>
-
-        <form onSubmit={handleSave} className="space-y-4 font-mono text-xs">
-          <div>
-            <label className="block text-amber-500 font-bold uppercase mb-1">Blogger Blog ID</label>
-            <input 
-              type="text" 
-              required
-              value={tempId}
-              onChange={(e) => setTempId(e.target.value)}
-              placeholder="e.g. 4263033619836681299"
-              className="w-full bg-stone-800 border border-stone-700 text-stone-100 p-2.5 font-mono focus:outline-none focus:border-amber-500"
-            />
-          </div>
-
-          <div>
-            <label className="block text-amber-500 font-bold uppercase mb-1">Google API Key (Optional)</label>
-            <input 
-              type="text" 
-              value={tempKey}
-              onChange={(e) => setTempKey(e.target.value)}
-              placeholder="Leave blank to use Blogger Public Atom/JSON Feed"
-              className="w-full bg-stone-800 border border-stone-700 text-stone-100 p-2.5 font-mono focus:outline-none focus:border-amber-500"
-            />
-          </div>
-
-          <div className="flex justify-end space-x-2 pt-2">
-            <button 
-              type="button" 
-              onClick={onClose}
-              className="px-4 py-2 border border-stone-700 text-stone-300 hover:bg-stone-800 font-mono"
-            >
-              Cancel
-            </button>
-            <button 
-              type="submit"
-              className="px-5 py-2 bg-amber-600 text-stone-950 font-bold hover:bg-amber-500 font-mono uppercase"
-            >
-              Sync Blogger Feed
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
+​function PublicationHeader({ currentPath, navigateTo, mobileMenuOpen, setMobileMenuOpen, setShowSettings, articleCount }) {
+const categories = Object.keys(CATEGORY_MAPPINGS);
+​return (
+<header className="border-b-2 border-stone-900 dark:border-stone-100 bg-[#FAF8F5] dark:bg-stone-950 sticky top-0 z-40">
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex justify-between items-center">
+<div className="cursor-pointer" onClick={() => navigateTo('/')}>
+<div className="flex items-baseline space-x-2">
+<span className="font-mono text-xs font-bold text-amber-700 dark:text-amber-500 border-r border-stone-400 pr-2 uppercase tracking-widest">
+AZEXAI / JOURNAL
+</span>
+<h1 className="font-serif text-3xl sm:text-5xl font-black tracking-tight text-stone-950 dark:text-stone-50">
+{CONFIG.BRAND_NAME}
+</h1>
+</div>
+<p className="font-serif italic text-xs sm:text-sm text-stone-600 dark:text-stone-400 mt-1">
+{CONFIG.TAGLINE}
+</p>
+</div>
+​<div className="hidden lg:flex items-center space-x-4 font-mono text-xs text-stone-700 dark:text-stone-300">
+<button
+onClick={() => setShowSettings(true)}
+className="flex items-center gap-1.5 px-2.5 py-1 bg-stone-200 dark:bg-stone-800 text-stone-900 dark:text-stone-100 font-bold border border-stone-400 dark:border-stone-700 hover:border-amber-600 transition-all"
+>
+<RefreshCwIcon className="w-3 h-3 text-amber-700 dark:text-amber-400" />
+<span>{articleCount} Posts Synced</span>
+</button>
+<span>•</span>
+<button onClick={() => navigateTo('/archive')} className="hover:underline flex items-center gap-1">
+<FileTextIcon className="w-3.5 h-3.5 text-amber-700" /> Archive ({articleCount})
+</button>
+<span>•</span>
+<button onClick={() => navigateTo('/about')} className="hover:underline flex items-center gap-1">
+<GlobeIcon className="w-3.5 h-3.5 text-amber-700" /> Standards
+</button>
+</div>
+​<button
+className="lg:hidden p-2 text-stone-900 dark:text-stone-100 border border-stone-400 dark:border-stone-700"
+onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+>
+{mobileMenuOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+</button>
+</div>
+​<nav className="hidden lg:block border-t border-stone-300 dark:border-stone-800 bg-stone-100/80 dark:bg-stone-900">
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center font-sans text-xs font-bold uppercase tracking-wider py-2 overflow-x-auto">
+<button
+onClick={() => navigateTo('/')}
+className={py-1 px-3 border-b-2 transition-all ${currentPath === '/' ? 'border-amber-700 text-stone-950 dark:text-stone-100 font-extrabold' : 'border-transparent text-stone-600 dark:text-stone-400'}}
+>
+Front Page
+</button>
+{categories.map((cat) => (
+<button
+key={cat}
+onClick={() => navigateTo(/category/${encodeURIComponent(cat)})}
+className={py-1 px-2.5 border-b-2 whitespace-nowrap transition-all ${currentPath === /category/${encodeURIComponent(cat)} ? 'border-amber-700 text-stone-950 dark:text-stone-100 font-extrabold' : 'border-transparent text-stone-600 dark:text-stone-400'}}
+>
+{cat}
+</button>
+))}
+</div>
+</nav>
+</header>
+);
 }
-
-// ============================================================================
-// COMPONENT: REUSABLE ARTICLE CARD
-// ============================================================================
-function ArticleCard({ article, navigateTo, isBookmarked, onToggleBookmark }) {
-  return (
-    <article 
-      onClick={() => navigateTo(`/blog/${article.slug}`)}
-      className="group cursor-pointer border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900 p-2.5 sm:p-4 shadow-sm hover:border-stone-500 transition-all flex flex-col justify-between"
-    >
-      <div>
-        <div className="relative aspect-[16/9] w-full bg-stone-950 mb-2 sm:mb-3 overflow-hidden border border-stone-200 dark:border-stone-800 flex items-center justify-center">
-          <img 
-            src={article.featuredImage} 
-            alt={article.title}
-            className="max-h-full max-w-full object-contain group-hover:scale-102 transition-transform duration-300"
-          />
-        </div>
-
-        <span className={`inline-block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-1.5 sm:px-2 py-0.5 border mb-1.5 sm:mb-2 ${CATEGORY_STYLES[article.category] || CATEGORY_STYLES["Technology"]}`}>
-          {article.category}
-        </span>
-
-        <h3 className="font-serif text-xs sm:text-base font-bold text-stone-950 dark:text-stone-100 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors line-clamp-2 leading-snug">
-          {article.title}
-        </h3>
-
-        <p className="font-serif text-[11px] sm:text-xs text-stone-600 dark:text-stone-400 mt-1 line-clamp-2 leading-relaxed">
-          {article.excerpt}
-        </p>
-      </div>
-
-      <div className="flex items-center justify-between pt-2 sm:pt-3 mt-2 sm:mt-3 border-t border-stone-200 dark:border-stone-800 font-mono text-[9px] sm:text-[10px] text-stone-500">
-        <span className="truncate">{formatDate(article.publishedAt)} • {article.readingTime}m</span>
-        <button 
-          onClick={(e) => { e.stopPropagation(); onToggleBookmark(article.id); }}
-          className="hover:text-amber-700 shrink-0 ml-1"
-        >
-          <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? "fill-amber-700 text-amber-700" : ""}`} />
-        </button>
-      </div>
-    </article>
-  );
+​function ArticleCard({ article, navigateTo, isBookmarked, onToggleBookmark }) {
+return (
+<article
+onClick={() => navigateTo(/blog/${article.slug})}
+className="group cursor-pointer border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900 p-3 sm:p-4 shadow-sm hover:border-stone-500 transition-all flex flex-col justify-between"
+>
+<div>
+<div className="relative aspect-[16/9] w-full bg-stone-950 mb-3 overflow-hidden border border-stone-200 dark:border-stone-800 flex items-center justify-center">
+<img src={article.featuredImage} alt={article.title} className="max-h-full max-w-full object-contain group-hover:scale-102 transition-transform duration-300" />
+</div>
+<span className={inline-block font-mono text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 border mb-2 ${CATEGORY_STYLES[article.category] || CATEGORY_STYLES["Technology"]}}>
+{article.category}
+</span>
+<h3 className="font-serif text-sm sm:text-base font-bold text-stone-950 dark:text-stone-100 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors line-clamp-2 leading-snug">
+{article.title}
+</h3>
+<p className="font-serif text-xs text-stone-600 dark:text-stone-400 mt-1 line-clamp-2 leading-relaxed">
+{article.excerpt}
+</p>
+</div>
+<div className="flex items-center justify-between pt-3 mt-3 border-t border-stone-200 dark:border-stone-800 font-mono text-[10px] text-stone-500">
+<span>{formatDate(article.publishedAt)} • {article.readingTime}m</span>
+<button onClick={(e) => { e.stopPropagation(); onToggleBookmark(article.id); }} className="hover:text-amber-700">
+<BookmarkIcon filled={isBookmarked} className="w-3.5 h-3.5 text-amber-700" />
+</button>
+</div>
+</article>
+);
 }
-
-// ============================================================================
-// PAGE: SINGLE ARTICLE VIEW
-// ============================================================================
-function ArticlePageView({ article, allArticles, navigateTo, bookmarks, toggleBookmark }) {
-  const [copied, setCopied] = useState(false);
-
-  const related = allArticles
-    .filter(a => a.id !== article.id && a.category === article.category)
-    .slice(0, 3);
-
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  return (
-    <div className="max-w-4xl mx-auto space-y-8">
-      <button 
-        onClick={() => navigateTo('/')}
-        className="font-mono text-xs text-amber-800 dark:text-amber-400 font-bold hover:underline flex items-center gap-1"
-      >
-        <ArrowLeft className="w-3.5 h-3.5" /> Return to Front Page
-      </button>
-
-      <header className="space-y-4 border-b border-stone-300 dark:border-stone-800 pb-6">
-        <span className={`inline-block font-mono text-xs font-bold uppercase tracking-wider px-2.5 py-1 border ${CATEGORY_STYLES[article.category] || CATEGORY_STYLES["Technology"]}`}>
-          {article.category}
-        </span>
-
-        <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-stone-950 dark:text-stone-50 leading-tight">
-          {article.title}
-        </h1>
-
-        <p className="font-serif text-lg text-stone-700 dark:text-stone-300 italic leading-relaxed">
-          {article.excerpt}
-        </p>
-
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-stone-200 dark:border-stone-800 font-mono text-xs text-stone-600 dark:text-stone-400">
-          <div className="flex items-center space-x-3">
-            <User className="w-4 h-4 text-amber-700" />
-            <span className="font-bold text-stone-900 dark:text-stone-200">{article.author}</span>
-            <span>•</span>
-            <Calendar className="w-4 h-4 text-amber-700" />
-            <span>{formatDate(article.publishedAt)}</span>
-            <span>•</span>
-            <Clock className="w-4 h-4 text-amber-700" />
-            <span>{article.readingTime} min read</span>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <button 
-              onClick={handleCopyLink}
-              className="p-1.5 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors flex items-center gap-1"
-              title="Copy Link"
-            >
-              {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-            </button>
-
-            <button 
-              onClick={() => toggleBookmark(article.id)}
-              className="p-1.5 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
-              title="Bookmark Dispatch"
-            >
-              <Bookmark className={`w-3.5 h-3.5 ${bookmarks.includes(article.id) ? "fill-amber-700 text-amber-700" : ""}`} />
-            </button>
-
-            <button 
-              onClick={() => window.print()}
-              className="p-1.5 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
-              title="Print Article"
-            >
-              <Printer className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Image View Container with Aspect Ratio Guard */}
-      <div className="relative aspect-[16/9] w-full bg-stone-950 border border-stone-300 dark:border-stone-800 overflow-hidden flex items-center justify-center">
-        <img 
-          src={article.featuredImage} 
-          alt={article.title}
-          className="max-h-full max-w-full object-contain"
-        />
-      </div>
-
-      <article 
-        className="font-serif text-stone-900 dark:text-stone-100 text-base sm:text-lg leading-relaxed space-y-4"
-        dangerouslySetInnerHTML={{ __html: article.content }}
-      />
-
-      {article.labels && article.labels.length > 0 && (
-        <div className="pt-6 border-t border-stone-300 dark:border-stone-800 flex flex-wrap items-center gap-2 font-mono text-xs">
-          <span className="font-bold uppercase text-stone-500">Keywords:</span>
-          {article.labels.map(lbl => (
-            <span key={lbl} className="bg-stone-200 dark:bg-stone-800 text-stone-800 dark:text-stone-200 px-2 py-0.5 border border-stone-300 dark:border-stone-700">
-              #{lbl}
-            </span>
-          ))}
-        </div>
-      )}
-
-      {related.length > 0 && (
-        <section className="pt-8 border-t-2 border-stone-900 dark:border-stone-100 space-y-4">
-          <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-amber-700">
-            RELATED EDITORIAL DISPATCHES
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {related.map(rel => (
-              <div 
-                key={rel.id} 
-                onClick={() => navigateTo(`/blog/${rel.slug}`)}
-                className="p-3 border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900 cursor-pointer hover:border-amber-700 transition-colors"
-              >
-                <div className="font-mono text-[10px] text-stone-500 uppercase">{rel.category}</div>
-                <div className="font-serif text-sm font-bold mt-1 line-clamp-2">{rel.title}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-    </div>
-  );
+​function HomePageView({ articles, navigateTo, bookmarks, toggleBookmark }) {
+const [visibleCount, setVisibleCount] = useState(12);
+if (!articles || articles.length === 0) return null;
+​const leadStory = articles[0];
+const secondaryStories = articles.slice(1, 4);
+const gridArticles = articles.slice(0, visibleCount);
+​return (
+<div className="space-y-12">
+<section className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b-2 border-stone-300 dark:border-stone-800 pb-10">
+<div
+onClick={() => navigateTo(/blog/${leadStory.slug})}
+className="lg:col-span-8 group cursor-pointer border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900 p-4 sm:p-6 shadow-sm hover:border-stone-500 transition-all"
+>
+<div className="relative aspect-[16/9] w-full bg-stone-950 mb-4 overflow-hidden border border-stone-300 dark:border-stone-700 flex items-center justify-center">
+<img src={leadStory.featuredImage} alt={leadStory.title} className="max-h-full max-w-full object-contain group-hover:scale-102 transition-transform duration-500" />
+<span className="absolute top-3 left-3 bg-stone-950 text-amber-400 border border-amber-600/40 font-mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1">
+AZEXAI / LEAD STORY
+</span>
+</div>
+<div className="space-y-3">
+<span className={inline-block font-mono text-xs font-bold uppercase tracking-wider px-2 py-0.5 border ${CATEGORY_STYLES[leadStory.category] || CATEGORY_STYLES["Technology"]}}>
+{leadStory.category}
+</span>
+<h2 className="font-serif text-2xl sm:text-4xl font-extrabold text-stone-950 dark:text-stone-50 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors leading-tight">
+{leadStory.title}
+</h2>
+<p className="font-serif text-stone-700 dark:text-stone-300 text-base leading-relaxed line-clamp-3">
+{leadStory.excerpt}
+</p>
+<div className="flex items-center justify-between pt-3 border-t border-stone-200 dark:border-stone-800 font-mono text-xs text-stone-600 dark:text-stone-400">
+<div className="flex items-center space-x-2">
+<span className="font-bold text-stone-900 dark:text-stone-200">{leadStory.author}</span>
+<span>•</span>
+<span>{formatDate(leadStory.publishedAt)}</span>
+</div>
+</div>
+</div>
+</div>
+​<div className="lg:col-span-4 flex flex-col justify-between space-y-4">
+<div className="border-b-2 border-amber-700 pb-1">
+<h3 className="font-mono text-xs font-bold uppercase tracking-widest text-stone-900 dark:text-stone-100 flex items-center justify-between">
+<span>EDITORIAL SELECTION</span>
+<SparklesIcon className="w-3.5 h-3.5 text-amber-700" />
+</h3>
+</div>
+<div className="divide-y divide-stone-300 dark:divide-stone-800 space-y-4">
+{secondaryStories.map((story) => (
+<article key={story.id} onClick={() => navigateTo(/blog/${story.slug})} className="pt-3 first:pt-0 group cursor-pointer">
+<span className="font-mono text-[10px] font-bold uppercase text-amber-800 dark:text-amber-400 tracking-wider">{story.category}</span>
+<h4 className="font-serif text-base font-bold text-stone-950 dark:text-stone-100 group-hover:text-amber-800 leading-snug transition-colors mt-0.5">{story.title}</h4>
+<p className="font-serif text-xs text-stone-600 dark:text-stone-400 line-clamp-2 mt-1">{story.excerpt}</p>
+</article>
+))}
+</div>
+</div>
+</section>
+​<section className="space-y-6">
+<div className="flex items-center justify-between border-b-2 border-stone-900 dark:border-stone-100 pb-2">
+<h3 className="font-serif text-2xl font-extrabold text-stone-950 dark:text-stone-50 flex items-center gap-2">
+<LayersIcon className="w-5 h-5 text-amber-700" />
+ALL PUBLISHED DISPATCHES ({gridArticles.length} OF {articles.length})
+</h3>
+</div>
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+{gridArticles.map((article) => (
+<ArticleCard key={article.id} article={article} navigateTo={navigateTo} isBookmarked={bookmarks.includes(article.id)} onToggleBookmark={toggleBookmark} />
+))}
+</div>
+{visibleCount < articles.length && (
+<div className="text-center pt-6">
+<button
+onClick={() => setVisibleCount(prev => Math.min(prev + 12, articles.length))}
+className="px-6 py-3 bg-stone-900 dark:bg-stone-100 text-stone-100 dark:text-stone-900 font-mono text-xs font-bold uppercase border hover:bg-amber-700 transition-colors"
+>
+Load More Articles ({articles.length - visibleCount} Remaining)
+</button>
+</div>
+)}
+</section>
+</div>
+);
 }
-
-// ============================================================================
-// PAGE: CATEGORY VIEW
-// ============================================================================
-function CategoryPageView({ category, articles, navigateTo, bookmarks, toggleBookmark }) {
-  return (
-    <div className="space-y-6">
-      <div className="border-b-2 border-stone-900 dark:border-stone-100 pb-3">
-        <span className="font-mono text-xs text-amber-700 font-bold uppercase">Editorial Category</span>
-        <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-stone-950 dark:text-stone-50">
-          {category}
-        </h1>
-        <p className="font-mono text-xs text-stone-500 mt-1">
-          Showing {articles.length} dispatches mapped to {category}.
-        </p>
-      </div>
-
-      {articles.length === 0 ? (
-        <div className="p-8 border border-stone-300 dark:border-stone-800 text-center font-mono text-xs text-stone-500">
-          No dispatches recorded under this category desk yet.
-        </div>
-      ) : (
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
-          {articles.map((art) => (
-            <ArticleCard 
-              key={art.id}
-              article={art}
-              navigateTo={navigateTo}
-              isBookmarked={bookmarks.includes(art.id)}
-              onToggleBookmark={toggleBookmark}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  );
+​function ArticlePageView({ article, navigateTo }) {
+return (
+<div className="max-w-4xl mx-auto space-y-8">
+<button onClick={() => navigateTo('/')} className="font-mono text-xs text-amber-800 dark:text-amber-400 font-bold hover:underline flex items-center gap-1">
+<ArrowLeftIcon className="w-3.5 h-3.5" /> Return to Front Page
+</button>
+<header className="space-y-4 border-b border-stone-300 dark:border-stone-800 pb-6">
+<span className={inline-block font-mono text-xs font-bold uppercase tracking-wider px-2.5 py-1 border ${CATEGORY_STYLES[article.category] || CATEGORY_STYLES["Technology"]}}>
+{article.category}
+</span>
+<h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-stone-950 dark:text-stone-50 leading-tight">
+{article.title}
+</h1>
+<p className="font-serif text-lg text-stone-700 dark:text-stone-300 italic leading-relaxed">
+{article.excerpt}
+</p>
+</header>
+<div className="relative aspect-[16/9] w-full bg-stone-950 border border-stone-300 dark:border-stone-800 overflow-hidden flex items-center justify-center">
+<img src={article.featuredImage} alt={article.title} className="max-h-full max-w-full object-contain" />
+</div>
+<article className="font-serif text-stone-900 dark:text-stone-100 text-base sm:text-lg leading-relaxed space-y-4" dangerouslySetInnerHTML={{ __html: article.content }} />
+</div>
+);
 }
-
-// ============================================================================
-// PAGE: SEARCH VIEW
-// ============================================================================
-function SearchPageView({ query, articles, navigateTo, bookmarks, toggleBookmark }) {
-  const filtered = articles.filter(a => {
-    const q = query.toLowerCase();
-    return a.title.toLowerCase().includes(q) || 
-           a.excerpt.toLowerCase().includes(q) ||
-           a.category.toLowerCase().includes(q);
-  });
-
-  return (
-    <div className="space-y-6">
-      <div className="border-b-2 border-stone-900 dark:border-stone-100 pb-3">
-        <span className="font-mono text-xs text-amber-700 font-bold uppercase">Search Audit Desk</span>
-        <h1 className="font-serif text-3xl font-extrabold text-stone-950 dark:text-stone-50">
-          Query: "{query}"
-        </h1>
-        <p className="font-mono text-xs text-stone-500 mt-1">
-          Found {filtered.length} matching editorial documents.
-        </p>
-      </div>
-
-      {filtered.length === 0 ? (
-        <div className="p-8 border border-stone-300 dark:border-stone-800 text-center font-mono text-xs text-stone-500">
-          No articles match your search parameters. Try searching for terms like "AI", "silicon", "robotics", or "code".
-        </div>
-      ) : (
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
-          {filtered.map((art) => (
-            <ArticleCard 
-              key={art.id}
-              article={art}
-              navigateTo={navigateTo}
-              isBookmarked={bookmarks.includes(art.id)}
-              onToggleBookmark={toggleBookmark}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  );
+​function App() {
+const [articles, setArticles] = useState([]);
+const [loading, setLoading] = useState(true);
+const [blogId, setBlogId] = useState(CONFIG.BLOGGER_BLOG_ID);
+const [currentPath, setCurrentPath] = useState('/');
+const [searchQuery, setSearchQuery] = useState('');
+const [darkMode, setDarkMode] = useState(false);
+const [bookmarks, setBookmarks] = useState([]);
+const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+​const navigateTo = (path) => {
+setCurrentPath(path);
+setMobileMenuOpen(false);
+window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+​useEffect(() => {
+async function loadAllPosts() {
+setLoading(true);
+let fetchedPosts = [];
+try {
+const feedPosts = await fetchAllPublicBloggerPosts(blogId);
+if (feedPosts.length > 0) fetchedPosts = feedPosts;
+} catch (e) {}
+​if (fetchedPosts.length === 0) fetchedPosts = FALLBACK_BLOGGER_POSTS;
+​const uniqueMap = new Map();
+fetchedPosts.forEach(p => uniqueMap.set(p.id || p.title, p));
+const sorted = Array.from(uniqueMap.values()).sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+​setArticles(sorted);
+setLoading(false);
 }
-
-// ============================================================================
-// PAGE: ARCHIVE VIEW WITH FULL PAGINATION
-// ============================================================================
-function ArchivePageView({ articles, page, setPage, navigateTo }) {
-  const totalPages = Math.ceil(articles.length / CONFIG.ITEMS_PER_PAGE) || 1;
-  const currentPage = Math.max(1, Math.min(page, totalPages));
-  const pagedArticles = articles.slice((currentPage - 1) * CONFIG.ITEMS_PER_PAGE, currentPage * CONFIG.ITEMS_PER_PAGE);
-
-  return (
-    <div className="space-y-6">
-      <div className="border-b-2 border-stone-900 dark:border-stone-100 pb-3 flex flex-col sm:flex-row justify-between sm:items-end gap-2">
-        <div>
-          <span className="font-mono text-xs text-amber-700 font-bold uppercase">AZEXAI Chronological Archive</span>
-          <h1 className="font-serif text-3xl font-extrabold text-stone-950 dark:text-stone-50">
-            Complete Journal Index
-          </h1>
-          <p className="font-mono text-xs text-stone-500 mt-1">
-            Total Articles: <span className="font-bold text-amber-700 dark:text-amber-400">{articles.length}</span> | Strictly Newest → Oldest
-          </p>
-        </div>
-        <div className="font-mono text-xs text-stone-600 dark:text-stone-400">
-          Page {currentPage} of {totalPages}
-        </div>
-      </div>
-
-      <div className="border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900 overflow-x-auto">
-        <table className="w-full text-left font-sans text-xs border-collapse">
-          <thead>
-            <tr className="bg-stone-200 dark:bg-stone-800 font-mono text-[11px] uppercase text-stone-700 dark:text-stone-300 border-b border-stone-300 dark:border-stone-700">
-              <th className="p-3">Published Date</th>
-              <th className="p-3">Category Desk</th>
-              <th className="p-3">Title & Summary</th>
-              <th className="p-3">Author</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-stone-200 dark:divide-stone-800">
-            {pagedArticles.map(art => (
-              <tr 
-                key={art.id} 
-                onClick={() => navigateTo(`/blog/${art.slug}`)}
-                className="hover:bg-amber-50 dark:hover:bg-stone-800/50 cursor-pointer transition-colors"
-              >
-                <td className="p-3 font-mono text-stone-500 whitespace-nowrap">{formatDate(art.publishedAt)}</td>
-                <td className="p-3 font-mono font-bold text-amber-800 dark:text-amber-400 whitespace-nowrap">{art.category}</td>
-                <td className="p-3">
-                  <div className="font-serif font-bold text-stone-950 dark:text-stone-100">{art.title}</div>
-                  <div className="font-serif text-stone-500 line-clamp-1 text-[11px]">{art.excerpt}</div>
-                </td>
-                <td className="p-3 font-mono text-stone-600 dark:text-stone-400 whitespace-nowrap">{art.author}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {totalPages > 1 && (
-        <div className="flex flex-wrap justify-between items-center font-mono text-xs pt-4 border-t border-stone-300 dark:border-stone-800 gap-2">
-          <button 
-            disabled={currentPage === 1}
-            onClick={() => setPage(currentPage - 1)}
-            className="px-3 py-1.5 border border-stone-400 dark:border-stone-700 disabled:opacity-40 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
-          >
-            ← Previous Page
-          </button>
-
-          <div className="flex items-center space-x-1 overflow-x-auto py-1">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-              <button
-                key={pageNum}
-                onClick={() => setPage(pageNum)}
-                className={`px-2.5 py-1 border text-xs font-mono transition-colors ${
-                  pageNum === currentPage 
-                    ? 'bg-amber-700 text-white border-amber-700 font-bold' 
-                    : 'border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800'
-                }`}
-              >
-                {pageNum}
-              </button>
-            ))}
-          </div>
-
-          <button 
-            disabled={currentPage === totalPages}
-            onClick={() => setPage(currentPage + 1)}
-            className="px-3 py-1.5 border border-stone-400 dark:border-stone-700 disabled:opacity-40 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
-          >
-            Next Page →
-          </button>
-        </div>
-      )}
-    </div>
-  );
+loadAllPosts();
+}, [blogId]);
+​useEffect(() => {
+if (darkMode) document.documentElement.classList.add('dark');
+else document.documentElement.classList.remove('dark');
+}, [darkMode]);
+​const isHome = currentPath === '/';
+const isArticle = currentPath.startsWith('/blog/');
+const activeArticleSlug = isArticle ? currentPath.replace('/blog/', '') : null;
+const selectedArticle = isArticle ? articles.find(a => a.slug === activeArticleSlug) || articles[0] : null;
+​const toggleBookmark = (id) => {
+setBookmarks(prev => prev.includes(id) ? prev.filter(b => b !== id) : [...prev, id]);
+};
+​return (
+<div className="min-h-screen bg-[#FAF8F5] text-stone-900 dark:bg-stone-950 dark:text-stone-100 font-serif antialiased">
+<TopUtilityBar darkMode={darkMode} setDarkMode={setDarkMode} searchQuery={searchQuery} setSearchQuery={setSearchQuery} onSearchSubmit={(e) => { e.preventDefault(); }} />
+<PublicationHeader currentPath={currentPath} navigateTo={navigateTo} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} articleCount={articles.length} />
+​<main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+{loading ? (
+<div className="p-8 text-center font-mono text-xs">Loading AZEXAI Intelligence Stream...</div>
+) : (
+<>
+{isHome && <HomePageView articles={articles} navigateTo={navigateTo} bookmarks={bookmarks} toggleBookmark={toggleBookmark} />}
+{isArticle && selectedArticle && <ArticlePageView article={selectedArticle} navigateTo={navigateTo} />}
+</>
+)}
+</main>
+​<footer className="bg-stone-900 text-stone-300 border-t-4 border-stone-800 py-8 font-sans text-xs text-center font-mono">
+© {new Date().getFullYear()} AZEXAI Journal. All rights reserved.
+</footer>
+</div>
+);
 }
-
-// ============================================================================
-// PAGE: ABOUT & EDITORIAL STANDARDS
-// ============================================================================
-function AboutPageView() {
-  return (
-    <div className="max-w-3xl mx-auto space-y-6 py-4">
-      <div className="border-b-2 border-stone-900 dark:border-stone-100 pb-3">
-        <span className="font-mono text-xs text-amber-700 font-bold uppercase">Institutional Profile</span>
-        <h1 className="font-serif text-3xl font-extrabold text-stone-950 dark:text-stone-50">
-          About AZEXAI Journal
-        </h1>
-      </div>
-
-      <div className="font-serif text-stone-800 dark:text-stone-200 space-y-4 leading-relaxed">
-        <p className="text-lg font-bold italic border-l-4 border-amber-700 pl-4 py-1">
-          AZEXAI is an independent technology journal publishing technical audits, silicon architectures, and computational research reviews.
-        </p>
-
-        <h2 className="font-serif text-xl font-bold text-stone-950 dark:text-stone-100 pt-4 border-t border-stone-300 dark:border-stone-800">
-          Editorial Mandate
-        </h2>
-        <p>
-          Founded on the principle that modern artificial intelligence coverage suffers from corporate hype and superficial press release regurgitation, AZEXAI delivers source-level audits, benchmark verification, and mathematical analysis.
-        </p>
-      </div>
-    </div>
-  );
-}
-
-// ============================================================================
-// PAGE: CONTACT DESK
-// ============================================================================
-function ContactPageView() {
-  const [submitted, setSubmitted] = useState(false);
-
-  return (
-    <div className="max-w-xl mx-auto space-y-6 py-4">
-      <div className="border-b-2 border-stone-900 dark:border-stone-100 pb-3">
-        <span className="font-mono text-xs text-amber-700 font-bold uppercase">Editorial Inquiries</span>
-        <h1 className="font-serif text-3xl font-extrabold text-stone-950 dark:text-stone-50">
-          AZEXAI Contact Desk
-        </h1>
-      </div>
-
-      {submitted ? (
-        <div className="p-6 bg-stone-200 dark:bg-stone-900 border border-emerald-600 text-center font-serif text-sm">
-          Message transmitted directly to the managing desk.
-        </div>
-      ) : (
-        <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4 font-sans text-xs">
-          <div>
-            <label className="block font-mono font-bold uppercase mb-1">Your Name</label>
-            <input required type="text" className="w-full bg-white dark:bg-stone-900 border border-stone-400 p-2 text-stone-900 dark:text-stone-100" />
-          </div>
-          <div>
-            <label className="block font-mono font-bold uppercase mb-1">Email Address</label>
-            <input required type="email" className="w-full bg-white dark:bg-stone-900 border border-stone-400 p-2 text-stone-900 dark:text-stone-100" />
-          </div>
-          <div>
-            <label className="block font-mono font-bold uppercase mb-1">Message Body</label>
-            <textarea required rows={5} className="w-full bg-white dark:bg-stone-900 border border-stone-400 p-2 text-stone-900 dark:text-stone-100"></textarea>
-          </div>
-          <button type="submit" className="w-full bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 font-mono font-bold uppercase py-2.5">
-            Submit Correspondence
-          </button>
-        </form>
-      )}
-    </div>
-  );
-}
-
-// ============================================================================
-// COMPONENT: NEWSLETTER DESK
-// ============================================================================
-function NewsletterDesk() {
-  const [sub, setSub] = useState(false);
-
-  return (
-    <section className="my-12 p-8 bg-stone-900 text-stone-100 border-2 border-amber-600">
-      <div className="max-w-2xl mx-auto text-center space-y-3">
-        <span className="font-mono text-xs text-amber-400 uppercase tracking-widest">
-          AZEXAI WEEKLY AUDIT DISPATCH
-        </span>
-        <h3 className="font-serif text-2xl sm:text-3xl font-extrabold">
-          Receive Source-Level Technical Intelligence
-        </h3>
-        {sub ? (
-          <p className="font-mono text-xs text-emerald-400">Subscribed to the AZEXAI Weekly Audit.</p>
-        ) : (
-          <form onSubmit={(e) => { e.preventDefault(); setSub(true); }} className="flex flex-col sm:flex-row gap-2 pt-2">
-            <input required type="email" placeholder="engineer@domain.com" className="bg-stone-800 border border-stone-700 text-white text-xs p-2.5 flex-1 font-mono" />
-            <button type="submit" className="bg-amber-600 text-stone-950 font-mono text-xs font-bold uppercase px-4 py-2.5">
-              Subscribe
-            </button>
-          </form>
-        )}
-      </div>
-    </section>
-  );
-}
-
-// ============================================================================
-// COMPONENT: PUBLICATION FOOTER
-// ============================================================================
-function PublicationFooter({ navigateTo }) {
-  return (
-    <footer className="bg-stone-900 text-stone-300 border-t-4 border-stone-800 pt-10 pb-8 font-sans text-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 border-b border-stone-800 pb-8">
-          <div className="md:col-span-6 space-y-2">
-            <div className="font-mono text-amber-500 font-bold text-sm">AZEXAI / JOURNAL</div>
-            <p className="font-serif text-stone-400 text-xs leading-relaxed max-w-sm">
-              An independent journal of machine intelligence, hardware architecture, and technological philosophy. Published continuous reports since {CONFIG.FOUNDED_YEAR}.
-            </p>
-          </div>
-          <div className="md:col-span-6 flex flex-wrap gap-4 text-stone-400 font-mono">
-            <button onClick={() => navigateTo('/')} className="hover:underline">Front Page</button>
-            <button onClick={() => navigateTo('/archive')} className="hover:underline">Chronological Archive</button>
-            <button onClick={() => navigateTo('/about')} className="hover:underline">Editorial Code</button>
-            <button onClick={() => navigateTo('/contact')} className="hover:underline">Contact Desk</button>
-          </div>
-        </div>
-        <div className="flex justify-between items-center text-stone-500 font-mono text-[10px]">
-          <div>© {new Date().getFullYear()} AZEXAI Journal Group. All rights reserved.</div>
-          <div>Blogger API Synchronization Active</div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-// ============================================================================
-// COMPONENT: LOADING SKELETON
-// ============================================================================
-function LoadingSkeleton() {
-  return (
-    <div className="space-y-6 animate-pulse py-6">
-      <div className="h-8 bg-stone-300 dark:bg-stone-800 w-1/3"></div>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div className="lg:col-span-8 h-80 bg-stone-300 dark:bg-stone-800"></div>
-        <div className="lg:col-span-4 h-80 bg-stone-300 dark:bg-stone-800"></div>
-      </div>
-    </div>
-  );
-}
-
-// ============================================================================
-// COMPONENT: ERROR BANNER
-// ============================================================================
-function ErrorBanner({ message }) {
-  return (
-    <div className="p-6 border-2 border-amber-600 bg-stone-100 dark:bg-stone-900 text-center font-mono text-xs">
-      <AlertTriangle className="w-6 h-6 text-amber-600 mx-auto mb-2" />
-      <div>{message || "Error communicating with Blogger API stream."}</div>
-    </div>
-  );
-}
+​const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
+</body>
+</html>

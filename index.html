@@ -35,8 +35,8 @@
               cyan: '#38bdf8',
               purple: '#c084fc',
               emerald: '#34d399',
-              darkBg: '#050505',
-              cardBg: '#0a0a0a'
+              darkBg: '#030712',
+              cardBg: '#090d16'
             }
           }
         }
@@ -57,10 +57,24 @@
     }
 
     body {
-      background-color: #050505;
+      background-color: #030712;
       color: #f8fafc;
       margin: 0;
       padding: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Animated Blue Particles Canvas Background */
+    #bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(circle at center, #070e24 0%, #030712 100%);
     }
 
     .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -68,7 +82,8 @@
 
     /* Clean Card Style with Absolutely No Borders or Frames */
     .clean-card {
-      background: #0d0d0d;
+      background: rgba(13, 18, 30, 0.75);
+      backdrop-filter: blur(8px);
       border: none !important;
       outline: none !important;
       box-shadow: none !important;
@@ -99,14 +114,39 @@
       margin: 1.5rem 0;
       border: none !important;
     }
-    .prose a { color: #f97316; text-decoration: none; font-weight: 700; }
+    .prose a { color: #38bdf8; text-decoration: none; font-weight: 700; }
     .prose a:hover { color: #ffffff; text-decoration: underline; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-[#050505] text-slate-100">
+<body class="min-h-screen flex flex-col text-slate-100">
+
+  <!-- Interactive Animated Canvas Background -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- NEW EXTRA TOP NAVIGATION BAR -->
+  <div class="bg-black/80 backdrop-blur-md text-[11px] font-bold tracking-wider uppercase py-2 border-b border-cyan-900/30">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4 text-cyan-400 overflow-x-auto no-scrollbar whitespace-nowrap">
+        <span class="flex items-center gap-1.5 text-white"><i class="fa-solid fa-bolt text-cyan-400"></i> TOP SECTIONS:</span>
+        <a href="/category/ai" onclick="setCategory('AI', event)" class="hover:text-white transition">Artificial Intelligence</a>
+        <span class="text-slate-700">•</span>
+        <a href="/category/tech" onclick="setCategory('Tech', event)" class="hover:text-white transition">Frontier Tech</a>
+        <span class="text-slate-700">•</span>
+        <a href="/category/cybersecurity" onclick="setCategory('Cybersecurity', event)" class="hover:text-white transition">Cybersecurity</a>
+        <span class="text-slate-700">•</span>
+        <a href="/category/software" onclick="setCategory('Software', event)" class="hover:text-white transition">Software Architecture</a>
+        <span class="text-slate-700">•</span>
+        <a href="/category/gadgets" onclick="setCategory('Gadgets', event)" class="hover:text-white transition">Smart Devices</a>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-slate-400 shrink-0">
+        <a href="/editorial" onclick="navigateToStaticPage('editorial', event)" class="hover:text-white transition">Editorial Board</a>
+        <a href="/about" onclick="navigateToStaticPage('about', event)" class="hover:text-white transition">About</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Header Section with Multi-color Actions -->
-  <header class="sticky top-0 z-50 bg-black/95 backdrop-blur-md">
+  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
       
       <!-- Brand Logo -->
@@ -121,10 +161,10 @@
       
       <!-- Header Actions -->
       <div class="flex items-center gap-2">
-        <button onclick="openSearchModal()" class="p-2 sm:p-2.5 rounded-xl bg-neutral-900 text-slate-200 hover:text-white transition" aria-label="Search Articles">
+        <button onclick="openSearchModal()" class="p-2 sm:p-2.5 rounded-xl bg-slate-900/80 text-slate-200 hover:text-cyan-400 transition" aria-label="Search Articles">
           <i class="fa-solid fa-magnifying-glass text-xs sm:text-base"></i>
         </button>
-        <button onclick="navigateToStaticPage('contact', event)" class="flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-500 via-cyan-500 to-emerald-500 hover:opacity-90 text-white text-[11px] sm:text-xs font-black uppercase tracking-wider rounded-xl transition">
+        <button onclick="navigateToStaticPage('contact', event)" class="flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:opacity-90 text-white text-[11px] sm:text-xs font-black uppercase tracking-wider rounded-xl transition shadow-lg shadow-cyan-950">
           <i class="fa-solid fa-paper-plane text-[10px]"></i>
           <span>Contact</span>
         </button>
@@ -133,12 +173,12 @@
   </header>
 
   <!-- Dynamic Content Area -->
-  <main class="flex-grow max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-3 sm:py-6 w-full">
+  <main class="flex-grow max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-3 sm:py-6 w-full relative z-10">
     <div id="app"></div>
   </main>
 
   <!-- Multi-Color Full Featured Footer -->
-  <footer class="bg-black py-12 sm:py-16 text-xs text-slate-300 mt-12 relative overflow-hidden">
+  <footer class="bg-black/95 py-12 sm:py-16 text-xs text-slate-300 mt-12 relative overflow-hidden z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
       
       <!-- Brand & Socials Header -->
@@ -243,6 +283,83 @@
   <!-- Main JS Engine -->
   <script>
     const CONTACT_EMAIL = "aristo@azexai.com";
+
+    // Animated Blue Particles Background Script
+    (function initBackgroundCanvas() {
+      const canvas = document.getElementById('bgCanvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.6;
+          this.vy = (Math.random() - 0.5) * 0.6;
+          this.radius = Math.random() * 1.8 + 0.8;
+          this.alpha = Math.random() * 0.6 + 0.2;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(56, 189, 248, ${this.alpha})`;
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = '#38bdf8';
+          ctx.fill();
+        }
+      }
+
+      const count = Math.min(Math.floor(window.innerWidth / 15), 70);
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw connecting lines between close particles
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(56, 189, 248, ${0.15 * (1 - dist / 120)})`;
+              ctx.lineWidth = 0.6;
+              ctx.stroke();
+            }
+          }
+        }
+
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
 
     // Blogger Config API
     const BLOGGER_CONFIG = {
@@ -494,7 +611,7 @@
       renderHome();
     }
 
-    // Modern Main Home Layout Grid: 2 columns in Mobile, 3 columns in Desktop, No Frames
+    // Modern Main Home Layout Grid: 2 columns in Mobile, 3 columns in Desktop, Zero Frames
     function renderHome() {
       const app = document.getElementById('app');
       const filtered = ARTICLES.filter(a => {
@@ -507,20 +624,20 @@
         <!-- Categories Bar -->
         <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 mb-4">
           ${AZEXAI.categories.map(cat => `
-            <button onclick="setCategory('${cat}', event)" class="px-3 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition ${AZEXAI.activeCategory === cat ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white' : 'bg-neutral-900 text-slate-400 hover:text-white'}">${cat}</button>
+            <button onclick="setCategory('${cat}', event)" class="px-3 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition ${AZEXAI.activeCategory === cat ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white' : 'bg-slate-900/80 text-slate-400 hover:text-white'}">${cat}</button>
           `).join('')}
         </div>
 
         <!-- Headline Article Count -->
         <div class="mb-4 text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+          <span class="w-2 h-2 rounded-full bg-cyan-400 shadow-md shadow-cyan-500"></span>
           <span>${AZEXAI.activeCategory} (${filtered.length} Articles)</span>
         </div>
 
         <!-- Strict Grid Requirement: 2 items per line on Mobile, 3 items per line on Desktop, Zero Frames/Borders -->
         <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
           ${filtered.map(art => `
-            <div data-article-slug="${art.slug}" onclick="navigateToArticle('${art.slug}', event)" class="clean-card rounded-xl overflow-hidden flex flex-col cursor-pointer group">
+            <div data-article-slug="${art.slug}" onclick="navigateToArticle('${art.slug}', event)" class="clean-card rounded-xl overflow-hidden flex flex-col cursor-pointer group hover:bg-slate-900/90 transition">
               <!-- No image frames -->
               <div class="aspect-[16/10] bg-neutral-950 relative overflow-hidden">
                 <img src="${art.image}" alt="${art.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">

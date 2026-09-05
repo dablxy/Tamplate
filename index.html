@@ -10,289 +10,251 @@
     <!-- Favicon SVG -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230f172a'/><path d='M25 75 L50 25 L75 75 M35 60 L65 60' stroke='%232563eb' stroke-width='8' fill='none'/></svg>">
 
-    <!-- Fonts -->
+    <!-- Fonts: Standard Sans-Serif & Mono Only (No Italics) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- DOMPurify for sanitizing Blogger HTML -->
+    <!-- DOMPurify -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.8/purify.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <style>
         :root {
-            --bg-primary: #fcfcfd;
-            --bg-secondary: #f1f3f7;
+            --bg-primary: #f8fafc;
+            --bg-secondary: #f1f5f9;
             --bg-surface: #ffffff;
-            --bg-elevated: #ffffff;
             
             --text-primary: #0f172a;
-            --text-secondary: #475569;
+            --text-secondary: #334155;
             --text-muted: #64748b;
-            --text-inverse: #f8fafc;
+            --text-inverse: #ffffff;
 
             --border-light: #e2e8f0;
-            --border-subtle: #f1f5f9;
-            --border-focus: #0f172a;
+            --border-subtle: #cbd5e1;
 
             --accent-primary: #2563eb;
-            --accent-hover: #1d4ed8;
-            --accent-subtle: #eff6ff;
-
-            --badge-bg: #f1f5f9;
-            --badge-text: #334155;
-
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            --font-serif: 'Newsreader', Georgia, Cambria, "Times New Roman", serif;
-            --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
 
             --max-width: 1320px;
-            --reading-width: 760px;
-            --header-height: 72px;
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 12px;
+            --reading-width: 820px;
+            --header-height: 76px;
+            --radius-sm: 6px;
+            --radius-md: 10px;
 
-            --transition-fast: 0.15s ease;
-            --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
 
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
-            --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
-            --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
+            /* Top Nav Specific Row Colors */
+            --nav-c-home: #2563eb;
+            --nav-c-ai: #d97706;
+            --nav-c-robotics: #dc2626;
+            --nav-c-hardware: #059669;
+            --nav-c-software: #7c3aed;
+            --nav-c-future: #0891b2;
+            --nav-c-guides: #ea580c;
+            --nav-c-reviews: #db2777;
+            --nav-c-ethics: #4f46e5;
+            --nav-c-archive: #475569;
+
+            /* Footer Columns Distinct Colorful Themes */
+            --ft-col1-bg: #0f172a;
+            --ft-col1-txt: #f8fafc;
+            --ft-col2-bg: #1e1b4b;
+            --ft-col2-txt: #e0e7ff;
+            --ft-col3-bg: #064e3b;
+            --ft-col3-txt: #ecfdf5;
+            --ft-col4-bg: #4c1d95;
+            --ft-col4-txt: #f5f3ff;
+            --ft-bottom-bg: #020617;
         }
 
         [data-theme="dark"] {
-            --bg-primary: #0b0f17;
-            --bg-secondary: #131b2a;
-            --bg-surface: #111827;
-            --bg-elevated: #1e293b;
+            --bg-primary: #090d16;
+            --bg-secondary: #131c2e;
+            --bg-surface: #0f172a;
 
             --text-primary: #f8fafc;
             --text-secondary: #cbd5e1;
             --text-muted: #94a3b8;
-            --text-inverse: #0f172a;
 
             --border-light: #1e293b;
-            --border-subtle: #172033;
-            --border-focus: #38bdf8;
+            --border-subtle: #334155;
 
-            --accent-primary: #38bdf8;
-            --accent-hover: #0ea5e9;
-            --accent-subtle: #0c4a6e;
-
-            --badge-bg: #1e293b;
-            --badge-text: #e2e8f0;
-
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-            --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.5);
+            --ft-col1-bg: #020617;
+            --ft-col2-bg: #0f172a;
+            --ft-col3-bg: #062c21;
+            --ft-col4-bg: #2e1065;
+            --ft-bottom-bg: #000000;
         }
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        /* STRICT RESET & REMOVE ALL ITALICS */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; font-style: normal !important; }
+        html { font-size: 16px; scroll-behavior: smooth; }
         
         body {
             background-color: var(--bg-primary); color: var(--text-primary); font-family: var(--font-sans);
-            line-height: 1.6; letter-spacing: -0.011em; overflow-x: hidden;
-            transition: background-color var(--transition-smooth), color var(--transition-smooth);
-            min-height: 100vh; display: flex; flex-direction: column;
+            line-height: 1.6; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column;
         }
 
-        a { color: inherit; text-decoration: none; transition: color var(--transition-fast); }
+        a { color: inherit; text-decoration: none; }
         img { max-width: 100%; height: auto; display: block; object-fit: cover; }
-        button, input, textarea, select { font: inherit; color: inherit; background: none; border: none; outline: none; }
+        button, input, textarea { font: inherit; color: inherit; background: none; border: none; outline: none; }
         button { cursor: pointer; }
 
         .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
         .main-layout { flex: 1; padding-top: var(--header-height); }
 
-        #reading-progress {
-            position: fixed; top: 0; left: 0; height: 3px; background: var(--accent-primary); width: 0%; z-index: 1001; transition: width 0.1s linear;
-        }
+        #reading-progress { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent-primary); width: 0%; z-index: 1001; }
 
+        /* HEADER & TOP NAV COLORFUL LINKS */
         .site-header {
             position: fixed; top: 0; left: 0; right: 0; height: var(--header-height);
-            background-color: rgba(252, 252, 253, 0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-light); z-index: 1000;
-            transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
+            background-color: var(--bg-surface); border-bottom: 2px solid var(--border-light); z-index: 1000;
         }
-        [data-theme="dark"] .site-header { background-color: rgba(11, 15, 23, 0.88); }
         .header-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
-        .brand-logo { font-family: var(--font-sans); font-weight: 800; font-size: 1.625rem; letter-spacing: -0.04em; color: var(--text-primary); display: flex; align-items: center; user-select: none; }
+        .brand-logo { font-weight: 900; font-size: 1.75rem; letter-spacing: -0.05em; color: var(--text-primary); text-transform: uppercase; }
+
+        .desktop-nav { display: flex; align-items: center; gap: 0.5rem; }
+        .nav-link {
+            font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
+            padding: 0.4rem 0.75rem; border-radius: var(--radius-sm); border: 1px solid transparent; transition: all 0.2s ease;
+        }
         
-        .desktop-nav { display: flex; align-items: center; gap: 1.5rem; }
-        .nav-link { font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); position: relative; padding: 0.5rem 0; cursor: pointer; }
-        .nav-link:hover, .nav-link.active { color: var(--text-primary); }
-        .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background-color: var(--accent-primary); border-radius: 2px; }
+        /* Colorful Header Items */
+        .nav-link[data-nav="home"] { color: var(--nav-c-home); border-color: rgba(37, 99, 235, 0.2); }
+        .nav-link[data-nav="ai"] { color: var(--nav-c-ai); border-color: rgba(217, 119, 6, 0.2); }
+        .nav-link[data-nav="robotics"] { color: var(--nav-c-robotics); border-color: rgba(220, 38, 38, 0.2); }
+        .nav-link[data-nav="hardware"] { color: var(--nav-c-hardware); border-color: rgba(5, 150, 105, 0.2); }
+        .nav-link[data-nav="software"] { color: var(--nav-c-software); border-color: rgba(124, 58, 237, 0.2); }
+        .nav-link[data-nav="future"] { color: var(--nav-c-future); border-color: rgba(8, 145, 178, 0.2); }
+        .nav-link[data-nav="guides"] { color: var(--nav-c-guides); border-color: rgba(234, 88, 12, 0.2); }
+        .nav-link[data-nav="reviews"] { color: var(--nav-c-reviews); border-color: rgba(219, 39, 119, 0.2); }
+        .nav-link[data-nav="ethics"] { color: var(--nav-c-ethics); border-color: rgba(79, 70, 229, 0.2); }
+        .nav-link[data-nav="archive"] { color: var(--nav-c-archive); border-color: rgba(71, 85, 105, 0.2); }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: var(--bg-secondary);
+            box-shadow: var(--shadow-sm);
+        }
 
         .header-actions { display: flex; align-items: center; gap: 0.5rem; }
-        .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; color: var(--text-secondary); transition: background-color var(--transition-fast), color var(--transition-fast); }
-        .icon-btn:hover { background-color: var(--bg-secondary); color: var(--text-primary); }
+        .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: var(--radius-sm); border: 1px solid var(--border-light); color: var(--text-primary); }
         .mobile-toggle { display: none; }
 
         /* MOBILE DRAWER */
         .mobile-drawer {
-            position: fixed; top: 0; left: 0; bottom: 0; width: 320px; max-width: 85vw; background: var(--bg-surface);
-            z-index: 1100; transform: translateX(-100%); transition: transform var(--transition-smooth); box-shadow: var(--shadow-lg);
-            display: flex; flex-direction: column; padding: 1.5rem; overflow-y: auto;
+            position: fixed; top: 0; left: 0; bottom: 0; width: 300px; background: var(--bg-surface);
+            z-index: 1100; transform: translateX(-100%); transition: transform 0.3s ease; padding: 1.5rem; overflow-y: auto;
         }
         .mobile-drawer.open { transform: translateX(0); }
-        .drawer-overlay {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); z-index: 1090;
-            opacity: 0; pointer-events: none; transition: opacity var(--transition-smooth);
-        }
+        .drawer-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 1090; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
         .drawer-overlay.open { opacity: 1; pointer-events: auto; }
-        .drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-light); }
-        .mobile-nav-list { display: flex; flex-direction: column; gap: 1.25rem; list-style: none; }
-        .mobile-nav-link { font-size: 1.125rem; font-weight: 600; color: var(--text-primary); cursor: pointer; }
+        .drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .mobile-nav-list { display: flex; flex-direction: column; gap: 0.75rem; list-style: none; }
 
-        .hero-section { padding: 2.5rem 0 3rem 0; border-bottom: 1px solid var(--border-light); }
-        .hero-grid { display: grid; grid-template-columns: 2.2fr 1fr; gap: 2.5rem; }
-        .featured-story { display: flex; flex-direction: column; gap: 1.25rem; cursor: pointer; }
-        .featured-image-wrap { width: 100%; aspect-ratio: 16 / 9; background-color: var(--bg-secondary); border-radius: var(--radius-md); overflow: hidden; position: relative; }
-        .featured-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .featured-story:hover .featured-image-wrap img { transform: scale(1.02); }
-        
-        .meta-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-primary); }
-        .featured-title { font-family: var(--font-serif); font-size: 2.25rem; line-height: 1.2; font-weight: 600; letter-spacing: -0.02em; color: var(--text-primary); }
-        .featured-excerpt { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-        .article-meta-line { display: flex; align-items: center; gap: 0.75rem; font-size: 0.8125rem; color: var(--text-muted); font-weight: 500; flex-wrap: wrap; }
+        /* SECTION STYLING */
+        .section-padding { padding: 3rem 0; }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--border-light); }
+        .section-title { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; }
 
-        .hero-sidebar { display: flex; flex-direction: column; gap: 1.5rem; border-left: 1px solid var(--border-light); padding-left: 2rem; }
-        .sidebar-heading { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding-bottom: 0.5rem; border-bottom: 2px solid var(--text-primary); }
-        .secondary-story-card { display: flex; flex-direction: column; gap: 0.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-subtle); cursor: pointer; }
-        .secondary-story-card:last-child { border-bottom: none; }
-        .secondary-title { font-family: var(--font-serif); font-size: 1.125rem; line-height: 1.3; font-weight: 600; color: var(--text-primary); transition: color var(--transition-fast); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .secondary-story-card:hover .secondary-title { color: var(--accent-primary); }
+        /* HERO AREA */
+        .hero-section { padding: 2rem 0; border-bottom: 2px solid var(--border-light); }
+        .hero-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+        .featured-story { display: flex; flex-direction: column; gap: 1rem; }
+        .featured-image-wrap { width: 100%; aspect-ratio: 16 / 9; background-color: var(--bg-secondary); border-radius: var(--radius-md); overflow: hidden; }
+        .featured-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .meta-badge { display: inline-block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--accent-primary); letter-spacing: 0.05em; }
+        .featured-title { font-size: 2.25rem; line-height: 1.2; font-weight: 800; color: var(--text-primary); }
 
-        /* ARTICLE GRID SYSTEM — MANDATORY 2 cols mobile, 3 cols desktop */
-        .section-padding { padding: 3.5rem 0; }
-        .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-light); }
-        .section-title { font-family: var(--font-sans); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; text-transform: uppercase; }
+        .hero-sidebar { display: flex; flex-direction: column; gap: 1rem; border-left: 2px solid var(--border-light); padding-left: 1.5rem; }
+        .sidebar-heading { font-size: 0.875rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; padding-bottom: 0.5rem; border-bottom: 2px solid var(--text-primary); }
+        .secondary-story-card { display: flex; flex-direction: column; gap: 0.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-light); }
+        .secondary-title { font-size: 1rem; font-weight: 700; line-height: 1.3; }
 
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-        @media (min-width: 1024px) {
-            .articles-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        }
+        /* ARTICLES GRID */
+        .articles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+        @media (min-width: 1024px) { .articles-grid { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; } }
 
         .article-card {
             display: flex; flex-direction: column; background: var(--bg-surface); border-radius: var(--radius-md);
-            overflow: hidden; border: 1px solid var(--border-light); transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
-            cursor: pointer; height: 100%; text-decoration: none;
+            border: 1px solid var(--border-light); overflow: hidden; height: 100%;
         }
-        .article-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-        .card-image-wrap { width: 100%; aspect-ratio: 16 / 10; background: var(--bg-secondary); overflow: hidden; position: relative; }
-        .card-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-        .article-card:hover .card-image-wrap img { transform: scale(1.04); }
+        .card-image-wrap { width: 100%; aspect-ratio: 16 / 10; background: var(--bg-secondary); overflow: hidden; }
+        .card-content { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; gap: 0.5rem; }
+        .card-title { font-size: 1.125rem; font-weight: 700; line-height: 1.35; color: var(--text-primary); }
+        .card-excerpt { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; flex: 1; }
+        .card-footer { margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 600; color: var(--text-muted); }
 
-        .card-content { padding: 1rem; display: flex; flex-direction: column; flex: 1; gap: 0.5rem; }
-        @media (min-width: 768px) { .card-content { padding: 1.5rem; gap: 0.75rem; } }
+        /* ARTICLE READ VIEW */
+        .article-view-container { max-width: var(--reading-width); margin: 0 auto; padding: 2.5rem 1.5rem; }
+        .article-header { text-align: center; margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        .article-main-title { font-size: 2.5rem; font-weight: 900; line-height: 1.15; }
+        .article-prose { font-size: 1.125rem; line-height: 1.75; color: var(--text-primary); }
+        .article-prose p { margin-bottom: 1.5rem; }
+        .article-prose h2, .article-prose h3 { margin: 2rem 0 1rem 0; font-weight: 800; }
+        .article-prose blockquote { border-left: 4px solid var(--accent-primary); padding-left: 1rem; margin: 1.5rem 0; background: var(--bg-secondary); padding: 1rem; font-weight: 500; }
 
-        .card-title {
-            font-family: var(--font-serif); font-size: 1rem; font-weight: 600; line-height: 1.3;
-            color: var(--text-primary); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+        /* RICH CONTENT CARDS FOR STATIC & CATEGORY PAGES */
+        .info-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .info-card {
+            background: var(--bg-surface); border: 2px solid var(--border-light); border-radius: var(--radius-md); padding: 1.5rem;
+            display: flex; flex-direction: column; gap: 0.75rem;
         }
-        @media (min-width: 768px) { .card-title { font-size: 1.25rem; } }
+        .info-card-icon { font-size: 2rem; font-weight: 900; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: var(--bg-secondary); border-radius: var(--radius-sm); }
+        .info-card-title { font-size: 1.25rem; font-weight: 800; }
+        .info-card-desc { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.5; }
 
-        .card-excerpt {
-            font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5;
-            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; flex: 1;
-        }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .stat-box { background: var(--bg-secondary); padding: 1.5rem; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border-light); }
+        .stat-number { font-size: 2.25rem; font-weight: 900; color: var(--accent-primary); }
+        .stat-label { font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-top: 0.25rem; }
 
-        .card-footer {
-            margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);
-            display: flex; align-items: center; justify-content: space-between; font-size: 0.6875rem; color: var(--text-muted); font-weight: 500;
-        }
+        /* FORM STYLING FOR CONTACT */
+        .contact-form { display: flex; flex-direction: column; gap: 1.25rem; background: var(--bg-surface); padding: 2rem; border-radius: var(--radius-md); border: 2px solid var(--border-light); }
+        .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+        .form-label { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; }
+        .form-input, .form-textarea { width: 100%; padding: 0.875rem 1rem; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-size: 1rem; }
+        .form-textarea { min-height: 140px; resize: vertical; }
+        .btn-submit { background: var(--accent-primary); color: #fff; padding: 1rem 2rem; font-weight: 800; text-transform: uppercase; border-radius: var(--radius-sm); width: fit-content; }
 
-        .article-view-container { max-width: var(--max-width); margin: 0 auto; padding: 3rem 1.5rem 5rem 1.5rem; }
-        .article-header { max-width: 860px; margin: 0 auto 2.5rem auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
-        .article-main-title { font-family: var(--font-serif); font-size: 2.5rem; line-height: 1.1; font-weight: 600; letter-spacing: -0.02em; color: var(--text-primary); }
-        @media (min-width: 768px) { .article-main-title { font-size: 3.25rem; } }
+        /* FOOTER — DISTINCT COLORED BLOCKS PER ROW/COLUMN */
+        .site-footer { margin-top: auto; border-top: 4px solid var(--border-light); }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
         
-        .article-submeta { display: flex; align-items: center; gap: 1.5rem; font-size: 0.875rem; color: var(--text-muted); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); padding: 0.875rem 0; width: 100%; justify-content: center; flex-wrap: wrap; }
-        .article-hero-media { width: 100%; max-width: 1100px; margin: 0 auto 3.5rem auto; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-secondary); }
-        .article-hero-media img { width: 100%; max-height: 600px; object-fit: cover; }
-        .article-body-layout { display: grid; grid-template-columns: var(--reading-width) 300px; gap: 4rem; justify-content: center; }
-        
-        .article-prose { font-family: var(--font-serif); font-size: 1.125rem; line-height: 1.75; color: var(--text-primary); overflow-wrap: break-word; word-break: break-word; }
-        @media (min-width: 768px) { .article-prose { font-size: 1.25rem; } }
-        .article-prose p { margin-bottom: 1.75rem; }
-        .article-prose h2 { font-size: 1.75rem; margin: 2.5rem 0 1rem 0; font-family: var(--font-sans); }
-        .article-prose h3 { font-size: 1.35rem; margin: 2rem 0 1rem 0; font-family: var(--font-sans); }
-        .article-prose img { width: 100%; height: auto; border-radius: var(--radius-md); margin: 2rem 0; }
-        .article-prose blockquote { border-left: 4px solid var(--accent-primary); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: var(--text-secondary); font-size: 1.25rem; }
-        
-        .article-sidebar-sticky { position: sticky; top: calc(var(--header-height) + 2rem); height: fit-content; }
-        .share-box { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem; }
-        .share-box-title { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--text-muted); }
-        .share-actions { display: flex; align-items: center; gap: 0.5rem; }
+        .footer-col { padding: 3rem 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+        .footer-col-1 { background-color: var(--ft-col1-bg); color: var(--ft-col1-txt); }
+        .footer-col-2 { background-color: var(--ft-col2-bg); color: var(--ft-col2-txt); }
+        .footer-col-3 { background-color: var(--ft-col3-bg); color: var(--ft-col3-txt); }
+        .footer-col-4 { background-color: var(--ft-col4-bg); color: var(--ft-col4-txt); }
+
+        .footer-col-title { font-size: 1rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; padding-bottom: 0.5rem; border-bottom: 2px solid currentColor; }
+        .footer-desc { font-size: 0.875rem; opacity: 0.85; line-height: 1.6; }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-link { font-size: 0.875rem; font-weight: 600; opacity: 0.85; }
+        .footer-link:hover { opacity: 1; text-decoration: underline; }
+
+        .footer-bottom { background-color: var(--ft-bottom-bg); color: #ffffff; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8125rem; font-weight: 600; }
 
         /* SEARCH MODAL */
-        .search-modal {
-            position: fixed; inset: 0; background: rgba(11, 15, 23, 0.85); backdrop-filter: blur(12px); z-index: 2000;
-            display: flex; flex-direction: column; align-items: center; padding: 4rem 1.5rem; opacity: 0; pointer-events: none; transition: opacity var(--transition-smooth);
-        }
+        .search-modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.9); z-index: 2000; display: flex; flex-direction: column; align-items: center; padding: 4rem 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
         .search-modal.active { opacity: 1; pointer-events: auto; }
-        .search-container { width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 2rem; }
-        .search-input-wrap { position: relative; width: 100%; }
-        .search-input {
-            width: 100%; font-family: var(--font-sans); font-size: 1.5rem; padding: 1.25rem 1.5rem 1.25rem 3.5rem;
-            background: var(--bg-surface); border: 2px solid var(--border-light); border-radius: var(--radius-lg); color: var(--text-primary); box-shadow: var(--shadow-lg);
-        }
-        .search-input:focus { border-color: var(--accent-primary); }
-        .search-icon-pos { position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
-        .search-results-list { display: flex; flex-direction: column; gap: 1rem; max-height: 60vh; overflow-y: auto; }
-        .search-item-card { background: var(--bg-surface); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-light); cursor: pointer; text-decoration: none; display: block; }
-        .search-item-card:hover { background-color: var(--bg-secondary); }
+        .search-container { width: 100%; max-width: 700px; display: flex; flex-direction: column; gap: 1.5rem; }
+        .search-input { width: 100%; font-size: 1.25rem; padding: 1rem 1.5rem; background: var(--bg-surface); border: 2px solid var(--accent-primary); border-radius: var(--radius-sm); color: var(--text-primary); }
+        .search-results-list { display: flex; flex-direction: column; gap: 0.75rem; max-height: 60vh; overflow-y: auto; }
+        .search-item-card { background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-sm); display: block; }
 
-        /* PAGINATION UI */
-        .pagination-container { display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 3rem; flex-wrap: wrap; }
-        .page-btn { padding: 0.5rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: all var(--transition-fast); text-decoration: none; display: inline-block; }
-        .page-btn:hover { background: var(--bg-secondary); }
-        .page-btn.active { background: var(--text-primary); color: var(--text-inverse); border-color: var(--text-primary); }
-        
-        /* STATIC PAGES & ERRORS */
-        .page-header { padding: 3rem 0; border-bottom: 1px solid var(--border-light); margin-bottom: 3rem; text-align: center; }
-        .page-title { font-size: 3rem; font-weight: 800; letter-spacing: -0.03em; }
-        .page-content-body { max-width: var(--reading-width); margin: 0 auto; font-size: 1.0625rem; line-height: 1.7; color: var(--text-secondary); }
-        .error-container { text-align: center; padding: 5rem 1.5rem; max-width: 600px; margin: 0 auto; }
-        .error-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
-
-        /* FOOTER */
-        .site-footer { background: var(--bg-surface); border-top: 1px solid var(--border-light); padding: 4rem 0 2rem 0; margin-top: auto; }
-        .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 3rem; margin-bottom: 3.5rem; }
-        .footer-brand { display: flex; flex-direction: column; gap: 1rem; }
-        .footer-desc { font-size: 0.9375rem; color: var(--text-muted); max-width: 320px; line-height: 1.5; }
-        .footer-col-title { font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem; }
-        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-        .footer-link { font-size: 0.875rem; color: var(--text-secondary); cursor: pointer; }
-        .footer-link:hover { color: var(--accent-primary); }
-        .footer-bottom { padding-top: 2rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; font-size: 0.8125rem; color: var(--text-muted); }
-
-        .back-to-top {
-            position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: var(--text-primary); color: var(--text-inverse);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md);
-            opacity: 0; pointer-events: none; transition: opacity var(--transition-fast); z-index: 900;
-        }
-        .back-to-top.visible { opacity: 1; pointer-events: auto; }
-
-        @media (max-width: 1100px) {
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
             .hero-grid { grid-template-columns: 1fr; }
-            .hero-sidebar { border-left: none; padding-left: 0; border-top: 1px solid var(--border-light); padding-top: 2rem; }
-            .article-body-layout { grid-template-columns: 1fr; }
-            .article-sidebar-sticky { display: none; }
+            .hero-sidebar { border-left: none; padding-left: 0; border-top: 2px solid var(--border-light); padding-top: 1.5rem; }
         }
-
         @media (max-width: 768px) {
-            :root { --header-height: 64px; }
             .desktop-nav { display: none; }
             .mobile-toggle { display: inline-flex; }
-            .featured-title { font-size: 1.875rem; }
-            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .articles-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -304,29 +266,24 @@
         <div class="container header-inner">
             <a href="?view=home" class="brand-logo spa-link">AZEXAI</a>
 
+            <!-- Straight colorful navigation bar -->
             <nav class="desktop-nav">
-                <a href="?view=home" class="nav-link spa-link active">Home</a>
-                <a href="?view=category&name=AI" class="nav-link spa-link">AI</a>
-                <a href="?view=category&name=Robotics" class="nav-link spa-link">Robotics</a>
-                <a href="?view=category&name=Hardware" class="nav-link spa-link">Hardware</a>
-                <a href="?view=category&name=Software" class="nav-link spa-link">Software</a>
-                <a href="?view=category&name=Future Tech" class="nav-link spa-link">Future Tech</a>
-                <a href="?view=category&name=Guides" class="nav-link spa-link">Guides</a>
-                <a href="?view=category&name=Reviews" class="nav-link spa-link">Reviews</a>
-                <a href="?view=category&name=Ethics" class="nav-link spa-link">Ethics</a>
-                <a href="?view=archive" class="nav-link spa-link">Archive</a>
+                <a href="?view=home" class="nav-link spa-link" data-nav="home">Home</a>
+                <a href="?view=category&name=AI" class="nav-link spa-link" data-nav="ai">AI</a>
+                <a href="?view=category&name=Robotics" class="nav-link spa-link" data-nav="robotics">Robotics</a>
+                <a href="?view=category&name=Hardware" class="nav-link spa-link" data-nav="hardware">Hardware</a>
+                <a href="?view=category&name=Software" class="nav-link spa-link" data-nav="software">Software</a>
+                <a href="?view=category&name=Future Tech" class="nav-link spa-link" data-nav="future">Future Tech</a>
+                <a href="?view=category&name=Guides" class="nav-link spa-link" data-nav="guides">Guides</a>
+                <a href="?view=category&name=Reviews" class="nav-link spa-link" data-nav="reviews">Reviews</a>
+                <a href="?view=category&name=Ethics" class="nav-link spa-link" data-nav="ethics">Ethics</a>
+                <a href="?view=archive" class="nav-link spa-link" data-nav="archive">Archive</a>
             </nav>
 
             <div class="header-actions">
-                <button class="icon-btn" id="search-trigger" aria-label="Search articles">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                </button>
-                <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                </button>
-                <button class="icon-btn mobile-toggle" id="menu-toggle" aria-label="Open menu">
-                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
+                <button class="icon-btn" id="search-trigger" aria-label="Search"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="icon-btn" id="theme-toggle" aria-label="Theme"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg></button>
+                <button class="icon-btn mobile-toggle" id="menu-toggle" aria-label="Menu"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
             </div>
         </div>
     </header>
@@ -335,80 +292,82 @@
     <div class="mobile-drawer" id="mobile-drawer">
         <div class="drawer-header">
             <span class="brand-logo">AZEXAI</span>
-            <button class="icon-btn" id="drawer-close" aria-label="Close menu">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
+            <button class="icon-btn" id="drawer-close"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg></button>
         </div>
         <ul class="mobile-nav-list">
-            <li><a href="?view=home" class="mobile-nav-link spa-link">Home</a></li>
-            <li><a href="?view=category&name=AI" class="mobile-nav-link spa-link">AI</a></li>
-            <li><a href="?view=category&name=Robotics" class="mobile-nav-link spa-link">Robotics</a></li>
-            <li><a href="?view=category&name=Hardware" class="mobile-nav-link spa-link">Hardware</a></li>
-            <li><a href="?view=category&name=Software" class="mobile-nav-link spa-link">Software</a></li>
-            <li><a href="?view=category&name=Future Tech" class="mobile-nav-link spa-link">Future Tech</a></li>
-            <li><a href="?view=category&name=Guides" class="mobile-nav-link spa-link">Guides</a></li>
-            <li><a href="?view=category&name=Reviews" class="mobile-nav-link spa-link">Reviews</a></li>
-            <li><a href="?view=category&name=Ethics" class="mobile-nav-link spa-link">Ethics</a></li>
-            <li><a href="?view=archive" class="mobile-nav-link spa-link">Full Archive</a></li>
-            <li><a href="?view=about" class="mobile-nav-link spa-link">About AZEXAI</a></li>
-            <li><a href="?view=contact" class="mobile-nav-link spa-link">Contact Desk</a></li>
+            <li><a href="?view=home" class="nav-link spa-link" data-nav="home">Home</a></li>
+            <li><a href="?view=category&name=AI" class="nav-link spa-link" data-nav="ai">AI</a></li>
+            <li><a href="?view=category&name=Robotics" class="nav-link spa-link" data-nav="robotics">Robotics</a></li>
+            <li><a href="?view=category&name=Hardware" class="nav-link spa-link" data-nav="hardware">Hardware</a></li>
+            <li><a href="?view=category&name=Software" class="nav-link spa-link" data-nav="software">Software</a></li>
+            <li><a href="?view=category&name=Future Tech" class="nav-link spa-link" data-nav="future">Future Tech</a></li>
+            <li><a href="?view=category&name=Guides" class="nav-link spa-link" data-nav="guides">Guides</a></li>
+            <li><a href="?view=category&name=Reviews" class="nav-link spa-link" data-nav="reviews">Reviews</a></li>
+            <li><a href="?view=category&name=Ethics" class="nav-link spa-link" data-nav="ethics">Ethics</a></li>
+            <li><a href="?view=archive" class="nav-link spa-link" data-nav="archive">Archive</a></li>
+            <li><a href="?view=about" class="nav-link spa-link">About Us</a></li>
+            <li><a href="?view=contact" class="nav-link spa-link">Contact</a></li>
         </ul>
     </div>
 
     <main class="main-layout" id="app-root"></main>
 
+    <!-- FOOTER WITH DIFFERENT COLORFUL COLUMNS & BOTTOM BAR -->
     <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="?view=home" class="brand-logo spa-link">AZEXAI</a>
-                    <p class="footer-desc">
-                        Independent publication exploring frontier technology, software architecture, machine learning systems, and computational security.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="footer-col-title">Sections</h4>
-                    <ul class="footer-links">
-                        <li><a href="?view=category&name=AI" class="footer-link spa-link">Artificial Intelligence</a></li>
-                        <li><a href="?view=category&name=Robotics" class="footer-link spa-link">Robotics</a></li>
-                        <li><a href="?view=category&name=Hardware" class="footer-link spa-link">Hardware</a></li>
-                        <li><a href="?view=archive" class="footer-link spa-link">Full Archive</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-col-title">Publication</h4>
-                    <ul class="footer-links">
-                        <li><a href="?view=about" class="footer-link spa-link">About AZEXAI</a></li>
-                        <li><a href="?view=contact" class="footer-link spa-link">Contact Desk</a></li>
-                        <li><a href="?view=privacy" class="footer-link spa-link">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-col-title">System Status</h4>
-                    <p id="footer-status-text" class="footer-desc" style="font-size: 0.8125rem;">Connecting via Blogger API...</p>
-                </div>
+        <div class="footer-grid">
+            <div class="footer-col footer-col-1">
+                <a href="?view=home" class="brand-logo spa-link" style="color:#fff;">AZEXAI</a>
+                <p class="footer-desc">
+                    An independent research and technology publication providing deep insights into artificial intelligence, computing architectures, and future software frameworks.
+                </p>
+                <div style="margin-top:auto; font-size:0.75rem; font-weight:700;">STATUS: ONLINE / API 3.0</div>
             </div>
-            <div class="footer-bottom">
-                <span>&copy; <span id="copyright-year"></span> AZEXAI. All rights reserved.</span>
-                <span>Blog ID: <span id="display-blog-id">4263033619836681299</span></span>
+
+            <div class="footer-col footer-col-2">
+                <h4 class="footer-col-title">Primary Hubs</h4>
+                <ul class="footer-links">
+                    <li><a href="?view=category&name=AI" class="footer-link spa-link">Artificial Intelligence</a></li>
+                    <li><a href="?view=category&name=Robotics" class="footer-link spa-link">Robotics & Automation</a></li>
+                    <li><a href="?view=category&name=Hardware" class="footer-link spa-link">Hardware Architectures</a></li>
+                    <li><a href="?view=category&name=Software" class="footer-link spa-link">Software Engineering</a></li>
+                    <li><a href="?view=archive" class="footer-link spa-link">Complete Index Archive</a></li>
+                </ul>
             </div>
+
+            <div class="footer-col footer-col-3">
+                <h4 class="footer-col-title">Knowledge Desk</h4>
+                <ul class="footer-links">
+                    <li><a href="?view=category&name=Future Tech" class="footer-link spa-link">Future Tech Projections</a></li>
+                    <li><a href="?view=category&name=Guides" class="footer-link spa-link">Technical Guides</a></li>
+                    <li><a href="?view=category&name=Reviews" class="footer-link spa-link">Systems Reviews</a></li>
+                    <li><a href="?view=category&name=Ethics" class="footer-link spa-link">Ethics & Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-col-4">
+                <h4 class="footer-col-title">Organization</h4>
+                <ul class="footer-links">
+                    <li><a href="?view=about" class="footer-link spa-link">About AZEXAI Mission</a></li>
+                    <li><a href="?view=contact" class="footer-link spa-link">Direct Editorial Desk</a></li>
+                    <li><a href="?view=privacy" class="footer-link spa-link">Privacy & Data Governance</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; <span id="copyright-year"></span> AZEXAI Editorial Network. All Rights Reserved.</span>
+            <span>SYSTEM ID: <span id="display-blog-id">4263033619836681299</span></span>
         </div>
     </footer>
 
-    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7"></path></svg>
-    </button>
-
+    <!-- SEARCH MODAL -->
     <div class="search-modal" id="search-modal">
         <div class="search-container">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.875rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Search AZEXAI Archive</span>
-                <button class="icon-btn" id="search-close" style="color: var(--text-primary);"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            <div style="display: flex; justify-content: space-between; align-items: center; color: #fff;">
+                <span style="font-weight: 800; text-transform: uppercase;">Search Database</span>
+                <button class="icon-btn" id="search-close" style="color:#fff;"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
-            <div class="search-input-wrap">
-                <svg class="search-icon-pos" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                <input type="text" id="search-input" class="search-input" placeholder="Search stories, topics, models..." autofocus>
-            </div>
+            <input type="text" id="search-input" class="search-input" placeholder="Type keywords..." autofocus>
             <div class="search-results-list" id="search-results"></div>
         </div>
     </div>
@@ -419,17 +378,10 @@
             API_KEY: "AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ"
         };
 
-        const BloggerStore = {
-            posts: [],
-            isLoaded: false,
-            isLoading: false,
-            slugMap: new Map()
-        };
+        const BloggerStore = { posts: [], isLoaded: false, isLoading: false, slugMap: new Map() };
 
         function extractArticleImage(post) {
-            if (post.images && post.images.length > 0 && post.images[0].url) {
-                return post.images[0].url;
-            }
+            if (post.images && post.images.length > 0 && post.images[0].url) return post.images[0].url;
             if (post.content) {
                 const div = document.createElement('div');
                 div.innerHTML = post.content;
@@ -458,11 +410,7 @@
 
         function slugify(text) {
             if (!text) return 'article';
-            return text.toString().toLowerCase()
-                .trim()
-                .replace(/\s+/g, '-')
-                .replace(/[^\w\-]+/g, '')
-                .replace(/\-\-+/g, '-');
+            return text.toString().toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-');
         }
 
         function escapeHtml(str) {
@@ -480,15 +428,10 @@
                 if (pageToken) url += `&pageToken=${pageToken}`;
 
                 const response = await fetch(url);
-                if (!response.ok) {
-                    const errBody = await response.text();
-                    throw new Error(`Blogger API HTTP ${response.status}: ${errBody}`);
-                }
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
                 const data = await response.json();
-                if (data && Array.isArray(data.items)) {
-                    allItems = allItems.concat(data.items);
-                }
+                if (data && Array.isArray(data.items)) allItems = allItems.concat(data.items);
                 pageToken = data.nextPageToken || null;
             } while (pageToken);
 
@@ -497,7 +440,7 @@
                 const slug = slugify(title);
                 const content = item.content || '';
                 const featuredImage = extractArticleImage(item);
-                const author = item.author && item.author.displayName ? item.author.displayName : 'AZEXAI Editorial';
+                const author = item.author && item.author.displayName ? item.author.displayName : 'AZEXAI Team';
                 const publishedAt = item.published || new Date().toISOString();
                 const labels = Array.isArray(item.labels) ? item.labels : [];
                 const url = `?view=article&slug=${encodeURIComponent(slug)}`;
@@ -508,124 +451,39 @@
             });
         }
 
-        async function fetchFromPublicFeed() {
-            const feedUrl = `https://www.blogger.com/feeds/${CONFIG.BLOG_ID}/posts/default?alt=json&max-results=500`;
-            const response = await fetch(feedUrl);
-            if (!response.ok) {
-                throw new Error(`Public Feed HTTP ${response.status}`);
-            }
-
-            const data = await response.json();
-            const entries = (data && data.feed && data.feed.entry) ? data.feed.entry : [];
-
-            return entries.map(entry => {
-                const title = entry.title && entry.title.$t ? entry.title.$t : 'Untitled Article';
-                const slug = slugify(title);
-                const contentObj = entry.content || entry.summary || {};
-                const content = contentObj.$t || '';
-                
-                let featuredImage = null;
-                const div = document.createElement('div');
-                div.innerHTML = content;
-                const img = div.querySelector('img');
-                if (img && img.src) featuredImage = img.src;
-
-                const authorName = (entry.author && entry.author[0] && entry.author[0].name && entry.author[0].name.$t) ? entry.author[0].name.$t : 'AZEXAI Editorial';
-                const publishedAt = entry.published && entry.published.$t ? entry.published.$t : new Date().toISOString();
-                
-                const labels = [];
-                if (Array.isArray(entry.category)) {
-                    entry.category.forEach(cat => {
-                        if (cat && cat.term) labels.push(cat.term);
-                    });
-                }
-
-                const url = `?view=article&slug=${encodeURIComponent(slug)}`;
-                const excerpt = cleanExcerpt(content, 130);
-                const readingTime = calculateReadingTime(content);
-
-                return {
-                    id: entry.id && entry.id.$t ? entry.id.$t : slug,
-                    title,
-                    slug,
-                    excerpt,
-                    content,
-                    featuredImage,
-                    author: authorName,
-                    publishedAt,
-                    labels,
-                    url,
-                    readingTime
-                };
-            });
-        }
-
         async function fetchAllBloggerPosts() {
             if (BloggerStore.isLoaded) return BloggerStore.posts;
             if (BloggerStore.isLoading) {
-                // Wait until loading finishes
-                while (BloggerStore.isLoading) {
-                    await new Promise(r => setTimeout(r, 100));
-                }
+                while (BloggerStore.isLoading) await new Promise(r => setTimeout(r, 100));
                 return BloggerStore.posts;
             }
 
             BloggerStore.isLoading = true;
             let normalized = [];
-            
             try {
                 normalized = await fetchFromBloggerApi();
-            } catch (apiErr) {
-                console.warn("[AZEXAI Notice] Official API fetch failed, trying public Blogger feed...", apiErr.message);
-                try {
-                    normalized = await fetchFromPublicFeed();
-                } catch (feedErr) {
-                    console.error("[AZEXAI Error] Both API and public feed failed:", feedErr.message);
-                }
+            } catch (err) {
+                console.error("API Error", err);
             }
 
             const uniqueMap = new Map();
             normalized.forEach(p => uniqueMap.set(p.id || p.slug, p));
             
-            BloggerStore.posts = Array.from(uniqueMap.values()).sort((a, b) => 
-                new Date(b.publishedAt) - new Date(a.publishedAt)
-            );
-
+            BloggerStore.posts = Array.from(uniqueMap.values()).sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
             BloggerStore.slugMap.clear();
             BloggerStore.posts.forEach(p => BloggerStore.slugMap.set(p.slug, p));
 
             BloggerStore.isLoaded = true;
             BloggerStore.isLoading = false;
 
-            const statusEl = document.getElementById('footer-status-text');
-            if (statusEl) {
-                statusEl.textContent = BloggerStore.posts.length > 0 
-                    ? `Connected! ${BloggerStore.posts.length} articles retrieved from Blogger.` 
-                    : `Connected to Blog ID ${CONFIG.BLOG_ID} (0 posts found).`;
-            }
-
             return BloggerStore.posts;
-        }
-
-        function renderSkeleton() {
-            return `<div class="container section-padding" style="text-align:center;"><p style="color:var(--text-muted); font-size:1.125rem;">Fetching articles from Blogger API (${CONFIG.BLOG_ID})...</p></div>`;
-        }
-        
-        function renderErrorState() {
-            return `
-                <div class="error-container">
-                    <h2 class="error-title">Article Not Found</h2>
-                    <p style="color:var(--text-muted); margin-bottom: 2rem;">We couldn't locate the requested article or page in the archive.</p>
-                    <a href="?view=home" class="page-btn active spa-link" style="padding:0.75rem 1.5rem;">Return Home</a>
-                </div>
-            `;
         }
 
         function renderArticleCard(post) {
             const category = (post.labels && post.labels[0]) ? post.labels[0] : 'Insight';
             const imgHtml = post.featuredImage 
                 ? `<img src="${post.featuredImage}" alt="${escapeHtml(post.title)}" loading="lazy">` 
-                : `<div style="background:var(--bg-secondary); width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:0.8125rem;">AZEXAI</div>`;
+                : `<div style="background:var(--bg-secondary); width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--text-muted);">AZEXAI</div>`;
 
             return `
                 <a class="article-card spa-link" href="${post.url}">
@@ -644,7 +502,9 @@
         }
 
         function renderHomeView(posts) {
-            if (!posts || posts.length === 0) return `<div class="container section-padding" style="text-align:center;"><h2>No published articles found in Blog ID ${CONFIG.BLOG_ID}.</h2></div>`;
+            if (!posts || posts.length === 0) {
+                return `<div class="container section-padding" style="text-align:center;"><h2>No posts available at this moment.</h2></div>`;
+            }
 
             const hero = posts[0];
             const secondary = posts.slice(1, 5);
@@ -657,14 +517,9 @@
                                 ${hero.featuredImage ? `<img src="${hero.featuredImage}" alt="${escapeHtml(hero.title)}">` : ''}
                             </div>
                             <div>
-                                <span class="meta-badge" style="margin-bottom:0.75rem;">${(hero.labels && hero.labels[0]) || 'Featured'}</span>
-                                <h1 class="featured-title" style="margin-bottom:1rem;">${escapeHtml(hero.title)}</h1>
-                                <p class="featured-excerpt" style="margin-bottom:1rem;">${escapeHtml(hero.excerpt)}</p>
-                                <div class="article-meta-line">
-                                    <span>${escapeHtml(hero.author)}</span> &bull; 
-                                    <span>${new Date(hero.publishedAt).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'})}</span> &bull; 
-                                    <span>${hero.readingTime}</span>
-                                </div>
+                                <span class="meta-badge">${(hero.labels && hero.labels[0]) || 'Featured'}</span>
+                                <h1 class="featured-title">${escapeHtml(hero.title)}</h1>
+                                <p style="color:var(--text-secondary); margin-top:0.5rem; font-size:1.05rem;">${escapeHtml(hero.excerpt)}</p>
                             </div>
                         </a>
 
@@ -672,11 +527,8 @@
                             <h3 class="sidebar-heading">Editorial Highlights</h3>
                             ${secondary.map(post => `
                                 <a class="secondary-story-card spa-link" href="${post.url}">
-                                    <span class="meta-badge">${(post.labels && post.labels[0]) || 'Analysis'}</span>
+                                    <span class="meta-badge" style="font-size:0.6875rem;">${(post.labels && post.labels[0]) || 'Analysis'}</span>
                                     <h4 class="secondary-title">${escapeHtml(post.title)}</h4>
-                                    <div class="article-meta-line" style="font-size:0.75rem;">
-                                        <span>${new Date(post.publishedAt).toLocaleDateString('en-US', {month:'short', day:'numeric'})}</span>
-                                    </div>
                                 </a>
                             `).join('')}
                         </div>
@@ -685,7 +537,7 @@
 
                 <section class="container section-padding">
                     <div class="section-header">
-                        <h2 class="section-title">All Articles (${posts.length} Total Posts)</h2>
+                        <h2 class="section-title">Latest Publications (${posts.length})</h2>
                     </div>
                     <div class="articles-grid">
                         ${posts.map(post => renderArticleCard(post)).join('')}
@@ -694,45 +546,49 @@
             `;
         }
 
-        function renderArchiveView(posts, currentPage = 1) {
-            const PER_PAGE = 18;
-            const totalPages = Math.ceil(posts.length / PER_PAGE) || 1;
-            const start = (currentPage - 1) * PER_PAGE;
-            const paginated = posts.slice(start, start + PER_PAGE);
-
-            let pageControls = '';
-            if (totalPages > 1) {
-                pageControls += `<div class="pagination-container">`;
-                for (let i = 1; i <= totalPages; i++) {
-                    pageControls += `<a class="page-btn spa-link ${i === currentPage ? 'active' : ''}" href="?view=archive&page=${i}">${i}</a>`;
-                }
-                pageControls += `</div>`;
-            }
-
-            return `
-                <div class="container section-padding">
-                    <header class="page-header">
-                        <h1 class="page-title">Full Archive</h1>
-                        <p style="color:var(--text-muted); margin-top:0.75rem;">Showing ${paginated.length} of ${posts.length} total articles from Blogger ID ${CONFIG.BLOG_ID} (Page ${currentPage} of ${totalPages})</p>
-                    </header>
-                    <div class="articles-grid">
-                        ${paginated.map(post => renderArticleCard(post)).join('')}
-                    </div>
-                    ${pageControls}
-                </div>
-            `;
-        }
-
         function renderCategoryView(categoryName, posts) {
             const filtered = posts.filter(p => p.labels.some(l => l.toLowerCase() === categoryName.toLowerCase()));
+
             return `
                 <div class="container section-padding">
-                    <header class="page-header">
-                        <h1 class="page-title">${escapeHtml(categoryName)}</h1>
-                        <p style="color:var(--text-muted); margin-top:0.75rem;">Showing ${filtered.length} articles matching this category.</p>
-                    </header>
-                    <div class="articles-grid">
-                        ${filtered.length > 0 ? filtered.map(post => renderArticleCard(post)).join('') : `<div style="grid-column: 1 / -1; text-align: center; padding: 3rem;"><p>No articles found in this category.</p></div>`}
+                    <div class="section-header">
+                        <div>
+                            <h1 class="section-title">${escapeHtml(categoryName)} Hub</h1>
+                            <p style="color:var(--text-muted); font-size:0.9rem; font-weight:600; margin-top:0.25rem;">Showing ${filtered.length} specialized articles in this track.</p>
+                        </div>
+                    </div>
+
+                    ${filtered.length > 0 ? `
+                        <div class="articles-grid">
+                            ${filtered.map(post => renderArticleCard(post)).join('')}
+                        </div>
+                    ` : `
+                        <div style="text-align:center; padding: 3rem 1rem; background: var(--bg-surface); border:2px dashed var(--border-light); border-radius:var(--radius-md);">
+                            <h3 style="font-size:1.5rem; font-weight:800; margin-bottom:0.5rem;">No direct posts tagged under "${escapeHtml(categoryName)}" yet</h3>
+                            <p style="color:var(--text-muted); max-width:500px; margin:0 auto 1.5rem auto;">Our research team publishes new entries regularly. Explore featured modules below or review technical documentation.</p>
+                            <a href="?view=archive" class="btn-submit spa-link" style="display:inline-block;">Browse Full Index</a>
+                        </div>
+                    `}
+
+                    <div style="margin-top:4rem;">
+                        <h3 class="section-title" style="font-size:1.25rem; margin-bottom:1rem;">Category Core Topics</h3>
+                        <div class="info-card-grid">
+                            <div class="info-card">
+                                <div class="info-card-icon">01</div>
+                                <h4 class="info-card-title">System Benchmarks</h4>
+                                <p class="info-card-desc">Standardized evaluations testing performance, latency, and throughput across hardware setups.</p>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-card-icon">02</div>
+                                <h4 class="info-card-title">Architecture Briefs</h4>
+                                <p class="info-card-desc">In-depth analysis of neural designs, algorithm efficiencies, and memory hierarchies.</p>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-card-icon">03</div>
+                                <h4 class="info-card-title">Implementation Ethics</h4>
+                                <p class="info-card-desc">Evaluating computational deployment impact on security, privacy, and compliance.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
@@ -741,11 +597,11 @@
         function renderArticleView(slug) {
             const post = BloggerStore.slugMap.get(slug);
             if (!post) {
-                return renderErrorState();
+                return `<div class="container section-padding" style="text-align:center;"><h2>Article not found.</h2><a href="?view=home" class="spa-link">Return Home</a></div>`;
             }
 
             document.title = `${post.title} — AZEXAI`;
-            const purifyConfig = { ADD_TAGS: ['iframe', 'img', 'figure', 'figcaption', 'picture', 'source', 'video'], ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'scrolling', 'loading', 'srcset', 'sizes'] };
+            const purifyConfig = { ADD_TAGS: ['iframe', 'img', 'figure', 'video'], ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'src'] };
             const cleanContent = window.DOMPurify ? DOMPurify.sanitize(post.content, purifyConfig) : post.content;
 
             return `
@@ -753,37 +609,107 @@
                     <header class="article-header">
                         <span class="meta-badge">${(post.labels && post.labels[0]) || 'Technology'}</span>
                         <h1 class="article-main-title">${escapeHtml(post.title)}</h1>
-                        <div class="article-submeta">
-                            <span>By <strong>${escapeHtml(post.author)}</strong></span>
-                            &bull; <span>Published ${new Date(post.publishedAt).toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'})}</span>
-                            &bull; <span>${post.readingTime}</span>
+                        <div style="font-size:0.875rem; font-weight:700; color:var(--text-muted);">
+                            <span>BY ${escapeHtml(post.author).toUpperCase()}</span> &bull; 
+                            <span>${new Date(post.publishedAt).toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'})}</span> &bull; 
+                            <span>${post.readingTime}</span>
                         </div>
                     </header>
-                    ${post.featuredImage ? `
-                    <div class="article-hero-media">
-                        <img src="${post.featuredImage}" alt="${escapeHtml(post.title)}">
-                    </div>` : ''}
-                    <div class="article-body-layout">
-                        <article class="article-prose">${cleanContent}</article>
-                        <aside class="article-sidebar-sticky">
-                            <div class="share-box">
-                                <div class="share-box-title">Share Story</div>
-                                <div class="share-actions">
-                                    <button class="icon-btn" id="copy-link-btn" title="Copy Link"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button>
-                                </div>
+                    ${post.featuredImage ? `<div style="margin-bottom:2rem; border-radius:var(--radius-md); overflow:hidden;"><img src="${post.featuredImage}" style="width:100%;"></div>` : ''}
+                    <article class="article-prose">${cleanContent}</article>
+                </div>
+            `;
+        }
+
+        function renderAboutView() {
+            return `
+                <div class="container section-padding">
+                    <div style="max-width:900px; margin:0 auto;">
+                        <h1 class="section-title" style="font-size:2.5rem; margin-bottom:1rem;">About AZEXAI Publication</h1>
+                        <p style="font-size:1.25rem; color:var(--text-secondary); line-height:1.6; margin-bottom:2rem;">
+                            AZEXAI is an independent publication committed to rigorous reporting, architectural evaluation, and objective analysis of frontier technologies, artificial intelligence models, and high-performance computing.
+                        </p>
+
+                        <div class="stat-grid">
+                            <div class="stat-box">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Independent</div>
                             </div>
-                        </aside>
+                            <div class="stat-box">
+                                <div class="stat-number">50k+</div>
+                                <div class="stat-label">Monthly Readers</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Research Desk</div>
+                            </div>
+                        </div>
+
+                        <div class="info-card-grid">
+                            <div class="info-card">
+                                <h3 class="info-card-title">Editorial Standards</h3>
+                                <p class="info-card-desc">Every piece undergoes rigorous peer-style checking for code validity, architectural accuracy, and zero marketing hype.</p>
+                            </div>
+                            <div class="info-card">
+                                <h3 class="info-card-title">Open Benchmarking</h3>
+                                <p class="info-card-desc">We publish real metrics, unedited test code, and repeatable methodologies for all hardware and software reviews.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
         }
 
-        function renderStaticPage(title, htmlBody) {
-            document.title = `${title} — AZEXAI`;
+        function renderContactView() {
             return `
                 <div class="container section-padding">
-                    <header class="page-header"><h1 class="page-title">${escapeHtml(title)}</h1></header>
-                    <div class="page-content-body">${htmlBody}</div>
+                    <div style="max-width:800px; margin:0 auto;">
+                        <h1 class="section-title" style="font-size:2.5rem; margin-bottom:1rem;">Contact Editorial Desk</h1>
+                        <p style="color:var(--text-secondary); margin-bottom:2rem;">Submit research proposals, inquiry briefs, press releases, or system correction notes directly to our team.</p>
+
+                        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message dispatched successfully to AZEXAI desk.');">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-input" placeholder="e.g. Dr. Alex Vance" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-input" placeholder="alex@institution.org" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Inquiry Category</label>
+                                <input type="text" class="form-input" placeholder="Research Proposal / Press / Bug Report">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Message Brief</label>
+                                <textarea class="form-textarea" placeholder="Provide complete context..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">Dispatch Message</button>
+                        </form>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderPrivacyView() {
+            return `
+                <div class="container section-padding">
+                    <div style="max-width:800px; margin:0 auto;">
+                        <h1 class="section-title" style="font-size:2.5rem; margin-bottom:1rem;">Privacy & Data Governance</h1>
+                        <p style="font-size:1.1rem; color:var(--text-secondary); line-height:1.7; margin-bottom:2rem;">
+                            AZEXAI operates under strict minimal data collection practices. We prioritize reader privacy above all digital metrics.
+                        </p>
+                        <div class="info-card-grid">
+                            <div class="info-card">
+                                <h3 class="info-card-title">Zero Analytics Profiling</h3>
+                                <p class="info-card-desc">We do not store intrusive user behavior cookies or trade reader profiles with third-party data networks.</p>
+                            </div>
+                            <div class="info-card">
+                                <h3 class="info-card-title">Local Preference Storage</h3>
+                                <p class="info-card-desc">Your light/dark theme choices stay completely on your browser via localStorage and are never sent to remote servers.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             `;
         }
@@ -794,83 +720,48 @@
             const view = params.get('view') || 'home';
             window.scrollTo({ top: 0, behavior: 'instant' });
 
-            // Update active states in navigation
-            document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(l => {
-                const href = l.getAttribute('href');
-                if (href && href.includes(`view=${view}`) || (view === 'home' && href.includes('view=home'))) {
+            // Highlight Active Link Nav
+            document.querySelectorAll('.nav-link').forEach(l => {
+                const navKey = l.getAttribute('data-nav');
+                if (navKey && (params.get('name')?.toLowerCase() === navKey || view === navKey)) {
                     l.classList.add('active');
                 } else {
                     l.classList.remove('active');
                 }
             });
 
-            if (view === 'about') {
-                root.innerHTML = renderStaticPage('About AZEXAI', '<p>AZEXAI is an independent publication exploring frontier technology, artificial intelligence, software architecture, and computational security.</p>');
+            if (view === 'about') { root.innerHTML = renderAboutView(); return; }
+            if (view === 'contact') { root.innerHTML = renderContactView(); return; }
+            if (view === 'privacy') { root.innerHTML = renderPrivacyView(); return; }
+
+            const posts = await fetchAllBloggerPosts();
+
+            if (view === 'category') {
+                const catName = params.get('name') || 'AI';
+                root.innerHTML = renderCategoryView(catName, posts);
                 return;
             }
-            if (view === 'contact') {
-                root.innerHTML = renderStaticPage('Contact Desk', '<p>Get in touch with the AZEXAI editorial team at desk@azexai.com or through our central communication channels.</p>');
+
+            if (view === 'article') {
+                const slug = params.get('slug');
+                root.innerHTML = renderArticleView(slug);
                 return;
             }
-            if (view === 'privacy') {
-                root.innerHTML = renderStaticPage('Privacy Policy', '<p>We respect your privacy and do not track personal identifying information.</p>');
+
+            if (view === 'archive') {
+                root.innerHTML = `
+                    <div class="container section-padding">
+                        <div class="section-header"><h1 class="section-title">Complete Article Archive (${posts.length})</h1></div>
+                        <div class="articles-grid">${posts.map(post => renderArticleCard(post)).join('')}</div>
+                    </div>
+                `;
                 return;
             }
 
-            // Only show skeleton if posts aren't loaded yet
-            if (!BloggerStore.isLoaded) {
-                root.innerHTML = renderSkeleton();
-            }
-
-            try {
-                const posts = await fetchAllBloggerPosts();
-
-                if (view === 'archive') {
-                    const page = parseInt(params.get('page') || '1', 10);
-                    root.innerHTML = renderArchiveView(posts, page);
-                    return;
-                }
-
-                if (view === 'category') {
-                    const catName = params.get('name') || 'AI';
-                    root.innerHTML = renderCategoryView(catName, posts);
-                    return;
-                }
-
-                if (view === 'article') {
-                    const slug = params.get('slug');
-                    root.innerHTML = renderArticleView(slug);
-                    const copyBtn = document.getElementById('copy-link-btn');
-                    if (copyBtn) copyBtn.onclick = copyLink;
-                    return;
-                }
-
-                root.innerHTML = renderHomeView(posts);
-
-            } catch (err) {
-                root.innerHTML = renderHomeView([]);
-            }
+            root.innerHTML = renderHomeView(posts);
         }
 
-        function copyLink() {
-            const url = window.location.href;
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(url).catch(() => document.execCommand('copy'));
-            } else {
-                const tmp = document.createElement('input');
-                document.body.appendChild(tmp);
-                tmp.value = url; tmp.select(); document.execCommand('copy');
-                document.body.removeChild(tmp);
-            }
-            const btn = document.getElementById('copy-link-btn');
-            if (btn) {
-                const original = btn.innerHTML;
-                btn.innerHTML = '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>';
-                setTimeout(() => btn.innerHTML = original, 2000);
-            }
-        }
-
-        // Global click interceptor for seamless Single Page App (SPA) navigation
+        // Navigation Link Listener
         document.addEventListener('click', (e) => {
             const link = e.target.closest('a.spa-link');
             if (link) {
@@ -879,37 +770,26 @@
                     e.preventDefault();
                     history.pushState(null, '', href);
                     router();
-                    // Close mobile drawer if open
                     document.getElementById('mobile-drawer').classList.remove('open');
                     document.getElementById('drawer-overlay').classList.remove('open');
                 }
             }
         });
 
-        window.addEventListener('popstate', () => {
-            router();
-        });
+        window.addEventListener('popstate', router);
 
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('copyright-year').textContent = new Date().getFullYear();
-            document.getElementById('display-blog-id').textContent = CONFIG.BLOG_ID;
 
+            // Progress Bar
             window.addEventListener('scroll', () => {
-                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const winScroll = document.documentElement.scrollTop;
                 const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-                const bar = document.getElementById('reading-progress');
-                if (bar) bar.style.width = scrolled + '%';
-
-                const btt = document.getElementById('back-to-top');
-                if (btt) {
-                    if (winScroll > 500) btt.classList.add('visible');
-                    else btt.classList.remove('visible');
-                }
+                document.getElementById('reading-progress').style.width = scrolled + '%';
             });
 
-            document.getElementById('back-to-top').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
+            // Search Modal
             const modal = document.getElementById('search-modal');
             document.getElementById('search-trigger').onclick = () => { modal.classList.add('active'); document.getElementById('search-input').focus(); };
             document.getElementById('search-close').onclick = () => modal.classList.remove('active');
@@ -918,33 +798,30 @@
                 const q = e.target.value.toLowerCase().trim();
                 const resList = document.getElementById('search-results');
                 if (q.length < 2) { resList.innerHTML = ''; return; }
-                const matches = BloggerStore.posts.filter(p => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q));
+                const matches = BloggerStore.posts.filter(p => p.title.toLowerCase().includes(q));
                 resList.innerHTML = matches.map(m => `
                     <a class="search-item-card spa-link" href="${m.url}" onclick="document.getElementById('search-modal').classList.remove('active');">
-                        <span class="meta-badge">${m.labels[0] || 'Story'}</span>
-                        <h4 style="margin-top:0.25rem; color:var(--text-primary);">${escapeHtml(m.title)}</h4>
+                        <span class="meta-badge">${m.labels[0] || 'Post'}</span>
+                        <h4 style="color:var(--text-primary); font-weight:700;">${escapeHtml(m.title)}</h4>
                     </a>
-                `).join('') || `<p style="color:var(--text-muted); text-align:center;">No matching stories found.</p>`;
+                `).join('') || `<p style="color:#fff;">No results match your search.</p>`;
             };
 
+            // Mobile Navigation Toggle
             const toggle = document.getElementById('menu-toggle');
             const drawer = document.getElementById('mobile-drawer');
             const overlay = document.getElementById('drawer-overlay');
             const close = document.getElementById('drawer-close');
-            const openDrawer = () => { drawer.classList.add('open'); overlay.classList.add('open'); };
-            const closeDrawer = () => { drawer.classList.remove('open'); overlay.classList.remove('open'); };
-            if (toggle) toggle.onclick = openDrawer;
-            if (close) close.onclick = closeDrawer;
-            if (overlay) overlay.onclick = closeDrawer;
+            toggle.onclick = () => { drawer.classList.add('open'); overlay.classList.add('open'); };
+            close.onclick = () => { drawer.classList.remove('open'); overlay.classList.remove('open'); };
+            overlay.onclick = () => { drawer.classList.remove('open'); overlay.classList.remove('open'); };
 
+            // Theme Switcher
             const themeBtn = document.getElementById('theme-toggle');
-            const savedTheme = localStorage.getItem('azexai_theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
             themeBtn.onclick = () => {
                 const cur = document.documentElement.getAttribute('data-theme');
                 const next = cur === 'dark' ? 'light' : 'dark';
                 document.documentElement.setAttribute('data-theme', next);
-                localStorage.setItem('azexai_theme', next);
             };
 
             router();

@@ -1,666 +1,1622 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="dark">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AZEXAI | Independent Publication on Frontier Tech & AI</title>
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>AZEXAI — Frontier Technology, Quantum & Artificial Intelligence Portal</title>
+    <meta name="description" content="AZEXAI is an independent authoritative research publication exploring breakthroughs in AI, robotics, photonic hardware, quantum computing, and software systems.">
+    <meta name="robots" content="index, follow">
 
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
-          colors: {
-            brand: {
-              black: '#030712',
-              card: '#0B0F19',
-              border: '#1F293D',
-              accent: '#06B6D4',
-              neonCyan: '#00f2fe',
-              neonPurple: '#a855f7',
-              neonGreen: '#10b981',
-            }
-          }
+    <!-- Favicon SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23030712'/><path d='M20 80 L50 20 L80 80 M32 62 L68 62' stroke='%2306b6d4' stroke-width='10' fill='none'/></svg>">
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- DOMPurify for sanitizing html content -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.8/purify.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        :root {
+            /* Palette Defaults - Dark Futuristic Theme */
+            --bg-primary: #030712;
+            --bg-secondary: #0b0f19;
+            --bg-surface: #111827;
+            --bg-elevated: #1f293d;
+
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --text-inverse: #030712;
+
+            --border-light: #1f293d;
+            --border-subtle: #111827;
+            --border-highlight: #374151;
+
+            /* Category Distinct Palette */
+            --color-ai: #06b6d4;          /* Cyan */
+            --color-robotics: #a855f7;    /* Purple */
+            --color-hardware: #10b981;    /* Emerald */
+            --color-software: #f59e0b;    /* Amber */
+            --color-future: #6366f1;      /* Indigo */
+            --color-guides: #3b82f6;      /* Blue */
+            --color-reviews: #f43f5e;     /* Rose */
+            --color-ethics: #14b8a6;      /* Teal */
+            --color-archive: #d946ef;     /* Fuchsia */
+
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
+
+            --max-width: 1360px;
+            --reading-width: 820px;
+            --header-height: 76px;
+
+            --transition-fast: 0.15s ease;
+            --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.6);
         }
-      }
-    }
-  </script>
 
-  <style>
-    /* Straight geometry - No skew, sharp and technical */
-    * {
-      box-sizing: border-box;
-      transform-style: flat !important;
-    }
-    
-    body {
-      background-color: #030712;
-      color: #F3F4F6;
-      font-family: 'Inter', sans-serif;
-    }
+        [data-theme="light"] {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #f1f5f9;
+            --bg-surface: #ffffff;
+            --bg-elevated: #e2e8f0;
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #030712;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1f2937;
-      border-radius: 0px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #06b6d4;
-    }
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --text-inverse: #ffffff;
 
-    .border-glow:hover {
-      border-color: #06b6d4;
-      box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
-    }
-  </style>
+            --border-light: #cbd5e1;
+            --border-subtle: #e2e8f0;
+            --border-highlight: #94a3b8;
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.12);
+        }
+
+        /* STRICT STRAIGHT GEOMETRY - ZERO SKEW, ZERO ITALICS, STRAIGHT BOXES */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            border-radius: 0px !important; /* Forces 100% straight geometry */
+            transform-style: flat !important;
+            font-style: normal !important; /* Removes slants/italics everywhere */
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            letter-spacing: -0.01em;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--transition-fast), border-color var(--transition-fast);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        button, input, textarea, select {
+            font: inherit;
+            color: inherit;
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        button { cursor: pointer; }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .main-layout {
+            flex: 1;
+            padding-top: var(--header-height);
+        }
+
+        /* Reading Progress Top Bar */
+        #reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--color-ai);
+            width: 0%;
+            z-index: 1001;
+            transition: width 0.1s linear;
+        }
+
+        /* TOP ANNOUNCEMENT BANNER */
+        .top-status-bar {
+            background: #000000;
+            border-bottom: 1px solid var(--border-light);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 0.4rem 0;
+        }
+        .status-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .status-pulse {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            margin-right: 6px;
+        }
+
+        /* HEADER & SPA NAVIGATION */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(3, 7, 18, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: background-color var(--transition-smooth);
+        }
+        [data-theme="light"] .site-header {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: var(--header-height);
+        }
+
+        .brand-logo {
+            font-family: var(--font-mono);
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -0.05em;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            user-select: none;
+        }
+        .brand-badge {
+            background-color: var(--color-ai);
+            color: #000000;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 800;
+        }
+
+        /* Distinct Navigation Colors per Category */
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .nav-btn {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.6rem 0.75rem;
+            color: var(--text-secondary);
+            border-bottom: 2px solid transparent;
+            transition: all var(--transition-fast);
+        }
+        .nav-btn:hover { color: var(--text-primary); }
+
+        .nav-btn[data-cat="all"].active, .nav-btn[data-cat="all"]:hover { border-color: var(--color-ai); color: var(--color-ai); }
+        .nav-btn[data-cat="ai"].active, .nav-btn[data-cat="ai"]:hover { border-color: var(--color-ai); color: var(--color-ai); }
+        .nav-btn[data-cat="robotics"].active, .nav-btn[data-cat="robotics"]:hover { border-color: var(--color-robotics); color: var(--color-robotics); }
+        .nav-btn[data-cat="hardware"].active, .nav-btn[data-cat="hardware"]:hover { border-color: var(--color-hardware); color: var(--color-hardware); }
+        .nav-btn[data-cat="software"].active, .nav-btn[data-cat="software"]:hover { border-color: var(--color-software); color: var(--color-software); }
+        .nav-btn[data-cat="future"].active, .nav-btn[data-cat="future"]:hover { border-color: var(--color-future); color: var(--color-future); }
+        .nav-btn[data-cat="guides"].active, .nav-btn[data-cat="guides"]:hover { border-color: var(--color-guides); color: var(--color-guides); }
+        .nav-btn[data-cat="reviews"].active, .nav-btn[data-cat="reviews"]:hover { border-color: var(--color-reviews); color: var(--color-reviews); }
+        .nav-btn[data-cat="ethics"].active, .nav-btn[data-cat="ethics"]:hover { border-color: var(--color-ethics); color: var(--color-ethics); }
+        .nav-btn[data-cat="archive"].active, .nav-btn[data-cat="archive"]:hover { border-color: var(--color-archive); color: var(--color-archive); }
+        .nav-btn[data-cat="about"].active, .nav-btn[data-cat="about"]:hover { border-color: #ffffff; color: #ffffff; }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            background: var(--bg-surface);
+            transition: all var(--transition-fast);
+        }
+        .icon-btn:hover {
+            border-color: var(--color-ai);
+            color: var(--color-ai);
+        }
+
+        .mobile-toggle { display: none; }
+
+        /* MOBILE DRAWER */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 320px;
+            max-width: 85vw;
+            background: var(--bg-surface);
+            z-index: 1100;
+            transform: translateX(-100%);
+            transition: transform var(--transition-smooth);
+            border-right: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+        .mobile-drawer.open { transform: translateX(0); }
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1090;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-smooth);
+        }
+        .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .mobile-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            list-style: none;
+            font-family: var(--font-mono);
+        }
+        .mobile-nav-btn {
+            display: block;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-light);
+            background: var(--bg-secondary);
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: left;
+            width: 100%;
+        }
+
+        /* CATEGORY BADGES */
+        .cat-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 0.25rem 0.5rem;
+            color: #000000;
+            letter-spacing: 0.05em;
+        }
+        .cat-badge[data-cat="ai"] { background-color: var(--color-ai); }
+        .cat-badge[data-cat="robotics"] { background-color: var(--color-robotics); color: #ffffff; }
+        .cat-badge[data-cat="hardware"] { background-color: var(--color-hardware); }
+        .cat-badge[data-cat="software"] { background-color: var(--color-software); }
+        .cat-badge[data-cat="future"] { background-color: var(--color-future); color: #ffffff; }
+        .cat-badge[data-cat="guides"] { background-color: var(--color-guides); color: #ffffff; }
+        .cat-badge[data-cat="reviews"] { background-color: var(--color-reviews); color: #ffffff; }
+        .cat-badge[data-cat="ethics"] { background-color: var(--color-ethics); }
+
+        /* GRID SYSTEM WITH DISTINCT ROW-BY-ROW COLOR ACCENTS */
+        .section-padding { padding: 3rem 0; }
+        .section-header-title {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-left: 4px solid var(--color-ai);
+            padding-left: 0.75rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+        @media (min-width: 1024px) {
+            .articles-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        }
+
+        /* DISTINCT ROW ACCENT COLORS */
+        /* Row 1 cards (1st 3 items on desktop / 2 items on mobile) */
+        .articles-grid > .article-card:nth-child(1),
+        .articles-grid > .article-card:nth-child(2),
+        .articles-grid > .article-card:nth-child(3) {
+            border-top: 3px solid var(--color-ai);
+            background: linear-gradient(180deg, rgba(6, 182, 212, 0.04) 0%, var(--bg-surface) 100%);
+        }
+        /* Row 2 cards */
+        .articles-grid > .article-card:nth-child(4),
+        .articles-grid > .article-card:nth-child(5),
+        .articles-grid > .article-card:nth-child(6) {
+            border-top: 3px solid var(--color-robotics);
+            background: linear-gradient(180deg, rgba(168, 85, 247, 0.04) 0%, var(--bg-surface) 100%);
+        }
+        /* Row 3 cards */
+        .articles-grid > .article-card:nth-child(7),
+        .articles-grid > .article-card:nth-child(8),
+        .articles-grid > .article-card:nth-child(9) {
+            border-top: 3px solid var(--color-hardware);
+            background: linear-gradient(180deg, rgba(16, 185, 129, 0.04) 0%, var(--bg-surface) 100%);
+        }
+        /* Row 4 cards */
+        .articles-grid > .article-card:nth-child(10),
+        .articles-grid > .article-card:nth-child(11),
+        .articles-grid > .article-card:nth-child(12) {
+            border-top: 3px solid var(--color-software);
+            background: linear-gradient(180deg, rgba(245, 158, 11, 0.04) 0%, var(--bg-surface) 100%);
+        }
+
+        .article-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+            height: 100%;
+            position: relative;
+        }
+        .article-card:hover {
+            border-color: var(--color-ai);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-image-wrap {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: var(--bg-secondary);
+            overflow: hidden;
+            position: relative;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .card-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 0.75rem;
+        }
+
+        .card-title {
+            font-family: var(--font-sans);
+            font-size: 1.0625rem;
+            font-weight: 700;
+            line-height: 1.35;
+            color: var(--text-primary);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-excerpt {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .card-code-block {
+            background: #000000;
+            border: 1px solid var(--border-light);
+            padding: 0.5rem 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            color: var(--color-ai);
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-secondary);
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 2rem;
+        }
+        .featured-story {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            cursor: pointer;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--color-ai);
+            padding: 1.5rem;
+        }
+        .featured-image-wrap {
+            width: 100%;
+            aspect-ratio: 16 / 8;
+            background: var(--bg-primary);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+        .featured-title {
+            font-family: var(--font-sans);
+            font-size: 1.875rem;
+            line-height: 1.25;
+            font-weight: 900;
+            color: var(--text-primary);
+        }
+        .featured-excerpt {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .hero-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .sidebar-heading {
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--color-ai);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--color-ai);
+        }
+        .secondary-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        .secondary-card:nth-child(2) { border-left: 3px solid var(--color-robotics); }
+        .secondary-card:nth-child(3) { border-left: 3px solid var(--color-hardware); }
+        .secondary-card:nth-child(4) { border-left: 3px solid var(--color-software); }
+
+        .secondary-title {
+            font-size: 0.9375rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        /* HIGH DENSITY PAGE LAYOUTS (ABOUT, CONTACT, PRIVACY) */
+        .info-page-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+        .info-header-banner {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            padding: 2.5rem 2rem;
+            border-top: 4px solid var(--color-ai);
+        }
+        .info-title {
+            font-family: var(--font-mono);
+            font-size: 2.25rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .info-subtitle {
+            color: var(--color-ai);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        /* Distinct Colored Grid Boxes */
+        .grid-box-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        /* Row Accent Colors for About / Contact / Privacy Boxes */
+        .info-card.row-cyan { border-top: 3px solid var(--color-ai); background: linear-gradient(180deg, rgba(6,182,212,0.05) 0%, var(--bg-surface) 100%); }
+        .info-card.row-purple { border-top: 3px solid var(--color-robotics); background: linear-gradient(180deg, rgba(168,85,247,0.05) 0%, var(--bg-surface) 100%); }
+        .info-card.row-emerald { border-top: 3px solid var(--color-hardware); background: linear-gradient(180deg, rgba(16,185,129,0.05) 0%, var(--bg-surface) 100%); }
+        .info-card.row-amber { border-top: 3px solid var(--color-software); background: linear-gradient(180deg, rgba(245,158,11,0.05) 0%, var(--bg-surface) 100%); }
+        .info-card.row-indigo { border-top: 3px solid var(--color-future); background: linear-gradient(180deg, rgba(99,102,241,0.05) 0%, var(--bg-surface) 100%); }
+        .info-card.row-rose { border-top: 3px solid var(--color-reviews); background: linear-gradient(180deg, rgba(244,63,94,0.05) 0%, var(--bg-surface) 100%); }
+
+        .card-stat-num {
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        /* FORM STYLING */
+        .contact-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group.full { grid-column: span 2; }
+        .form-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+        .form-input, .form-textarea, .form-select {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            padding: 0.875rem 1rem;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+        }
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            border-color: var(--color-ai);
+        }
+        .submit-btn {
+            background: var(--color-ai);
+            color: #000000;
+            font-family: var(--font-mono);
+            font-weight: 900;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            padding: 1rem 2rem;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .submit-btn:hover {
+            background: #22d3ee;
+        }
+
+        /* SEARCH MODAL */
+        .search-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 7, 18, 0.95);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 1.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-smooth);
+        }
+        .search-modal.active { opacity: 1; pointer-events: auto; }
+        .search-container { width: 100%; max-width: 760px; display: flex; flex-direction: column; gap: 1.5rem; }
+        .search-input {
+            width: 100%;
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-surface);
+            border: 2px solid var(--color-ai);
+            color: var(--text-primary);
+        }
+        .search-results-list { display: flex; flex-direction: column; gap: 1rem; max-height: 60vh; overflow-y: auto; }
+
+        /* FOOTER */
+        .site-footer {
+            background: #000000;
+            border-top: 1px solid var(--border-light);
+            padding: 4rem 0 2rem 0;
+            margin-top: auto;
+            font-family: var(--font-sans);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        .footer-col-title {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--color-ai);
+            margin-bottom: 1.25rem;
+        }
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.8125rem;
+            font-family: var(--font-mono);
+        }
+        .footer-link:hover { color: var(--color-ai); }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: var(--color-ai);
+            color: #000000;
+            padding: 0.875rem 1.5rem;
+            font-family: var(--font-mono);
+            font-weight: 800;
+            font-size: 0.8125rem;
+            z-index: 3000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all var(--transition-smooth);
+        }
+        .toast-notification.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .desktop-nav { display: none; }
+            .mobile-toggle { display: inline-flex; }
+            .contact-form-grid { grid-template-columns: 1fr; }
+            .form-group.full { grid-column: span 1; }
+        }
+    </style>
 </head>
-<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
+<body>
 
-  <!-- ==================== UNIFIED TOP HEADER ==================== -->
-  <header class="bg-gray-900/90 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50 transition-colors">
-    <!-- Top Announcement Bar -->
-    <div class="bg-gradient-to-r from-cyan-950 via-gray-900 to-indigo-950 text-xs py-1.5 px-4 border-b border-cyan-900/30">
-      <div class="max-w-7xl mx-auto flex justify-between items-center text-gray-300">
-        <div class="flex items-center space-x-3">
-          <span class="inline-flex items-center px-2 py-0.5 rounded-none text-[10px] font-bold bg-cyan-500 text-black uppercase tracking-wider">LIVE</span>
-          <span class="text-xs text-cyan-300 truncate font-mono">AZEXAI System Status: All 38 Neural Nodes Operational</span>
-        </div>
-        <div class="hidden md:flex items-center space-x-4 font-mono text-[11px] text-gray-400">
-          <span><i class="fa-solid fa-signal text-green-400 mr-1"></i> API Connected</span>
-          <span><i class="fa-solid fa-clock text-cyan-400 mr-1"></i> Sep 2026</span>
-        </div>
-      </div>
-    </div>
+    <div id="reading-progress"></div>
 
-    <!-- Main Navigation Bar -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        
-        <!-- Logo -->
-        <div class="flex items-center space-x-3 cursor-pointer" onclick="switchCategory('all')">
-          <div class="w-9 h-9 bg-cyan-500 flex items-center justify-center font-bold text-black text-xl font-mono tracking-tighter">
-            AX
-          </div>
-          <span class="text-2xl font-black tracking-wider text-white font-mono">AZEX<span class="text-cyan-400">AI</span><span class="text-xs font-bold text-cyan-500 align-super">.</span></span>
-        </div>
-
-        <!-- Desktop Navigation Items -->
-        <nav class="hidden xl:flex items-center space-x-1">
-          <button onclick="switchCategory('all')" id="nav-all" class="nav-btn px-2.5 py-2 text-xs font-semibold text-cyan-400 border-b-2 border-cyan-400 transition-all uppercase tracking-wider">Home</button>
-          <button onclick="switchCategory('ai')" id="nav-ai" class="nav-btn px-2.5 py-2 text-xs font-medium text-gray-300 hover:text-cyan-400 border-b-2 border-transparent hover:border-cyan-400 transition-all uppercase tracking-wider">AI & ML</button>
-          <button onclick="switchCategory('robotics')" id="nav-robotics" class="nav-btn px-2.5 py-2 text-xs font-medium text-gray-300 hover:text-cyan-400 border-b-2 border-transparent hover:border-cyan-400 transition-all uppercase tracking-wider">Robotics</button>
-          <button onclick="switchCategory('hardware')" id="nav-hardware" class="nav-btn px-2.5 py-2 text-xs font-medium text-gray-300 hover:text-cyan-400 border-b-2 border-transparent hover:border-cyan-400 transition-all uppercase tracking-wider">Hardware</button>
-          <button onclick="switchCategory('software')" id="nav-software" class="nav-btn px-2.5 py-2 text-xs font-medium text-gray-300 hover:text-cyan-400 border-b-2 border-transparent hover:border-cyan-400 transition-all uppercase tracking-wider">Software</button>
-          <button onclick="switchCategory('future')" id="nav-future" class="nav-btn px-2.5 py-2 text-xs font-medium text-gray-300 hover:text-cyan-400 border-b-2 border-transparent hover:border-cyan-400 transition-all uppercase tracking-wider">Future Tech</button>
-          <button onclick="switchCategory('guides')" id="nav-guides" class="nav-btn px-2.5 py-2 text-xs font-medium text-gray-300 hover:text-cyan-400 border-b-2 border-transparent hover:border-cyan-400 transition-all uppercase tracking-wider">Guides</button>
-          <button onclick="switchCategory('reviews')" id="nav-reviews" class="nav-btn px-2.5 py-2 text-xs font-medium text-gray-300 hover:text-cyan-400 border-b-2 border-transparent hover:border-cyan-400 transition-all uppercase tracking-wider">Reviews</button>
-          <button onclick="switchCategory('ethics')" id="nav-ethics" class="nav-btn px-2.5 py-2 text-xs font-medium text-gray-300 hover:text-cyan-400 border-b-2 border-transparent hover:border-cyan-400 transition-all uppercase tracking-wider">Ethics</button>
-          <button onclick="switchCategory('about')" id="nav-about" class="nav-btn px-2.5 py-2 text-xs font-medium text-gray-300 hover:text-cyan-400 border-b-2 border-transparent hover:border-cyan-400 transition-all uppercase tracking-wider">About Us</button>
-        </nav>
-
-        <!-- Right Tools Header -->
-        <div class="flex items-center space-x-3">
-          <div class="relative hidden sm:block">
-            <input type="text" id="searchInput" onkeyup="filterArticles()" placeholder="Search articles..." class="bg-gray-950 border border-gray-800 text-xs px-3 py-2 pl-8 pr-4 w-44 focus:w-60 focus:outline-none focus:border-cyan-500 text-gray-200 transition-all font-sans">
-            <i class="fa-solid fa-magnifying-glass absolute top-2.5 left-2.5 text-gray-500 text-xs"></i>
-          </div>
-
-          <button onclick="toggleMobileMenu()" class="xl:hidden p-2 text-gray-400 hover:text-white focus:outline-none">
-            <i class="fa-solid fa-bars text-xl"></i>
-          </button>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Mobile Dropdown Navigation -->
-    <div id="mobileMenu" class="hidden xl:hidden bg-gray-900 border-b border-gray-800 px-4 pt-2 pb-4 space-y-1 font-sans">
-      <button onclick="switchCategory('all'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm font-semibold text-cyan-400 bg-gray-800">Home (All)</button>
-      <button onclick="switchCategory('ai'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm text-gray-300 hover:bg-gray-800">AI & Machine Learning</button>
-      <button onclick="switchCategory('robotics'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm text-gray-300 hover:bg-gray-800">Robotics & Autonomy</button>
-      <button onclick="switchCategory('hardware'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm text-gray-300 hover:bg-gray-800">Hardware & Chips</button>
-      <button onclick="switchCategory('software'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm text-gray-300 hover:bg-gray-800">Software Engineering</button>
-      <button onclick="switchCategory('future'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm text-gray-300 hover:bg-gray-800">Future Tech & Quantum</button>
-      <button onclick="switchCategory('guides'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm text-gray-300 hover:bg-gray-800">Guides & Tutorials</button>
-      <button onclick="switchCategory('reviews'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm text-gray-300 hover:bg-gray-800">Hardware Reviews</button>
-      <button onclick="switchCategory('ethics'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm text-gray-300 hover:bg-gray-800">AI Governance & Ethics</button>
-      <button onclick="switchCategory('about'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm text-gray-300 hover:bg-gray-800">About AZEXAI</button>
-    </div>
-  </header>
-
-  <!-- ==================== MAIN CONTENT AREA ==================== -->
-  <main class="flex-grow max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-8">
-    
-    <!-- Hero Header Indicator -->
-    <div id="categoryHeader" class="border-l-4 border-cyan-500 pl-4 py-1 bg-gray-900/40 border-b border-gray-800">
-      <h1 id="categoryTitle" class="text-xl sm:text-2xl md:text-3xl font-black text-white font-mono tracking-tight">Latest Frontier Tech & Research Dispatches</h1>
-      <p id="categoryDescription" class="text-xs sm:text-sm text-gray-400 mt-1">Comprehensive intelligence covering AI models, humanoid robotics, quantum chips, and software architectures.</p>
-    </div>
-
-    <!-- Mobile Search Bar (Visible on mobile) -->
-    <div class="block sm:hidden">
-      <div class="relative w-full">
-        <input type="text" id="searchInputMobile" onkeyup="filterArticlesMobile()" placeholder="Search articles..." class="w-full bg-gray-900 border border-gray-800 text-xs px-3 py-2.5 pl-8 pr-4 focus:outline-none focus:border-cyan-500 text-gray-200 font-sans">
-        <i class="fa-solid fa-magnifying-glass absolute top-3 left-2.5 text-gray-500 text-xs"></i>
-      </div>
-    </div>
-
-    <!-- ARTICLES GRID: 2 COLUMNS ON MOBILE (grid-cols-2), 3 COLUMNS ON DESKTOP (md:grid-cols-3) -->
-    <div id="articlesGrid" class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
-      <!-- Dynamic Articles Inserted Here via JavaScript -->
-    </div>
-
-    <!-- About Section View -->
-    <div id="aboutSectionView" class="hidden bg-gray-900/80 border border-gray-800 p-6 sm:p-8 space-y-6">
-      <div class="border-b border-gray-800 pb-4">
-        <h2 class="text-2xl sm:text-3xl font-black text-white font-mono">About AZEXAI</h2>
-        <p class="text-cyan-400 text-xs sm:text-sm mt-1 font-mono">Independent Publication Exploring Frontier Technology & Computational Science</p>
-      </div>
-      <div class="prose prose-invert max-w-none text-gray-300 text-xs sm:text-sm leading-relaxed space-y-4">
-        <p class="text-sm sm:text-base font-semibold text-gray-200">
-          AZEXAI is an independent research publication dedicated to documenting and analyzing breakthroughs in artificial intelligence, quantum computing, autonomous systems, and advanced hardware engineering.
-        </p>
-        <p>
-          We provide rigorous, unbiased analysis designed for engineers, researchers, and technology leaders covering peer-reviewed research papers, silicon architectures, and neural networks worldwide.
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6 font-mono">
-          <div class="bg-gray-950 p-4 border border-cyan-500/30">
-            <div class="text-2xl font-bold text-cyan-400">38+</div>
-            <div class="text-xs text-gray-400 mt-1">Research Index Papers</div>
-          </div>
-          <div class="bg-gray-950 p-4 border border-purple-500/30">
-            <div class="text-2xl font-bold text-purple-400">99.9%</div>
-            <div class="text-xs text-gray-400 mt-1">Academic Verification</div>
-          </div>
-          <div class="bg-gray-950 p-4 border border-emerald-500/30">
-            <div class="text-2xl font-bold text-emerald-400">24/7</div>
-            <div class="text-xs text-gray-400 mt-1">Global Tech Tracking</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- ==================== PROFESSIONAL FOOTER ==================== -->
-  <footer class="bg-black border-t border-gray-800 text-gray-300 text-sm mt-16 font-sans">
-    
-    <!-- ROW 1: BRANDING & SOCIAL MEDIA -->
-    <div class="border-b border-gray-900 bg-gray-950/80 py-8 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        
-        <!-- Brand Info -->
-        <div class="space-y-2 text-center md:text-left">
-          <div class="flex items-center justify-center md:justify-start space-x-2">
-            <span class="text-2xl font-black text-white font-mono tracking-wider">AZEX<span class="text-cyan-400">AI</span><span class="text-cyan-500">.</span></span>
-          </div>
-          <p class="text-xs text-gray-400 max-w-xl font-mono leading-relaxed">
-            Global authority on artificial intelligence, frontier tech, cybersecurity, and digital intelligence dispatches.
-          </p>
-        </div>
-
-        <!-- Social Icons -->
-        <div class="flex items-center space-x-3">
-          <a href="#" class="w-10 h-10 bg-gray-900 hover:bg-cyan-500 hover:text-black border border-gray-800 flex items-center justify-center text-gray-400 transition-all">
-            <i class="fa-solid fa-rss"></i>
-          </a>
-          <a href="#" class="w-10 h-10 bg-gray-900 hover:bg-cyan-500 hover:text-black border border-gray-800 flex items-center justify-center text-gray-400 transition-all">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </a>
-          <a href="#" class="w-10 h-10 bg-gray-900 hover:bg-cyan-500 hover:text-black border border-gray-800 flex items-center justify-center text-gray-400 transition-all">
-            <i class="fa-brands fa-facebook-f"></i>
-          </a>
-          <a href="#" class="w-10 h-10 bg-gray-900 hover:bg-cyan-500 hover:text-black border border-gray-800 flex items-center justify-center text-gray-400 transition-all">
-            <i class="fa-brands fa-youtube"></i>
-          </a>
-          <a href="#" class="w-10 h-10 bg-gray-900 hover:bg-cyan-500 hover:text-black border border-gray-800 flex items-center justify-center text-gray-400 transition-all">
-            <i class="fa-brands fa-x-twitter"></i>
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ROW 2: MAIN DENSE INFORMATION COLUMNS -->
-    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        
-        <!-- COLUMN 1: CORPORATE -->
-        <div class="space-y-4">
-          <div class="flex items-center space-x-2 text-cyan-400 font-mono text-xs font-bold uppercase tracking-wider">
-            <i class="fa-solid fa-city text-sm"></i>
-            <span>CORPORATE</span>
-          </div>
-          <ul class="space-y-2.5 text-xs font-semibold text-gray-400">
-            <li><a href="#" onclick="switchCategory('about')" class="hover:text-cyan-400 transition-colors uppercase">ABOUT US</a></li>
-            <li><a href="#" class="hover:text-cyan-400 transition-colors uppercase">EDITORIAL BOARD</a></li>
-            <li><a href="#" class="hover:text-cyan-400 transition-colors uppercase">PRIVACY POLICY</a></li>
-            <li><a href="#" class="hover:text-cyan-400 transition-colors uppercase">TERMS OF SERVICE</a></li>
-            <li><a href="#" class="hover:text-cyan-400 transition-colors uppercase text-cyan-400">CONTACT US</a></li>
-          </ul>
-        </div>
-
-        <!-- COLUMN 2: DOMAINS -->
-        <div class="space-y-4">
-          <div class="flex items-center space-x-2 text-purple-400 font-mono text-xs font-bold uppercase tracking-wider">
-            <i class="fa-solid fa-layer-group text-sm"></i>
-            <span>DOMAINS</span>
-          </div>
-          <ul class="space-y-2.5 text-xs font-semibold text-gray-400">
-            <li><a href="#" onclick="switchCategory('ai')" class="hover:text-purple-400 transition-colors uppercase">ARTIFICIAL INTELLIGENCE</a></li>
-            <li><a href="#" onclick="switchCategory('robotics')" class="hover:text-purple-400 transition-colors uppercase">ROBOTICS & AUTONOMY</a></li>
-            <li><a href="#" onclick="switchCategory('hardware')" class="hover:text-purple-400 transition-colors uppercase">SEMICONDUCTORS & HARDWARE</a></li>
-            <li><a href="#" onclick="switchCategory('software')" class="hover:text-purple-400 transition-colors uppercase">SOFTWARE ARCHITECTURE</a></li>
-            <li><a href="#" onclick="switchCategory('future')" class="hover:text-purple-400 transition-colors uppercase">FUTURE TECH & QUANTUM</a></li>
-          </ul>
-        </div>
-
-        <!-- COLUMN 3: RESEARCH LABS -->
-        <div class="space-y-4">
-          <div class="flex items-center space-x-2 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
-            <i class="fa-solid fa-microscope text-sm"></i>
-            <span>RESEARCH LABS</span>
-          </div>
-          <ul class="space-y-2.5 text-xs font-semibold text-gray-400">
-            <li><a href="#" class="hover:text-amber-400 transition-colors uppercase">LLM BENCHMARK REPORTS</a></li>
-            <li><a href="#" class="hover:text-amber-400 transition-colors uppercase">CYBERSECURITY LABS</a></li>
-            <li><a href="#" class="hover:text-amber-400 transition-colors uppercase">NEURAL NET ARCHITECTURE</a></li>
-            <li><a href="#" class="hover:text-amber-400 transition-colors uppercase">QUANTUM COMPUTING BENCH</a></li>
-            <li><a href="#" class="hover:text-amber-400 transition-colors uppercase">OPEN SOURCE MODELS</a></li>
-          </ul>
-        </div>
-
-        <!-- COLUMN 4: NEWSLETTER -->
-        <div class="space-y-4 bg-gray-900/50 p-4 border border-gray-800">
-          <div class="flex items-center space-x-2 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
-            <i class="fa-solid fa-paper-plane text-sm"></i>
-            <span>NEWSLETTER</span>
-          </div>
-          <p class="text-xs text-gray-400">Get daily tech intelligence reports directly in your inbox.</p>
-          
-          <form onsubmit="handleSubscribe(event)" class="space-y-3">
-            <div>
-              <input type="email" id="newsletterEmail" required placeholder="ENTER YOUR EMAIL" class="w-full bg-gray-950 border border-gray-800 text-xs px-3 py-3 text-white focus:outline-none focus:border-emerald-500 uppercase font-mono tracking-wider">
+    <!-- TOP ANNOUNCEMENT / SYSTEM STATUS BAR -->
+    <div class="top-status-bar">
+        <div class="container status-inner">
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+                <span class="status-pulse"></span>
+                <span style="color:#10b981; font-weight:700;">SYSTEM LIVE:</span>
+                <span style="color:var(--text-secondary);">AZEXAI Grid Node #38 Connected</span>
             </div>
-            <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs py-3 px-4 uppercase tracking-widest transition-all font-mono shadow-lg shadow-emerald-500/20">
-              SUBSCRIBE NOW
-            </button>
-          </form>
-
-          <div class="pt-2 border-t border-gray-800/80 font-mono text-[11px] text-gray-400">
-            Official Desk: <a href="mailto:aristo@azexai.com" class="text-emerald-400 hover:underline">aristo@azexai.com</a>
-          </div>
+            <div style="display:flex; gap:1.5rem; color:var(--text-muted);" class="hidden-mobile">
+                <span><i class="fa-solid fa-database mr-1"></i> Blogger API Sync: 100%</span>
+                <span><i class="fa-solid fa-shield-halved mr-1"></i> TLS 1.3 Encrypted</span>
+            </div>
         </div>
-
-      </div>
     </div>
 
-    <!-- ROW 3: COPYRIGHT & LEGAL -->
-    <div class="bg-gray-950 border-t border-gray-900 py-6 px-4 sm:px-6 lg:px-8 text-xs font-mono">
-      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-500">
-        <div>
-          © 2026 <span class="text-gray-300 font-bold">AZEXAI AUTHORITATIVE MEDIA CORP</span>. ALL RIGHTS RESERVED.
+    <!-- MAIN HEADER WITH COLOR-CODED SPA CATEGORY BUTTONS -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="?view=home" class="brand-logo spa-link">
+                AZEX<span style="color:var(--color-ai)">AI</span>
+                <span class="brand-badge">PORTAL</span>
+            </a>
+
+            <!-- Category Navigation Buttons with Unique Colors -->
+            <nav class="desktop-nav">
+                <button onclick="switchCategory('all')" data-cat="all" class="nav-btn active">Home</button>
+                <button onclick="switchCategory('ai')" data-cat="ai" class="nav-btn">AI & ML</button>
+                <button onclick="switchCategory('robotics')" data-cat="robotics" class="nav-btn">Robotics</button>
+                <button onclick="switchCategory('hardware')" data-cat="hardware" class="nav-btn">Hardware</button>
+                <button onclick="switchCategory('software')" data-cat="software" class="nav-btn">Software</button>
+                <button onclick="switchCategory('future')" data-cat="future" class="nav-btn">Future Tech</button>
+                <button onclick="switchCategory('guides')" data-cat="guides" class="nav-btn">Guides</button>
+                <button onclick="switchCategory('reviews')" data-cat="reviews" class="nav-btn">Reviews</button>
+                <button onclick="switchCategory('ethics')" data-cat="ethics" class="nav-btn">Ethics</button>
+                <button onclick="switchCategory('about')" data-cat="about" class="nav-btn">About</button>
+            </nav>
+
+            <div class="header-actions">
+                <button class="icon-btn" id="search-trigger" aria-label="Search articles">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="icon-btn mobile-toggle" id="menu-toggle" aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
-        <div class="flex items-center space-x-6 font-semibold">
-          <a href="#" class="hover:text-cyan-400 transition-colors uppercase">PRIVACY</a>
-          <a href="#" class="hover:text-cyan-400 transition-colors uppercase">TERMS</a>
-          <a href="#" class="hover:text-cyan-400 transition-colors uppercase">CONTACT US</a>
+    </header>
+
+    <!-- MOBILE DRAWER -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <span class="brand-logo">AZEX<span style="color:var(--color-ai)">AI</span></span>
+            <button class="icon-btn" id="drawer-close"><i class="fa-solid fa-xmark"></i></button>
         </div>
-      </div>
+        <ul class="mobile-nav-list">
+            <li><button onclick="switchCategory('all'); closeDrawer();" class="mobile-nav-btn">Home (All)</button></li>
+            <li><button onclick="switchCategory('ai'); closeDrawer();" class="mobile-nav-btn" style="border-left: 4px solid var(--color-ai);">AI & Machine Learning</button></li>
+            <li><button onclick="switchCategory('robotics'); closeDrawer();" class="mobile-nav-btn" style="border-left: 4px solid var(--color-robotics);">Robotics & Autonomy</button></li>
+            <li><button onclick="switchCategory('hardware'); closeDrawer();" class="mobile-nav-btn" style="border-left: 4px solid var(--color-hardware);">Hardware & Chips</button></li>
+            <li><button onclick="switchCategory('software'); closeDrawer();" class="mobile-nav-btn" style="border-left: 4px solid var(--color-software);">Software Architecture</button></li>
+            <li><button onclick="switchCategory('future'); closeDrawer();" class="mobile-nav-btn" style="border-left: 4px solid var(--color-future);">Future & Quantum</button></li>
+            <li><button onclick="switchCategory('guides'); closeDrawer();" class="mobile-nav-btn" style="border-left: 4px solid var(--color-guides);">Guides & Tutorials</button></li>
+            <li><button onclick="switchCategory('reviews'); closeDrawer();" class="mobile-nav-btn" style="border-left: 4px solid var(--color-reviews);">Hardware Reviews</button></li>
+            <li><button onclick="switchCategory('ethics'); closeDrawer();" class="mobile-nav-btn" style="border-left: 4px solid var(--color-ethics);">AI Governance & Ethics</button></li>
+            <li><button onclick="switchCategory('about'); closeDrawer();" class="mobile-nav-btn">About AZEXAI</button></li>
+            <li><a href="?view=contact" class="mobile-nav-btn spa-link">Contact Desk</a></li>
+            <li><a href="?view=privacy" class="mobile-nav-btn spa-link">Privacy Policy</a></li>
+        </ul>
     </div>
 
-  </footer>
+    <!-- MAIN CONTENT ROOT AREA -->
+    <main class="main-layout" id="app-root">
+        <!-- Dynamic Articles Grid or Information Pages load here -->
+    </main>
 
-  <!-- Notification Toast Modal -->
-  <div id="toast" class="fixed bottom-6 left-6 bg-cyan-500 text-black px-4 py-3 font-mono font-bold text-xs shadow-2xl transition-all duration-300 transform translate-y-24 opacity-0 z-50">
-    <span id="toastMsg">Action executed successfully!</span>
-  </div>
+    <!-- FOOTER SECTION WITH MULTI-COLORED ACCENTS -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Corporate & Mission -->
+                <div style="display:flex; flex-direction:column; gap:1rem;">
+                    <a href="?view=home" class="brand-logo spa-link">
+                        AZEX<span style="color:var(--color-ai)">AI</span>
+                    </a>
+                    <p style="font-size:0.8125rem; color:var(--text-secondary); line-height:1.6;">
+                        Authoritative independent research publication providing technical analysis, benchmark reports, and software blueprints across frontier technology and AI.
+                    </p>
+                    <div style="display:flex; gap:0.5rem; margin-top:0.5rem;">
+                        <a href="#" class="icon-btn" style="width:36px; height:36px;"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="icon-btn" style="width:36px; height:36px;"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="icon-btn" style="width:36px; height:36px;"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" class="icon-btn" style="width:36px; height:36px;"><i class="fa-solid fa-rss"></i></a>
+                    </div>
+                </div>
 
-  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
-  <script>
-    // Database of technical articles (English)
-    const articlesDatabase = [
-      {
-        id: 1,
-        category: 'ai',
-        categoryLabel: 'AI & ML',
-        badgeColor: 'bg-cyan-500 text-black',
-        title: 'Reasoning LLMs & Chain-of-Thought Architectural Shifts',
-        summary: 'Deep dive into how next-generation AI models surpass rote memorization by generating autonomous multi-step reasoning trees for complex mathematical logic.',
-        date: 'Sep 05, 2026',
-        readTime: '8 min read',
-        author: 'Dr. Aristo Al-Qadiri',
-        views: '14.2k',
-        codeSnippet: `def chain_of_thought_reasoning(prompt, max_depth=5):
+                <!-- Col 2: Research Domains -->
+                <div>
+                    <h4 class="footer-col-title" style="color:var(--color-ai);">Domains</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="switchCategory('ai')" class="footer-link">Artificial Intelligence</a></li>
+                        <li><a href="#" onclick="switchCategory('robotics')" class="footer-link">Robotics & Vision</a></li>
+                        <li><a href="#" onclick="switchCategory('hardware')" class="footer-link">Semiconductors</a></li>
+                        <li><a href="#" onclick="switchCategory('software')" class="footer-link">Software Systems</a></li>
+                        <li><a href="#" onclick="switchCategory('future')" class="footer-link">Quantum Computing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Publication -->
+                <div>
+                    <h4 class="footer-col-title" style="color:var(--color-robotics);">Publication</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="switchCategory('about')" class="footer-link">About AZEXAI</a></li>
+                        <li><a href="?view=contact" class="footer-link spa-link">Contact Desk</a></li>
+                        <li><a href="?view=privacy" class="footer-link spa-link">Privacy Policy</a></li>
+                        <li><a href="?view=archive" class="footer-link spa-link">Full Archive Index</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Live Node Status -->
+                <div>
+                    <h4 class="footer-col-title" style="color:var(--color-hardware);">Blogger Grid Status</h4>
+                    <p id="footer-status-text" style="font-size:0.8125rem; font-family:var(--font-mono); color:var(--text-secondary); margin-bottom:1rem;">
+                        Connecting to Blogger API...
+                    </p>
+                    <div style="background:var(--bg-surface); padding:0.75rem; border:1px solid var(--border-light); font-family:var(--font-mono); font-size:0.6875rem;">
+                        <div style="color:var(--color-hardware);"><i class="fa-solid fa-circle-check mr-1"></i> API KEY ACTIVE</div>
+                        <div style="color:var(--text-muted); margin-top:0.25rem;">Blog ID: 4263033619836681299</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Legal Line -->
+            <div class="footer-bottom">
+                <span>&copy; <span id="copyright-year">2026</span> AZEXAI MEDIA CORP. ALL RIGHTS RESERVED.</span>
+                <div style="display:flex; gap:1.5rem;">
+                    <a href="?view=privacy" class="spa-link" style="color:var(--text-muted);">PRIVACY</a>
+                    <a href="?view=contact" class="spa-link" style="color:var(--text-muted);">TERMS</a>
+                    <a href="?view=contact" class="spa-link" style="color:var(--text-muted);">CONTACT</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SEARCH MODAL -->
+    <div class="search-modal" id="search-modal">
+        <div class="search-container">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-family:var(--font-mono); font-weight:800; color:var(--color-ai);">SEARCH ARCHIVE INDEX</span>
+                <button class="icon-btn" id="search-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <input type="text" id="search-input" class="search-input" placeholder="Type keywords (e.g. LLM, photonic, quantum, python)..." autofocus>
+            <div class="search-results-list" id="search-results"></div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION MODAL -->
+    <div class="toast-notification" id="toast-modal">
+        <span id="toast-msg">Action processed successfully</span>
+    </div>
+
+    <script>
+        // CONFIGURATION & BLOGGER STORE
+        const CONFIG = {
+            BLOG_ID: "4263033619836681299",
+            API_KEY: "AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ"
+        };
+
+        // Fallback rich research database when API is fetching or airgapped
+        const defaultArticles = [
+            {
+                id: 'post-1',
+                category: 'ai',
+                categoryLabel: 'AI & ML',
+                title: 'Reasoning LLMs & Chain-of-Thought Architectural Shifts',
+                excerpt: 'Deep dive into how next-generation AI models surpass rote memorization by generating autonomous multi-step reasoning trees for complex mathematical logic.',
+                publishedAt: '2026-09-05T10:00:00Z',
+                readingTime: '8 min read',
+                author: 'Dr. Aristo Al-Qadiri',
+                views: '14.2k',
+                labels: ['AI', 'Research', 'LLM'],
+                codeSnippet: `def chain_of_thought_reasoning(prompt, max_depth=5):
     # Simulated Tree of Thoughts (ToT)
     tree = ReasoningTree(prompt)
     for depth in range(max_depth):
         candidates = tree.expand_nodes()
         best_path = evaluate_heuristics(candidates)
-        if best_path.is_solved():
-            return best_path.solution
-    return None`
-      },
-      {
-        id: 2,
-        category: 'robotics',
-        categoryLabel: 'Robotics',
-        badgeColor: 'bg-purple-500 text-white',
-        title: 'Humanoid Robotics Driven by Direct Spatial Vision-Language Models',
-        summary: 'How manufacturers merge high-frequency tactile arrays with autonomous vision models to enable industrial humanoids to operate without manual teleoperation.',
-        date: 'Sep 04, 2026',
-        readTime: '6 min read',
-        author: 'Sarah M. Engineer',
-        views: '9.8k',
-        codeSnippet: `// Spatial Control Loop
+        if best_path.is_solved(): return best_path.solution
+    return None`,
+                content: `<p>Next-generation reasoning architectures represent a fundamental pivot from traditional auto-regressive probabilistic token prediction toward structured multi-step execution. By enforcing intermediate reasoning tokens before presenting final answers, systems maintain rigorous verification loops.</p><h2>Tree of Thoughts (ToT) Heuristics</h2><p>Modern inference engines maintain dynamic memory structures that evaluate probability scores at each decision branch, drastically cutting hallucination rates in mathematical proofs and complex system modeling.</p>`
+            },
+            {
+                id: 'post-2',
+                category: 'robotics',
+                categoryLabel: 'Robotics',
+                title: 'Humanoid Robotics Driven by Direct Spatial Vision-Language Models',
+                excerpt: 'How manufacturers merge high-frequency tactile arrays with autonomous vision models to enable industrial humanoids to operate without manual teleoperation.',
+                publishedAt: '2026-09-04T14:30:00Z',
+                readingTime: '6 min read',
+                author: 'Dr. Elena Rostova',
+                views: '9.8k',
+                labels: ['Robotics', 'Vision', 'Control'],
+                codeSnippet: `// Spatial Control Loop
 void UpdateHumanoidKinematics(RobotState& state) {
     auto sensorData = ReadTactileArray();
     Vector3 trajectory = ComputeZeroMomentPoint(sensorData);
     ApplyActuatorTorque(trajectory);
-}`
-      },
-      {
-        id: 3,
-        category: 'hardware',
-        categoryLabel: 'Hardware',
-        badgeColor: 'bg-emerald-500 text-black',
-        title: '1.4nm Photonic AI Processors: Pushing Past Moore\'s Law Limit',
-        summary: 'Engineering evaluation of silicon photonics chips utilizing light pulses rather than electrons to deliver 90% power efficiency gains in neural inference.',
-        date: 'Sep 03, 2026',
-        readTime: '11 min read',
-        author: 'Khaled Hardware Eng',
-        views: '18.5k',
-        codeSnippet: `// Photonic Waveguide Gate Configuration
+}`,
+                content: `<p>Industrial humanoid autonomy relies on high-rate sensory feedback loops operating between 500Hz and 1000Hz. Integrating tactile sensors with real-time Vision-Language-Action (VLA) models permits precise object manipulation even under unknown physical dynamics.</p>`
+            },
+            {
+                id: 'post-3',
+                category: 'hardware',
+                categoryLabel: 'Hardware',
+                title: '1.4nm Photonic AI Processors: Pushing Past Moore\'s Law Limit',
+                excerpt: 'Engineering evaluation of silicon photonics chips utilizing light pulses rather than electrons to deliver 90% power efficiency gains in neural inference.',
+                publishedAt: '2026-09-03T09:15:00Z',
+                readingTime: '11 min read',
+                author: 'Khaled Hardware Eng',
+                views: '18.5k',
+                labels: ['Hardware', 'Photonics', 'Silicon'],
+                codeSnippet: `// Photonic Waveguide Gate Configuration
 #define WAVEGUIDE_FREQ 193.1 // THz
 void TuneOpticalModulator(float phase_shift) {
     LaserDiode.SetPhase(phase_shift * WAVEGUIDE_FREQ);
-}`
-      },
-      {
-        id: 4,
-        category: 'software',
-        categoryLabel: 'Software',
-        badgeColor: 'bg-amber-500 text-black',
-        title: 'Distributed Systems Engineering for Ultra-Parallel AI Workloads',
-        summary: 'Architecting dynamic load balancing across thousands of GPU & TPU clusters while minimizing communication latency via custom RDMA interconnects.',
-        date: 'Sep 02, 2026',
-        readTime: '9 min read',
-        author: 'Omar Al-Tamimi',
-        views: '11.1k',
-        codeSnippet: `// Distributed Mesh Sync
+}`,
+                content: `<p>Silicon photonics replaces copper interconnects with integrated optical waveguides. By modulating laser pulses across lithium niobate channels, optical tensor processing units perform matrix multiplication at the speed of light.</p>`
+            },
+            {
+                id: 'post-4',
+                category: 'software',
+                categoryLabel: 'Software',
+                title: 'Distributed Systems Engineering for Ultra-Parallel AI Workloads',
+                excerpt: 'Architecting dynamic load balancing across thousands of GPU & TPU clusters while minimizing communication latency via custom RDMA interconnects.',
+                publishedAt: '2026-09-02T16:20:00Z',
+                readingTime: '9 min read',
+                author: 'Marcus Vance',
+                views: '11.1k',
+                labels: ['Software', 'Distributed', 'GPUs'],
+                codeSnippet: `// Distributed Mesh Sync
 async function syncGpuGradients(clusterNodes) {
     const tensorPipeline = new RDMAStreamPipeline();
     await tensorPipeline.allReduce(clusterNodes, { strategy: 'Ring' });
-}`
-      },
-      {
-        id: 5,
-        category: 'future',
-        categoryLabel: 'Future Tech',
-        badgeColor: 'bg-indigo-500 text-white',
-        title: 'Trapped-Ion Quantum Computing & Fault-Tolerant Error Correction',
-        summary: 'Analyzing recent breakthroughs in quantum error mitigation (QEC) and the future of post-quantum cryptography in scalable quantum machines.',
-        date: 'Sep 01, 2026',
-        readTime: '14 min read',
-        author: 'Dr. Leila Hassan',
-        views: '22.4k',
-        codeSnippet: `// Qiskit Quantum Circuit Initialization
+}`,
+                content: `<p>Scaling AI training runs to hundreds of thousands of accelerators requires non-blocking network topologies. Implementing Ring All-Reduce algorithms over custom RoCE v2 networks reduces synchronization overhead to under 4%.</p>`
+            },
+            {
+                id: 'post-5',
+                category: 'future',
+                categoryLabel: 'Future Tech',
+                title: 'Trapped-Ion Quantum Computing & Fault-Tolerant Error Correction',
+                excerpt: 'Analyzing recent breakthroughs in quantum error mitigation (QEC) and the future of post-quantum cryptography in scalable quantum machines.',
+                publishedAt: '2026-09-01T11:45:00Z',
+                readingTime: '14 min read',
+                author: 'Dr. Leila Hassan',
+                views: '22.4k',
+                labels: ['Future Tech', 'Quantum', 'Physics'],
+                codeSnippet: `// Qiskit Quantum Circuit Initialization
 from qiskit import QuantumCircuit
 qc = QuantumCircuit(5, 5)
 qc.h(0) # Hadamard Gate
 qc.cx(0, 1) # Entangle Qubits
-qc.measure([0,1], [0,1])`
-      },
-      {
-        id: 6,
-        category: 'guides',
-        categoryLabel: 'Guides',
-        badgeColor: 'bg-blue-500 text-white',
-        title: 'Guide to Training & Fine-Tuning Llama & Mistral Locally',
-        summary: 'Step-by-step implementation guide for building air-gapped enterprise fine-tuning pipelines using modern LoRA and QLoRA quantization.',
-        date: 'Aug 31, 2026',
-        readTime: '15 min read',
-        author: 'AZEXAI Tech Team',
-        views: '31.0k',
-        codeSnippet: `pip install torch transformers peft bitsandbytes
+qc.measure([0,1], [0,1])`,
+                content: `<p>Fault-tolerant quantum computing relies on logical qubits constructed from hundreds of physical trapped ions. Surface code error correction protocols now achieve error rates below the fault threshold, paving the way for commercial quantum simulation.</p>`
+            },
+            {
+                id: 'post-6',
+                category: 'guides',
+                categoryLabel: 'Guides',
+                title: 'Guide to Training & Fine-Tuning Llama & Mistral Locally',
+                excerpt: 'Step-by-step implementation guide for building air-gapped enterprise fine-tuning pipelines using modern LoRA and QLoRA quantization.',
+                publishedAt: '2026-08-31T08:30:00Z',
+                readingTime: '15 min read',
+                author: 'AZEXAI Tech Team',
+                views: '31.0k',
+                labels: ['Guides', 'Llama', 'FineTuning'],
+                codeSnippet: `pip install torch transformers peft bitsandbytes
 python finetune.py \\
     --model_name_or_path "meta-llama/Llama-3-70b" \\
     --use_4bit True \\
-    --lora_r 16`
-      },
-      {
-        id: 7,
-        category: 'reviews',
-        categoryLabel: 'Reviews',
-        badgeColor: 'bg-rose-500 text-white',
-        title: 'NVIDIA Blackwell B200 Benchmarks in Real-Time Inference Workloads',
-        summary: 'Field benchmarks testing token throughput, power draw, and cost efficiency of B200 silicon relative to H100 architectures under heavy load.',
-        date: 'Aug 30, 2026',
-        readTime: '7 min read',
-        author: 'Testing Division',
-        views: '16.8k',
-        codeSnippet: `Benchmarking B200 FP4 Precision:
+    --lora_r 16`,
+                content: `<p>Deploying open weights models inside isolated enterprise networks guarantees data privacy. This guide covers memory quantization, low-rank adaptation parameters, and dataset cleaning routines.</p>`
+            },
+            {
+                id: 'post-7',
+                category: 'reviews',
+                categoryLabel: 'Reviews',
+                title: 'NVIDIA Blackwell B200 Benchmarks in Real-Time Inference Workloads',
+                excerpt: 'Field benchmarks testing token throughput, power draw, and cost efficiency of B200 silicon relative to H100 architectures under heavy load.',
+                publishedAt: '2026-08-30T13:00:00Z',
+                readingTime: '7 min read',
+                author: 'Benchmarking Unit',
+                views: '16.8k',
+                labels: ['Reviews', 'NVIDIA', 'Benchmarking'],
+                codeSnippet: `Benchmarking B200 FP4 Precision:
 - Token Throughput: 4,500 tokens/sec
 - Latency: 4.2ms
-- Power Consumption: 1000W Max`
-      },
-      {
-        id: 8,
-        category: 'ethics',
-        categoryLabel: 'Ethics',
-        badgeColor: 'bg-teal-500 text-black',
-        title: 'Governance & Safety Frameworks for Real-Time Autonomous AI Systems',
-        summary: 'Methods for crafting regulatory compliance protocols that guarantee risk containment and eliminate bias in critical medical and financial decision engines.',
-        date: 'Aug 29, 2026',
-        readTime: '10 min read',
-        author: 'Tech Policy Center',
-        views: '8.3k',
-        codeSnippet: `// AI Safety Gate Evaluation
+- Power Draw: 1000W Peak`,
+                content: `<p>Our evaluation lab subjected NVIDIA Blackwell silicon to continuous 72-hour LLM serving tests. Switch over to FP4 execution engines yields 3.8x throughput improvements over previous generation H100 systems.</p>`
+            },
+            {
+                id: 'post-8',
+                category: 'ethics',
+                categoryLabel: 'Ethics',
+                title: 'Governance & Safety Frameworks for Real-Time Autonomous AI Systems',
+                excerpt: 'Methods for crafting regulatory compliance protocols that guarantee risk containment and eliminate bias in critical medical and financial decision engines.',
+                publishedAt: '2026-08-29T15:10:00Z',
+                readingTime: '10 min read',
+                author: 'Tech Policy Desk',
+                views: '8.3k',
+                labels: ['Ethics', 'Governance', 'Safety'],
+                codeSnippet: `// AI Safety Gate Evaluation
 boolean ValidateEthicalBoundary(InferenceResult result) {
     if (result.containsPiiData() || result.biasScore() > 0.01) {
         TriggerSafetyFallback();
         return false;
     }
     return true;
-}`
-      }
-    ];
+}`,
+                content: `<p>Establishing deterministic safety boundaries around probabilistic model outputs is imperative for safety-critical deployments. We outline automated auditing runtime middleware used to enforce alignment protocols.</p>`
+            }
+        ];
 
-    let currentCategory = 'all';
+        let currentCategory = 'all';
+        let allPosts = [...defaultArticles];
 
-    // Switch categories smoothly
-    function switchCategory(cat) {
-      currentCategory = cat;
-      
-      // Update Active Navigation Styles
-      document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.remove('text-cyan-400', 'border-cyan-400');
-        btn.classList.add('text-gray-300', 'border-transparent');
-      });
+        async function fetchBloggerPosts() {
+            const statusEl = document.getElementById('footer-status-text');
+            try {
+                const url = `https://www.googleapis.com/blogger/v3/blogs/${CONFIG.BLOG_ID}/posts?maxResults=50&fetchBodies=true&fetchImages=true&key=${CONFIG.API_KEY}`;
+                const res = await fetch(url);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
 
-      const activeBtn = document.getElementById(`nav-${cat}`);
-      if (activeBtn) {
-        activeBtn.classList.remove('text-gray-300', 'border-transparent');
-        activeBtn.classList.add('text-cyan-400', 'border-cyan-400');
-      }
+                if (data && data.items && data.items.length > 0) {
+                    const fetched = data.items.map(item => {
+                        const title = item.title || 'Untitled Post';
+                        const slug = slugify(title);
+                        const label = (item.labels && item.labels[0]) ? item.labels[0].toLowerCase() : 'ai';
+                        
+                        let img = null;
+                        if (item.images && item.images.length > 0) img = item.images[0].url;
 
-      const grid = document.getElementById('articlesGrid');
-      const aboutView = document.getElementById('aboutSectionView');
-      const catHeader = document.getElementById('categoryHeader');
+                        return {
+                            id: item.id,
+                            category: label,
+                            categoryLabel: (item.labels && item.labels[0]) || 'Research',
+                            title: title,
+                            excerpt: cleanExcerpt(item.content || ''),
+                            publishedAt: item.published || new Date().toISOString(),
+                            readingTime: '5 min read',
+                            author: (item.author && item.author.displayName) ? item.author.displayName : 'AZEXAI Editorial',
+                            views: '1.2k',
+                            labels: item.labels || ['Tech'],
+                            featuredImage: img,
+                            content: item.content || '<p>No content provided.</p>',
+                            slug: slug,
+                            url: `?view=article&slug=${slug}`
+                        };
+                    });
 
-      if (cat === 'about') {
-        grid.classList.add('hidden');
-        aboutView.classList.remove('hidden');
-        catHeader.classList.add('hidden');
-        return;
-      } else {
-        grid.classList.remove('hidden');
-        aboutView.classList.add('hidden');
-        catHeader.classList.remove('hidden');
-      }
+                    allPosts = [...fetched, ...defaultArticles];
+                    if (statusEl) statusEl.textContent = `Connected! ${fetched.length} live posts synced from Blogger.`;
+                } else {
+                    if (statusEl) statusEl.textContent = `Connected to Blog ID ${CONFIG.BLOG_ID} (Using fallback archive).`;
+                }
+            } catch (err) {
+                console.warn("[AZEXAI Notice] Blogger API live connection status:", err.message);
+                if (statusEl) statusEl.textContent = `Offline Mode: Serving ${allPosts.length} cached research articles.`;
+            }
+            renderApp();
+        }
 
-      // Update titles
-      const titles = {
-        all: 'Latest Frontier Tech & Research Dispatches',
-        ai: 'Artificial Intelligence & Machine Learning (AI & ML)',
-        robotics: 'Robotics & Autonomous Systems (Robotics)',
-        hardware: 'Semiconductors, Hardware & Chips (Hardware)',
-        software: 'Software Architecture & Distributed Systems (Software)',
-        future: 'Future Technologies & Quantum Computing (Future Tech)',
-        guides: 'Technical Guides & Implementation Manuals (Guides)',
-        reviews: 'Hardware Benchmarks & Performance Reviews (Reviews)',
-        ethics: 'AI Governance & Ethics (Ethics)'
-      };
+        function slugify(text) {
+            return text.toString().toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+        }
 
-      document.getElementById('categoryTitle').textContent = titles[cat] || 'Research & Innovation Articles';
+        function cleanExcerpt(html, max = 140) {
+            const div = document.createElement('div');
+            div.innerHTML = html;
+            const text = div.textContent || div.innerText || '';
+            const cleaned = text.replace(/\s+/g, ' ').trim();
+            return cleaned.length > max ? cleaned.substring(0, max) + '...' : cleaned;
+        }
 
-      renderArticles();
-    }
+        function renderAboutView() {
+            return `
+                <div class="container section-padding info-page-wrap">
+                    <!-- Banner -->
+                    <div class="info-header-banner">
+                        <span class="cat-badge" data-cat="ai">RESEARCH PUBLICATION</span>
+                        <h1 class="info-title" style="margin-top:0.75rem;">About AZEXAI</h1>
+                        <p class="info-subtitle">Independent Technical Authority on Computational Science & Neural Engineering</p>
+                    </div>
 
-    // Render filtered or all articles
-    function renderArticles(filterText = '') {
-      const grid = document.getElementById('articlesGrid');
-      grid.innerHTML = '';
+                    <!-- Row 1: Mission & Stats (Distinct Row Colors) -->
+                    <div class="grid-box-row">
+                        <div class="info-card row-cyan">
+                            <span style="font-family:var(--font-mono); font-weight:800; color:var(--color-ai);">01 // MISSION</span>
+                            <h3 style="font-size:1.25rem; font-weight:800;">Rigorous Technical Intelligence</h3>
+                            <p style="font-size:0.875rem; color:var(--text-secondary); line-height:1.6;">
+                                AZEXAI was founded to bridge the gap between academic AI research papers and production software architecture. We analyze algorithms, silicon photonics, and robotics systems without hype.
+                            </p>
+                        </div>
+                        <div class="info-card row-purple">
+                            <span style="font-family:var(--font-mono); font-weight:800; color:var(--color-robotics);">02 // AUDIENCE</span>
+                            <h3 style="font-size:1.25rem; font-weight:800;">Engineers & Researchers</h3>
+                            <p style="font-size:0.875rem; color:var(--text-secondary); line-height:1.6;">
+                                Our publication is written for systems engineers, AI researchers, hardware architects, and technology leaders requiring benchmarked facts and code-level verification.
+                            </p>
+                        </div>
+                        <div class="info-card row-emerald">
+                            <span style="font-family:var(--font-mono); font-weight:800; color:var(--color-hardware);">03 // INDEPENDENCE</span>
+                            <h3 style="font-size:1.25rem; font-weight:800;">100% Unbiased Audits</h3>
+                            <p style="font-size:0.875rem; color:var(--text-secondary); line-height:1.6;">
+                                We maintain strict independence from hardware vendors and AI labs. All benchmark reports are conducted in air-gapped evaluation environments.
+                            </p>
+                        </div>
+                    </div>
 
-      let filtered = articlesDatabase;
+                    <!-- Row 2: Rich Numerical Metrics (Row 2 Colors) -->
+                    <div class="grid-box-row">
+                        <div class="info-card row-amber">
+                            <div class="card-stat-num" style="color:var(--color-software);">38+</div>
+                            <div style="font-family:var(--font-mono); font-size:0.8125rem; font-weight:800; uppercase">Indexed Research Papers</div>
+                            <p style="font-size:0.75rem; color:var(--text-muted);">Peer-reviewed breakdowns of neural network papers.</p>
+                        </div>
+                        <div class="info-card row-indigo">
+                            <div class="card-stat-num" style="color:var(--color-future);">99.9%</div>
+                            <div style="font-family:var(--font-mono); font-size:0.8125rem; font-weight:800; uppercase">Verification Accuracy</div>
+                            <p style="font-size:0.75rem; color:var(--text-muted);">Code snippets tested in hardware sandbox testbeds.</p>
+                        </div>
+                        <div class="info-card row-rose">
+                            <div class="card-stat-num" style="color:var(--color-reviews);">24/7</div>
+                            <div style="font-family:var(--font-mono); font-size:0.8125rem; font-weight:800; uppercase">Global Grid Tracking</div>
+                            <p style="font-size:0.75rem; color:var(--text-muted);">Automated tracking of major LLM model releases.</p>
+                        </div>
+                        <div class="info-card row-cyan">
+                            <div class="card-stat-num" style="color:var(--color-ai);">14</div>
+                            <div style="font-family:var(--font-mono); font-size:0.8125rem; font-weight:800; uppercase">Research Bureaus</div>
+                            <p style="font-size:0.75rem; color:var(--text-muted);">Distributed global desk contributors.</p>
+                        </div>
+                    </div>
 
-      if (currentCategory !== 'all' && currentCategory !== 'about') {
-        filtered = filtered.filter(a => a.category === currentCategory);
-      }
+                    <!-- Row 3: Editorial Board Profile Cards -->
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-light); padding:2rem; border-top:4px solid var(--color-future);">
+                        <h3 style="font-family:var(--font-mono); font-size:1.125rem; font-weight:900; text-transform:uppercase; margin-bottom:1.5rem; color:var(--color-future);">
+                            <i class="fa-solid fa-users-gear mr-2"></i> Editorial Board & Senior Research Fellows
+                        </h3>
+                        <div class="grid-box-row">
+                            <div style="background:var(--bg-primary); border:1px solid var(--border-light); padding:1.25rem;">
+                                <div style="font-weight:800; color:var(--text-primary);">Dr. Aristo Al-Qadiri</div>
+                                <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-ai);">Chief Research Scientist — AI Systems</div>
+                                <p style="font-size:0.8125rem; color:var(--text-secondary); margin-top:0.5rem;">Specializes in Tree-of-Thought heuristics and neural network quantization.</p>
+                            </div>
+                            <div style="background:var(--bg-primary); border:1px solid var(--border-light); padding:1.25rem;">
+                                <div style="font-weight:800; color:var(--text-primary);">Dr. Elena Rostova</div>
+                                <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-robotics);">Lead Robotics Engineer</div>
+                                <p style="font-size:0.8125rem; color:var(--text-secondary); margin-top:0.5rem;">Focuses on tactile arrays, spatial kinematics, and zero-moment point dynamics.</p>
+                            </div>
+                            <div style="background:var(--bg-primary); border:1px solid var(--border-light); padding:1.25rem;">
+                                <div style="font-weight:800; color:var(--text-primary);">Khaled Hardware Eng</div>
+                                <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-hardware);">Silicon & Photonics Fellow</div>
+                                <p style="font-size:0.8125rem; color:var(--text-secondary); margin-top:0.5rem;">Former semiconductor chip designer covering 1.4nm nodes and optical computing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
 
-      if (filterText.trim() !== '') {
-        const query = filterText.toLowerCase();
-        filtered = filtered.filter(a => 
-          a.title.toLowerCase().includes(query) || 
-          a.summary.toLowerCase().includes(query) ||
-          a.categoryLabel.toLowerCase().includes(query)
-        );
-      }
+        function renderContactView() {
+            return `
+                <div class="container section-padding info-page-wrap">
+                    <div class="info-header-banner" style="border-top-color:var(--color-software);">
+                        <span class="cat-badge" data-cat="software">COMMUNICATION DESK</span>
+                        <h1 class="info-title" style="margin-top:0.75rem;">Contact AZEXAI</h1>
+                        <p class="info-subtitle">Direct Editorial Submissions, Press Inquiries & Security Research Dispatches</p>
+                    </div>
 
-      if (filtered.length === 0) {
-        grid.innerHTML = `
-          <div class="col-span-full bg-gray-900 border border-gray-800 p-8 sm:p-12 text-center space-y-3 font-mono">
-            <i class="fa-solid fa-folder-open text-3xl sm:text-4xl text-gray-600"></i>
-            <h3 class="text-base sm:text-lg font-bold text-gray-300">No articles found in this section</h3>
-            <p class="text-xs text-gray-500">Try selecting a different category or clearing your search term.</p>
-          </div>
-        `;
-        return;
-      }
+                    <div style="display:grid; grid-template-columns: 1.8fr 1fr; gap:2rem;">
+                        <!-- Interactive Form -->
+                        <div class="info-card row-cyan">
+                            <h3 style="font-family:var(--font-mono); font-size:1.125rem; font-weight:800; text-transform:uppercase;">
+                                Send Message to Editorial Desk
+                            </h3>
+                            <form onsubmit="handleContactSubmit(event)" class="contact-form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" required placeholder="Dr. John Doe" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" required placeholder="john@institution.edu" class="form-input">
+                                </div>
+                                <div class="form-group full">
+                                    <label class="form-label">Topic Category</label>
+                                    <select class="form-select">
+                                        <option>Research Paper Submission</option>
+                                        <option>Hardware Benchmark Inquiry</option>
+                                        <option>Press & Media Relations</option>
+                                        <option>Security Vulnerability Dispatch</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full">
+                                    <label class="form-label">Message / Dispatch Content</label>
+                                    <textarea rows="5" required placeholder="Provide concise technical details or abstract..." class="form-textarea"></textarea>
+                                </div>
+                                <div class="form-group full">
+                                    <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane mr-2"></i> TRANSMIT DISPATCH</button>
+                                </div>
+                            </form>
+                        </div>
 
-      filtered.forEach(article => {
-        const card = document.createElement('article');
-        // Mobile layout: grid-cols-2. Fits two cards per row on mobile cleanly.
-        card.className = "bg-gray-900 border border-gray-800 hover:border-cyan-500/50 transition-all duration-200 flex flex-col justify-between p-3 sm:p-5 space-y-3 group";
+                        <!-- Regional Bureaus Cards -->
+                        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+                            <div class="info-card row-purple">
+                                <span style="font-family:var(--font-mono); font-size:0.75rem; font-weight:800; color:var(--color-robotics);">AMERICAS BUREAU</span>
+                                <div style="font-weight:800;">San Francisco Node</div>
+                                <div style="font-size:0.8125rem; color:var(--text-secondary);">500 Howard Street, Suite 400, CA</div>
+                                <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-robotics); margin-top:0.25rem;">desk.sf@azexai.com</div>
+                            </div>
 
-        card.innerHTML = `
-          <div class="space-y-2.5">
-            <div class="flex flex-wrap items-center justify-between gap-1 font-mono text-[10px] sm:text-xs">
-              <span class="px-2 py-0.5 ${article.badgeColor} font-bold tracking-wide uppercase text-[9px] sm:text-[10px]">
-                ${article.categoryLabel}
-              </span>
-              <span class="text-gray-500 text-[10px]"><i class="fa-regular fa-clock mr-1"></i>${article.readTime}</span>
-            </div>
+                            <div class="info-card row-emerald">
+                                <span style="font-family:var(--font-mono); font-size:0.75rem; font-weight:800; color:var(--color-hardware);">EMEA HUB</span>
+                                <div style="font-weight:800;">London Cyber Node</div>
+                                <div style="font-size:0.8125rem; color:var(--text-secondary);">100 Bishopsgate, London EC2N 4AG</div>
+                                <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-hardware); margin-top:0.25rem;">desk.london@azexai.com</div>
+                            </div>
 
-            <h2 class="text-xs sm:text-base font-bold text-white group-hover:text-cyan-400 transition-colors leading-snug sm:leading-snug line-clamp-2 sm:line-clamp-none">
-              ${article.title}
-            </h2>
+                            <div class="info-card row-amber">
+                                <span style="font-family:var(--font-mono); font-size:0.75rem; font-weight:800; color:var(--color-software);">PGP ENCRYPTED KEY</span>
+                                <div style="font-weight:800;">Confidential Leaks</div>
+                                <p style="font-size:0.75rem; color:var(--text-secondary);">FPR: 8F49 2C01 A3B8 992E C551</p>
+                                <a href="#" onclick="showToast('PGP Public Key copied to clipboard!')" style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-software); font-weight:700;"><i class="fa-solid fa-key mr-1"></i> COPY PGP KEY</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
 
-            <p class="text-[11px] sm:text-xs text-gray-400 leading-normal sm:leading-relaxed line-clamp-3 sm:line-clamp-none">
-              ${article.summary}
-            </p>
+        function renderPrivacyView() {
+            return `
+                <div class="container section-padding info-page-wrap">
+                    <div class="info-header-banner" style="border-top-color:var(--color-ethics);">
+                        <span class="cat-badge" data-cat="ethics">DATA GOVERNANCE</span>
+                        <h1 class="info-title" style="margin-top:0.75rem;">Privacy & Transparency Protocol</h1>
+                        <p class="info-subtitle">Zero-Tracking Assurance & Data Handling Transparency Guidelines</p>
+                    </div>
 
-            ${article.codeSnippet ? `
-              <div class="bg-gray-950 p-2 sm:p-3 border border-gray-800/80 font-mono text-[9px] sm:text-[11px] text-cyan-300 overflow-x-auto text-left">
-                <pre><code>${escapeHtml(article.codeSnippet)}</code></pre>
-              </div>
-            ` : ''}
-          </div>
+                    <div class="grid-box-row">
+                        <div class="info-card row-cyan">
+                            <h3 style="font-weight:800; font-family:var(--font-mono); color:var(--color-ai);">1. NO USER TRACKING</h3>
+                            <p style="font-size:0.875rem; color:var(--text-secondary); line-height:1.6;">
+                                AZEXAI does not execute third-party tracking scripts, advertising pixels, or cross-site fingerprinting algorithms. Your research browsing remains confidential.
+                            </p>
+                        </div>
+                        <div class="info-card row-purple">
+                            <h3 style="font-weight:800; font-family:var(--font-mono); color:var(--color-robotics);">2. LOCAL STORAGE</h3>
+                            <p style="font-size:0.875rem; color:var(--text-secondary); line-height:1.6;">
+                                Client preferences such as Dark/Light theme state and recent article bookmarks are saved locally inside your browser's localStorage.
+                            </p>
+                        </div>
+                        <div class="info-card row-emerald">
+                            <h3 style="font-weight:800; font-family:var(--font-mono); color:var(--color-hardware);">3. BLOGGER API DATA</h3>
+                            <p style="font-size:0.875rem; color:var(--text-secondary); line-height:1.6;">
+                                Content is requested via secure read-only Blogger v3 JSON API endpoints. No user data is transmitted back to external servers during fetch operations.
+                            </p>
+                        </div>
+                        <div class="info-card row-amber">
+                            <h3 style="font-weight:800; font-family:var(--font-mono); color:var(--color-software);">4. ENCRYPTION PROTOCOLS</h3>
+                            <p style="font-size:0.875rem; color:var(--text-secondary); line-height:1.6;">
+                                All connections are enforced through TLS 1.3 encryption with HTTP Strict Transport Security (HSTS) headers enabled.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
 
-          <div class="pt-2 sm:pt-3 border-t border-gray-800/80 flex items-center justify-between text-[10px] sm:text-xs text-gray-500 font-mono">
-            <span class="truncate max-w-[100px] sm:max-w-none"><i class="fa-solid fa-user text-cyan-500 mr-1"></i>${article.author}</span>
-            <span><i class="fa-solid fa-eye mr-1"></i>${article.views}</span>
-          </div>
-        `;
+        function renderHomeView() {
+            let filtered = allPosts;
+            if (currentCategory !== 'all' && currentCategory !== 'about') {
+                filtered = allPosts.filter(p => p.category === currentCategory || (p.labels && p.labels.some(l => l.toLowerCase().includes(currentCategory))));
+            }
 
-        grid.appendChild(card);
-      });
-    }
+            const hero = filtered[0] || allPosts[0];
+            const secondaries = filtered.slice(1, 4);
+            const gridPosts = filtered.slice(4);
 
-    // Filter input search (Desktop)
-    function filterArticles() {
-      const query = document.getElementById('searchInput').value;
-      renderArticles(query);
-    }
+            return `
+                <!-- Hero Section -->
+                <section class="hero-section">
+                    <div class="container hero-grid">
+                        <!-- Featured Main Story -->
+                        <div class="featured-story" onclick="openArticle('${hero.slug || hero.id}')">
+                            <span class="cat-badge" data-cat="${hero.category || 'ai'}">${hero.categoryLabel || 'Featured'}</span>
+                            <h1 class="featured-title">${hero.title}</h1>
+                            <p class="featured-excerpt">${hero.excerpt}</p>
+                            
+                            ${hero.codeSnippet ? `
+                                <div class="card-code-block"><pre><code>${escapeHtml(hero.codeSnippet)}</code></pre></div>
+                            ` : ''}
 
-    // Filter input search (Mobile)
-    function filterArticlesMobile() {
-      const query = document.getElementById('searchInputMobile').value;
-      renderArticles(query);
-    }
+                            <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted); border-top:1px solid var(--border-light); padding-top:0.75rem;">
+                                <span><i class="fa-solid fa-user-pen mr-1" style="color:var(--color-ai);"></i> ${hero.author}</span>
+                                <span><i class="fa-solid fa-clock mr-1"></i> ${hero.readingTime}</span>
+                            </div>
+                        </div>
 
-    // Toggle Mobile Menu
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('hidden');
-    }
+                        <!-- Sidebar Highlights -->
+                        <div class="hero-sidebar">
+                            <h3 class="sidebar-heading"><i class="fa-solid fa-bolt mr-1"></i> Editorial Dispatches</h3>
+                            ${secondaries.map(post => `
+                                <div class="secondary-card" onclick="openArticle('${post.slug || post.id}')">
+                                    <span class="cat-badge" data-cat="${post.category || 'ai'}">${post.categoryLabel || 'Analysis'}</span>
+                                    <h4 class="secondary-title">${post.title}</h4>
+                                    <div style="font-family:var(--font-mono); font-size:0.6875rem; color:var(--text-muted);">
+                                        <span>${new Date(post.publishedAt).toLocaleDateString('en-US', {month:'short', day:'numeric'})}</span> &bull; 
+                                        <span>${post.views || '1.5k'} views</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
 
-    // Handle Newsletter Subscription
-    function handleSubscribe(e) {
-      e.preventDefault();
-      const email = document.getElementById('newsletterEmail').value;
-      if (email) {
-        showToast(`Subscribed successfully: ${email}`);
-        document.getElementById('newsletterEmail').value = '';
-      }
-    }
+                <!-- Articles Grid with Distinct Colored Rows -->
+                <section class="container section-padding">
+                    <div class="section-header-title">
+                        <span>Research Index (${filtered.length} Articles)</span>
+                        <span style="font-size:0.75rem; color:var(--text-muted);">Grid Category: ${currentCategory.toUpperCase()}</span>
+                    </div>
 
-    // Show Toast Notification
-    function showToast(message) {
-      const toast = document.getElementById('toast');
-      const msg = document.getElementById('toastMsg');
-      msg.textContent = message;
-      
-      toast.classList.remove('translate-y-24', 'opacity-0');
-      
-      setTimeout(() => {
-        toast.classList.add('translate-y-24', 'opacity-0');
-      }, 3500);
-    }
+                    <div class="articles-grid">
+                        ${(gridPosts.length > 0 ? gridPosts : filtered).map(post => renderArticleCard(post)).join('')}
+                    </div>
+                </section>
+            `;
+        }
 
-    // Helper HTML escaper
-    function escapeHtml(text) {
-      return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
+        function renderArticleCard(post) {
+            const cat = post.category || 'ai';
+            return `
+                <article class="article-card" onclick="openArticle('${post.slug || post.id}')">
+                    <div class="card-content">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span class="cat-badge" data-cat="${cat}">${post.categoryLabel || 'Research'}</span>
+                            <span style="font-family:var(--font-mono); font-size:0.6875rem; color:var(--text-muted);">${post.readingTime}</span>
+                        </div>
+                        
+                        <h3 class="card-title">${post.title}</h3>
+                        <p class="card-excerpt">${post.excerpt}</p>
 
-    // Initial Load
-    window.onload = function() {
-      renderArticles();
-    };
-  </script>
+                        ${post.codeSnippet ? `
+                            <div class="card-code-block"><pre><code>${escapeHtml(post.codeSnippet)}</code></pre></div>
+                        ` : ''}
+
+                        <div class="card-footer">
+                            <span><i class="fa-solid fa-user mr-1" style="color:var(--color-ai)"></i>${post.author}</span>
+                            <span>${new Date(post.publishedAt).toLocaleDateString('en-US', {month:'short', day:'numeric'})}</span>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        function renderArticleDetail(slugOrId) {
+            const post = allPosts.find(p => p.slug === slugOrId || p.id === slugOrId) || allPosts[0];
+            const purifyConfig = { ADD_TAGS: ['iframe', 'img', 'pre', 'code'], ADD_ATTR: ['src', 'allowfullscreen'] };
+            const cleanContent = window.DOMPurify ? DOMPurify.sanitize(post.content, purifyConfig) : post.content;
+
+            return `
+                <div class="container section-padding" style="max-width:var(--reading-width);">
+                    <div style="margin-bottom:2rem; border-bottom:1px solid var(--border-light); padding-bottom:1.5rem;">
+                        <span class="cat-badge" data-cat="${post.category || 'ai'}">${post.categoryLabel || 'Research'}</span>
+                        <h1 style="font-size:2.25rem; font-weight:900; line-height:1.25; margin:1rem 0;">${post.title}</h1>
+                        <div style="display:flex; gap:1.5rem; font-family:var(--font-mono); font-size:0.8125rem; color:var(--text-muted);">
+                            <span>By <strong>${post.author}</strong></span>
+                            <span>Published ${new Date(post.publishedAt).toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'})}</span>
+                            <span>${post.readingTime}</span>
+                        </div>
+                    </div>
+
+                    ${post.codeSnippet ? `
+                        <div class="card-code-block" style="font-size:0.8125rem; padding:1rem; margin-bottom:2rem;"><pre><code>${escapeHtml(post.codeSnippet)}</code></pre></div>
+                    ` : ''}
+
+                    <div style="font-size:1.0625rem; line-height:1.8; color:var(--text-primary); display:flex; flex-direction:column; gap:1.25rem;">
+                        ${cleanContent}
+                    </div>
+
+                    <div style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--border-light); display:flex; justify-content:space-between; align-items:center;">
+                        <button onclick="switchCategory('all')" class="submit-btn" style="padding:0.6rem 1.25rem;"><i class="fa-solid fa-arrow-left mr-2"></i> BACK TO INDEX</button>
+                        <button onclick="showToast('Article link copied to clipboard!')" class="icon-btn" style="width:auto; padding:0 1rem;"><i class="fa-solid fa-share-nodes mr-2"></i> SHARE</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // NAVIGATION & ROUTING ENGINE
+        function switchCategory(cat) {
+            currentCategory = cat;
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if (btn.getAttribute('data-cat') === cat) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            if (cat === 'about') {
+                history.pushState(null, '', '?view=about');
+            } else if (cat === 'all') {
+                history.pushState(null, '', '?view=home');
+            } else {
+                history.pushState(null, '', `?view=category&name=${cat}`);
+            }
+
+            renderApp();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openArticle(slugOrId) {
+            history.pushState(null, '', `?view=article&slug=${slugOrId}`);
+            renderApp();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderApp() {
+            const root = document.getElementById('app-root');
+            const params = new URLSearchParams(window.location.search);
+            const view = params.get('view') || 'home';
+
+            if (view === 'about') {
+                root.innerHTML = renderAboutView();
+                return;
+            }
+            if (view === 'contact') {
+                root.innerHTML = renderContactView();
+                return;
+            }
+            if (view === 'privacy') {
+                root.innerHTML = renderPrivacyView();
+                return;
+            }
+            if (view === 'article') {
+                const slug = params.get('slug');
+                root.innerHTML = renderArticleDetail(slug);
+                return;
+            }
+
+            root.innerHTML = renderHomeView();
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast("Dispatch encrypted and transmitted to AZEXAI editorial board!");
+            e.target.reset();
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast-modal');
+            document.getElementById('toast-msg').textContent = msg;
+            toast.classList.add('active');
+            setTimeout(() => toast.classList.remove('active'), 3500);
+        }
+
+        function closeDrawer() {
+            document.getElementById('mobile-drawer').classList.remove('open');
+            document.getElementById('drawer-overlay').classList.remove('open');
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+
+        // EVENT LISTENERS & INITIALIZATION
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchBloggerPosts();
+
+            // Intercept SPA Links
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a.spa-link');
+                if (link) {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('?')) {
+                        e.preventDefault();
+                        history.pushState(null, '', href);
+                        renderApp();
+                        closeDrawer();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }
+            });
+
+            window.addEventListener('popstate', renderApp);
+
+            // Theme Toggle
+            const themeBtn = document.getElementById('theme-toggle');
+            themeBtn.onclick = () => {
+                const cur = document.documentElement.getAttribute('data-theme');
+                const next = cur === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', next);
+                themeBtn.innerHTML = next === 'light' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+            };
+
+            // Search Modal Events
+            const modal = document.getElementById('search-modal');
+            document.getElementById('search-trigger').onclick = () => {
+                modal.classList.add('active');
+                document.getElementById('search-input').focus();
+            };
+            document.getElementById('search-close').onclick = () => modal.classList.remove('active');
+
+            document.getElementById('search-input').oninput = (e) => {
+                const q = e.target.value.toLowerCase().trim();
+                const resList = document.getElementById('search-results');
+                if (q.length < 2) { resList.innerHTML = ''; return; }
+                const matches = allPosts.filter(p => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q));
+                resList.innerHTML = matches.map(m => `
+                    <div style="background:var(--bg-surface); padding:1rem; border:1px solid var(--border-light); cursor:pointer;" onclick="openArticle('${m.slug || m.id}'); document.getElementById('search-modal').classList.remove('active');">
+                        <span class="cat-badge" data-cat="${m.category || 'ai'}">${m.categoryLabel || 'Research'}</span>
+                        <h4 style="margin-top:0.5rem; font-weight:700;">${m.title}</h4>
+                    </div>
+                `).join('') || `<p style="font-family:var(--font-mono); color:var(--text-muted); text-align:center;">No matching dispatches found.</p>`;
+            };
+
+            // Mobile Drawer
+            document.getElementById('menu-toggle').onclick = () => {
+                document.getElementById('mobile-drawer').classList.add('open');
+                document.getElementById('drawer-overlay').classList.add('open');
+            };
+            document.getElementById('drawer-close').onclick = closeDrawer;
+            document.getElementById('drawer-overlay').onclick = closeDrawer;
+
+            // Reading Progress Indicator
+            window.addEventListener('scroll', () => {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+                document.getElementById('reading-progress').style.width = scrolled + '%';
+            });
+        });
+    </script>
 </body>
 </html>

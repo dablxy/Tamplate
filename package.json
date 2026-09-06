@@ -1,15 +1,14 @@
 {
-  "name": "xelio",
+  "name": "azexai",
   "version": "1.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "seo": "node scripts/seo-engine.mjs",
-    "build:all": "vite build && node scripts/seo-engine.mjs"
+    "build": "node scripts/build.mjs",
+    "seo": "node seo-engine.mjs",
+    "build:all": "node scripts/build.mjs && node seo-engine.mjs"
   },
-  "dependencies": {
-    "vite": "^5.4.0"
+  "engines": {
+    "node": ">=20"
   }
 }

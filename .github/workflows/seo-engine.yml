@@ -1,0 +1,60 @@
+name: AZEXAI SEO Engine
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build AZEXAI
+        env:
+          BLOGGER_API_KEY: ${{ secrets.BLOGGER_API_KEY }}
+          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+          SITE_ORIGIN: https://azexai.com
+        run: npm run build
+
+      - name: Run SEO Engine
+        env:
+          SITE_ORIGIN: https://azexai.com
+        run: npm run seo
+
+      - name: Show SEO report
+        run: |
+          echo "===== AZEXAI SEO REPORT ====="
+          cat seo-report.json
+
+      - name: Commit generated SEO files
+        run: |
+          git config user.name "AZEXAI SEO Engine"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add article sitemap.xml rss.xml feed.xml seo-report.json
+
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Update AZEXAI articles and SEO files [skip ci]"
+            git push
+          fi

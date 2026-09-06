@@ -1,954 +1,679 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>AZEXAI — Technology & Artificial Intelligence</title>
-    <meta name="description" content="AZEXAI explores breakthroughs, systems, code, and ethics shaping artificial intelligence, machine learning, software engineering, and future computing.">
-    <meta name="robots" content="index, follow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="preconnect" href="https://www.googleapis.com">
+  <link rel="dns-prefetch" href="//www.googleapis.com">
+  <meta name="theme-color" content="#11161a">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="description" content="AZEXAI — Technology, intelligence, and the systems shaping tomorrow.">
+  <meta name="author" content="AZEXAI">
+  <link id="canonicalLink" rel="canonical" href="">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AZEXAI">
+  <meta property="og:title" content="AZEXAI — Technology, intelligence, and the systems shaping tomorrow.">
+  <meta property="og:description" content="Technology, intelligence, and the systems shaping tomorrow.">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AZEXAI — Technology, intelligence, and the systems shaping tomorrow.">
+  <meta name="twitter:description" content="Technology, intelligence, and the systems shaping tomorrow.">
+  <meta name="twitter:image" content="">
+  <title>AZEXAI — Technology, intelligence, and the systems shaping tomorrow.</title>
+  <style>
+    :root{
+      --ink:#14181b; --ink-2:#31383d; --navy:#10222c; --navy-2:#172e39;
+      --paper:#f5f1e8; --paper-2:#eee9de; --white:#fbfaf6; --rule:#d2cabd;
+      --burgundy:#7b2f3a; --green:#2d5147; --teal:#3a6d6c; --rust:#9a513b;
+      --gold:#b08a4c; --brown:#4f4036; --muted:#6c7478; --shadow:0 16px 44px rgba(18,25,28,.08);
+      --serif: Georgia, "Times New Roman", Times, serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --max:1400px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;background-image:linear-gradient(rgba(16,34,44,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(16,34,44,.035) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.45),transparent 60%)}
+    body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.11;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    button{cursor:pointer}
+    img{max-width:100%;display:block}
+    .skip-link{position:fixed;left:1rem;top:-4rem;z-index:2000;background:var(--paper);padding:.6rem .9rem;border:1px solid var(--rule)}
+    .skip-link:focus{top:1rem}
+    :focus-visible{outline:2px solid var(--burgundy);outline-offset:3px}
 
-    <!-- Favicon SVG -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230f172a'/><path d='M25 75 L50 25 L75 75 M35 60 L65 60' stroke='%232563eb' stroke-width='8' fill='none'/></svg>">
+    .topbar{background:var(--navy);color:#eef2ee;border-bottom:1px solid rgba(255,255,255,.12);font-family:var(--mono);font-size:.67rem;letter-spacing:.12em;text-transform:uppercase}
+    .topbar-inner,.header-inner,.page-inner,.footer-inner{max-width:var(--max);margin:auto;padding-inline:clamp(1rem,3vw,3rem)}
+    .topbar-inner{display:flex;justify-content:space-between;align-items:center;min-height:32px;gap:1rem}
+    .topbar-mark{opacity:.72}.topbar-date{opacity:.55}
+    header.site-header{position:sticky;top:0;z-index:1000;background:rgba(245,241,232,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+    .header-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem;min-height:72px}
+    .brand{display:inline-flex;align-items:baseline;gap:.7rem;letter-spacing:.08em;font-family:var(--mono);font-weight:800}
+    .brand-word{font-size:1.2rem}.brand-slash{font-weight:400;color:var(--burgundy)}.brand-sub{font-size:.58rem;opacity:.58}
+    nav.primary-nav{justify-self:center;display:flex;gap:clamp(.7rem,1.4vw,1.4rem);align-items:center}
+    nav.primary-nav a{position:relative;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:#3c454b;padding:.55rem 0}
+    nav.primary-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:.18rem;height:1px;background:var(--burgundy);transition:right .2s ease}
+    nav.primary-nav a:hover::after,nav.primary-nav a[aria-current="page"]::after{right:0}
+    nav.primary-nav a[aria-current="page"]{color:var(--burgundy)}
+    .header-actions{display:flex;align-items:center;gap:.4rem}
+    .icon-btn,.menu-btn{border:1px solid transparent;background:transparent;color:var(--ink);width:38px;height:38px;display:grid;place-items:center}
+    .icon-btn:hover,.menu-btn:hover{border-color:var(--rule);background:var(--white)}
+    .menu-btn{display:none}
+    .mobile-panel{display:none;border-top:1px solid var(--rule);padding:0 1rem 1rem;background:var(--paper)}
+    .mobile-panel.open{display:block}
+    .mobile-panel a{display:block;padding:.7rem 0;border-bottom:1px solid rgba(210,202,189,.7);font-size:.92rem;text-transform:uppercase;letter-spacing:.06em}
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    main{min-height:70vh}.page{padding-block:clamp(2rem,5vw,4.5rem)}
+    .kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--burgundy);font-weight:700}
+    .display{font-family:var(--serif);font-weight:600;letter-spacing:-.035em;line-height:.98}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:1.5rem;border-top:1px solid var(--ink);padding-top:.8rem;margin-bottom:1.4rem}
+    .section-head h2{font-family:var(--serif);margin:0;font-size:clamp(1.65rem,2.8vw,2.5rem);font-weight:500;letter-spacing:-.02em}
+    .section-note{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
-    <!-- DOMPurify for sanitizing Blogger HTML -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.8/purify.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    .hero{background:var(--navy);color:#f3eee4;position:relative;overflow:hidden;border-block:1px solid rgba(16,34,44,.2)}
+    .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 16%,rgba(176,138,76,.16),transparent 30%),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:auto,56px 56px,56px 56px;opacity:.9}
+    .hero::after{content:"AZEXAI / FIELD NOTES";position:absolute;right:3rem;bottom:1.4rem;color:rgba(255,255,255,.17);font:700 .65rem var(--mono);letter-spacing:.16em}
+    .hero-inner{position:relative;max-width:var(--max);margin:auto;padding:clamp(2.2rem,5vw,4.6rem) clamp(1rem,3vw,3rem) clamp(2.5rem,5vw,4.5rem)}
+    .hero-intro{max-width:780px}.hero-intro .display{font-size:clamp(3rem,7vw,7.2rem);margin:.45rem 0 1rem;color:#f6f0e7}
+    .hero-lead{max-width:680px;margin:0;color:rgba(246,240,231,.72);font-size:clamp(1rem,1.6vw,1.22rem)}
+    .hero-rule{width:100%;height:1px;background:rgba(255,255,255,.16);margin:2.2rem 0 0}
 
-    <style>
-        :root {
-            --bg-primary: #fcfcfd;
-            --bg-secondary: #f1f3f7;
-            --bg-surface: #ffffff;
-            --bg-elevated: #ffffff;
-            
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
-            --text-inverse: #f8fafc;
+    .featured{display:grid;grid-template-columns:1.35fr 1fr;min-height:430px;border:1px solid rgba(210,202,189,.95);background:var(--white);box-shadow:var(--shadow);overflow:hidden}
+    .featured-media{min-height:100%;background:#dde0db;position:relative}.featured-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
+    .featured-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(13,22,25,.22));pointer-events:none}
+    .featured-copy{padding:clamp(1.4rem,3.2vw,3rem);display:flex;flex-direction:column;justify-content:space-between}
+    .featured-copy h1{font-size:clamp(2.2rem,4.1vw,4.7rem);margin:.65rem 0 1rem}
+    .featured-copy p{color:var(--muted);font-size:1rem;max-width:55ch}
+    .meta-row{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;font-family:var(--mono);font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+    .meta-dot{width:3px;height:3px;border-radius:50%;background:var(--burgundy)}
+    .read-link{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.4rem;font-size:.76rem;font-family:var(--mono);letter-spacing:.07em;text-transform:uppercase;border-bottom:1px solid var(--burgundy);padding-bottom:.3rem;color:var(--burgundy);align-self:flex-start}
+    .read-link span{transition:transform .18s ease}.read-link:hover span{transform:translateX(4px)}
 
-            --border-light: #e2e8f0;
-            --border-subtle: #f1f5f9;
-            --border-focus: #0f172a;
+    .content-section{max-width:var(--max);margin:auto;padding-inline:clamp(1rem,3vw,3rem);padding-block:clamp(2.2rem,5vw,4rem)}
+    .grid-articles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}
+    .card{border:1px solid var(--rule);background:var(--white);min-width:0;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+    .card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(15,22,25,.07);border-color:#bbb09e}
+    .card-media{background:#ddd8cd;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--rule)}
+    .card-media img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}.card:hover .card-media img{transform:scale(1.025)}
+    .card-body{padding:1rem 1rem .95rem;display:flex;flex-direction:column;flex:1}
+    .card-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;color:var(--burgundy);font-weight:700}
+    .card h3{font-family:var(--serif);font-size:clamp(1.15rem,1.6vw,1.5rem);line-height:1.05;margin:.45rem 0 .55rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .card-excerpt{margin:0;color:var(--muted);font-size:.85rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .card-meta{margin-top:auto;padding-top:.85rem;display:flex;justify-content:space-between;gap:.8rem;font-family:var(--mono);font-size:.6rem;color:#7e8589;text-transform:uppercase;letter-spacing:.06em}
 
-            --accent-primary: #2563eb;
-            --accent-hover: #1d4ed8;
-            --accent-subtle: #eff6ff;
+    .split-section{max-width:var(--max);margin:auto;padding:0 clamp(1rem,3vw,3rem) clamp(2.2rem,5vw,4rem);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1.1rem}
+    .split-copy{grid-column:span 4;background:var(--green);color:#eef1eb;padding:1.6rem;min-height:250px;display:flex;flex-direction:column;justify-content:space-between}
+    .split-copy .kicker{color:#d4b879}.split-copy h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,3rem);line-height:1;margin:.6rem 0}
+    .split-copy p{margin:0;color:rgba(238,241,235,.72);font-size:.9rem}.split-grid{grid-column:span 8}.split-grid .grid-articles{grid-template-columns:repeat(2,minmax(0,1fr))}
 
-            --badge-bg: #f1f5f9;
-            --badge-text: #334155;
+    .archive-teaser{background:var(--paper-2);border-block:1px solid var(--rule)}
+    .archive-teaser-inner{max-width:var(--max);margin:auto;padding:clamp(2rem,5vw,3.8rem) clamp(1rem,3vw,3rem);display:grid;grid-template-columns:1.25fr 1fr;gap:2rem;align-items:center}
+    .archive-teaser h2{font:500 clamp(2rem,4.2vw,4rem)/.98 var(--serif);letter-spacing:-.03em;margin:.4rem 0 .8rem}.archive-teaser p{color:var(--muted);max-width:55ch}
+    .archive-button,.submit-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:#f5f1e8;border:0;padding:.75rem 1rem;text-transform:uppercase;letter-spacing:.08em;font:700 .68rem var(--mono)}
+    .archive-button:hover,.submit-btn:hover{background:var(--burgundy)}
 
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            --font-serif: 'Newsreader', Georgia, Cambria, "Times New Roman", serif;
-            --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
+    .newsletter{background:var(--rust);color:#f6eee6}.newsletter-inner{max-width:var(--max);margin:auto;padding:clamp(2.4rem,5vw,4.4rem) clamp(1rem,3vw,3rem);display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;align-items:end}
+    .newsletter h2{font:500 clamp(2.2rem,4vw,4rem)/.95 var(--serif);margin:.5rem 0}.newsletter p{color:rgba(246,238,230,.75);max-width:52ch}.newsletter-note{font:.62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(246,238,230,.58)}
+    .newsletter-form{display:flex;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:.5rem}.newsletter-form input{flex:1;border:0;outline:0;background:transparent;color:#fff;padding:.65rem 0;font-size:.95rem;min-width:0}.newsletter-form input::placeholder{color:rgba(255,255,255,.62)}.newsletter-form button{background:transparent;color:#fff;border:0;font:700 .68rem var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:.65rem 0 0 1rem}
+    .form-message{margin-top:.6rem;min-height:1.3em;font-size:.78rem;color:rgba(255,255,255,.8)}
 
-            --max-width: 1320px;
-            --reading-width: 760px;
-            --header-height: 72px;
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 12px;
+    .state{max-width:var(--max);margin:auto;padding:clamp(3rem,6vw,6rem) clamp(1rem,3vw,3rem);text-align:center}.state h2{font:500 2.4rem var(--serif);margin:.4rem 0 .8rem}.state p{color:var(--muted);margin:0 auto 1.3rem;max-width:52ch}
+    .retry{border:1px solid var(--ink);background:transparent;padding:.7rem 1rem;font:700 .68rem var(--mono);text-transform:uppercase;letter-spacing:.08em}.retry:hover{background:var(--navy);color:#fff}
 
-            --transition-fast: 0.15s ease;
-            --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    .skeleton-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}.skeleton{border:1px solid var(--rule);background:rgba(255,255,255,.5);overflow:hidden}.sk{position:relative;overflow:hidden;background:#e5e0d6}.sk::after{content:"";position:absolute;inset:0;transform:translateX(-110%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:shine 1.5s infinite}.sk-media{aspect-ratio:16/9}.sk-line{height:10px;margin:10px 12px;border-radius:2px}.sk-line.wide{width:82%}.sk-line.mid{width:62%}.sk-line.short{width:40%}@keyframes shine{to{transform:translateX(110%)}}
 
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
-            --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
-            --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
-        }
+    .page-hero{max-width:var(--max);margin:auto;padding:clamp(2.3rem,6vw,5rem) clamp(1rem,3vw,3rem) 2.2rem;border-bottom:1px solid var(--rule)}.page-hero h1{font-size:clamp(3rem,7vw,6.4rem);margin:.35rem 0 .9rem}.page-hero p{max-width:64ch;color:var(--muted);margin:0}
+    .filter-row{max-width:var(--max);margin:auto;padding:1.1rem clamp(1rem,3vw,3rem);display:flex;gap:.55rem;flex-wrap:wrap}.filter-chip{border:1px solid var(--rule);background:transparent;padding:.45rem .65rem;font:700 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#586167}.filter-chip:hover,.filter-chip.active{border-color:var(--burgundy);color:var(--burgundy)}
 
-        [data-theme="dark"] {
-            --bg-primary: #0b0f17;
-            --bg-secondary: #131b2a;
-            --bg-surface: #111827;
-            --bg-elevated: #1e293b;
+    .search-wrap{max-width:var(--max);margin:auto;padding:1.25rem clamp(1rem,3vw,3rem);border-bottom:1px solid var(--rule)}.search-box{display:flex;align-items:center;border-bottom:1px solid var(--ink);gap:.7rem}.search-box input{width:100%;border:0;background:transparent;outline:0;padding:.7rem 0;font-size:1.15rem}.search-count{font:700 .64rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
 
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
-            --text-inverse: #0f172a;
+    .archive-list{max-width:var(--max);margin:auto;padding:0 clamp(1rem,3vw,3rem) 4rem}.year-block{padding-top:2rem}.year-title{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--ink);padding-bottom:.55rem}.year-title h2{font:500 2.3rem var(--serif);margin:0}.year-title span{font:700 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.month-block{padding:1rem 0 0 4.5rem}.month-title{font:700 .68rem var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--burgundy);margin-bottom:.5rem}.archive-row{display:grid;grid-template-columns:70px 1fr 130px;gap:1rem;align-items:baseline;padding:.55rem 0;border-bottom:1px solid rgba(210,202,189,.75)}.archive-row time{font:600 .66rem var(--mono);color:var(--muted)}.archive-row a{font:500 1.05rem var(--serif)}.archive-row a:hover{color:var(--burgundy)}.archive-row small{font:600 .62rem var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.05em;text-align:right}
 
-            --border-light: #1e293b;
-            --border-subtle: #172033;
-            --border-focus: #38bdf8;
+    .article-shell{max-width:var(--max);margin:auto;padding:clamp(2rem,5vw,4rem) clamp(1rem,3vw,3rem) 5rem}.article-head{max-width:1000px;margin:auto;padding-bottom:2rem;border-bottom:1px solid var(--rule)}.article-head h1{font-size:clamp(2.8rem,6vw,6.3rem);margin:.5rem 0 1.1rem}.article-dek{font-size:1.05rem;color:var(--muted);max-width:70ch}.article-actions{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1.1rem}.action-btn{border:1px solid var(--rule);background:transparent;padding:.55rem .7rem;font:700 .64rem var(--mono);letter-spacing:.08em;text-transform:uppercase}.action-btn:hover{border-color:var(--burgundy);color:var(--burgundy)}
+    .article-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:4rem;max-width:1000px;margin:2.4rem auto 0}.article-content{font-family:var(--serif);font-size:1.12rem;line-height:1.78;min-width:0}.article-content p{margin:0 0 1.25rem}.article-content h2,.article-content h3,.article-content h4{font-family:var(--serif);line-height:1.08;margin:2.2rem 0 .8rem;color:var(--navy)}.article-content h2{font-size:2rem}.article-content h3{font-size:1.55rem}.article-content h4{font-size:1.25rem}.article-content a{color:var(--burgundy);text-decoration:underline;text-underline-offset:3px}.article-content img{width:auto;height:auto;max-width:100%;margin:1.5rem auto}.article-content figure{margin:1.6rem 0}.article-content figcaption{font:500 .68rem/1.4 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.article-content ul,.article-content ol{padding-left:1.35rem;margin:0 0 1.25rem}.article-content blockquote{margin:1.6rem 0;padding:1rem 1.25rem;border-left:3px solid var(--burgundy);background:var(--paper-2);font-size:1.25rem}.article-content hr{border:0;border-top:1px solid var(--rule);margin:2rem 0}.article-content pre{overflow:auto;background:#151c20;color:#f3eee4;padding:1rem;border-radius:0;line-height:1.55;font:0.8rem/1.55 var(--mono)}.article-content code{font-family:var(--mono);font-size:.9em;background:rgba(16,34,44,.07);padding:.08em .28em}.article-content pre code{background:none;padding:0;color:inherit}.article-content table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.86rem;display:block;overflow:auto}.article-content th,.article-content td{border:1px solid var(--rule);padding:.55rem .65rem;text-align:left;min-width:120px}.article-content th{background:var(--paper-2);font:700 .65rem var(--mono);text-transform:uppercase;letter-spacing:.05em}.article-content iframe{max-width:100%;width:100%;min-height:360px;border:0}.article-content video{max-width:100%;height:auto}.article-content .separator{margin:2rem 0}.article-aside{border-left:1px solid var(--rule);padding-left:1.4rem;height:max-content;position:sticky;top:100px}.aside-label{font:700 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--burgundy);margin-bottom:.75rem}.article-aside p{font-size:.82rem;color:var(--muted);margin:0}.article-aside .aside-box{padding-bottom:1.3rem;margin-bottom:1.3rem;border-bottom:1px solid var(--rule)}
+    .article-footer{max-width:1000px;margin:2.5rem auto 0;border-top:1px solid var(--rule);padding-top:1.2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.prevnext{display:flex;gap:1rem}.prevnext a{max-width:240px}.prevnext span{display:block;font:700 .6rem var(--mono);text-transform:uppercase;color:var(--burgundy);letter-spacing:.08em;margin-bottom:.25rem}.prevnext strong{font:500 1rem var(--serif)}
 
-            --accent-primary: #38bdf8;
-            --accent-hover: #0ea5e9;
-            --accent-subtle: #0c4a6e;
+    .related{max-width:var(--max);margin:auto;padding:0 clamp(1rem,3vw,3rem) 4rem}.related .section-head{margin-top:0}
 
-            --badge-bg: #1e293b;
-            --badge-text: #e2e8f0;
+    .about-grid,.contact-grid,.privacy-copy{max-width:var(--max);margin:auto;padding:0 clamp(1rem,3vw,3rem) 4rem}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}.editorial-panel{border:1px solid var(--rule);background:var(--white);padding:1.6rem}.editorial-panel h2{font:500 2rem var(--serif);margin:0 0 .7rem}.editorial-panel p{color:var(--muted);max-width:62ch}.signature-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin-top:1rem}.signature{border-top:1px solid var(--rule);padding-top:.6rem;font:700 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.4rem}.contact-form{display:grid;gap:.9rem}.field label{display:block;font:700 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}.field input,.field textarea{width:100%;border:1px solid var(--rule);background:var(--white);padding:.75rem;outline:none}.field textarea{min-height:160px;resize:vertical}.contact-note{font:.65rem var(--mono);color:var(--muted);margin-top:.65rem}.mailto{color:var(--burgundy);text-decoration:underline}
+    .privacy-copy{max-width:940px;font-family:var(--serif);font-size:1.05rem}.privacy-copy h2{font-family:var(--serif);margin-top:2rem}.privacy-copy p{max-width:72ch}
 
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-            --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.5);
-        }
+    footer.site-footer{background:var(--brown);color:#efe8dc;border-top:1px solid rgba(255,255,255,.08)}.footer-inner{padding-block:2.4rem}.footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.13)}.footer-brand{font:800 1.25rem var(--mono);letter-spacing:.08em}.footer-tag{margin-top:.6rem;color:rgba(239,232,220,.68);max-width:34ch;font-size:.9rem}.footer-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.35rem .8rem}.footer-nav a{font:600 .66rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(239,232,220,.78)}.footer-nav a:hover{color:#fff}.footer-signatures{display:grid;gap:.38rem}.footer-signatures span{font:700 .62rem var(--mono);letter-spacing:.1em;color:rgba(239,232,220,.56)}.footer-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1rem;color:rgba(239,232,220,.5);font:500 .58rem var(--mono);letter-spacing:.06em;text-transform:uppercase}
+    .to-top{position:fixed;right:1rem;bottom:1rem;width:40px;height:40px;background:var(--navy);color:#f5f1e8;border:1px solid rgba(255,255,255,.1);display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(8px);transition:.18s ease;z-index:900}.to-top.visible{opacity:1;pointer-events:auto;transform:none}.to-top:hover{background:var(--burgundy)}
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-        
-        body {
-            background-color: var(--bg-primary); color: var(--text-primary); font-family: var(--font-sans);
-            line-height: 1.6; letter-spacing: -0.011em; overflow-x: hidden;
-            transition: background-color var(--transition-smooth), color var(--transition-smooth);
-            min-height: 100vh; display: flex; flex-direction: column;
-        }
+    @media (max-width:1040px){
+      nav.primary-nav{gap:.65rem}.brand-sub{display:none}.header-inner{gap:1rem}.featured{grid-template-columns:1fr 1fr}.article-layout{grid-template-columns:1fr;gap:1.2rem}.article-aside{position:static;border-left:0;border-top:1px solid var(--rule);padding:1rem 0 0}.aside-box{display:inline-block;margin-right:1rem}
+    }
+    @media (max-width:840px){
+      nav.primary-nav{display:none}.menu-btn{display:grid}.header-inner{grid-template-columns:auto 1fr auto}.header-actions{justify-self:end}.featured{grid-template-columns:1fr}.featured-media{aspect-ratio:16/8;min-height:0}.split-section,.archive-teaser-inner,.newsletter-inner,.about-grid,.contact-grid,.footer-top{grid-template-columns:1fr}.split-copy,.split-grid{grid-column:auto}.split-grid .grid-articles{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-nav{grid-template-columns:repeat(4,minmax(0,1fr))}
+    }
+    @media (max-width:767px){
+      .topbar-date{display:none}.topbar-inner{justify-content:flex-start}.header-inner{min-height:64px}.brand-word{font-size:1.06rem}.hero-inner{padding-top:2rem}.hero-intro .display{font-size:clamp(2.8rem,15vw,5rem)}.hero::after{display:none}.grid-articles,.skeleton-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}.card-media{aspect-ratio:4/3}.card-body{padding:.78rem}.card h3{font-size:1.02rem;line-height:1.05;-webkit-line-clamp:3}.card-excerpt{font-size:.73rem;-webkit-line-clamp:3}.card-meta{font-size:.52rem;gap:.4rem}.split-grid .grid-articles{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:start;flex-direction:column;gap:.4rem}.month-block{padding-left:0}.archive-row{grid-template-columns:58px 1fr}.archive-row small{display:none}.article-content{font-size:1.05rem}.article-head h1{font-size:clamp(2.45rem,14vw,4rem)}.article-footer{align-items:flex-start}.prevnext{width:100%;justify-content:space-between}.footer-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.newsletter-form{display:block}.newsletter-form button{display:block;padding-left:0}.article-actions .action-btn{flex:1;min-width:120px}.featured-copy{padding:1.2rem}.featured-copy h1{font-size:clamp(2rem,10vw,3.5rem)}
+    }
+    @media (max-width:430px){.card h3{font-size:.95rem}.card-excerpt{display:none}.card-meta{flex-direction:column;align-items:flex-start}.meta-row{font-size:.59rem}.footer-nav{grid-template-columns:1fr 1fr}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+  
+    /* AZEXAI premium performance + editorial layer */
+    .page-inner,.content-section,.split-section,.archive-teaser,.newsletter,.article-shell,.page-hero{content-visibility:auto;contain:layout paint style;contain-intrinsic-size:1px 520px}
+    .grid-articles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+    .grid-articles .card{min-width:0;background:var(--paper)}
+    .card{transition:background .18s ease,transform .18s ease;contain:layout paint}
+    .card:hover{background:var(--white);transform:translateY(-2px)}
+    .card-media{aspect-ratio:16/9;overflow:hidden;background:var(--paper-2)}
+    .card-media img{width:100%;height:100%;object-fit:cover;transition:transform .35s cubic-bezier(.2,.65,.2,1)}
+    .card:hover .card-media img{transform:scale(1.025)}
+    .card-body{min-height:214px;display:flex;flex-direction:column;padding:1rem 1rem .9rem}
+    .card h3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:.38rem 0 .45rem;font-family:var(--serif);font-size:clamp(1.12rem,1.5vw,1.38rem);line-height:1.08;letter-spacing:-.018em}
+    .card-excerpt{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:var(--muted);font-size:.82rem;line-height:1.45}
+    .card-meta{margin-top:auto;padding-top:.8rem;display:flex;justify-content:space-between;gap:.7rem;border-top:1px solid rgba(210,202,189,.8);font:600 .61rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#727875}
+    .card-label{font:700 .61rem var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--burgundy)}
+    .editorial-index{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;margin:0 max(1rem,3vw);padding:.8rem 0;border-bottom:1px solid var(--rule);font:600 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .index-ticks{display:flex;gap:3px;align-items:end;height:18px}.index-ticks i{display:block;width:2px;background:currentColor;opacity:.55}.index-ticks i:nth-child(3n){height:14px}.index-ticks i:nth-child(3n+1){height:7px}.index-ticks i:nth-child(3n+2){height:10px}
+    .search-results-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--ink);padding-bottom:.7rem;margin-bottom:1rem}.search-results-head strong{font:700 .66rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--burgundy)}
+    .search-empty{border:1px solid var(--rule);background:var(--white);padding:clamp(1.5rem,4vw,3rem)}
+    .search-empty .display{font-size:clamp(2rem,4vw,3.6rem);margin:.35rem 0 .6rem}
+    .section-intro{max-width:720px;color:var(--muted);font-size:.96rem}
+    .article-content{overflow-wrap:anywhere}.article-content img{height:auto!important;max-width:100%!important}.article-content pre{overflow:auto;max-width:100%}.article-content iframe{max-width:100%}
+    .site-header.scrolled{box-shadow:0 8px 26px rgba(20,24,27,.06)}
+    @media(max-width:900px){nav.primary-nav{display:none}.menu-btn{display:grid}.header-inner{grid-template-columns:1fr auto;min-height:64px}.header-actions{justify-self:end}.hero-intro .display{font-size:clamp(2.8rem,10vw,5rem)}.content-section,.page-inner{padding-inline:clamp(1rem,3vw,1.4rem)}}
+    @media(max-width:620px){.grid-articles{grid-template-columns:repeat(2,minmax(0,1fr));gap:1px}.card-body{min-height:190px;padding:.75rem .7rem .7rem}.card h3{font-size:1rem;-webkit-line-clamp:3}.card-excerpt{font-size:.73rem;-webkit-line-clamp:2}.card-meta{font-size:.52rem;flex-wrap:wrap}.card-label{font-size:.53rem}.editorial-index{margin-inline:1rem;grid-template-columns:1fr}.hero-inner{padding-top:2.3rem}.hero::after{right:1rem}.section-head{align-items:flex-start;flex-direction:column;gap:.35rem}.article-content{font-size:1.03rem}.article-content table{min-width:560px}.article-content blockquote{margin-inline:0}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
-        a { color: inherit; text-decoration: none; transition: color var(--transition-fast); }
-        img { max-width: 100%; height: auto; display: block; object-fit: cover; }
-        button, input, textarea, select { font: inherit; color: inherit; background: none; border: none; outline: none; }
-        button { cursor: pointer; }
-
-        .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
-        .main-layout { flex: 1; padding-top: var(--header-height); }
-
-        #reading-progress {
-            position: fixed; top: 0; left: 0; height: 3px; background: var(--accent-primary); width: 0%; z-index: 1001; transition: width 0.1s linear;
-        }
-
-        .site-header {
-            position: fixed; top: 0; left: 0; right: 0; height: var(--header-height);
-            background-color: rgba(252, 252, 253, 0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-light); z-index: 1000;
-            transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
-        }
-        [data-theme="dark"] .site-header { background-color: rgba(11, 15, 23, 0.88); }
-        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
-        .brand-logo { font-family: var(--font-sans); font-weight: 800; font-size: 1.625rem; letter-spacing: -0.04em; color: var(--text-primary); display: flex; align-items: center; user-select: none; }
-        
-        .desktop-nav { display: flex; align-items: center; gap: 1.5rem; }
-        .nav-link { font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); position: relative; padding: 0.5rem 0; cursor: pointer; }
-        .nav-link:hover, .nav-link.active { color: var(--text-primary); }
-        .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background-color: var(--accent-primary); border-radius: 2px; }
-
-        .header-actions { display: flex; align-items: center; gap: 0.5rem; }
-        .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; color: var(--text-secondary); transition: background-color var(--transition-fast), color var(--transition-fast); }
-        .icon-btn:hover { background-color: var(--bg-secondary); color: var(--text-primary); }
-        .mobile-toggle { display: none; }
-
-        /* MOBILE DRAWER */
-        .mobile-drawer {
-            position: fixed; top: 0; left: 0; bottom: 0; width: 320px; max-width: 85vw; background: var(--bg-surface);
-            z-index: 1100; transform: translateX(-100%); transition: transform var(--transition-smooth); box-shadow: var(--shadow-lg);
-            display: flex; flex-direction: column; padding: 1.5rem; overflow-y: auto;
-        }
-        .mobile-drawer.open { transform: translateX(0); }
-        .drawer-overlay {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); z-index: 1090;
-            opacity: 0; pointer-events: none; transition: opacity var(--transition-smooth);
-        }
-        .drawer-overlay.open { opacity: 1; pointer-events: auto; }
-        .drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-light); }
-        .mobile-nav-list { display: flex; flex-direction: column; gap: 1.25rem; list-style: none; }
-        .mobile-nav-link { font-size: 1.125rem; font-weight: 600; color: var(--text-primary); cursor: pointer; }
-
-        .hero-section { padding: 2.5rem 0 3rem 0; border-bottom: 1px solid var(--border-light); }
-        .hero-grid { display: grid; grid-template-columns: 2.2fr 1fr; gap: 2.5rem; }
-        .featured-story { display: flex; flex-direction: column; gap: 1.25rem; cursor: pointer; }
-        .featured-image-wrap { width: 100%; aspect-ratio: 16 / 9; background-color: var(--bg-secondary); border-radius: var(--radius-md); overflow: hidden; position: relative; }
-        .featured-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .featured-story:hover .featured-image-wrap img { transform: scale(1.02); }
-        
-        .meta-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-primary); }
-        .featured-title { font-family: var(--font-serif); font-size: 2.25rem; line-height: 1.2; font-weight: 600; letter-spacing: -0.02em; color: var(--text-primary); }
-        .featured-excerpt { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-        .article-meta-line { display: flex; align-items: center; gap: 0.75rem; font-size: 0.8125rem; color: var(--text-muted); font-weight: 500; flex-wrap: wrap; }
-
-        .hero-sidebar { display: flex; flex-direction: column; gap: 1.5rem; border-left: 1px solid var(--border-light); padding-left: 2rem; }
-        .sidebar-heading { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding-bottom: 0.5rem; border-bottom: 2px solid var(--text-primary); }
-        .secondary-story-card { display: flex; flex-direction: column; gap: 0.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-subtle); cursor: pointer; }
-        .secondary-story-card:last-child { border-bottom: none; }
-        .secondary-title { font-family: var(--font-serif); font-size: 1.125rem; line-height: 1.3; font-weight: 600; color: var(--text-primary); transition: color var(--transition-fast); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .secondary-story-card:hover .secondary-title { color: var(--accent-primary); }
-
-        /* ARTICLE GRID SYSTEM — MANDATORY 2 cols mobile, 3 cols desktop */
-        .section-padding { padding: 3.5rem 0; }
-        .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-light); }
-        .section-title { font-family: var(--font-sans); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; text-transform: uppercase; }
-
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-        @media (min-width: 1024px) {
-            .articles-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        }
-
-        .article-card {
-            display: flex; flex-direction: column; background: var(--bg-surface); border-radius: var(--radius-md);
-            overflow: hidden; border: 1px solid var(--border-light); transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
-            cursor: pointer; height: 100%; text-decoration: none;
-        }
-        .article-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-        .card-image-wrap { width: 100%; aspect-ratio: 16 / 10; background: var(--bg-secondary); overflow: hidden; position: relative; }
-        .card-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-        .article-card:hover .card-image-wrap img { transform: scale(1.04); }
-
-        .card-content { padding: 1rem; display: flex; flex-direction: column; flex: 1; gap: 0.5rem; }
-        @media (min-width: 768px) { .card-content { padding: 1.5rem; gap: 0.75rem; } }
-
-        .card-title {
-            font-family: var(--font-serif); font-size: 1rem; font-weight: 600; line-height: 1.3;
-            color: var(--text-primary); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
-        }
-        @media (min-width: 768px) { .card-title { font-size: 1.25rem; } }
-
-        .card-excerpt {
-            font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5;
-            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; flex: 1;
-        }
-
-        .card-footer {
-            margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);
-            display: flex; align-items: center; justify-content: space-between; font-size: 0.6875rem; color: var(--text-muted); font-weight: 500;
-        }
-
-        .article-view-container { max-width: var(--max-width); margin: 0 auto; padding: 3rem 1.5rem 5rem 1.5rem; }
-        .article-header { max-width: 860px; margin: 0 auto 2.5rem auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
-        .article-main-title { font-family: var(--font-serif); font-size: 2.5rem; line-height: 1.1; font-weight: 600; letter-spacing: -0.02em; color: var(--text-primary); }
-        @media (min-width: 768px) { .article-main-title { font-size: 3.25rem; } }
-        
-        .article-submeta { display: flex; align-items: center; gap: 1.5rem; font-size: 0.875rem; color: var(--text-muted); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); padding: 0.875rem 0; width: 100%; justify-content: center; flex-wrap: wrap; }
-        .article-hero-media { width: 100%; max-width: 1100px; margin: 0 auto 3.5rem auto; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-secondary); }
-        .article-hero-media img { width: 100%; max-height: 600px; object-fit: cover; }
-        .article-body-layout { display: grid; grid-template-columns: var(--reading-width) 300px; gap: 4rem; justify-content: center; }
-        
-        .article-prose { font-family: var(--font-serif); font-size: 1.125rem; line-height: 1.75; color: var(--text-primary); overflow-wrap: break-word; word-break: break-word; }
-        @media (min-width: 768px) { .article-prose { font-size: 1.25rem; } }
-        .article-prose p { margin-bottom: 1.75rem; }
-        .article-prose h2 { font-size: 1.75rem; margin: 2.5rem 0 1rem 0; font-family: var(--font-sans); }
-        .article-prose h3 { font-size: 1.35rem; margin: 2rem 0 1rem 0; font-family: var(--font-sans); }
-        .article-prose img { width: 100%; height: auto; border-radius: var(--radius-md); margin: 2rem 0; }
-        .article-prose blockquote { border-left: 4px solid var(--accent-primary); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: var(--text-secondary); font-size: 1.25rem; }
-        
-        .article-sidebar-sticky { position: sticky; top: calc(var(--header-height) + 2rem); height: fit-content; }
-        .share-box { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem; }
-        .share-box-title { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--text-muted); }
-        .share-actions { display: flex; align-items: center; gap: 0.5rem; }
-
-        /* SEARCH MODAL */
-        .search-modal {
-            position: fixed; inset: 0; background: rgba(11, 15, 23, 0.85); backdrop-filter: blur(12px); z-index: 2000;
-            display: flex; flex-direction: column; align-items: center; padding: 4rem 1.5rem; opacity: 0; pointer-events: none; transition: opacity var(--transition-smooth);
-        }
-        .search-modal.active { opacity: 1; pointer-events: auto; }
-        .search-container { width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 2rem; }
-        .search-input-wrap { position: relative; width: 100%; }
-        .search-input {
-            width: 100%; font-family: var(--font-sans); font-size: 1.5rem; padding: 1.25rem 1.5rem 1.25rem 3.5rem;
-            background: var(--bg-surface); border: 2px solid var(--border-light); border-radius: var(--radius-lg); color: var(--text-primary); box-shadow: var(--shadow-lg);
-        }
-        .search-input:focus { border-color: var(--accent-primary); }
-        .search-icon-pos { position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
-        .search-results-list { display: flex; flex-direction: column; gap: 1rem; max-height: 60vh; overflow-y: auto; }
-        .search-item-card { background: var(--bg-surface); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-light); cursor: pointer; text-decoration: none; display: block; }
-        .search-item-card:hover { background-color: var(--bg-secondary); }
-
-        /* PAGINATION UI */
-        .pagination-container { display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 3rem; flex-wrap: wrap; }
-        .page-btn { padding: 0.5rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: all var(--transition-fast); text-decoration: none; display: inline-block; }
-        .page-btn:hover { background: var(--bg-secondary); }
-        .page-btn.active { background: var(--text-primary); color: var(--text-inverse); border-color: var(--text-primary); }
-        
-        /* STATIC PAGES & ERRORS */
-        .page-header { padding: 3rem 0; border-bottom: 1px solid var(--border-light); margin-bottom: 3rem; text-align: center; }
-        .page-title { font-size: 3rem; font-weight: 800; letter-spacing: -0.03em; }
-        .page-content-body { max-width: var(--reading-width); margin: 0 auto; font-size: 1.0625rem; line-height: 1.7; color: var(--text-secondary); }
-        .error-container { text-align: center; padding: 5rem 1.5rem; max-width: 600px; margin: 0 auto; }
-        .error-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
-
-        /* FOOTER */
-        .site-footer { background: var(--bg-surface); border-top: 1px solid var(--border-light); padding: 4rem 0 2rem 0; margin-top: auto; }
-        .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 3rem; margin-bottom: 3.5rem; }
-        .footer-brand { display: flex; flex-direction: column; gap: 1rem; }
-        .footer-desc { font-size: 0.9375rem; color: var(--text-muted); max-width: 320px; line-height: 1.5; }
-        .footer-col-title { font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem; }
-        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-        .footer-link { font-size: 0.875rem; color: var(--text-secondary); cursor: pointer; }
-        .footer-link:hover { color: var(--accent-primary); }
-        .footer-bottom { padding-top: 2rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; font-size: 0.8125rem; color: var(--text-muted); }
-
-        .back-to-top {
-            position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: var(--text-primary); color: var(--text-inverse);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md);
-            opacity: 0; pointer-events: none; transition: opacity var(--transition-fast); z-index: 900;
-        }
-        .back-to-top.visible { opacity: 1; pointer-events: auto; }
-
-        @media (max-width: 1100px) {
-            .hero-grid { grid-template-columns: 1fr; }
-            .hero-sidebar { border-left: none; padding-left: 0; border-top: 1px solid var(--border-light); padding-top: 2rem; }
-            .article-body-layout { grid-template-columns: 1fr; }
-            .article-sidebar-sticky { display: none; }
-        }
-
-        @media (max-width: 768px) {
-            :root { --header-height: 64px; }
-            .desktop-nav { display: none; }
-            .mobile-toggle { display: inline-flex; }
-            .featured-title { font-size: 1.875rem; }
-            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-        }
-    </style>
+  </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="topbar"><div class="topbar-inner"><span class="topbar-mark">AZEXAI / INTELLIGENCE</span><span class="topbar-date" id="topbarDate"></span></div></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" data-route="home" aria-label="AZEXAI home"><span class="brand-word">AZEXAI</span><span class="brand-slash">/</span><span class="brand-sub">TECHNOLOGY &amp; INTELLIGENCE</span></a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <a href="index.html" data-route="home">Home</a><a href="index.html?category=ai" data-route="category" data-category="ai">AI</a><a href="index.html?category=robotics" data-route="category" data-category="robotics">Robotics</a><a href="index.html?category=hardware" data-route="category" data-category="hardware">Hardware</a><a href="index.html?category=software" data-route="category" data-category="software">Software</a><a href="index.html?category=future-tech" data-route="category" data-category="future-tech">Future Tech</a><a href="index.html?category=guides" data-route="category" data-category="guides">Guides</a><a href="index.html?category=reviews" data-route="category" data-category="reviews">Reviews</a><a href="index.html?category=ethics" data-route="category" data-category="ethics">Ethics</a><a href="index.html?archive" data-route="archive">Archive</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn" id="searchButton" aria-label="Search" title="Search">⌕</button><button class="menu-btn" id="menuButton" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">☰</button></div>
+  </div>
+  <div class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
+    <a href="index.html" data-route="home">Home</a><a href="index.html?category=ai" data-route="category" data-category="ai">AI</a><a href="index.html?category=robotics" data-route="category" data-category="robotics">Robotics</a><a href="index.html?category=hardware" data-route="category" data-category="hardware">Hardware</a><a href="index.html?category=software" data-route="category" data-category="software">Software</a><a href="index.html?category=future-tech" data-route="category" data-category="future-tech">Future Tech</a><a href="index.html?category=guides" data-route="category" data-category="guides">Guides</a><a href="index.html?category=reviews" data-route="category" data-category="reviews">Reviews</a><a href="index.html?category=ethics" data-route="category" data-category="ethics">Ethics</a><a href="index.html?archive" data-route="archive">Archive</a><a href="index.html?about" data-route="about">About</a><a href="index.html?contact" data-route="contact">Contact</a>
+  </div>
+</header>
+<main id="main"></main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div><div class="footer-brand">AZEXAI</div><div class="footer-tag">Technology, intelligence, and the systems shaping tomorrow.</div></div><div class="footer-nav"><a href="index.html" data-route="home">Home</a><a href="index.html?category=ai" data-route="category" data-category="ai">AI</a><a href="index.html?category=robotics" data-route="category" data-category="robotics">Robotics</a><a href="index.html?category=hardware" data-route="category" data-category="hardware">Hardware</a><a href="index.html?category=software" data-route="category" data-category="software">Software</a><a href="index.html?category=future-tech" data-route="category" data-category="future-tech">Future Tech</a><a href="index.html?category=guides" data-route="category" data-category="guides">Guides</a><a href="index.html?category=reviews" data-route="category" data-category="reviews">Reviews</a><a href="index.html?category=ethics" data-route="category" data-category="ethics">Ethics</a><a href="index.html?archive" data-route="archive">Archive</a><a href="index.html?about" data-route="about">About</a><a href="index.html?contact" data-route="contact">Contact</a><a href="index.html?privacy" data-route="privacy">Privacy</a></div><div class="footer-signatures"><span>AZEXAI / INTELLIGENCE</span><span>AZEXAI / FUTURE</span><span>AZEXAI / ANALYSIS</span><span>AZEXAI / FIELD NOTES</span></div></div><div class="footer-bottom"><span>© <span id="year"></span> AZEXAI</span><span>Editorial technology publication</span></div></div></footer>
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(() => {
+  'use strict';
 
-    <div id="reading-progress"></div>
+  /* =========================
+     BLOGGER CONFIGURATION
+     ========================= */
+  const BLOGGER_CONFIG = Object.freeze({
+    BLOG_ID: '4263033619836681299',
+    API_KEY: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
+    API_BASE: 'https://www.googleapis.com/blogger/v3',
+    CONTACT_EMAIL: 'YOUR_EMAIL@example.com'
+  });
 
-    <header class="site-header">
-        <div class="container header-inner">
-            <a href="?view=home" class="brand-logo spa-link">AZEXAI</a>
+  const CATEGORY_MAP = Object.freeze({
+    'ai': ['ai','artificial intelligence','artificial-intelligence','artificial_intelligence','machine learning','machine-learning','ml'],
+    'robotics': ['robotics','robot','robots'],
+    'hardware': ['hardware','devices','device','computing hardware'],
+    'software': ['software','apps','applications','developer','development'],
+    'future-tech': ['future tech','future-tech','future technology','emerging technology','emerging-tech'],
+    'guides': ['guides','guide','how-to','how to','tutorial','tutorials'],
+    'reviews': ['reviews','review','hands-on','hands on'],
+    'ethics': ['ethics','ethical','responsible technology','responsible-tech']
+  });
+  const CATEGORY_LABELS = Object.freeze({
+    'ai':'AI','robotics':'Robotics','hardware':'Hardware','software':'Software','future-tech':'Future Tech','guides':'Guides','reviews':'Reviews','ethics':'Ethics'
+  });
 
-            <nav class="desktop-nav">
-                <a href="?view=home" class="nav-link spa-link active">Home</a>
-                <a href="?view=category&name=AI" class="nav-link spa-link">AI</a>
-                <a href="?view=category&name=Robotics" class="nav-link spa-link">Robotics</a>
-                <a href="?view=category&name=Hardware" class="nav-link spa-link">Hardware</a>
-                <a href="?view=category&name=Software" class="nav-link spa-link">Software</a>
-                <a href="?view=category&name=Future Tech" class="nav-link spa-link">Future Tech</a>
-                <a href="?view=category&name=Guides" class="nav-link spa-link">Guides</a>
-                <a href="?view=category&name=Reviews" class="nav-link spa-link">Reviews</a>
-                <a href="?view=category&name=Ethics" class="nav-link spa-link">Ethics</a>
-                <a href="?view=archive" class="nav-link spa-link">Archive</a>
-            </nav>
+  const state = { posts: [], postMap: new Map(), loading: false, loadPromise: null, error: null, searchTimer: null, renderToken: 0 };
+  const $ = (sel, root=document) => root.querySelector(sel);
+  const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
+  const main = $('#main');
 
-            <div class="header-actions">
-                <button class="icon-btn" id="search-trigger" aria-label="Search articles">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                </button>
-                <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                </button>
-                <button class="icon-btn mobile-toggle" id="menu-toggle" aria-label="Open menu">
-                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-            </div>
-        </div>
-    </header>
+  function escapeHtml(value='') {
+    return String(value).replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[ch]));
+  }
 
-    <div class="drawer-overlay" id="drawer-overlay"></div>
-    <div class="mobile-drawer" id="mobile-drawer">
-        <div class="drawer-header">
-            <span class="brand-logo">AZEXAI</span>
-            <button class="icon-btn" id="drawer-close" aria-label="Close menu">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-        </div>
-        <ul class="mobile-nav-list">
-            <li><a href="?view=home" class="mobile-nav-link spa-link">Home</a></li>
-            <li><a href="?view=category&name=AI" class="mobile-nav-link spa-link">AI</a></li>
-            <li><a href="?view=category&name=Robotics" class="mobile-nav-link spa-link">Robotics</a></li>
-            <li><a href="?view=category&name=Hardware" class="mobile-nav-link spa-link">Hardware</a></li>
-            <li><a href="?view=category&name=Software" class="mobile-nav-link spa-link">Software</a></li>
-            <li><a href="?view=category&name=Future Tech" class="mobile-nav-link spa-link">Future Tech</a></li>
-            <li><a href="?view=category&name=Guides" class="mobile-nav-link spa-link">Guides</a></li>
-            <li><a href="?view=category&name=Reviews" class="mobile-nav-link spa-link">Reviews</a></li>
-            <li><a href="?view=category&name=Ethics" class="mobile-nav-link spa-link">Ethics</a></li>
-            <li><a href="?view=archive" class="mobile-nav-link spa-link">Full Archive</a></li>
-            <li><a href="?view=about" class="mobile-nav-link spa-link">About AZEXAI</a></li>
-            <li><a href="?view=contact" class="mobile-nav-link spa-link">Contact Desk</a></li>
-        </ul>
-    </div>
+  function setMeta(name, content) {
+    let el = document.querySelector(`meta[name="${CSS.escape(name)}"]`);
+    if (!el) { el = document.createElement('meta'); el.setAttribute('name', name); document.head.appendChild(el); }
+    el.setAttribute('content', content || '');
+  }
+  function setProperty(property, content) {
+    let el = document.querySelector(`meta[property="${CSS.escape(property)}"]`);
+    if (!el) { el = document.createElement('meta'); el.setAttribute('property', property); document.head.appendChild(el); }
+    el.setAttribute('content', content || '');
+  }
+  function updateSEO({title, description, image, type='website', url=location.href, article=null}={}) {
+    const t = title || 'AZEXAI — Technology, intelligence, and the systems shaping tomorrow.';
+    const d = description || 'Technology, intelligence, and the systems shaping tomorrow.';
+    document.title = t;
+    setMeta('description', d);
+    setProperty('og:title', t); setProperty('og:description', d); setProperty('og:type', type); setProperty('og:url', url); setProperty('og:image', image || '');
+    setProperty('twitter:title', t); setProperty('twitter:description', d); setProperty('twitter:image', image || '');
+    const canonical = $('#canonicalLink'); if (canonical) canonical.href = url;
+    if (article) {
+      setMeta('author', article.authorName || 'AZEXAI');
+      setProperty('article:published_time', article.published || '');
+      setProperty('article:modified_time', article.updated || article.published || '');
+      if (article.labels.length) setProperty('article:section', article.labels[0]);
+    }
+    syncStructuredData({title:t,description:d,image,url,type,article});
+  }
 
-    <main class="main-layout" id="app-root"></main>
+  function syncStructuredData({title, description, image, url, type, article}) {
+    const old = document.getElementById('dynamicStructuredData'); if (old) old.remove();
+    const graph = [];
+    graph.push({ '@type':'Organization', '@id': location.origin + location.pathname + '#organization', name:'AZEXAI', url: location.origin + location.pathname });
+    graph.push({ '@type':'WebSite', '@id': location.origin + location.pathname + '#website', name:'AZEXAI', url: location.origin + location.pathname, description });
+    if (article) {
+      graph.push({ '@type':'BreadcrumbList', itemListElement:[
+        {'@type':'ListItem', position:1, name:'Home', item:location.origin + location.pathname},
+        {'@type':'ListItem', position:2, name:'Article', item:url}
+      ]});
+      graph.push({ '@type':'Article', headline:title, description, url, image:image ? [image] : undefined,
+        datePublished:article.published, dateModified:article.updated || article.published, author:{'@type':'Person', name:article.authorName || 'AZEXAI'}, publisher:{'@type':'Organization',name:'AZEXAI'}
+      });
+    }
+    const script=document.createElement('script');script.id='dynamicStructuredData';script.type='application/ld+json';script.textContent=JSON.stringify({'@context':'https://schema.org','@graph':graph});document.head.appendChild(script);
+  }
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="?view=home" class="brand-logo spa-link">AZEXAI</a>
-                    <p class="footer-desc">
-                        Independent publication exploring frontier technology, software architecture, machine learning systems, and computational security.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="footer-col-title">Sections</h4>
-                    <ul class="footer-links">
-                        <li><a href="?view=category&name=AI" class="footer-link spa-link">Artificial Intelligence</a></li>
-                        <li><a href="?view=category&name=Robotics" class="footer-link spa-link">Robotics</a></li>
-                        <li><a href="?view=category&name=Hardware" class="footer-link spa-link">Hardware</a></li>
-                        <li><a href="?view=archive" class="footer-link spa-link">Full Archive</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-col-title">Publication</h4>
-                    <ul class="footer-links">
-                        <li><a href="?view=about" class="footer-link spa-link">About AZEXAI</a></li>
-                        <li><a href="?view=contact" class="footer-link spa-link">Contact Desk</a></li>
-                        <li><a href="?view=privacy" class="footer-link spa-link">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-col-title">System Status</h4>
-                    <p id="footer-status-text" class="footer-desc" style="font-size: 0.8125rem;">Connecting via Blogger API...</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; <span id="copyright-year"></span> AZEXAI. All rights reserved.</span>
-                <span>Blog ID: <span id="display-blog-id">4263033619836681299</span></span>
-            </div>
-        </div>
-    </footer>
+  function updateURL(params, replace=false) {
+    const url = new URL(location.href);
+    url.search = '';
+    Object.entries(params).forEach(([k,v])=>{if(v!==undefined && v!==null && v!=='')url.searchParams.set(k,v)});
+    const method = replace ? 'replaceState' : 'pushState';
+    history[method]({}, '', url.pathname + (url.search ? url.search : ''));
+  }
 
-    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7"></path></svg>
-    </button>
+  function currentRoute() {
+    const p = new URLSearchParams(location.search);
+    if (p.has('post')) return {name:'post', id:p.get('post')};
+    if (p.has('search')) return {name:'search', query:p.get('search') || ''};
+    if (p.has('category')) return {name:'category', category:normalizeCategoryKey(p.get('category'))};
+    if (p.has('archive')) return {name:'archive'};
+    if (p.has('about')) return {name:'about'};
+    if (p.has('contact')) return {name:'contact'};
+    if (p.has('privacy')) return {name:'privacy'};
+    return {name:'home'};
+  }
 
-    <div class="search-modal" id="search-modal">
-        <div class="search-container">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.875rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Search AZEXAI Archive</span>
-                <button class="icon-btn" id="search-close" style="color: var(--text-primary);"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg></button>
-            </div>
-            <div class="search-input-wrap">
-                <svg class="search-icon-pos" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                <input type="text" id="search-input" class="search-input" placeholder="Search stories, topics, models..." autofocus>
-            </div>
-            <div class="search-results-list" id="search-results"></div>
-        </div>
-    </div>
+  function normalizeCategoryKey(value='') {
+    const key=String(value).trim().toLowerCase();
+    if (CATEGORY_LABELS[key]) return key;
+    const found=Object.entries(CATEGORY_LABELS).find(([,label])=>label.toLowerCase()===key);
+    return found ? found[0] : key;
+  }
 
-    <script>
-        const CONFIG = {
-            BLOG_ID: "4263033619836681299",
-            API_KEY: "AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ"
-        };
+  function categoryForPost(post) {
+    for (const [key, variants] of Object.entries(CATEGORY_MAP)) {
+      const has = post.labels.some(l => variants.some(v => normalizeLabel(l) === normalizeLabel(v)));
+      if (has) return key;
+    }
+    return post.labels[0] ? slugify(post.labels[0]) : 'uncategorized';
+  }
+  function normalizeLabel(label=''){return String(label).toLowerCase().replace(/[–—]/g,'-').replace(/[\s_]+/g,' ').replace(/\s*[-]\s*/g,'-').trim()}
+  function slugify(v=''){return String(v).toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+  function formatCategory(post){const c=categoryForPost(post); return CATEGORY_LABELS[c] || post.labels[0] || 'Technology'}
 
-        const BloggerStore = {
-            posts: [],
-            isLoaded: false,
-            isLoading: false,
-            slugMap: new Map()
-        };
+  function extractImage(content='') {
+    try {
+      const doc = new DOMParser().parseFromString(content, 'text/html');
+      const img = doc.querySelector('img[src], img[data-src], img[data-original]');
+      if (!img) return '';
+      return img.getAttribute('src') || img.getAttribute('data-src') || img.getAttribute('data-original') || '';
+    } catch { return ''; }
+  }
+  function extractImageFromPost(raw) {
+    if (Array.isArray(raw?.images) && raw.images.length) {
+      const candidate = raw.images.find(i => i && i.url);
+      if (candidate?.url) return candidate.url;
+    }
+    return extractImage(raw?.content || '');
+  }
 
-        function extractArticleImage(post) {
-            if (post.images && post.images.length > 0 && post.images[0].url) {
-                return post.images[0].url;
-            }
-            if (post.content) {
-                const div = document.createElement('div');
-                div.innerHTML = post.content;
-                const img = div.querySelector('img');
-                if (img && img.src) return img.src;
-            }
-            return null;
+  function stripHtml(html='') {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return (doc.body.textContent || '').replace(/\s+/g,' ').trim();
+  }
+  function excerptFromContent(content='', max=190) {
+    const t=stripHtml(content); return t.length>max ? t.slice(0,max-1).trim()+'…' : t;
+  }
+  function calculateReadingTime(content='') {
+    const words=stripHtml(content).split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.ceil(words/220));
+  }
+  function formatDate(date, opts={}) { try{return new Intl.DateTimeFormat(undefined,{year:'numeric',month:'short',day:'numeric',...opts}).format(new Date(date));}catch{return date||'';} }
+  function formatMonth(date) { try{return new Intl.DateTimeFormat(undefined,{month:'long'}).format(new Date(date));}catch{return '';}}
+  function yearOf(date){return new Date(date).getFullYear();}
+
+  function sanitizeArticleHTML(html='') {
+    const doc=new DOMParser().parseFromString(html,'text/html');
+    $$('script,object,embed,applet,base,meta,link',doc).forEach(el=>el.remove());
+    $$('*',doc).forEach(el=>{
+      [...el.attributes].forEach(attr=>{
+        if (/^on/i.test(attr.name)) el.removeAttribute(attr.name);
+        if (attr.name.toLowerCase()==='style') {
+          // Keep Blogger styling except explicit scripting URLs.
+          if (/url\s*\(\s*['"]?javascript:/i.test(attr.value)) el.removeAttribute('style');
         }
+        if ((attr.name.toLowerCase()==='href' || attr.name.toLowerCase()==='src') && /^\s*javascript:/i.test(attr.value)) el.removeAttribute(attr.name);
+      });
+    });
+    $$('a[target="_blank"]',doc).forEach(a=>{a.setAttribute('rel','noopener noreferrer')});
+    $$('img',doc).forEach(img=>{
+      img.loading='lazy'; img.decoding='async'; img.removeAttribute('width'); img.removeAttribute('height');
+      const src=img.getAttribute('src')||''; if(!img.alt)img.alt=''; if(src.startsWith('//'))img.src=location.protocol+src;
+    });
+    $$('table',doc).forEach(table=>{
+      const wrap=doc.createElement('div'); wrap.style.overflow='auto'; wrap.style.maxWidth='100%'; table.parentNode.insertBefore(wrap,table); wrap.appendChild(table);
+    });
+    return doc.body.innerHTML;
+  }
 
-        function cleanExcerpt(htmlContent, maxLength = 130) {
-            if (!htmlContent) return '';
-            const div = document.createElement('div');
-            div.innerHTML = htmlContent;
-            const text = div.textContent || div.innerText || '';
-            const clean = text.replace(/\s+/g, ' ').trim();
-            return clean.length > maxLength ? clean.substring(0, maxLength) + '...' : clean;
-        }
+  function normalizePost(raw) {
+    const content=raw?.content || '';
+    const published=raw?.published || raw?.updated || new Date().toISOString();
+    return {
+      id:String(raw?.id || ''), title:String(raw?.title || 'Untitled'), content, published, updated:raw?.updated || published,
+      labels:Array.isArray(raw?.labels) ? raw.labels.map(String) : [], authorName:String(raw?.author?.displayName || raw?.author?.display_name || raw?.author?.name || ''),
+      authorUrl:String(raw?.author?.url || ''), url:String(raw?.url || ''), image:extractImageFromPost(raw), readingTime:calculateReadingTime(content), excerpt:excerptFromContent(content), searchText:((String(raw?.title||'')+' '+stripHtml(content)+' '+(Array.isArray(raw?.labels)?raw.labels.join(' '):'' )).toLowerCase()), category:formatCategory({labels:Array.isArray(raw?.labels)?raw.labels.map(String):[], id:String(raw?.id||'')})
+    };
+  }
 
-        function calculateReadingTime(htmlContent) {
-            if (!htmlContent) return '3 min read';
-            const text = htmlContent.replace(/<[^>]*>/g, '');
-            const words = text.trim().split(/\s+/).filter(Boolean).length;
-            const minutes = Math.max(1, Math.ceil(words / 225));
-            return `${minutes} min read`;
-        }
+  async function apiFetch(path, params={}) {
+    const url=new URL(BLOGGER_CONFIG.API_BASE + path);
+    const cleanParams={...params, key:BLOGGER_CONFIG.API_KEY};
+    Object.entries(cleanParams).forEach(([k,v])=>url.searchParams.set(k,v));
+    const safeUrl = url.origin + url.pathname;
+    try {
+      const response=await fetch(url.toString(),{headers:{'Accept':'application/json'}});
+      console.info('BLOGGER API STATUS:', response.status, safeUrl);
+      const data=await response.json().catch(()=>null);
+      if (!response.ok) {
+        const err=new Error('Blogger API request failed'); err.status=response.status; err.payload=data; throw err;
+      }
+      return data;
+    } catch (err) {
+      if (err?.status) console.error('BLOGGER API REQUEST FAILED:', err.status, err.payload?.error?.message || 'No diagnostic message returned');
+      else console.error('BLOGGER API NETWORK ERROR:', err?.message || err);
+      throw err;
+    }
+  }
 
-        function slugify(text) {
-            if (!text) return 'article';
-            return text.toString().toLowerCase()
-                .trim()
-                .replace(/\s+/g, '-')
-                .replace(/[^\w\-]+/g, '')
-                .replace(/\-\-+/g, '-');
-        }
+  async function fetchAllPosts() {
+    if (state.posts.length) return state.posts;
+    if (state.loadPromise) return state.loadPromise;
+    state.loadPromise=(async()=>{
+      state.loading=true; state.error=null;
+      try {
+        const collected=[]; let pageToken=''; let page=0;
+        do {
+          const params={fetchBodies:'true',fetchImages:'true',orderBy:'published',maxResults:'50'};
+          if(pageToken) params.pageToken=pageToken;
+          const data=await apiFetch(`/blogs/${encodeURIComponent(BLOGGER_CONFIG.BLOG_ID)}/posts`,params);
+          const items=Array.isArray(data?.items)?data.items:[]; collected.push(...items);
+          pageToken=data?.nextPageToken || ''; page++;
+          console.info('BLOGGER POSTS PAGE:',page,'ITEMS:',items.length,'HAS NEXT PAGE TOKEN:',!!pageToken);
+        } while(pageToken);
+        const map=new Map(); collected.forEach(raw=>{const n=normalizePost(raw); if(n.id) map.set(n.id,n);});
+        state.posts=[...map.values()].sort((a,b)=>new Date(b.published)-new Date(a.published));
+        state.postMap=new Map(state.posts.map(p=>[p.id,p]));
+        console.info('BLOGGER POSTS LOADED:',state.posts.length);
+        return state.posts;
+      } catch(err) { state.error=err; throw err; }
+      finally { state.loading=false; state.loadPromise=null; }
+    })();
+    return state.loadPromise;
+  }
 
-        function escapeHtml(str) {
-            if (!str) return '';
-            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-        }
+  async function fetchPostById(id) {
+    if (!id) throw new Error('Missing post id');
+    const data=await apiFetch(`/blogs/${encodeURIComponent(BLOGGER_CONFIG.BLOG_ID)}/posts/${encodeURIComponent(id)}`,{fetchBodies:'true',fetchImages:'true'});
+    return normalizePost(data);
+  }
 
-        async function fetchFromBloggerApi() {
-            let allItems = [];
-            let pageToken = null;
+  function setActiveNav(route) {
+    $$('nav.primary-nav a, .mobile-panel a, .footer-nav a').forEach(a=>a.removeAttribute('aria-current'));
+    $$('a[data-route="home"]',document).forEach(a=>{if(route.name==='home')a.setAttribute('aria-current','page')});
+    $$('a[data-route="archive"]',document).forEach(a=>{if(route.name==='archive')a.setAttribute('aria-current','page')});
+    $$('a[data-route="about"]',document).forEach(a=>{if(route.name==='about')a.setAttribute('aria-current','page')});
+    $$('a[data-route="contact"]',document).forEach(a=>{if(route.name==='contact')a.setAttribute('aria-current','page')});
+    $$('a[data-route="category"]',document).forEach(a=>{if(route.name==='category'&&a.dataset.category===route.category)a.setAttribute('aria-current','page')});
+  }
 
-            do {
-                let url = `https://www.googleapis.com/blogger/v3/blogs/${CONFIG.BLOG_ID}/posts?maxResults=500&fetchBodies=true&fetchImages=true`;
-                if (CONFIG.API_KEY) url += `&key=${CONFIG.API_KEY}`;
-                if (pageToken) url += `&pageToken=${pageToken}`;
+  function showLoading(mode='grid') {
+    if(mode==='grid') main.innerHTML=`<section class="page"><div class="page-inner"><div class="section-head"><div><div class="kicker">AZEXAI / LOADING</div><h2>Gathering the latest reporting.</h2></div></div><div class="skeleton-grid">${Array.from({length:6}).map(()=>`<div class="skeleton"><div class="sk sk-media"></div><div class="sk-line sk wide"></div><div class="sk-line sk mid"></div><div class="sk-line sk wide"></div><div class="sk-line sk short"></div></div>`).join('')}</div></div></section>`;
+    else main.innerHTML=`<div class="state"><div class="kicker">AZEXAI / LOADING</div><h2>Opening the archive.</h2><p>Fetching the publication feed from Blogger.</p></div>`;
+  }
+  function showError() { main.innerHTML=`<div class="state"><div class="kicker">AZEXAI / CONNECTION</div><h2>Unable to load articles right now.</h2><p>Please try again shortly.</p><button class="retry" id="retryButton">Retry</button></div>`; $('#retryButton')?.addEventListener('click',()=>handleRoute(true)); }
 
-                const response = await fetch(url);
-                if (!response.ok) {
-                    const errBody = await response.text();
-                    throw new Error(`Blogger API HTTP ${response.status}: ${errBody}`);
-                }
+  function cardHTML(post){
+    const image=post.image ? `<img src="${escapeHtml(post.image)}" alt="" loading="lazy" decoding="async">` : `<div aria-hidden="true" style="width:100%;height:100%;display:grid;place-items:center;color:#9a9182;font:700 .6rem var(--mono);letter-spacing:.1em;text-transform:uppercase">AZEXAI / STORY</div>`;
+    return `<article class="card"><a href="index.html?post=${encodeURIComponent(post.id)}" data-post-link="${escapeHtml(post.id)}" aria-label="Read: ${escapeHtml(post.title)}"><div class="card-media">${image}</div><div class="card-body"><div class="card-label">${escapeHtml(post.category)}</div><h3>${escapeHtml(post.title)}</h3><p class="card-excerpt">${escapeHtml(post.excerpt)}</p><div class="card-meta"><span>${escapeHtml(formatDate(post.published))}</span><span>${post.readingTime} min read</span></div></div></a></article>`;
+  }
+  function renderCards(posts){return posts.length ? `<div class="grid-articles">${posts.map(cardHTML).join('')}</div>` : `<div class="state" style="padding:2rem 0"><div class="kicker">AZEXAI / EMPTY</div><h2>No matching articles.</h2><p>This section contains no Blogger posts matching the current filter.</p></div>`}
 
-                const data = await response.json();
-                if (data && Array.isArray(data.items)) {
-                    allItems = allItems.concat(data.items);
-                }
-                pageToken = data.nextPageToken || null;
-            } while (pageToken);
+  function renderHome(posts) {
+    if (!posts.length) {
+      main.innerHTML=`<section class="page"><div class="state"><div class="kicker">AZEXAI / BLOGGER</div><h2>No published posts were returned.</h2><p>The live Blogger feed is reachable, but it currently contains no published posts available to this page.</p></div></section>`; return;
+    }
+    const featured=posts[0], latest=posts.slice(0,6), byCat={}; Object.keys(CATEGORY_LABELS).forEach(k=>byCat[k]=posts.filter(p=>categoryForPost(p)===k).slice(0,4));
+    const morePosts=posts.slice(6,14);
+    const signal=posts.slice(0,10);
+    const yearMap={}; posts.forEach(p=>{const y=new Date(p.published).getFullYear();yearMap[y]=(yearMap[y]||0)+1});
+    const years=Object.entries(yearMap).sort((a,b)=>b[0]-a[0]).slice(0,6);
+    main.innerHTML=`
+      <section class="ax-opening" aria-label="AZEXAI introduction"><div class="ax-opening-grid"></div><div class="ax-opening-top"><span>AZEXAI / INTELLIGENCE</span><span>EST. IN THE FEED</span></div><div class="ax-opening-core"><div class="ax-opening-mark">AZ<span>/</span>EXAI</div><p>Technology, intelligence, and the systems shaping tomorrow.</p></div><div class="ax-opening-bottom"><span>LIVE ARCHIVE</span><span>${posts.length} STORIES INDEXED</span><span>SCROLL TO ENTER</span></div></section>
+      <section class="hero"><div class="hero-inner"><div class="hero-intro"><div class="kicker" style="color:#c3a96d">AZEXAI / TECHNOLOGY PUBLICATION</div><h1 class="display">The systems behind what comes next.</h1><p class="hero-lead">Independent reporting, analysis, reviews, and field notes on the technologies reshaping work, culture, machines, and the future.</p><div class="hero-actions"><a class="read-link" href="index.html?post=${encodeURIComponent(featured.id)}" data-post-link="${escapeHtml(featured.id)}">Enter the lead story <span>↗</span></a><button class="hero-index-btn" id="openIndex" type="button">Open the index <span>⌘ /</span></button></div></div><div class="hero-rule"></div></div></section>
+      <div class="editorial-index"><span>Live archive · ${posts.length} indexed stories · latest first</span><span class="index-ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <section class="ax-newsroom content-section"><div class="ax-section-top"><div><div class="kicker">AZEXAI / NEWSROOM</div><h2>Signals moving now</h2></div><span>Live Blogger archive</span></div><div class="ax-news-tape">${signal.map((p,i)=>`<a href="index.html?post=${encodeURIComponent(p.id)}" data-post-link="${escapeHtml(p.id)}"><b>${String(i+1).padStart(2,'0')}</b><span>${escapeHtml(p.title)}</span><em>${escapeHtml(p.category)}</em></a>`).join('')}</div></section>
+      <section class="content-section"><div class="section-head"><div><div class="kicker">Featured story</div><h2>Lead report</h2></div><span class="section-note">Live Blogger feed</span></div><article class="featured ax-featured"><a class="featured-media" href="index.html?post=${encodeURIComponent(featured.id)}" data-post-link="${escapeHtml(featured.id)}" aria-label="Read featured: ${escapeHtml(featured.title)}">${featured.image?`<img src="${escapeHtml(featured.image)}" alt="" fetchpriority="high" decoding="async">`:`<div style="width:100%;height:100%;display:grid;place-items:center;font:700 .65rem var(--mono);color:#6d746e">AZEXAI / FEATURE</div>`}<span class="ax-feature-stamp">01 / LEAD</span></a><div class="featured-copy"><div><div class="kicker">${escapeHtml(featured.category)}</div><h1 class="display">${escapeHtml(featured.title)}</h1><p>${escapeHtml(featured.excerpt)}</p><div class="meta-row"><span>${escapeHtml(formatDate(featured.published))}</span><span class="meta-dot"></span><span>${featured.readingTime} min read</span>${featured.authorName?`<span class="meta-dot"></span><span>By ${escapeHtml(featured.authorName)}</span>`:''}</div></div><a class="read-link" href="index.html?post=${encodeURIComponent(featured.id)}" data-post-link="${escapeHtml(featured.id)}">Read story <span>→</span></a></div></article></section>
+      <section class="ax-index-section content-section"><div class="ax-index-intro"><div><div class="kicker">AZEXAI / INDEX</div><h2>One archive.<br><i>Many futures.</i></h2></div><p>Every signal below comes from the live publication archive. Nothing is invented; the interface simply reveals the scale and shape of the reporting.</p></div><div class="ax-index-grid">${years.map(([y,count],i)=>`<a href="index.html?archive#year-${y}" class="ax-year-card"><span>${String(i+1).padStart(2,'0')}</span><strong>${y}</strong><em>${count} ${count===1?'story':'stories'}</em><i>→</i></a>`).join('')}</div></section>
+      <section class="content-section" style="padding-top:0"><div class="section-head"><div><div class="kicker">Latest</div><h2>Recent reporting</h2></div><span class="section-note">${posts.length} stories in archive</span></div>${renderCards(latest)}</section>
+      ${Object.entries(CATEGORY_LABELS).map(([key,label],i)=>{const catPosts=byCat[key]; if(!catPosts.length)return ''; const tint=i%3===0?'green':i%3===1?'':'rust'; if(i===0 || i===3 || i===6){return `<section class="split-section ax-world"><div class="split-copy ${tint}"><div><div class="kicker">AZEXAI / ${escapeHtml(label)}</div><h2>${escapeHtml(label)}</h2><p>Stories filed under ${escapeHtml(label)} from the live Blogger archive.</p></div><a class="read-link" style="color:#d4b879;border-color:#d4b879" href="index.html?category=${key}" data-route="category">Browse ${escapeHtml(label)} <span>→</span></a></div><div class="split-grid">${renderCards(catPosts)}</div></section>`} return `<section class="content-section ax-world" style="padding-top:0"><div class="section-head"><div><div class="kicker">AZEXAI / ${escapeHtml(label)}</div><h2>${escapeHtml(label)}</h2></div><a class="section-note" href="index.html?category=${key}">View section →</a></div>${renderCards(catPosts)}</section>`;}).join('')}
+      ${morePosts.length?`<section class="content-section ax-desk" style="padding-top:0"><div class="section-head"><div><div class="kicker">Explore</div><h2>More from the desk</h2></div><span class="section-note">Unfiltered archive order</span></div>${renderCards(morePosts)}</section>`:''}
+      <section class="ax-final-portal"><div><div class="kicker">AZEXAI / THE NEXT FILE</div><h2>There is more<br>in the archive.</h2></div><a href="index.html?archive" data-route="archive">Enter the archive <span>↗</span></a></section>
+      <section class="archive-teaser"><div class="archive-teaser-inner"><div><div class="kicker">The archive</div><h2>Years of technology, properly indexed.</h2><p>Browse every fetched Blogger post by year and month, newest to oldest.</p></div><div><a class="archive-button" href="index.html?archive" data-route="archive">Open archive <span>→</span></a></div></div></section>
+      <section class="newsletter"><div class="newsletter-inner"><div><div class="kicker" style="color:#f0d7c7">Editorial letter</div><h2>Signal, not noise.</h2><p>A front-end newsletter form for the publication. No backend subscription is claimed until a real email service is connected.</p><div class="newsletter-note">No false subscription confirmation · Replace with your provider later</div></div><div><form class="newsletter-form" id="newsletterForm"><input type="email" id="newsletterEmail" placeholder="your@email.com" aria-label="Email address" required><button type="submit">Subscribe →</button></form><div class="form-message" id="newsletterMessage" role="status"></div></div></div></section>`;
+    bindDynamic();
+    const idx=document.getElementById('openIndex'); if(idx) idx.addEventListener('click',()=>document.querySelector('.ax-index-section')?.scrollIntoView({behavior:'smooth'}));
+    initOpening(); initStoryHover();
+  }
 
-            return allItems.map(item => {
-                const title = item.title || 'Untitled Article';
-                const slug = slugify(title);
-                const content = item.content || '';
-                const featuredImage = extractArticleImage(item);
-                const author = item.author && item.author.displayName ? item.author.displayName : 'AZEXAI Editorial';
-                const publishedAt = item.published || new Date().toISOString();
-                const labels = Array.isArray(item.labels) ? item.labels : [];
-                const url = `?view=article&slug=${encodeURIComponent(slug)}`;
-                const excerpt = cleanExcerpt(content, 130);
-                const readingTime = calculateReadingTime(content);
+  function renderCategory(posts,key){
+    const label=CATEGORY_LABELS[key] || key.replace(/-/g,' ').replace(/\b\w/g,m=>m.toUpperCase());
+    const filtered=posts.filter(p=>categoryForPost(p)===key);
+    updateSEO({title:`${label} — AZEXAI`,description:`AZEXAI coverage of ${label.toLowerCase()}.`});
+    main.innerHTML=`<section class="page-hero"><div class="kicker">AZEXAI / CATEGORY</div><h1 class="display">${escapeHtml(label)}</h1><p>Real Blogger posts filed under the ${escapeHtml(label)} editorial category.</p></section><div class="filter-row">${Object.entries(CATEGORY_LABELS).map(([k,v])=>`<a class="filter-chip ${k===key?'active':''}" href="index.html?category=${k}">${escapeHtml(v)}</a>`).join('')}</div><section class="content-section" style="padding-top:1rem"><div class="section-head"><div><div class="kicker">${filtered.length} stories</div><h2>Latest in ${escapeHtml(label)}</h2></div><span class="section-note">Newest first</span></div>${renderCards(filtered)}</section>`;
+    bindDynamic();
+  }
 
-                return { id: item.id, title, slug, excerpt, content, featuredImage, author, publishedAt, labels, url, readingTime };
-            });
-        }
+  function renderSearch(posts,query){
+    const q=query.trim().toLowerCase();
+    const results=q ? posts.filter(p=>p.searchText.includes(q)) : [];
+    updateSEO({title:q?`Search: ${q} — AZEXAI`:'Search — AZEXAI',description:q?`Search results for ${q} in the AZEXAI Blogger archive.`:'Search the AZEXAI technology archive.'});
+    main.innerHTML=`<section class="page-hero"><div class="kicker">AZEXAI / SEARCH</div><h1 class="display">Find the story.</h1><p>Search across titles, article text, and Blogger labels.</p></section><div class="search-wrap"><form class="search-box" id="searchForm"><input id="searchInput" value="${escapeHtml(query)}" placeholder="Search AZEXAI" autocomplete="off" aria-label="Search AZEXAI"><span class="search-count">${results.length} result${results.length===1?'':'s'}</span></form></div><section class="content-section" style="padding-top:1.2rem">${q?`<div class="search-results-head"><strong>${results.length} real archive result${results.length===1?'':'s'}</strong><span class="section-note">Title · article · labels</span></div>${results.length?renderCards(results):`<div class="search-empty"><div class="kicker">AZEXAI / NO MATCH</div><h2 class="display">Nothing in the live archive.</h2><p>AZEXAI found no Blogger posts matching “${escapeHtml(query)}”. Try another term.</p></div>`}`:`<div class="search-empty"><div class="kicker">AZEXAI / SEARCH</div><h2 class="display">Search the real archive.</h2><p>Results are generated only from the fetched Blogger posts—never from sample or invented content.</p></div>`}</section>`;
+    const input=$('#searchInput');
+    $('#searchForm')?.addEventListener('submit',e=>{e.preventDefault();const v=input.value.trim();updateURL(v?{search:v}:{},false);handleRoute(false);});
+    input?.addEventListener('input',()=>{clearTimeout(state.searchTimer);state.searchTimer=setTimeout(()=>{const v=input.value.trim();updateURL(v?{search:v}:{},true);handleRoute(false)},260)});
+    bindDynamic();
+  }
 
-        async function fetchFromPublicFeed() {
-            const feedUrl = `https://www.blogger.com/feeds/${CONFIG.BLOG_ID}/posts/default?alt=json&max-results=500`;
-            const response = await fetch(feedUrl);
-            if (!response.ok) {
-                throw new Error(`Public Feed HTTP ${response.status}`);
-            }
+  function renderArchive(posts){
+    updateSEO({title:'Archive — AZEXAI',description:'The complete AZEXAI archive, organized by year and month.'});
+    const groups=new Map(); posts.forEach(p=>{const y=yearOf(p.published), m=new Date(p.published).getMonth(); if(!groups.has(y))groups.set(y,new Map()); if(!groups.get(y).has(m))groups.get(y).set(m,[]);groups.get(y).get(m).push(p);});
+    const years=[...groups.keys()].sort((a,b)=>b-a);
+    const html=years.map(y=>{const months=[...groups.get(y).entries()].sort((a,b)=>b[0]-a[0]);return `<section class="year-block"><div class="year-title"><h2 class="display">${y}</h2><span>${months.reduce((n,[,arr])=>n+arr.length,0)} stories</span></div>${months.map(([m,arr])=>`<div class="month-block"><div class="month-title">${escapeHtml(formatMonth(new Date(y,m,1)))}</div>${arr.sort((a,b)=>new Date(b.published)-new Date(a.published)).map(p=>`<div class="archive-row"><time datetime="${escapeHtml(p.published)}">${escapeHtml(new Intl.DateTimeFormat(undefined,{day:'2-digit'}).format(new Date(p.published)))}</time><a href="index.html?post=${encodeURIComponent(p.id)}" data-post-link="${escapeHtml(p.id)}">${escapeHtml(p.title)}</a><small>${escapeHtml(p.category)}</small></div>`).join('')}</div>`).join('')}</section>`}).join('');
+    main.innerHTML=`<section class="page-hero"><div class="kicker">AZEXAI / ARCHIVE</div><h1 class="display">The complete record.</h1><p>Every fetched Blogger post, sorted from newest to oldest and organized by publication month.</p></section><section class="archive-list">${html || `<div class="state" style="padding:3rem 0"><div class="kicker">AZEXAI / ARCHIVE</div><h2>The archive is empty.</h2><p>No published Blogger posts were returned.</p></div>`}</section>`;
+    bindDynamic();
+  }
 
-            const data = await response.json();
-            const entries = (data && data.feed && data.feed.entry) ? data.feed.entry : [];
+  function renderAbout(){
+    updateSEO({title:'About AZEXAI',description:'About AZEXAI, a technology publication focused on the systems shaping tomorrow.'});
+    main.innerHTML=`<section class="page-hero"><div class="kicker">AZEXAI / ABOUT</div><h1 class="display">A technology publication with an editorial point of view.</h1><p>AZEXAI examines the machines, software, infrastructure, research, and cultural questions that give technology its consequences.</p></section><section class="about-grid"><div class="editorial-panel"><div class="kicker">What we cover</div><h2>Technology as a system.</h2><p>AZEXAI is designed as a serious technology magazine: reporting, analysis, guides, reviews, field notes, and ethical context drawn from the publication’s live Blogger archive.</p><p>This site does not manufacture readership numbers, awards, partnerships, team biographies, or other claims that are not sourced from the publication itself.</p></div><div class="editorial-panel"><div class="kicker">Editorial signature</div><h2>Clear eyes. Useful detail.</h2><p>The design balances classic magazine typography with contemporary technical structure. The goal is to make difficult technology more legible without making it simplistic.</p><div class="signature-list"><div class="signature">AZEXAI / Intelligence</div><div class="signature">AZEXAI / Future</div><div class="signature">AZEXAI / Analysis</div><div class="signature">AZEXAI / Field Notes</div></div></div></section>`;
+  }
+  function renderContact(){
+    updateSEO({title:'Contact — AZEXAI',description:'Contact AZEXAI.'});
+    main.innerHTML=`<section class="page-hero"><div class="kicker">AZEXAI / CONTACT</div><h1 class="display">Open a line.</h1><p>For editorial, corrections, or general inquiries, use the details below. Replace the configured placeholder email in the single-file source with the publication’s real inbox.</p></section><section class="contact-grid"><div class="editorial-panel"><div class="kicker">Email</div><h2><a class="mailto" href="mailto:${escapeHtml(BLOGGER_CONFIG.CONTACT_EMAIL)}">${escapeHtml(BLOGGER_CONFIG.CONTACT_EMAIL)}</a></h2><p>Because the requested standalone site does not include an email backend, this page intentionally provides a simple mailto destination rather than claiming a connected contact system.</p></div><div class="editorial-panel"><div class="kicker">Front-end contact form</div><form class="contact-form" id="contactForm"><div class="field"><label for="contactName">Name</label><input id="contactName" name="name" required></div><div class="field"><label for="contactEmail">Email</label><input id="contactEmail" name="email" type="email" required></div><div class="field"><label for="contactMessage">Message</label><textarea id="contactMessage" name="message" required></textarea></div><button class="submit-btn" type="submit">Prepare email →</button><div class="contact-note" id="contactMessageStatus" role="status">No message is sent by this page; the button opens your email client.</div></form></div></section>`;
+    $('#contactForm')?.addEventListener('submit',e=>{e.preventDefault();const name=$('#contactName').value.trim(), email=$('#contactEmail').value.trim(), msg=$('#contactMessage').value.trim();const body=`Name: ${name}\nEmail: ${email}\n\n${msg}`;location.href=`mailto:${encodeURIComponent(BLOGGER_CONFIG.CONTACT_EMAIL)}?subject=${encodeURIComponent('AZEXAI contact')}&body=${encodeURIComponent(body)}`;});
+  }
+  function renderPrivacy(){
+    updateSEO({title:'Privacy — AZEXAI',description:'Privacy information for the AZEXAI single-file publication site.'});
+    main.innerHTML=`<section class="page-hero"><div class="kicker">AZEXAI / PRIVACY</div><h1 class="display">Privacy, plainly stated.</h1><p>This page describes the behavior of this standalone front-end as implemented, rather than making broader claims about services not present in the file.</p></section><article class="privacy-copy"><h2>What this site uses</h2><p>The site requests publicly available Blogger API content using the configured Blogger Blog ID and API key in the client-side source. The key is therefore visible to anyone inspecting the page, as required by this standalone architecture.</p><h2>Search and URL state</h2><p>Search terms, category state, archive state, and article IDs can appear in the page URL so links can be shared and refreshed without losing context.</p><h2>Local browser behavior</h2><p>The page uses normal browser features such as history state, the Web Share API when available, and the clipboard API for Copy Link. No analytics or advertising framework is included in this file.</p><h2>Third-party service</h2><p>Blogger API requests are sent to Google’s API endpoint. Their handling of data is governed by Google’s own policies and the configuration of the Blogger service.</p></article>`;
+  }
 
-            return entries.map(entry => {
-                const title = entry.title && entry.title.$t ? entry.title.$t : 'Untitled Article';
-                const slug = slugify(title);
-                const contentObj = entry.content || entry.summary || {};
-                const content = contentObj.$t || '';
-                
-                let featuredImage = null;
-                const div = document.createElement('div');
-                div.innerHTML = content;
-                const img = div.querySelector('img');
-                if (img && img.src) featuredImage = img.src;
+  function renderArticle(post, posts){
+    const index=posts.findIndex(p=>p.id===post.id); const prev=index>0?posts[index-1]:null; const next=index>=0&&index<posts.length-1?posts[index+1]:null;
+    updateSEO({title:`${post.title} — AZEXAI`,description:post.excerpt,image:post.image,type:'article',url:new URL(`index.html?post=${encodeURIComponent(post.id)}`,location.href).href,article:post});
+    const published=formatDate(post.published), updated=post.updated&&post.updated!==post.published?formatDate(post.updated):'';
+    main.innerHTML=`<article class="article-shell"><header class="article-head"><div class="kicker">${escapeHtml(post.category)}</div><h1 class="display">${escapeHtml(post.title)}</h1><p class="article-dek">${escapeHtml(post.excerpt)}</p><div class="meta-row"><span>${escapeHtml(published)}</span><span class="meta-dot"></span><span>${post.readingTime} min read</span>${updated?`<span class="meta-dot"></span><span>Updated ${escapeHtml(updated)}</span>`:''}${post.authorName?`<span class="meta-dot"></span><span>By ${escapeHtml(post.authorName)}</span>`:''}</div><div class="article-actions"><a class="action-btn" href="index.html" data-route="home">← Back to Articles</a><button class="action-btn" id="shareArticle">Share</button><button class="action-btn" id="copyLink">Copy Link</button></div></header><div class="article-layout"><div class="article-content">${sanitizeArticleHTML(post.content)}</div><aside class="article-aside"><div class="aside-box"><div class="aside-label">AZEXAI / Field Notes</div><p>Original Blogger article content, rendered in full inside the AZEXAI reader.</p></div><div class="aside-box"><div class="aside-label">Article source</div><p>${post.url?`<a class="mailto" href="${escapeHtml(post.url)}" target="_blank" rel="noopener noreferrer">Open original Blogger post ↗</a>`:'Blogger post URL was not returned.'}</p></div></aside></div><footer class="article-footer"><div class="prevnext"><div>${prev?`<a href="index.html?post=${encodeURIComponent(prev.id)}" data-post-link="${escapeHtml(prev.id)}"><span>Previous</span><strong>${escapeHtml(prev.title)}</strong></a>`:''}</div><div>${next?`<a href="index.html?post=${encodeURIComponent(next.id)}" data-post-link="${escapeHtml(next.id)}"><span>Next</span><strong>${escapeHtml(next.title)}</strong></a>`:''}</div></div></footer></article>${relatedSection(post,posts)}`;
+    $('#copyLink')?.addEventListener('click',async()=>{const url=location.href;try{await navigator.clipboard.writeText(url);$('#copyLink').textContent='Copied ✓';setTimeout(()=>$('#copyLink').textContent='Copy Link',1500)}catch{prompt('Copy this article URL:',url)}});
+    $('#shareArticle')?.addEventListener('click',async()=>{const data={title:post.title,text:'AZEXAI — '+post.title,url:location.href};if(navigator.share){try{await navigator.share(data)}catch{}}else{try{await navigator.clipboard.writeText(location.href);$('#shareArticle').textContent='Link Copied ✓';setTimeout(()=>$('#shareArticle').textContent='Share',1500)}catch{prompt('Share this article URL:',location.href)}}});
+    bindDynamic();
+  }
+  function relatedSection(post,posts){
+    const related=posts.filter(p=>p.id!==post.id && (categoryForPost(p)===categoryForPost(post) || p.labels.some(l=>post.labels.includes(l)))).slice(0,3);
+    return related.length?`<section class="related"><div class="section-head"><div><div class="kicker">Related stories</div><h2>Keep reading</h2></div></div>${renderCards(related)}</section>`:'';
+  }
 
-                const authorName = (entry.author && entry.author[0] && entry.author[0].name && entry.author[0].name.$t) ? entry.author[0].name.$t : 'AZEXAI Editorial';
-                const publishedAt = entry.published && entry.published.$t ? entry.published.$t : new Date().toISOString();
-                
-                const labels = [];
-                if (Array.isArray(entry.category)) {
-                    entry.category.forEach(cat => {
-                        if (cat && cat.term) labels.push(cat.term);
-                    });
-                }
+  async function renderPostRoute(id) {
+    showLoading('article');
+    try {
+      const postsPromise=fetchAllPosts();
+      const cached=state.postMap.get(String(id));
+      const post=cached || await fetchPostById(id);
+      const posts=await postsPromise;
+      const allPosts=posts.some(p=>p.id===post.id)?posts:[post,...posts.filter(p=>p.id!==post.id)];
+      renderArticle(post,allPosts);
+    } catch(err) { showError(); }
+  }
 
-                const url = `?view=article&slug=${encodeURIComponent(slug)}`;
-                const excerpt = cleanExcerpt(content, 130);
-                const readingTime = calculateReadingTime(content);
+  function bindDynamic(){
+    $$('[data-post-link]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.dataset.postLink;updateURL({post:id});closeMobileMenu();handleRoute(false)}));
+    $$('[data-route]').filter(a=>a.getAttribute('data-route')!=='home'&&a.closest('#main')).forEach(a=>a.addEventListener('click',e=>{ if(a.dataset.route==='category'||a.dataset.route==='archive'||a.dataset.route==='about'||a.dataset.route==='contact'||a.dataset.route==='privacy'){e.preventDefault();closeMobileMenu();handleRouteFromAnchor(a)}}));
+    $('#newsletterForm')?.addEventListener('submit',e=>{e.preventDefault();$('#newsletterMessage').textContent='This form is intentionally front-end only; no subscription was submitted.'});
+  }
+  function handleRouteFromAnchor(a){const href=a.getAttribute('href');const u=new URL(href,location.href);history.pushState({},'',u.pathname+u.search);handleRoute(false)}
 
-                return {
-                    id: entry.id && entry.id.$t ? entry.id.$t : slug,
-                    title,
-                    slug,
-                    excerpt,
-                    content,
-                    featuredImage,
-                    author: authorName,
-                    publishedAt,
-                    labels,
-                    url,
-                    readingTime
-                };
-            });
-        }
+  function closeMobileMenu(){const p=$('#mobilePanel');const b=$('#menuButton');if(p){p.classList.remove('open');b?.setAttribute('aria-expanded','false');b?.setAttribute('aria-label','Open menu')}}
+  function bindHeader(){
+    $('#searchButton')?.addEventListener('click',()=>{history.pushState({},'',location.pathname+'?search=');handleRoute(false);setTimeout(()=>$('#searchInput')?.focus(),50)});
+    $('#menuButton')?.addEventListener('click',()=>{const p=$('#mobilePanel'),b=$('#menuButton');const open=!p.classList.contains('open');p.classList.toggle('open',open);b.setAttribute('aria-expanded',String(open));b.setAttribute('aria-label',open?'Close menu':'Open menu')});
+    $$('.mobile-panel a, nav.primary-nav a').forEach(a=>a.addEventListener('click',()=>closeMobileMenu()));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileMenu()});
+  }
 
-        async function fetchAllBloggerPosts() {
-            if (BloggerStore.isLoaded) return BloggerStore.posts;
-            if (BloggerStore.isLoading) {
-                // Wait until loading finishes
-                while (BloggerStore.isLoading) {
-                    await new Promise(r => setTimeout(r, 100));
-                }
-                return BloggerStore.posts;
-            }
+  async function handleRoute(retry=false){
+    const route=currentRoute(); setActiveNav(route); closeMobileMenu(); window.scrollTo({top:0,behavior:'auto'}); const token=++state.renderToken;
+    if(route.name==='home'){
+      showLoading('grid'); try{const posts=await fetchAllPosts();if(token!==state.renderToken)return;updateSEO({});renderHome(posts)}catch{if(token===state.renderToken)showError();}return;
+    }
+    if(route.name==='post'){await renderPostRoute(route.id);return;}
+    showLoading(route.name==='archive'?'archive':'grid');
+    try{const posts=await fetchAllPosts();if(token!==state.renderToken)return; if(route.name==='category')renderCategory(posts,route.category); else if(route.name==='search')renderSearch(posts,route.query); else if(route.name==='archive')renderArchive(posts); else if(route.name==='about')renderAbout(); else if(route.name==='contact')renderContact(); else if(route.name==='privacy')renderPrivacy();}
+    catch{if(token===state.renderToken)showError();}
+  }
 
-            BloggerStore.isLoading = true;
-            let normalized = [];
-            
-            try {
-                normalized = await fetchFromBloggerApi();
-            } catch (apiErr) {
-                console.warn("[AZEXAI Notice] Official API fetch failed, trying public Blogger feed...", apiErr.message);
-                try {
-                    normalized = await fetchFromPublicFeed();
-                } catch (feedErr) {
-                    console.error("[AZEXAI Error] Both API and public feed failed:", feedErr.message);
-                }
-            }
+  window.addEventListener('popstate',()=>handleRoute(false));
+  $('#toTop')?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  window.addEventListener('scroll',()=>$('#toTop')?.classList.toggle('visible',window.scrollY>500),{passive:true});
+  $('#year').textContent=new Date().getFullYear(); $('#topbarDate').textContent=new Intl.DateTimeFormat(undefined,{weekday:'short',year:'numeric',month:'short',day:'numeric'}).format(new Date());
+  bindHeader();
+  const siteHeader=document.querySelector('.site-header');
+  const syncHeader=()=>siteHeader?.classList.toggle('scrolled',window.scrollY>8);
+  window.addEventListener('scroll',syncHeader,{passive:true}); syncHeader();
+  handleRoute(false);
+})();
+</script>
 
-            const uniqueMap = new Map();
-            normalized.forEach(p => uniqueMap.set(p.id || p.slug, p));
-            
-            BloggerStore.posts = Array.from(uniqueMap.values()).sort((a, b) => 
-                new Date(b.publishedAt) - new Date(a.publishedAt)
-            );
+<style id="azexai-20">
+:root{--ax-black:#0d1113;--ax-ink:#15191b;--ax-paper:#f4f0e7;--ax-line:rgba(21,25,27,.15);--ax-red:#762f39;--ax-green:#294a40;--ax-gold:#b3925b}
+body{background:radial-gradient(circle at 84% 8%,rgba(179,146,91,.08),transparent 24rem),linear-gradient(180deg,#f7f3ea 0,#f4f0e7 52%,#eee9de 100%)}
+body:before{background-size:40px 40px;opacity:.55}
+.site-header{transition:box-shadow .25s ease,background .25s ease}.site-header.scrolled{box-shadow:0 7px 24px rgba(13,17,19,.08)}
+.hero{position:relative;overflow:hidden}.hero:before{content:"AZ / 02";position:absolute;right:clamp(1rem,5vw,5rem);top:clamp(1rem,4vw,4rem);font:600 clamp(4rem,12vw,11rem)/.8 var(--mono);letter-spacing:-.08em;color:rgba(16,34,44,.045);pointer-events:none}.hero-inner{position:relative}
+.editorial-index{position:relative;display:flex;justify-content:space-between;align-items:center;gap:1rem;max-width:var(--max);margin:0 auto;padding:10px clamp(1rem,3vw,3rem);border-top:1px solid var(--ax-line);border-bottom:1px solid var(--ax-line);font:600 .62rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#69716f}
+.index-ticks{display:flex;gap:4px;align-items:center}.index-ticks i{width:8px;height:2px;background:#b6aea1;display:block}.index-ticks i:nth-child(3n){width:15px;background:var(--ax-gold)}
+.content-section,.split-section,.archive-teaser,.newsletter{content-visibility:auto;contain-intrinsic-size:600px}
+.section-head{position:relative}.section-head:after{content:"";position:absolute;right:0;bottom:.5rem;width:20%;height:1px;background:linear-gradient(90deg,transparent,var(--ax-line))}
+.featured{box-shadow:0 12px 36px rgba(16,24,27,.07)}.featured-media{background:#d9d3c7;overflow:hidden}.featured-media img{transition:transform .7s cubic-bezier(.2,.7,.2,1)}.featured:hover .featured-media img{transform:scale(1.025)}
+.card{position:relative;overflow:hidden;box-shadow:none;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(17,22,24,.07)}.card-media{overflow:hidden;background:#ddd7cb}.card-media img{transition:transform .5s ease}.card:hover .card-media img{transform:scale(1.02)}.card:after{content:"";position:absolute;left:0;top:0;width:3px;height:0;background:var(--ax-red);transition:height .25s ease}.card:hover:after{height:100%}
+.read-link span,.archive-button span{transition:transform .2s ease;display:inline-block}.read-link:hover span,.archive-button:hover span{transform:translateX(4px)}
+.split-copy{position:relative;overflow:hidden}.split-copy:after{content:"";position:absolute;right:-40px;bottom:-70px;width:180px;height:180px;border:1px solid rgba(255,255,255,.12);transform:rotate(45deg);pointer-events:none}
+.page-hero{position:relative}.page-hero:after{content:"";position:absolute;right:clamp(1rem,5vw,4rem);top:1rem;width:90px;height:90px;border-top:1px solid var(--ax-gold);border-right:1px solid var(--ax-gold);opacity:.5}
+.search-wrap{position:sticky;top:74px;z-index:20;padding:8px 0;background:rgba(244,240,231,.94);backdrop-filter:blur(8px)}.search-box{box-shadow:0 10px 28px rgba(16,22,24,.06)}.search-box input{min-width:0}
+.article-progress{position:fixed;top:0;left:0;width:0;height:3px;background:var(--ax-red);z-index:2000;transition:width .08s linear}
+.article-side-index{position:absolute;left:0;top:0;transform:translateX(-115%);width:110px;font:600 .56rem/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#7a817e}.article-side-index b{display:block;color:var(--ax-red);margin-bottom:5px}
+.ax-command{position:fixed;right:20px;bottom:20px;z-index:900;width:44px;height:44px;border:1px solid #bfb7a9;background:rgba(247,243,234,.94);color:var(--ax-ink);font:700 .72rem var(--mono);box-shadow:0 8px 24px rgba(20,24,27,.12);transition:transform .2s ease,background .2s ease}.ax-command:hover{transform:translateY(-2px);background:#fffdf7}
+.ax-command-panel{position:fixed;inset:0;z-index:1900;background:rgba(13,17,19,.45);backdrop-filter:blur(3px);display:grid;place-items:start center;padding:12vh 1rem;opacity:0;pointer-events:none;transition:opacity .18s ease}.ax-command-panel.open{opacity:1;pointer-events:auto}
+.ax-command-box{width:min(680px,100%);background:#f8f4eb;border:1px solid #bfb7a9;box-shadow:0 24px 70px rgba(0,0,0,.22)}.ax-command-top{display:flex;border-bottom:1px solid var(--ax-line)}.ax-command-top input{flex:1;border:0;background:transparent;padding:1.1rem 1rem;outline:0;font-size:1rem}.ax-command-close{border:0;border-left:1px solid var(--ax-line);background:transparent;padding:0 1rem}
+.ax-command-list{padding:.45rem;display:grid}.ax-command-list a{padding:.8rem;border:1px solid transparent;font-size:.9rem}.ax-command-list a:hover,.ax-command-list a:focus{background:#ebe5d9;border-color:#cfc6b8;outline:0}.ax-command-hint{padding:.7rem 1rem;border-top:1px solid var(--ax-line);font:600 .58rem var(--mono);letter-spacing:.08em;color:#7b817e}
+.ax-reading-label{display:inline-flex;gap:.55rem;align-items:center;font:600 .58rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#727975;margin-bottom:1rem}.ax-reading-label:before{content:"";width:18px;height:1px;background:var(--ax-red)}
+.newsletter{position:relative}.newsletter:before{content:"";position:absolute;inset:12px;border:1px solid rgba(255,255,255,.08);pointer-events:none}
+@media(max-width:900px){.article-side-index{display:none}.search-wrap{top:62px}}
+@media(max-width:640px){.editorial-index{font-size:.54rem}.index-ticks{display:none}.hero:before{font-size:4.5rem;top:1.2rem}.section-head:after{display:none}.ax-command{right:14px;bottom:14px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+<script>
+(function(){
+  const main=document.getElementById('main'); if(!main)return;
+  const routes=[['Home','index.html'],['AI','index.html?category=ai'],['Robotics','index.html?category=robotics'],['Hardware','index.html?category=hardware'],['Software','index.html?category=software'],['Future Tech','index.html?category=future-tech'],['Guides','index.html?category=guides'],['Reviews','index.html?category=reviews'],['Ethics','index.html?category=ethics'],['Archive','index.html?archive'],['About','index.html?about'],['Contact','index.html?contact']];
+  const command=document.createElement('button'); command.className='ax-command'; command.type='button'; command.setAttribute('aria-label','Open AZEXAI quick navigation'); command.title='Quick navigation'; command.textContent='/'; document.body.appendChild(command);
+  const panel=document.createElement('div'); panel.className='ax-command-panel'; panel.setAttribute('aria-hidden','true');
+  panel.innerHTML='<div class="ax-command-box" role="dialog" aria-modal="true" aria-label="Quick navigation"><div class="ax-command-top"><input id="axCommandInput" type="search" autocomplete="off" placeholder="Jump to a section…"><button class="ax-command-close" type="button" aria-label="Close">Esc</button></div><nav class="ax-command-list" id="axCommandList"></nav><div class="ax-command-hint">Press / to open · ESC to close · ↑ ↓ to browse</div></div>';
+  document.body.appendChild(panel);
+  const list=panel.querySelector('#axCommandList'), input=panel.querySelector('#axCommandInput');
+  function draw(q=''){const n=q.trim().toLowerCase();list.innerHTML=routes.filter(r=>!n||r[0].toLowerCase().includes(n)).map(r=>'<a href="'+r[1]+'">'+r[0]+'</a>').join('')||'<div style="padding:1rem;color:#707773">No section found.</div>'}
+  function open(){draw();panel.classList.add('open');panel.setAttribute('aria-hidden','false');requestAnimationFrame(()=>input.focus())}
+  function close(){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');command.focus()}
+  command.addEventListener('click',open); panel.addEventListener('click',e=>{if(e.target===panel)close()}); panel.querySelector('.ax-command-close').addEventListener('click',close); input.addEventListener('input',()=>draw(input.value));
+  window.addEventListener('scroll',()=>document.querySelector('.site-header')?.classList.toggle('scrolled',scrollY>18),{passive:true});
+  document.addEventListener('keydown',e=>{if(e.key==='/'&&!/input|textarea|select/i.test(document.activeElement.tagName)){e.preventDefault();open()} if(e.key==='Escape'&&panel.classList.contains('open'))close()});
+  const observer=new MutationObserver(()=>{const article=main.querySelector('.article-shell');if(article&&article.dataset.axEnhanced!=='1'){article.dataset.axEnhanced='1';enhanceArticle(article)}main.querySelectorAll('img').forEach((img,i)=>{if(!img.loading)img.loading=i<2?'eager':'lazy';img.decoding='async'})});
+  observer.observe(main,{childList:true,subtree:true});
+  function enhanceArticle(article){
+    if(!document.querySelector('.article-progress')){const bar=document.createElement('div');bar.className='article-progress';document.body.appendChild(bar)}
+    const h1=article.querySelector('h1');if(h1&&!article.querySelector('.ax-reading-label')){const l=document.createElement('div');l.className='ax-reading-label';l.textContent='AZEXAI / FIELD NOTE';h1.parentNode.insertBefore(l,h1)}
+    if(article.querySelector('.article-content')&&!article.querySelector('.article-side-index')){const side=document.createElement('aside');side.className='article-side-index';side.innerHTML='<b>Reading file</b>Article / Complete text<br>Original Blogger HTML<br>Links & media preserved';article.appendChild(side)}
+    const onScroll=()=>{const max=document.documentElement.scrollHeight-innerHeight;const pct=max>0?Math.min(100,Math.max(0,scrollY/max*100)):0;const bar=document.querySelector('.article-progress');if(bar)bar.style.width=pct+'%'};window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  }
+})();
+</script>
 
-            BloggerStore.slugMap.clear();
-            BloggerStore.posts.forEach(p => BloggerStore.slugMap.set(p.slug, p));
 
-            BloggerStore.isLoaded = true;
-            BloggerStore.isLoading = false;
+<style id="azexai-30">
+.ax-opening{min-height:78vh;background:#0d1113;color:#f4f0e7;display:grid;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden;padding:clamp(1rem,3vw,3rem);border-bottom:1px solid #242b2d}
+.ax-opening-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(244,240,231,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(244,240,231,.035) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
+.ax-opening-grid:after{content:"";position:absolute;inset:12%;border:1px solid rgba(179,146,91,.22);transform:rotate(-7deg)}
+.ax-opening-top,.ax-opening-bottom{position:relative;z-index:1;display:flex;justify-content:space-between;gap:1rem;font:600 .58rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#929a97}
+.ax-opening-core{position:relative;z-index:1;align-self:center;justify-self:center;text-align:center}.ax-opening-mark{font:800 clamp(4rem,13vw,12rem)/.8 var(--sans);letter-spacing:-.09em}.ax-opening-mark span{color:#b3925b}.ax-opening-core p{margin:1.4rem auto 0;max-width:480px;color:#9da5a1;font:400 clamp(.85rem,1.4vw,1.1rem)/1.6 var(--sans)}
+.ax-opening.is-exiting{animation:axExit .8s cubic-bezier(.77,0,.18,1) forwards}@keyframes axExit{to{transform:translateY(-100%);opacity:0;visibility:hidden}}
+.hero-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:2rem}.hero-index-btn{font:600 .68rem var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:.75rem .9rem;border:1px solid rgba(255,255,255,.24);background:transparent;color:#f3eee5;cursor:pointer}.hero-index-btn span{opacity:.55;margin-left:.7rem}.hero-index-btn:hover{border-color:#c4a96d;color:#c4a96d}
+.ax-newsroom{background:#151b1d;color:#e9e4da;padding:0!important;border-top:1px solid #31383a;border-bottom:1px solid #31383a}.ax-section-top{display:flex;justify-content:space-between;align-items:end;padding:1.4rem clamp(1rem,3vw,3rem);border-bottom:1px solid #31383a}.ax-section-top h2{margin:.2rem 0 0}.ax-section-top>span{font:600 .58rem var(--mono);color:#8c9590;text-transform:uppercase}.ax-news-tape{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);overflow:auto;scroll-snap-type:x mandatory;scrollbar-width:thin}.ax-news-tape a{scroll-snap-align:start;display:grid;grid-template-columns:36px 1fr;gap:.7rem;padding:1rem 1.2rem;border-right:1px solid #31383a;color:#e9e4da;min-height:92px}.ax-news-tape b{font:600 .65rem var(--mono);color:#b3925b}.ax-news-tape span{font:600 .9rem/1.3 var(--sans)}.ax-news-tape em{grid-column:2;font:600 .55rem var(--mono);font-style:normal;text-transform:uppercase;color:#818b86}.ax-news-tape a:hover{background:#1b2325}
+.ax-featured{position:relative}.ax-feature-stamp{position:absolute;top:1rem;left:1rem;background:#f4f0e7;color:#171b1c;padding:.45rem .6rem;font:700 .55rem var(--mono);letter-spacing:.1em}
+.ax-index-section{background:#ebe6dc;border-top:1px solid #cfc8bb;border-bottom:1px solid #cfc8bb}.ax-index-intro{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:end;padding-bottom:2rem;border-bottom:1px solid #cfc8bb}.ax-index-intro h2{font-size:clamp(2.5rem,6vw,5.5rem);line-height:.9;letter-spacing:-.05em}.ax-index-intro h2 i{font-family:var(--serif);font-weight:400;color:#762f39}.ax-index-intro p{max-width:460px;color:#626a66;line-height:1.7}.ax-index-grid{display:grid;grid-template-columns:repeat(3,1fr)}.ax-year-card{min-height:180px;padding:1.2rem;border-right:1px solid #cfc8bb;border-bottom:1px solid #cfc8bb;display:flex;flex-direction:column;color:#171b1c;position:relative;transition:background .2s,transform .2s}.ax-year-card:nth-child(3n){border-right:0}.ax-year-card span{font:600 .6rem var(--mono);color:#7b817d}.ax-year-card strong{font:700 clamp(2.5rem,5vw,4.8rem)/1 var(--sans);letter-spacing:-.07em;margin-top:auto}.ax-year-card em{font:600 .58rem var(--mono);font-style:normal;color:#6c736f;text-transform:uppercase}.ax-year-card i{position:absolute;right:1rem;top:1rem;font-style:normal;color:#762f39}.ax-year-card:hover{background:#f6f1e8;transform:translateY(-3px)}
+.ax-world .card{background:rgba(255,255,255,.38)}.ax-desk{background:linear-gradient(180deg,transparent,rgba(41,74,64,.045))}.ax-final-portal{margin:clamp(3rem,8vw,7rem) 0;padding:clamp(2rem,6vw,5rem);background:#0d1113;color:#f4f0e7;display:flex;justify-content:space-between;align-items:end;gap:2rem;position:relative;overflow:hidden}.ax-final-portal:after{content:"→";position:absolute;right:4%;top:3%;font:300 clamp(8rem,25vw,20rem)/1 var(--sans);color:rgba(179,146,91,.08)}.ax-final-portal h2{font-size:clamp(2.8rem,7vw,7rem);line-height:.88;letter-spacing:-.06em;margin:0}.ax-final-portal a{position:relative;z-index:1;color:#d6b978;border-bottom:1px solid #d6b978;padding-bottom:.4rem;font:600 .68rem var(--mono);text-transform:uppercase;letter-spacing:.08em}.ax-final-portal a span{margin-left:.7rem}
+@media(max-width:760px){.ax-opening{min-height:72vh}.ax-opening-bottom span:last-child{display:none}.ax-section-top{align-items:start}.ax-news-tape{grid-auto-columns:86vw}.ax-index-intro{grid-template-columns:1fr;gap:1rem}.ax-index-grid{grid-template-columns:repeat(2,1fr)}.ax-year-card:nth-child(3n){border-right:1px solid #cfc8bb}.ax-year-card:nth-child(2n){border-right:0}.ax-final-portal{display:block}.ax-final-portal a{display:inline-block;margin-top:2rem}}
+@media(prefers-reduced-motion:reduce){.ax-opening.is-exiting{animation:none;display:none}.ax-year-card{transition:none}}
+</style>
+<script>
+function initOpening(){
+  const intro=document.querySelector('.ax-opening'); if(!intro)return;
+  try{if(sessionStorage.getItem('azexaiIntroSeen')==='1'){intro.remove();return} sessionStorage.setItem('azexaiIntroSeen','1')}catch(e){intro.remove();return}
+  const dismiss=()=>{if(intro.classList.contains('is-exiting'))return;intro.classList.add('is-exiting');setTimeout(()=>intro.remove(),820)};
+  setTimeout(dismiss,1450); intro.addEventListener('click',dismiss,{once:true});
+}
+function initStoryHover(){
+  document.querySelectorAll('.card,.ax-featured').forEach(el=>{el.addEventListener('pointerenter',()=>el.classList.add('is-active'),{passive:true});el.addEventListener('pointerleave',()=>el.classList.remove('is-active'),{passive:true})});
+}
+</script>
 
-            const statusEl = document.getElementById('footer-status-text');
-            if (statusEl) {
-                statusEl.textContent = BloggerStore.posts.length > 0 
-                    ? `Connected! ${BloggerStore.posts.length} articles retrieved from Blogger.` 
-                    : `Connected to Blog ID ${CONFIG.BLOG_ID} (0 posts found).`;
-            }
-
-            return BloggerStore.posts;
-        }
-
-        function renderSkeleton() {
-            return `<div class="container section-padding" style="text-align:center;"><p style="color:var(--text-muted); font-size:1.125rem;">Fetching articles from Blogger API (${CONFIG.BLOG_ID})...</p></div>`;
-        }
-        
-        function renderErrorState() {
-            return `
-                <div class="error-container">
-                    <h2 class="error-title">Article Not Found</h2>
-                    <p style="color:var(--text-muted); margin-bottom: 2rem;">We couldn't locate the requested article or page in the archive.</p>
-                    <a href="?view=home" class="page-btn active spa-link" style="padding:0.75rem 1.5rem;">Return Home</a>
-                </div>
-            `;
-        }
-
-        function renderArticleCard(post) {
-            const category = (post.labels && post.labels[0]) ? post.labels[0] : 'Insight';
-            const imgHtml = post.featuredImage 
-                ? `<img src="${post.featuredImage}" alt="${escapeHtml(post.title)}" loading="lazy">` 
-                : `<div style="background:var(--bg-secondary); width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:0.8125rem;">AZEXAI</div>`;
-
-            return `
-                <a class="article-card spa-link" href="${post.url}">
-                    <div class="card-image-wrap">${imgHtml}</div>
-                    <div class="card-content">
-                        <span class="meta-badge">${escapeHtml(category)}</span>
-                        <h3 class="card-title">${escapeHtml(post.title)}</h3>
-                        <p class="card-excerpt">${escapeHtml(post.excerpt)}</p>
-                        <div class="card-footer">
-                            <span>${new Date(post.publishedAt).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'})}</span>
-                            <span>${post.readingTime}</span>
-                        </div>
-                    </div>
-                </a>
-            `;
-        }
-
-        function renderHomeView(posts) {
-            if (!posts || posts.length === 0) return `<div class="container section-padding" style="text-align:center;"><h2>No published articles found in Blog ID ${CONFIG.BLOG_ID}.</h2></div>`;
-
-            const hero = posts[0];
-            const secondary = posts.slice(1, 5);
-
-            return `
-                <section class="hero-section">
-                    <div class="container hero-grid">
-                        <a class="featured-story spa-link" href="${hero.url}">
-                            <div class="featured-image-wrap">
-                                ${hero.featuredImage ? `<img src="${hero.featuredImage}" alt="${escapeHtml(hero.title)}">` : ''}
-                            </div>
-                            <div>
-                                <span class="meta-badge" style="margin-bottom:0.75rem;">${(hero.labels && hero.labels[0]) || 'Featured'}</span>
-                                <h1 class="featured-title" style="margin-bottom:1rem;">${escapeHtml(hero.title)}</h1>
-                                <p class="featured-excerpt" style="margin-bottom:1rem;">${escapeHtml(hero.excerpt)}</p>
-                                <div class="article-meta-line">
-                                    <span>${escapeHtml(hero.author)}</span> &bull; 
-                                    <span>${new Date(hero.publishedAt).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'})}</span> &bull; 
-                                    <span>${hero.readingTime}</span>
-                                </div>
-                            </div>
-                        </a>
-
-                        <div class="hero-sidebar">
-                            <h3 class="sidebar-heading">Editorial Highlights</h3>
-                            ${secondary.map(post => `
-                                <a class="secondary-story-card spa-link" href="${post.url}">
-                                    <span class="meta-badge">${(post.labels && post.labels[0]) || 'Analysis'}</span>
-                                    <h4 class="secondary-title">${escapeHtml(post.title)}</h4>
-                                    <div class="article-meta-line" style="font-size:0.75rem;">
-                                        <span>${new Date(post.publishedAt).toLocaleDateString('en-US', {month:'short', day:'numeric'})}</span>
-                                    </div>
-                                </a>
-                            `).join('')}
-                        </div>
-                    </div>
-                </section>
-
-                <section class="container section-padding">
-                    <div class="section-header">
-                        <h2 class="section-title">All Articles (${posts.length} Total Posts)</h2>
-                    </div>
-                    <div class="articles-grid">
-                        ${posts.map(post => renderArticleCard(post)).join('')}
-                    </div>
-                </section>
-            `;
-        }
-
-        function renderArchiveView(posts, currentPage = 1) {
-            const PER_PAGE = 18;
-            const totalPages = Math.ceil(posts.length / PER_PAGE) || 1;
-            const start = (currentPage - 1) * PER_PAGE;
-            const paginated = posts.slice(start, start + PER_PAGE);
-
-            let pageControls = '';
-            if (totalPages > 1) {
-                pageControls += `<div class="pagination-container">`;
-                for (let i = 1; i <= totalPages; i++) {
-                    pageControls += `<a class="page-btn spa-link ${i === currentPage ? 'active' : ''}" href="?view=archive&page=${i}">${i}</a>`;
-                }
-                pageControls += `</div>`;
-            }
-
-            return `
-                <div class="container section-padding">
-                    <header class="page-header">
-                        <h1 class="page-title">Full Archive</h1>
-                        <p style="color:var(--text-muted); margin-top:0.75rem;">Showing ${paginated.length} of ${posts.length} total articles from Blogger ID ${CONFIG.BLOG_ID} (Page ${currentPage} of ${totalPages})</p>
-                    </header>
-                    <div class="articles-grid">
-                        ${paginated.map(post => renderArticleCard(post)).join('')}
-                    </div>
-                    ${pageControls}
-                </div>
-            `;
-        }
-
-        function renderCategoryView(categoryName, posts) {
-            const filtered = posts.filter(p => p.labels.some(l => l.toLowerCase() === categoryName.toLowerCase()));
-            return `
-                <div class="container section-padding">
-                    <header class="page-header">
-                        <h1 class="page-title">${escapeHtml(categoryName)}</h1>
-                        <p style="color:var(--text-muted); margin-top:0.75rem;">Showing ${filtered.length} articles matching this category.</p>
-                    </header>
-                    <div class="articles-grid">
-                        ${filtered.length > 0 ? filtered.map(post => renderArticleCard(post)).join('') : `<div style="grid-column: 1 / -1; text-align: center; padding: 3rem;"><p>No articles found in this category.</p></div>`}
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderArticleView(slug) {
-            const post = BloggerStore.slugMap.get(slug);
-            if (!post) {
-                return renderErrorState();
-            }
-
-            document.title = `${post.title} — AZEXAI`;
-            const purifyConfig = { ADD_TAGS: ['iframe', 'img', 'figure', 'figcaption', 'picture', 'source', 'video'], ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'scrolling', 'loading', 'srcset', 'sizes'] };
-            const cleanContent = window.DOMPurify ? DOMPurify.sanitize(post.content, purifyConfig) : post.content;
-
-            return `
-                <div class="article-view-container">
-                    <header class="article-header">
-                        <span class="meta-badge">${(post.labels && post.labels[0]) || 'Technology'}</span>
-                        <h1 class="article-main-title">${escapeHtml(post.title)}</h1>
-                        <div class="article-submeta">
-                            <span>By <strong>${escapeHtml(post.author)}</strong></span>
-                            &bull; <span>Published ${new Date(post.publishedAt).toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'})}</span>
-                            &bull; <span>${post.readingTime}</span>
-                        </div>
-                    </header>
-                    ${post.featuredImage ? `
-                    <div class="article-hero-media">
-                        <img src="${post.featuredImage}" alt="${escapeHtml(post.title)}">
-                    </div>` : ''}
-                    <div class="article-body-layout">
-                        <article class="article-prose">${cleanContent}</article>
-                        <aside class="article-sidebar-sticky">
-                            <div class="share-box">
-                                <div class="share-box-title">Share Story</div>
-                                <div class="share-actions">
-                                    <button class="icon-btn" id="copy-link-btn" title="Copy Link"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button>
-                                </div>
-                            </div>
-                        </aside>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderStaticPage(title, htmlBody) {
-            document.title = `${title} — AZEXAI`;
-            return `
-                <div class="container section-padding">
-                    <header class="page-header"><h1 class="page-title">${escapeHtml(title)}</h1></header>
-                    <div class="page-content-body">${htmlBody}</div>
-                </div>
-            `;
-        }
-
-        async function router() {
-            const root = document.getElementById('app-root');
-            const params = new URLSearchParams(window.location.search);
-            const view = params.get('view') || 'home';
-            window.scrollTo({ top: 0, behavior: 'instant' });
-
-            // Update active states in navigation
-            document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(l => {
-                const href = l.getAttribute('href');
-                if (href && href.includes(`view=${view}`) || (view === 'home' && href.includes('view=home'))) {
-                    l.classList.add('active');
-                } else {
-                    l.classList.remove('active');
-                }
-            });
-
-            if (view === 'about') {
-                root.innerHTML = renderStaticPage('About AZEXAI', '<p>AZEXAI is an independent publication exploring frontier technology, artificial intelligence, software architecture, and computational security.</p>');
-                return;
-            }
-            if (view === 'contact') {
-                root.innerHTML = renderStaticPage('Contact Desk', '<p>Get in touch with the AZEXAI editorial team at desk@azexai.com or through our central communication channels.</p>');
-                return;
-            }
-            if (view === 'privacy') {
-                root.innerHTML = renderStaticPage('Privacy Policy', '<p>We respect your privacy and do not track personal identifying information.</p>');
-                return;
-            }
-
-            // Only show skeleton if posts aren't loaded yet
-            if (!BloggerStore.isLoaded) {
-                root.innerHTML = renderSkeleton();
-            }
-
-            try {
-                const posts = await fetchAllBloggerPosts();
-
-                if (view === 'archive') {
-                    const page = parseInt(params.get('page') || '1', 10);
-                    root.innerHTML = renderArchiveView(posts, page);
-                    return;
-                }
-
-                if (view === 'category') {
-                    const catName = params.get('name') || 'AI';
-                    root.innerHTML = renderCategoryView(catName, posts);
-                    return;
-                }
-
-                if (view === 'article') {
-                    const slug = params.get('slug');
-                    root.innerHTML = renderArticleView(slug);
-                    const copyBtn = document.getElementById('copy-link-btn');
-                    if (copyBtn) copyBtn.onclick = copyLink;
-                    return;
-                }
-
-                root.innerHTML = renderHomeView(posts);
-
-            } catch (err) {
-                root.innerHTML = renderHomeView([]);
-            }
-        }
-
-        function copyLink() {
-            const url = window.location.href;
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(url).catch(() => document.execCommand('copy'));
-            } else {
-                const tmp = document.createElement('input');
-                document.body.appendChild(tmp);
-                tmp.value = url; tmp.select(); document.execCommand('copy');
-                document.body.removeChild(tmp);
-            }
-            const btn = document.getElementById('copy-link-btn');
-            if (btn) {
-                const original = btn.innerHTML;
-                btn.innerHTML = '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>';
-                setTimeout(() => btn.innerHTML = original, 2000);
-            }
-        }
-
-        // Global click interceptor for seamless Single Page App (SPA) navigation
-        document.addEventListener('click', (e) => {
-            const link = e.target.closest('a.spa-link');
-            if (link) {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('?')) {
-                    e.preventDefault();
-                    history.pushState(null, '', href);
-                    router();
-                    // Close mobile drawer if open
-                    document.getElementById('mobile-drawer').classList.remove('open');
-                    document.getElementById('drawer-overlay').classList.remove('open');
-                }
-            }
-        });
-
-        window.addEventListener('popstate', () => {
-            router();
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('copyright-year').textContent = new Date().getFullYear();
-            document.getElementById('display-blog-id').textContent = CONFIG.BLOG_ID;
-
-            window.addEventListener('scroll', () => {
-                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-                const bar = document.getElementById('reading-progress');
-                if (bar) bar.style.width = scrolled + '%';
-
-                const btt = document.getElementById('back-to-top');
-                if (btt) {
-                    if (winScroll > 500) btt.classList.add('visible');
-                    else btt.classList.remove('visible');
-                }
-            });
-
-            document.getElementById('back-to-top').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            const modal = document.getElementById('search-modal');
-            document.getElementById('search-trigger').onclick = () => { modal.classList.add('active'); document.getElementById('search-input').focus(); };
-            document.getElementById('search-close').onclick = () => modal.classList.remove('active');
-
-            document.getElementById('search-input').oninput = (e) => {
-                const q = e.target.value.toLowerCase().trim();
-                const resList = document.getElementById('search-results');
-                if (q.length < 2) { resList.innerHTML = ''; return; }
-                const matches = BloggerStore.posts.filter(p => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q));
-                resList.innerHTML = matches.map(m => `
-                    <a class="search-item-card spa-link" href="${m.url}" onclick="document.getElementById('search-modal').classList.remove('active');">
-                        <span class="meta-badge">${m.labels[0] || 'Story'}</span>
-                        <h4 style="margin-top:0.25rem; color:var(--text-primary);">${escapeHtml(m.title)}</h4>
-                    </a>
-                `).join('') || `<p style="color:var(--text-muted); text-align:center;">No matching stories found.</p>`;
-            };
-
-            const toggle = document.getElementById('menu-toggle');
-            const drawer = document.getElementById('mobile-drawer');
-            const overlay = document.getElementById('drawer-overlay');
-            const close = document.getElementById('drawer-close');
-            const openDrawer = () => { drawer.classList.add('open'); overlay.classList.add('open'); };
-            const closeDrawer = () => { drawer.classList.remove('open'); overlay.classList.remove('open'); };
-            if (toggle) toggle.onclick = openDrawer;
-            if (close) close.onclick = closeDrawer;
-            if (overlay) overlay.onclick = closeDrawer;
-
-            const themeBtn = document.getElementById('theme-toggle');
-            const savedTheme = localStorage.getItem('azexai_theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            themeBtn.onclick = () => {
-                const cur = document.documentElement.getAttribute('data-theme');
-                const next = cur === 'dark' ? 'light' : 'dark';
-                document.documentElement.setAttribute('data-theme', next);
-                localStorage.setItem('azexai_theme', next);
-            };
-
-            router();
-        });
-    </script>
 </body>
 </html>

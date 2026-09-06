@@ -1,679 +1,465 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <link rel="preconnect" href="https://www.googleapis.com">
-  <link rel="dns-prefetch" href="//www.googleapis.com">
-  <meta name="theme-color" content="#11161a">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="description" content="AZEXAI — Technology, intelligence, and the systems shaping tomorrow.">
-  <meta name="author" content="AZEXAI">
-  <link id="canonicalLink" rel="canonical" href="">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="AZEXAI">
-  <meta property="og:title" content="AZEXAI — Technology, intelligence, and the systems shaping tomorrow.">
-  <meta property="og:description" content="Technology, intelligence, and the systems shaping tomorrow.">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AZEXAI — Technology, intelligence, and the systems shaping tomorrow.">
-  <meta name="twitter:description" content="Technology, intelligence, and the systems shaping tomorrow.">
-  <meta name="twitter:image" content="">
-  <title>AZEXAI — Technology, intelligence, and the systems shaping tomorrow.</title>
-  <style>
-    :root{
-      --ink:#14181b; --ink-2:#31383d; --navy:#10222c; --navy-2:#172e39;
-      --paper:#f5f1e8; --paper-2:#eee9de; --white:#fbfaf6; --rule:#d2cabd;
-      --burgundy:#7b2f3a; --green:#2d5147; --teal:#3a6d6c; --rust:#9a513b;
-      --gold:#b08a4c; --brown:#4f4036; --muted:#6c7478; --shadow:0 16px 44px rgba(18,25,28,.08);
-      --serif: Georgia, "Times New Roman", Times, serif;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      --max:1400px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
-    body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;background-image:linear-gradient(rgba(16,34,44,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(16,34,44,.035) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.45),transparent 60%)}
-    body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.11;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");mix-blend-mode:multiply}
-    a{color:inherit;text-decoration:none}
-    button,input{font:inherit}
-    button{cursor:pointer}
-    img{max-width:100%;display:block}
-    .skip-link{position:fixed;left:1rem;top:-4rem;z-index:2000;background:var(--paper);padding:.6rem .9rem;border:1px solid var(--rule)}
-    .skip-link:focus{top:1rem}
-    :focus-visible{outline:2px solid var(--burgundy);outline-offset:3px}
-
-    .topbar{background:var(--navy);color:#eef2ee;border-bottom:1px solid rgba(255,255,255,.12);font-family:var(--mono);font-size:.67rem;letter-spacing:.12em;text-transform:uppercase}
-    .topbar-inner,.header-inner,.page-inner,.footer-inner{max-width:var(--max);margin:auto;padding-inline:clamp(1rem,3vw,3rem)}
-    .topbar-inner{display:flex;justify-content:space-between;align-items:center;min-height:32px;gap:1rem}
-    .topbar-mark{opacity:.72}.topbar-date{opacity:.55}
-    header.site-header{position:sticky;top:0;z-index:1000;background:rgba(245,241,232,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
-    .header-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem;min-height:72px}
-    .brand{display:inline-flex;align-items:baseline;gap:.7rem;letter-spacing:.08em;font-family:var(--mono);font-weight:800}
-    .brand-word{font-size:1.2rem}.brand-slash{font-weight:400;color:var(--burgundy)}.brand-sub{font-size:.58rem;opacity:.58}
-    nav.primary-nav{justify-self:center;display:flex;gap:clamp(.7rem,1.4vw,1.4rem);align-items:center}
-    nav.primary-nav a{position:relative;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:#3c454b;padding:.55rem 0}
-    nav.primary-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:.18rem;height:1px;background:var(--burgundy);transition:right .2s ease}
-    nav.primary-nav a:hover::after,nav.primary-nav a[aria-current="page"]::after{right:0}
-    nav.primary-nav a[aria-current="page"]{color:var(--burgundy)}
-    .header-actions{display:flex;align-items:center;gap:.4rem}
-    .icon-btn,.menu-btn{border:1px solid transparent;background:transparent;color:var(--ink);width:38px;height:38px;display:grid;place-items:center}
-    .icon-btn:hover,.menu-btn:hover{border-color:var(--rule);background:var(--white)}
-    .menu-btn{display:none}
-    .mobile-panel{display:none;border-top:1px solid var(--rule);padding:0 1rem 1rem;background:var(--paper)}
-    .mobile-panel.open{display:block}
-    .mobile-panel a{display:block;padding:.7rem 0;border-bottom:1px solid rgba(210,202,189,.7);font-size:.92rem;text-transform:uppercase;letter-spacing:.06em}
-
-    main{min-height:70vh}.page{padding-block:clamp(2rem,5vw,4.5rem)}
-    .kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--burgundy);font-weight:700}
-    .display{font-family:var(--serif);font-weight:600;letter-spacing:-.035em;line-height:.98}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:1.5rem;border-top:1px solid var(--ink);padding-top:.8rem;margin-bottom:1.4rem}
-    .section-head h2{font-family:var(--serif);margin:0;font-size:clamp(1.65rem,2.8vw,2.5rem);font-weight:500;letter-spacing:-.02em}
-    .section-note{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-
-    .hero{background:var(--navy);color:#f3eee4;position:relative;overflow:hidden;border-block:1px solid rgba(16,34,44,.2)}
-    .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 16%,rgba(176,138,76,.16),transparent 30%),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:auto,56px 56px,56px 56px;opacity:.9}
-    .hero::after{content:"AZEXAI / FIELD NOTES";position:absolute;right:3rem;bottom:1.4rem;color:rgba(255,255,255,.17);font:700 .65rem var(--mono);letter-spacing:.16em}
-    .hero-inner{position:relative;max-width:var(--max);margin:auto;padding:clamp(2.2rem,5vw,4.6rem) clamp(1rem,3vw,3rem) clamp(2.5rem,5vw,4.5rem)}
-    .hero-intro{max-width:780px}.hero-intro .display{font-size:clamp(3rem,7vw,7.2rem);margin:.45rem 0 1rem;color:#f6f0e7}
-    .hero-lead{max-width:680px;margin:0;color:rgba(246,240,231,.72);font-size:clamp(1rem,1.6vw,1.22rem)}
-    .hero-rule{width:100%;height:1px;background:rgba(255,255,255,.16);margin:2.2rem 0 0}
-
-    .featured{display:grid;grid-template-columns:1.35fr 1fr;min-height:430px;border:1px solid rgba(210,202,189,.95);background:var(--white);box-shadow:var(--shadow);overflow:hidden}
-    .featured-media{min-height:100%;background:#dde0db;position:relative}.featured-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
-    .featured-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(13,22,25,.22));pointer-events:none}
-    .featured-copy{padding:clamp(1.4rem,3.2vw,3rem);display:flex;flex-direction:column;justify-content:space-between}
-    .featured-copy h1{font-size:clamp(2.2rem,4.1vw,4.7rem);margin:.65rem 0 1rem}
-    .featured-copy p{color:var(--muted);font-size:1rem;max-width:55ch}
-    .meta-row{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;font-family:var(--mono);font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
-    .meta-dot{width:3px;height:3px;border-radius:50%;background:var(--burgundy)}
-    .read-link{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.4rem;font-size:.76rem;font-family:var(--mono);letter-spacing:.07em;text-transform:uppercase;border-bottom:1px solid var(--burgundy);padding-bottom:.3rem;color:var(--burgundy);align-self:flex-start}
-    .read-link span{transition:transform .18s ease}.read-link:hover span{transform:translateX(4px)}
-
-    .content-section{max-width:var(--max);margin:auto;padding-inline:clamp(1rem,3vw,3rem);padding-block:clamp(2.2rem,5vw,4rem)}
-    .grid-articles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}
-    .card{border:1px solid var(--rule);background:var(--white);min-width:0;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-    .card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(15,22,25,.07);border-color:#bbb09e}
-    .card-media{background:#ddd8cd;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--rule)}
-    .card-media img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}.card:hover .card-media img{transform:scale(1.025)}
-    .card-body{padding:1rem 1rem .95rem;display:flex;flex-direction:column;flex:1}
-    .card-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;color:var(--burgundy);font-weight:700}
-    .card h3{font-family:var(--serif);font-size:clamp(1.15rem,1.6vw,1.5rem);line-height:1.05;margin:.45rem 0 .55rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-    .card-excerpt{margin:0;color:var(--muted);font-size:.85rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-    .card-meta{margin-top:auto;padding-top:.85rem;display:flex;justify-content:space-between;gap:.8rem;font-family:var(--mono);font-size:.6rem;color:#7e8589;text-transform:uppercase;letter-spacing:.06em}
-
-    .split-section{max-width:var(--max);margin:auto;padding:0 clamp(1rem,3vw,3rem) clamp(2.2rem,5vw,4rem);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1.1rem}
-    .split-copy{grid-column:span 4;background:var(--green);color:#eef1eb;padding:1.6rem;min-height:250px;display:flex;flex-direction:column;justify-content:space-between}
-    .split-copy .kicker{color:#d4b879}.split-copy h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,3rem);line-height:1;margin:.6rem 0}
-    .split-copy p{margin:0;color:rgba(238,241,235,.72);font-size:.9rem}.split-grid{grid-column:span 8}.split-grid .grid-articles{grid-template-columns:repeat(2,minmax(0,1fr))}
-
-    .archive-teaser{background:var(--paper-2);border-block:1px solid var(--rule)}
-    .archive-teaser-inner{max-width:var(--max);margin:auto;padding:clamp(2rem,5vw,3.8rem) clamp(1rem,3vw,3rem);display:grid;grid-template-columns:1.25fr 1fr;gap:2rem;align-items:center}
-    .archive-teaser h2{font:500 clamp(2rem,4.2vw,4rem)/.98 var(--serif);letter-spacing:-.03em;margin:.4rem 0 .8rem}.archive-teaser p{color:var(--muted);max-width:55ch}
-    .archive-button,.submit-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:#f5f1e8;border:0;padding:.75rem 1rem;text-transform:uppercase;letter-spacing:.08em;font:700 .68rem var(--mono)}
-    .archive-button:hover,.submit-btn:hover{background:var(--burgundy)}
-
-    .newsletter{background:var(--rust);color:#f6eee6}.newsletter-inner{max-width:var(--max);margin:auto;padding:clamp(2.4rem,5vw,4.4rem) clamp(1rem,3vw,3rem);display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;align-items:end}
-    .newsletter h2{font:500 clamp(2.2rem,4vw,4rem)/.95 var(--serif);margin:.5rem 0}.newsletter p{color:rgba(246,238,230,.75);max-width:52ch}.newsletter-note{font:.62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(246,238,230,.58)}
-    .newsletter-form{display:flex;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:.5rem}.newsletter-form input{flex:1;border:0;outline:0;background:transparent;color:#fff;padding:.65rem 0;font-size:.95rem;min-width:0}.newsletter-form input::placeholder{color:rgba(255,255,255,.62)}.newsletter-form button{background:transparent;color:#fff;border:0;font:700 .68rem var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:.65rem 0 0 1rem}
-    .form-message{margin-top:.6rem;min-height:1.3em;font-size:.78rem;color:rgba(255,255,255,.8)}
-
-    .state{max-width:var(--max);margin:auto;padding:clamp(3rem,6vw,6rem) clamp(1rem,3vw,3rem);text-align:center}.state h2{font:500 2.4rem var(--serif);margin:.4rem 0 .8rem}.state p{color:var(--muted);margin:0 auto 1.3rem;max-width:52ch}
-    .retry{border:1px solid var(--ink);background:transparent;padding:.7rem 1rem;font:700 .68rem var(--mono);text-transform:uppercase;letter-spacing:.08em}.retry:hover{background:var(--navy);color:#fff}
-
-    .skeleton-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}.skeleton{border:1px solid var(--rule);background:rgba(255,255,255,.5);overflow:hidden}.sk{position:relative;overflow:hidden;background:#e5e0d6}.sk::after{content:"";position:absolute;inset:0;transform:translateX(-110%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:shine 1.5s infinite}.sk-media{aspect-ratio:16/9}.sk-line{height:10px;margin:10px 12px;border-radius:2px}.sk-line.wide{width:82%}.sk-line.mid{width:62%}.sk-line.short{width:40%}@keyframes shine{to{transform:translateX(110%)}}
-
-    .page-hero{max-width:var(--max);margin:auto;padding:clamp(2.3rem,6vw,5rem) clamp(1rem,3vw,3rem) 2.2rem;border-bottom:1px solid var(--rule)}.page-hero h1{font-size:clamp(3rem,7vw,6.4rem);margin:.35rem 0 .9rem}.page-hero p{max-width:64ch;color:var(--muted);margin:0}
-    .filter-row{max-width:var(--max);margin:auto;padding:1.1rem clamp(1rem,3vw,3rem);display:flex;gap:.55rem;flex-wrap:wrap}.filter-chip{border:1px solid var(--rule);background:transparent;padding:.45rem .65rem;font:700 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#586167}.filter-chip:hover,.filter-chip.active{border-color:var(--burgundy);color:var(--burgundy)}
-
-    .search-wrap{max-width:var(--max);margin:auto;padding:1.25rem clamp(1rem,3vw,3rem);border-bottom:1px solid var(--rule)}.search-box{display:flex;align-items:center;border-bottom:1px solid var(--ink);gap:.7rem}.search-box input{width:100%;border:0;background:transparent;outline:0;padding:.7rem 0;font-size:1.15rem}.search-count{font:700 .64rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-
-    .archive-list{max-width:var(--max);margin:auto;padding:0 clamp(1rem,3vw,3rem) 4rem}.year-block{padding-top:2rem}.year-title{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--ink);padding-bottom:.55rem}.year-title h2{font:500 2.3rem var(--serif);margin:0}.year-title span{font:700 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.month-block{padding:1rem 0 0 4.5rem}.month-title{font:700 .68rem var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--burgundy);margin-bottom:.5rem}.archive-row{display:grid;grid-template-columns:70px 1fr 130px;gap:1rem;align-items:baseline;padding:.55rem 0;border-bottom:1px solid rgba(210,202,189,.75)}.archive-row time{font:600 .66rem var(--mono);color:var(--muted)}.archive-row a{font:500 1.05rem var(--serif)}.archive-row a:hover{color:var(--burgundy)}.archive-row small{font:600 .62rem var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.05em;text-align:right}
-
-    .article-shell{max-width:var(--max);margin:auto;padding:clamp(2rem,5vw,4rem) clamp(1rem,3vw,3rem) 5rem}.article-head{max-width:1000px;margin:auto;padding-bottom:2rem;border-bottom:1px solid var(--rule)}.article-head h1{font-size:clamp(2.8rem,6vw,6.3rem);margin:.5rem 0 1.1rem}.article-dek{font-size:1.05rem;color:var(--muted);max-width:70ch}.article-actions{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1.1rem}.action-btn{border:1px solid var(--rule);background:transparent;padding:.55rem .7rem;font:700 .64rem var(--mono);letter-spacing:.08em;text-transform:uppercase}.action-btn:hover{border-color:var(--burgundy);color:var(--burgundy)}
-    .article-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:4rem;max-width:1000px;margin:2.4rem auto 0}.article-content{font-family:var(--serif);font-size:1.12rem;line-height:1.78;min-width:0}.article-content p{margin:0 0 1.25rem}.article-content h2,.article-content h3,.article-content h4{font-family:var(--serif);line-height:1.08;margin:2.2rem 0 .8rem;color:var(--navy)}.article-content h2{font-size:2rem}.article-content h3{font-size:1.55rem}.article-content h4{font-size:1.25rem}.article-content a{color:var(--burgundy);text-decoration:underline;text-underline-offset:3px}.article-content img{width:auto;height:auto;max-width:100%;margin:1.5rem auto}.article-content figure{margin:1.6rem 0}.article-content figcaption{font:500 .68rem/1.4 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.article-content ul,.article-content ol{padding-left:1.35rem;margin:0 0 1.25rem}.article-content blockquote{margin:1.6rem 0;padding:1rem 1.25rem;border-left:3px solid var(--burgundy);background:var(--paper-2);font-size:1.25rem}.article-content hr{border:0;border-top:1px solid var(--rule);margin:2rem 0}.article-content pre{overflow:auto;background:#151c20;color:#f3eee4;padding:1rem;border-radius:0;line-height:1.55;font:0.8rem/1.55 var(--mono)}.article-content code{font-family:var(--mono);font-size:.9em;background:rgba(16,34,44,.07);padding:.08em .28em}.article-content pre code{background:none;padding:0;color:inherit}.article-content table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.86rem;display:block;overflow:auto}.article-content th,.article-content td{border:1px solid var(--rule);padding:.55rem .65rem;text-align:left;min-width:120px}.article-content th{background:var(--paper-2);font:700 .65rem var(--mono);text-transform:uppercase;letter-spacing:.05em}.article-content iframe{max-width:100%;width:100%;min-height:360px;border:0}.article-content video{max-width:100%;height:auto}.article-content .separator{margin:2rem 0}.article-aside{border-left:1px solid var(--rule);padding-left:1.4rem;height:max-content;position:sticky;top:100px}.aside-label{font:700 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--burgundy);margin-bottom:.75rem}.article-aside p{font-size:.82rem;color:var(--muted);margin:0}.article-aside .aside-box{padding-bottom:1.3rem;margin-bottom:1.3rem;border-bottom:1px solid var(--rule)}
-    .article-footer{max-width:1000px;margin:2.5rem auto 0;border-top:1px solid var(--rule);padding-top:1.2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.prevnext{display:flex;gap:1rem}.prevnext a{max-width:240px}.prevnext span{display:block;font:700 .6rem var(--mono);text-transform:uppercase;color:var(--burgundy);letter-spacing:.08em;margin-bottom:.25rem}.prevnext strong{font:500 1rem var(--serif)}
-
-    .related{max-width:var(--max);margin:auto;padding:0 clamp(1rem,3vw,3rem) 4rem}.related .section-head{margin-top:0}
-
-    .about-grid,.contact-grid,.privacy-copy{max-width:var(--max);margin:auto;padding:0 clamp(1rem,3vw,3rem) 4rem}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}.editorial-panel{border:1px solid var(--rule);background:var(--white);padding:1.6rem}.editorial-panel h2{font:500 2rem var(--serif);margin:0 0 .7rem}.editorial-panel p{color:var(--muted);max-width:62ch}.signature-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin-top:1rem}.signature{border-top:1px solid var(--rule);padding-top:.6rem;font:700 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
-    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.4rem}.contact-form{display:grid;gap:.9rem}.field label{display:block;font:700 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}.field input,.field textarea{width:100%;border:1px solid var(--rule);background:var(--white);padding:.75rem;outline:none}.field textarea{min-height:160px;resize:vertical}.contact-note{font:.65rem var(--mono);color:var(--muted);margin-top:.65rem}.mailto{color:var(--burgundy);text-decoration:underline}
-    .privacy-copy{max-width:940px;font-family:var(--serif);font-size:1.05rem}.privacy-copy h2{font-family:var(--serif);margin-top:2rem}.privacy-copy p{max-width:72ch}
-
-    footer.site-footer{background:var(--brown);color:#efe8dc;border-top:1px solid rgba(255,255,255,.08)}.footer-inner{padding-block:2.4rem}.footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.13)}.footer-brand{font:800 1.25rem var(--mono);letter-spacing:.08em}.footer-tag{margin-top:.6rem;color:rgba(239,232,220,.68);max-width:34ch;font-size:.9rem}.footer-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.35rem .8rem}.footer-nav a{font:600 .66rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(239,232,220,.78)}.footer-nav a:hover{color:#fff}.footer-signatures{display:grid;gap:.38rem}.footer-signatures span{font:700 .62rem var(--mono);letter-spacing:.1em;color:rgba(239,232,220,.56)}.footer-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1rem;color:rgba(239,232,220,.5);font:500 .58rem var(--mono);letter-spacing:.06em;text-transform:uppercase}
-    .to-top{position:fixed;right:1rem;bottom:1rem;width:40px;height:40px;background:var(--navy);color:#f5f1e8;border:1px solid rgba(255,255,255,.1);display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(8px);transition:.18s ease;z-index:900}.to-top.visible{opacity:1;pointer-events:auto;transform:none}.to-top:hover{background:var(--burgundy)}
-
-    @media (max-width:1040px){
-      nav.primary-nav{gap:.65rem}.brand-sub{display:none}.header-inner{gap:1rem}.featured{grid-template-columns:1fr 1fr}.article-layout{grid-template-columns:1fr;gap:1.2rem}.article-aside{position:static;border-left:0;border-top:1px solid var(--rule);padding:1rem 0 0}.aside-box{display:inline-block;margin-right:1rem}
-    }
-    @media (max-width:840px){
-      nav.primary-nav{display:none}.menu-btn{display:grid}.header-inner{grid-template-columns:auto 1fr auto}.header-actions{justify-self:end}.featured{grid-template-columns:1fr}.featured-media{aspect-ratio:16/8;min-height:0}.split-section,.archive-teaser-inner,.newsletter-inner,.about-grid,.contact-grid,.footer-top{grid-template-columns:1fr}.split-copy,.split-grid{grid-column:auto}.split-grid .grid-articles{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-nav{grid-template-columns:repeat(4,minmax(0,1fr))}
-    }
-    @media (max-width:767px){
-      .topbar-date{display:none}.topbar-inner{justify-content:flex-start}.header-inner{min-height:64px}.brand-word{font-size:1.06rem}.hero-inner{padding-top:2rem}.hero-intro .display{font-size:clamp(2.8rem,15vw,5rem)}.hero::after{display:none}.grid-articles,.skeleton-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}.card-media{aspect-ratio:4/3}.card-body{padding:.78rem}.card h3{font-size:1.02rem;line-height:1.05;-webkit-line-clamp:3}.card-excerpt{font-size:.73rem;-webkit-line-clamp:3}.card-meta{font-size:.52rem;gap:.4rem}.split-grid .grid-articles{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:start;flex-direction:column;gap:.4rem}.month-block{padding-left:0}.archive-row{grid-template-columns:58px 1fr}.archive-row small{display:none}.article-content{font-size:1.05rem}.article-head h1{font-size:clamp(2.45rem,14vw,4rem)}.article-footer{align-items:flex-start}.prevnext{width:100%;justify-content:space-between}.footer-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.newsletter-form{display:block}.newsletter-form button{display:block;padding-left:0}.article-actions .action-btn{flex:1;min-width:120px}.featured-copy{padding:1.2rem}.featured-copy h1{font-size:clamp(2rem,10vw,3.5rem)}
-    }
-    @media (max-width:430px){.card h3{font-size:.95rem}.card-excerpt{display:none}.card-meta{flex-direction:column;align-items:flex-start}.meta-row{font-size:.59rem}.footer-nav{grid-template-columns:1fr 1fr}}
-    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
-  
-    /* AZEXAI premium performance + editorial layer */
-    .page-inner,.content-section,.split-section,.archive-teaser,.newsletter,.article-shell,.page-hero{content-visibility:auto;contain:layout paint style;contain-intrinsic-size:1px 520px}
-    .grid-articles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
-    .grid-articles .card{min-width:0;background:var(--paper)}
-    .card{transition:background .18s ease,transform .18s ease;contain:layout paint}
-    .card:hover{background:var(--white);transform:translateY(-2px)}
-    .card-media{aspect-ratio:16/9;overflow:hidden;background:var(--paper-2)}
-    .card-media img{width:100%;height:100%;object-fit:cover;transition:transform .35s cubic-bezier(.2,.65,.2,1)}
-    .card:hover .card-media img{transform:scale(1.025)}
-    .card-body{min-height:214px;display:flex;flex-direction:column;padding:1rem 1rem .9rem}
-    .card h3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:.38rem 0 .45rem;font-family:var(--serif);font-size:clamp(1.12rem,1.5vw,1.38rem);line-height:1.08;letter-spacing:-.018em}
-    .card-excerpt{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:var(--muted);font-size:.82rem;line-height:1.45}
-    .card-meta{margin-top:auto;padding-top:.8rem;display:flex;justify-content:space-between;gap:.7rem;border-top:1px solid rgba(210,202,189,.8);font:600 .61rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#727875}
-    .card-label{font:700 .61rem var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--burgundy)}
-    .editorial-index{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;margin:0 max(1rem,3vw);padding:.8rem 0;border-bottom:1px solid var(--rule);font:600 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-    .index-ticks{display:flex;gap:3px;align-items:end;height:18px}.index-ticks i{display:block;width:2px;background:currentColor;opacity:.55}.index-ticks i:nth-child(3n){height:14px}.index-ticks i:nth-child(3n+1){height:7px}.index-ticks i:nth-child(3n+2){height:10px}
-    .search-results-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--ink);padding-bottom:.7rem;margin-bottom:1rem}.search-results-head strong{font:700 .66rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--burgundy)}
-    .search-empty{border:1px solid var(--rule);background:var(--white);padding:clamp(1.5rem,4vw,3rem)}
-    .search-empty .display{font-size:clamp(2rem,4vw,3.6rem);margin:.35rem 0 .6rem}
-    .section-intro{max-width:720px;color:var(--muted);font-size:.96rem}
-    .article-content{overflow-wrap:anywhere}.article-content img{height:auto!important;max-width:100%!important}.article-content pre{overflow:auto;max-width:100%}.article-content iframe{max-width:100%}
-    .site-header.scrolled{box-shadow:0 8px 26px rgba(20,24,27,.06)}
-    @media(max-width:900px){nav.primary-nav{display:none}.menu-btn{display:grid}.header-inner{grid-template-columns:1fr auto;min-height:64px}.header-actions{justify-self:end}.hero-intro .display{font-size:clamp(2.8rem,10vw,5rem)}.content-section,.page-inner{padding-inline:clamp(1rem,3vw,1.4rem)}}
-    @media(max-width:620px){.grid-articles{grid-template-columns:repeat(2,minmax(0,1fr));gap:1px}.card-body{min-height:190px;padding:.75rem .7rem .7rem}.card h3{font-size:1rem;-webkit-line-clamp:3}.card-excerpt{font-size:.73rem;-webkit-line-clamp:2}.card-meta{font-size:.52rem;flex-wrap:wrap}.card-label{font-size:.53rem}.editorial-index{margin-inline:1rem;grid-template-columns:1fr}.hero-inner{padding-top:2.3rem}.hero::after{right:1rem}.section-head{align-items:flex-start;flex-direction:column;gap:.35rem}.article-content{font-size:1.03rem}.article-content table{min-width:560px}.article-content blockquote{margin-inline:0}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
-
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111315">
+<meta name="color-scheme" content="dark light">
+<title>AZEXAI — Technology, intelligence, and the systems shaping tomorrow.</title>
+<meta name="description" content="AZEXAI — Technology, intelligence, and the systems shaping tomorrow.">
+<link id="canonical" rel="canonical" href="">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AZEXAI">
+<meta id="ogTitle" property="og:title" content="AZEXAI">
+<meta id="ogDescription" property="og:description" content="Technology, intelligence, and the systems shaping tomorrow.">
+<meta id="ogImage" property="og:image" content="">
+<meta id="ogUrl" property="og:url" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta id="twTitle" name="twitter:title" content="AZEXAI">
+<meta id="twDescription" name="twitter:description" content="Technology, intelligence, and the systems shaping tomorrow.">
+<meta id="twImage" name="twitter:image" content="">
+<style>
+:root{
+  --ink:#101214;--paper:#f1eee7;--paper2:#e7e2d7;--night:#111315;--night2:#171a1c;
+  --cream:#f5f0e5;--muted:#9a9b96;--line:rgba(255,255,255,.13);--darkline:rgba(16,18,20,.15);
+  --burgundy:#713b42;--green:#38584d;--teal:#416b6b;--rust:#9a513c;--gold:#b89a5a;
+  --serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;--max:1320px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+a{color:inherit}button,input{font:inherit}.skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;z-index:100;padding:.7rem 1rem;background:var(--cream);color:var(--ink)}
+.topline{height:4px;background:linear-gradient(90deg,var(--burgundy),var(--gold),var(--green))}
+.site-header{position:sticky;top:0;z-index:40;background:rgba(17,19,21,.96);color:var(--cream);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px)}
+.nav{max-width:var(--max);margin:auto;display:flex;align-items:center;min-height:72px;padding:0 24px;gap:25px}
+.logo{font-family:var(--serif);font-size:30px;letter-spacing:.13em;font-weight:800;text-decoration:none;white-space:nowrap}
+.logo small{font:10px var(--mono);letter-spacing:.18em;color:#b7aa8d;display:block;margin-top:-5px}
+.menu{display:flex;align-items:center;gap:4px;flex:1;justify-content:flex-end}
+.menu a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:#d4d0c6;padding:10px 8px;border-bottom:1px solid transparent}
+.menu a:hover,.menu a:focus-visible{color:#fff;border-color:var(--gold)}
+.search-btn,.hamb{border:1px solid var(--line);background:transparent;color:var(--cream);width:42px;height:42px;border-radius:2px;cursor:pointer;display:grid;place-items:center}
+.search-btn svg,.hamb svg{width:19px;height:19px}.hamb{display:none}
+.drawer{display:none;position:fixed;top:76px;right:12px;left:12px;background:#151719;border:1px solid var(--line);padding:12px;box-shadow:0 25px 60px #0008}
+.drawer.open{display:block}.drawer a{display:block;text-decoration:none;padding:13px 10px;border-bottom:1px solid var(--line);font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+main{min-height:65vh}.wrap{max-width:var(--max);margin:auto;padding:0 24px}
+.hero{background:var(--night);color:var(--cream);position:relative;overflow:hidden;border-bottom:1px solid #000}
+.hero:before{content:"";position:absolute;inset:0;background:
+linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+background-size:42px 42px;mask-image:linear-gradient(to right,black,transparent 85%)}
+.hero:after{content:"";position:absolute;right:-15%;top:-45%;width:70%;height:150%;border-left:1px solid rgba(184,154,90,.18);transform:rotate(22deg)}
+.hero-inner{position:relative;z-index:2;padding:74px 0 68px;display:grid;grid-template-columns:1.1fr .9fr;gap:65px;align-items:end}
+.kicker{font:10px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#b9a77e}
+.hero h1{font:clamp(48px,7vw,94px);line-height:.9;margin:15px 0 22px;font-family:var(--serif);font-weight:500;letter-spacing:-.045em;max-width:800px}
+.hero p{max-width:620px;color:#bbbcb7;font-size:17px;margin:0}
+.hero-meta{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;gap:15px;font:10px var(--mono);text-transform:uppercase;letter-spacing:.12em;color:#a7a9a3}
+.section{padding:58px 0}.section.alt{background:#e7e1d5}.section.dark{background:var(--night);color:var(--cream)}
+.section-head{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid var(--darkline);padding-bottom:14px;margin-bottom:22px;gap:20px}
+.dark .section-head{border-color:var(--line)}.section-head h2{font:500 42px/.95 var(--serif);margin:0;letter-spacing:-.03em}
+.section-head .label{font:10px var(--mono);letter-spacing:.17em;text-transform:uppercase;color:#77736b}
+.feature{display:grid;grid-template-columns:1.45fr .8fr;min-height:430px;border:1px solid var(--darkline);background:#dad4c8}
+.feature-media{min-height:430px;background:#242729;overflow:hidden}.feature-media img{width:100%;height:100%;object-fit:cover;display:block}
+.feature-copy{padding:38px;display:flex;flex-direction:column;justify-content:center}.feature-copy h2{font:500 clamp(34px,4vw,61px)/.97 var(--serif);margin:10px 0 18px;letter-spacing:-.04em}.feature-copy p{color:#5e5d58}.meta{font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#77736b}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid currentColor;padding:11px 15px;text-decoration:none;text-transform:uppercase;font:10px var(--mono);letter-spacing:.12em;width:max-content;cursor:pointer;background:transparent;color:inherit}.btn:hover{background:var(--ink);color:var(--cream)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{min-width:0;border-top:1px solid var(--darkline);padding-top:10px;display:flex;flex-direction:column;min-height:390px}.card-media{aspect-ratio:16/9;overflow:hidden;background:#cbc6bc;margin-bottom:13px}.card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}.card:hover .card-media img{transform:scale(1.025)}.card .tag{font:9px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--burgundy);margin-bottom:7px}.card h3{font:500 23px/1.05 var(--serif);letter-spacing:-.02em;margin:0 0 8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.card p{font-size:13px;color:#66645e;margin:0 0 12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.card-foot{margin-top:auto;display:flex;justify-content:space-between;gap:10px;padding-top:10px;border-top:1px solid var(--darkline);font:9px var(--mono);color:#77736b;text-transform:uppercase}
+.skeleton{background:linear-gradient(90deg,#d8d2c7 20%,#ebe6dd 35%,#d8d2c7 50%);background-size:200% 100%;animation:sh 1.4s infinite}.skeleton-card{height:390px;border-top:1px solid #bbb5aa;padding-top:10px}.sk-img{height:220px;margin-bottom:15px}.sk-line{height:12px;margin:10px 0;width:80%}.sk-line.short{width:45%}@keyframes sh{to{background-position:-200% 0}}
+.category-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#bdb7aa;border:1px solid #bdb7aa}.category-strip a{background:var(--paper);text-decoration:none;padding:26px 20px;min-height:110px}.category-strip a:hover{background:#ddd7ca}.category-strip b{font:18px var(--serif);display:block}.category-strip span{font:9px var(--mono);text-transform:uppercase;letter-spacing:.12em;color:#7a776f}
+.article-view{background:var(--paper);padding:55px 0 80px}.article-head{max-width:930px;margin:auto;padding:0 24px}.article-head .tag{font:10px var(--mono);letter-spacing:.17em;text-transform:uppercase;color:var(--burgundy)}.article-head h1{font:500 clamp(42px,6vw,82px)/.93 var(--serif);letter-spacing:-.045em;margin:13px 0 22px}.article-deck{font-size:19px;color:#65625c;max-width:760px}.article-meta{display:flex;flex-wrap:wrap;gap:12px 24px;border-top:1px solid var(--darkline);border-bottom:1px solid var(--darkline);padding:13px 0;margin-top:25px;font:10px var(--mono);text-transform:uppercase;color:#706d66}
+.article-actions{display:flex;gap:8px;margin:18px 0}.article-actions .btn{color:var(--ink)}.article-actions .btn:hover{color:var(--cream)}
+.article-hero{max-width:1100px;margin:28px auto;padding:0 24px}.article-hero img{width:100%;max-height:620px;object-fit:cover;display:block}
+.prose{max-width:760px;margin:45px auto;padding:0 24px;font-family:var(--serif);font-size:18px;line-height:1.8}.prose>*:first-child{margin-top:0}.prose h2{font:500 34px/1.05 var(--serif);margin:45px 0 16px}.prose h3{font:500 27px/1.1 var(--serif);margin:35px 0 12px}.prose p{margin:0 0 20px}.prose img{max-width:100%;height:auto;display:block;margin:28px auto}.prose a{color:#65414a;text-decoration-thickness:1px;text-underline-offset:3px}.prose blockquote{margin:28px 0;padding:6px 25px;border-left:3px solid var(--gold);font-size:23px;font-style:italic;color:#504d47}.prose ul,.prose ol{padding-left:28px}.prose li{margin:6px 0}.prose table{width:100%;border-collapse:collapse;display:block;overflow:auto;font:14px var(--sans)}.prose th,.prose td{border:1px solid #aaa397;padding:9px 12px;white-space:nowrap}.prose pre{overflow:auto;background:#151719;color:#ece8de;padding:18px;font:13px/1.6 var(--mono);border-left:3px solid var(--green)}.prose code{font-family:var(--mono);font-size:.88em;background:#ded8cc;padding:.12em .3em}.prose pre code{background:none;padding:0}.prose iframe{max-width:100%}.prose video{max-width:100%}.prose hr{border:0;border-top:1px solid var(--darkline);margin:40px 0}
+.reader-nav{max-width:760px;margin:30px auto 0;padding:0 24px;display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--darkline);padding-top:18px}.reader-nav a{font:10px var(--mono);text-transform:uppercase;letter-spacing:.1em;text-decoration:none}.related{max-width:1100px;margin:50px auto 0;padding:0 24px}.related .grid{grid-template-columns:repeat(3,1fr)}
+.archive-year{font:500 35px var(--serif);margin:35px 0 8px;border-bottom:1px solid var(--darkline);padding-bottom:8px}.archive-month{margin:0 0 20px}.archive-month h3{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#77736b}.archive-list{list-style:none;padding:0;margin:0}.archive-list li{border-bottom:1px solid var(--darkline);display:grid;grid-template-columns:90px 1fr 120px;gap:15px;padding:10px 0}.archive-list a{text-decoration:none;font:20px var(--serif)}.archive-list a:hover{text-decoration:underline}.archive-list time{font:10px var(--mono);color:#77736b}
+.search-panel{background:var(--night);color:var(--cream);padding:50px 0}.search-form{display:flex;gap:10px;max-width:800px}.search-form input{flex:1;background:#1d2022;color:#fff;border:1px solid var(--line);padding:15px 16px;outline:none}.search-form input:focus{border-color:var(--gold)}.count{font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#aaa}
+.about{max-width:900px;margin:auto}.about h1{font:500 clamp(45px,7vw,82px)/.9 var(--serif);letter-spacing:-.05em;margin:0 0 25px}.about p{font-size:18px;max-width:760px;color:#5d5a54}.contact-box{border:1px solid var(--darkline);padding:25px;margin-top:30px}.newsletter{background:var(--green);color:#f5f1e8;padding:55px 0}.newsletter-inner{display:flex;align-items:center;justify-content:space-between;gap:35px}.newsletter h2{font:500 42px var(--serif);margin:0}.newsletter p{color:#d3d8d1}.newsletter form{display:flex;gap:8px;min-width:min(100%,500px)}.newsletter input{flex:1;padding:13px;background:#2e4a42;border:1px solid #82958e;color:#fff}.newsletter-note{font:10px var(--mono);color:#c3ccc7;margin-top:8px}
+.site-footer{background:#0e1011;color:#d8d3c8;padding:50px 0 30px;border-top:1px solid #26292a}.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:35px}.footer-brand{font:30px var(--serif);letter-spacing:.12em}.footer-copy{color:#858781;font-size:13px;max-width:300px}.footer-title{font:9px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#9e9b92;margin-bottom:12px}.footer-links a{display:block;text-decoration:none;font-size:12px;color:#c5c2b9;padding:4px 0}.footer-links a:hover{color:#fff}.signatures{font:9px var(--mono);line-height:2;color:#777a76}.copyright{border-top:1px solid #292c2d;margin-top:35px;padding-top:15px;display:flex;justify-content:space-between;font:9px var(--mono);text-transform:uppercase;color:#696d69}
+.notice{max-width:800px;margin:40px auto;padding:25px;border:1px solid var(--darkline);background:#e5dfd4}.notice h2{font:500 35px var(--serif);margin:0 0 8px}.notice p{color:#68655e}.center{text-align:center}.hidden{display:none!important}.backtop{position:fixed;right:18px;bottom:18px;width:42px;height:42px;border:1px solid #777;background:#111d;color:#fff;display:none;place-items:center;z-index:35;cursor:pointer}.backtop.show{display:grid}
+@media(max-width:1050px){.menu a:nth-child(n+7){display:none}.hero-inner{grid-template-columns:1fr}.feature{grid-template-columns:1fr}.feature-media{min-height:320px}.category-strip{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){
+ .nav{min-height:68px;padding:0 15px}.logo{font-size:25px}.menu{display:none}.hamb{display:grid;margin-left:auto}.search-btn{width:40px;height:40px}
+ .hero-inner{padding:50px 0}.hero h1{font-size:54px}.hero p{font-size:15px}.wrap{padding:0 15px}
+ .section{padding:40px 0}.section-head h2{font-size:34px}.feature-copy{padding:25px}.feature-copy h2{font-size:38px}.feature-media{min-height:235px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{min-height:315px}.card-media{margin-bottom:9px}.card h3{font-size:18px;-webkit-line-clamp:3}.card p{font-size:11px;-webkit-line-clamp:2}.card-foot{font-size:7px}.card .tag{font-size:7px}
+ .category-strip{grid-template-columns:repeat(2,1fr)}.category-strip a{min-height:90px;padding:19px 14px}.category-strip b{font-size:16px}
+ .article-head{padding:0 15px}.article-head h1{font-size:48px}.article-deck{font-size:16px}.article-hero{padding:0 15px}.prose{padding:0 15px;font-size:17px;line-height:1.75}.prose h2{font-size:30px}.reader-nav{padding:0 15px}.related{padding:0 15px}.related .grid{grid-template-columns:repeat(2,1fr)}
+ .archive-list li{grid-template-columns:1fr}.archive-list time{order:-1}.search-form{flex-direction:column}.newsletter-inner{display:block}.newsletter form{min-width:0;margin-top:20px}.footer-grid{grid-template-columns:1fr 1fr}.copyright{display:block}.copyright span{display:block;margin-top:6px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card-media img{transition:none}.skeleton{animation:none}}
+</style>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
-<div class="topbar"><div class="topbar-inner"><span class="topbar-mark">AZEXAI / INTELLIGENCE</span><span class="topbar-date" id="topbarDate"></span></div></div>
+<a class="skip" href="#app">Skip to content</a>
+<div class="topline"></div>
 <header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="index.html" data-route="home" aria-label="AZEXAI home"><span class="brand-word">AZEXAI</span><span class="brand-slash">/</span><span class="brand-sub">TECHNOLOGY &amp; INTELLIGENCE</span></a>
-    <nav class="primary-nav" aria-label="Primary navigation">
-      <a href="index.html" data-route="home">Home</a><a href="index.html?category=ai" data-route="category" data-category="ai">AI</a><a href="index.html?category=robotics" data-route="category" data-category="robotics">Robotics</a><a href="index.html?category=hardware" data-route="category" data-category="hardware">Hardware</a><a href="index.html?category=software" data-route="category" data-category="software">Software</a><a href="index.html?category=future-tech" data-route="category" data-category="future-tech">Future Tech</a><a href="index.html?category=guides" data-route="category" data-category="guides">Guides</a><a href="index.html?category=reviews" data-route="category" data-category="reviews">Reviews</a><a href="index.html?category=ethics" data-route="category" data-category="ethics">Ethics</a><a href="index.html?archive" data-route="archive">Archive</a>
-    </nav>
-    <div class="header-actions"><button class="icon-btn" id="searchButton" aria-label="Search" title="Search">⌕</button><button class="menu-btn" id="menuButton" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">☰</button></div>
-  </div>
-  <div class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
-    <a href="index.html" data-route="home">Home</a><a href="index.html?category=ai" data-route="category" data-category="ai">AI</a><a href="index.html?category=robotics" data-route="category" data-category="robotics">Robotics</a><a href="index.html?category=hardware" data-route="category" data-category="hardware">Hardware</a><a href="index.html?category=software" data-route="category" data-category="software">Software</a><a href="index.html?category=future-tech" data-route="category" data-category="future-tech">Future Tech</a><a href="index.html?category=guides" data-route="category" data-category="guides">Guides</a><a href="index.html?category=reviews" data-route="category" data-category="reviews">Reviews</a><a href="index.html?category=ethics" data-route="category" data-category="ethics">Ethics</a><a href="index.html?archive" data-route="archive">Archive</a><a href="index.html?about" data-route="about">About</a><a href="index.html?contact" data-route="contact">Contact</a>
-  </div>
+ <nav class="nav" aria-label="Primary navigation">
+  <a class="logo" href="./" data-route>AZEXAI<small>TECHNOLOGY / INTELLIGENCE</small></a>
+  <div class="menu" id="desktopNav"></div>
+  <button class="search-btn" id="searchToggle" aria-label="Open search" title="Search">
+   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+  </button>
+  <button class="hamb" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Open menu">
+   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 17h16"/></svg>
+  </button>
+ </nav>
+ <div class="drawer" id="mobileDrawer" aria-label="Mobile navigation"></div>
 </header>
-<main id="main"></main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div><div class="footer-brand">AZEXAI</div><div class="footer-tag">Technology, intelligence, and the systems shaping tomorrow.</div></div><div class="footer-nav"><a href="index.html" data-route="home">Home</a><a href="index.html?category=ai" data-route="category" data-category="ai">AI</a><a href="index.html?category=robotics" data-route="category" data-category="robotics">Robotics</a><a href="index.html?category=hardware" data-route="category" data-category="hardware">Hardware</a><a href="index.html?category=software" data-route="category" data-category="software">Software</a><a href="index.html?category=future-tech" data-route="category" data-category="future-tech">Future Tech</a><a href="index.html?category=guides" data-route="category" data-category="guides">Guides</a><a href="index.html?category=reviews" data-route="category" data-category="reviews">Reviews</a><a href="index.html?category=ethics" data-route="category" data-category="ethics">Ethics</a><a href="index.html?archive" data-route="archive">Archive</a><a href="index.html?about" data-route="about">About</a><a href="index.html?contact" data-route="contact">Contact</a><a href="index.html?privacy" data-route="privacy">Privacy</a></div><div class="footer-signatures"><span>AZEXAI / INTELLIGENCE</span><span>AZEXAI / FUTURE</span><span>AZEXAI / ANALYSIS</span><span>AZEXAI / FIELD NOTES</span></div></div><div class="footer-bottom"><span>© <span id="year"></span> AZEXAI</span><span>Editorial technology publication</span></div></div></footer>
-<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<main id="app"></main>
+<button class="backtop" id="backTop" aria-label="Back to top">↑</button>
+<footer class="site-footer" id="footer">
+ <div class="wrap">
+  <div class="footer-grid">
+   <div><div class="footer-brand">AZEXAI</div><p class="footer-copy">Technology, intelligence, and the systems shaping tomorrow.</p><div class="signatures">AZEXAI / INTELLIGENCE<br>AZEXAI / FUTURE<br>AZEXAI / ANALYSIS<br>AZEXAI / FIELD NOTES</div></div>
+   <div><div class="footer-title">Sections</div><div class="footer-links" id="footerSections"></div></div>
+   <div><div class="footer-title">Publication</div><div class="footer-links"><a href="./?archive" data-route>Archive</a><a href="./?about" data-route>About</a><a href="./?contact" data-route>Contact</a><a href="./?privacy" data-route>Privacy</a></div></div>
+   <div><div class="footer-title">Editorial note</div><p class="footer-copy">AZEXAI is built around real published reporting and analysis. Article content is supplied by its connected Blogger publication.</p></div>
+  </div>
+  <div class="copyright"><span>© <span id="year"></span> AZEXAI</span><span>Independent technology publication</span></div>
+ </div>
+</footer>
 <script>
-(() => {
-  'use strict';
+'use strict';
 
-  /* =========================
-     BLOGGER CONFIGURATION
-     ========================= */
-  const BLOGGER_CONFIG = Object.freeze({
-    BLOG_ID: '4263033619836681299',
-    API_KEY: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
-    API_BASE: 'https://www.googleapis.com/blogger/v3',
-    CONTACT_EMAIL: 'YOUR_EMAIL@example.com'
+/* =========================
+   AZEXAI / BLOGGER CONFIG
+   ========================= */
+const BLOGGER = Object.freeze({
+  BLOG_ID: '4263033619836681299',
+  API_KEY: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
+  API_ROOT: 'https://www.googleapis.com/blogger/v3/blogs'
+});
+const CONTACT_EMAIL = 'YOUR_EMAIL@example.com';
+
+const CATEGORIES = [
+ {key:'ai',name:'AI',aliases:['ai','artificial intelligence','artificial-intelligence']},
+ {key:'robotics',name:'Robotics',aliases:['robotics','robotic','robots']},
+ {key:'hardware',name:'Hardware',aliases:['hardware','devices','gadgets']},
+ {key:'software',name:'Software',aliases:['software','apps','applications']},
+ {key:'future-tech',name:'Future Tech',aliases:['future tech','future-tech','future technology']},
+ {key:'guides',name:'Guides',aliases:['guides','guide','how to','how-to']},
+ {key:'reviews',name:'Reviews',aliases:['reviews','review']},
+ {key:'ethics',name:'Ethics',aliases:['ethics','technology ethics','ai ethics']}
+];
+
+const NAV = CATEGORIES.map(c=>({label:c.name, href:'?category='+c.key}));
+NAV.push({label:'Archive',href:'?archive'});
+const app = document.getElementById('app');
+const desktopNav = document.getElementById('desktopNav');
+const mobileDrawer = document.getElementById('mobileDrawer');
+const footerSections = document.getElementById('footerSections');
+let POSTS = [];
+let postMap = new Map();
+let loadingPromise = null;
+let searchTimer = null;
+
+function escapeHTML(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function safeURL(value=''){
+  try{
+    const u=new URL(value,location.href);
+    if(['http:','https:','data:','blob:'].includes(u.protocol)) return u.href;
+  }catch(e){}
+  return '';
+}
+function stripHTML(html=''){
+  const d=document.createElement('div');d.innerHTML=html;
+  return (d.textContent||d.innerText||'').replace(/\s+/g,' ').trim();
+}
+function formatDate(value,opts={year:'numeric',month:'short',day:'numeric'}){
+  if(!value)return '';
+  const d=new Date(value); if(Number.isNaN(d.getTime()))return '';
+  return new Intl.DateTimeFormat('en-US',opts).format(d);
+}
+function calculateReadingTime(html=''){
+  const words=stripHTML(html).split(/\s+/).filter(Boolean).length;
+  return Math.max(1,Math.ceil(words/220));
+}
+function normalizeLabel(label=''){return label.toLowerCase().trim().replace(/[_-]+/g,' ').replace(/\s+/g,' ');}
+function categoryFor(post){
+  const labels=(post.labels||[]).map(normalizeLabel);
+  for(const c of CATEGORIES){
+    if(labels.some(l=>c.aliases.map(normalizeLabel).includes(l)))return c;
+  }
+  return {key:'',name:labels[0]||'Technology',aliases:[]};
+}
+function slugify(s=''){
+  return s.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/&/g,' and ').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,100);
+}
+function extractImage(post){
+  if(Array.isArray(post.images)){
+    for(const x of post.images){
+      const u=safeURL(x.url||x);
+      if(u && /^https?:/i.test(u))return u;
+    }
+  }
+  const d=document.createElement('div');d.innerHTML=post.content||'';
+  const img=[...d.querySelectorAll('img[src]')].map(x=>safeURL(x.getAttribute('src'))).find(Boolean);
+  return img||'';
+}
+function makeStableSlug(post){
+  /* Existing Blogger URL slug is preferred. If unavailable, title + stable post id.
+     This also lets old AZEXAI-style title URLs resolve by their title portion. */
+  try{
+    const u=new URL(post.url);
+    const last=u.pathname.split('/').filter(Boolean).pop()||'';
+    if(last && last!=='index.html')return decodeURIComponent(last).replace(/\.html$/,'');
+  }catch(e){}
+  return slugify(post.title)+'_'+String(post.id).replace(/\D/g,'').slice(-10);
+}
+function normalizePost(post){
+  const p={...post};
+  p.labels=Array.isArray(post.labels)?post.labels:[];
+  p.image=extractImage(post);
+  p.category=categoryFor(p);
+  p.readingTime=calculateReadingTime(post.content||'');
+  p.slug=makeStableSlug(post);
+  p.excerpt=stripHTML(post.content||'').slice(0,220);
+  p.searchText=(post.title+' '+stripHTML(post.content||'')+' '+p.labels.join(' ')).toLowerCase();
+  p.date=post.published||post.updated||'';
+  return p;
+}
+function apiURL(path,params={}){
+  const u=new URL(BLOGGER.API_ROOT+'/'+BLOGGER.BLOG_ID+'/'+path);
+  u.searchParams.set('key',BLOGGER.API_KEY);
+  Object.entries(params).forEach(([k,v])=>u.searchParams.set(k,v));
+  return u.href;
+}
+async function fetchAllPosts(){
+  if(loadingPromise)return loadingPromise;
+  loadingPromise=(async()=>{
+    const all=[];let pageToken='';
+    do{
+      const params={fetchBodies:'true',fetchImages:'true',orderBy:'published',maxResults:'50'};
+      if(pageToken)params.pageToken=pageToken;
+      const res=await fetch(apiURL('posts',params),{headers:{Accept:'application/json'}});
+      console.info('BLOGGER API STATUS:',res.status);
+      if(!res.ok)throw new Error('Blogger API request failed with status '+res.status);
+      const data=await res.json();
+      if(Array.isArray(data.items))all.push(...data.items);
+      pageToken=data.nextPageToken||'';
+    }while(pageToken);
+    const unique=new Map();
+    all.forEach(p=>{if(p&&p.id)unique.set(String(p.id),normalizePost(p));});
+    POSTS=[...unique.values()].sort((a,b)=>new Date(b.date)-new Date(a.date));
+    postMap=new Map(POSTS.map(p=>[String(p.id),p]));
+    console.info('BLOGGER POSTS LOADED:',POSTS.length);
+    return POSTS;
+  })().catch(err=>{loadingPromise=null;console.error('BLOGGER LOAD ERROR:',err);throw err;});
+  return loadingPromise;
+}
+async function fetchPostById(id){
+  const cached=postMap.get(String(id)); if(cached)return cached;
+  const res=await fetch(apiURL('posts/'+encodeURIComponent(id),{fetchBody:'true',fetchImages:'true'}),{headers:{Accept:'application/json'}});
+  console.info('BLOGGER INDIVIDUAL STATUS:',res.status);
+  if(!res.ok)throw new Error('Article request failed with status '+res.status);
+  const data=await res.json();const p=normalizePost(data);postMap.set(String(p.id),p);
+  if(!POSTS.some(x=>String(x.id)===String(p.id)))POSTS=[p,...POSTS];
+  return p;
+}
+function showLoading(kind='home'){
+  app.innerHTML=kind==='article'
+   ? '<section class="article-view"><div class="article-head"><div class="skeleton" style="height:12px;width:110px"></div><div class="skeleton" style="height:80px;width:90%;margin:20px 0"></div></div><div class="article-hero"><div class="skeleton" style="height:400px"></div></div><div class="prose"><div class="skeleton" style="height:20px;margin:15px 0"></div><div class="skeleton" style="height:20px;margin:15px 0"></div><div class="skeleton" style="height:20px;margin:15px 0;width:80%"></div></div></section>'
+   : `<section class="hero"><div class="wrap hero-inner"><div><div class="skeleton" style="height:10px;width:160px"></div><div class="skeleton" style="height:130px;width:90%;margin:20px 0"></div><div class="skeleton" style="height:18px;width:75%"></div></div></div></section><section class="section"><div class="wrap"><div class="grid">${Array.from({length:6},()=>'<div class="skeleton-card"><div class="skeleton sk-img"></div><div class="skeleton sk-line"></div><div class="skeleton sk-line"></div><div class="skeleton sk-line short"></div></div>').join('')}</div></div></section>`;
+}
+function showError(retry){
+  app.innerHTML=`<section class="section"><div class="notice center"><h2>Unable to load articles right now.</h2><p>Please try again shortly.</p><button class="btn" id="retry">Retry</button></div></section>`;
+  document.getElementById('retry').onclick=()=>{loadingPromise=null;handleRoute(true)};
+}
+function articleHref(p){return './?post='+encodeURIComponent(p.id);}
+function prettyArticleHref(p){
+  const base='./article/'+encodeURIComponent(p.slug);
+  return base;
+}
+function cardHTML(p){
+  const img=p.image?`<img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.title)}" loading="lazy" decoding="async">`:'';
+  return `<article class="card"><a class="card-media" href="${escapeHTML(prettyArticleHref(p))}" data-route aria-label="Read ${escapeHTML(p.title)}">${img}</a>
+    <div class="tag">${escapeHTML(p.category.name)}</div>
+    <h3><a href="${escapeHTML(prettyArticleHref(p))}" data-route>${escapeHTML(p.title)}</a></h3>
+    <p>${escapeHTML(p.excerpt)}</p>
+    <div class="card-foot"><span>${escapeHTML(formatDate(p.date))}</span><span>${p.readingTime} min read</span></div></article>`;
+}
+function cardsHTML(posts){
+  return posts.length?`<div class="grid">${posts.map(cardHTML).join('')}</div>`:'<div class="notice"><h2>No articles here yet.</h2><p>This section contains no matching Blogger posts.</p></div>';
+}
+function featuredHTML(p){
+  if(!p)return '';
+  const img=p.image?`<img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.title)}" decoding="async">`:'';
+  return `<div class="feature"><div class="feature-media">${img}</div><div class="feature-copy"><div class="meta">${escapeHTML(p.category.name)} / ${escapeHTML(formatDate(p.date))}</div><h2>${escapeHTML(p.title)}</h2><p>${escapeHTML(p.excerpt)}</p><div style="margin-top:18px"><a class="btn" href="${escapeHTML(prettyArticleHref(p))}" data-route>Read Story →</a></div></div></div>`;
+}
+function renderHomepage(){
+  const featured=POSTS[0];
+  const latest=POSTS.slice(0,9);
+  const categorySections=CATEGORIES.map(c=>{
+    const items=POSTS.filter(p=>p.category.key===c.key).slice(0,6);
+    return `<section class="section ${c.key==='ai'||c.key==='future-tech'?'alt':''}" id="cat-${c.key}"><div class="wrap"><div class="section-head"><h2>${escapeHTML(c.name)}</h2><a class="meta" href="./?category=${c.key}" data-route>View all →</a></div>${cardsHTML(items)}</div></section>`;
+  }).join('');
+  app.innerHTML=`<section class="hero"><div class="wrap hero-inner"><div><div class="kicker">AZEXAI / TECHNOLOGY PUBLICATION</div><h1>Technology, intelligence, and the systems shaping tomorrow.</h1><p>A serious editorial view of artificial intelligence, machines, software, hardware, and the ideas changing how we live and work.</p></div><div class="hero-meta"><span>Independent / Real articles</span><span>${POSTS.length} published</span></div></div></section>
+  <section class="section"><div class="wrap"><div class="section-head"><h2>Featured</h2><span class="label">Latest signal</span></div>${featuredHTML(featured)}</div></section>
+  <section class="section alt"><div class="wrap"><div class="section-head"><h2>Latest Stories</h2><span class="label">New from AZEXAI</span></div>${cardsHTML(latest)}</div></section>
+  <section class="section dark"><div class="wrap"><div class="section-head"><h2>Explore</h2><span class="label">By desk</span></div><div class="category-strip">${CATEGORIES.map(c=>`<a href="./?category=${c.key}" data-route><span>AZEXAI /</span><b>${c.name}</b></a>`).join('')}</div></div></section>
+  ${categorySections}
+  <section class="newsletter"><div class="wrap newsletter-inner"><div><div class="kicker">AZEXAI / FIELD NOTES</div><h2>Stay close to the signal.</h2><p>A front-end newsletter form for the publication. No subscription is claimed until a real email service is connected.</p></div><div><form id="newsletterForm"><input type="email" required placeholder="your@email.com" aria-label="Email address"><button class="btn" type="submit">Subscribe</button></form><div class="newsletter-note" id="newsletterMsg">No backend is configured yet.</div></div></div></section>`;
+}
+function renderCategory(key){
+  const c=CATEGORIES.find(x=>x.key===key);
+  const posts=c?POSTS.filter(p=>p.category.key===key):[];
+  app.innerHTML=`<section class="hero"><div class="wrap hero-inner"><div><div class="kicker">AZEXAI / SECTION</div><h1>${escapeHTML(c?c.name:'Category')}</h1><p>${posts.length} real Blogger ${posts.length===1?'article':'articles'} in this section.</p></div></div></section><section class="section"><div class="wrap"><div class="section-head"><h2>${escapeHTML(c?c.name:'Category')}</h2><span class="label">${posts.length} results</span></div>${cardsHTML(posts)}</div></section>`;
+}
+function renderArchive(){
+  const years={};
+  POSTS.forEach(p=>{const d=new Date(p.date);if(Number.isNaN(d.getTime()))return;const y=d.getFullYear(),m=d.getMonth();years[y]??={};years[y][m]??=[];years[y][m].push(p);});
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const out=Object.keys(years).sort((a,b)=>b-a).map(y=>`<div class="archive-year">${y}</div>`+Object.keys(years[y]).sort((a,b)=>b-a).map(m=>`<div class="archive-month"><h3>${months[m]}</h3><ul class="archive-list">${years[y][m].map(p=>`<li><time>${escapeHTML(formatDate(p.date,{year:'numeric',month:'short',day:'numeric'}))}</time><a href="${escapeHTML(prettyArticleHref(p))}" data-route>${escapeHTML(p.title)}</a><span class="meta">${p.readingTime} min</span></li>`).join('')}</ul></div>`).join('')).join('');
+  app.innerHTML=`<section class="hero"><div class="wrap hero-inner"><div><div class="kicker">AZEXAI / ARCHIVE</div><h1>The Archive</h1><p>Every fetched Blogger article, arranged from newest to oldest.</p></div></div></section><section class="section"><div class="wrap">${out||'<div class="notice"><h2>No articles available.</h2><p>The archive will populate when Blogger returns posts.</p></div>'}</div></section>`;
+}
+function renderSearch(query){
+  const q=query.trim().toLowerCase();
+  const results=q?POSTS.filter(p=>p.searchText.includes(q)):[];
+  app.innerHTML=`<section class="search-panel"><div class="wrap"><div class="kicker">AZEXAI / SEARCH</div><h1 style="font:500 55px var(--serif);margin:10px 0 25px">Search the publication.</h1><form class="search-form" id="searchForm"><input id="searchInput" value="${escapeHTML(query)}" placeholder="Search titles, articles, labels…" aria-label="Search"><button class="btn" type="submit">Search</button></form><p class="count" style="margin-top:14px">${q?results.length+' result'+(results.length===1?'':'s')+' for “'+escapeHTML(query)+'”':'Enter a search term.'}</p></div></section><section class="section"><div class="wrap">${q?(results.length?cardsHTML(results):'<div class="notice"><h2>No results found.</h2><p>Try another title, phrase, or category label.</p></div>'):'<div class="notice"><h2>Search AZEXAI.</h2><p>Results are taken only from the real Blogger posts loaded by this publication.</p></div>'}</div></section>`;
+  document.getElementById('searchForm').onsubmit=e=>{e.preventDefault();const v=document.getElementById('searchInput').value.trim();navigate('./?search='+encodeURIComponent(v));};
+}
+function renderAbout(){
+  app.innerHTML=`<section class="section"><div class="wrap about"><div class="kicker">AZEXAI / ABOUT</div><h1>A publication for the machinery of tomorrow.</h1><p>AZEXAI is a technology publication focused on the systems, products, ideas, and consequences behind a rapidly changing digital world.</p><p>The publication brings together reporting and analysis supplied by its connected Blogger archive, with an editorial interface designed for clarity rather than noise.</p><p>There are no invented readership figures, awards, partnerships, testimonials, or corporate claims here. AZEXAI presents the published record and lets the work speak for itself.</p></div></section>`;
+}
+function renderContact(){
+  app.innerHTML=`<section class="section"><div class="wrap about"><div class="kicker">AZEXAI / CONTACT</div><h1>Get in touch.</h1><p>For editorial questions, corrections, partnerships, or other inquiries, use the publication email configured below.</p><div class="contact-box"><div class="meta">CONTACT</div><p style="font:24px var(--serif);margin:8px 0"><a href="mailto:${escapeHTML(CONTACT_EMAIL)}">${escapeHTML(CONTACT_EMAIL)}</a></p><p class="meta">Replace YOUR_EMAIL@example.com in the single HTML file with your real address.</p></div></div></section>`;
+}
+function renderPrivacy(){
+  app.innerHTML=`<section class="section"><div class="wrap about"><div class="kicker">AZEXAI / PRIVACY</div><h1>Privacy.</h1><p>This standalone publication interface does not claim to operate a private subscriber database. The newsletter form is visual-only until a real email service is configured.</p><p>Articles are retrieved from the configured Google Blogger API endpoint. Google may process requests according to its own services and policies.</p><p>Do not enter sensitive information into the newsletter form.</p></div></section>`;
+}
+function findPostBySlug(slug){
+  const decoded=decodeURIComponent(slug);
+  let p=POSTS.find(x=>x.slug===decoded);
+  if(p)return p;
+  const normalized=decoded.replace(/\.html$/,'');
+  p=POSTS.find(x=>x.slug.replace(/\.html$/,'')===normalized);
+  if(p)return p;
+  /* Compatibility for older AZEXAI title_slug_random-id URLs:
+     match the stable title portion when the unique suffix is not part of Blogger's native URL. */
+  const titlePart=normalized.replace(/_[a-z0-9]{6,}$/i,'');
+  if(titlePart){
+    const matches=POSTS.filter(x=>slugify(x.title)===titlePart);
+    if(matches.length===1)return matches[0];
+  }
+  return null;
+}
+function renderArticle(p){
+  const img=p.image?`<div class="article-hero"><img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.title)}" fetchpriority="high"></div>`:'';
+  const idx=POSTS.findIndex(x=>String(x.id)===String(p.id));
+  const prev=POSTS[idx+1],next=POSTS[idx-1];
+  const related=POSTS.filter(x=>x.id!==p.id && (x.category.key&&x.category.key===p.category.key)).slice(0,3);
+  app.innerHTML=`<article class="article-view"><header class="article-head"><div class="tag">${escapeHTML(p.category.name)}</div><h1>${escapeHTML(p.title)}</h1><div class="article-deck">${escapeHTML(p.excerpt)}</div><div class="article-meta"><span>${escapeHTML(formatDate(p.published||p.date))}</span>${p.updated&&p.updated!==p.published?`<span>Updated ${escapeHTML(formatDate(p.updated))}</span>`:''}${p.author?.displayName?`<span>By ${escapeHTML(p.author.displayName)}</span>`:''}<span>${p.readingTime} min read</span></div><div class="article-actions"><a class="btn" href="./" data-route>← Back to Articles</a><button class="btn" id="shareBtn">Share</button><button class="btn" id="copyBtn">Copy Link</button></div></header>${img}<div class="prose" id="articleContent">${p.content||'<p>This article contains no published body content.</p>'}</div><div class="reader-nav">${prev?`<a href="${escapeHTML(prettyArticleHref(prev))}" data-route>← Previous</a>`:'<span></span>'}${next?`<a href="${escapeHTML(prettyArticleHref(next))}" data-route>Next →</a>`:''}</div>${related.length?`<section class="related"><div class="section-head"><h2>Related Stories</h2><span class="label">${escapeHTML(p.category.name)}</span></div><div class="grid">${related.map(cardHTML).join('')}</div></section>`:''}</article>`;
+  sanitizeArticleContent();
+  document.getElementById('copyBtn').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);document.getElementById('copyBtn').textContent='Copied';setTimeout(()=>document.getElementById('copyBtn').textContent='Copy Link',1500)}catch(e){prompt('Copy this article URL:',location.href)}};
+  document.getElementById('shareBtn').onclick=async()=>{if(navigator.share){try{await navigator.share({title:p.title,url:location.href})}catch(e){}}else{try{await navigator.clipboard.writeText(location.href);alert('Article link copied.')}catch(e){prompt('Share this article URL:',location.href)}}};
+}
+function sanitizeArticleContent(){
+  const root=document.getElementById('articleContent');if(!root)return;
+  root.querySelectorAll('script,style,object,embed,form').forEach(x=>x.remove());
+  root.querySelectorAll('[style]').forEach(x=>x.removeAttribute('style'));
+  root.querySelectorAll('img').forEach((img,i)=>{
+    const src=safeURL(img.getAttribute('src')||'');if(!src)img.remove();else{img.setAttribute('src',src);img.loading=i===0?'eager':'lazy';img.decoding='async';img.removeAttribute('width');img.removeAttribute('height');}
   });
-
-  const CATEGORY_MAP = Object.freeze({
-    'ai': ['ai','artificial intelligence','artificial-intelligence','artificial_intelligence','machine learning','machine-learning','ml'],
-    'robotics': ['robotics','robot','robots'],
-    'hardware': ['hardware','devices','device','computing hardware'],
-    'software': ['software','apps','applications','developer','development'],
-    'future-tech': ['future tech','future-tech','future technology','emerging technology','emerging-tech'],
-    'guides': ['guides','guide','how-to','how to','tutorial','tutorials'],
-    'reviews': ['reviews','review','hands-on','hands on'],
-    'ethics': ['ethics','ethical','responsible technology','responsible-tech']
+  root.querySelectorAll('a').forEach(a=>{
+    const href=safeURL(a.getAttribute('href')||'');if(!href){a.removeAttribute('href');return}
+    a.setAttribute('href',href);
+    if(new URL(href,location.href).origin!==location.origin){a.target='_blank';a.rel='noopener noreferrer'}
   });
-  const CATEGORY_LABELS = Object.freeze({
-    'ai':'AI','robotics':'Robotics','hardware':'Hardware','software':'Software','future-tech':'Future Tech','guides':'Guides','reviews':'Reviews','ethics':'Ethics'
-  });
-
-  const state = { posts: [], postMap: new Map(), loading: false, loadPromise: null, error: null, searchTimer: null, renderToken: 0 };
-  const $ = (sel, root=document) => root.querySelector(sel);
-  const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
-  const main = $('#main');
-
-  function escapeHtml(value='') {
-    return String(value).replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[ch]));
+}
+function updateSEO({title='AZEXAI — Technology, intelligence, and the systems shaping tomorrow.',description='Technology, intelligence, and the systems shaping tomorrow.',image='',type='website'}){
+  document.title=title;
+  const canonical=document.getElementById('canonical'),url=location.href;
+  canonical.href=url;
+  document.getElementById('ogTitle').content=title;document.getElementById('ogDescription').content=description;document.getElementById('ogImage').content=image||'';document.getElementById('ogUrl').content=url;
+  document.getElementById('twTitle').content=title;document.getElementById('twDescription').content=description;document.getElementById('twImage').content=image||'';
+  let ld=document.getElementById('jsonld');if(!ld){ld=document.createElement('script');ld.type='application/ld+json';ld.id='jsonld';document.head.appendChild(ld)}
+  const base={ '@context':'https://schema.org', '@graph':[
+   {'@type':'Organization','name':'AZEXAI','url':location.origin,'description':'Technology, intelligence, and the systems shaping tomorrow.'},
+   {'@type':'WebSite','name':'AZEXAI','url':location.origin,'potentialAction':{'@type':'SearchAction','target':location.origin+location.pathname+'?search={search_term_string}','query-input':'required name=search_term_string'}}
+  ]};
+  if(type==='article')base['@graph'].push({'@type':'Article','headline':title,'description':description,'image':image?[image]:[],'url':url,'publisher':{'@type':'Organization','name':'AZEXAI'}});
+  ld.textContent=JSON.stringify(base);
+}
+function updateURL(href){history.pushState({},'',href);window.scrollTo(0,0);}
+function navigate(href){updateURL(href);handleRoute();}
+function route(){
+  const path=decodeURIComponent(location.pathname);
+  const q=new URLSearchParams(location.search);
+  if(path.includes('/article/')){
+    return {type:'articleSlug',slug:path.split('/article/')[1].replace(/^\/+/,'')};
   }
-
-  function setMeta(name, content) {
-    let el = document.querySelector(`meta[name="${CSS.escape(name)}"]`);
-    if (!el) { el = document.createElement('meta'); el.setAttribute('name', name); document.head.appendChild(el); }
-    el.setAttribute('content', content || '');
-  }
-  function setProperty(property, content) {
-    let el = document.querySelector(`meta[property="${CSS.escape(property)}"]`);
-    if (!el) { el = document.createElement('meta'); el.setAttribute('property', property); document.head.appendChild(el); }
-    el.setAttribute('content', content || '');
-  }
-  function updateSEO({title, description, image, type='website', url=location.href, article=null}={}) {
-    const t = title || 'AZEXAI — Technology, intelligence, and the systems shaping tomorrow.';
-    const d = description || 'Technology, intelligence, and the systems shaping tomorrow.';
-    document.title = t;
-    setMeta('description', d);
-    setProperty('og:title', t); setProperty('og:description', d); setProperty('og:type', type); setProperty('og:url', url); setProperty('og:image', image || '');
-    setProperty('twitter:title', t); setProperty('twitter:description', d); setProperty('twitter:image', image || '');
-    const canonical = $('#canonicalLink'); if (canonical) canonical.href = url;
-    if (article) {
-      setMeta('author', article.authorName || 'AZEXAI');
-      setProperty('article:published_time', article.published || '');
-      setProperty('article:modified_time', article.updated || article.published || '');
-      if (article.labels.length) setProperty('article:section', article.labels[0]);
+  if(q.has('post'))return {type:'articleId',id:q.get('post')};
+  if(q.has('search'))return {type:'search',query:q.get('search')};
+  if(q.has('category'))return {type:'category',key:q.get('category')};
+  if(q.has('archive'))return {type:'archive'};
+  if(q.has('about'))return {type:'about'};
+  if(q.has('contact'))return {type:'contact'};
+  if(q.has('privacy'))return {type:'privacy'};
+  return {type:'home'};
+}
+async function handleRoute(preserveLoading=false){
+  if(!preserveLoading)showLoading(route().type==='articleId'||route().type==='articleSlug'?'article':'home');
+  try{
+    await fetchAllPosts();
+    const r=route();
+    if(r.type==='articleId'){
+      let p=postMap.get(String(r.id));if(!p)p=await fetchPostById(r.id);
+      if(!p)return renderNotFound('Article not found');
+      renderArticle(p);updateSEO({title:p.title+' — AZEXAI',description:p.excerpt,image:p.image,type:'article'});
+    }else if(r.type==='articleSlug'){
+      const p=findPostBySlug(r.slug);
+      if(!p)return renderNotFound('Article not found');
+      renderArticle(p);updateSEO({title:p.title+' — AZEXAI',description:p.excerpt,image:p.image,type:'article'});
+    }else if(r.type==='category'){
+      renderCategory(r.key);updateSEO({});
+    }else if(r.type==='archive'){
+      renderArchive();updateSEO({title:'Archive — AZEXAI'});
+    }else if(r.type==='search'){
+      renderSearch(r.query);updateSEO({title:'Search — AZEXAI'});
+    }else if(r.type==='about'){
+      renderAbout();updateSEO({title:'About — AZEXAI'});
+    }else if(r.type==='contact'){
+      renderContact();updateSEO({title:'Contact — AZEXAI'});
+    }else if(r.type==='privacy'){
+      renderPrivacy();updateSEO({title:'Privacy — AZEXAI'});
+    }else{
+      renderHomepage();updateSEO({});
     }
-    syncStructuredData({title:t,description:d,image,url,type,article});
-  }
-
-  function syncStructuredData({title, description, image, url, type, article}) {
-    const old = document.getElementById('dynamicStructuredData'); if (old) old.remove();
-    const graph = [];
-    graph.push({ '@type':'Organization', '@id': location.origin + location.pathname + '#organization', name:'AZEXAI', url: location.origin + location.pathname });
-    graph.push({ '@type':'WebSite', '@id': location.origin + location.pathname + '#website', name:'AZEXAI', url: location.origin + location.pathname, description });
-    if (article) {
-      graph.push({ '@type':'BreadcrumbList', itemListElement:[
-        {'@type':'ListItem', position:1, name:'Home', item:location.origin + location.pathname},
-        {'@type':'ListItem', position:2, name:'Article', item:url}
-      ]});
-      graph.push({ '@type':'Article', headline:title, description, url, image:image ? [image] : undefined,
-        datePublished:article.published, dateModified:article.updated || article.published, author:{'@type':'Person', name:article.authorName || 'AZEXAI'}, publisher:{'@type':'Organization',name:'AZEXAI'}
-      });
-    }
-    const script=document.createElement('script');script.id='dynamicStructuredData';script.type='application/ld+json';script.textContent=JSON.stringify({'@context':'https://schema.org','@graph':graph});document.head.appendChild(script);
-  }
-
-  function updateURL(params, replace=false) {
-    const url = new URL(location.href);
-    url.search = '';
-    Object.entries(params).forEach(([k,v])=>{if(v!==undefined && v!==null && v!=='')url.searchParams.set(k,v)});
-    const method = replace ? 'replaceState' : 'pushState';
-    history[method]({}, '', url.pathname + (url.search ? url.search : ''));
-  }
-
-  function currentRoute() {
-    const p = new URLSearchParams(location.search);
-    if (p.has('post')) return {name:'post', id:p.get('post')};
-    if (p.has('search')) return {name:'search', query:p.get('search') || ''};
-    if (p.has('category')) return {name:'category', category:normalizeCategoryKey(p.get('category'))};
-    if (p.has('archive')) return {name:'archive'};
-    if (p.has('about')) return {name:'about'};
-    if (p.has('contact')) return {name:'contact'};
-    if (p.has('privacy')) return {name:'privacy'};
-    return {name:'home'};
-  }
-
-  function normalizeCategoryKey(value='') {
-    const key=String(value).trim().toLowerCase();
-    if (CATEGORY_LABELS[key]) return key;
-    const found=Object.entries(CATEGORY_LABELS).find(([,label])=>label.toLowerCase()===key);
-    return found ? found[0] : key;
-  }
-
-  function categoryForPost(post) {
-    for (const [key, variants] of Object.entries(CATEGORY_MAP)) {
-      const has = post.labels.some(l => variants.some(v => normalizeLabel(l) === normalizeLabel(v)));
-      if (has) return key;
-    }
-    return post.labels[0] ? slugify(post.labels[0]) : 'uncategorized';
-  }
-  function normalizeLabel(label=''){return String(label).toLowerCase().replace(/[–—]/g,'-').replace(/[\s_]+/g,' ').replace(/\s*[-]\s*/g,'-').trim()}
-  function slugify(v=''){return String(v).toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
-  function formatCategory(post){const c=categoryForPost(post); return CATEGORY_LABELS[c] || post.labels[0] || 'Technology'}
-
-  function extractImage(content='') {
-    try {
-      const doc = new DOMParser().parseFromString(content, 'text/html');
-      const img = doc.querySelector('img[src], img[data-src], img[data-original]');
-      if (!img) return '';
-      return img.getAttribute('src') || img.getAttribute('data-src') || img.getAttribute('data-original') || '';
-    } catch { return ''; }
-  }
-  function extractImageFromPost(raw) {
-    if (Array.isArray(raw?.images) && raw.images.length) {
-      const candidate = raw.images.find(i => i && i.url);
-      if (candidate?.url) return candidate.url;
-    }
-    return extractImage(raw?.content || '');
-  }
-
-  function stripHtml(html='') {
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    return (doc.body.textContent || '').replace(/\s+/g,' ').trim();
-  }
-  function excerptFromContent(content='', max=190) {
-    const t=stripHtml(content); return t.length>max ? t.slice(0,max-1).trim()+'…' : t;
-  }
-  function calculateReadingTime(content='') {
-    const words=stripHtml(content).split(/\s+/).filter(Boolean).length;
-    return Math.max(1, Math.ceil(words/220));
-  }
-  function formatDate(date, opts={}) { try{return new Intl.DateTimeFormat(undefined,{year:'numeric',month:'short',day:'numeric',...opts}).format(new Date(date));}catch{return date||'';} }
-  function formatMonth(date) { try{return new Intl.DateTimeFormat(undefined,{month:'long'}).format(new Date(date));}catch{return '';}}
-  function yearOf(date){return new Date(date).getFullYear();}
-
-  function sanitizeArticleHTML(html='') {
-    const doc=new DOMParser().parseFromString(html,'text/html');
-    $$('script,object,embed,applet,base,meta,link',doc).forEach(el=>el.remove());
-    $$('*',doc).forEach(el=>{
-      [...el.attributes].forEach(attr=>{
-        if (/^on/i.test(attr.name)) el.removeAttribute(attr.name);
-        if (attr.name.toLowerCase()==='style') {
-          // Keep Blogger styling except explicit scripting URLs.
-          if (/url\s*\(\s*['"]?javascript:/i.test(attr.value)) el.removeAttribute('style');
-        }
-        if ((attr.name.toLowerCase()==='href' || attr.name.toLowerCase()==='src') && /^\s*javascript:/i.test(attr.value)) el.removeAttribute(attr.name);
-      });
-    });
-    $$('a[target="_blank"]',doc).forEach(a=>{a.setAttribute('rel','noopener noreferrer')});
-    $$('img',doc).forEach(img=>{
-      img.loading='lazy'; img.decoding='async'; img.removeAttribute('width'); img.removeAttribute('height');
-      const src=img.getAttribute('src')||''; if(!img.alt)img.alt=''; if(src.startsWith('//'))img.src=location.protocol+src;
-    });
-    $$('table',doc).forEach(table=>{
-      const wrap=doc.createElement('div'); wrap.style.overflow='auto'; wrap.style.maxWidth='100%'; table.parentNode.insertBefore(wrap,table); wrap.appendChild(table);
-    });
-    return doc.body.innerHTML;
-  }
-
-  function normalizePost(raw) {
-    const content=raw?.content || '';
-    const published=raw?.published || raw?.updated || new Date().toISOString();
-    return {
-      id:String(raw?.id || ''), title:String(raw?.title || 'Untitled'), content, published, updated:raw?.updated || published,
-      labels:Array.isArray(raw?.labels) ? raw.labels.map(String) : [], authorName:String(raw?.author?.displayName || raw?.author?.display_name || raw?.author?.name || ''),
-      authorUrl:String(raw?.author?.url || ''), url:String(raw?.url || ''), image:extractImageFromPost(raw), readingTime:calculateReadingTime(content), excerpt:excerptFromContent(content), searchText:((String(raw?.title||'')+' '+stripHtml(content)+' '+(Array.isArray(raw?.labels)?raw.labels.join(' '):'' )).toLowerCase()), category:formatCategory({labels:Array.isArray(raw?.labels)?raw.labels.map(String):[], id:String(raw?.id||'')})
+    bindRoutes();bindNewsletter();
+  }catch(e){showError();console.error('AZEXAI ROUTE ERROR:',e)}
+}
+function renderNotFound(title){
+  app.innerHTML=`<section class="section"><div class="notice center"><div class="kicker">AZEXAI / 404</div><h2>${escapeHTML(title)}</h2><p>The requested article could not be matched to a real Blogger post.</p><a class="btn" href="./" data-route>Back to AZEXAI</a></div></section>`;
+  updateSEO({title:'Article not found — AZEXAI'});
+}
+function bindRoutes(){
+  document.querySelectorAll('[data-route]').forEach(a=>{
+    a.onclick=e=>{
+      const href=a.getAttribute('href');if(!href)return;
+      const u=new URL(href,location.href);
+      if(u.origin===location.origin){e.preventDefault();navigate(u.pathname+u.search+u.hash);closeDrawer();}
     };
-  }
-
-  async function apiFetch(path, params={}) {
-    const url=new URL(BLOGGER_CONFIG.API_BASE + path);
-    const cleanParams={...params, key:BLOGGER_CONFIG.API_KEY};
-    Object.entries(cleanParams).forEach(([k,v])=>url.searchParams.set(k,v));
-    const safeUrl = url.origin + url.pathname;
-    try {
-      const response=await fetch(url.toString(),{headers:{'Accept':'application/json'}});
-      console.info('BLOGGER API STATUS:', response.status, safeUrl);
-      const data=await response.json().catch(()=>null);
-      if (!response.ok) {
-        const err=new Error('Blogger API request failed'); err.status=response.status; err.payload=data; throw err;
-      }
-      return data;
-    } catch (err) {
-      if (err?.status) console.error('BLOGGER API REQUEST FAILED:', err.status, err.payload?.error?.message || 'No diagnostic message returned');
-      else console.error('BLOGGER API NETWORK ERROR:', err?.message || err);
-      throw err;
-    }
-  }
-
-  async function fetchAllPosts() {
-    if (state.posts.length) return state.posts;
-    if (state.loadPromise) return state.loadPromise;
-    state.loadPromise=(async()=>{
-      state.loading=true; state.error=null;
-      try {
-        const collected=[]; let pageToken=''; let page=0;
-        do {
-          const params={fetchBodies:'true',fetchImages:'true',orderBy:'published',maxResults:'50'};
-          if(pageToken) params.pageToken=pageToken;
-          const data=await apiFetch(`/blogs/${encodeURIComponent(BLOGGER_CONFIG.BLOG_ID)}/posts`,params);
-          const items=Array.isArray(data?.items)?data.items:[]; collected.push(...items);
-          pageToken=data?.nextPageToken || ''; page++;
-          console.info('BLOGGER POSTS PAGE:',page,'ITEMS:',items.length,'HAS NEXT PAGE TOKEN:',!!pageToken);
-        } while(pageToken);
-        const map=new Map(); collected.forEach(raw=>{const n=normalizePost(raw); if(n.id) map.set(n.id,n);});
-        state.posts=[...map.values()].sort((a,b)=>new Date(b.published)-new Date(a.published));
-        state.postMap=new Map(state.posts.map(p=>[p.id,p]));
-        console.info('BLOGGER POSTS LOADED:',state.posts.length);
-        return state.posts;
-      } catch(err) { state.error=err; throw err; }
-      finally { state.loading=false; state.loadPromise=null; }
-    })();
-    return state.loadPromise;
-  }
-
-  async function fetchPostById(id) {
-    if (!id) throw new Error('Missing post id');
-    const data=await apiFetch(`/blogs/${encodeURIComponent(BLOGGER_CONFIG.BLOG_ID)}/posts/${encodeURIComponent(id)}`,{fetchBodies:'true',fetchImages:'true'});
-    return normalizePost(data);
-  }
-
-  function setActiveNav(route) {
-    $$('nav.primary-nav a, .mobile-panel a, .footer-nav a').forEach(a=>a.removeAttribute('aria-current'));
-    $$('a[data-route="home"]',document).forEach(a=>{if(route.name==='home')a.setAttribute('aria-current','page')});
-    $$('a[data-route="archive"]',document).forEach(a=>{if(route.name==='archive')a.setAttribute('aria-current','page')});
-    $$('a[data-route="about"]',document).forEach(a=>{if(route.name==='about')a.setAttribute('aria-current','page')});
-    $$('a[data-route="contact"]',document).forEach(a=>{if(route.name==='contact')a.setAttribute('aria-current','page')});
-    $$('a[data-route="category"]',document).forEach(a=>{if(route.name==='category'&&a.dataset.category===route.category)a.setAttribute('aria-current','page')});
-  }
-
-  function showLoading(mode='grid') {
-    if(mode==='grid') main.innerHTML=`<section class="page"><div class="page-inner"><div class="section-head"><div><div class="kicker">AZEXAI / LOADING</div><h2>Gathering the latest reporting.</h2></div></div><div class="skeleton-grid">${Array.from({length:6}).map(()=>`<div class="skeleton"><div class="sk sk-media"></div><div class="sk-line sk wide"></div><div class="sk-line sk mid"></div><div class="sk-line sk wide"></div><div class="sk-line sk short"></div></div>`).join('')}</div></div></section>`;
-    else main.innerHTML=`<div class="state"><div class="kicker">AZEXAI / LOADING</div><h2>Opening the archive.</h2><p>Fetching the publication feed from Blogger.</p></div>`;
-  }
-  function showError() { main.innerHTML=`<div class="state"><div class="kicker">AZEXAI / CONNECTION</div><h2>Unable to load articles right now.</h2><p>Please try again shortly.</p><button class="retry" id="retryButton">Retry</button></div>`; $('#retryButton')?.addEventListener('click',()=>handleRoute(true)); }
-
-  function cardHTML(post){
-    const image=post.image ? `<img src="${escapeHtml(post.image)}" alt="" loading="lazy" decoding="async">` : `<div aria-hidden="true" style="width:100%;height:100%;display:grid;place-items:center;color:#9a9182;font:700 .6rem var(--mono);letter-spacing:.1em;text-transform:uppercase">AZEXAI / STORY</div>`;
-    return `<article class="card"><a href="index.html?post=${encodeURIComponent(post.id)}" data-post-link="${escapeHtml(post.id)}" aria-label="Read: ${escapeHtml(post.title)}"><div class="card-media">${image}</div><div class="card-body"><div class="card-label">${escapeHtml(post.category)}</div><h3>${escapeHtml(post.title)}</h3><p class="card-excerpt">${escapeHtml(post.excerpt)}</p><div class="card-meta"><span>${escapeHtml(formatDate(post.published))}</span><span>${post.readingTime} min read</span></div></div></a></article>`;
-  }
-  function renderCards(posts){return posts.length ? `<div class="grid-articles">${posts.map(cardHTML).join('')}</div>` : `<div class="state" style="padding:2rem 0"><div class="kicker">AZEXAI / EMPTY</div><h2>No matching articles.</h2><p>This section contains no Blogger posts matching the current filter.</p></div>`}
-
-  function renderHome(posts) {
-    if (!posts.length) {
-      main.innerHTML=`<section class="page"><div class="state"><div class="kicker">AZEXAI / BLOGGER</div><h2>No published posts were returned.</h2><p>The live Blogger feed is reachable, but it currently contains no published posts available to this page.</p></div></section>`; return;
-    }
-    const featured=posts[0], latest=posts.slice(0,6), byCat={}; Object.keys(CATEGORY_LABELS).forEach(k=>byCat[k]=posts.filter(p=>categoryForPost(p)===k).slice(0,4));
-    const morePosts=posts.slice(6,14);
-    const signal=posts.slice(0,10);
-    const yearMap={}; posts.forEach(p=>{const y=new Date(p.published).getFullYear();yearMap[y]=(yearMap[y]||0)+1});
-    const years=Object.entries(yearMap).sort((a,b)=>b[0]-a[0]).slice(0,6);
-    main.innerHTML=`
-      <section class="ax-opening" aria-label="AZEXAI introduction"><div class="ax-opening-grid"></div><div class="ax-opening-top"><span>AZEXAI / INTELLIGENCE</span><span>EST. IN THE FEED</span></div><div class="ax-opening-core"><div class="ax-opening-mark">AZ<span>/</span>EXAI</div><p>Technology, intelligence, and the systems shaping tomorrow.</p></div><div class="ax-opening-bottom"><span>LIVE ARCHIVE</span><span>${posts.length} STORIES INDEXED</span><span>SCROLL TO ENTER</span></div></section>
-      <section class="hero"><div class="hero-inner"><div class="hero-intro"><div class="kicker" style="color:#c3a96d">AZEXAI / TECHNOLOGY PUBLICATION</div><h1 class="display">The systems behind what comes next.</h1><p class="hero-lead">Independent reporting, analysis, reviews, and field notes on the technologies reshaping work, culture, machines, and the future.</p><div class="hero-actions"><a class="read-link" href="index.html?post=${encodeURIComponent(featured.id)}" data-post-link="${escapeHtml(featured.id)}">Enter the lead story <span>↗</span></a><button class="hero-index-btn" id="openIndex" type="button">Open the index <span>⌘ /</span></button></div></div><div class="hero-rule"></div></div></section>
-      <div class="editorial-index"><span>Live archive · ${posts.length} indexed stories · latest first</span><span class="index-ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
-      <section class="ax-newsroom content-section"><div class="ax-section-top"><div><div class="kicker">AZEXAI / NEWSROOM</div><h2>Signals moving now</h2></div><span>Live Blogger archive</span></div><div class="ax-news-tape">${signal.map((p,i)=>`<a href="index.html?post=${encodeURIComponent(p.id)}" data-post-link="${escapeHtml(p.id)}"><b>${String(i+1).padStart(2,'0')}</b><span>${escapeHtml(p.title)}</span><em>${escapeHtml(p.category)}</em></a>`).join('')}</div></section>
-      <section class="content-section"><div class="section-head"><div><div class="kicker">Featured story</div><h2>Lead report</h2></div><span class="section-note">Live Blogger feed</span></div><article class="featured ax-featured"><a class="featured-media" href="index.html?post=${encodeURIComponent(featured.id)}" data-post-link="${escapeHtml(featured.id)}" aria-label="Read featured: ${escapeHtml(featured.title)}">${featured.image?`<img src="${escapeHtml(featured.image)}" alt="" fetchpriority="high" decoding="async">`:`<div style="width:100%;height:100%;display:grid;place-items:center;font:700 .65rem var(--mono);color:#6d746e">AZEXAI / FEATURE</div>`}<span class="ax-feature-stamp">01 / LEAD</span></a><div class="featured-copy"><div><div class="kicker">${escapeHtml(featured.category)}</div><h1 class="display">${escapeHtml(featured.title)}</h1><p>${escapeHtml(featured.excerpt)}</p><div class="meta-row"><span>${escapeHtml(formatDate(featured.published))}</span><span class="meta-dot"></span><span>${featured.readingTime} min read</span>${featured.authorName?`<span class="meta-dot"></span><span>By ${escapeHtml(featured.authorName)}</span>`:''}</div></div><a class="read-link" href="index.html?post=${encodeURIComponent(featured.id)}" data-post-link="${escapeHtml(featured.id)}">Read story <span>→</span></a></div></article></section>
-      <section class="ax-index-section content-section"><div class="ax-index-intro"><div><div class="kicker">AZEXAI / INDEX</div><h2>One archive.<br><i>Many futures.</i></h2></div><p>Every signal below comes from the live publication archive. Nothing is invented; the interface simply reveals the scale and shape of the reporting.</p></div><div class="ax-index-grid">${years.map(([y,count],i)=>`<a href="index.html?archive#year-${y}" class="ax-year-card"><span>${String(i+1).padStart(2,'0')}</span><strong>${y}</strong><em>${count} ${count===1?'story':'stories'}</em><i>→</i></a>`).join('')}</div></section>
-      <section class="content-section" style="padding-top:0"><div class="section-head"><div><div class="kicker">Latest</div><h2>Recent reporting</h2></div><span class="section-note">${posts.length} stories in archive</span></div>${renderCards(latest)}</section>
-      ${Object.entries(CATEGORY_LABELS).map(([key,label],i)=>{const catPosts=byCat[key]; if(!catPosts.length)return ''; const tint=i%3===0?'green':i%3===1?'':'rust'; if(i===0 || i===3 || i===6){return `<section class="split-section ax-world"><div class="split-copy ${tint}"><div><div class="kicker">AZEXAI / ${escapeHtml(label)}</div><h2>${escapeHtml(label)}</h2><p>Stories filed under ${escapeHtml(label)} from the live Blogger archive.</p></div><a class="read-link" style="color:#d4b879;border-color:#d4b879" href="index.html?category=${key}" data-route="category">Browse ${escapeHtml(label)} <span>→</span></a></div><div class="split-grid">${renderCards(catPosts)}</div></section>`} return `<section class="content-section ax-world" style="padding-top:0"><div class="section-head"><div><div class="kicker">AZEXAI / ${escapeHtml(label)}</div><h2>${escapeHtml(label)}</h2></div><a class="section-note" href="index.html?category=${key}">View section →</a></div>${renderCards(catPosts)}</section>`;}).join('')}
-      ${morePosts.length?`<section class="content-section ax-desk" style="padding-top:0"><div class="section-head"><div><div class="kicker">Explore</div><h2>More from the desk</h2></div><span class="section-note">Unfiltered archive order</span></div>${renderCards(morePosts)}</section>`:''}
-      <section class="ax-final-portal"><div><div class="kicker">AZEXAI / THE NEXT FILE</div><h2>There is more<br>in the archive.</h2></div><a href="index.html?archive" data-route="archive">Enter the archive <span>↗</span></a></section>
-      <section class="archive-teaser"><div class="archive-teaser-inner"><div><div class="kicker">The archive</div><h2>Years of technology, properly indexed.</h2><p>Browse every fetched Blogger post by year and month, newest to oldest.</p></div><div><a class="archive-button" href="index.html?archive" data-route="archive">Open archive <span>→</span></a></div></div></section>
-      <section class="newsletter"><div class="newsletter-inner"><div><div class="kicker" style="color:#f0d7c7">Editorial letter</div><h2>Signal, not noise.</h2><p>A front-end newsletter form for the publication. No backend subscription is claimed until a real email service is connected.</p><div class="newsletter-note">No false subscription confirmation · Replace with your provider later</div></div><div><form class="newsletter-form" id="newsletterForm"><input type="email" id="newsletterEmail" placeholder="your@email.com" aria-label="Email address" required><button type="submit">Subscribe →</button></form><div class="form-message" id="newsletterMessage" role="status"></div></div></div></section>`;
-    bindDynamic();
-    const idx=document.getElementById('openIndex'); if(idx) idx.addEventListener('click',()=>document.querySelector('.ax-index-section')?.scrollIntoView({behavior:'smooth'}));
-    initOpening(); initStoryHover();
-  }
-
-  function renderCategory(posts,key){
-    const label=CATEGORY_LABELS[key] || key.replace(/-/g,' ').replace(/\b\w/g,m=>m.toUpperCase());
-    const filtered=posts.filter(p=>categoryForPost(p)===key);
-    updateSEO({title:`${label} — AZEXAI`,description:`AZEXAI coverage of ${label.toLowerCase()}.`});
-    main.innerHTML=`<section class="page-hero"><div class="kicker">AZEXAI / CATEGORY</div><h1 class="display">${escapeHtml(label)}</h1><p>Real Blogger posts filed under the ${escapeHtml(label)} editorial category.</p></section><div class="filter-row">${Object.entries(CATEGORY_LABELS).map(([k,v])=>`<a class="filter-chip ${k===key?'active':''}" href="index.html?category=${k}">${escapeHtml(v)}</a>`).join('')}</div><section class="content-section" style="padding-top:1rem"><div class="section-head"><div><div class="kicker">${filtered.length} stories</div><h2>Latest in ${escapeHtml(label)}</h2></div><span class="section-note">Newest first</span></div>${renderCards(filtered)}</section>`;
-    bindDynamic();
-  }
-
-  function renderSearch(posts,query){
-    const q=query.trim().toLowerCase();
-    const results=q ? posts.filter(p=>p.searchText.includes(q)) : [];
-    updateSEO({title:q?`Search: ${q} — AZEXAI`:'Search — AZEXAI',description:q?`Search results for ${q} in the AZEXAI Blogger archive.`:'Search the AZEXAI technology archive.'});
-    main.innerHTML=`<section class="page-hero"><div class="kicker">AZEXAI / SEARCH</div><h1 class="display">Find the story.</h1><p>Search across titles, article text, and Blogger labels.</p></section><div class="search-wrap"><form class="search-box" id="searchForm"><input id="searchInput" value="${escapeHtml(query)}" placeholder="Search AZEXAI" autocomplete="off" aria-label="Search AZEXAI"><span class="search-count">${results.length} result${results.length===1?'':'s'}</span></form></div><section class="content-section" style="padding-top:1.2rem">${q?`<div class="search-results-head"><strong>${results.length} real archive result${results.length===1?'':'s'}</strong><span class="section-note">Title · article · labels</span></div>${results.length?renderCards(results):`<div class="search-empty"><div class="kicker">AZEXAI / NO MATCH</div><h2 class="display">Nothing in the live archive.</h2><p>AZEXAI found no Blogger posts matching “${escapeHtml(query)}”. Try another term.</p></div>`}`:`<div class="search-empty"><div class="kicker">AZEXAI / SEARCH</div><h2 class="display">Search the real archive.</h2><p>Results are generated only from the fetched Blogger posts—never from sample or invented content.</p></div>`}</section>`;
-    const input=$('#searchInput');
-    $('#searchForm')?.addEventListener('submit',e=>{e.preventDefault();const v=input.value.trim();updateURL(v?{search:v}:{},false);handleRoute(false);});
-    input?.addEventListener('input',()=>{clearTimeout(state.searchTimer);state.searchTimer=setTimeout(()=>{const v=input.value.trim();updateURL(v?{search:v}:{},true);handleRoute(false)},260)});
-    bindDynamic();
-  }
-
-  function renderArchive(posts){
-    updateSEO({title:'Archive — AZEXAI',description:'The complete AZEXAI archive, organized by year and month.'});
-    const groups=new Map(); posts.forEach(p=>{const y=yearOf(p.published), m=new Date(p.published).getMonth(); if(!groups.has(y))groups.set(y,new Map()); if(!groups.get(y).has(m))groups.get(y).set(m,[]);groups.get(y).get(m).push(p);});
-    const years=[...groups.keys()].sort((a,b)=>b-a);
-    const html=years.map(y=>{const months=[...groups.get(y).entries()].sort((a,b)=>b[0]-a[0]);return `<section class="year-block"><div class="year-title"><h2 class="display">${y}</h2><span>${months.reduce((n,[,arr])=>n+arr.length,0)} stories</span></div>${months.map(([m,arr])=>`<div class="month-block"><div class="month-title">${escapeHtml(formatMonth(new Date(y,m,1)))}</div>${arr.sort((a,b)=>new Date(b.published)-new Date(a.published)).map(p=>`<div class="archive-row"><time datetime="${escapeHtml(p.published)}">${escapeHtml(new Intl.DateTimeFormat(undefined,{day:'2-digit'}).format(new Date(p.published)))}</time><a href="index.html?post=${encodeURIComponent(p.id)}" data-post-link="${escapeHtml(p.id)}">${escapeHtml(p.title)}</a><small>${escapeHtml(p.category)}</small></div>`).join('')}</div>`).join('')}</section>`}).join('');
-    main.innerHTML=`<section class="page-hero"><div class="kicker">AZEXAI / ARCHIVE</div><h1 class="display">The complete record.</h1><p>Every fetched Blogger post, sorted from newest to oldest and organized by publication month.</p></section><section class="archive-list">${html || `<div class="state" style="padding:3rem 0"><div class="kicker">AZEXAI / ARCHIVE</div><h2>The archive is empty.</h2><p>No published Blogger posts were returned.</p></div>`}</section>`;
-    bindDynamic();
-  }
-
-  function renderAbout(){
-    updateSEO({title:'About AZEXAI',description:'About AZEXAI, a technology publication focused on the systems shaping tomorrow.'});
-    main.innerHTML=`<section class="page-hero"><div class="kicker">AZEXAI / ABOUT</div><h1 class="display">A technology publication with an editorial point of view.</h1><p>AZEXAI examines the machines, software, infrastructure, research, and cultural questions that give technology its consequences.</p></section><section class="about-grid"><div class="editorial-panel"><div class="kicker">What we cover</div><h2>Technology as a system.</h2><p>AZEXAI is designed as a serious technology magazine: reporting, analysis, guides, reviews, field notes, and ethical context drawn from the publication’s live Blogger archive.</p><p>This site does not manufacture readership numbers, awards, partnerships, team biographies, or other claims that are not sourced from the publication itself.</p></div><div class="editorial-panel"><div class="kicker">Editorial signature</div><h2>Clear eyes. Useful detail.</h2><p>The design balances classic magazine typography with contemporary technical structure. The goal is to make difficult technology more legible without making it simplistic.</p><div class="signature-list"><div class="signature">AZEXAI / Intelligence</div><div class="signature">AZEXAI / Future</div><div class="signature">AZEXAI / Analysis</div><div class="signature">AZEXAI / Field Notes</div></div></div></section>`;
-  }
-  function renderContact(){
-    updateSEO({title:'Contact — AZEXAI',description:'Contact AZEXAI.'});
-    main.innerHTML=`<section class="page-hero"><div class="kicker">AZEXAI / CONTACT</div><h1 class="display">Open a line.</h1><p>For editorial, corrections, or general inquiries, use the details below. Replace the configured placeholder email in the single-file source with the publication’s real inbox.</p></section><section class="contact-grid"><div class="editorial-panel"><div class="kicker">Email</div><h2><a class="mailto" href="mailto:${escapeHtml(BLOGGER_CONFIG.CONTACT_EMAIL)}">${escapeHtml(BLOGGER_CONFIG.CONTACT_EMAIL)}</a></h2><p>Because the requested standalone site does not include an email backend, this page intentionally provides a simple mailto destination rather than claiming a connected contact system.</p></div><div class="editorial-panel"><div class="kicker">Front-end contact form</div><form class="contact-form" id="contactForm"><div class="field"><label for="contactName">Name</label><input id="contactName" name="name" required></div><div class="field"><label for="contactEmail">Email</label><input id="contactEmail" name="email" type="email" required></div><div class="field"><label for="contactMessage">Message</label><textarea id="contactMessage" name="message" required></textarea></div><button class="submit-btn" type="submit">Prepare email →</button><div class="contact-note" id="contactMessageStatus" role="status">No message is sent by this page; the button opens your email client.</div></form></div></section>`;
-    $('#contactForm')?.addEventListener('submit',e=>{e.preventDefault();const name=$('#contactName').value.trim(), email=$('#contactEmail').value.trim(), msg=$('#contactMessage').value.trim();const body=`Name: ${name}\nEmail: ${email}\n\n${msg}`;location.href=`mailto:${encodeURIComponent(BLOGGER_CONFIG.CONTACT_EMAIL)}?subject=${encodeURIComponent('AZEXAI contact')}&body=${encodeURIComponent(body)}`;});
-  }
-  function renderPrivacy(){
-    updateSEO({title:'Privacy — AZEXAI',description:'Privacy information for the AZEXAI single-file publication site.'});
-    main.innerHTML=`<section class="page-hero"><div class="kicker">AZEXAI / PRIVACY</div><h1 class="display">Privacy, plainly stated.</h1><p>This page describes the behavior of this standalone front-end as implemented, rather than making broader claims about services not present in the file.</p></section><article class="privacy-copy"><h2>What this site uses</h2><p>The site requests publicly available Blogger API content using the configured Blogger Blog ID and API key in the client-side source. The key is therefore visible to anyone inspecting the page, as required by this standalone architecture.</p><h2>Search and URL state</h2><p>Search terms, category state, archive state, and article IDs can appear in the page URL so links can be shared and refreshed without losing context.</p><h2>Local browser behavior</h2><p>The page uses normal browser features such as history state, the Web Share API when available, and the clipboard API for Copy Link. No analytics or advertising framework is included in this file.</p><h2>Third-party service</h2><p>Blogger API requests are sent to Google’s API endpoint. Their handling of data is governed by Google’s own policies and the configuration of the Blogger service.</p></article>`;
-  }
-
-  function renderArticle(post, posts){
-    const index=posts.findIndex(p=>p.id===post.id); const prev=index>0?posts[index-1]:null; const next=index>=0&&index<posts.length-1?posts[index+1]:null;
-    updateSEO({title:`${post.title} — AZEXAI`,description:post.excerpt,image:post.image,type:'article',url:new URL(`index.html?post=${encodeURIComponent(post.id)}`,location.href).href,article:post});
-    const published=formatDate(post.published), updated=post.updated&&post.updated!==post.published?formatDate(post.updated):'';
-    main.innerHTML=`<article class="article-shell"><header class="article-head"><div class="kicker">${escapeHtml(post.category)}</div><h1 class="display">${escapeHtml(post.title)}</h1><p class="article-dek">${escapeHtml(post.excerpt)}</p><div class="meta-row"><span>${escapeHtml(published)}</span><span class="meta-dot"></span><span>${post.readingTime} min read</span>${updated?`<span class="meta-dot"></span><span>Updated ${escapeHtml(updated)}</span>`:''}${post.authorName?`<span class="meta-dot"></span><span>By ${escapeHtml(post.authorName)}</span>`:''}</div><div class="article-actions"><a class="action-btn" href="index.html" data-route="home">← Back to Articles</a><button class="action-btn" id="shareArticle">Share</button><button class="action-btn" id="copyLink">Copy Link</button></div></header><div class="article-layout"><div class="article-content">${sanitizeArticleHTML(post.content)}</div><aside class="article-aside"><div class="aside-box"><div class="aside-label">AZEXAI / Field Notes</div><p>Original Blogger article content, rendered in full inside the AZEXAI reader.</p></div><div class="aside-box"><div class="aside-label">Article source</div><p>${post.url?`<a class="mailto" href="${escapeHtml(post.url)}" target="_blank" rel="noopener noreferrer">Open original Blogger post ↗</a>`:'Blogger post URL was not returned.'}</p></div></aside></div><footer class="article-footer"><div class="prevnext"><div>${prev?`<a href="index.html?post=${encodeURIComponent(prev.id)}" data-post-link="${escapeHtml(prev.id)}"><span>Previous</span><strong>${escapeHtml(prev.title)}</strong></a>`:''}</div><div>${next?`<a href="index.html?post=${encodeURIComponent(next.id)}" data-post-link="${escapeHtml(next.id)}"><span>Next</span><strong>${escapeHtml(next.title)}</strong></a>`:''}</div></div></footer></article>${relatedSection(post,posts)}`;
-    $('#copyLink')?.addEventListener('click',async()=>{const url=location.href;try{await navigator.clipboard.writeText(url);$('#copyLink').textContent='Copied ✓';setTimeout(()=>$('#copyLink').textContent='Copy Link',1500)}catch{prompt('Copy this article URL:',url)}});
-    $('#shareArticle')?.addEventListener('click',async()=>{const data={title:post.title,text:'AZEXAI — '+post.title,url:location.href};if(navigator.share){try{await navigator.share(data)}catch{}}else{try{await navigator.clipboard.writeText(location.href);$('#shareArticle').textContent='Link Copied ✓';setTimeout(()=>$('#shareArticle').textContent='Share',1500)}catch{prompt('Share this article URL:',location.href)}}});
-    bindDynamic();
-  }
-  function relatedSection(post,posts){
-    const related=posts.filter(p=>p.id!==post.id && (categoryForPost(p)===categoryForPost(post) || p.labels.some(l=>post.labels.includes(l)))).slice(0,3);
-    return related.length?`<section class="related"><div class="section-head"><div><div class="kicker">Related stories</div><h2>Keep reading</h2></div></div>${renderCards(related)}</section>`:'';
-  }
-
-  async function renderPostRoute(id) {
-    showLoading('article');
-    try {
-      const postsPromise=fetchAllPosts();
-      const cached=state.postMap.get(String(id));
-      const post=cached || await fetchPostById(id);
-      const posts=await postsPromise;
-      const allPosts=posts.some(p=>p.id===post.id)?posts:[post,...posts.filter(p=>p.id!==post.id)];
-      renderArticle(post,allPosts);
-    } catch(err) { showError(); }
-  }
-
-  function bindDynamic(){
-    $$('[data-post-link]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.dataset.postLink;updateURL({post:id});closeMobileMenu();handleRoute(false)}));
-    $$('[data-route]').filter(a=>a.getAttribute('data-route')!=='home'&&a.closest('#main')).forEach(a=>a.addEventListener('click',e=>{ if(a.dataset.route==='category'||a.dataset.route==='archive'||a.dataset.route==='about'||a.dataset.route==='contact'||a.dataset.route==='privacy'){e.preventDefault();closeMobileMenu();handleRouteFromAnchor(a)}}));
-    $('#newsletterForm')?.addEventListener('submit',e=>{e.preventDefault();$('#newsletterMessage').textContent='This form is intentionally front-end only; no subscription was submitted.'});
-  }
-  function handleRouteFromAnchor(a){const href=a.getAttribute('href');const u=new URL(href,location.href);history.pushState({},'',u.pathname+u.search);handleRoute(false)}
-
-  function closeMobileMenu(){const p=$('#mobilePanel');const b=$('#menuButton');if(p){p.classList.remove('open');b?.setAttribute('aria-expanded','false');b?.setAttribute('aria-label','Open menu')}}
-  function bindHeader(){
-    $('#searchButton')?.addEventListener('click',()=>{history.pushState({},'',location.pathname+'?search=');handleRoute(false);setTimeout(()=>$('#searchInput')?.focus(),50)});
-    $('#menuButton')?.addEventListener('click',()=>{const p=$('#mobilePanel'),b=$('#menuButton');const open=!p.classList.contains('open');p.classList.toggle('open',open);b.setAttribute('aria-expanded',String(open));b.setAttribute('aria-label',open?'Close menu':'Open menu')});
-    $$('.mobile-panel a, nav.primary-nav a').forEach(a=>a.addEventListener('click',()=>closeMobileMenu()));
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileMenu()});
-  }
-
-  async function handleRoute(retry=false){
-    const route=currentRoute(); setActiveNav(route); closeMobileMenu(); window.scrollTo({top:0,behavior:'auto'}); const token=++state.renderToken;
-    if(route.name==='home'){
-      showLoading('grid'); try{const posts=await fetchAllPosts();if(token!==state.renderToken)return;updateSEO({});renderHome(posts)}catch{if(token===state.renderToken)showError();}return;
-    }
-    if(route.name==='post'){await renderPostRoute(route.id);return;}
-    showLoading(route.name==='archive'?'archive':'grid');
-    try{const posts=await fetchAllPosts();if(token!==state.renderToken)return; if(route.name==='category')renderCategory(posts,route.category); else if(route.name==='search')renderSearch(posts,route.query); else if(route.name==='archive')renderArchive(posts); else if(route.name==='about')renderAbout(); else if(route.name==='contact')renderContact(); else if(route.name==='privacy')renderPrivacy();}
-    catch{if(token===state.renderToken)showError();}
-  }
-
-  window.addEventListener('popstate',()=>handleRoute(false));
-  $('#toTop')?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-  window.addEventListener('scroll',()=>$('#toTop')?.classList.toggle('visible',window.scrollY>500),{passive:true});
-  $('#year').textContent=new Date().getFullYear(); $('#topbarDate').textContent=new Intl.DateTimeFormat(undefined,{weekday:'short',year:'numeric',month:'short',day:'numeric'}).format(new Date());
-  bindHeader();
-  const siteHeader=document.querySelector('.site-header');
-  const syncHeader=()=>siteHeader?.classList.toggle('scrolled',window.scrollY>8);
-  window.addEventListener('scroll',syncHeader,{passive:true}); syncHeader();
-  handleRoute(false);
-})();
-</script>
-
-<style id="azexai-20">
-:root{--ax-black:#0d1113;--ax-ink:#15191b;--ax-paper:#f4f0e7;--ax-line:rgba(21,25,27,.15);--ax-red:#762f39;--ax-green:#294a40;--ax-gold:#b3925b}
-body{background:radial-gradient(circle at 84% 8%,rgba(179,146,91,.08),transparent 24rem),linear-gradient(180deg,#f7f3ea 0,#f4f0e7 52%,#eee9de 100%)}
-body:before{background-size:40px 40px;opacity:.55}
-.site-header{transition:box-shadow .25s ease,background .25s ease}.site-header.scrolled{box-shadow:0 7px 24px rgba(13,17,19,.08)}
-.hero{position:relative;overflow:hidden}.hero:before{content:"AZ / 02";position:absolute;right:clamp(1rem,5vw,5rem);top:clamp(1rem,4vw,4rem);font:600 clamp(4rem,12vw,11rem)/.8 var(--mono);letter-spacing:-.08em;color:rgba(16,34,44,.045);pointer-events:none}.hero-inner{position:relative}
-.editorial-index{position:relative;display:flex;justify-content:space-between;align-items:center;gap:1rem;max-width:var(--max);margin:0 auto;padding:10px clamp(1rem,3vw,3rem);border-top:1px solid var(--ax-line);border-bottom:1px solid var(--ax-line);font:600 .62rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#69716f}
-.index-ticks{display:flex;gap:4px;align-items:center}.index-ticks i{width:8px;height:2px;background:#b6aea1;display:block}.index-ticks i:nth-child(3n){width:15px;background:var(--ax-gold)}
-.content-section,.split-section,.archive-teaser,.newsletter{content-visibility:auto;contain-intrinsic-size:600px}
-.section-head{position:relative}.section-head:after{content:"";position:absolute;right:0;bottom:.5rem;width:20%;height:1px;background:linear-gradient(90deg,transparent,var(--ax-line))}
-.featured{box-shadow:0 12px 36px rgba(16,24,27,.07)}.featured-media{background:#d9d3c7;overflow:hidden}.featured-media img{transition:transform .7s cubic-bezier(.2,.7,.2,1)}.featured:hover .featured-media img{transform:scale(1.025)}
-.card{position:relative;overflow:hidden;box-shadow:none;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(17,22,24,.07)}.card-media{overflow:hidden;background:#ddd7cb}.card-media img{transition:transform .5s ease}.card:hover .card-media img{transform:scale(1.02)}.card:after{content:"";position:absolute;left:0;top:0;width:3px;height:0;background:var(--ax-red);transition:height .25s ease}.card:hover:after{height:100%}
-.read-link span,.archive-button span{transition:transform .2s ease;display:inline-block}.read-link:hover span,.archive-button:hover span{transform:translateX(4px)}
-.split-copy{position:relative;overflow:hidden}.split-copy:after{content:"";position:absolute;right:-40px;bottom:-70px;width:180px;height:180px;border:1px solid rgba(255,255,255,.12);transform:rotate(45deg);pointer-events:none}
-.page-hero{position:relative}.page-hero:after{content:"";position:absolute;right:clamp(1rem,5vw,4rem);top:1rem;width:90px;height:90px;border-top:1px solid var(--ax-gold);border-right:1px solid var(--ax-gold);opacity:.5}
-.search-wrap{position:sticky;top:74px;z-index:20;padding:8px 0;background:rgba(244,240,231,.94);backdrop-filter:blur(8px)}.search-box{box-shadow:0 10px 28px rgba(16,22,24,.06)}.search-box input{min-width:0}
-.article-progress{position:fixed;top:0;left:0;width:0;height:3px;background:var(--ax-red);z-index:2000;transition:width .08s linear}
-.article-side-index{position:absolute;left:0;top:0;transform:translateX(-115%);width:110px;font:600 .56rem/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#7a817e}.article-side-index b{display:block;color:var(--ax-red);margin-bottom:5px}
-.ax-command{position:fixed;right:20px;bottom:20px;z-index:900;width:44px;height:44px;border:1px solid #bfb7a9;background:rgba(247,243,234,.94);color:var(--ax-ink);font:700 .72rem var(--mono);box-shadow:0 8px 24px rgba(20,24,27,.12);transition:transform .2s ease,background .2s ease}.ax-command:hover{transform:translateY(-2px);background:#fffdf7}
-.ax-command-panel{position:fixed;inset:0;z-index:1900;background:rgba(13,17,19,.45);backdrop-filter:blur(3px);display:grid;place-items:start center;padding:12vh 1rem;opacity:0;pointer-events:none;transition:opacity .18s ease}.ax-command-panel.open{opacity:1;pointer-events:auto}
-.ax-command-box{width:min(680px,100%);background:#f8f4eb;border:1px solid #bfb7a9;box-shadow:0 24px 70px rgba(0,0,0,.22)}.ax-command-top{display:flex;border-bottom:1px solid var(--ax-line)}.ax-command-top input{flex:1;border:0;background:transparent;padding:1.1rem 1rem;outline:0;font-size:1rem}.ax-command-close{border:0;border-left:1px solid var(--ax-line);background:transparent;padding:0 1rem}
-.ax-command-list{padding:.45rem;display:grid}.ax-command-list a{padding:.8rem;border:1px solid transparent;font-size:.9rem}.ax-command-list a:hover,.ax-command-list a:focus{background:#ebe5d9;border-color:#cfc6b8;outline:0}.ax-command-hint{padding:.7rem 1rem;border-top:1px solid var(--ax-line);font:600 .58rem var(--mono);letter-spacing:.08em;color:#7b817e}
-.ax-reading-label{display:inline-flex;gap:.55rem;align-items:center;font:600 .58rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#727975;margin-bottom:1rem}.ax-reading-label:before{content:"";width:18px;height:1px;background:var(--ax-red)}
-.newsletter{position:relative}.newsletter:before{content:"";position:absolute;inset:12px;border:1px solid rgba(255,255,255,.08);pointer-events:none}
-@media(max-width:900px){.article-side-index{display:none}.search-wrap{top:62px}}
-@media(max-width:640px){.editorial-index{font-size:.54rem}.index-ticks{display:none}.hero:before{font-size:4.5rem;top:1.2rem}.section-head:after{display:none}.ax-command{right:14px;bottom:14px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
-</style>
-<script>
-(function(){
-  const main=document.getElementById('main'); if(!main)return;
-  const routes=[['Home','index.html'],['AI','index.html?category=ai'],['Robotics','index.html?category=robotics'],['Hardware','index.html?category=hardware'],['Software','index.html?category=software'],['Future Tech','index.html?category=future-tech'],['Guides','index.html?category=guides'],['Reviews','index.html?category=reviews'],['Ethics','index.html?category=ethics'],['Archive','index.html?archive'],['About','index.html?about'],['Contact','index.html?contact']];
-  const command=document.createElement('button'); command.className='ax-command'; command.type='button'; command.setAttribute('aria-label','Open AZEXAI quick navigation'); command.title='Quick navigation'; command.textContent='/'; document.body.appendChild(command);
-  const panel=document.createElement('div'); panel.className='ax-command-panel'; panel.setAttribute('aria-hidden','true');
-  panel.innerHTML='<div class="ax-command-box" role="dialog" aria-modal="true" aria-label="Quick navigation"><div class="ax-command-top"><input id="axCommandInput" type="search" autocomplete="off" placeholder="Jump to a section…"><button class="ax-command-close" type="button" aria-label="Close">Esc</button></div><nav class="ax-command-list" id="axCommandList"></nav><div class="ax-command-hint">Press / to open · ESC to close · ↑ ↓ to browse</div></div>';
-  document.body.appendChild(panel);
-  const list=panel.querySelector('#axCommandList'), input=panel.querySelector('#axCommandInput');
-  function draw(q=''){const n=q.trim().toLowerCase();list.innerHTML=routes.filter(r=>!n||r[0].toLowerCase().includes(n)).map(r=>'<a href="'+r[1]+'">'+r[0]+'</a>').join('')||'<div style="padding:1rem;color:#707773">No section found.</div>'}
-  function open(){draw();panel.classList.add('open');panel.setAttribute('aria-hidden','false');requestAnimationFrame(()=>input.focus())}
-  function close(){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');command.focus()}
-  command.addEventListener('click',open); panel.addEventListener('click',e=>{if(e.target===panel)close()}); panel.querySelector('.ax-command-close').addEventListener('click',close); input.addEventListener('input',()=>draw(input.value));
-  window.addEventListener('scroll',()=>document.querySelector('.site-header')?.classList.toggle('scrolled',scrollY>18),{passive:true});
-  document.addEventListener('keydown',e=>{if(e.key==='/'&&!/input|textarea|select/i.test(document.activeElement.tagName)){e.preventDefault();open()} if(e.key==='Escape'&&panel.classList.contains('open'))close()});
-  const observer=new MutationObserver(()=>{const article=main.querySelector('.article-shell');if(article&&article.dataset.axEnhanced!=='1'){article.dataset.axEnhanced='1';enhanceArticle(article)}main.querySelectorAll('img').forEach((img,i)=>{if(!img.loading)img.loading=i<2?'eager':'lazy';img.decoding='async'})});
-  observer.observe(main,{childList:true,subtree:true});
-  function enhanceArticle(article){
-    if(!document.querySelector('.article-progress')){const bar=document.createElement('div');bar.className='article-progress';document.body.appendChild(bar)}
-    const h1=article.querySelector('h1');if(h1&&!article.querySelector('.ax-reading-label')){const l=document.createElement('div');l.className='ax-reading-label';l.textContent='AZEXAI / FIELD NOTE';h1.parentNode.insertBefore(l,h1)}
-    if(article.querySelector('.article-content')&&!article.querySelector('.article-side-index')){const side=document.createElement('aside');side.className='article-side-index';side.innerHTML='<b>Reading file</b>Article / Complete text<br>Original Blogger HTML<br>Links & media preserved';article.appendChild(side)}
-    const onScroll=()=>{const max=document.documentElement.scrollHeight-innerHeight;const pct=max>0?Math.min(100,Math.max(0,scrollY/max*100)):0;const bar=document.querySelector('.article-progress');if(bar)bar.style.width=pct+'%'};window.addEventListener('scroll',onScroll,{passive:true});onScroll();
-  }
-})();
-</script>
-
-
-<style id="azexai-30">
-.ax-opening{min-height:78vh;background:#0d1113;color:#f4f0e7;display:grid;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden;padding:clamp(1rem,3vw,3rem);border-bottom:1px solid #242b2d}
-.ax-opening-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(244,240,231,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(244,240,231,.035) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
-.ax-opening-grid:after{content:"";position:absolute;inset:12%;border:1px solid rgba(179,146,91,.22);transform:rotate(-7deg)}
-.ax-opening-top,.ax-opening-bottom{position:relative;z-index:1;display:flex;justify-content:space-between;gap:1rem;font:600 .58rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#929a97}
-.ax-opening-core{position:relative;z-index:1;align-self:center;justify-self:center;text-align:center}.ax-opening-mark{font:800 clamp(4rem,13vw,12rem)/.8 var(--sans);letter-spacing:-.09em}.ax-opening-mark span{color:#b3925b}.ax-opening-core p{margin:1.4rem auto 0;max-width:480px;color:#9da5a1;font:400 clamp(.85rem,1.4vw,1.1rem)/1.6 var(--sans)}
-.ax-opening.is-exiting{animation:axExit .8s cubic-bezier(.77,0,.18,1) forwards}@keyframes axExit{to{transform:translateY(-100%);opacity:0;visibility:hidden}}
-.hero-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:2rem}.hero-index-btn{font:600 .68rem var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:.75rem .9rem;border:1px solid rgba(255,255,255,.24);background:transparent;color:#f3eee5;cursor:pointer}.hero-index-btn span{opacity:.55;margin-left:.7rem}.hero-index-btn:hover{border-color:#c4a96d;color:#c4a96d}
-.ax-newsroom{background:#151b1d;color:#e9e4da;padding:0!important;border-top:1px solid #31383a;border-bottom:1px solid #31383a}.ax-section-top{display:flex;justify-content:space-between;align-items:end;padding:1.4rem clamp(1rem,3vw,3rem);border-bottom:1px solid #31383a}.ax-section-top h2{margin:.2rem 0 0}.ax-section-top>span{font:600 .58rem var(--mono);color:#8c9590;text-transform:uppercase}.ax-news-tape{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);overflow:auto;scroll-snap-type:x mandatory;scrollbar-width:thin}.ax-news-tape a{scroll-snap-align:start;display:grid;grid-template-columns:36px 1fr;gap:.7rem;padding:1rem 1.2rem;border-right:1px solid #31383a;color:#e9e4da;min-height:92px}.ax-news-tape b{font:600 .65rem var(--mono);color:#b3925b}.ax-news-tape span{font:600 .9rem/1.3 var(--sans)}.ax-news-tape em{grid-column:2;font:600 .55rem var(--mono);font-style:normal;text-transform:uppercase;color:#818b86}.ax-news-tape a:hover{background:#1b2325}
-.ax-featured{position:relative}.ax-feature-stamp{position:absolute;top:1rem;left:1rem;background:#f4f0e7;color:#171b1c;padding:.45rem .6rem;font:700 .55rem var(--mono);letter-spacing:.1em}
-.ax-index-section{background:#ebe6dc;border-top:1px solid #cfc8bb;border-bottom:1px solid #cfc8bb}.ax-index-intro{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:end;padding-bottom:2rem;border-bottom:1px solid #cfc8bb}.ax-index-intro h2{font-size:clamp(2.5rem,6vw,5.5rem);line-height:.9;letter-spacing:-.05em}.ax-index-intro h2 i{font-family:var(--serif);font-weight:400;color:#762f39}.ax-index-intro p{max-width:460px;color:#626a66;line-height:1.7}.ax-index-grid{display:grid;grid-template-columns:repeat(3,1fr)}.ax-year-card{min-height:180px;padding:1.2rem;border-right:1px solid #cfc8bb;border-bottom:1px solid #cfc8bb;display:flex;flex-direction:column;color:#171b1c;position:relative;transition:background .2s,transform .2s}.ax-year-card:nth-child(3n){border-right:0}.ax-year-card span{font:600 .6rem var(--mono);color:#7b817d}.ax-year-card strong{font:700 clamp(2.5rem,5vw,4.8rem)/1 var(--sans);letter-spacing:-.07em;margin-top:auto}.ax-year-card em{font:600 .58rem var(--mono);font-style:normal;color:#6c736f;text-transform:uppercase}.ax-year-card i{position:absolute;right:1rem;top:1rem;font-style:normal;color:#762f39}.ax-year-card:hover{background:#f6f1e8;transform:translateY(-3px)}
-.ax-world .card{background:rgba(255,255,255,.38)}.ax-desk{background:linear-gradient(180deg,transparent,rgba(41,74,64,.045))}.ax-final-portal{margin:clamp(3rem,8vw,7rem) 0;padding:clamp(2rem,6vw,5rem);background:#0d1113;color:#f4f0e7;display:flex;justify-content:space-between;align-items:end;gap:2rem;position:relative;overflow:hidden}.ax-final-portal:after{content:"→";position:absolute;right:4%;top:3%;font:300 clamp(8rem,25vw,20rem)/1 var(--sans);color:rgba(179,146,91,.08)}.ax-final-portal h2{font-size:clamp(2.8rem,7vw,7rem);line-height:.88;letter-spacing:-.06em;margin:0}.ax-final-portal a{position:relative;z-index:1;color:#d6b978;border-bottom:1px solid #d6b978;padding-bottom:.4rem;font:600 .68rem var(--mono);text-transform:uppercase;letter-spacing:.08em}.ax-final-portal a span{margin-left:.7rem}
-@media(max-width:760px){.ax-opening{min-height:72vh}.ax-opening-bottom span:last-child{display:none}.ax-section-top{align-items:start}.ax-news-tape{grid-auto-columns:86vw}.ax-index-intro{grid-template-columns:1fr;gap:1rem}.ax-index-grid{grid-template-columns:repeat(2,1fr)}.ax-year-card:nth-child(3n){border-right:1px solid #cfc8bb}.ax-year-card:nth-child(2n){border-right:0}.ax-final-portal{display:block}.ax-final-portal a{display:inline-block;margin-top:2rem}}
-@media(prefers-reduced-motion:reduce){.ax-opening.is-exiting{animation:none;display:none}.ax-year-card{transition:none}}
-</style>
-<script>
-function initOpening(){
-  const intro=document.querySelector('.ax-opening'); if(!intro)return;
-  try{if(sessionStorage.getItem('azexaiIntroSeen')==='1'){intro.remove();return} sessionStorage.setItem('azexaiIntroSeen','1')}catch(e){intro.remove();return}
-  const dismiss=()=>{if(intro.classList.contains('is-exiting'))return;intro.classList.add('is-exiting');setTimeout(()=>intro.remove(),820)};
-  setTimeout(dismiss,1450); intro.addEventListener('click',dismiss,{once:true});
+  });
 }
-function initStoryHover(){
-  document.querySelectorAll('.card,.ax-featured').forEach(el=>{el.addEventListener('pointerenter',()=>el.classList.add('is-active'),{passive:true});el.addEventListener('pointerleave',()=>el.classList.remove('is-active'),{passive:true})});
+function bindNewsletter(){
+  const f=document.getElementById('newsletterForm');if(!f)return;
+  f.onsubmit=e=>{e.preventDefault();document.getElementById('newsletterMsg').textContent='The form is ready visually, but no email service is connected yet.';};
 }
+function closeDrawer(){mobileDrawer.classList.remove('open');document.getElementById('menuToggle').setAttribute('aria-expanded','false')}
+function buildNav(){
+  const links=[{label:'Home',href:'./'},...NAV];
+  desktopNav.innerHTML=links.map(x=>`<a href="${x.href}" data-route>${x.label}</a>`).join('');
+  mobileDrawer.innerHTML=links.map(x=>`<a href="${x.href}" data-route>${x.label}</a>`).join('');
+  footerSections.innerHTML=CATEGORIES.map(c=>`<a href="./?category=${c.key}" data-route>${c.name}</a>`).join('');
+  bindRoutes();
+}
+document.getElementById('menuToggle').onclick=()=>{const open=!mobileDrawer.classList.contains('open');mobileDrawer.classList.toggle('open',open);document.getElementById('menuToggle').setAttribute('aria-expanded',String(open));};
+document.getElementById('searchToggle').onclick=()=>navigate('./?search=');
+window.addEventListener('popstate',()=>handleRoute());
+window.addEventListener('scroll',()=>document.getElementById('backTop').classList.toggle('show',scrollY>500),{passive:true});
+document.getElementById('backTop').onclick=()=>scrollTo({top:0,behavior:'smooth'});
+document.getElementById('year').textContent=new Date().getFullYear();
+buildNav();
+handleRoute();
 </script>
-
 </body>
 </html>

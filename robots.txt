@@ -1,0 +1,8 @@
+# AZEXAI Robots.txt
+# https://azexai.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://azexai.com/sitemap.xml

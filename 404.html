@@ -512,7 +512,7 @@ function featuredHTML(p){
 }
 function renderHomepage(){
   const featured=POSTS[0];
-  const latest=POSTS.slice(0,9);
+  const latest=POSTS;
   app.innerHTML=`<section class="hero"><div class="wrap hero-inner"><div><div class="kicker">AZEXAI / TECHNOLOGY PUBLICATION</div><h1>Technology, intelligence, and the systems shaping tomorrow.</h1><p>A serious editorial view of artificial intelligence, machines, software, hardware, and the ideas changing how we live and work.</p></div><div class="hero-meta"><span>Independent / Real articles</span><span>${POSTS.length} published</span></div></div></section>
   <section class="section"><div class="wrap"><div class="section-head"><h2>Featured</h2><span class="label">Latest signal</span></div>${featuredHTML(featured)}</div></section>
   <section class="section alt"><div class="wrap"><div class="section-head"><h2>Latest Stories</h2><span class="label">The newest work</span></div>${cardsHTML(latest)}</div></section>

@@ -6,4647 +6,836 @@
 <meta name="theme-color" content="#111315">
 <meta name="color-scheme" content="dark light">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
 <meta name="application-name" content="AZEXAI">
 <meta name="apple-mobile-web-app-title" content="AZEXAI">
-
 <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-
+<meta id="metaAuthor" name="author" content="AZEXAI">
+<meta id="metaKeywords" name="keywords" content="artificial intelligence, AI tools, AI software, technology, robotics, software, hardware, reviews, guides, future technology">
+<link rel="preconnect" href="https://www.googleapis.com" crossorigin>
+<link rel="dns-prefetch" href="//www.googleapis.com">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
 <title>AZEXAI — AI, Software, Robotics &amp; Emerging Technology</title>
 <meta id="metaDescription" name="description" content="AZEXAI covers artificial intelligence, AI tools, software, robotics, hardware, reviews, guides, and emerging technology.">
 <meta id="metaRobots" name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-<meta id="metaKeywords" name="keywords" content="artificial intelligence, AI tools, AI software, technology, robotics, software, hardware, reviews, guides, future technology">
-<meta id="metaAuthor" name="author" content="AZEXAI">
-
 <link id="canonical" rel="canonical" href="https://azexai.com/">
-
 <meta id="ogType" property="og:type" content="website">
 <meta property="og:site_name" content="AZEXAI">
 <meta property="og:locale" content="en_US">
+<meta id="ogPublished" property="article:published_time" content="">
+<meta id="ogModified" property="article:modified_time" content="">
+<meta id="ogSection" property="article:section" content="">
 <meta id="ogTitle" property="og:title" content="AZEXAI">
 <meta id="ogDescription" property="og:description" content="Technology, intelligence, and the systems shaping tomorrow.">
 <meta id="ogImage" property="og:image" content="">
 <meta id="ogImageAlt" property="og:image:alt" content="AZEXAI technology publication">
-<meta id="ogUrl" property="og:url" content="">
-<meta id="ogPublished" property="article:published_time" content="">
-<meta id="ogModified" property="article:modified_time" content="">
-<meta id="ogSection" property="article:section" content="">
 <meta id="articleAuthor" property="article:author" content="AZEXAI">
-
+<meta id="ogUrl" property="og:url" content="">
 <meta name="twitter:card" content="summary_large_image">
 <meta id="twTitle" name="twitter:title" content="AZEXAI">
 <meta id="twDescription" name="twitter:description" content="Technology, intelligence, and the systems shaping tomorrow.">
 <meta id="twImage" name="twitter:image" content="">
 <meta id="twImageAlt" name="twitter:image:alt" content="AZEXAI technology publication">
-
-<link rel="preconnect" href="https://www.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://blogger.googleusercontent.com" crossorigin>
-<link rel="dns-prefetch" href="//www.googleapis.com">
-<link rel="dns-prefetch" href="//blogger.googleusercontent.com">
-<link rel="dns-prefetch" href="//lh3.googleusercontent.com">
-
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="manifest" href="/site.webmanifest">
-
 <style>
 :root{
-  --ink:#101214;
-  --paper:#f1eee7;
-  --paper2:#e7e2d7;
-  --night:#111315;
-  --cream:#f5f0e5;
-  --muted:#77736b;
-  --line:rgba(255,255,255,.13);
-  --darkline:rgba(16,18,20,.15);
-  --burgundy:#713b42;
-  --green:#38584d;
-  --teal:#416b6b;
-  --rust:#9a513c;
-  --gold:#b89a5a;
-  --serif:Georgia,"Times New Roman",serif;
-  --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
-  --max:1320px;
-}
-
-*{box-sizing:border-box}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--sans);
-  line-height:1.55;
-}
-
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:50;
-  opacity:.04;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-body:after{
-  content:"";
-  position:fixed;
-  inset:-20%;
-  pointer-events:none;
-  z-index:-2;
-  background:
-    radial-gradient(circle at 12% 20%,rgba(113,59,66,.14),transparent 28%),
-    radial-gradient(circle at 88% 72%,rgba(56,88,77,.13),transparent 30%);
-  animation:drift 24s ease-in-out infinite alternate;
-}
-
-@keyframes drift{
-  from{transform:translate3d(-1%,0,0)}
-  to{transform:translate3d(1%,1%,0)}
-}
-
-a{color:inherit}
-button,input,textarea{font:inherit}
-
-.skip{
-  position:absolute;
-  left:-9999px;
-}
-
-.skip:focus{
-  left:1rem;
-  top:1rem;
-  z-index:100;
-  padding:.7rem 1rem;
-  background:var(--cream);
-}
-
-.topline{
-  height:4px;
-  background:linear-gradient(90deg,var(--burgundy),var(--gold),var(--green));
-}
-
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:40;
-  background:rgba(17,19,21,.96);
-  color:var(--cream);
-  border-bottom:1px solid rgba(255,255,255,.1);
-  backdrop-filter:blur(10px);
-}
-
-.nav{
-  max-width:var(--max);
-  margin:auto;
-  min-height:72px;
-  padding:0 24px;
-  display:flex;
-  align-items:center;
-  gap:25px;
-}
-
-.logo{
-  font-family:var(--serif);
-  font-size:30px;
-  letter-spacing:.13em;
-  font-weight:800;
-  text-decoration:none;
-  white-space:nowrap;
-}
-
-.logo small{
-  display:block;
-  margin-top:-5px;
-  font:10px var(--mono);
-  letter-spacing:.18em;
-  color:#b7aa8d;
-}
-
-.menu{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:4px;
-  flex:1;
-}
-
-.menu a{
-  padding:10px 8px;
-  color:#d4d0c6;
-  text-decoration:none;
-  font:11px var(--mono);
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  border-bottom:1px solid transparent;
-}
-
-.menu a:hover{
-  color:#fff;
-  border-color:var(--gold);
-}
-
-.search-btn,
-.hamb{
-  width:42px;
-  height:42px;
-  display:grid;
-  place-items:center;
-  border:1px solid var(--line);
-  background:transparent;
-  color:var(--cream);
-  cursor:pointer;
-}
-
-.search-btn svg,
-.hamb svg{
-  width:19px;
-  height:19px;
-}
-
-.hamb{
-  display:none;
-}
-
-.drawer{
-  display:none;
-  position:fixed;
-  top:76px;
-  left:12px;
-  right:12px;
-  padding:12px;
-  background:#151719;
-  border:1px solid var(--line);
-  box-shadow:0 25px 60px #0008;
-}
-
-.drawer.open{
-  display:block;
-}
-
-.drawer a{
-  display:block;
-  padding:13px 10px;
-  border-bottom:1px solid var(--line);
-  color:#fff;
-  text-decoration:none;
-  font:12px var(--mono);
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-
-main{
-  min-height:65vh;
-  position:relative;
-  z-index:1;
-}
-
-.wrap{
-  max-width:var(--max);
-  margin:auto;
-  padding:0 24px;
-}
-
-.hero{
-  background:var(--night);
-  color:var(--cream);
-  position:relative;
-  overflow:hidden;
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
-  background-size:42px 42px;
-}
-
-.hero-inner{
-  position:relative;
-  z-index:2;
-  padding:74px 0 68px;
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:65px;
-  align-items:end;
-}
-
-.kicker{
-  color:#b9a77e;
-  font:10px var(--mono);
-  letter-spacing:.2em;
-  text-transform:uppercase;
-}
-
-.hero h1{
-  max-width:800px;
-  margin:15px 0 22px;
-  font:500 clamp(48px,7vw,94px)/.9 var(--serif);
-  letter-spacing:-.045em;
-}
-
-.hero p{
-  max-width:620px;
-  margin:0;
-  color:#bbbcb7;
-  font-size:17px;
-}
-
-.hero-meta{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  padding-top:16px;
-  border-top:1px solid var(--line);
-  color:#a7a9a3;
-  font:10px var(--mono);
-  letter-spacing:.12em;
-  text-transform:uppercase;
-}
-
-.section{
-  padding:58px 0;
-  background:rgba(241,238,231,.9);
-}
-
-.section.alt{
-  background:rgba(231,225,213,.9);
-}
-
-.section-head{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:20px;
-  position:relative;
-  margin-bottom:25px;
-  padding-bottom:14px;
-  border-bottom:1px solid var(--darkline);
-}
-
-.section-head:after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-1px;
-  width:44px;
-  height:2px;
-  background:var(--rust);
-}
-
-.section-head h2{
-  margin:0;
-  font:500 42px/.95 var(--serif);
-  letter-spacing:-.03em;
-}
-
-.section-head .label{
-  color:#77736b;
-  font:10px var(--mono);
-  letter-spacing:.17em;
-  text-transform:uppercase;
-}
-
-.feature-centered{
-  max-width:1060px;
-  margin:auto;
-}
-
-.feature-media{
-  width:86%;
-  aspect-ratio:16/8.4;
-  margin:auto;
-  overflow:hidden;
-  background:#0b1722;
-  box-shadow:0 24px 55px rgba(0,0,0,.22);
-}
-
-.feature-media img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-  transition:transform .8s ease;
-}
-
-.feature-centered:hover .feature-media img{
-  transform:scale(1.02);
-}
-
-.feature-copy{
-  position:relative;
-  z-index:3;
-  width:76%;
-  margin:-52px auto 0;
-  padding:25px 30px 22px;
-  background:rgba(12,20,28,.97);
-  color:#f5f0e5;
-  text-align:center;
-  border:1px solid rgba(184,154,90,.34);
-  border-bottom:3px solid var(--rust);
-  box-shadow:0 20px 45px rgba(0,0,0,.22);
-}
-
-.feature-copy h2{
-  max-width:760px;
-  margin:12px auto;
-  font:500 clamp(30px,4.2vw,56px)/.96 var(--serif);
-  letter-spacing:-.045em;
-}
-
-.feature-copy h2 a{
-  text-decoration:none;
-}
-
-.feature-copy p{
-  max-width:620px;
-  margin:0 auto 16px;
-  color:#bfc1bd;
-  font-size:13px;
-}
-
-.feature-kicker{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  color:#b9a77e;
-  font:9px var(--mono);
-  letter-spacing:.16em;
-  text-transform:uppercase;
-}
-
-.feature-kicker i{
-  width:22px;
-  height:1px;
-  background:var(--gold);
-}
-
-.feature-bottom{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:18px;
-}
-
-.feature-readtime{
-  color:#8e918c;
-  font:8px var(--mono);
-  letter-spacing:.13em;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding:11px 15px;
-  width:max-content;
-  border:1px solid currentColor;
-  background:transparent;
-  color:inherit;
-  text-decoration:none;
-  text-transform:uppercase;
-  font:10px var(--mono);
-  letter-spacing:.12em;
-  cursor:pointer;
-}
-
-.btn:hover{
-  background:var(--ink);
-  color:var(--cream);
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:22px;
-}
-
-.card{
-  display:flex;
-  flex-direction:column;
-  min-width:0;
-  transition:transform .25s ease;
-}
-
-.card:hover{
-  transform:translateY(-3px);
-}
-
-.card-media{
-  height:230px;
-  overflow:hidden;
-  position:relative;
-  background:#101820;
-}
-
-.card-media:after{
-  content:"";
-  position:absolute;
-  right:12px;
-  top:12px;
-  width:30px;
-  height:30px;
-  border:1px solid rgba(255,255,255,.5);
-  border-radius:50%;
-}
-
-.card-media img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-  transition:transform .7s ease;
-}
-
-.card:hover .card-media img{
-  transform:scale(1.035);
-}
-
-.card-body{
-  position:relative;
-  z-index:2;
-  min-height:174px;
-  margin:-34px 14px 0;
-  padding:20px;
-  background:var(--paper);
-  border-top:2px solid var(--rust);
-}
-
-.card:nth-child(3n+2) .card-body{
-  border-top-color:var(--green);
-}
-
-.card:nth-child(3n+3) .card-body{
-  border-top-color:var(--gold);
-}
-
-.card .tag{
-  color:var(--burgundy);
-  font:8px var(--mono);
-  letter-spacing:.13em;
-  text-transform:uppercase;
-}
-
-.card h3{
-  margin:8px 0 9px;
-  font:500 24px/1.02 var(--serif);
-  letter-spacing:-.025em;
-}
-
-.card h3 a{
-  text-decoration:none;
-}
-
-.card h3 a:hover{
-  text-decoration:underline;
-}
-
-.card p{
-  margin:0;
-  color:#66645e;
-  font-size:11px;
-  line-height:1.45;
-}
-
-.card-foot{
-  display:flex;
-  justify-content:space-between;
-  margin-top:20px;
-  padding-top:13px;
-  border-top:1px solid var(--darkline);
-  color:#77746c;
-  font:8px var(--mono);
-  letter-spacing:.1em;
-}
-
-.article-view{
-  position:relative;
-  overflow:hidden;
-  padding:55px 0 80px;
-  background:var(--paper);
-}
-
-.article-head{
-  max-width:930px;
-  margin:auto;
-  padding:0 24px;
-}
-
-.breadcrumbs{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:8px;
-  margin-bottom:18px;
-  color:#77736b;
-  font:9px var(--mono);
-  letter-spacing:.1em;
-  text-transform:uppercase;
-}
-
-.breadcrumbs a{
-  color:var(--burgundy);
-  text-decoration:none;
-}
-
-.article-head .tag{
-  color:var(--burgundy);
-  font:10px var(--mono);
-  letter-spacing:.17em;
-  text-transform:uppercase;
-}
-
-.article-head h1{
-  margin:13px 0 22px;
-  font:500 clamp(42px,6vw,82px)/.93 var(--serif);
-  letter-spacing:-.045em;
-  overflow-wrap:anywhere;
-}
-
-.article-deck{
-  max-width:760px;
-  color:#65625c;
-  font-size:19px;
-}
-
-.article-meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px 24px;
-  margin-top:25px;
-  padding:13px 0;
-  border-top:1px solid var(--darkline);
-  border-bottom:1px solid var(--darkline);
-  color:#706d66;
-  font:10px var(--mono);
-  text-transform:uppercase;
-}
-
-.article-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin:18px 0;
-}
-
-.article-actions .btn{
-  color:var(--ink);
-}
-
-.article-hero{
-  max-width:1100px;
-  margin:28px auto;
-  padding:0 24px;
-}
-
-.article-hero img{
-  width:100%;
-  max-height:620px;
-  display:block;
-  object-fit:cover;
-}
-
-.prose{
-  max-width:790px;
-  margin:45px auto;
-  padding:0 24px;
-  color:#252625;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:19px;
-  line-height:1.86;
-}
-
-.prose h2{
-  position:relative;
-  margin:48px 0 16px;
-  padding:18px 0 10px;
-  border-top:1px solid var(--darkline);
-  color:#263d36;
-  font:500 34px/1.05 var(--serif);
-}
-
-.prose h2:before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:-1px;
-  width:48px;
-  height:2px;
-  background:var(--rust);
-}
-
-.prose h3{
-  margin:35px 0 12px;
-  color:#71434a;
-  font:500 27px/1.1 var(--serif);
-}
-
-.prose img{
-  max-width:100%;
-  height:auto;
-  display:block;
-  margin:28px auto;
-}
-
-.prose a{
-  color:#315b56;
-  text-underline-offset:3px;
-}
-
-.prose blockquote{
-  margin:28px 0;
-  padding:18px 22px;
-  border-left:3px solid var(--gold);
-  background:rgba(184,154,90,.08);
-  font-size:23px;
-  font-style:italic;
-}
-
-.prose ul,
-.prose ol{
-  padding-left:28px;
-}
-
-.prose li{
-  margin:6px 0;
-}
-
-.prose table{
-  width:100%;
-  border-collapse:collapse;
-  display:block;
-  overflow:auto;
-  font:14px var(--sans);
-}
-
-.prose th,
-.prose td{
-  padding:9px 12px;
-  border:1px solid #aaa397;
-  white-space:nowrap;
-}
-
-.prose pre{
-  overflow:auto;
-  padding:18px;
-  background:#151719;
-  color:#ece8de;
-  border-left:3px solid var(--green);
-  font:13px/1.6 var(--mono);
-}
-
-.prose code{
-  padding:.12em .3em;
-  background:#ded8cc;
-  font-family:var(--mono);
-  font-size:.88em;
-}
-
-.prose pre code{
-  padding:0;
-  background:none;
-}
-
-.prose iframe{
-  max-width:100%;
-  display:block;
-  margin:28px auto;
-}
-
-.reader-nav{
-  max-width:760px;
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  margin:30px auto 0;
-  padding:18px 24px 0;
-  border-top:1px solid var(--darkline);
-}
-
-.reader-nav a{
-  color:var(--burgundy);
-  text-decoration:none;
-  font:10px var(--mono);
-  letter-spacing:.1em;
-  text-transform:uppercase;
-}
-
-.related{
-  max-width:1100px;
-  margin:50px auto 0;
-  padding:0 24px;
-}
-
-.archive-year{
-  margin:35px 0 8px;
-  padding-bottom:8px;
-  border-bottom:1px solid var(--darkline);
-  font:500 35px var(--serif);
-}
-
-.archive-month h3{
-  color:#77736b;
-  font:11px var(--mono);
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-
-.archive-list{
-  padding:0;
-  list-style:none;
-}
-
-.archive-list li{
-  display:grid;
-  grid-template-columns:90px 1fr 120px;
-  gap:15px;
-  padding:10px 0;
-  border-bottom:1px solid var(--darkline);
-}
-
-.archive-list a{
-  text-decoration:none;
-  font:20px var(--serif);
-}
-
-.search-panel{
-  padding:50px 0;
-  background:var(--night);
-  color:var(--cream);
-}
-
-.search-form{
-  display:flex;
-  gap:10px;
-  max-width:800px;
-}
-
-.search-form input{
-  flex:1;
-  padding:15px;
-  border:1px solid var(--line);
-  background:#1d2022;
-  color:#fff;
-}
-
-.about{
-  max-width:900px;
-  margin:auto;
-}
-
-.about h1{
-  margin:0 0 25px;
-  font:500 clamp(45px,7vw,82px)/.9 var(--serif);
-  letter-spacing:-.05em;
-}
-
-.about p{
-  max-width:760px;
-  color:#5d5a54;
-  font-size:18px;
-}
-
-.contact-form{
-  margin-top:30px;
-  padding:26px;
-  border:1px solid var(--darkline);
-}
-
-.contact-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
-
-.contact-field{
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-}
-
-.contact-field.full{
-  grid-column:1/-1;
-}
-
-.contact-field label{
-  color:var(--burgundy);
-  font:10px var(--mono);
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-
-.contact-field input,
-.contact-field textarea{
-  padding:13px 14px;
-  border:1px solid #b7afa2;
-  background:#f7f3eb;
-  color:var(--ink);
-}
-
-.contact-field textarea{
-  min-height:170px;
-  resize:vertical;
-}
-
-.notice{
-  max-width:800px;
-  margin:40px auto;
-  padding:25px;
-  border:1px solid var(--darkline);
-  background:#e5dfd4;
-}
-
-.notice h2{
-  margin:0 0 8px;
-  font:500 35px var(--serif);
-}
-
-.notice p{
-  color:#68655e;
-}
-
-.center{
-  text-align:center;
-}
-
-.site-footer{
-  position:relative;
-  z-index:1;
-  padding:50px 0 30px;
-  background:#0e1011;
-  color:#d8d3c8;
-  border-top:1px solid #26292a;
-}
-
-.footer-grid{
-  display:grid;
-  grid-template-columns:1.3fr 1fr 1fr 1fr;
-  gap:35px;
-}
-
-.footer-brand{
-  font:30px var(--serif);
-  letter-spacing:.12em;
-}
-
-.footer-copy{
-  max-width:300px;
-  color:#858781;
-  font-size:13px;
-}
-
-.footer-title{
-  margin-bottom:12px;
-  color:#9e9b92;
-  font:9px var(--mono);
-  letter-spacing:.16em;
-  text-transform:uppercase;
-}
-
-.footer-links a{
-  display:block;
-  padding:4px 0;
-  color:#c5c2b9;
-  text-decoration:none;
-  font-size:12px;
-}
-
-.copyright{
-  display:flex;
-  justify-content:space-between;
-  margin-top:35px;
-  padding-top:15px;
-  border-top:1px solid #292c2d;
-  color:#696d69;
-  font:9px var(--mono);
-  text-transform:uppercase;
-}
-
-#readingProgress{
-  position:fixed;
-  left:0;
-  top:0;
-  width:0;
-  height:3px;
-  z-index:100;
-  pointer-events:none;
-  background:linear-gradient(90deg,var(--burgundy),var(--gold),var(--green));
-}
-
-.backtop{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:35;
-  width:42px;
-  height:42px;
-  display:none;
-  place-items:center;
-  border:1px solid #777;
-  background:#111d;
-  color:#fff;
-  cursor:pointer;
-}
-
-.backtop.show{
-  display:grid;
-}
-
-/* Moving AZEXAI space background */
-
-.azexai-space{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 76% 18%,rgba(35,125,235,.30),transparent 27%),
-    radial-gradient(circle at 18% 78%,rgba(25,92,190,.24),transparent 30%),
-    linear-gradient(125deg,#030b17 0%,#071d38 38%,#0a2d55 62%,#040b16 100%);
-}
-
-.starfield{
-  position:absolute;
-  inset:-8%;
-  opacity:.55;
-  background-image:
-    radial-gradient(circle,rgba(117,181,224,.72) 0 1px,transparent 1.5px),
-    radial-gradient(circle,rgba(205,229,244,.48) 0 1px,transparent 1.5px);
-  background-size:83px 97px,137px 121px;
-  animation:starTravel 20s linear infinite;
-}
-
-.planet{
-  position:absolute;
-  border-radius:50%;
-}
-
-.planet.one{
-  width:205px;
-  height:205px;
-  right:-62px;
-  top:12%;
-  background:radial-gradient(circle at 33% 27%,#d4ecfa 0 3%,#71a9cf 13%,#275d88 40%,#0d2944 68%,#061524 100%);
-  box-shadow:0 0 70px rgba(48,128,193,.23);
-  animation:planetMove 13s ease-in-out infinite alternate;
-}
-
-.planet.two{
-  width:82px;
-  height:82px;
-  left:7%;
-  top:45%;
-  background:radial-gradient(circle at 33% 27%,#dbeef7,#6b9cba 34%,#2a506d 68%,#102b40);
-  animation:planetMove2 17s ease-in-out infinite alternate;
-}
-
-.planet.three{
-  width:38px;
-  height:38px;
-  right:22%;
-  top:69%;
-  background:radial-gradient(circle at 32% 27%,#e2f0f6,#6b8fa7 42%,#17344b);
-  animation:planetMove2 11s ease-in-out infinite alternate;
-}
-
-@keyframes starTravel{
-  to{transform:translate3d(-83px,97px,0)}
-}
-
-@keyframes planetMove{
-  to{transform:translate3d(-34px,28px)}
-}
-
-@keyframes planetMove2{
-  to{transform:translate3d(30px,-22px)}
-}
-
-@media(max-width:1050px){
-  .menu a:nth-child(n+7){
-    display:none;
-  }
-
-  .hero-inner{
-    grid-template-columns:1fr;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr 1fr;
-  }
-}
+  --ink:#101214;--paper:#f1eee7;--paper2:#e7e2d7;--night:#111315;--night2:#171a1c;
+  --cream:#f5f0e5;--muted:#9a9b96;--line:rgba(255,255,255,.13);--darkline:rgba(16,18,20,.15);
+  --burgundy:#713b42;--green:#38584d;--teal:#416b6b;--rust:#9a513c;--gold:#b89a5a;
+  --serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;--max:1320px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+body:after{content:"";position:fixed;inset:-20%;pointer-events:none;z-index:-1;background:
+radial-gradient(circle at 12% 20%,rgba(113,59,66,.14),transparent 28%),
+radial-gradient(circle at 88% 72%,rgba(56,88,77,.13),transparent 30%),
+linear-gradient(115deg,transparent 0 48%,rgba(184,154,90,.035) 49%,transparent 50% 100%);
+background-size:120% 120%,120% 120%,180px 180px;animation:editorialDrift 24s ease-in-out infinite alternate}
+
+@keyframes editorialDrift{from{transform:translate3d(-1%,0,0) rotate(0deg)}to{transform:translate3d(1%,1%,0) rotate(.35deg)}}
+a{color:inherit}button,input{font:inherit}.skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;z-index:100;padding:.7rem 1rem;background:var(--cream);color:var(--ink)}
+.topline{height:4px;background:linear-gradient(90deg,var(--burgundy),var(--gold),var(--green))}
+.site-header{position:sticky;top:0;z-index:40;background:rgba(17,19,21,.96);color:var(--cream);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px)}
+.nav{max-width:var(--max);margin:auto;display:flex;align-items:center;min-height:72px;padding:0 24px;gap:25px}
+.logo{font-family:var(--serif);font-size:30px;letter-spacing:.13em;font-weight:800;text-decoration:none;white-space:nowrap}
+.logo small{font:10px var(--mono);letter-spacing:.18em;color:#b7aa8d;display:block;margin-top:-5px}
+.menu{display:flex;align-items:center;gap:4px;flex:1;justify-content:flex-end}
+.menu a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:#d4d0c6;padding:10px 8px;border-bottom:1px solid transparent}
+.menu a:hover,.menu a:focus-visible{color:#fff;border-color:var(--gold)}
+.search-btn,.hamb{border:1px solid var(--line);background:transparent;color:var(--cream);width:42px;height:42px;border-radius:2px;cursor:pointer;display:grid;place-items:center}
+.search-btn svg,.hamb svg{width:19px;height:19px}.hamb{display:none}
+.drawer{display:none;position:fixed;top:76px;right:12px;left:12px;background:#151719;border:1px solid var(--line);padding:12px;box-shadow:0 25px 60px #0008}
+.drawer.open{display:block}.drawer a{display:block;text-decoration:none;padding:13px 10px;border-bottom:1px solid var(--line);font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+main{min-height:65vh;position:relative;z-index:1}.wrap{max-width:var(--max);margin:auto;padding:0 24px}
+.hero{background:var(--night);color:var(--cream);position:relative;overflow:hidden;border-bottom:1px solid #000}
+.hero:before{content:"";position:absolute;inset:0;background:
+linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+background-size:42px 42px;mask-image:linear-gradient(to right,black,transparent 85%)}
+.hero:after{content:"";position:absolute;right:-15%;top:-45%;width:70%;height:150%;border-left:1px solid rgba(184,154,90,.18);transform:rotate(22deg)}
+.hero-inner{position:relative;z-index:2;padding:74px 0 68px;display:grid;grid-template-columns:1.1fr .9fr;gap:65px;align-items:end}
+.kicker{font:10px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#b9a77e}
+.hero h1{font:clamp(48px,7vw,94px);text-shadow:0 0 30px rgba(105,164,204,.12);line-height:.9;margin:15px 0 22px;font-family:var(--serif);font-weight:500;letter-spacing:-.045em;max-width:800px}
+.hero p{max-width:620px;color:#bbbcb7;font-size:17px;margin:0}
+.hero-meta{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;gap:15px;font:10px var(--mono);text-transform:uppercase;letter-spacing:.12em;color:#a7a9a3}
+.section{padding:58px 0}.section.alt{background:#e7e1d5}.section.dark{background:var(--night);color:var(--cream)}
+.section-head{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid var(--darkline);padding-bottom:14px;margin-bottom:22px;gap:20px}
+.dark .section-head{border-color:var(--line)}.section-head h2{font:500 42px/.95 var(--serif);margin:0;letter-spacing:-.03em}
+.section-head .label{font:10px var(--mono);letter-spacing:.17em;text-transform:uppercase;color:#77736b}
+.feature{display:grid;grid-template-columns:1.35fr .85fr;min-height:380px;border:1px solid var(--darkline);background:#dad4c8}
+.feature-media{min-height:380px;background:#242729;overflow:hidden}.feature-media img{width:100%;height:100%;object-fit:cover;display:block}
+.feature-copy{padding:32px;display:flex;flex-direction:column;justify-content:center}.feature-copy h2{font:500 clamp(34px,4vw,61px)/.97 var(--serif);margin:10px 0 18px;letter-spacing:-.04em}.feature-copy p{color:#5e5d58}.meta{font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#77736b}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid currentColor;padding:11px 15px;text-decoration:none;text-transform:uppercase;font:10px var(--mono);letter-spacing:.12em;width:max-content;cursor:pointer;background:transparent;color:inherit}.btn:hover{background:var(--ink);color:var(--cream)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{min-width:0;border-top:1px solid var(--darkline);padding-top:10px;display:flex;flex-direction:column;min-height:390px}.card-media{aspect-ratio:16/9;overflow:hidden;background:#cbc6bc;margin-bottom:13px}.card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}.card:hover .card-media img{transform:scale(1.025)}.card .tag{font:9px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--burgundy);margin-bottom:7px}.card h3{font:500 23px/1.05 var(--serif);letter-spacing:-.02em;margin:0 0 8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.card p{font-size:13px;color:#66645e;margin:0 0 12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.card-foot{margin-top:auto;display:flex;justify-content:space-between;gap:10px;padding-top:10px;border-top:1px solid var(--darkline);font:9px var(--mono);color:#77736b;text-transform:uppercase}
+.skeleton{background:linear-gradient(90deg,#d8d2c7 20%,#ebe6dd 35%,#d8d2c7 50%);background-size:200% 100%;animation:sh 1.4s infinite}.skeleton-card{height:390px;border-top:1px solid #bbb5aa;padding-top:10px}.sk-img{height:220px;margin-bottom:15px}.sk-line{height:12px;margin:10px 0;width:80%}.sk-line.short{width:45%}@keyframes sh{to{background-position:-200% 0}}
+
+.article-view{background:var(--paper);padding:55px 0 80px}.article-head{max-width:930px;margin:auto;padding:0 24px}.article-head .tag{font:10px var(--mono);letter-spacing:.17em;text-transform:uppercase;color:var(--burgundy)}.article-head h1{font:500 clamp(42px,6vw,82px)/.93 var(--serif);letter-spacing:-.045em;margin:13px 0 22px}.article-deck{font-size:19px;color:#65625c;max-width:760px}.article-meta{display:flex;flex-wrap:wrap;gap:12px 24px;border-top:1px solid var(--darkline);border-bottom:1px solid var(--darkline);padding:13px 0;margin-top:25px;font:10px var(--mono);text-transform:uppercase;color:#706d66}
+.article-actions{display:flex;gap:8px;margin:18px 0}.article-actions .btn{color:var(--ink)}.article-actions .btn:hover{color:var(--cream)}
+.article-hero{max-width:1100px;margin:28px auto;padding:0 24px}.article-hero img{width:100%;max-height:620px;object-fit:cover;display:block}
+.prose{max-width:790px;margin:45px auto;padding:0 24px;font-family:Georgia,"Times New Roman",serif;font-size:19px;line-height:1.86;letter-spacing:.005em;color:#252625}.prose>*:first-child{margin-top:0}.prose h2{font:500 34px/1.05 var(--serif);margin:45px 0 16px}.prose h3{font:500 27px/1.1 var(--serif);margin:35px 0 12px}.prose img{max-width:100%;height:auto;display:block;margin:28px auto}.prose a{color:#65414a;text-decoration-thickness:1px;text-underline-offset:3px}.prose blockquote{margin:28px 0;padding:6px 25px;border-left:3px solid var(--gold);font-size:23px;font-style:italic;color:#504d47}.prose ul,.prose ol{padding-left:28px}.prose li{margin:6px 0}.prose table{width:100%;border-collapse:collapse;display:block;overflow:auto;font:14px var(--sans)}.prose th,.prose td{border:1px solid #aaa397;padding:9px 12px;white-space:nowrap}.prose pre{overflow:auto;background:#151719;color:#ece8de;padding:18px;font:13px/1.6 var(--mono);border-left:3px solid var(--green)}.prose code{font-family:var(--mono);font-size:.88em;background:#ded8cc;padding:.12em .3em}.prose pre code{background:none;padding:0}.prose iframe{max-width:100%;display:block;margin:28px auto}.prose video{max-width:100%;display:block;margin:28px auto}
+.prose div,.prose section,.prose article{max-width:100%}
+.prose [align="center"]{text-align:center}.prose [align="right"]{text-align:right}.prose [align="left"]{text-align:left}
+.prose figure{margin:30px 0}.prose figcaption{text-align:center;font:10px var(--mono);letter-spacing:.08em;color:#77736b;margin-top:8px}
+.prose .separator,.prose .post-body .separator{text-align:center;margin:28px 0}
+.prose img{border-radius:1px}.prose hr{border:0;border-top:1px solid var(--darkline);margin:40px 0}
+.reader-nav{max-width:760px;margin:30px auto 0;padding:0 24px;display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--darkline);padding-top:18px}.reader-nav a{font:10px var(--mono);text-transform:uppercase;letter-spacing:.1em;text-decoration:none}.related{max-width:1100px;margin:50px auto 0;padding:0 24px}.related .grid{grid-template-columns:repeat(3,1fr)}
+.archive-year{font:500 35px var(--serif);margin:35px 0 8px;border-bottom:1px solid var(--darkline);padding-bottom:8px}.archive-month{margin:0 0 20px}.archive-month h3{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#77736b}.archive-list{list-style:none;padding:0;margin:0}.archive-list li{border-bottom:1px solid var(--darkline);display:grid;grid-template-columns:90px 1fr 120px;gap:15px;padding:10px 0}.archive-list a{text-decoration:none;font:20px var(--serif)}.archive-list a:hover{text-decoration:underline}.archive-list time{font:10px var(--mono);color:#77736b}
+.search-panel{background:var(--night);color:var(--cream);padding:50px 0}.search-form{display:flex;gap:10px;max-width:800px}.search-form input{flex:1;background:#1d2022;color:#fff;border:1px solid var(--line);padding:15px 16px;outline:none}.search-form input:focus{border-color:var(--gold)}.count{font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#aaa}
+.about{max-width:900px;margin:auto}.about h1{font:500 clamp(45px,7vw,82px)/.9 var(--serif);letter-spacing:-.05em;margin:0 0 25px}.about p{font-size:18px;max-width:760px;color:#5d5a54}.contact-box{border:1px solid var(--darkline);padding:25px;margin-top:30px}.newsletter{background:var(--green);color:#f5f1e8;padding:32px 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}.newsletter-inner{display:flex;align-items:center;justify-content:space-between;gap:35px}.newsletter h2{font:500 34px var(--serif);margin:0}.newsletter p{color:#d3d8d1}.newsletter form{display:flex;gap:8px;min-width:min(100%,500px)}.newsletter input{flex:1;padding:13px;background:#2e4a42;border:1px solid #82958e;color:#fff}.newsletter-note{font:10px var(--mono);color:#c3ccc7;margin-top:8px}
+.site-footer{position:relative;z-index:1;background:#0e1011;color:#d8d3c8;padding:50px 0 30px;border-top:1px solid #26292a}.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:35px}.footer-brand{font:30px var(--serif);letter-spacing:.12em}.footer-copy{color:#858781;font-size:13px;max-width:300px}.footer-title{font:9px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#9e9b92;margin-bottom:12px}.footer-links a{display:block;text-decoration:none;font-size:12px;color:#c5c2b9;padding:4px 0}.footer-links a:hover{color:#fff}.signatures{font:9px var(--mono);line-height:2;color:#777a76}.copyright{border-top:1px solid #292c2d;margin-top:35px;padding-top:15px;display:flex;justify-content:space-between;font:9px var(--mono);text-transform:uppercase;color:#696d69}
+.notice{max-width:800px;margin:40px auto;padding:25px;border:1px solid var(--darkline);background:#e5dfd4}.notice h2{font:500 35px var(--serif);margin:0 0 8px}.notice p{color:#68655e}.center{text-align:center}.hidden{display:none!important}.backtop{position:fixed;right:18px;bottom:18px;width:42px;height:42px;border:1px solid #777;background:#111d;color:#fff;display:none;place-items:center;z-index:35;cursor:pointer}.backtop.show{display:grid}
+@media(max-width:1050px){.menu a:nth-child(n+7){display:none}.hero-inner{grid-template-columns:1fr}.feature{grid-template-columns:1fr}.feature-media{min-height:320px}.category-strip{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){
+ .nav{min-height:68px;padding:0 15px}.logo{font-size:25px}.menu{display:none}.hamb{display:grid;margin-left:auto}.search-btn{width:40px;height:40px}
+ .hero-inner{padding:50px 0}.hero h1{font-size:54px}.hero p{font-size:15px}.wrap{padding:0 15px}
+ .section{padding:40px 0}.section-head h2{font-size:34px}.feature-copy{padding:25px}.feature-copy h2{font-size:38px}.feature-media{min-height:235px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{min-height:315px}.card-media{margin-bottom:9px}.card h3{font-size:18px;-webkit-line-clamp:3}.card p{font-size:11px;-webkit-line-clamp:2}.card-foot{font-size:7px}.card .tag{font-size:7px}
+ .category-index{grid-template-columns:repeat(2,1fr);column-gap:18px}.category-index b{font-size:18px}
+ .article-head{padding:0 15px}.article-head h1{font-size:48px}.article-deck{font-size:16px}.article-hero{padding:0 15px}.prose{padding:0 15px;font-size:17px;line-height:1.75}.prose h2{font-size:30px}.reader-nav{padding:0 15px}.related{padding:0 15px}.related .grid{grid-template-columns:repeat(2,1fr)}
+ .archive-list li{grid-template-columns:1fr}.archive-list time{order:-1}.search-form{flex-direction:column}.newsletter-inner{display:block}.newsletter form{min-width:0;margin-top:20px}.footer-grid{grid-template-columns:1fr 1fr}.copyright{display:block}.copyright span{display:block;margin-top:6px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card-media img{transition:none}.skeleton{animation:none}body:after{animation:none}.azexai-space{display:none}.hero-inner:before,.hero-inner:after{display:none}}
+
+.contact-form{margin-top:30px;border:1px solid var(--darkline);padding:26px;background:rgba(255,255,255,.28)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.contact-field{display:flex;flex-direction:column;gap:7px}
+.contact-field.full{grid-column:1/-1}
+.contact-field label{font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#713b42}
+.contact-field input,.contact-field textarea{border:1px solid #b7afa2;background:#f7f3eb;color:var(--ink);padding:13px 14px;outline:none;border-radius:0}
+.contact-field textarea{min-height:170px;resize:vertical}
+.contact-field input:focus,.contact-field textarea:focus{border-color:#c46b43;box-shadow:0 0 0 2px rgba(196,107,67,.12)}
+.contact-help{font:10px var(--mono);color:#77736b;margin-top:10px}
+.contact-status{margin-top:12px;font:11px var(--mono);color:var(--green)}
+@media(max-width:700px){.contact-grid{grid-template-columns:1fr}.contact-field.full{grid-column:auto}}
+
+/* AZEXAI visual editorial layer — decorative only, no extra content blocks */
+.article-view{position:relative;overflow:hidden}
+.article-view:before{content:"";position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.8}
+.article-head{position:relative}
+.article-head:after{content:"";position:absolute;left:24px;bottom:-11px;width:72px;height:2px;background:var(--rust);transform-origin:left;animation:ruleIn .8s ease both}
+@keyframes ruleIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.article-hero{position:relative}
+.article-hero:after{content:"";position:absolute;inset:12px;border:1px solid rgba(245,240,229,.45);pointer-events:none;mix-blend-mode:screen}
+.article-hero img{transition:transform .8s cubic-bezier(.2,.7,.2,1);filter:saturate(.94) contrast(1.02)}
+.article-hero:hover img{transform:scale(1.012)}
+.prose h2{position:relative;color:#263d36;padding:18px 0 10px;margin-top:48px;border-top:1px solid var(--darkline);border-left:0}
+.prose h2:before{content:"";position:absolute;left:0;top:-1px;width:48px;height:2px;background:var(--rust)}
+.prose h3{color:#71434a;margin-top:34px}
+.prose strong{color:#30312e}
+.prose blockquote{position:relative;background:rgba(184,154,90,.08);border-left:3px solid var(--gold);padding:18px 22px;margin:32px -10px;font-size:23px;line-height:1.45}
+.prose blockquote:before{content:"“";position:absolute;left:8px;top:-12px;font:54px/1 var(--serif);color:rgba(113,59,66,.25)}
+.prose img{box-shadow:0 14px 35px rgba(20,20,18,.10)}
+.prose figure{position:relative}
+.prose figcaption{font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.prose hr{border:0;height:22px;margin:38px 0;position:relative}
+.prose hr:after{content:"◆  ─────────  ◆";display:block;text-align:center;font:9px var(--mono);letter-spacing:.18em;color:#a28b58}
+.prose pre{border-radius:0;box-shadow:8px 8px 0 rgba(56,88,77,.10)}
+.prose table{box-shadow:0 8px 25px rgba(20,20,18,.06)}
+.card{transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(20,20,18,.07)}
+.feature{position:relative;overflow:hidden}
+.feature:after{content:"AZEXAI / FEATURED";position:absolute;right:-42px;top:20px;transform:rotate(90deg);font:8px var(--mono);letter-spacing:.18em;color:rgba(16,18,20,.42)}
+.section-head{position:relative}
+.section-head:after{content:"";position:absolute;left:0;bottom:-1px;width:44px;height:2px;background:var(--rust)}
+.hero-inner{animation:heroSettle .7s ease both}
+@keyframes heroSettle{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#readingProgress{position:fixed;left:0;top:0;width:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold),var(--green));z-index:100;transition:width .08s linear;pointer-events:none}
+
+/* Niche visual language: neural traces and machine-like geometry, purely decorative */
+.hero{isolation:isolate}
+.hero-inner:before{content:"01";position:absolute;right:5%;top:15%;font:clamp(80px,14vw,190px)/1 var(--mono);font-weight:700;letter-spacing:-.12em;color:rgba(245,240,229,.035);pointer-events:none}
+.hero-inner:after{content:"AI  /  SYSTEMS  /  MACHINES  /  CODE";position:absolute;right:3%;bottom:18%;font:8px var(--mono);letter-spacing:.28em;color:rgba(245,240,229,.28);transform:rotate(-90deg);transform-origin:right bottom;pointer-events:none}
+.category-index-section{position:relative;overflow:hidden}
+
+
+.azexai-atmosphere{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.azexai-atmosphere:before,.azexai-atmosphere:after{content:"";position:absolute;border:1px solid rgba(113,59,66,.10);border-radius:50%;width:42vw;height:42vw;min-width:360px;min-height:360px;right:-12vw;top:13vh;transform:rotate(24deg);animation:orbitDrift 28s linear infinite}
+.azexai-atmosphere:after{width:28vw;height:28vw;min-width:250px;min-height:250px;right:3vw;top:29vh;border-color:rgba(56,88,77,.11);animation-duration:21s;animation-direction:reverse}
+@keyframes orbitDrift{to{transform:rotate(384deg) translateX(10px)}}
+.azexai-atmosphere .trace{position:absolute;height:1px;background:linear-gradient(90deg,transparent,rgba(184,154,90,.24),transparent);transform-origin:left center;animation:traceMove 12s ease-in-out infinite}
+.azexai-atmosphere .t1{width:42vw;right:2vw;top:27%;transform:rotate(-19deg)}
+.azexai-atmosphere .t2{width:31vw;left:-5vw;top:67%;transform:rotate(13deg);animation-delay:-4s}
+.azexai-atmosphere .t3{width:25vw;right:13vw;top:74%;transform:rotate(-31deg);animation-delay:-8s}
+@keyframes traceMove{0%,100%{opacity:.15;transform-origin:left center}50%{opacity:.55}}
+@media(max-width:700px){.azexai-atmosphere:before{width:90vw;height:90vw;right:-48vw;top:22vh}.azexai-atmosphere:after{width:65vw;height:65vw;right:-18vw;top:36vh}.azexai-atmosphere .t1{width:70vw}.azexai-atmosphere .t2{width:60vw}.azexai-atmosphere .t3{width:52vw}}
+
+@media(max-width:420px){
+  .feature{grid-template-columns:1fr 1fr;min-height:220px}
+  .feature-media{min-height:220px}
+  .feature-copy{padding:14px}
+  .feature-copy h2{font-size:22px}
+  .feature-copy p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+}
+
+/* AZEXAI LIVING SPACE — continuous motion, decorative only */
+.azexai-space{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:
+radial-gradient(circle at 75% 24%,rgba(36,103,170,.18),transparent 25%),
+radial-gradient(circle at 20% 76%,rgba(27,72,122,.14),transparent 27%),
+linear-gradient(125deg,#081421 0%,#0b1d2e 45%,#0a121b 100%)}
+.azexai-space .starfield{position:absolute;inset:-8%;background-image:
+radial-gradient(circle,rgba(117,181,224,.72) 0 1px,transparent 1.5px),
+radial-gradient(circle,rgba(205,229,244,.48) 0 1px,transparent 1.5px),
+radial-gradient(circle,rgba(72,143,194,.35) 0 1.4px,transparent 2px);
+background-size:83px 97px,137px 121px,211px 187px;background-position:12px 21px,49px 7px,31px 81px;opacity:.42;animation:starTravel 20s linear infinite}
+.azexai-space .planet{position:absolute;border-radius:50%;will-change:transform}
+.azexai-space .planet.one{width:205px;height:205px;right:-62px;top:12%;background:radial-gradient(circle at 33% 27%,#d4ecfa 0 3%,#71a9cf 13%,#275d88 40%,#0d2944 68%,#061524 100%);box-shadow:0 0 70px rgba(48,128,193,.23);animation:planetOrbit 13s ease-in-out infinite alternate}
+.azexai-space .planet.two{width:82px;height:82px;left:7%;top:45%;background:radial-gradient(circle at 33% 27%,#dbeef7,#6b9cba 34%,#2a506d 68%,#102b40);box-shadow:0 0 45px rgba(54,128,180,.16);animation:planetDrift 17s ease-in-out infinite alternate}
+.azexai-space .planet.three{width:38px;height:38px;right:22%;top:69%;background:radial-gradient(circle at 32% 27%,#e2f0f6,#6b8fa7 42%,#17344b);animation:planetDriftSmall 11s ease-in-out infinite alternate}
+.azexai-space .planet.one:after{content:"";position:absolute;width:285px;height:62px;left:-42px;top:73px;border:1px solid rgba(105,176,221,.28);border-radius:50%;transform:rotate(-17deg);animation:ringSpin 8s linear infinite}
+.azexai-space:after{content:"";position:absolute;width:28vw;height:28vw;min-width:230px;min-height:230px;left:-12vw;top:8%;border:1px solid rgba(70,145,199,.14);border-radius:50%;box-shadow:0 0 0 22px rgba(70,145,199,.025),0 0 0 44px rgba(70,145,199,.018);animation:largeOrbit 18s linear infinite}
+@keyframes starTravel{from{transform:translate3d(0,0,0)}to{transform:translate3d(-83px,97px,0)}}
+@keyframes planetOrbit{from{transform:translate3d(0,0) rotate(-4deg)}to{transform:translate3d(-34px,28px) rotate(7deg)}}
+@keyframes planetDrift{from{transform:translate3d(0,0)}to{transform:translate3d(30px,-22px)}}
+@keyframes planetDriftSmall{from{transform:translate3d(0,0)}to{transform:translate3d(-18px,-25px)}}
+@keyframes ringSpin{from{transform:rotate(-17deg) scaleX(1)}to{transform:rotate(343deg) scaleX(1.03)}}
+@keyframes largeOrbit{from{transform:translate3d(0,0) rotate(0)}to{transform:translate3d(70px,110px) rotate(360deg)}}
+@media(max-width:700px){.azexai-space .planet.one{width:130px;height:130px;right:-42px;top:18%}.azexai-space .planet.one:after{width:185px;height:40px;left:-28px;top:46px}.azexai-space .planet.two{width:52px;height:52px}.azexai-space .planet.three{width:25px;height:25px}.azexai-space:after{width:55vw;height:55vw;left:-30vw}}
+@media(prefers-reduced-motion:reduce){.azexai-space .starfield,.azexai-space .planet,.azexai-space:after,.azexai-space .planet.one:after{animation:none}}
+
+.feature-centered{display:block;max-width:1120px;margin:0 auto;background:transparent;border:0;min-height:0;position:relative}
+.feature-centered .feature-media{width:min(100%,920px);height:auto;aspect-ratio:16/8.8;min-height:0;margin:0 auto;background:#121416;overflow:hidden;position:relative}
+.feature-centered .feature-media:before{content:"";position:absolute;inset:12px;border:1px solid rgba(245,240,229,.24);z-index:2;pointer-events:none}
+.feature-centered .feature-media:after{content:"01";position:absolute;right:18px;bottom:12px;font:9px var(--mono);letter-spacing:.18em;color:rgba(245,240,229,.6);z-index:2}
+.feature-centered .feature-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.feature-centered:hover .feature-media img{transform:scale(1.018)}
+.feature-centered .feature-copy{width:min(88%,820px);margin:-45px auto 0;position:relative;z-index:3;padding:28px 36px 24px;background:rgba(17,19,21,.97);color:var(--cream);border-top:2px solid var(--rust);box-shadow:0 18px 45px rgba(0,0,0,.18);text-align:center}
+.feature-kicker{display:flex;align-items:center;justify-content:center;gap:12px;font:9px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#b9a77e}
+.feature-kicker i{width:22px;height:1px;background:var(--gold);display:block}
+.feature-centered .feature-copy h2{font:500 clamp(32px,4.5vw,58px)/.96 var(--serif);letter-spacing:-.045em;margin:13px auto 14px;max-width:760px}
+.feature-centered .feature-copy h2 a{text-decoration:none}
+.feature-centered .feature-copy h2 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:7px}
+.feature-centered .feature-copy p{max-width:650px;margin:0 auto 18px;color:#b7b8b3;font-size:14px;line-height:1.55}
+.feature-bottom{display:flex;justify-content:center;align-items:center;gap:18px}
+.feature-readtime{font:8px var(--mono);letter-spacing:.13em;color:#8e918c}
+.feature-centered .btn{color:var(--cream);padding:10px 14px}
+.feature-centered .btn:hover{background:var(--cream);color:var(--ink)}
 
 @media(max-width:700px){
-
-  .nav{
-    min-height:68px;
-    padding:0 15px;
-  }
-
-  .logo{
-    font-size:25px;
-  }
-
-  .menu{
-    display:none;
-  }
-
-  .hamb{
-    display:grid;
-    margin-left:auto;
-  }
-
-  .wrap{
-    padding:0 15px;
-  }
-
-  .hero-inner{
-    padding:50px 0;
-  }
-
-  .hero h1{
-    font-size:clamp(43px,13vw,58px);
-  }
-
-  .hero p{
-    font-size:15px;
-  }
-
-  .hero-meta{
-    font-size:8px;
-  }
-
-  .section{
-    padding:40px 0;
-  }
-
-  .section-head h2{
-    font-size:34px;
-  }
-
-  .feature-media{
-    width:94%;
-    aspect-ratio:16/10;
-  }
-
-  .feature-copy{
-    width:88%;
-    margin:-25px auto 0;
-    padding:17px 13px 14px;
-  }
-
-  .feature-copy h2{
-    font-size:24px;
-  }
-
-  .feature-copy p{
-    font-size:10px;
-  }
-
-  .grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:12px;
-  }
-
-  .card-media{
-    height:145px;
-  }
-
-  .card-body{
-    min-height:135px;
-    margin:-21px 7px 0;
-    padding:12px 11px;
-  }
-
-  .card h3{
-    font-size:18px;
-  }
-
-  .card p{
-    font-size:9px;
-  }
-
-  .card-foot{
-    font-size:6px;
-  }
-
-  .article-head{
-    padding:0 15px;
-  }
-
-  .article-head h1{
-    font-size:clamp(38px,11vw,52px);
-  }
-
-  .article-deck{
-    font-size:16px;
-  }
-
-  .article-hero{
-    padding:0 15px;
-  }
-
-  .prose{
-    padding:0 15px;
-    font-size:17px;
-    line-height:1.75;
-  }
-
-  .prose h2{
-    font-size:30px;
-  }
-
-  .reader-nav{
-    padding-left:15px;
-    padding-right:15px;
-  }
-
-  .related{
-    padding:0 15px;
-  }
-
-  .archive-list li{
-    grid-template-columns:1fr;
-  }
-
-  .search-form{
-    flex-direction:column;
-  }
-
-  .contact-grid{
-    grid-template-columns:1fr;
-  }
-
-  .contact-field.full{
-    grid-column:auto;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .copyright{
-    display:block;
-  }
-
-  .copyright span{
-    display:block;
-    margin-top:6px;
-  }
-
-  .planet.one{
-    width:130px;
-    height:130px;
-    right:-42px;
-  }
-
-  .planet.two{
-    width:52px;
-    height:52px;
-  }
-
-  .planet.three{
-    width:25px;
-    height:25px;
-  }
+  .feature-centered .feature-media{width:100%;aspect-ratio:16/10}
+  .feature-centered .feature-media:before{inset:8px}
+  .feature-centered .feature-copy{width:92%;margin:-28px auto 0;padding:20px 16px 17px}
+  .feature-kicker{font-size:7px;gap:7px}
+  .feature-centered .feature-copy h2{font-size:28px;line-height:.99;margin:10px auto 11px}
+  .feature-centered .feature-copy p{font-size:11px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:13px}
+  .feature-bottom{gap:10px}
+  .feature-readtime{font-size:7px}
+  .feature-centered .btn{font-size:7px;padding:8px 10px}
 }
 
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  body:after,
-  .starfield,
-  .planet{
-    animation:none;
-  }
+/* AZEXAI STORY GRID — modern image-led editorial tiles */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card{position:relative;display:flex;flex-direction:column;min-width:0;background:transparent;border:0;box-shadow:none;overflow:visible}
+.card-media{height:230px;overflow:hidden;background:#101820;position:relative;border:0}
+.card-media:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(7,13,18,.38));z-index:1;pointer-events:none}
+.card-media:after{content:"";position:absolute;right:12px;top:12px;width:30px;height:30px;border:1px solid rgba(255,255,255,.5);border-radius:50%;z-index:2;opacity:.75}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .5s ease;filter:saturate(.92)}
+.card:hover .card-media img{transform:scale(1.035);filter:saturate(1)}
+.card-body{position:relative;margin:-34px 14px 0;padding:20px 20px 18px;background:var(--paper);z-index:3;border-top:2px solid var(--rust);min-height:174px;display:flex;flex-direction:column}
+.card .meta{font:8px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:#79776f}
+.card h3{font:500 24px/1.02 var(--serif);letter-spacing:-.025em;margin:8px 0 9px}
+.card h3 a{text-decoration:none}
+.card h3 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.card-excerpt{font-size:11px;line-height:1.45;color:#66645e;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0}
+.card-foot{margin-top:auto;padding-top:13px;display:flex;justify-content:space-between;align-items:center;font:8px var(--mono);letter-spacing:.1em;color:#77746c}
+.card:nth-child(3n+2) .card-body{border-top-color:var(--green)}
+.card:nth-child(3n+3) .card-body{border-top-color:var(--gold)}
+.card:nth-child(4n+1) .card-media{border-radius:0 34px 0 0}
+.card:nth-child(4n+2) .card-media{border-radius:34px 0 0 0}
+.card:nth-child(4n+3) .card-media{border-radius:0 0 34px 0}
+.card:nth-child(4n) .card-media{border-radius:0 0 0 34px}
+
+@media(max-width:700px){
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .card-media{height:145px}
+  .card-body{margin:-21px 7px 0;padding:12px 11px 11px;min-height:135px}
+  .card h3{font-size:18px;line-height:1.03;margin:6px 0 7px}
+  .card-excerpt{font-size:9px;line-height:1.35;-webkit-line-clamp:2}
+  .card-foot{font-size:6px;padding-top:9px}
+  .card-media:after{width:22px;height:22px;right:8px;top:8px}
 }
+
+.feature-centered{display:block;max-width:1060px;margin:0 auto;position:relative}
+.feature-centered .feature-media{width:86%;aspect-ratio:16/8.4;margin:0 auto;min-height:0;background:#0b1722;overflow:hidden;position:relative;box-shadow:0 24px 55px rgba(0,0,0,.22)}
+.feature-centered .feature-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s ease}
+.feature-centered:hover .feature-media img{transform:scale(1.025)}
+.feature-centered .feature-copy{width:76%;margin:-52px auto 0;position:relative;z-index:3;padding:25px 30px 22px;background:rgba(12,20,28,.96);color:#f5f0e5;text-align:center;border:1px solid rgba(184,154,90,.34);border-bottom:3px solid var(--rust);box-shadow:0 20px 45px rgba(0,0,0,.22)}
+.feature-centered .feature-copy h2{font:500 clamp(30px,4.2vw,56px)/.96 var(--serif);letter-spacing:-.045em;margin:12px auto 12px;max-width:760px}
+.feature-centered .feature-copy p{max-width:620px;margin:0 auto 16px;color:#bfc1bd;font-size:13px;line-height:1.5}
+@media(max-width:700px){
+  .feature-centered .feature-media{width:94%;aspect-ratio:16/10}
+  .feature-centered .feature-copy{width:88%;margin:-25px auto 0;padding:17px 13px 14px}
+  .feature-centered .feature-copy h2{font-size:24px;line-height:.98;margin:9px auto 9px}
+  .feature-centered .feature-copy p{font-size:10px;line-height:1.4;-webkit-line-clamp:2;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
+}
+
+/* SEO/performance polish: preserve the editorial look while keeping text and links highly legible. */
+img{max-width:100%;height:auto}
+.prose a{color:#315b56;text-decoration-thickness:1px;text-underline-offset:3px}
+.prose a:hover{color:#713b42}
+.article-head h1,.hero h1,.section-head h2,.about h1{overflow-wrap:anywhere}
+@media(max-width:700px){.hero h1{font-size:clamp(43px,13vw,58px)}.article-head h1{font-size:clamp(38px,11vw,52px)}}
 </style>
 </head>
-
 <body>
-
 <div class="azexai-space" aria-hidden="true">
   <div class="starfield"></div>
-  <span class="planet one"></span>
-  <span class="planet two"></span>
-  <span class="planet three"></span>
+  <span class="planet one"></span><span class="planet two"></span><span class="planet three"></span>
 </div>
-
-<div id="readingProgress"></div>
-
+<div id="readingProgress" aria-hidden="true"></div>
 <a class="skip" href="#app">Skip to content</a>
-
 <div class="topline"></div>
-
 <header class="site-header">
-
-<nav class="nav" aria-label="Primary navigation">
-
-<a class="logo" href="/" data-route>
-  AZEXAI
-  <small>TECHNOLOGY / INTELLIGENCE</small>
-</a>
-
-<div class="menu" id="desktopNav"></div>
-
-<button class="search-btn" id="searchToggle" aria-label="Open search">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<circle cx="11" cy="11" r="7"/>
-<path d="m20 20-4-4"/>
-</svg>
-</button>
-
-<button class="hamb" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Open menu">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M4 7h16M4 17h16"/>
-</svg>
-</button>
-
-</nav>
-
-<div class="drawer" id="mobileDrawer"></div>
-
+ <nav class="nav" aria-label="Primary navigation">
+  <a class="logo" href="./" data-route>AZEXAI<small>TECHNOLOGY / INTELLIGENCE</small></a>
+  <div class="menu" id="desktopNav"></div>
+  <button class="search-btn" id="searchToggle" aria-label="Open search" title="Search">
+   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+  </button>
+  <button class="hamb" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Open menu">
+   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 17h16"/></svg>
+  </button>
+ </nav>
+ <div class="drawer" id="mobileDrawer" aria-label="Mobile navigation"></div>
 </header>
-
 <main id="app"></main>
-
 <button class="backtop" id="backTop" aria-label="Back to top">↑</button>
-
-<footer class="site-footer">
-
-<div class="wrap">
-
-<div class="footer-grid">
-
-<div>
-<div class="footer-brand">AZEXAI</div>
-<p class="footer-copy">
-Technology, intelligence, and the systems shaping tomorrow.
-</p>
-</div>
-
-<div>
-<div class="footer-title">Sections</div>
-<div class="footer-links" id="footerSections"></div>
-</div>
-
-<div>
-<div class="footer-title">Publication</div>
-<div class="footer-links">
-<a href="/?archive" data-route>Archive</a>
-<a href="/?about" data-route>About</a>
-<a href="/?contact" data-route>Contact</a>
-<a href="/?privacy" data-route>Privacy</a>
-</div>
-</div>
-
-<div>
-<div class="footer-title">Editorial note</div>
-<p class="footer-copy">
-AZEXAI publishes technology stories supplied by its connected Blogger publication.
-</p>
-</div>
-
-</div>
-
-<div class="copyright">
-<span>© <span id="year"></span> AZEXAI</span>
-<span>Independent technology publication</span>
-</div>
-
-</div>
-
+<footer class="site-footer" id="footer">
+ <div class="wrap">
+  <div class="footer-grid">
+   <div><div class="footer-brand">AZEXAI</div><p class="footer-copy">Technology, intelligence, and the systems shaping tomorrow.</p><div class="signatures">AZEXAI / INTELLIGENCE<br>AZEXAI / FUTURE<br>AZEXAI / ANALYSIS<br>AZEXAI / FIELD NOTES</div></div>
+   <div><div class="footer-title">Sections</div><div class="footer-links" id="footerSections"></div></div>
+   <div><div class="footer-title">Publication</div><div class="footer-links"><a href="./?archive" data-route>Archive</a><a href="./?about" data-route>About</a><a href="./?contact" data-route>Contact</a><a href="./?privacy" data-route>Privacy</a></div></div>
+   <div><div class="footer-title">Editorial note</div><p class="footer-copy">AZEXAI is built around real published reporting and analysis. Article content is supplied by its connected Blogger publication.</p></div>
+  </div>
+  <div class="copyright"><span>© <span id="year"></span> AZEXAI</span><span>Independent technology publication</span></div>
+ </div>
 </footer>
-
 <script>
 'use strict';
 
-/* =========================================================
-   AZEXAI CONFIG
-   ========================================================= */
-
+/* =========================
+   AZEXAI / BLOGGER CONFIG
+   ========================= */
 const BLOGGER = Object.freeze({
   BLOG_ID: '4263033619836681299',
   API_KEY: 'AIzaSyBCX4A-E72kxv4_m-z-mr0lfl7Nll9mjGQ',
   API_ROOT: 'https://www.googleapis.com/blogger/v3/blogs'
 });
-
-const SITE_ORIGIN = 'https://azexai.com';
-const SITE_NAME = 'AZEXAI';
 const CONTACT_EMAIL = 'YOUR_EMAIL@example.com';
 
 const CATEGORIES = [
-  {
-    key:'ai',
-    name:'AI',
-    aliases:['ai','artificial intelligence','artificial-intelligence']
-  },
-  {
-    key:'robotics',
-    name:'Robotics',
-    aliases:['robotics','robotic','robots']
-  },
-  {
-    key:'hardware',
-    name:'Hardware',
-    aliases:['hardware','devices','gadgets']
-  },
-  {
-    key:'software',
-    name:'Software',
-    aliases:['software','apps','applications']
-  },
-  {
-    key:'future-tech',
-    name:'Future Tech',
-    aliases:['future tech','future-tech','future technology']
-  },
-  {
-    key:'guides',
-    name:'Guides',
-    aliases:['guides','guide','how to','how-to']
-  },
-  {
-    key:'reviews',
-    name:'Reviews',
-    aliases:['reviews','review']
-  },
-  {
-    key:'ethics',
-    name:'Ethics',
-    aliases:['ethics','technology ethics','ai ethics']
-  }
+ {key:'ai',name:'AI',aliases:['ai','artificial intelligence','artificial-intelligence']},
+ {key:'robotics',name:'Robotics',aliases:['robotics','robotic','robots']},
+ {key:'hardware',name:'Hardware',aliases:['hardware','devices','gadgets']},
+ {key:'software',name:'Software',aliases:['software','apps','applications']},
+ {key:'future-tech',name:'Future Tech',aliases:['future tech','future-tech','future technology']},
+ {key:'guides',name:'Guides',aliases:['guides','guide','how to','how-to']},
+ {key:'reviews',name:'Reviews',aliases:['reviews','review']},
+ {key:'ethics',name:'Ethics',aliases:['ethics','technology ethics','ai ethics']}
 ];
 
+const NAV = CATEGORIES.map(c=>({label:c.name, href:'?category='+c.key}));
+NAV.push({label:'Archive',href:'?archive'});
 const app = document.getElementById('app');
 const desktopNav = document.getElementById('desktopNav');
 const mobileDrawer = document.getElementById('mobileDrawer');
 const footerSections = document.getElementById('footerSections');
-
 let POSTS = [];
 let postMap = new Map();
 let loadingPromise = null;
+let searchTimer = null;
 
 
-/* =========================================================
-   BASIC HELPERS
-   ========================================================= */
-
-function escapeHTML(value=''){
-  return String(value).replace(/[&<>"']/g, char => ({
-    '&':'&amp;',
-    '<':'&lt;',
-    '>':'&gt;',
-    '"':'&quot;',
-    "'":'&#39;'
-  }[char]));
-}
-
+function escapeHTML(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function safeURL(value=''){
   try{
-    const url = new URL(value, location.href);
-
-    if(
-      url.protocol === 'http:' ||
-      url.protocol === 'https:'
-    ){
-      return url.href;
-    }
+    const u=new URL(value,location.href);
+    if(['http:','https:','data:','blob:'].includes(u.protocol)) return u.href;
   }catch(e){}
-
   return '';
 }
-
 function stripHTML(html=''){
-  const div = document.createElement('div');
-  div.innerHTML = html;
-
-  return (div.textContent || div.innerText || '')
-    .replace(/\s+/g,' ')
-    .trim();
+  const d=document.createElement('div');d.innerHTML=html;
+  return (d.textContent||d.innerText||'').replace(/\s+/g,' ').trim();
 }
-
-function formatDate(value, options={
-  year:'numeric',
-  month:'short',
-  day:'numeric'
-}){
+function formatDate(value,opts={year:'numeric',month:'short',day:'numeric'}){
   if(!value)return '';
-
-  const date = new Date(value);
-
-  if(Number.isNaN(date.getTime()))return '';
-
-  return new Intl.DateTimeFormat('en-US',options).format(date);
+  const d=new Date(value); if(Number.isNaN(d.getTime()))return '';
+  return new Intl.DateTimeFormat('en-US',opts).format(d);
 }
-
-function normalizeLabel(label=''){
-  return String(label)
-    .toLowerCase()
-    .trim()
-    .replace(/[_-]+/g,' ')
-    .replace(/\s+/g,' ');
-}
-
 function calculateReadingTime(html=''){
-  const words = stripHTML(html)
-    .split(/\s+/)
-    .filter(Boolean)
-    .length;
-
-  return Math.max(1,Math.ceil(words / 220));
+  const words=stripHTML(html).split(/\s+/).filter(Boolean).length;
+  return Math.max(1,Math.ceil(words/220));
 }
-
-function seoDescription(text='',fallback='Technology, intelligence, and the systems shaping tomorrow.'){
-  const clean = String(text || fallback)
-    .replace(/\s+/g,' ')
-    .trim();
-
-  if(clean.length <= 160)return clean;
-
-  return clean
-    .slice(0,157)
-    .replace(/\s+\S*$/,'') + '…';
-}
-
-
-/* =========================================================
-   CATEGORY
-   ========================================================= */
-
+function normalizeLabel(label=''){return label.toLowerCase().trim().replace(/[_-]+/g,' ').replace(/\s+/g,' ');}
 function categoryFor(post){
-
-  const labels = (post.labels || [])
-    .map(normalizeLabel);
-
-  for(const category of CATEGORIES){
-
-    const aliases = category.aliases
-      .map(normalizeLabel);
-
-    if(
-      labels.some(label => aliases.includes(label))
-    ){
-      return category;
-    }
+  const labels=(post.labels||[]).map(normalizeLabel);
+  for(const c of CATEGORIES){
+    if(labels.some(l=>c.aliases.map(normalizeLabel).includes(l)))return c;
   }
-
-  return {
-    key:'',
-    name:labels[0] || 'Technology',
-    aliases:[]
-  };
+  return {key:'',name:labels[0]||'Technology',aliases:[]};
 }
-
-
-/* =========================================================
-   SLUG SYSTEM
-   ========================================================= */
-
-/*
-  IMPORTANT:
-
-  Blogger URL is the source of truth.
-
-  We NEVER create random IDs.
-  We NEVER choose another article if the slug doesn't match.
-*/
-
-function slugify(value=''){
-  return String(value)
-    .toLowerCase()
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g,'')
-    .replace(/&/g,' and ')
-    .replace(/[^a-z0-9]+/g,'-')
-    .replace(/^-+|-+$/g,'')
-    .slice(0,100);
+function slugify(s=''){
+  return s.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/&/g,' and ').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,100);
 }
-
-
-function makeStableSlug(post){
-
-  try{
-
-    if(post.url){
-
-      const url = new URL(post.url);
-
-      const parts = url.pathname
-        .split('/')
-        .filter(Boolean);
-
-      const last = parts[parts.length - 1] || '';
-
-      const nativeSlug = decodeURIComponent(last)
-        .replace(/\.html$/i,'')
-        .trim();
-
-      if(nativeSlug){
-        return nativeSlug;
-      }
-    }
-
-  }catch(e){}
-
-  return slugify(post.title) ||
-    ('article-' + String(post.id || '').replace(/\D/g,''));
-}
-
-
-/*
-  THE ONLY ARTICLE URL GENERATOR.
-*/
-function prettyArticleHref(post){
-
-  const slug = String(post.slug || '')
-    .replace(/^\/+/,'')
-    .replace(/\/+$/,'');
-
-  return '/article/' +
-    encodeURIComponent(slug) +
-    '/';
-}
-
-
-/*
-  THE ONLY SLUG LOOKUP.
-
-  Exact match only.
-
-  This is what prevents:
-
-  Article A URL
-        ↓
-  Article B opening accidentally.
-*/
-function findPostBySlug(slug){
-
-  const requested = decodeURIComponent(
-    String(slug || '')
-  )
-    .replace(/^\/+/,'')
-    .replace(/\/+$/,'')
-    .replace(/\.html$/i,'');
-
-  if(!requested)return null;
-
-  return POSTS.find(post => {
-
-    const actual = String(post.slug || '')
-      .replace(/^\/+/,'')
-      .replace(/\/+$/,'')
-      .replace(/\.html$/i,'');
-
-    return actual === requested;
-
-  }) || null;
-}
-
-
-/* =========================================================
-   BLOGGER
-   ========================================================= */
-
 function extractImage(post){
-
   if(Array.isArray(post.images)){
-
-    for(const image of post.images){
-
-      const url = safeURL(
-        image?.url || image
-      );
-
-      if(url)return url;
+    for(const x of post.images){
+      const u=safeURL(x.url||x);
+      if(u && /^https?:/i.test(u))return u;
     }
   }
-
-  const div = document.createElement('div');
-
-  div.innerHTML = post.content || '';
-
-  const image = [...div.querySelectorAll('img[src]')]
-    .map(img => safeURL(img.getAttribute('src')))
-    .find(Boolean);
-
-  return image || '';
+  const d=document.createElement('div');d.innerHTML=post.content||'';
+  const img=[...d.querySelectorAll('img[src]')].map(x=>safeURL(x.getAttribute('src'))).find(Boolean);
+  return img||'';
 }
-
-
-function makeExcerpt(html='',title=''){
-
-  const div = document.createElement('div');
-
-  div.innerHTML = html || '';
-
-  const paragraphs = [...div.querySelectorAll('p')]
-    .map(p => (p.textContent || '')
-      .replace(/\s+/g,' ')
-      .trim()
-    )
-    .filter(Boolean);
-
-  const text =
-    paragraphs.find(text => text.length > 70) ||
-    stripHTML(html) ||
-    title;
-
-  return seoDescription(text);
+function makeStableSlug(post){
+  try{
+    const u=new URL(post.url);
+    const last=u.pathname.split('/').filter(Boolean).pop()||'';
+    const native=decodeURIComponent(last).replace(/\.html$/,'');
+    if(native && !/^\d+$/.test(native))return native;
+  }catch(e){}
+  return slugify(post.title)||('article-'+String(post.id).replace(/\D/g,''));
 }
-
 
 function normalizePost(post){
-
-  const normalized = {...post};
-
-  normalized.labels =
-    Array.isArray(post.labels)
-      ? post.labels
-      : [];
-
-  normalized.image =
-    extractImage(post);
-
-  normalized.category =
-    categoryFor(normalized);
-
-  normalized.readingTime =
-    calculateReadingTime(post.content || '');
-
-  normalized.slug =
-    makeStableSlug(post);
-
-  normalized.excerpt =
-    makeExcerpt(
-      post.content || '',
-      post.title || ''
-    );
-
-  normalized.metaDescription =
-    normalized.excerpt;
-
-  normalized.wordCount =
-    stripHTML(post.content || '')
-      .split(/\s+/)
-      .filter(Boolean)
-      .length;
-
-  normalized.searchText = (
-    String(post.title || '') +
-    ' ' +
-    stripHTML(post.content || '') +
-    ' ' +
-    normalized.labels.join(' ')
-  ).toLowerCase();
-
-  normalized.date =
-    post.published ||
-    post.updated ||
-    '';
-
-  return normalized;
+  const p={...post};
+  p.labels=Array.isArray(post.labels)?post.labels:[];
+  p.image=extractImage(post);
+  p.category=categoryFor(p);
+  p.readingTime=calculateReadingTime(post.content||'');
+  p.slug=makeStableSlug(post);
+  p.excerpt=stripHTML(post.content||'').slice(0,260);
+  p.metaDescription=seoDescription(p.excerpt, p.title);
+  p.wordCount=stripHTML(post.content||'').split(/\s+/).filter(Boolean).length;
+  p.searchText=(post.title+' '+stripHTML(post.content||'')+' '+p.labels.join(' ')).toLowerCase();
+  p.date=post.published||post.updated||'';
+  return p;
 }
-
-
 function apiURL(path,params={}){
-
-  const url = new URL(
-    BLOGGER.API_ROOT +
-    '/' +
-    BLOGGER.BLOG_ID +
-    '/' +
-    path
-  );
-
-  url.searchParams.set(
-    'key',
-    BLOGGER.API_KEY
-  );
-
-  Object.entries(params).forEach(
-    ([key,value]) => {
-      url.searchParams.set(key,value);
-    }
-  );
-
-  return url.href;
+  const u=new URL(BLOGGER.API_ROOT+'/'+BLOGGER.BLOG_ID+'/'+path);
+  u.searchParams.set('key',BLOGGER.API_KEY);
+  Object.entries(params).forEach(([k,v])=>u.searchParams.set(k,v));
+  return u.href;
 }
-
-
 async function fetchAllPosts(){
-
-  if(loadingPromise){
-    return loadingPromise;
-  }
-
-  loadingPromise = (async()=>{
-
-    const allPosts = [];
-    let pageToken = '';
-
+  if(loadingPromise)return loadingPromise;
+  loadingPromise=(async()=>{
+    const all=[];let pageToken='';
     do{
-
-      const params = {
-        fetchBodies:'true',
-        fetchImages:'true',
-        orderBy:'published',
-        maxResults:'50'
-      };
-
-      if(pageToken){
-        params.pageToken = pageToken;
-      }
-
-      const response = await fetch(
-        apiURL('posts',params),
-        {
-          headers:{
-            Accept:'application/json'
-          }
-        }
-      );
-
-      if(!response.ok){
-        throw new Error(
-          'Blogger API request failed: ' +
-          response.status
-        );
-      }
-
-      const data =
-        await response.json();
-
-      if(Array.isArray(data.items)){
-        allPosts.push(...data.items);
-      }
-
-      pageToken =
-        data.nextPageToken || '';
-
+      const params={fetchBodies:'true',fetchImages:'true',orderBy:'published',maxResults:'50'};
+      if(pageToken)params.pageToken=pageToken;
+      const res=await fetch(apiURL('posts',params),{headers:{Accept:'application/json'}});
+      console.info('BLOGGER API STATUS:',res.status);
+      if(!res.ok)throw new Error('Blogger API request failed with status '+res.status);
+      const data=await res.json();
+      if(Array.isArray(data.items))all.push(...data.items);
+      pageToken=data.nextPageToken||'';
     }while(pageToken);
-
-
-    /*
-      Deduplicate by Blogger ID.
-    */
-
-    const unique = new Map();
-
-    allPosts.forEach(post => {
-
-      if(post?.id){
-
-        unique.set(
-          String(post.id),
-          normalizePost(post)
-        );
-
-      }
-
-    });
-
-
-    POSTS = [...unique.values()]
-      .sort(
-        (a,b) =>
-          new Date(b.date) -
-          new Date(a.date)
-      );
-
-
-    postMap = new Map(
-      POSTS.map(
-        post => [
-          String(post.id),
-          post
-        ]
-      )
-    );
-
-
-    console.info(
-      'AZEXAI POSTS:',
-      POSTS.length
-    );
-
+    const unique=new Map();
+    all.forEach(p=>{if(p&&p.id)unique.set(String(p.id),normalizePost(p));});
+    POSTS=[...unique.values()].sort((a,b)=>new Date(b.date)-new Date(a.date));
+    postMap=new Map(POSTS.map(p=>[String(p.id),p]));
+    console.info('BLOGGER POSTS LOADED:',POSTS.length);
     return POSTS;
-
-  })().catch(error => {
-
-    loadingPromise = null;
-
-    console.error(
-      'BLOGGER ERROR:',
-      error
-    );
-
-    throw error;
-
-  });
-
+  })().catch(err=>{loadingPromise=null;console.error('BLOGGER LOAD ERROR:',err);throw err;});
   return loadingPromise;
 }
-
-
 async function fetchPostById(id){
-
-  const cached =
-    postMap.get(String(id));
-
-  if(cached)return cached;
-
-  const response = await fetch(
-    apiURL(
-      'posts/' +
-      encodeURIComponent(id),
-      {
-        fetchBody:'true',
-        fetchImages:'true'
-      }
-    )
-  );
-
-  if(!response.ok){
-    throw new Error(
-      'Article request failed: ' +
-      response.status
-    );
-  }
-
-  const post =
-    normalizePost(
-      await response.json()
-    );
-
-  postMap.set(
-    String(post.id),
-    post
-  );
-
-  return post;
+  const cached=postMap.get(String(id)); if(cached)return cached;
+  const res=await fetch(apiURL('posts/'+encodeURIComponent(id),{fetchBody:'true',fetchImages:'true'}),{headers:{Accept:'application/json'}});
+  console.info('BLOGGER INDIVIDUAL STATUS:',res.status);
+  if(!res.ok)throw new Error('Article request failed with status '+res.status);
+  const data=await res.json();const p=normalizePost(data);postMap.set(String(p.id),p);
+  if(!POSTS.some(x=>String(x.id)===String(p.id)))POSTS=[p,...POSTS];
+  return p;
 }
-
-
-/* =========================================================
-   ROUTER
-   ========================================================= */
-
-function route(){
-
-  const path =
-    decodeURIComponent(
-      location.pathname
-    );
-
-  const query =
-    new URLSearchParams(
-      location.search
-    );
-
-
-  /*
-    Correct article route:
-
-    /article/slug/
-  */
-
-  const articleMatch =
-    path.match(
-      /^\/article\/([^/]+)\/?$/
-    );
-
-  if(articleMatch){
-
-    return {
-      type:'articleSlug',
-      slug:articleMatch[1]
-    };
-  }
-
-
-  /*
-    Old compatibility:
-
-    /?post=ID
-  */
-
-  if(query.has('post')){
-
-    return {
-      type:'articleId',
-      id:query.get('post')
-    };
-  }
-
-  if(query.has('search')){
-
-    return {
-      type:'search',
-      query:query.get('search')
-    };
-  }
-
-  if(query.has('category')){
-
-    return {
-      type:'category',
-      key:query.get('category')
-    };
-  }
-
-  if(query.has('archive')){
-    return {type:'archive'};
-  }
-
-  if(query.has('about')){
-    return {type:'about'};
-  }
-
-  if(query.has('contact')){
-    return {type:'contact'};
-  }
-
-  if(query.has('privacy')){
-    return {type:'privacy'};
-  }
-
-  return {
-    type:'home'
-  };
+function showLoading(kind='home'){
+  app.innerHTML=kind==='article'
+   ? '<section class="article-view"><div class="article-head"><div class="skeleton" style="height:12px;width:110px"></div><div class="skeleton" style="height:80px;width:90%;margin:20px 0"></div></div><div class="article-hero"><div class="skeleton" style="height:400px"></div></div><div class="prose"><div class="skeleton" style="height:20px;margin:15px 0"></div><div class="skeleton" style="height:20px;margin:15px 0"></div><div class="skeleton" style="height:20px;margin:15px 0;width:80%"></div></div></section>'
+   : `<section class="hero"><div class="wrap hero-inner"><div><div class="skeleton" style="height:10px;width:160px"></div><div class="skeleton" style="height:130px;width:90%;margin:20px 0"></div><div class="skeleton" style="height:18px;width:75%"></div></div></div></section><section class="section"><div class="wrap"><div class="grid">${Array.from({length:6},()=>'<div class="skeleton-card"><div class="skeleton sk-img"></div><div class="skeleton sk-line"></div><div class="skeleton sk-line"></div><div class="skeleton sk-line short"></div></div>').join('')}</div></div></section>`;
 }
-
-
-function navigate(href){
-
-  history.pushState(
-    {},
-    '',
-    href
-  );
-
-  window.scrollTo({
-    top:0,
-    behavior:'smooth'
-  });
-
-  handleRoute();
+function showError(retry){
+  app.innerHTML=`<section class="section"><div class="notice center"><h2>Unable to load articles right now.</h2><p>Please try again shortly.</p><button class="btn" id="retry">Retry</button></div></section>`;
+  document.getElementById('retry').onclick=()=>{loadingPromise=null;handleRoute(true)};
 }
-
-
-/* =========================================================
-   RENDER
-   ========================================================= */
-
-function cardHTML(post){
-
-  const image = post.image
-    ? `<img
-         src="${escapeHTML(post.image)}"
-         alt="${escapeHTML(post.title)}"
-         loading="lazy"
-         decoding="async"
-       >`
-    : '';
-
-  return `
-    <article class="card">
-
-      <a
-        class="card-media"
-        href="${escapeHTML(prettyArticleHref(post))}"
-        data-route
-        aria-label="Read ${escapeHTML(post.title)}"
-      >
-        ${image}
-      </a>
-
-      <div class="card-body">
-
-        <div class="tag">
-          ${escapeHTML(post.category.name)}
-        </div>
-
-        <h3>
-          <a
-            href="${escapeHTML(prettyArticleHref(post))}"
-            data-route
-          >
-            ${escapeHTML(post.title)}
-          </a>
-        </h3>
-
-        <p>
-          ${escapeHTML(post.excerpt)}
-        </p>
-
-        <div class="card-foot">
-          <span>
-            ${escapeHTML(formatDate(post.date))}
-          </span>
-
-          <span>
-            ${post.readingTime} min
-          </span>
-        </div>
-
-      </div>
-
-    </article>
-  `;
+function articleHref(p){return './?post='+encodeURIComponent(p.id);}
+function prettyArticleHref(p){
+  return '/article/'+encodeURIComponent(p.slug)+'/';
 }
-
-
+function cardHTML(p){
+  const img=p.image?`<img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.title)}" loading="lazy" decoding="async">`:'';
+  return `<article class="card"><a class="card-media" href="${escapeHTML(prettyArticleHref(p))}" data-route aria-label="Read ${escapeHTML(p.title)}">${img}</a>
+    <div class="tag">${escapeHTML(p.category.name)}</div>
+    <h3><a href="${escapeHTML(prettyArticleHref(p))}" data-route>${escapeHTML(p.title)}</a></h3>
+    <p>${escapeHTML(p.excerpt)}</p>
+    <div class="card-foot"><span>${escapeHTML(formatDate(p.date))}</span><span>${p.readingTime} min read</span></div></article>`;
+}
 function cardsHTML(posts){
-
-  if(!posts.length){
-
-    return `
-      <div class="notice">
-        <h2>No articles here yet.</h2>
-        <p>
-          This section contains no matching Blogger posts.
-        </p>
+  return posts.length?`<div class="grid">${posts.map(cardHTML).join('')}</div>`:'<div class="notice"><h2>No articles here yet.</h2><p>This section contains no matching Blogger posts.</p></div>';
+}
+function featuredHTML(p){
+  if(!p)return '';
+  const img=p.image?`<img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.title)}" decoding="async" fetchpriority="high">`:'';
+  return `<article class="feature feature-centered">
+    <div class="feature-media">${img}</div>
+    <div class="feature-copy">
+      <div class="feature-kicker"><span>${escapeHTML(p.category.name)}</span><i></i><span>${escapeHTML(formatDate(p.date))}</span></div>
+      <h2><a href="${escapeHTML(prettyArticleHref(p))}" data-route>${escapeHTML(p.title)}</a></h2>
+      <p>${escapeHTML(p.excerpt)}</p>
+      <div class="feature-bottom"><span class="feature-readtime">${p.readingTime} MIN READ</span><a class="btn" href="${escapeHTML(prettyArticleHref(p))}" data-route>Read Story →</a></div>
+    </div>
+  </article>`;
+}
+function renderHomepage(){
+  const featured=POSTS[0];
+  const latest=POSTS.slice(0,9);
+  app.innerHTML=`<section class="hero"><div class="wrap hero-inner"><div><div class="kicker">AZEXAI / TECHNOLOGY PUBLICATION</div><h1>Technology, intelligence, and the systems shaping tomorrow.</h1><p>A serious editorial view of artificial intelligence, machines, software, hardware, and the ideas changing how we live and work.</p></div><div class="hero-meta"><span>Independent / Real articles</span><span>${POSTS.length} published</span></div></div></section>
+  <section class="section"><div class="wrap"><div class="section-head"><h2>Featured</h2><span class="label">Latest signal</span></div>${featuredHTML(featured)}</div></section>
+  <section class="section alt"><div class="wrap"><div class="section-head"><h2>Latest Stories</h2><span class="label">The newest work</span></div>${cardsHTML(latest)}</div></section>
+  <section class="newsletter"><div class="wrap newsletter-inner"><div><div class="kicker">AZEXAI / FIELD NOTES</div><h2>Stay close to the signal.</h2><p>A front-end newsletter form for the publication. No subscription is claimed until a real email service is connected.</p></div><div><form id="newsletterForm"><input type="email" required placeholder="your@email.com" aria-label="Email address"><button class="btn" type="submit">Subscribe</button></form><div class="newsletter-note" id="newsletterMsg">No backend is configured yet.</div></div></div></section>`;
+}
+function renderCategory(key){
+  const c=CATEGORIES.find(x=>x.key===key);
+  const posts=c?POSTS.filter(p=>p.category.key===key):[];
+  app.innerHTML=`<section class="hero"><div class="wrap hero-inner"><div><div class="kicker">AZEXAI / SECTION</div><h1>${escapeHTML(c?c.name:'Category')}</h1><p>${escapeHTML(categoryDescription(c,posts))}</p></div><div class="hero-meta"><span>${posts.length} published ${posts.length===1?'story':'stories'}</span><span>AZEXAI / EDITORIAL</span></div></div></section><section class="section"><div class="wrap"><div class="section-head"><h2>${escapeHTML(c?c.name:'Category')}</h2><span class="label">${posts.length} results</span></div>${cardsHTML(posts)}</div></section>`;
+}
+function renderArchive(){
+  const years={};
+  POSTS.forEach(p=>{const d=new Date(p.date);if(Number.isNaN(d.getTime()))return;const y=d.getFullYear(),m=d.getMonth();years[y]??={};years[y][m]??=[];years[y][m].push(p);});
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const out=Object.keys(years).sort((a,b)=>b-a).map(y=>`<div class="archive-year">${y}</div>`+Object.keys(years[y]).sort((a,b)=>b-a).map(m=>`<div class="archive-month"><h3>${months[m]}</h3><ul class="archive-list">${years[y][m].map(p=>`<li><time>${escapeHTML(formatDate(p.date,{year:'numeric',month:'short',day:'numeric'}))}</time><a href="${escapeHTML(prettyArticleHref(p))}" data-route>${escapeHTML(p.title)}</a><span class="meta">${p.readingTime} min</span></li>`).join('')}</ul></div>`).join('')).join('');
+  app.innerHTML=`<section class="hero"><div class="wrap hero-inner"><div><div class="kicker">AZEXAI / ARCHIVE</div><h1>The Archive</h1><p>Every fetched Blogger article, arranged from newest to oldest.</p></div></div></section><section class="section"><div class="wrap">${out||'<div class="notice"><h2>No articles available.</h2><p>The archive will populate when Blogger returns posts.</p></div>'}</div></section>`;
+}
+function renderSearch(query){
+  const q=query.trim().toLowerCase();
+  const results=q?POSTS.filter(p=>p.searchText.includes(q)):[];
+  app.innerHTML=`<section class="search-panel"><div class="wrap"><div class="kicker">AZEXAI / SEARCH</div><h1 style="font:500 55px var(--serif);margin:10px 0 25px">Search the publication.</h1><form class="search-form" id="searchForm"><input id="searchInput" value="${escapeHTML(query)}" placeholder="Search titles, articles, labels…" aria-label="Search"><button class="btn" type="submit">Search</button></form><p class="count" style="margin-top:14px">${q?results.length+' result'+(results.length===1?'':'s')+' for “'+escapeHTML(query)+'”':'Enter a search term.'}</p></div></section><section class="section"><div class="wrap">${q?(results.length?cardsHTML(results):'<div class="notice"><h2>No results found.</h2><p>Try another title, phrase, or category label.</p></div>'):'<div class="notice"><h2>Search AZEXAI.</h2><p>Results are taken only from the real Blogger posts loaded by this publication.</p></div>'}</div></section>`;
+  document.getElementById('searchForm').onsubmit=e=>{e.preventDefault();const v=document.getElementById('searchInput').value.trim();navigate('./?search='+encodeURIComponent(v));};
+}
+function renderAbout(){
+  app.innerHTML=`<section class="section"><div class="wrap about"><div class="kicker">AZEXAI / ABOUT</div><h1>A publication for the machinery of tomorrow.</h1><p>AZEXAI is a technology publication focused on the systems, products, ideas, and consequences behind a rapidly changing digital world.</p><p>The publication brings together reporting and analysis supplied by its connected Blogger archive, with an editorial interface designed for clarity rather than noise.</p><p>AZEXAI does not promise positive coverage in exchange for payment. Reviews and platform coverage are editorial decisions; when an article contains affiliate links, that relationship is disclosed.</p></div></section>`;
+}
+function renderContact(){
+  app.innerHTML=`<section class="section"><div class="wrap about">
+    <div class="kicker">AZEXAI / CONTACT</div>
+    <h1>Open a conversation.</h1>
+    <p>Send a message directly from this page. The form opens your email application with the message prepared for the AZEXAI contact address.</p>
+    <form class="contact-form" id="contactForm">
+      <div class="contact-grid">
+        <div class="contact-field"><label for="contactName">First name</label><input id="contactName" name="firstName" autocomplete="given-name" required placeholder="Your first name"></div>
+        <div class="contact-field"><label for="contactLast">Last name</label><input id="contactLast" name="lastName" autocomplete="family-name" required placeholder="Your last name"></div>
+        <div class="contact-field full"><label for="contactSubject">Subject</label><input id="contactSubject" name="subject" required placeholder="What would you like to discuss?"></div>
+        <div class="contact-field full"><label for="contactMessage">Message</label><textarea id="contactMessage" name="message" required placeholder="Write your message here…"></textarea></div>
       </div>
-    `;
+      <div style="margin-top:18px"><button class="btn" type="submit">Send Message →</button></div>
+      <div class="contact-help">The contact address is configured by CONTACT_EMAIL in this single HTML file.</div>
+      <div class="contact-status" id="contactStatus" aria-live="polite"></div>
+    </form>
+  </div></section>`;
+  document.getElementById('contactForm').onsubmit=e=>{
+    e.preventDefault();
+    const first=document.getElementById('contactName').value.trim();
+    const last=document.getElementById('contactLast').value.trim();
+    const subject=document.getElementById('contactSubject').value.trim();
+    const message=document.getElementById('contactMessage').value.trim();
+    const body=`Name: ${first} ${last}\n\nMessage:\n${message}`;
+    const href=`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    document.getElementById('contactStatus').textContent='Opening your email application…';
+    window.location.href=href;
+  };
+}
+function renderPrivacy(){
+  app.innerHTML=`<section class="section"><div class="wrap about"><div class="kicker">AZEXAI / PRIVACY</div><h1>Privacy.</h1><p>This standalone publication interface does not claim to operate a private subscriber database. The newsletter form is visual-only until a real email service is configured.</p><p>Articles are retrieved from the configured Google Blogger API endpoint. Google may process requests according to its own services and policies.</p><p>Do not enter sensitive information into the newsletter form.</p></div></section>`;
+}
+function findPostBySlug(slug){
+  const decoded=decodeURIComponent(slug);
+  let p=POSTS.find(x=>x.slug===decoded);
+  if(p)return p;
+  const normalized=decoded.replace(/\.html$/,'');
+  p=POSTS.find(x=>x.slug.replace(/\.html$/,'')===normalized);
+  if(p)return p;
+  /* Compatibility for older AZEXAI title_slug_random-id URLs:
+     match the stable title portion when the unique suffix is not part of Blogger's native URL. */
+  const titlePart=normalized.replace(/_[a-z0-9]{6,}$/i,'');
+  if(titlePart){
+    const matches=POSTS.filter(x=>slugify(x.title)===titlePart).sort((a,b)=>new Date(b.date)-new Date(a.date));
+    if(matches.length)return matches[0];
+  }
+  const loose=slugify(normalized.replace(/_[a-z0-9]{6,}$/i,''));
+  if(loose){
+    const matches=POSTS.filter(x=>slugify(x.title)===loose).sort((a,b)=>new Date(b.date)-new Date(a.date));
+    if(matches.length)return matches[0];
+  }
+  return null;
+}
+function hasCommercialIntent(p){
+  const labels=(p.labels||[]).map(normalizeLabel);
+  return labels.some(x=>['review','reviews','affiliate','affiliates','sponsored','sponsor','deals','deal','software review'].includes(x));
+}
+function categoryDescription(c,posts){
+  const names={
+    ai:'Artificial intelligence, AI tools, models, agents, and the ideas changing how software works.',
+    robotics:'Robotics, autonomous machines, humanoids, industrial systems, and the technology moving into the physical world.',
+    hardware:'Hardware, devices, chips, computers, wearables, and the physical technology behind modern computing.',
+    software:'Software, apps, developer tools, platforms, productivity systems, and practical technology.',
+    'future-tech':'Emerging technology, research, interfaces, and systems that may define the next era of computing.',
+    guides:'Practical technology guides that explain how to use tools, platforms, and modern digital systems.',
+    reviews:'Independent technology reviews and practical evaluations of software, platforms, and products.',
+    ethics:'The social, practical, and ethical questions created by AI and rapidly changing technology.'
+  };
+  return names[c?.key]||('AZEXAI coverage of '+(c?.name||'technology')+' — practical stories, analysis, and useful context.');
+}
+function renderArticle(p){
+  const img=p.image?`<div class="article-hero"><img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.title)}" fetchpriority="high"></div>`:'';
+  const idx=POSTS.findIndex(x=>String(x.id)===String(p.id));
+  const prev=POSTS[idx+1],next=POSTS[idx-1];
+  const related=POSTS.filter(x=>x.id!==p.id && (x.category.key&&x.category.key===p.category.key)).slice(0,3);
+  app.innerHTML=`<article class="article-view"><header class="article-head"><div class="tag">${escapeHTML(p.category.name)}</div><h1>${escapeHTML(p.title)}</h1><div class="article-deck">${escapeHTML(p.excerpt)}</div><div class="article-meta"><span>${escapeHTML(formatDate(p.published||p.date))}</span>${p.updated&&p.updated!==p.published?`<span>Updated ${escapeHTML(formatDate(p.updated))}</span>`:''}${p.author?.displayName?`<span>By ${escapeHTML(p.author.displayName)}</span>`:''}<span>${p.readingTime} min read</span>${hasCommercialIntent(p)?'<span>Independent editorial · affiliate links may earn a commission</span>':''}</div><div class="article-actions"><a class="btn" href="./" data-route>← Back to Articles</a><button class="btn" id="shareBtn">Share</button><button class="btn" id="copyBtn">Copy Link</button></div></header>${img}<div class="prose" id="articleContent">${p.content||'<p>This article contains no published body content.</p>'}</div><div class="reader-nav">${prev?`<a href="${escapeHTML(prettyArticleHref(prev))}" data-route>← Previous</a>`:'<span></span>'}${next?`<a href="${escapeHTML(prettyArticleHref(next))}" data-route>Next →</a>`:''}</div>${related.length?`<section class="related"><div class="section-head"><h2>Related Stories</h2><span class="label">${escapeHTML(p.category.name)}</span></div><div class="grid">${related.map(cardHTML).join('')}</div></section>`:''}</article>`;
+  sanitizeArticleContent();
+  document.getElementById('copyBtn').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);document.getElementById('copyBtn').textContent='Copied';setTimeout(()=>document.getElementById('copyBtn').textContent='Copy Link',1500)}catch(e){prompt('Copy this article URL:',location.href)}};
+  document.getElementById('shareBtn').onclick=async()=>{if(navigator.share){try{await navigator.share({title:p.title,url:location.href})}catch(e){}}else{try{await navigator.clipboard.writeText(location.href);alert('Article link copied.')}catch(e){prompt('Share this article URL:',location.href)}}};
+}
+function cleanVisibleTextArtifacts(root){
+  if(!root)return;
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  const nodes=[];let n;
+  while(n=walker.nextNode())nodes.push(n);
+  const suspicious=/^(?:\\s*(?:<!--.*?-->|undefined|null|NaN)\\s*)$/i;
+  nodes.forEach(node=>{
+    const raw=node.nodeValue||'';
+    const compact=raw.replace(/\\s+/g,' ').trim();
+    if(!compact)return;
+    if(suspicious.test(compact)) node.nodeValue='';
+    /* Remove common standalone Blogger/template artifacts, while preserving
+       numbers that occur inside normal sentences and technical code blocks. */
+    if(node.parentElement && !node.parentElement.closest('pre,code,table') &&
+       /^(?:[A-Z_]{2,}[.:_-]?\\s*)?(?:\\d{5,}|[a-f0-9]{20,})$/i.test(compact)){
+      node.nodeValue='';
+    }
+  });
+}
+function sanitizeArticleContent(){
+  const root=document.getElementById('articleContent');if(!root)return;
+  root.querySelectorAll('script,style,object,embed,form,noscript,template').forEach(x=>x.remove());
+  root.querySelectorAll('[style]').forEach(x=>x.removeAttribute('style'));
+  root.querySelectorAll('img').forEach((img,i)=>{
+    const src=safeURL(img.getAttribute('src')||'');if(!src)img.remove();else{img.setAttribute('src',src);img.loading=i===0?'eager':'lazy';img.decoding='async';img.removeAttribute('width');img.removeAttribute('height');}
+  });
+  root.querySelectorAll('br').forEach(br=>{if(br.parentNode&&br.parentNode.textContent.trim()==='')br.remove()});
+  cleanVisibleTextArtifacts(root);
+  root.querySelectorAll('a').forEach(a=>{
+    const href=safeURL(a.getAttribute('href')||'');if(!href){a.removeAttribute('href');return}
+    a.setAttribute('href',href);
+    const u=new URL(href,location.href);
+    if(u.origin!==location.origin){a.target='_blank';a.rel='noopener noreferrer nofollow';}
+    else if(u.pathname.includes('/article/')){a.removeAttribute('target');}
+  });
+}
+function setMeta(id,content){
+  const el=document.getElementById(id);if(el)el.setAttribute('content',content||'');
+}
+function publicURL(path=''){
+  try{return new URL(path||'/',location.origin).href.replace(/\/$/,'')||location.origin;}catch(e){return location.origin;}
+}
+function seoDescription(text,fallback='Technology, intelligence, and the systems shaping tomorrow.'){
+  const clean=String(text||fallback).replace(/\s+/g,' ').trim();
+  if(clean.length<=160)return clean;
+  return clean.slice(0,157).replace(/\s+\S*$/,'')+'…';
+}
+function updateSEO({title='AZEXAI — AI, Software, Robotics & Emerging Technology',description='AZEXAI covers artificial intelligence, AI tools, software, robotics, hardware, reviews, guides, and emerging technology.',image='',type='website',canonicalPath='/',category='',published='',updated='',author='',keywords='',noindex=false,posts=[]}={}){
+  const desc=seoDescription(description);
+  const canonicalURL=canonicalPath?publicURL(canonicalPath):publicURL(location.pathname);
+  document.title=title;
+  const canonical=document.getElementById('canonical');if(canonical)canonical.href=canonicalURL;
+  const descEl=document.querySelector('meta[name="description"]');if(descEl)descEl.content=desc;
+  const kw=keywords||'artificial intelligence, AI tools, AI software, technology, robotics, software, hardware, reviews, guides, future technology';
+  setMeta('ogType',type==='article'?'article':'website');
+  setMeta('ogTitle',title);setMeta('ogDescription',desc);setMeta('ogImage',image||'');setMeta('ogImageAlt',title.replace(/\s+—\s+AZEXAI$/,''));setMeta('ogUrl',canonicalURL);
+  setMeta('twTitle',title);setMeta('twDescription',desc);setMeta('twImage',image||'');setMeta('twImageAlt',title.replace(/\s+—\s+AZEXAI$/,''));
+  setMeta('ogPublished',published||'');setMeta('ogModified',updated||'');setMeta('ogSection',category||'');
+  setMeta('metaAuthor',author||'AZEXAI');setMeta('articleAuthor',author||'AZEXAI');setMeta('metaKeywords',kw);
+  const robots=noindex?'noindex,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
+  setMeta('metaRobots',robots);setMeta('googlebot',robots);
+  let ld=document.getElementById('jsonld');
+  if(!ld){ld=document.createElement('script');ld.type='application/ld+json';ld.id='jsonld';document.head.appendChild(ld)}
+  const site=location.origin;
+  const organization={'@type':'Organization','@id':site+'/#organization','name':'AZEXAI','url':site,'description':'Independent technology publication covering artificial intelligence, software, robotics, hardware, reviews, guides, and emerging technology.','logo':{'@type':'ImageObject','url':site+'/favicon.svg'}};
+  const graph=[organization,{'@type':'WebSite','@id':site+'/#website','name':'AZEXAI','url':site,'inLanguage':'en','publisher':{'@id':site+'/#organization'},'potentialAction':{'@type':'SearchAction','target':site+'/?search={search_term_string}','query-input':'required name=search_term_string'}}];
+  if(type==='article'){
+    const headline=title.replace(/\s+—\s+AZEXAI$/,'');
+    const article={'@type':'BlogPosting','@id':canonicalURL+'#article','headline':headline,'description':desc,'url':canonicalURL,'mainEntityOfPage':{'@type':'WebPage','@id':canonicalURL},'inLanguage':'en','isAccessibleForFree':true,'publisher':{'@id':site+'/#organization'},'copyrightHolder':{'@id':site+'/#organization'}};
+    if(image)article.image=[image];
+    if(published)article.datePublished=published;
+    if(updated)article.dateModified=updated;
+    if(author)article.author={'@type':'Person','name':author};
+    if(category)article.articleSection=category;
+    if(kw)article.keywords=kw;
+    const current=postMap.size?postMap.get(String(route().id||'')):null;
+    if(current?.wordCount)article.wordCount=current.wordCount;
+    graph.push(article);
+    graph.push({'@type':'BreadcrumbList','@id':canonicalURL+'#breadcrumb','itemListElement':[
+      {'@type':'ListItem','position':1,'name':'AZEXAI','item':site+'/'},
+      {'@type':'ListItem','position':2,'name':category||'Technology','item':site+'/?category='+(category?slugify(category):'')},
+      {'@type':'ListItem','position':3,'name':headline,'item':canonicalURL}
+    ]});
+  }else{
+    const pageType=category?'CollectionPage':'WebPage';
+    const page={'@type':pageType,'@id':canonicalURL+'#webpage','url':canonicalURL,'name':title,'description':desc,'isPartOf':{'@id':site+'/#website'},'inLanguage':'en'};
+    if(category)page.about={'@type':'Thing','name':category};
+    graph.push(page);
+    if(posts.length){
+      graph.push({'@type':'ItemList','@id':canonicalURL+'#itemlist','name':title+' — latest stories','itemListElement':posts.slice(0,20).map((p,i)=>({'@type':'ListItem','position':i+1,'url':publicURL(prettyArticleHref(p)),'name':p.title}))});
+    }
+  }
+  ld.textContent=JSON.stringify({'@context':'https://schema.org','@graph':graph});
+}
+
+function updateURL(href){history.pushState({},'',href);window.scrollTo(0,0);}
+function navigate(href){updateURL(href);handleRoute();}
+function route(){
+  const path=decodeURIComponent(location.pathname);
+  const q=new URLSearchParams(location.search);
+
+  /* Clean article URL: /article/slug/ */
+  const articleMarker='/article/';
+  const articleIndex=path.indexOf(articleMarker);
+  if(articleIndex!==-1){
+    const slug=path.slice(articleIndex+articleMarker.length).replace(/^\/+/,'').replace(/\/+$/,'');
+    if(slug)return {type:'articleSlug',slug:slug};
   }
 
-  return `
-    <div class="grid">
-      ${posts.map(cardHTML).join('')}
-    </div>
-  `;
+  /* Legacy article ID URL */
+  if(q.has('post'))return {type:'articleId',id:q.get('post')};
+
+  /* Article slug query URL: /?article=slug */
+  if(q.has('article')){
+    const slug=(q.get('article')||'').trim().replace(/^\/+/,'').replace(/\/+$/,'');
+    if(slug)return {type:'articleSlug',slug:slug};
+  }
+
+  if(q.has('search'))return {type:'search',query:q.get('search')};
+  if(q.has('category'))return {type:'category',key:q.get('category')};
+  if(q.has('archive'))return {type:'archive'};
+  if(q.has('about'))return {type:'about'};
+  if(q.has('contact'))return {type:'contact'};
+  if(q.has('privacy'))return {type:'privacy'};
+  return {type:'home'};
 }
-
-
-function featuredHTML(post){
-
-  if(!post)return '';
-
-  const image = post.image
-    ? `<img
-         src="${escapeHTML(post.image)}"
-         alt="${escapeHTML(post.title)}"
-         fetchpriority="high"
-         decoding="async"
-       >`
-    : '';
-
-  return `
-    <article class="feature-centered">
-
-      <div class="feature-media">
-        ${image}
-      </div>
-
-      <div class="feature-copy">
-
-        <div class="feature-kicker">
-          <span>
-            ${escapeHTML(post.category.name)}
-          </span>
-
-          <i></i>
-
-          <span>
-            ${escapeHTML(formatDate(post.date))}
-          </span>
-        </div>
-
-        <h2>
-          <a
-            href="${escapeHTML(prettyArticleHref(post))}"
-            data-route
-          >
-            ${escapeHTML(post.title)}
-          </a>
-        </h2>
-
-        <p>
-          ${escapeHTML(post.excerpt)}
-        </p>
-
-        <div class="feature-bottom">
-
-          <span class="feature-readtime">
-            ${post.readingTime} MIN READ
-          </span>
-
-          <a
-            class="btn"
-            href="${escapeHTML(prettyArticleHref(post))}"
-            data-route
-          >
-            Read Story →
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-  `;
-}
-
-
-function renderHomepage(){
-
-  app.innerHTML = `
-
-    <section class="hero">
-
-      <div class="wrap hero-inner">
-
-        <div>
-
-          <div class="kicker">
-            AZEXAI / TECHNOLOGY PUBLICATION
-          </div>
-
-          <h1>
-            Technology, intelligence, and the systems shaping tomorrow.
-          </h1>
-
-          <p>
-            A serious editorial view of artificial intelligence,
-            machines, software, hardware, and the ideas changing
-            how we live and work.
-          </p>
-
-        </div>
-
-        <div class="hero-meta">
-
-          <span>
-            Independent / Real articles
-          </span>
-
-          <span>
-            ${POSTS.length} published
-          </span>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <section class="section">
-
-      <div class="wrap">
-
-        <div class="section-head">
-          <h2>Featured</h2>
-          <span class="label">Latest signal</span>
-        </div>
-
-        ${featuredHTML(POSTS[0])}
-
-      </div>
-
-    </section>
-
-
-    <section class="section alt">
-
-      <div class="wrap">
-
-        <div class="section-head">
-          <h2>Latest Stories</h2>
-          <span class="label">The newest work</span>
-        </div>
-
-        ${cardsHTML(POSTS)}
-
-      </div>
-
-    </section>
-
-  `;
-}
-
-
-function categoryDescription(category){
-
-  const descriptions = {
-
-    ai:
-      'Artificial intelligence, AI tools, models, agents, and the ideas changing how software works.',
-
-    robotics:
-      'Robotics, autonomous machines, humanoids, industrial systems, and physical AI.',
-
-    hardware:
-      'Hardware, devices, chips, computers, wearables, and modern computing.',
-
-    software:
-      'Software, apps, developer tools, platforms, and productivity systems.',
-
-    'future-tech':
-      'Emerging technology, research, interfaces, and next-generation computing.',
-
-    guides:
-      'Practical technology guides for modern tools and digital systems.',
-
-    reviews:
-      'Independent technology reviews and practical evaluations.',
-
-    ethics:
-      'The social, practical, and ethical questions created by rapidly changing technology.'
-  };
-
-  return descriptions[category?.key] ||
-    'AZEXAI technology coverage, analysis, and practical stories.';
-}
-
-
-function renderCategory(key){
-
-  const category =
-    CATEGORIES.find(
-      item => item.key === key
-    );
-
-  const posts =
-    category
-      ? POSTS.filter(
-          post =>
-            post.category.key === key
-        )
-      : [];
-
-  app.innerHTML = `
-
-    <section class="hero">
-
-      <div class="wrap hero-inner">
-
-        <div>
-
-          <div class="kicker">
-            AZEXAI / SECTION
-          </div>
-
-          <h1>
-            ${escapeHTML(
-              category?.name || 'Category'
-            )}
-          </h1>
-
-          <p>
-            ${escapeHTML(
-              categoryDescription(category)
-            )}
-          </p>
-
-        </div>
-
-        <div class="hero-meta">
-
-          <span>
-            ${posts.length} stories
-          </span>
-
-          <span>
-            AZEXAI / EDITORIAL
-          </span>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <section class="section">
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <h2>
-            ${escapeHTML(
-              category?.name || 'Category'
-            )}
-          </h2>
-
-          <span class="label">
-            ${posts.length} results
-          </span>
-
-        </div>
-
-        ${cardsHTML(posts)}
-
-      </div>
-
-    </section>
-  `;
-}
-
-
-function renderArchive(){
-
-  const years = {};
-
-  POSTS.forEach(post => {
-
-    const date =
-      new Date(post.date);
-
-    if(Number.isNaN(date.getTime())){
+async function handleRoute(preserveLoading=false){
+  const currentRoute=route();
+  const hasPrerenderedArticle=app.dataset.prerendered==='true' && (currentRoute.type==='articleSlug'||currentRoute.type==='articleId');
+  if(!preserveLoading && !hasPrerenderedArticle)showLoading(currentRoute.type==='articleId'||currentRoute.type==='articleSlug'?'article':'home');
+  try{
+    await fetchAllPosts();
+    const r=route();
+    if(r.type==='articleId'){
+      let p=postMap.get(String(r.id));if(!p)p=await fetchPostById(r.id);
+      if(!p)return renderNotFound('Article not found');
+      renderArticle(p);
+      const pretty=prettyArticleHref(p);
+      if(location.pathname!==pretty || location.search){history.replaceState({},'',pretty);}
+      updateSEO({title:p.title+' — AZEXAI',description:p.excerpt,image:p.image,type:'article',canonicalPath:pretty,category:p.category.name,published:p.published||p.date,updated:p.updated||p.published||p.date,author:p.author?.displayName||'',keywords:[p.category.name,...p.labels].join(', ')});
+    }else if(r.type==='articleSlug'){
+      const p=findPostBySlug(r.slug);
+      if(!p)return renderNotFound('Article not found');
+      renderArticle(p);
+      const pretty=prettyArticleHref(p);
+      if(location.pathname!==pretty || location.search){history.replaceState({},'',pretty);}
+      updateSEO({title:p.title+' — AZEXAI',description:p.excerpt,image:p.image,type:'article',canonicalPath:pretty,category:p.category.name,published:p.published||p.date,updated:p.updated||p.published||p.date,author:p.author?.displayName||'',keywords:[p.category.name,...p.labels].join(', ')});
+    }else if(r.type==='category'){
+      renderCategory(r.key); const c=CATEGORIES.find(x=>x.key===r.key); const categoryPosts=c?POSTS.filter(p=>p.category.key===r.key):[]; updateSEO({title:(c?c.name:'Category')+' — AZEXAI',description:categoryDescription(c,categoryPosts),canonicalPath:'/?category='+encodeURIComponent(r.key),category:c?.name||'',posts:categoryPosts,noindex:categoryPosts.length===0});
+    }else if(r.type==='archive'){
+      renderArchive();updateSEO({title:'Technology Archive — AZEXAI',description:'Browse AZEXAI technology stories from newest to oldest, including AI, software, robotics, hardware, reviews, and guides.',canonicalPath:'/?archive',noindex:false,posts:POSTS});
+    }else if(r.type==='search'){
+      renderSearch(r.query);updateSEO({title:r.query?'Search: '+r.query+' — AZEXAI':'Search — AZEXAI',description:'Search AZEXAI for technology, AI, robotics, software, hardware, and future-tech stories.',canonicalPath:'/?search='+encodeURIComponent(r.query||''),noindex:true});
+    }else if(r.type==='about'){
+      renderAbout();updateSEO({title:'About — AZEXAI',description:'About AZEXAI, an independent technology publication covering intelligence, machines, software, hardware, and emerging systems.',canonicalPath:'/?about'});
+    }else if(r.type==='contact'){
+      renderContact();updateSEO({title:'Contact — AZEXAI',description:'Contact AZEXAI about editorial work, reviews, partnerships, and technology coverage.',canonicalPath:'/?contact',noindex:true});
+    }else if(r.type==='privacy'){
+      renderPrivacy();updateSEO({title:'Privacy — AZEXAI',description:'AZEXAI privacy information.',canonicalPath:'/?privacy'});
+    }else{
+      renderHomepage();updateSEO({title:'AZEXAI — AI, Software, Robotics & Emerging Technology',canonicalPath:'/',description:'AZEXAI covers artificial intelligence, AI tools, software, robotics, hardware, reviews, guides, and emerging technology.',posts:POSTS});
+    }
+    bindRoutes();bindNewsletter();refreshResourceHints();
+  }catch(e){
+    const r=route();
+    if(app.dataset.prerendered==='true' && (r.type==='articleSlug'||r.type==='articleId') && document.getElementById('articleContent')){
+      console.warn('AZEXAI API refresh failed; preserving prerendered article.',e);
       return;
     }
-
-    const year =
-      date.getFullYear();
-
-    const month =
-      date.getMonth();
-
-    years[year] ??= {};
-    years[year][month] ??= [];
-
-    years[year][month].push(post);
-  });
-
-
-  const months = [
-    'January','February','March',
-    'April','May','June',
-    'July','August','September',
-    'October','November','December'
-  ];
-
-
-  let output = '';
-
-  Object.keys(years)
-    .sort((a,b)=>b-a)
-    .forEach(year => {
-
-      output += `
-        <div class="archive-year">
-          ${year}
-        </div>
-      `;
-
-      Object.keys(years[year])
-        .sort((a,b)=>b-a)
-        .forEach(month => {
-
-          output += `
-            <div class="archive-month">
-
-              <h3>
-                ${months[month]}
-              </h3>
-
-              <ul class="archive-list">
-
-                ${
-                  years[year][month]
-                    .map(post => `
-
-                      <li>
-
-                        <time>
-                          ${escapeHTML(
-                            formatDate(post.date)
-                          )}
-                        </time>
-
-                        <a
-                          href="${escapeHTML(
-                            prettyArticleHref(post)
-                          )}"
-                          data-route
-                        >
-                          ${escapeHTML(post.title)}
-                        </a>
-
-                        <span class="meta">
-                          ${post.readingTime} min
-                        </span>
-
-                      </li>
-
-                    `)
-                    .join('')
-                }
-
-              </ul>
-
-            </div>
-          `;
-        });
-    });
-
-
-  app.innerHTML = `
-
-    <section class="hero">
-
-      <div class="wrap hero-inner">
-
-        <div>
-
-          <div class="kicker">
-            AZEXAI / ARCHIVE
-          </div>
-
-          <h1>
-            The Archive
-          </h1>
-
-          <p>
-            Every fetched Blogger article,
-            newest to oldest.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <section class="section">
-
-      <div class="wrap">
-
-        ${
-          output ||
-          `
-            <div class="notice">
-              <h2>No articles available.</h2>
-              <p>
-                The archive will populate when Blogger returns posts.
-              </p>
-            </div>
-          `
-        }
-
-      </div>
-
-    </section>
-  `;
-}
-
-
-function renderSearch(query){
-
-  const q =
-    String(query || '')
-      .trim()
-      .toLowerCase();
-
-  const results =
-    q
-      ? POSTS.filter(
-          post =>
-            post.searchText.includes(q)
-        )
-      : [];
-
-  app.innerHTML = `
-
-    <section class="search-panel">
-
-      <div class="wrap">
-
-        <div class="kicker">
-          AZEXAI / SEARCH
-        </div>
-
-        <h1 style="font:500 55px var(--serif)">
-          Search the publication.
-        </h1>
-
-        <form
-          class="search-form"
-          id="searchForm"
-        >
-
-          <input
-            id="searchInput"
-            value="${escapeHTML(query || '')}"
-            placeholder="Search titles, articles, labels…"
-            aria-label="Search"
-          >
-
-          <button class="btn" type="submit">
-            Search
-          </button>
-
-        </form>
-
-        <p>
-          ${
-            q
-              ? results.length +
-                ' result' +
-                (results.length === 1 ? '' : 's')
-              : 'Enter a search term.'
-          }
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <section class="section">
-
-      <div class="wrap">
-
-        ${
-          q
-            ? (
-                results.length
-                  ? cardsHTML(results)
-                  : `
-                    <div class="notice">
-                      <h2>No results found.</h2>
-                      <p>
-                        Try another search.
-                      </p>
-                    </div>
-                  `
-              )
-            : `
-              <div class="notice">
-                <h2>Search AZEXAI.</h2>
-              </div>
-            `
-        }
-
-      </div>
-
-    </section>
-  `;
-
-
-  document
-    .getElementById('searchForm')
-    .addEventListener(
-      'submit',
-      event => {
-
-        event.preventDefault();
-
-        const value =
-          document
-            .getElementById('searchInput')
-            .value
-            .trim();
-
-        navigate(
-          '/?search=' +
-          encodeURIComponent(value)
-        );
-      }
-    );
-}
-
-
-function renderAbout(){
-
-  app.innerHTML = `
-
-    <section class="section">
-
-      <div class="wrap about">
-
-        <div class="kicker">
-          AZEXAI / ABOUT
-        </div>
-
-        <h1>
-          A publication for the machinery of tomorrow.
-        </h1>
-
-        <p>
-          AZEXAI is a technology publication focused
-          on the systems, products, ideas, and consequences
-          behind a rapidly changing digital world.
-        </p>
-
-        <p>
-          The publication brings together reporting
-          and analysis supplied by its connected Blogger archive.
-        </p>
-
-      </div>
-
-    </section>
-
-  `;
-}
-
-
-function renderContact(){
-
-  app.innerHTML = `
-
-    <section class="section">
-
-      <div class="wrap about">
-
-        <div class="kicker">
-          AZEXAI / CONTACT
-        </div>
-
-        <h1>
-          Open a conversation.
-        </h1>
-
-        <p>
-          Send a message directly from this page.
-        </p>
-
-        <form
-          class="contact-form"
-          id="contactForm"
-        >
-
-          <div class="contact-grid">
-
-            <div class="contact-field">
-
-              <label for="contactName">
-                First name
-              </label>
-
-              <input
-                id="contactName"
-                required
-              >
-
-            </div>
-
-
-            <div class="contact-field">
-
-              <label for="contactLast">
-                Last name
-              </label>
-
-              <input
-                id="contactLast"
-                required
-              >
-
-            </div>
-
-
-            <div class="contact-field full">
-
-              <label for="contactSubject">
-                Subject
-              </label>
-
-              <input
-                id="contactSubject"
-                required
-              >
-
-            </div>
-
-
-            <div class="contact-field full">
-
-              <label for="contactMessage">
-                Message
-              </label>
-
-              <textarea
-                id="contactMessage"
-                required
-              ></textarea>
-
-            </div>
-
-          </div>
-
-
-          <div style="margin-top:18px">
-
-            <button
-              class="btn"
-              type="submit"
-            >
-              Send Message →
-            </button>
-
-          </div>
-
-        </form>
-
-      </div>
-
-    </section>
-
-  `;
-
-
-  document
-    .getElementById('contactForm')
-    .addEventListener(
-      'submit',
-      event => {
-
-        event.preventDefault();
-
-        const body =
-          `Name: ${
-            document.getElementById('contactName').value
-          } ${
-            document.getElementById('contactLast').value
-          }\n\nMessage:\n${
-            document.getElementById('contactMessage').value
-          }`;
-
-        location.href =
-          `mailto:${CONTACT_EMAIL}` +
-          `?subject=${encodeURIComponent(
-            document.getElementById('contactSubject').value
-          )}` +
-          `&body=${encodeURIComponent(body)}`;
-      }
-    );
-}
-
-
-function renderPrivacy(){
-
-  app.innerHTML = `
-
-    <section class="section">
-
-      <div class="wrap about">
-
-        <div class="kicker">
-          AZEXAI / PRIVACY
-        </div>
-
-        <h1>
-          Privacy.
-        </h1>
-
-        <p>
-          Articles are retrieved from the configured
-          Blogger API endpoint. External services may
-          process requests according to their own policies.
-        </p>
-
-      </div>
-
-    </section>
-
-  `;
-}
-
-
-/* =========================================================
-   RELATED STORIES
-   ========================================================= */
-
-function relatedStoriesFor(post,limit=3){
-
-  const words =
-    new Set(
-      slugify(post.title)
-        .split('-')
-        .filter(word => word.length > 3)
-    );
-
-  return POSTS
-    .filter(
-      item =>
-        String(item.id) !==
-        String(post.id)
-    )
-    .map(item => {
-
-      let score = 0;
-
-      if(
-        item.category?.key &&
-        item.category.key ===
-        post.category?.key
-      ){
-        score += 5;
-      }
-
-      const labelsA =
-        (post.labels || [])
-          .map(normalizeLabel);
-
-      const labelsB =
-        (item.labels || [])
-          .map(normalizeLabel);
-
-      score +=
-        labelsB.filter(
-          label =>
-            labelsA.includes(label)
-        ).length * 3;
-
-      slugify(item.title)
-        .split('-')
-        .forEach(word => {
-
-          if(words.has(word)){
-            score++;
-          }
-
-        });
-
-      return {
-        item,
-        score
-      };
-
-    })
-    .filter(result => result.score > 0)
-    .sort(
-      (a,b) =>
-        b.score - a.score
-    )
-    .slice(0,limit)
-    .map(result => result.item);
-}
-
-
-/* =========================================================
-   ARTICLE SANITIZER
-   ========================================================= */
-
-function sanitizeArticleContent(){
-
-  const root =
-    document.getElementById(
-      'articleContent'
-    );
-
-  if(!root)return;
-
-
-  root.querySelectorAll(
-    'script,style,object,embed,form,noscript,template'
-  ).forEach(
-    element => element.remove()
-  );
-
-
-  root
-    .querySelectorAll('[style]')
-    .forEach(
-      element =>
-        element.removeAttribute('style')
-    );
-
-
-  root
-    .querySelectorAll('img')
-    .forEach(
-      (image,index) => {
-
-        const source =
-          safeURL(
-            image.getAttribute('src') || ''
-          );
-
-        if(!source){
-
-          image.remove();
-
-          return;
-        }
-
-        image.src = source;
-
-        image.loading =
-          index === 0
-            ? 'eager'
-            : 'lazy';
-
-        image.decoding = 'async';
-
-        if(!image.alt){
-          image.alt =
-            'AZEXAI technology image';
-        }
-
-      }
-    );
-
-
-  root
-    .querySelectorAll('iframe')
-    .forEach(frame => {
-
-      frame.loading = 'lazy';
-
-      frame.referrerPolicy =
-        'strict-origin-when-cross-origin';
-
-    });
-
-
-  root
-    .querySelectorAll('a')
-    .forEach(anchor => {
-
-      const href =
-        safeURL(
-          anchor.getAttribute('href') || ''
-        );
-
-      if(!href){
-
-        anchor.removeAttribute('href');
-
-        return;
-      }
-
-      anchor.href = href;
-
-      const url =
-        new URL(
-          href,
-          location.href
-        );
-
-      if(
-        url.origin !==
-        location.origin
-      ){
-
-        anchor.target = '_blank';
-
-        anchor.rel =
-          'noopener noreferrer';
-
-      }
-
-    });
-}
-
-
-/* =========================================================
-   ARTICLE
-   ========================================================= */
-
-function renderArticle(post){
-
-  const image =
-    post.image
-      ? `
-        <div class="article-hero">
-
-          <img
-            src="${escapeHTML(post.image)}"
-            alt="${escapeHTML(post.title)}"
-            fetchpriority="high"
-            decoding="async"
-          >
-
-        </div>
-      `
-      : '';
-
-
-  const index =
-    POSTS.findIndex(
-      item =>
-        String(item.id) ===
-        String(post.id)
-    );
-
-
-  const previous =
-    index >= 0
-      ? POSTS[index + 1]
-      : null;
-
-  const next =
-    index > 0
-      ? POSTS[index - 1]
-      : null;
-
-
-  const related =
-    relatedStoriesFor(
-      post,
-      3
-    );
-
-
-  app.innerHTML = `
-
-    <article class="article-view">
-
-      <header class="article-head">
-
-        <nav
-          class="breadcrumbs"
-          aria-label="Breadcrumb"
-        >
-
-          <a
-            href="/"
-            data-route
-          >
-            AZEXAI
-          </a>
-
-          <span>/</span>
-
-          <a
-            href="/?category=${encodeURIComponent(
-              post.category.key || ''
-            )}"
-            data-route
-          >
-            ${escapeHTML(post.category.name)}
-          </a>
-
-          <span>/</span>
-
-          <span>
-            Story
-          </span>
-
-        </nav>
-
-
-        <div class="tag">
-          ${escapeHTML(post.category.name)}
-        </div>
-
-
-        <h1>
-          ${escapeHTML(post.title)}
-        </h1>
-
-
-        <div class="article-deck">
-          ${escapeHTML(post.excerpt)}
-        </div>
-
-
-        <div class="article-meta">
-
-          <span>
-            ${escapeHTML(
-              formatDate(
-                post.published ||
-                post.date
-              )
-            )}
-          </span>
-
-          ${
-            post.updated &&
-            post.updated !==
-            post.published
-              ? `
-                <span>
-                  Updated ${
-                    escapeHTML(
-                      formatDate(post.updated)
-                    )
-                  }
-                </span>
-              `
-              : ''
-          }
-
-          ${
-            post.author?.displayName
-              ? `
-                <span>
-                  By ${
-                    escapeHTML(
-                      post.author.displayName
-                    )
-                  }
-                </span>
-              `
-              : ''
-          }
-
-          <span>
-            ${post.readingTime} min read
-          </span>
-
-        </div>
-
-
-        <div class="article-actions">
-
-          <a
-            class="btn"
-            href="/"
-            data-route
-          >
-            ← Back to Articles
-          </a>
-
-          <button
-            class="btn"
-            id="shareBtn"
-            type="button"
-          >
-            Share
-          </button>
-
-          <button
-            class="btn"
-            id="copyBtn"
-            type="button"
-          >
-            Copy Link
-          </button>
-
-        </div>
-
-      </header>
-
-
-      ${image}
-
-
-      <div
-        class="prose"
-        id="articleContent"
-      >
-        ${
-          post.content ||
-          '<p>This article contains no published body content.</p>'
-        }
-      </div>
-
-
-      <div class="reader-nav">
-
-        ${
-          previous
-            ? `
-              <a
-                href="${escapeHTML(
-                  prettyArticleHref(previous)
-                )}"
-                data-route
-              >
-                ← Previous
-              </a>
-            `
-            : '<span></span>'
-        }
-
-
-        ${
-          next
-            ? `
-              <a
-                href="${escapeHTML(
-                  prettyArticleHref(next)
-                )}"
-                data-route
-              >
-                Next →
-              </a>
-            `
-            : ''
-        }
-
-      </div>
-
-
-      ${
-        related.length
-          ? `
-
-            <section class="related">
-
-              <div class="section-head">
-
-                <h2>
-                  Related Stories
-                </h2>
-
-                <span class="label">
-                  ${escapeHTML(
-                    post.category.name
-                  )}
-                </span>
-
-              </div>
-
-              <div class="grid">
-
-                ${
-                  related
-                    .map(cardHTML)
-                    .join('')
-                }
-
-              </div>
-
-            </section>
-
-          `
-          : ''
-      }
-
-    </article>
-
-  `;
-
-
-  sanitizeArticleContent();
-
-
-  document
-    .getElementById('copyBtn')
-    .addEventListener(
-      'click',
-      async () => {
-
-        try{
-
-          await navigator.clipboard.writeText(
-            location.href
-          );
-
-          const button =
-            document.getElementById(
-              'copyBtn'
-            );
-
-          button.textContent =
-            'Copied';
-
-          setTimeout(
-            () =>
-              button.textContent =
-                'Copy Link',
-            1500
-          );
-
-        }catch(error){
-
-          prompt(
-            'Copy this article URL:',
-            location.href
-          );
-
-        }
-
-      }
-    );
-
-
-  document
-    .getElementById('shareBtn')
-    .addEventListener(
-      'click',
-      async () => {
-
-        if(navigator.share){
-
-          try{
-
-            await navigator.share({
-              title:post.title,
-              url:location.href
-            });
-
-          }catch(error){}
-
-        }else{
-
-          try{
-
-            await navigator.clipboard.writeText(
-              location.href
-            );
-
-            alert(
-              'Article link copied.'
-            );
-
-          }catch(error){
-
-            prompt(
-              'Share this article URL:',
-              location.href
-            );
-
-          }
-
-        }
-
-      }
-    );
-}
-
-
-/* =========================================================
-   SEO
-   ========================================================= */
-
-function publicURL(path=''){
-
-  return new URL(
-    path || '/',
-    SITE_ORIGIN
-  ).href;
-}
-
-
-function setMeta(id,content){
-
-  const element =
-    document.getElementById(id);
-
-  if(element){
-
-    element.setAttribute(
-      'content',
-      content || ''
-    );
-
+    showError();console.error('AZEXAI ROUTE ERROR:',e)
   }
 }
-
-
-function updateSEO({
-  title=
-    'AZEXAI — AI, Software, Robotics & Emerging Technology',
-
-  description=
-    'AZEXAI covers artificial intelligence, AI tools, software, robotics, hardware, reviews, guides, and emerging technology.',
-
-  image='',
-
-  type='website',
-
-  canonicalPath='/',
-
-  category='',
-
-  published='',
-
-  updated='',
-
-  author='',
-
-  keywords='',
-
-  noindex=false,
-
-  post=null
-
-}={}){
-
-  const descriptionText =
-    seoDescription(
-      description
-    );
-
-  const canonicalURL =
-    publicURL(
-      canonicalPath
-    );
-
-
-  document.title = title;
-
-
-  document
-    .getElementById('canonical')
-    .href = canonicalURL;
-
-
-  document
-    .querySelector(
-      'meta[name="description"]'
-    )
-    .content = descriptionText;
-
-
-  setMeta(
-    'metaRobots',
-    noindex
-      ? 'noindex,follow'
-      : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'
-  );
-
-
-  setMeta(
-    'metaKeywords',
-    keywords
-  );
-
-
-  setMeta(
-    'metaAuthor',
-    author || 'AZEXAI'
-  );
-
-
-  setMeta(
-    'ogType',
-    type === 'article'
-      ? 'article'
-      : 'website'
-  );
-
-  setMeta(
-    'ogTitle',
-    title
-  );
-
-  setMeta(
-    'ogDescription',
-    descriptionText
-  );
-
-  setMeta(
-    'ogImage',
-    image
-  );
-
-  setMeta(
-    'ogImageAlt',
-    title
-  );
-
-  setMeta(
-    'ogUrl',
-    canonicalURL
-  );
-
-  setMeta(
-    'ogPublished',
-    published
-  );
-
-  setMeta(
-    'ogModified',
-    updated
-  );
-
-  setMeta(
-    'ogSection',
-    category
-  );
-
-  setMeta(
-    'articleAuthor',
-    author || 'AZEXAI'
-  );
-
-
-  setMeta(
-    'twTitle',
-    title
-  );
-
-  setMeta(
-    'twDescription',
-    descriptionText
-  );
-
-  setMeta(
-    'twImage',
-    image
-  );
-
-  setMeta(
-    'twImageAlt',
-    title
-  );
-
-
-  /*
-    JSON-LD
-  */
-
-  let jsonld =
-    document.getElementById(
-      'jsonld'
-    );
-
-  if(!jsonld){
-
-    jsonld =
-      document.createElement(
-        'script'
-      );
-
-    jsonld.id =
-      'jsonld';
-
-    jsonld.type =
-      'application/ld+json';
-
-    document.head.appendChild(
-      jsonld
-    );
-  }
-
-
-  const organization = {
-
-    '@type':'Organization',
-
-    '@id':
-      SITE_ORIGIN +
-      '/#organization',
-
-    name:SITE_NAME,
-
-    url:SITE_ORIGIN,
-
-    description:
-      'Independent technology publication covering artificial intelligence, software, robotics, hardware, reviews, guides, and emerging technology.'
-
-  };
-
-
-  const graph = [
-
-    organization,
-
-    {
-      '@type':'WebSite',
-
-      '@id':
-        SITE_ORIGIN +
-        '/#website',
-
-      name:SITE_NAME,
-
-      url:SITE_ORIGIN,
-
-      inLanguage:'en',
-
-      publisher:{
-        '@id':
-          SITE_ORIGIN +
-          '/#organization'
-      }
-
-    }
-
-  ];
-
-
-  if(type === 'article'){
-
-    const article = {
-
-      '@type':'BlogPosting',
-
-      '@id':
-        canonicalURL +
-        '#article',
-
-      headline:
-        post?.title ||
-        title,
-
-      description:
-        descriptionText,
-
-      url:
-        canonicalURL,
-
-      mainEntityOfPage:{
-        '@type':'WebPage',
-        '@id':canonicalURL
-      },
-
-      publisher:{
-        '@id':
-          SITE_ORIGIN +
-          '/#organization'
-      },
-
-      inLanguage:'en',
-
-      isAccessibleForFree:true
-
-    };
-
-
-    if(image){
-      article.image = [image];
-    }
-
-    if(published){
-      article.datePublished =
-        published;
-    }
-
-    if(updated){
-      article.dateModified =
-        updated;
-    }
-
-    article.author =
-      author
-        ? {
-            '@type':'Person',
-            name:author
-          }
-        : {
-            '@type':'Organization',
-            name:'AZEXAI'
-          };
-
-
-    if(category){
-      article.articleSection =
-        category;
-    }
-
-    if(keywords){
-      article.keywords =
-        keywords;
-    }
-
-    if(post?.wordCount){
-      article.wordCount =
-        post.wordCount;
-    }
-
-
-    graph.push(article);
-
-
-    graph.push({
-
-      '@type':'BreadcrumbList',
-
-      '@id':
-        canonicalURL +
-        '#breadcrumb',
-
-      itemListElement:[
-
-        {
-          '@type':'ListItem',
-          position:1,
-          name:'AZEXAI',
-          item:SITE_ORIGIN + '/'
-        },
-
-        {
-          '@type':'ListItem',
-          position:2,
-          name:
-            category ||
-            'Technology',
-
-          item:
-            SITE_ORIGIN +
-            '/?category=' +
-            encodeURIComponent(
-              category || ''
-            )
-        },
-
-        {
-          '@type':'ListItem',
-          position:3,
-          name:
-            post?.title ||
-            title,
-
-          item:
-            canonicalURL
-        }
-
-      ]
-
-    });
-
-  }
-
-
-  jsonld.textContent =
-    JSON.stringify({
-      '@context':
-        'https://schema.org',
-
-      '@graph':
-        graph
-    });
+function renderNotFound(title){
+  app.innerHTML=`<section class="section"><div class="notice center"><div class="kicker">AZEXAI / 404</div><h2>${escapeHTML(title)}</h2><p>The requested article could not be matched to a real Blogger post.</p><a class="btn" href="./" data-route>Back to AZEXAI</a></div></section>`;
+  updateSEO({title:'Article not found — AZEXAI'});
 }
-
-
-/* =========================================================
-   ROUTE HANDLING
-   ========================================================= */
-
-async function handleRoute(){
-
-  const current =
-    route();
-
-
-  app.innerHTML = `
-
-    <section class="section">
-
-      <div class="notice center">
-
-        <h2>
-          Loading AZEXAI…
-        </h2>
-
-        <p>
-          Loading real Blogger articles.
-        </p>
-
-      </div>
-
-    </section>
-
-  `;
-
-
-  try{
-
-    await fetchAllPosts();
-
-
-    /*
-      IMPORTANT:
-
-      Re-read the URL after API loading.
-
-      This prevents stale route data.
-    */
-
-    const currentRoute =
-      route();
-
-
-    /* ==========================================
-       ARTICLE BY OLD BLOGGER ID
-       ========================================== */
-
-    if(
-      currentRoute.type ===
-      'articleId'
-    ){
-
-      let post =
-        postMap.get(
-          String(
-            currentRoute.id
-          )
-        );
-
-
-      if(!post){
-
-        post =
-          await fetchPostById(
-            currentRoute.id
-          );
-
-      }
-
-
-      if(!post){
-
-        renderNotFound();
-
-        return;
-      }
-
-
-      renderArticle(post);
-
-
-      /*
-        IMPORTANT:
-        Convert old ?post=ID
-        to the exact article slug.
-      */
-
-      const pretty =
-        prettyArticleHref(
-          post
-        );
-
-
-      history.replaceState(
-        {},
-        '',
-        pretty
-      );
-
-
-      updateSEO({
-
-        title:
-          post.title +
-          ' — AZEXAI',
-
-        description:
-          post.excerpt,
-
-        image:
-          post.image,
-
-        type:'article',
-
-        canonicalPath:
-          pretty,
-
-        category:
-          post.category.name,
-
-        published:
-          post.published ||
-          post.date,
-
-        updated:
-          post.updated ||
-          post.published ||
-          post.date,
-
-        author:
-          post.author?.displayName ||
-          '',
-
-        keywords:
-          [
-            post.category.name,
-            ...post.labels
-          ].join(', '),
-
-        post
-
-      });
-
-    }
-
-
-    /* ==========================================
-       ARTICLE BY EXACT SLUG
-       ========================================== */
-
-    else if(
-      currentRoute.type ===
-      'articleSlug'
-    ){
-
-      /*
-        EXACT MATCH ONLY.
-      */
-
-      const post =
-        findPostBySlug(
-          currentRoute.slug
-        );
-
-
-      /*
-        If the slug does not exist,
-        NEVER open another article.
-      */
-
-      if(!post){
-
-        renderNotFound();
-
-        return;
-      }
-
-
-      renderArticle(post);
-
-
-      /*
-        Normalize URL to:
-
-        /article/slug/
-      */
-
-      const pretty =
-        prettyArticleHref(
-          post
-        );
-
-
-      if(
-        location.pathname !==
-        pretty ||
-        location.search
-      ){
-
-        history.replaceState(
-          {},
-          '',
-          pretty
-        );
-
-      }
-
-
-      updateSEO({
-
-        title:
-          post.title +
-          ' — AZEXAI',
-
-        description:
-          post.excerpt,
-
-        image:
-          post.image,
-
-        type:'article',
-
-        canonicalPath:
-          pretty,
-
-        category:
-          post.category.name,
-
-        published:
-          post.published ||
-          post.date,
-
-        updated:
-          post.updated ||
-          post.published ||
-          post.date,
-
-        author:
-          post.author?.displayName ||
-          '',
-
-        keywords:
-          [
-            post.category.name,
-            ...post.labels
-          ].join(', '),
-
-        post
-
-      });
-
-    }
-
-
-    /* ==========================================
-       CATEGORY
-       ========================================== */
-
-    else if(
-      currentRoute.type ===
-      'category'
-    ){
-
-      renderCategory(
-        currentRoute.key
-      );
-
-
-      const category =
-        CATEGORIES.find(
-          item =>
-            item.key ===
-            currentRoute.key
-        );
-
-
-      updateSEO({
-
-        title:
-          (
-            category?.name ||
-            'Category'
-          ) +
-          ' — AZEXAI',
-
-        description:
-          categoryDescription(
-            category
-          ),
-
-        canonicalPath:
-          '/?category=' +
-          encodeURIComponent(
-            currentRoute.key
-          ),
-
-        category:
-          category?.name || ''
-
-      });
-
-    }
-
-
-    /* ==========================================
-       ARCHIVE
-       ========================================== */
-
-    else if(
-      currentRoute.type ===
-      'archive'
-    ){
-
-      renderArchive();
-
-
-      updateSEO({
-
-        title:
-          'Technology Archive — AZEXAI',
-
-        description:
-          'Browse AZEXAI technology stories from newest to oldest.',
-
-        canonicalPath:
-          '/?archive'
-
-      });
-
-    }
-
-
-    /* ==========================================
-       SEARCH
-       ========================================== */
-
-    else if(
-      currentRoute.type ===
-      'search'
-    ){
-
-      renderSearch(
-        currentRoute.query
-      );
-
-
-      updateSEO({
-
-        title:
-          'Search — AZEXAI',
-
-        description:
-          'Search AZEXAI technology stories.',
-
-        canonicalPath:
-          '/?search=' +
-          encodeURIComponent(
-            currentRoute.query || ''
-          ),
-
-        noindex:true
-
-      });
-
-    }
-
-
-    /* ==========================================
-       ABOUT
-       ========================================== */
-
-    else if(
-      currentRoute.type ===
-      'about'
-    ){
-
-      renderAbout();
-
-
-      updateSEO({
-
-        title:
-          'About — AZEXAI',
-
-        description:
-          'About AZEXAI, an independent technology publication.',
-
-        canonicalPath:
-          '/?about'
-
-      });
-
-    }
-
-
-    /* ==========================================
-       CONTACT
-       ========================================== */
-
-    else if(
-      currentRoute.type ===
-      'contact'
-    ){
-
-      renderContact();
-
-
-      updateSEO({
-
-        title:
-          'Contact — AZEXAI',
-
-        description:
-          'Contact AZEXAI.',
-
-        canonicalPath:
-          '/?contact',
-
-        noindex:true
-
-      });
-
-    }
-
-
-    /* ==========================================
-       PRIVACY
-       ========================================== */
-
-    else if(
-      currentRoute.type ===
-      'privacy'
-    ){
-
-      renderPrivacy();
-
-
-      updateSEO({
-
-        title:
-          'Privacy — AZEXAI',
-
-        description:
-          'AZEXAI privacy information.',
-
-        canonicalPath:
-          '/?privacy'
-
-      });
-
-    }
-
-
-    /* ==========================================
-       HOMEPAGE
-       ========================================== */
-
-    else{
-
-      renderHomepage();
-
-
-      updateSEO({
-
-        title:
-          'AZEXAI — AI, Software, Robotics & Emerging Technology',
-
-        description:
-          'AZEXAI covers artificial intelligence, AI tools, software, robotics, hardware, reviews, guides, and emerging technology.',
-
-        canonicalPath:
-          '/'
-
-      });
-
-    }
-
-
-    bindRoutes();
-
-  }catch(error){
-
-    console.error(
-      'AZEXAI ROUTE ERROR:',
-      error
-    );
-
-
-    app.innerHTML = `
-
-      <section class="section">
-
-        <div class="notice center">
-
-          <h2>
-            Unable to load articles right now.
-          </h2>
-
-          <p>
-            Please try again shortly.
-          </p>
-
-          <button
-            class="btn"
-            onclick="location.reload()"
-          >
-            Retry
-          </button>
-
-        </div>
-
-      </section>
-
-    `;
-
-  }
+function refreshResourceHints(){
+  document.querySelectorAll('link[data-azexai-preload]').forEach(x=>x.remove());
+  const first=document.querySelector('.feature-media img[src]');
+  if(first){const l=document.createElement('link');l.rel='preload';l.as='image';l.href=first.currentSrc||first.src;l.setAttribute('data-azexai-preload','1');document.head.appendChild(l);}
 }
-
-
-/* =========================================================
-   404
-   ========================================================= */
-
-function renderNotFound(){
-
-  updateSEO({
-
-    title:
-      'Article Not Found — AZEXAI',
-
-    description:
-      'The requested AZEXAI article could not be found.',
-
-    canonicalPath:
-      location.pathname,
-
-    noindex:true
-
-  });
-
-
-  app.innerHTML = `
-
-    <section class="section">
-
-      <div class="notice center">
-
-        <div class="kicker">
-          AZEXAI / 404
-        </div>
-
-        <h2>
-          Article not found
-        </h2>
-
-        <p>
-          This URL does not match any real Blogger article.
-        </p>
-
-        <a
-          class="btn"
-          href="/"
-          data-route
-        >
-          Back to AZEXAI
-        </a>
-
-      </div>
-
-    </section>
-
-  `;
-}
-
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
-
 function bindRoutes(){
-
-  document
-    .querySelectorAll('[data-route]')
-    .forEach(anchor => {
-
-      if(anchor.dataset.bound){
-        return;
-      }
-
-      anchor.dataset.bound = '1';
-
-
-      anchor.addEventListener(
-        'click',
-        event => {
-
-          const href =
-            anchor.getAttribute(
-              'href'
-            );
-
-          if(!href)return;
-
-
-          const url =
-            new URL(
-              href,
-              location.origin
-            );
-
-
-          if(
-            url.origin ===
-            location.origin
-          ){
-
-            event.preventDefault();
-
-
-            navigate(
-              url.pathname +
-              url.search +
-              url.hash
-            );
-
-
-            mobileDrawer.classList.remove(
-              'open'
-            );
-
-          }
-
-        }
-      );
-
-    });
+  document.querySelectorAll('[data-route]').forEach(a=>{
+    a.onclick=e=>{
+      const href=a.getAttribute('href');if(!href)return;
+      const u=new URL(href,location.href);
+      if(u.origin===location.origin){e.preventDefault();navigate(u.pathname+u.search+u.hash);closeDrawer();}
+    };
+  });
 }
-
-
+function bindNewsletter(){
+  const f=document.getElementById('newsletterForm');if(!f)return;
+  f.onsubmit=e=>{e.preventDefault();document.getElementById('newsletterMsg').textContent='The form is ready visually, but no email service is connected yet.';};
+}
+function closeDrawer(){mobileDrawer.classList.remove('open');document.getElementById('menuToggle').setAttribute('aria-expanded','false')}
 function buildNav(){
-
-  const links = [
-
-    {
-      label:'Home',
-      href:'/'
-    },
-
-    ...CATEGORIES.map(
-      category => ({
-        label:category.name,
-        href:
-          '/?category=' +
-          category.key
-      })
-    ),
-
-    {
-      label:'Archive',
-      href:'/?archive'
-    }
-
-  ];
-
-
-  desktopNav.innerHTML =
-    links
-      .map(
-        link => `
-          <a
-            href="${link.href}"
-            data-route
-          >
-            ${link.label}
-          </a>
-        `
-      )
-      .join('');
-
-
-  mobileDrawer.innerHTML =
-    links
-      .map(
-        link => `
-          <a
-            href="${link.href}"
-            data-route
-          >
-            ${link.label}
-          </a>
-        `
-      )
-      .join('');
-
-
-  footerSections.innerHTML =
-    CATEGORIES
-      .map(
-        category => `
-          <a
-            href="/?category=${category.key}"
-            data-route
-          >
-            ${category.name}
-          </a>
-        `
-      )
-      .join('');
-
-
+  const links=[{label:'Home',href:'./'},...NAV];
+  desktopNav.innerHTML=links.map(x=>`<a href="${x.href}" data-route>${x.label}</a>`).join('');
+  mobileDrawer.innerHTML=links.map(x=>`<a href="${x.href}" data-route>${x.label}</a>`).join('');
+  footerSections.innerHTML=CATEGORIES.map(c=>`<a href="./?category=${c.key}" data-route>${c.name}</a>`).join('');
   bindRoutes();
 }
-
-
-/* =========================================================
-   UI
-   ========================================================= */
-
-document
-  .getElementById('menuToggle')
-  .addEventListener(
-    'click',
-    () => {
-
-      const button =
-        document.getElementById(
-          'menuToggle'
-        );
-
-      const open =
-        !mobileDrawer.classList.contains(
-          'open'
-        );
-
-
-      mobileDrawer.classList.toggle(
-        'open',
-        open
-      );
-
-
-      button.setAttribute(
-        'aria-expanded',
-        String(open)
-      );
-
-    }
-  );
-
-
-document
-  .getElementById('searchToggle')
-  .addEventListener(
-    'click',
-    () =>
-      navigate('/?search=')
-  );
-
-
-document
-  .getElementById('backTop')
-  .addEventListener(
-    'click',
-    () =>
-      window.scrollTo({
-        top:0,
-        behavior:'smooth'
-      })
-  );
-
-
-window.addEventListener(
-  'popstate',
-  () =>
-    handleRoute()
-);
-
-
-window.addEventListener(
-  'scroll',
-  () => {
-
-    const backTop =
-      document.getElementById(
-        'backTop'
-      );
-
-    backTop.classList.toggle(
-      'show',
-      window.scrollY > 500
-    );
-
-
-    const progress =
-      document.getElementById(
-        'readingProgress'
-      );
-
-    const max =
-      document.documentElement
-        .scrollHeight -
-      window.innerHeight;
-
-
-    const percentage =
-      max > 0
-        ? (
-            window.scrollY /
-            max
-          ) * 100
-        : 0;
-
-
-    progress.style.width =
-      Math.min(
-        100,
-        Math.max(
-          0,
-          percentage
-        )
-      ) + '%';
-
-  },
-  {
-    passive:true
+document.getElementById('menuToggle').onclick=()=>{const open=!mobileDrawer.classList.contains('open');mobileDrawer.classList.toggle('open',open);document.getElementById('menuToggle').setAttribute('aria-expanded',String(open));};
+document.getElementById('searchToggle').onclick=()=>navigate('./?search=');
+window.addEventListener('popstate',()=>handleRoute());
+window.addEventListener('scroll',()=>{
+  document.getElementById('backTop').classList.toggle('show',scrollY>500);
+  const p=document.getElementById('readingProgress');
+  if(p){
+    const max=document.documentElement.scrollHeight-innerHeight;
+    p.style.width=(max>0?Math.min(100,Math.max(0,scrollY/max*100)):0)+'%';
   }
-);
-
-
-document.getElementById(
-  'year'
-).textContent =
-  new Date().getFullYear();
-
-
-/* START */
-
+},{passive:true});
+document.getElementById('backTop').onclick=()=>scrollTo({top:0,behavior:'smooth'});
+document.getElementById('year').textContent=new Date().getFullYear();
 buildNav();
-
 handleRoute();
-
 </script>
-
 </body>
 </html>

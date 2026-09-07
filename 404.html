@@ -105,6 +105,84 @@ background-size:42px 42px;mask-image:linear-gradient(to right,black,transparent 
 .about{max-width:900px;margin:auto}.about h1{font:500 clamp(45px,7vw,82px)/.9 var(--serif);letter-spacing:-.05em;margin:0 0 25px}.about p{font-size:18px;max-width:760px;color:#5d5a54}.contact-box{border:1px solid var(--darkline);padding:25px;margin-top:30px}.newsletter{background:var(--green);color:#f5f1e8;padding:32px 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}.newsletter-inner{display:flex;align-items:center;justify-content:space-between;gap:35px}.newsletter h2{font:500 34px var(--serif);margin:0}.newsletter p{color:#d3d8d1}.newsletter form{display:flex;gap:8px;min-width:min(100%,500px)}.newsletter input{flex:1;padding:13px;background:#2e4a42;border:1px solid #82958e;color:#fff}.newsletter-note{font:10px var(--mono);color:#c3ccc7;margin-top:8px}
 .site-footer{position:relative;z-index:1;background:#0e1011;color:#d8d3c8;padding:50px 0 30px;border-top:1px solid #26292a}.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:35px}.footer-brand{font:30px var(--serif);letter-spacing:.12em}.footer-copy{color:#858781;font-size:13px;max-width:300px}.footer-title{font:9px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#9e9b92;margin-bottom:12px}.footer-links a{display:block;text-decoration:none;font-size:12px;color:#c5c2b9;padding:4px 0}.footer-links a:hover{color:#fff}.signatures{font:9px var(--mono);line-height:2;color:#777a76}.copyright{border-top:1px solid #292c2d;margin-top:35px;padding-top:15px;display:flex;justify-content:space-between;font:9px var(--mono);text-transform:uppercase;color:#696d69}
 .notice{max-width:800px;margin:40px auto;padding:25px;border:1px solid var(--darkline);background:#e5dfd4}.notice h2{font:500 35px var(--serif);margin:0 0 8px}.notice p{color:#68655e}.center{text-align:center}.hidden{display:none!important}.backtop{position:fixed;right:18px;bottom:18px;width:42px;height:42px;border:1px solid #777;background:#111d;color:#fff;display:none;place-items:center;z-index:35;cursor:pointer}.backtop.show{display:grid}
+
+/* =========================
+   AZEXAI / DISTINCT PAGE THEMES
+   ========================= */
+.page-shell{position:relative;overflow:hidden;background:var(--paper)}
+.page-shell .page-intro{position:relative;padding:64px 0 50px;border-bottom:1px solid var(--darkline)}
+.page-shell .page-intro:after{content:"";position:absolute;right:-10%;top:-45%;width:48%;height:170%;border-left:1px solid currentColor;opacity:.12;transform:rotate(18deg);pointer-events:none}
+.page-shell .page-kicker{font:10px var(--mono);letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;opacity:.72}
+.page-shell .page-title{font:500 clamp(48px,7vw,88px)/.9 var(--serif);letter-spacing:-.05em;margin:0;max-width:900px}
+.page-shell .page-lede{max-width:760px;font-size:17px;color:#66635c;margin:22px 0 0}
+.page-shell .page-rule{display:flex;justify-content:space-between;gap:20px;border-top:1px solid currentColor;padding-top:13px;margin-top:28px;font:9px var(--mono);letter-spacing:.13em;text-transform:uppercase;opacity:.72}
+.page-shell .page-content{padding:48px 0 70px}
+.page-shell .page-panel{border:1px solid var(--darkline);padding:25px;background:rgba(255,255,255,.3)}
+.page-shell .page-panel h2{font:500 34px/1 var(--serif);margin:0 0 12px}
+.page-shell .page-panel p{color:#625f58;max-width:760px}
+.category-page .category-intro{color:var(--category-accent);background:linear-gradient(135deg,var(--category-bg),var(--paper) 68%)}
+.category-page .category-intro .page-title{color:var(--category-accent)}
+.category-page .category-band{border-left:4px solid var(--category-accent);background:var(--category-panel);padding:20px 22px;margin-bottom:28px}
+.category-page .category-band strong{font:10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--category-accent)}
+.category-page .category-band p{margin:8px 0 0;color:#5d5a54}
+.category-page .section-head .label{color:var(--category-accent)}
+.category-page .card .tag{color:var(--category-accent)}
+.category-page .card:hover{border-top-color:var(--category-accent)}
+.category-page .btn{border-color:var(--category-accent);color:var(--category-accent)}
+.category-page .btn:hover{background:var(--category-accent);color:#fff}
+.category-ai{--category-accent:#5b4b9a;--category-bg:#e7e0f2;--category-panel:#eee9f6}
+.category-robotics{--category-accent:#a6533e;--category-bg:#eee0da;--category-panel:#f2e8e2}
+.category-hardware{--category-accent:#9a7a2e;--category-bg:#eee7d4;--category-panel:#f3eddf}
+.category-software{--category-accent:#2f6e6c;--category-bg:#dcebea;--category-panel:#e8f1f0}
+.category-future-tech{--category-accent:#3e5e92;--category-bg:#dde5f1;--category-panel:#e8edf5}
+.category-guides{--category-accent:#3f765c;--category-bg:#dfece3;--category-panel:#eaf3ed}
+.category-reviews{--category-accent:#a45b31;--category-bg:#f0e2d7;--category-panel:#f5ebe3}
+.category-ethics{--category-accent:#783d50;--category-bg:#eee0e5;--category-panel:#f3e9ec}
+.archive-page{background:#e9e4da}
+.archive-page .page-intro{background:#18201f;color:#e9e3d8;border-color:#303736}
+.archive-page .page-title{color:#efe8da}
+.archive-page .page-lede{color:#b6b7b1}
+.archive-page .page-rule{color:#a5aaa4}
+.archive-page .archive-count{display:inline-block;border:1px solid #6f817b;padding:7px 10px;color:#d6ddd8}
+.archive-page .archive-year{color:#2f6e6c}
+.archive-page .archive-month h3{color:#2f6e6c}
+.archive-page .archive-list a:hover{color:#2f6e6c}
+.about-page{background:#eee9df}
+.about-page .page-intro{background:linear-gradient(120deg,#f0e8d8,#eee9df);color:#6e5525}
+.about-page .page-title{color:#6e5525}
+.about-page .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+.about-page .manifesto{background:#1b1b1a;color:#eee6d6;border-color:#1b1b1a}
+.about-page .manifesto h2{color:#e1c58b}
+.about-page .manifesto p{color:#b9b4aa}
+.about-page .principles{display:grid;gap:12px}
+.about-page .principle{border-top:2px solid #b89a5a;padding:14px 0}
+.about-page .principle b{font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:#6e5525}
+.contact-page{background:#f0e9df}
+.contact-page .page-intro{background:linear-gradient(125deg,#f4dfce,#f0e9df);color:#a6532e}
+.contact-page .page-title{color:#8f4b2f}
+.contact-page .contact-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:28px;align-items:start}
+.contact-page .contact-note{background:#8f4b2f;color:#fff1e7;border-color:#8f4b2f;padding:26px}
+.contact-page .contact-note h2{font:500 34px var(--serif);margin:0 0 12px}
+.contact-page .contact-note p{color:#f1d9cb}
+.contact-page .contact-form{margin-top:0;border-color:#d5b19d;background:#fff8f1}
+.contact-page .contact-field label{color:#9a513c}
+.contact-page .btn{border-color:#9a513c;color:#9a513c}
+.contact-page .btn:hover{background:#9a513c;color:#fff}
+.privacy-page{background:#e8eee9}
+.privacy-page .page-intro{background:linear-gradient(120deg,#dce9e1,#e8eee9);color:#3f765c}
+.privacy-page .page-title{color:#315d4b}
+.privacy-page .privacy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.privacy-page .privacy-card{border-top:3px solid #3f765c;padding:20px;background:#f1f6f2}
+.privacy-page .privacy-card h2{font:500 25px var(--serif);margin:0 0 10px;color:#315d4b}
+.privacy-page .privacy-card p{font-size:14px;color:#59645d}
+
+@media(max-width:800px){
+ .about-page .about-grid,.contact-page .contact-layout{grid-template-columns:1fr}
+ .privacy-page .privacy-grid{grid-template-columns:1fr}
+ .page-shell .page-intro{padding:48px 0 40px}
+ .page-shell .page-title{font-size:52px}
+}
+
 @media(max-width:1050px){.menu a:nth-child(n+7){display:none}.hero-inner{grid-template-columns:1fr}.feature{grid-template-columns:1fr}.feature-media{min-height:320px}.category-strip{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){
  .nav{min-height:68px;padding:0 15px}.logo{font-size:25px}.menu{display:none}.hamb{display:grid;margin-left:auto}.search-btn{width:40px;height:40px}
@@ -307,7 +385,7 @@ img{max-width:100%;height:auto}
 <div class="topline"></div>
 <header class="site-header">
  <nav class="nav" aria-label="Primary navigation">
-  <a class="logo" href="./" data-route>AZEXAI<small>TECHNOLOGY / INTELLIGENCE</small></a>
+  <a class="logo" href="/" data-route>AZEXAI<small>TECHNOLOGY / INTELLIGENCE</small></a>
   <div class="menu" id="desktopNav"></div>
   <button class="search-btn" id="searchToggle" aria-label="Open search" title="Search">
    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
@@ -323,9 +401,9 @@ img{max-width:100%;height:auto}
 <footer class="site-footer" id="footer">
  <div class="wrap">
   <div class="footer-grid">
-   <div><div class="footer-brand">AZEXAI</div><p class="footer-copy">Technology, intelligence, and the systems shaping tomorrow.</p><div class="signatures">AZEXAI / INTELLIGENCE<br>AZEXAI / FUTURE<br>AZEXAI / ANALYSIS<br>AZEXAI / FIELD NOTES</div></div>
+   <div><a class="footer-brand" href="/" data-route>AZEXAI</a><p class="footer-copy">Technology, intelligence, and the systems shaping tomorrow.</p><div class="signatures">AZEXAI / INTELLIGENCE<br>AZEXAI / FUTURE<br>AZEXAI / ANALYSIS<br>AZEXAI / FIELD NOTES</div></div>
    <div><div class="footer-title">Sections</div><div class="footer-links" id="footerSections"></div></div>
-   <div><div class="footer-title">Publication</div><div class="footer-links"><a href="./?archive" data-route>Archive</a><a href="./?about" data-route>About</a><a href="./?contact" data-route>Contact</a><a href="./?privacy" data-route>Privacy</a></div></div>
+   <div><div class="footer-title">Publication</div><div class="footer-links"><a href="/?archive" data-route>Archive</a><a href="/?about" data-route>About</a><a href="/?contact" data-route>Contact</a><a href="/?privacy" data-route>Privacy</a></div></div>
    <div><div class="footer-title">Editorial note</div><p class="footer-copy">AZEXAI is built around real published reporting and analysis. Article content is supplied by its connected Blogger publication.</p></div>
   </div>
   <div class="copyright"><span>© <span id="year"></span> AZEXAI</span><span>Independent technology publication</span></div>
@@ -355,7 +433,7 @@ const CATEGORIES = [
  {key:'ethics',name:'Ethics',aliases:['ethics','technology ethics','ai ethics']}
 ];
 
-const NAV = CATEGORIES.map(c=>({label:c.name, href:'?category='+c.key}));
+const NAV = CATEGORIES.map(c=>({label:c.name, href:'/?category='+c.key}));
 NAV.push({label:'Archive',href:'?archive'});
 const app = document.getElementById('app');
 const desktopNav = document.getElementById('desktopNav');
@@ -482,7 +560,7 @@ function showError(retry){
   app.innerHTML=`<section class="section"><div class="notice center"><h2>Unable to load articles right now.</h2><p>Please try again shortly.</p><button class="btn" id="retry">Retry</button></div></section>`;
   document.getElementById('retry').onclick=()=>{loadingPromise=null;handleRoute(true)};
 }
-function articleHref(p){return './?post='+encodeURIComponent(p.id);}
+function articleHref(p){return '/?post='+encodeURIComponent(p.id);}
 function prettyArticleHref(p){
   return '/article/'+encodeURIComponent(p.slug)+'/';
 }
@@ -521,30 +599,69 @@ function renderHomepage(){
 function renderCategory(key){
   const c=CATEGORIES.find(x=>x.key===key);
   const posts=c?POSTS.filter(p=>p.category.key===key):[];
-  app.innerHTML=`<section class="hero"><div class="wrap hero-inner"><div><div class="kicker">AZEXAI / SECTION</div><h1>${escapeHTML(c?c.name:'Category')}</h1><p>${escapeHTML(categoryDescription(c,posts))}</p></div><div class="hero-meta"><span>${posts.length} published ${posts.length===1?'story':'stories'}</span><span>AZEXAI / EDITORIAL</span></div></div></section><section class="section"><div class="wrap"><div class="section-head"><h2>${escapeHTML(c?c.name:'Category')}</h2><span class="label">${posts.length} results</span></div>${cardsHTML(posts)}</div></section>`;
+  const safeKey=c?c.key:'future-tech';
+  const title=c?c.name:'Category';
+  const lead=categoryDescription(c,posts);
+  const featured=posts[0];
+  const remaining=featured?posts.slice(1):posts;
+  app.innerHTML=`<section class="page-shell category-page category-${safeKey}">
+    <div class="page-intro category-intro"><div class="wrap">
+      <div class="page-kicker">AZEXAI / SECTION / ${escapeHTML(title)}</div>
+      <h1 class="page-title">${escapeHTML(title)}</h1>
+      <p class="page-lede">${escapeHTML(lead)}</p>
+      <div class="page-rule"><span>${posts.length} published ${posts.length===1?'story':'stories'}</span><span>Independent editorial desk</span></div>
+    </div></div>
+    <div class="page-content"><div class="wrap">
+      <div class="category-band"><strong>Section focus</strong><p>${escapeHTML(lead)}</p></div>
+      ${featured?`<div class="section-head"><h2>Lead Story</h2><span class="label">${escapeHTML(title)}</span></div>${featuredHTML(featured)}`:''}
+      <div class="section-head" style="margin-top:42px"><h2>More from ${escapeHTML(title)}</h2><span class="label">${remaining.length} stories</span></div>
+      ${cardsHTML(remaining)}
+    </div></div>
+  </section>`;
 }
 function renderArchive(){
   const years={};
   POSTS.forEach(p=>{const d=new Date(p.date);if(Number.isNaN(d.getTime()))return;const y=d.getFullYear(),m=d.getMonth();years[y]??={};years[y][m]??=[];years[y][m].push(p);});
   const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
   const out=Object.keys(years).sort((a,b)=>b-a).map(y=>`<div class="archive-year">${y}</div>`+Object.keys(years[y]).sort((a,b)=>b-a).map(m=>`<div class="archive-month"><h3>${months[m]}</h3><ul class="archive-list">${years[y][m].map(p=>`<li><time>${escapeHTML(formatDate(p.date,{year:'numeric',month:'short',day:'numeric'}))}</time><a href="${escapeHTML(prettyArticleHref(p))}" data-route>${escapeHTML(p.title)}</a><span class="meta">${p.readingTime} min</span></li>`).join('')}</ul></div>`).join('')).join('');
-  app.innerHTML=`<section class="hero"><div class="wrap hero-inner"><div><div class="kicker">AZEXAI / ARCHIVE</div><h1>The Archive</h1><p>Every fetched Blogger article, arranged from newest to oldest.</p></div></div></section><section class="section"><div class="wrap">${out||'<div class="notice"><h2>No articles available.</h2><p>The archive will populate when Blogger returns posts.</p></div>'}</div></section>`;
+  app.innerHTML=`<section class="page-shell archive-page">
+    <div class="page-intro"><div class="wrap">
+      <div class="page-kicker">AZEXAI / PUBLICATION / ARCHIVE</div><h1 class="page-title">The Archive</h1>
+      <p class="page-lede">Every fetched Blogger article, arranged from newest to oldest so the publication remains easy to explore.</p>
+      <div class="page-rule"><span class="archive-count">${POSTS.length} published articles</span><span>Newest → oldest</span></div>
+    </div></div>
+    <div class="page-content"><div class="wrap">${out||'<div class="notice"><h2>No articles available.</h2><p>The archive will populate when Blogger returns posts.</p></div>'}</div></div>
+  </section>`;
 }
 function renderSearch(query){
   const q=query.trim().toLowerCase();
   const results=q?POSTS.filter(p=>p.searchText.includes(q)):[];
   app.innerHTML=`<section class="search-panel"><div class="wrap"><div class="kicker">AZEXAI / SEARCH</div><h1 style="font:500 55px var(--serif);margin:10px 0 25px">Search the publication.</h1><form class="search-form" id="searchForm"><input id="searchInput" value="${escapeHTML(query)}" placeholder="Search titles, articles, labels…" aria-label="Search"><button class="btn" type="submit">Search</button></form><p class="count" style="margin-top:14px">${q?results.length+' result'+(results.length===1?'':'s')+' for “'+escapeHTML(query)+'”':'Enter a search term.'}</p></div></section><section class="section"><div class="wrap">${q?(results.length?cardsHTML(results):'<div class="notice"><h2>No results found.</h2><p>Try another title, phrase, or category label.</p></div>'):'<div class="notice"><h2>Search AZEXAI.</h2><p>Results are taken only from the real Blogger posts loaded by this publication.</p></div>'}</div></section>`;
-  document.getElementById('searchForm').onsubmit=e=>{e.preventDefault();const v=document.getElementById('searchInput').value.trim();navigate('./?search='+encodeURIComponent(v));};
+  document.getElementById('searchForm').onsubmit=e=>{e.preventDefault();const v=document.getElementById('searchInput').value.trim();navigate('/?search='+encodeURIComponent(v));};
 }
 function renderAbout(){
-  app.innerHTML=`<section class="section"><div class="wrap about"><div class="kicker">AZEXAI / ABOUT</div><h1>A publication for the machinery of tomorrow.</h1><p>AZEXAI is a technology publication focused on the systems, products, ideas, and consequences behind a rapidly changing digital world.</p><p>The publication brings together reporting and analysis supplied by its connected Blogger archive, with an editorial interface designed for clarity rather than noise.</p><p>AZEXAI does not promise positive coverage in exchange for payment. Reviews and platform coverage are editorial decisions; when an article contains affiliate links, that relationship is disclosed.</p></div></section>`;
+  app.innerHTML=`<section class="page-shell about-page">
+    <div class="page-intro"><div class="wrap">
+      <div class="page-kicker">AZEXAI / ABOUT</div><h1 class="page-title">A publication for the machinery of tomorrow.</h1>
+      <p class="page-lede">AZEXAI follows the systems, products, ideas, and consequences behind a rapidly changing digital world.</p>
+      <div class="page-rule"><span>Independent technology publication</span><span>Clarity over noise</span></div>
+    </div></div>
+    <div class="page-content"><div class="wrap about-grid">
+      <div class="page-panel manifesto"><h2>What AZEXAI is</h2><p>AZEXAI is a technology publication focused on artificial intelligence, machines, software, hardware, emerging systems, and the people building them.</p><p>The publication brings together reporting and analysis supplied by its connected Blogger archive, presented through an editorial interface designed for clarity rather than noise.</p><p>Reviews and platform coverage are editorial decisions. When an article contains affiliate links, that relationship is disclosed.</p></div>
+      <div class="page-panel"><h2>Editorial principles</h2><div class="principles"><div class="principle"><b>01 / Real sources</b><p>Published stories are connected to the real Blogger publication.</p></div><div class="principle"><b>02 / Useful context</b><p>Technology coverage should explain what matters, not simply repeat a headline.</p></div><div class="principle"><b>03 / Independent voice</b><p>Coverage is not presented as paid praise or guaranteed endorsement.</p></div></div></div>
+    </div></div>
+  </section>`;
 }
 function renderContact(){
-  app.innerHTML=`<section class="section"><div class="wrap about">
-    <div class="kicker">AZEXAI / CONTACT</div>
-    <h1>Open a conversation.</h1>
-    <p>Send a message directly from this page. The form opens your email application with the message prepared for the AZEXAI contact address.</p>
-    <form class="contact-form" id="contactForm">
+  app.innerHTML=`<section class="page-shell contact-page">
+    <div class="page-intro"><div class="wrap">
+      <div class="page-kicker">AZEXAI / CONTACT</div><h1 class="page-title">Open a conversation.</h1>
+      <p class="page-lede">Editorial questions, reviews, partnerships, corrections, or a technology story worth discussing.</p>
+      <div class="page-rule"><span>Direct contact</span><span>AZEXAI editorial desk</span></div>
+    </div></div>
+    <div class="page-content"><div class="wrap contact-layout">
+      <aside class="contact-note"><h2>Write to AZEXAI.</h2><p>Your message is prepared in your email application. The existing contact fields and send behavior remain unchanged.</p><p>Use the form for editorial questions, corrections, reviews, partnerships, or general publication inquiries.</p></aside>
+      <div><form class="contact-form" id="contactForm">
       <div class="contact-grid">
         <div class="contact-field"><label for="contactName">First name</label><input id="contactName" name="firstName" autocomplete="given-name" required placeholder="Your first name"></div>
         <div class="contact-field"><label for="contactLast">Last name</label><input id="contactLast" name="lastName" autocomplete="family-name" required placeholder="Your last name"></div>
@@ -554,8 +671,9 @@ function renderContact(){
       <div style="margin-top:18px"><button class="btn" type="submit">Send Message →</button></div>
       <div class="contact-help">The contact address is configured by CONTACT_EMAIL in this single HTML file.</div>
       <div class="contact-status" id="contactStatus" aria-live="polite"></div>
-    </form>
-  </div></section>`;
+    </form></div>
+    </div></div>
+  </section>`;
   document.getElementById('contactForm').onsubmit=e=>{
     e.preventDefault();
     const first=document.getElementById('contactName').value.trim();
@@ -569,7 +687,18 @@ function renderContact(){
   };
 }
 function renderPrivacy(){
-  app.innerHTML=`<section class="section"><div class="wrap about"><div class="kicker">AZEXAI / PRIVACY</div><h1>Privacy.</h1><p>This standalone publication interface does not claim to operate a private subscriber database. The newsletter form is visual-only until a real email service is configured.</p><p>Articles are retrieved from the configured Google Blogger API endpoint. Google may process requests according to its own services and policies.</p><p>Do not enter sensitive information into the newsletter form.</p></div></section>`;
+  app.innerHTML=`<section class="page-shell privacy-page">
+    <div class="page-intro"><div class="wrap">
+      <div class="page-kicker">AZEXAI / PRIVACY</div><h1 class="page-title">Privacy.</h1>
+      <p class="page-lede">A concise explanation of what this publication interface does and does not claim to store.</p>
+      <div class="page-rule"><span>Publication policy</span><span>Updated interface</span></div>
+    </div></div>
+    <div class="page-content"><div class="wrap privacy-grid">
+      <div class="privacy-card"><h2>Publication data</h2><p>This standalone interface does not claim to operate a private subscriber database. The newsletter form is visual-only until a real email service is configured.</p></div>
+      <div class="privacy-card"><h2>Blogger requests</h2><p>Articles are retrieved from the configured Google Blogger API endpoint. Google may process requests according to its own services and policies.</p></div>
+      <div class="privacy-card"><h2>Keep it private</h2><p>Do not enter sensitive information into the newsletter or contact fields that you would not want transmitted through your own email or connected services.</p></div>
+    </div></div>
+  </section>`;
 }
 function findPostBySlug(slug){
   const decoded=decodeURIComponent(slug);
@@ -614,7 +743,7 @@ function renderArticle(p){
   const idx=POSTS.findIndex(x=>String(x.id)===String(p.id));
   const prev=POSTS[idx+1],next=POSTS[idx-1];
   const related=POSTS.filter(x=>x.id!==p.id && (x.category.key&&x.category.key===p.category.key)).slice(0,3);
-  app.innerHTML=`<article class="article-view"><header class="article-head"><div class="tag">${escapeHTML(p.category.name)}</div><h1>${escapeHTML(p.title)}</h1><div class="article-deck">${escapeHTML(p.excerpt)}</div><div class="article-meta"><span>${escapeHTML(formatDate(p.published||p.date))}</span>${p.updated&&p.updated!==p.published?`<span>Updated ${escapeHTML(formatDate(p.updated))}</span>`:''}${p.author?.displayName?`<span>By ${escapeHTML(p.author.displayName)}</span>`:''}<span>${p.readingTime} min read</span>${hasCommercialIntent(p)?'<span>Independent editorial · affiliate links may earn a commission</span>':''}</div><div class="article-actions"><a class="btn" href="./" data-route>← Back to Articles</a><button class="btn" id="shareBtn">Share</button><button class="btn" id="copyBtn">Copy Link</button></div></header>${img}<div class="prose" id="articleContent">${p.content||'<p>This article contains no published body content.</p>'}</div><div class="reader-nav">${prev?`<a href="${escapeHTML(prettyArticleHref(prev))}" data-route>← Previous</a>`:'<span></span>'}${next?`<a href="${escapeHTML(prettyArticleHref(next))}" data-route>Next →</a>`:''}</div>${related.length?`<section class="related"><div class="section-head"><h2>Related Stories</h2><span class="label">${escapeHTML(p.category.name)}</span></div><div class="grid">${related.map(cardHTML).join('')}</div></section>`:''}</article>`;
+  app.innerHTML=`<article class="article-view"><header class="article-head"><div class="tag">${escapeHTML(p.category.name)}</div><h1>${escapeHTML(p.title)}</h1><div class="article-deck">${escapeHTML(p.excerpt)}</div><div class="article-meta"><span>${escapeHTML(formatDate(p.published||p.date))}</span>${p.updated&&p.updated!==p.published?`<span>Updated ${escapeHTML(formatDate(p.updated))}</span>`:''}${p.author?.displayName?`<span>By ${escapeHTML(p.author.displayName)}</span>`:''}<span>${p.readingTime} min read</span>${hasCommercialIntent(p)?'<span>Independent editorial · affiliate links may earn a commission</span>':''}</div><div class="article-actions"><a class="btn" href="/" data-route>← Back to Articles</a><button class="btn" id="shareBtn">Share</button><button class="btn" id="copyBtn">Copy Link</button></div></header>${img}<div class="prose" id="articleContent">${p.content||'<p>This article contains no published body content.</p>'}</div><div class="reader-nav">${prev?`<a href="${escapeHTML(prettyArticleHref(prev))}" data-route>← Previous</a>`:'<span></span>'}${next?`<a href="${escapeHTML(prettyArticleHref(next))}" data-route>Next →</a>`:''}</div>${related.length?`<section class="related"><div class="section-head"><h2>Related Stories</h2><span class="label">${escapeHTML(p.category.name)}</span></div><div class="grid">${related.map(cardHTML).join('')}</div></section>`:''}</article>`;
   sanitizeArticleContent();
   document.getElementById('copyBtn').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);document.getElementById('copyBtn').textContent='Copied';setTimeout(()=>document.getElementById('copyBtn').textContent='Copy Link',1500)}catch(e){prompt('Copy this article URL:',location.href)}};
   document.getElementById('shareBtn').onclick=async()=>{if(navigator.share){try{await navigator.share({title:p.title,url:location.href})}catch(e){}}else{try{await navigator.clipboard.writeText(location.href);alert('Article link copied.')}catch(e){prompt('Share this article URL:',location.href)}}};
@@ -792,7 +921,7 @@ async function handleRoute(preserveLoading=false){
   }
 }
 function renderNotFound(title){
-  app.innerHTML=`<section class="section"><div class="notice center"><div class="kicker">AZEXAI / 404</div><h2>${escapeHTML(title)}</h2><p>The requested article could not be matched to a real Blogger post.</p><a class="btn" href="./" data-route>Back to AZEXAI</a></div></section>`;
+  app.innerHTML=`<section class="section"><div class="notice center"><div class="kicker">AZEXAI / 404</div><h2>${escapeHTML(title)}</h2><p>The requested article could not be matched to a real Blogger post.</p><a class="btn" href="/" data-route>Back to AZEXAI</a></div></section>`;
   updateSEO({title:'Article not found — AZEXAI'});
 }
 function refreshResourceHints(){
@@ -815,14 +944,14 @@ function bindNewsletter(){
 }
 function closeDrawer(){mobileDrawer.classList.remove('open');document.getElementById('menuToggle').setAttribute('aria-expanded','false')}
 function buildNav(){
-  const links=[{label:'Home',href:'./'},...NAV];
+  const links=[{label:'Home',href:'/'},...NAV];
   desktopNav.innerHTML=links.map(x=>`<a href="${x.href}" data-route>${x.label}</a>`).join('');
   mobileDrawer.innerHTML=links.map(x=>`<a href="${x.href}" data-route>${x.label}</a>`).join('');
-  footerSections.innerHTML=CATEGORIES.map(c=>`<a href="./?category=${c.key}" data-route>${c.name}</a>`).join('');
+  footerSections.innerHTML=CATEGORIES.map(c=>`<a href="/?category=${c.key}" data-route>${c.name}</a>`).join('');
   bindRoutes();
 }
 document.getElementById('menuToggle').onclick=()=>{const open=!mobileDrawer.classList.contains('open');mobileDrawer.classList.toggle('open',open);document.getElementById('menuToggle').setAttribute('aria-expanded',String(open));};
-document.getElementById('searchToggle').onclick=()=>navigate('./?search=');
+document.getElementById('searchToggle').onclick=()=>navigate('/?search=');
 window.addEventListener('popstate',()=>handleRoute());
 window.addEventListener('scroll',()=>{
   document.getElementById('backTop').classList.toggle('show',scrollY>500);
